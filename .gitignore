@@ -4,24 +4,126 @@ __pycache__/
 *$py.class
 *.so
 .Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.env
+.env.*
+
+# Development Tools
+.cursor/
+.cursorrules*
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# Logs
+*.log
+logs/
+*.out
+
+# Machine Learning
+models/*.pt
+models/*.pth
+models/*.model
+models/*.ckpt
+wandb/
+.wandb/
+mlruns/
+.neptune/
+
+# Data (keep structure but exclude large datasets)
+data/raw/*
+!data/raw/.gitkeep
+data/external/*
+!data/external/.gitkeep
+*.parquet
+*.feather
+*.h5
+*.hdf5
+
+# System
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+
+# IDE
+.pytest_cache/
+.coverage
+.tox/
+.cache
+nosetests.xml
+coverage.xml
+
+# Package builds
 build/
-develop-eggs/
 dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-pip-wheel-metadata/
-share/python-wheels/
 *.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+
+# Secrets and Keys
+*.key
+*.pem
+*.p12
+secrets.yaml
+secrets.json
+config/secrets/
+
+# Large generated files
+*.zip
+*.tar.gz
+*.tar.bz2
+*.7z
+
+# SSH keys
+~/.ssh/
+.ssh/
+
+# Model artifacts (keep small models only)
+models/large_models/
+models/checkpoints/
+models/experiments/
+
+# Generated documentation
+docs/_build/
+site/
+
+# OS generated
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Local configuration
+local_config.yaml
+local_settings.py
+local.env
+
+# Development databases
+*.db
+*.sqlite3
+
+# Node.js (if any frontend)
+node_modules/
+npm-debug.log*
+
+# Temporary experiment files
+experiments/
+tmp/
+temp/
 
 # PyInstaller
 *.manifest
@@ -33,37 +135,18 @@ pip-delete-this-directory.txt
 
 # Unit test / coverage reports
 htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
 .hypothesis/
-.pytest_cache/
 
 # Virtual environments
-venv/
-env/
-ENV/
-env.bak/
-venv.bak/
 .venv/
 
 # IDEs
-.vscode/
-.idea/
 *.swp
 *.swo
 *~
 
 # Environment variables and secrets
-.env
-.env.local
-.env.*.local
+*.env.local
 *.key
 secrets.yaml
 config/secrets/
@@ -79,32 +162,22 @@ wandb_api_key.txt
 openai_key.txt
 
 # Logs and temporary files
-*.log
-logs/
 *.tmp
 *.temp
 .DS_Store
 Thumbs.db
 
 # Training artifacts and cache
-wandb/
 runs/
-.wandb/
-mlruns/
 checkpoints/
 *.ckpt
 *.pth.tar
 
 # Large model files (keep smaller ones)
-models/*.pt
 !models/pattern_embedder.pt
 !models/scientific_graphsage_embedder.pt
-models/checkpoints/
-models/experiments/
 
 # Data files that are too large or sensitive
-data/raw/
-data/external/
 data/cache/
 *.db
 *.sqlite
@@ -112,11 +185,7 @@ data/cache/
 corpus.db
 
 # Lambda deployment packages
-*.zip
 deployment/
-
-# Jupyter notebook checkpoints
-.ipynb_checkpoints/
 
 # Poetry
 poetry.lock
@@ -125,7 +194,6 @@ poetry.lock
 node_modules/
 
 # OS generated files
-.DS_Store
 .DS_Store?
 ._*
 .Spotlight-V100
@@ -165,5 +233,4 @@ docker-compose.override.yml
 .terraform/
 
 # Local configuration overrides
-local_config.py
 override_config.yaml 
