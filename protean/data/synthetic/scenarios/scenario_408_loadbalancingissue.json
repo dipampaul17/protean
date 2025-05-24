@@ -1,0 +1,102 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173011",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 506,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.424706",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.424364",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:30.424364",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 78,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR load-balancer: queue overflow in timeout",
+        "metrics": {
+          "error_rate": 0.32069885174634216,
+          "response_time_ms": 5296,
+          "cpu_usage": 0.7167139280554062,
+          "memory_usage": 0.9952292207254751,
+          "requests_per_sec": 562,
+          "backend_health_pct": 0.6315888292412077,
+          "connection_timeouts": 695
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:40.424364",
+      "event_type": "scaling",
+      "description": "Scaling: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:41.424364",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:48.424364",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:54.424364",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 139,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-gateway: circuit breaker triggered in timeout",
+        "metrics": {
+          "error_rate": 0.17922688922581909,
+          "response_time_ms": 5208,
+          "cpu_usage": 0.8383603425459032,
+          "memory_usage": 0.9441493772992028,
+          "requests_per_sec": 4036,
+          "backend_health_pct": 0.7865260564149232,
+          "connection_timeouts": 725
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:13.424364",
+      "event_type": "scaling",
+      "description": "Scaling: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:13.424364",
+      "event_type": "scaling",
+      "description": "Scaling: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:37.424364",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

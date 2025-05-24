@@ -1,0 +1,59 @@
+category: CloudNative
+name: CloudNative_20250523_173011
+description: Kubernetes pod and container orchestration issues
+duration: 1146
+metadata:
+  generated_at: '2025-05-23T17:30:11.319700'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.319589'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:21.319589'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 162
+    log_snippet: '[2025-05-23 17:30:11] ERROR web-frontend: authentication failed
+      in failure'
+    metrics:
+      error_rate: 0.7176274514163784
+      response_time_ms: 1822
+      cpu_usage: 0.7181043441300511
+      memory_usage: 0.838194154584838
+- timestamp: '2025-05-23T17:31:46.319589'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 122
+    log_snippet: '[2025-05-23 17:30:11] ERROR api-backend: memory limit exceeded in
+      failure'
+    metrics:
+      error_rate: 0.8182987791911844
+      response_time_ms: 2430
+      cpu_usage: 0.8560715658737237
+      memory_usage: 0.9384946999244532
+- timestamp: '2025-05-23T17:32:15.319589'
+  event_type: scaling
+  description: 'Scaling: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:14.319589'
+  event_type: deployment
+  description: 'Deployment: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:17.319589'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

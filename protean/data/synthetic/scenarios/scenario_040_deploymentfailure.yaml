@@ -1,0 +1,71 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_172917
+description: Application deployment and rollback scenarios
+duration: 953
+metadata:
+  generated_at: '2025-05-23T17:29:17.531977'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.531341'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:57.531341'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 251
+    log_snippet: '[2025-05-23 17:29:17] ERROR worker-consumer: memory limit exceeded
+      in failure'
+    metrics:
+      error_rate: 0.572628950038405
+      response_time_ms: 8222
+      cpu_usage: 0.7185634506167269
+      memory_usage: 0.8958588386948931
+- timestamp: '2025-05-23T17:30:15.531341'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 232
+    log_snippet: '[2025-05-23 17:29:17] ERROR worker-consumer: connection timeout
+      in failure'
+    metrics:
+      error_rate: 0.4251237625968757
+      response_time_ms: 5329
+      cpu_usage: 0.9563427363412106
+      memory_usage: 0.9241499805186212
+- timestamp: '2025-05-23T17:30:16.531341'
+  event_type: scaling
+  description: 'Scaling: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:28.531341'
+  event_type: deployment
+  description: 'Deployment: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:07.531341'
+  event_type: scaling
+  description: 'Scaling: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:07.531341'
+  event_type: rollback
+  description: 'Rollback: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:14.531341'
+  event_type: rollback
+  description: 'Rollback: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:45:10.531341'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

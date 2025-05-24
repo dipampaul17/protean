@@ -1,0 +1,63 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173011",
+  "description": "Message queue and event processing failures",
+  "duration": 1018,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.322931",
+    "phrase_templates_used": 0,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.322846",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:29.322846",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 207,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-queue: queue processing deployment failed",
+        "metrics": {
+          "error_rate": 0.12627045214539667,
+          "response_time_ms": 2343,
+          "cpu_usage": 0.7925632400680526,
+          "memory_usage": 0.8958740125254114,
+          "queue_depth": 43011,
+          "message_processing_rate": 8.27463624592776,
+          "consumer_lag_ms": 72711
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:45.322846",
+      "event_type": "message_loss",
+      "description": "Message_Loss: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:12.322846",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:09.322846",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

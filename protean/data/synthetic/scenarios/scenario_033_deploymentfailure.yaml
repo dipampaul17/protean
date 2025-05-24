@@ -1,0 +1,60 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173011
+description: Application deployment and rollback scenarios
+duration: 1079
+metadata:
+  generated_at: '2025-05-23T17:30:11.319020'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.318602'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:43.318602'
+  event_type: deployment
+  description: 'Deployment: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:17.318602'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 57
+    log_snippet: '[2025-05-23 17:30:11] ERROR nginx-proxy: authentication failed in
+      failure'
+    metrics:
+      error_rate: 0.15668531390390392
+      response_time_ms: 8727
+      cpu_usage: 0.9096644299136334
+      memory_usage: 0.9521508716082154
+- timestamp: '2025-05-23T17:31:32.318602'
+  event_type: deployment
+  description: 'Deployment: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:14.318602'
+  event_type: scaling
+  description: 'Scaling: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:27.318602'
+  event_type: rollback
+  description: 'Rollback: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:30.318602'
+  event_type: scaling
+  description: 'Scaling: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:40.318602'
+  event_type: scaling
+  description: 'Scaling: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:10.318602'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

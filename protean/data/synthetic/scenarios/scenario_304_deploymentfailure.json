@@ -1,0 +1,114 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_172917",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 479,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.679993",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.679807",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:28.679807",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 122,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR worker-consumer: disk space full in failure",
+        "metrics": {
+          "error_rate": 0.6266036409876798,
+          "response_time_ms": 1071,
+          "cpu_usage": 0.8286175251404303,
+          "memory_usage": 0.9930468921229634
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:28.679807",
+      "event_type": "scaling",
+      "description": "Scaling: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:37.679807",
+      "event_type": "rollback",
+      "description": "Rollback: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:49.679807",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 51,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR nginx-proxy: service unavailable in failure",
+        "metrics": {
+          "error_rate": 0.5988923078328877,
+          "response_time_ms": 4608,
+          "cpu_usage": 0.8635749147254133,
+          "memory_usage": 0.9984418478014254
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:50.679807",
+      "event_type": "deployment",
+      "description": "Deployment: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:56.679807",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 128,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR worker-consumer: container crashed in failure",
+        "metrics": {
+          "error_rate": 0.6672406513103007,
+          "response_time_ms": 2832,
+          "cpu_usage": 0.8044473484752316,
+          "memory_usage": 0.8196622943964541
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:56.679807",
+      "event_type": "deployment",
+      "description": "Deployment: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:13.679807",
+      "event_type": "deployment",
+      "description": "Deployment: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:16.679807",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

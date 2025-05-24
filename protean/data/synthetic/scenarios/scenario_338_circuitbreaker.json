@@ -1,0 +1,120 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173011",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1448,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.403795",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.403642",
+      "event_type": "trigger",
+      "description": "Initial failure detected: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:58.403642",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 139,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.8910748794327845,
+          "response_time_ms": 4721,
+          "cpu_usage": 0.7178517234281656,
+          "memory_usage": 0.8604790017515516
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:27.403642",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 52,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.1116356511015681,
+          "response_time_ms": 2793,
+          "cpu_usage": 0.9761682658704853,
+          "memory_usage": 0.8009918305288743
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:39.403642",
+      "event_type": "degradation",
+      "description": "Degradation: authentication failed",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 91,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR auth-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.4145829959022307,
+          "response_time_ms": 3811,
+          "cpu_usage": 0.8992717547246901,
+          "memory_usage": 0.8892698258034483
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:00.403642",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 80,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.43397762510647486,
+          "response_time_ms": 6645,
+          "cpu_usage": 0.861159971199184,
+          "memory_usage": 0.96727695251567
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:06.403642",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 242,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR user-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.7220484940540364,
+          "response_time_ms": 6592,
+          "cpu_usage": 0.9701114478312027,
+          "memory_usage": 0.9221388164858335
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:54:19.403642",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

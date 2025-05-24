@@ -1,0 +1,162 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_184526",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 355,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.733229",
+    "phrase_templates_used": 24,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 7
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.732920",
+      "event_type": "trigger",
+      "description": "Initial failure detected: https connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:40.732920",
+      "event_type": "timeout",
+      "description": "Timeout: which node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 226,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: which node - operation failed",
+        "metrics": {
+          "error_rate": 0.8844637866187945,
+          "response_time_ms": 1048,
+          "cpu_usage": 0.9718215933905586,
+          "memory_usage": 0.9090231071603775
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:44.732920",
+      "event_type": "recovery",
+      "description": "Recovery: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:44.732920",
+      "event_type": "timeout",
+      "description": "Timeout: a service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 274,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.8606611678452888,
+          "response_time_ms": 8707,
+          "cpu_usage": 0.8566704421577579,
+          "memory_usage": 0.9936017257034617
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:49.732920",
+      "event_type": "failure",
+      "description": "Failure: of failure",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 218,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: of failure - operation failed",
+        "metrics": {
+          "error_rate": 0.6730451103174587,
+          "response_time_ms": 1301,
+          "cpu_usage": 0.7528611299709822,
+          "memory_usage": 0.8215599432200397
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:55.732920",
+      "event_type": "failure",
+      "description": "Failure: the node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 271,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: the node - operation failed",
+        "metrics": {
+          "error_rate": 0.8154663460474537,
+          "response_time_ms": 1432,
+          "cpu_usage": 0.8444358104286804,
+          "memory_usage": 0.9483156221772192
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:56.732920",
+      "event_type": "timeout",
+      "description": "Timeout: scaling scale",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 198,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: scaling scale - operation failed",
+        "metrics": {
+          "error_rate": 0.7812792756659497,
+          "response_time_ms": 2571,
+          "cpu_usage": 0.8024474207074707,
+          "memory_usage": 0.8038119816440676
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:02.732920",
+      "event_type": "timeout",
+      "description": "Timeout: a server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 46,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: a server - operation failed",
+        "metrics": {
+          "error_rate": 0.6603241204918097,
+          "response_time_ms": 9995,
+          "cpu_usage": 0.82279773476409,
+          "memory_usage": 0.8892235669786617
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:07.732920",
+      "event_type": "failure",
+      "description": "Failure: scaling scale",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 138,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: scaling scale - operation failed",
+        "metrics": {
+          "error_rate": 0.4564269197290509,
+          "response_time_ms": 8596,
+          "cpu_usage": 0.8147151941425208,
+          "memory_usage": 0.9792307658572196
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:51:21.732920",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

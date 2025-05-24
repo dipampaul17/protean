@@ -1,0 +1,51 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173011
+description: Database connectivity and performance issues
+duration: 1264
+metadata:
+  generated_at: '2025-05-23T17:30:11.419272'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.419170'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:38.419170'
+  event_type: connection_loss
+  description: 'Connection_Loss: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:50.419170'
+  event_type: corruption
+  description: 'Corruption: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:13.419170'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 194
+    log_snippet: '[2025-05-23 17:30:11] FATAL mysql-primary: database service unavailable
+      detected'
+    metrics:
+      error_rate: 0.3819950758022642
+      response_time_ms: 9013
+      cpu_usage: 0.7013237107596446
+      memory_usage: 0.8483781240898309
+      connection_pool_usage: 0.9857761015726081
+      query_time_ms: 25851
+      deadlocks_per_sec: 5
+- timestamp: '2025-05-23T17:34:29.419170'
+  event_type: corruption
+  description: 'Corruption: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:51:15.419170'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

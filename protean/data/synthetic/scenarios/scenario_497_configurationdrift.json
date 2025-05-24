@@ -1,0 +1,90 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_172917",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1068,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.751211",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.750502",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:49.750502",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 203,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.21475318618760567,
+          "response_time_ms": 1395,
+          "cpu_usage": 0.8663489201572657,
+          "memory_usage": 0.9623244235617209
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:59.750502",
+      "event_type": "restart",
+      "description": "Restart: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:39.750502",
+      "event_type": "restart",
+      "description": "Restart: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:50.750502",
+      "event_type": "restart",
+      "description": "Restart: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:18.750502",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 95,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.39167754375942343,
+          "response_time_ms": 2623,
+          "cpu_usage": 0.8353211187142743,
+          "memory_usage": 0.8836434188315783
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:47.750502",
+      "event_type": "config_change",
+      "description": "Config_Change: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:05.750502",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

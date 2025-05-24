@@ -1,0 +1,162 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_184526",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 844,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.728789",
+    "phrase_templates_used": 36,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 7
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.728411",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to resolve",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:39.728411",
+      "event_type": "failure",
+      "description": "Failure: ebs storage",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 297,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: ebs storage - operation failed",
+        "metrics": {
+          "error_rate": 0.6569908373118988,
+          "response_time_ms": 7005,
+          "cpu_usage": 0.8224867502346702,
+          "memory_usage": 0.986690669551359
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:51.728411",
+      "event_type": "recovery",
+      "description": "Recovery: closed connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:05.728411",
+      "event_type": "failure",
+      "description": "Failure: to rollback",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 169,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: to rollback - operation failed",
+        "metrics": {
+          "error_rate": 0.5348035155143122,
+          "response_time_ms": 9977,
+          "cpu_usage": 0.8645790960686103,
+          "memory_usage": 0.9204028843881888
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:13.728411",
+      "event_type": "timeout",
+      "description": "Timeout: same node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 277,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: same node - operation failed",
+        "metrics": {
+          "error_rate": 0.49000848883155024,
+          "response_time_ms": 7359,
+          "cpu_usage": 0.8037934443614062,
+          "memory_usage": 0.9304971926220269
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:47.728411",
+      "event_type": "failure",
+      "description": "Failure: the error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 110,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: the error - operation failed",
+        "metrics": {
+          "error_rate": 0.42220940188995393,
+          "response_time_ms": 8653,
+          "cpu_usage": 0.9544089714420113,
+          "memory_usage": 0.8756364765884689
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:52.728411",
+      "event_type": "timeout",
+      "description": "Timeout: instance storage",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 88,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: instance storage - operation failed",
+        "metrics": {
+          "error_rate": 0.6257565923175925,
+          "response_time_ms": 4173,
+          "cpu_usage": 0.8980809818475012,
+          "memory_usage": 0.9975416661984237
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:05.728411",
+      "event_type": "failure",
+      "description": "Failure: the error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 215,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: the error - operation failed",
+        "metrics": {
+          "error_rate": 0.11173069425561827,
+          "response_time_ms": 2471,
+          "cpu_usage": 0.994347652730522,
+          "memory_usage": 0.8667528657164886
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:11.728411",
+      "event_type": "failure",
+      "description": "Failure: docker container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 208,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: docker container - operation failed",
+        "metrics": {
+          "error_rate": 0.77046347336664,
+          "response_time_ms": 3500,
+          "cpu_usage": 0.7251910800632314,
+          "memory_usage": 0.8281437865705744
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:59:30.728411",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

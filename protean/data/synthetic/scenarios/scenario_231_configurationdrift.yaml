@@ -1,0 +1,48 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173011
+description: Configuration inconsistencies causing service degradation
+duration: 1436
+metadata:
+  generated_at: '2025-05-23T17:30:11.373458'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.373354'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:36.373354'
+  event_type: restart
+  description: 'Restart: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:41.373354'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 99
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.7467142050455856
+      response_time_ms: 7149
+      cpu_usage: 0.8805560614785684
+      memory_usage: 0.838837295119268
+- timestamp: '2025-05-23T17:33:17.373354'
+  event_type: rollback
+  description: 'Rollback: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:07.373354'
+  event_type: config_change
+  description: 'Config_Change: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:54:07.373354'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

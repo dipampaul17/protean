@@ -1,0 +1,132 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173011",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 858,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.338249",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.338029",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:44.338029",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:54.338029",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 196,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-gateway: network unreachable in timeout",
+        "metrics": {
+          "error_rate": 0.6458734188490504,
+          "response_time_ms": 5933,
+          "cpu_usage": 0.8746563244596444,
+          "memory_usage": 0.9175652343723989,
+          "requests_per_sec": 5092,
+          "backend_health_pct": 0.738803951830191,
+          "connection_timeouts": 71
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:57.338029",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:11.338029",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 239,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-gateway: service unavailable in timeout",
+        "metrics": {
+          "error_rate": 0.5557192142023346,
+          "response_time_ms": 7716,
+          "cpu_usage": 0.9519041321169661,
+          "memory_usage": 0.949720670470759,
+          "requests_per_sec": 5134,
+          "backend_health_pct": 0.5615852948227329,
+          "connection_timeouts": 982
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:33.338029",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 225,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-gateway: queue overflow in timeout",
+        "metrics": {
+          "error_rate": 0.5909171752630933,
+          "response_time_ms": 2552,
+          "cpu_usage": 0.8471915157906815,
+          "memory_usage": 0.8173479645468503,
+          "requests_per_sec": 9949,
+          "backend_health_pct": 0.627227247846272,
+          "connection_timeouts": 347
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:07.338029",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 194,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR load-balancer: network unreachable in timeout",
+        "metrics": {
+          "error_rate": 0.8140289466212546,
+          "response_time_ms": 3437,
+          "cpu_usage": 0.8512611122965661,
+          "memory_usage": 0.9977010269025455,
+          "requests_per_sec": 6852,
+          "backend_health_pct": 0.5112116966959777,
+          "connection_timeouts": 452
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:08.338029",
+      "event_type": "scaling",
+      "description": "Scaling: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:44:29.338029",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_172917",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1037,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.704090",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 2,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.703942",
+      "event_type": "trigger",
+      "description": "Initial failure detected: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:39.703942",
+      "event_type": "degradation",
+      "description": "Degradation: database connection lost",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 229,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR user-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.12070716203233084,
+          "response_time_ms": 9401,
+          "cpu_usage": 0.860473362974911,
+          "memory_usage": 0.80661549121784
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:17.703942",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:12.703942",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 272,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.34049097133505035,
+          "response_time_ms": 7888,
+          "cpu_usage": 0.9415762116535795,
+          "memory_usage": 0.8284870142919226
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:19.703942",
+      "event_type": "degradation",
+      "description": "Degradation: circuit breaker triggered",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "low",
+        "duration": 60,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR user-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.21738752853369897,
+          "response_time_ms": 533,
+          "cpu_usage": 0.6409219837944937,
+          "memory_usage": 0.624821958788574
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:29.703942",
+      "event_type": "degradation",
+      "description": "Degradation: disk space full",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "low",
+        "duration": 280,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.05474485880256273,
+          "response_time_ms": 1489,
+          "cpu_usage": 0.4518515569931984,
+          "memory_usage": 0.4996631504477628
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:34.703942",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

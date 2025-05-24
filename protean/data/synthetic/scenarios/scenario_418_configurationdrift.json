@@ -1,0 +1,78 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_172917",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 995,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.721595",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.721462",
+      "event_type": "trigger",
+      "description": "Initial failure detected: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:29.721462",
+      "event_type": "config_change",
+      "description": "Config_Change: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:51.721462",
+      "event_type": "rollback",
+      "description": "Rollback: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:15.721462",
+      "event_type": "restart",
+      "description": "Restart: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:46.721462",
+      "event_type": "rollback",
+      "description": "Rollback: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:46.721462",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 288,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.42295640885176067,
+          "response_time_ms": 1056,
+          "cpu_usage": 0.975408846110561,
+          "memory_usage": 0.8513449759505948
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:02.721462",
+      "event_type": "restart",
+      "description": "Restart: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:45:52.721462",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

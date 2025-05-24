@@ -1,0 +1,123 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_184526",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 856,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.774765",
+    "phrase_templates_used": 13,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.774340",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:36.774340",
+      "event_type": "timeout",
+      "description": "Timeout: load balancer",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "subnet-private",
+        "severity": "high",
+        "duration": 162,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR subnet-private: load balancer in timeout",
+        "metrics": {
+          "error_rate": 0.8673422004216251,
+          "response_time_ms": 6890,
+          "cpu_usage": 0.8192888317224731,
+          "memory_usage": 0.8704513410007271,
+          "requests_per_sec": 4634,
+          "backend_health_pct": 0.36333704350984614,
+          "connection_timeouts": 606
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:42.774340",
+      "event_type": "timeout",
+      "description": "Timeout: strong update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "subnet-private",
+        "severity": "high",
+        "duration": 48,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR subnet-private: strong update in timeout",
+        "metrics": {
+          "error_rate": 0.7570681364861752,
+          "response_time_ms": 3915,
+          "cpu_usage": 0.9233993399648563,
+          "memory_usage": 0.9841127190388453,
+          "requests_per_sec": 4089,
+          "backend_health_pct": 0.370443601461993,
+          "connection_timeouts": 548
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:46.774340",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: load balancer",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:51.774340",
+      "event_type": "scaling",
+      "description": "Scaling: loadbalancer service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:15.774340",
+      "event_type": "timeout",
+      "description": "Timeout: your cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "subnet-private",
+        "severity": "high",
+        "duration": 232,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR subnet-private: your cluster in timeout",
+        "metrics": {
+          "error_rate": 0.4671852518216526,
+          "response_time_ms": 7020,
+          "cpu_usage": 0.9548749667314499,
+          "memory_usage": 0.9039876905669095,
+          "requests_per_sec": 1345,
+          "backend_health_pct": 0.7160903069039457,
+          "connection_timeouts": 443
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:48.774340",
+      "event_type": "scaling",
+      "description": "Scaling: loadbalancer service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:54.774340",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: a server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:08.774340",
+      "event_type": "scaling",
+      "description": "Scaling: web server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:59:42.774340",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

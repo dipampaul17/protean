@@ -1,0 +1,62 @@
+category: CloudNative
+name: CloudNative_20250523_172917
+description: Kubernetes pod and container orchestration issues
+duration: 1696
+metadata:
+  generated_at: '2025-05-23T17:29:17.573644'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.573350'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:26.573350'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 179
+    log_snippet: '[2025-05-23 17:29:17] ERROR worker-consumer: database connection
+      lost in failure'
+    metrics:
+      error_rate: 0.43720716496555945
+      response_time_ms: 7043
+      cpu_usage: 0.7093925843491588
+      memory_usage: 0.8257439191432931
+- timestamp: '2025-05-23T17:30:46.573350'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 281
+    log_snippet: '[2025-05-23 17:29:17] ERROR api-backend: queue overflow in failure'
+    metrics:
+      error_rate: 0.27972444943110086
+      response_time_ms: 2836
+      cpu_usage: 0.8768134118052717
+      memory_usage: 0.9221103850745846
+- timestamp: '2025-05-23T17:32:34.573350'
+  event_type: deployment
+  description: 'Deployment: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:42.573350'
+  event_type: scaling
+  description: 'Scaling: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:57.573350'
+  event_type: scaling
+  description: 'Scaling: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:57:33.573350'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

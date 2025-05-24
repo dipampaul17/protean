@@ -1,0 +1,78 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_172917",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 1736,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.537845",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.537705",
+      "event_type": "trigger",
+      "description": "Initial failure detected: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:37.537705",
+      "event_type": "scaling",
+      "description": "Scaling: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:43.537705",
+      "event_type": "failure",
+      "description": "Failure: memory limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 111,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR api-backend: memory limit exceeded in failure",
+        "metrics": {
+          "error_rate": 0.6025810648045823,
+          "response_time_ms": 2876,
+          "cpu_usage": 0.815211709828807,
+          "memory_usage": 0.8336801829618983
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:57.537705",
+      "event_type": "deployment",
+      "description": "Deployment: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:26.537705",
+      "event_type": "deployment",
+      "description": "Deployment: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:44.537705",
+      "event_type": "scaling",
+      "description": "Scaling: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:02.537705",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:58:13.537705",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

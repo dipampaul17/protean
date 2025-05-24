@@ -1,0 +1,90 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173011",
+  "description": "Database connectivity and performance issues",
+  "duration": 1638,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.400879",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.400744",
+      "event_type": "trigger",
+      "description": "Initial failure detected: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:30.400744",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "postgres-replica",
+        "severity": "high",
+        "duration": 276,
+        "log_snippet": "[2025-05-23 17:30:11] FATAL postgres-replica: database authentication failed detected",
+        "metrics": {
+          "error_rate": 0.4571605876963417,
+          "response_time_ms": 5248,
+          "cpu_usage": 0.8144879624246376,
+          "memory_usage": 0.9358063753286779,
+          "connection_pool_usage": 0.8705772010285907,
+          "query_time_ms": 17880,
+          "deadlocks_per_sec": 5
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:41.400744",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:41.400744",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 54,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR mongodb-shard: database connection lost in timeout",
+        "metrics": {
+          "error_rate": 0.4282536083685249,
+          "response_time_ms": 4135,
+          "cpu_usage": 0.7660133095200795,
+          "memory_usage": 0.9883025491444675,
+          "connection_pool_usage": 0.8964217208415481,
+          "query_time_ms": 13808,
+          "deadlocks_per_sec": 1
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:48.400744",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:30.400744",
+      "event_type": "corruption",
+      "description": "Corruption: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:57:29.400744",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

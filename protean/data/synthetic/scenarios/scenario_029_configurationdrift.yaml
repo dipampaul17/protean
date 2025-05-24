@@ -1,0 +1,52 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173011
+description: Configuration inconsistencies causing service degradation
+duration: 1299
+metadata:
+  generated_at: '2025-05-23T17:30:11.314907'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.313717'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:11.313717'
+  event_type: rollback
+  description: 'Rollback: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:13.313717'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 209
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.2535578251377617
+      response_time_ms: 9244
+      cpu_usage: 0.952777333960573
+      memory_usage: 0.9908353186237141
+- timestamp: '2025-05-23T17:33:28.313717'
+  event_type: config_change
+  description: 'Config_Change: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:43.313717'
+  event_type: config_change
+  description: 'Config_Change: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:20.313717'
+  event_type: rollback
+  description: 'Rollback: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:51:50.313717'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

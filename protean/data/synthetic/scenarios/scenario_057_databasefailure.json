@@ -1,0 +1,108 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_172917",
+  "description": "Database connectivity and performance issues",
+  "duration": 629,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.538056",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.537869",
+      "event_type": "trigger",
+      "description": "Initial failure detected: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:38.537869",
+      "event_type": "recovery",
+      "description": "Recovery: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:40.537869",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "postgres-replica",
+        "severity": "high",
+        "duration": 177,
+        "log_snippet": "[2025-05-23 17:29:17] FATAL postgres-replica: database deployment failed detected",
+        "metrics": {
+          "error_rate": 0.6382713953069487,
+          "response_time_ms": 1185,
+          "cpu_usage": 0.981075599979361,
+          "memory_usage": 0.8001070381472757,
+          "connection_pool_usage": 0.967341057335152,
+          "query_time_ms": 25675,
+          "deadlocks_per_sec": 5
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:47.537869",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:50.537869",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:03.537869",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 214,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR mongodb-shard: queue overflow in timeout",
+        "metrics": {
+          "error_rate": 0.28928232359067596,
+          "response_time_ms": 2528,
+          "cpu_usage": 0.8445146152489436,
+          "memory_usage": 0.922329359561326,
+          "connection_pool_usage": 0.894681015061347,
+          "query_time_ms": 17127,
+          "deadlocks_per_sec": 4
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:18.537869",
+      "event_type": "corruption",
+      "description": "Corruption: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:19.537869",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:23.537869",
+      "event_type": "recovery",
+      "description": "Recovery: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:46.537869",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173011
+description: Circuit breaker activation due to cascading service failures
+duration: 610
+metadata:
+  generated_at: '2025-05-23T17:30:11.319561'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:30:11.319348'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:58.319348'
+  event_type: degradation
+  description: 'Degradation: authentication failed'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: high
+    duration: 250
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.3668161133491278
+      response_time_ms: 5301
+      cpu_usage: 0.8122372826928717
+      memory_usage: 0.8157478265590614
+- timestamp: '2025-05-23T17:31:16.319348'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 138
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.3060601283922004
+      response_time_ms: 3542
+      cpu_usage: 0.8872983177272808
+      memory_usage: 0.8887701508494601
+- timestamp: '2025-05-23T17:31:17.319348'
+  event_type: degradation
+  description: 'Degradation: connection timeout'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: high
+    duration: 217
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.5372999934444074
+      response_time_ms: 9449
+      cpu_usage: 0.8822675272867375
+      memory_usage: 0.8104848890993404
+- timestamp: '2025-05-23T17:31:29.319348'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 198
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.1696755278030289
+      response_time_ms: 9151
+      cpu_usage: 0.9698540280455927
+      memory_usage: 0.8310863231316831
+- timestamp: '2025-05-23T17:31:29.319348'
+  event_type: degradation
+  description: 'Degradation: memory limit exceeded'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: high
+    duration: 46
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.2627045284945254
+      response_time_ms: 3968
+      cpu_usage: 0.78846483058254
+      memory_usage: 0.854201474495126
+- timestamp: '2025-05-23T17:31:34.319348'
+  event_type: degradation
+  description: 'Degradation: authentication failed'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: high
+    duration: 285
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.7554314811047622
+      response_time_ms: 4000
+      cpu_usage: 0.7935158880755322
+      memory_usage: 0.9683289274348772
+- timestamp: '2025-05-23T17:31:38.319348'
+  event_type: recovery
+  description: 'Recovery: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:21.319348'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

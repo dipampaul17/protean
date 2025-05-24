@@ -1,0 +1,115 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_172917
+description: Circuit breaker activation due to cascading service failures
+duration: 432
+metadata:
+  generated_at: '2025-05-23T17:29:17.539120'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:29:17.538923'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:35.538923'
+  event_type: degradation
+  description: 'Degradation: connection timeout'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: high
+    duration: 182
+    log_snippet: '[2025-05-23 17:29:17] ERROR user-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.468238209474781
+      response_time_ms: 9561
+      cpu_usage: 0.9206268609401593
+      memory_usage: 0.8754578431808456
+- timestamp: '2025-05-23T17:29:36.538923'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 185
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.4543359898915893
+      response_time_ms: 9170
+      cpu_usage: 0.8773135731019903
+      memory_usage: 0.99881018151719
+- timestamp: '2025-05-23T17:29:50.538923'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 227
+    log_snippet: '[2025-05-23 17:29:17] ERROR auth-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.8200152832891955
+      response_time_ms: 5700
+      cpu_usage: 0.7255385708547192
+      memory_usage: 0.820451247573063
+- timestamp: '2025-05-23T17:30:06.538923'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 131
+    log_snippet: '[2025-05-23 17:29:17] ERROR auth-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.4358621569612192
+      response_time_ms: 9589
+      cpu_usage: 0.9868541134156543
+      memory_usage: 0.8241980310846546
+- timestamp: '2025-05-23T17:30:08.538923'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 272
+    log_snippet: '[2025-05-23 17:29:17] ERROR user-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.7521952293830527
+      response_time_ms: 7433
+      cpu_usage: 0.9291856040667541
+      memory_usage: 0.9324880144974876
+- timestamp: '2025-05-23T17:30:11.538923'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:14.538923'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 251
+    log_snippet: '[2025-05-23 17:29:17] ERROR user-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.49110743217676844
+      response_time_ms: 5932
+      cpu_usage: 0.7842712429562896
+      memory_usage: 0.9841946632859427
+- timestamp: '2025-05-23T17:36:29.538923'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

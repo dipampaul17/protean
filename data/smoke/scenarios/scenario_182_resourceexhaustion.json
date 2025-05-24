@@ -1,0 +1,150 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_184526",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 478,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.693938",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.693641",
+      "event_type": "trigger",
+      "description": "Initial failure detected: em connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:41.693641",
+      "event_type": "timeout",
+      "description": "Timeout: heap memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 119,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: heap memory - operation failed",
+        "metrics": {
+          "error_rate": 0.10213549520044128,
+          "response_time_ms": 9539,
+          "cpu_usage": 0.887833288973916,
+          "memory_usage": 0.9137115708799289
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:43.693641",
+      "event_type": "failure",
+      "description": "Failure: in memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 184,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: in memory - operation failed",
+        "metrics": {
+          "error_rate": 0.6052814841948626,
+          "response_time_ms": 7338,
+          "cpu_usage": 0.9224959776953905,
+          "memory_usage": 0.8946765740345954
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:44.693641",
+      "event_type": "recovery",
+      "description": "Recovery: associative cache",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:46.693641",
+      "event_type": "failure",
+      "description": "Failure: a connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 211,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: a connection - operation failed",
+        "metrics": {
+          "error_rate": 0.35730246782652275,
+          "response_time_ms": 9154,
+          "cpu_usage": 0.9924014671917187,
+          "memory_usage": 0.8715354403422835
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:53.693641",
+      "event_type": "recovery",
+      "description": "Recovery: customer service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:15.693641",
+      "event_type": "timeout",
+      "description": "Timeout: and fix",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 172,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: and fix - operation failed",
+        "metrics": {
+          "error_rate": 0.2956592205525553,
+          "response_time_ms": 6518,
+          "cpu_usage": 0.866664277974105,
+          "memory_usage": 0.8858003235450005
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:18.693641",
+      "event_type": "failure",
+      "description": "Failure: http server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 50,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: http server - operation failed",
+        "metrics": {
+          "error_rate": 0.7420784067215082,
+          "response_time_ms": 2558,
+          "cpu_usage": 0.9812849073564709,
+          "memory_usage": 0.8553493467316673
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:24.693641",
+      "event_type": "failure",
+      "description": "Failure: float scale",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 212,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: float scale - operation failed",
+        "metrics": {
+          "error_rate": 0.4063430623121237,
+          "response_time_ms": 3953,
+          "cpu_usage": 0.7775338641661613,
+          "memory_usage": 0.8979471358726993
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:53:24.693641",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

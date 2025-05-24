@@ -1,0 +1,90 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_172917",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 794,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.741856",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.741716",
+      "event_type": "trigger",
+      "description": "Initial failure detected: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:30.741716",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 199,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR load-balancer: circuit breaker triggered in timeout",
+        "metrics": {
+          "error_rate": 0.6367540975274163,
+          "response_time_ms": 5145,
+          "cpu_usage": 0.9858228290929976,
+          "memory_usage": 0.9711286700020697,
+          "requests_per_sec": 8388,
+          "backend_health_pct": 0.4520601772785939,
+          "connection_timeouts": 524
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:30.741716",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 84,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR api-gateway: memory limit exceeded in timeout",
+        "metrics": {
+          "error_rate": 0.2594421048145472,
+          "response_time_ms": 6850,
+          "cpu_usage": 0.793691398484839,
+          "memory_usage": 0.8404322546120732,
+          "requests_per_sec": 2410,
+          "backend_health_pct": 0.7477631104724487,
+          "connection_timeouts": 973
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:41.741716",
+      "event_type": "scaling",
+      "description": "Scaling: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:56.741716",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:34.741716",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:42:31.741716",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

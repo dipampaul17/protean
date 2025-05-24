@@ -1,0 +1,126 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_184526",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 1724,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.661432",
+    "phrase_templates_used": 24,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.660730",
+      "event_type": "trigger",
+      "description": "Initial failure detected: load balancer",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:07.660730",
+      "event_type": "timeout",
+      "description": "Timeout: the cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 116,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: the cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.13064767270651378,
+          "response_time_ms": 1562,
+          "cpu_usage": 0.7901154037382214,
+          "memory_usage": 0.889750809193214
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:14.660730",
+      "event_type": "recovery",
+      "description": "Recovery: a server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:26.660730",
+      "event_type": "timeout",
+      "description": "Timeout: this service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 75,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: this service - operation failed",
+        "metrics": {
+          "error_rate": 0.5038876689847357,
+          "response_time_ms": 5266,
+          "cpu_usage": 0.8408632003901422,
+          "memory_usage": 0.8057344229170577
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:30.660730",
+      "event_type": "failure",
+      "description": "Failure: the pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 92,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: the pod - operation failed",
+        "metrics": {
+          "error_rate": 0.6548981671227779,
+          "response_time_ms": 1301,
+          "cpu_usage": 0.9023202009166588,
+          "memory_usage": 0.9614378015130145
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:22.660730",
+      "event_type": "timeout",
+      "description": "Timeout: the pod",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 107,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: the pod - operation failed",
+        "metrics": {
+          "error_rate": 0.40059968278224556,
+          "response_time_ms": 5398,
+          "cpu_usage": 0.8575364986820891,
+          "memory_usage": 0.8871311888672954
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:49:27.660730",
+      "event_type": "timeout",
+      "description": "Timeout: per server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 47,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: per server - operation failed",
+        "metrics": {
+          "error_rate": 0.2610911670676975,
+          "response_time_ms": 7748,
+          "cpu_usage": 0.990431976902338,
+          "memory_usage": 0.9308429346845053
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:14:10.660730",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

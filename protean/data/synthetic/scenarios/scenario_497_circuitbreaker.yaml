@@ -1,0 +1,111 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173011
+description: Circuit breaker activation due to cascading service failures
+duration: 1388
+metadata:
+  generated_at: '2025-05-23T17:30:11.445805'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:30:11.445631'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:31.445631'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 216
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.4543724071163665
+      response_time_ms: 5604
+      cpu_usage: 0.7766241780600492
+      memory_usage: 0.8276475912394
+- timestamp: '2025-05-23T17:31:16.445631'
+  event_type: degradation
+  description: 'Degradation: connection timeout'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: high
+    duration: 189
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.5795879299412798
+      response_time_ms: 8428
+      cpu_usage: 0.7400119955642543
+      memory_usage: 0.8530611225419137
+- timestamp: '2025-05-23T17:31:24.445631'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 182
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: circuit breaker
+      triggered - operation failed'
+    metrics:
+      error_rate: 0.6354503771578863
+      response_time_ms: 2638
+      cpu_usage: 0.9569846844292886
+      memory_usage: 0.9088105655871457
+- timestamp: '2025-05-23T17:31:50.445631'
+  event_type: degradation
+  description: 'Degradation: queue overflow'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: high
+    duration: 200
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.4962290475901503
+      response_time_ms: 9138
+      cpu_usage: 0.8902938672359136
+      memory_usage: 0.8979958078658627
+- timestamp: '2025-05-23T17:32:44.445631'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 138
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.7765745350777132
+      response_time_ms: 1966
+      cpu_usage: 0.7117245374256346
+      memory_usage: 0.8347676077961825
+- timestamp: '2025-05-23T17:33:19.445631'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 207
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.8535038616018421
+      response_time_ms: 9593
+      cpu_usage: 0.7957977877914004
+      memory_usage: 0.9520646160418158
+- timestamp: '2025-05-23T17:53:19.445631'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

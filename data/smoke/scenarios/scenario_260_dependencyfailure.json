@@ -1,0 +1,96 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_184526",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 1176,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.734263",
+    "phrase_templates_used": 45,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.734067",
+      "event_type": "trigger",
+      "description": "Initial failure detected: failed to",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:21.734067",
+      "event_type": "failure",
+      "description": "Failure: var log",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 66,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: var log - operation failed",
+        "metrics": {
+          "error_rate": 0.49981601761733274,
+          "response_time_ms": 3044,
+          "cpu_usage": 0.9226517154837761,
+          "memory_usage": 0.8516758744608012
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:48.734067",
+      "event_type": "recovery",
+      "description": "Recovery: nginx error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:13.734067",
+      "event_type": "timeout",
+      "description": "Timeout: strong update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 58,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.8478045661275208,
+          "response_time_ms": 8189,
+          "cpu_usage": 0.9444510987634844,
+          "memory_usage": 0.9903347733274228
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:18.734067",
+      "event_type": "failure",
+      "description": "Failure: this error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 260,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: this error - operation failed",
+        "metrics": {
+          "error_rate": 0.5516063680303597,
+          "response_time_ms": 5587,
+          "cpu_usage": 0.9703999884820795,
+          "memory_usage": 0.8225402195478422
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:43.734067",
+      "event_type": "recovery",
+      "description": "Recovery: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:05:02.734067",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

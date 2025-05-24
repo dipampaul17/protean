@@ -1,0 +1,87 @@
+category: EventDriven
+name: EventDriven_20250523_173011
+description: Message queue and event processing failures
+duration: 630
+metadata:
+  generated_at: '2025-05-23T17:30:11.357646'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:30:11.357492'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:42.357492'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 144
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-queue: queue processing authentication
+      failed'
+    metrics:
+      error_rate: 0.3289562619509785
+      response_time_ms: 7863
+      cpu_usage: 0.8129524896889528
+      memory_usage: 0.8057846612079993
+      queue_depth: 37647
+      message_processing_rate: 9.20079134612099
+      consumer_lag_ms: 195672
+- timestamp: '2025-05-23T17:31:12.357492'
+  event_type: message_loss
+  description: 'Message_Loss: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:27.357492'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:33.357492'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 40
+    log_snippet: '[2025-05-23 17:30:11] ERROR batch-processing-queue: queue processing
+      rate limit exceeded'
+    metrics:
+      error_rate: 0.5987909035160583
+      response_time_ms: 6838
+      cpu_usage: 0.7357750140382084
+      memory_usage: 0.8343021278882103
+      queue_depth: 34425
+      message_processing_rate: 3.8670554493488347
+      consumer_lag_ms: 131539
+- timestamp: '2025-05-23T17:31:55.357492'
+  event_type: message_loss
+  description: 'Message_Loss: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:56.357492'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 111
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-queue: queue processing queue
+      overflow'
+    metrics:
+      error_rate: 0.1332543349739365
+      response_time_ms: 1621
+      cpu_usage: 0.7506518699155476
+      memory_usage: 0.9185212248000529
+      queue_depth: 22798
+      message_processing_rate: 3.9453759241655884
+      consumer_lag_ms: 291354
+- timestamp: '2025-05-23T17:40:41.357492'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

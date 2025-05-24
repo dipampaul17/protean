@@ -1,0 +1,93 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_172917",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 489,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.641880",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.641696",
+      "event_type": "trigger",
+      "description": "Initial failure detected: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:42.641696",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "subnet-private",
+        "severity": "high",
+        "duration": 193,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR subnet-private: database connection lost in timeout",
+        "metrics": {
+          "error_rate": 0.7021882368907231,
+          "response_time_ms": 8006,
+          "cpu_usage": 0.7336948190102754,
+          "memory_usage": 0.8816864667776237,
+          "requests_per_sec": 7510,
+          "backend_health_pct": 0.6900851017092182,
+          "connection_timeouts": 383
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:50.641696",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:51.641696",
+      "event_type": "scaling",
+      "description": "Scaling: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:52.641696",
+      "event_type": "scaling",
+      "description": "Scaling: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:54.641696",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:02.641696",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:05.641696",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:15.641696",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:26.641696",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

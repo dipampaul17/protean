@@ -1,0 +1,96 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_172917",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1127,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.578727",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.578563",
+      "event_type": "trigger",
+      "description": "Initial failure detected: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:40.578563",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 54,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.8381506654583101,
+          "response_time_ms": 8989,
+          "cpu_usage": 0.8589701333210161,
+          "memory_usage": 0.9328240065884977
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:50.578563",
+      "event_type": "config_change",
+      "description": "Config_Change: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:04.578563",
+      "event_type": "config_change",
+      "description": "Config_Change: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:24.578563",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 261,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.30142476012113883,
+          "response_time_ms": 2651,
+          "cpu_usage": 0.9974529661021032,
+          "memory_usage": 0.9450787068892875
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:25.578563",
+      "event_type": "config_change",
+      "description": "Config_Change: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:27.578563",
+      "event_type": "config_change",
+      "description": "Config_Change: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:52.578563",
+      "event_type": "rollback",
+      "description": "Rollback: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:04.578563",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

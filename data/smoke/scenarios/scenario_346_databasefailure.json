@@ -1,0 +1,102 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_184526",
+  "description": "Database connectivity and performance issues",
+  "duration": 396,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.764838",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.764596",
+      "event_type": "trigger",
+      "description": "Initial failure detected: create database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:39.764596",
+      "event_type": "recovery",
+      "description": "Recovery: postgres container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:42.764596",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:46.764596",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: get update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:55.764596",
+      "event_type": "timeout",
+      "description": "Timeout: in memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "postgres-replica",
+        "severity": "high",
+        "duration": 217,
+        "log_snippet": "[2025-05-23 18:45:26] FATAL postgres-replica: database in memory detected",
+        "metrics": {
+          "error_rate": 0.20522381217413965,
+          "response_time_ms": 7567,
+          "cpu_usage": 0.9183108436517008,
+          "memory_usage": 0.8028022721655387,
+          "connection_pool_usage": 0.9237420727145225,
+          "query_time_ms": 19774,
+          "deadlocks_per_sec": 9
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:03.764596",
+      "event_type": "recovery",
+      "description": "Recovery: your database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:09.764596",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: the connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:10.764596",
+      "event_type": "timeout",
+      "description": "Timeout: code error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 176,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR mongodb-shard: code error in timeout",
+        "metrics": {
+          "error_rate": 0.12715145670847489,
+          "response_time_ms": 8201,
+          "cpu_usage": 0.7366396885311369,
+          "memory_usage": 0.9120894961306202,
+          "connection_pool_usage": 0.8435264199524575,
+          "query_time_ms": 25975,
+          "deadlocks_per_sec": 2
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:52:02.764596",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

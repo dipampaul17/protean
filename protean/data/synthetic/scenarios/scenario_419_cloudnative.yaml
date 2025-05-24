@@ -1,0 +1,74 @@
+category: CloudNative
+name: CloudNative_20250523_173011
+description: Kubernetes pod and container orchestration issues
+duration: 304
+metadata:
+  generated_at: '2025-05-23T17:30:11.428052'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.427875'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:25.427875'
+  event_type: scaling
+  description: 'Scaling: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:28.427875'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 298
+    log_snippet: '[2025-05-23 17:30:11] ERROR nginx-proxy: database connection lost
+      in failure'
+    metrics:
+      error_rate: 0.48745076019199207
+      response_time_ms: 5231
+      cpu_usage: 0.8091500718953579
+      memory_usage: 0.8276568522127492
+- timestamp: '2025-05-23T17:30:35.427875'
+  event_type: scaling
+  description: 'Scaling: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:40.427875'
+  event_type: deployment
+  description: 'Deployment: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:41.427875'
+  event_type: deployment
+  description: 'Deployment: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:44.427875'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 274
+    log_snippet: '[2025-05-23 17:30:11] ERROR api-backend: deployment failed in failure'
+    metrics:
+      error_rate: 0.79065809265666
+      response_time_ms: 4675
+      cpu_usage: 0.7456714320915583
+      memory_usage: 0.9982235264014242
+- timestamp: '2025-05-23T17:30:47.427875'
+  event_type: pod_restart
+  description: 'Pod_Restart: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:48.427875'
+  event_type: deployment
+  description: 'Deployment: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:15.427875'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

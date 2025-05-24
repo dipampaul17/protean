@@ -1,0 +1,97 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173011
+description: Configuration inconsistencies causing service degradation
+duration: 1087
+metadata:
+  generated_at: '2025-05-23T17:30:11.384118'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:30:11.383673'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:23.383673'
+  event_type: config_change
+  description: 'Config_Change: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:51.383673'
+  event_type: restart
+  description: 'Restart: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:04.383673'
+  event_type: rollback
+  description: 'Rollback: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:08.383673'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 280
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: rate limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.7737321944092407
+      response_time_ms: 6421
+      cpu_usage: 0.9405390648182157
+      memory_usage: 0.9014882383800564
+- timestamp: '2025-05-23T17:31:13.383673'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 225
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.8386442496769332
+      response_time_ms: 9204
+      cpu_usage: 0.7048917900711343
+      memory_usage: 0.8365873343866381
+- timestamp: '2025-05-23T17:31:41.383673'
+  event_type: config_change
+  description: 'Config_Change: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:44.383673'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 174
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: queue overflow
+      - operation failed'
+    metrics:
+      error_rate: 0.7615979199528364
+      response_time_ms: 5476
+      cpu_usage: 0.9137820025148133
+      memory_usage: 0.9353386058940142
+- timestamp: '2025-05-23T17:31:54.383673'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 252
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.5248057910348782
+      response_time_ms: 8424
+      cpu_usage: 0.9467406841194892
+      memory_usage: 0.9892301328032231
+- timestamp: '2025-05-23T17:48:18.383673'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

@@ -1,0 +1,59 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173011
+description: Configuration inconsistencies causing service degradation
+duration: 1013
+metadata:
+  generated_at: '2025-05-23T17:30:11.340532'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.339717'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:56.339717'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 127
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.11570369416471477
+      response_time_ms: 9313
+      cpu_usage: 0.8843211459569138
+      memory_usage: 0.8248866293039375
+- timestamp: '2025-05-23T17:31:37.339717'
+  event_type: rollback
+  description: 'Rollback: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:34.339717'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 248
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.10221836079866967
+      response_time_ms: 2880
+      cpu_usage: 0.9297146404746295
+      memory_usage: 0.8122955158361674
+- timestamp: '2025-05-23T17:34:04.339717'
+  event_type: config_change
+  description: 'Config_Change: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:04.339717'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

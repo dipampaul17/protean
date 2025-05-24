@@ -1,0 +1,66 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173011",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1349,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.405551",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.405448",
+      "event_type": "trigger",
+      "description": "Initial failure detected: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:50.405448",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 135,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR web-frontend: queue overflow in failure",
+        "metrics": {
+          "error_rate": 0.6165268631050711,
+          "response_time_ms": 1547,
+          "cpu_usage": 0.7033830641596711,
+          "memory_usage": 0.9502378533038817
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:36.405448",
+      "event_type": "rollback",
+      "description": "Rollback: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:57.405448",
+      "event_type": "scaling",
+      "description": "Scaling: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:48.405448",
+      "event_type": "rollback",
+      "description": "Rollback: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:52:40.405448",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

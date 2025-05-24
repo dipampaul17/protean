@@ -1,0 +1,96 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_172917",
+  "description": "Message queue and event processing failures",
+  "duration": 1684,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.531259",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.530536",
+      "event_type": "trigger",
+      "description": "Initial failure detected: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:23.530536",
+      "event_type": "message_loss",
+      "description": "Message_Loss: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:32.530536",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:57.530536",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 76,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR batch-processing-queue: queue processing circuit breaker triggered",
+        "metrics": {
+          "error_rate": 0.26893391739833633,
+          "response_time_ms": 3977,
+          "cpu_usage": 0.8518852044421734,
+          "memory_usage": 0.8441782136479379,
+          "queue_depth": 26478,
+          "message_processing_rate": 0.8692249485658594,
+          "consumer_lag_ms": 171188
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:12.530536",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:41.530536",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:22.530536",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 140,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-queue: queue processing service unavailable",
+        "metrics": {
+          "error_rate": 0.6629019902220573,
+          "response_time_ms": 9486,
+          "cpu_usage": 0.8180127188537755,
+          "memory_usage": 0.9147978307911965,
+          "queue_depth": 39357,
+          "message_processing_rate": 2.2706233825333726,
+          "consumer_lag_ms": 136896
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:57:21.530536",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

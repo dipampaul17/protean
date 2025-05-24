@@ -1,0 +1,68 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_184526
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 465
+metadata:
+  generated_at: '2025-05-23T18:45:26.569237'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.569069'
+  event_type: trigger
+  description: 'Initial failure detected: most memory'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:53.569069'
+  event_type: timeout
+  description: 'Timeout: em connection'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 208
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: em connection - operation
+      failed'
+    metrics:
+      error_rate: 0.7429111565410366
+      response_time_ms: 3672
+      cpu_usage: 0.8609422407407468
+      memory_usage: 0.8295060947482892
+- timestamp: '2025-05-23T18:46:09.569069'
+  event_type: failure
+  description: 'Failure: us log'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 138
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: us log - operation failed'
+    metrics:
+      error_rate: 0.7779311763978048
+      response_time_ms: 8839
+      cpu_usage: 0.9674020026580559
+      memory_usage: 0.9153429047592687
+- timestamp: '2025-05-23T18:46:14.569069'
+  event_type: failure
+  description: 'Failure: to fix'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 281
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: to fix - operation failed'
+    metrics:
+      error_rate: 0.21430879447700787
+      response_time_ms: 5219
+      cpu_usage: 0.8874515855612903
+      memory_usage: 0.8968558515800522
+- timestamp: '2025-05-23T18:47:07.569069'
+  event_type: recovery
+  description: 'Recovery: heap memory'
+  injection_spec: null
+- timestamp: '2025-05-23T18:53:11.569069'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,66 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173011
+description: Circuit breaker activation due to cascading service failures
+duration: 1272
+metadata:
+  generated_at: '2025-05-23T17:30:11.429364'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.429257'
+  event_type: trigger
+  description: 'Initial failure detected: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:41.429257'
+  event_type: degradation
+  description: 'Degradation: circuit breaker triggered'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: low
+    duration: 81
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.011991673575896842
+      response_time_ms: 161
+      cpu_usage: 0.3167494321168908
+      memory_usage: 0.4655426748563022
+- timestamp: '2025-05-23T17:34:44.429257'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 205
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.21121732403695354
+      response_time_ms: 3246
+      cpu_usage: 0.8048092480154581
+      memory_usage: 0.8637648435313016
+- timestamp: '2025-05-23T17:35:00.429257'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 30
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: rate limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.5182025955091347
+      response_time_ms: 6855
+      cpu_usage: 0.9153715326671099
+      memory_usage: 0.8269066372657486
+- timestamp: '2025-05-23T17:51:23.429257'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

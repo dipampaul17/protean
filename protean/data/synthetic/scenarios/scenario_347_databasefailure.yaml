@@ -1,0 +1,81 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173011
+description: Database connectivity and performance issues
+duration: 1296
+metadata:
+  generated_at: '2025-05-23T17:30:11.405979'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.405786'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:29.405786'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 95
+    log_snippet: '[2025-05-23 17:30:11] FATAL mysql-primary: database rate limit exceeded
+      detected'
+    metrics:
+      error_rate: 0.6508839201009968
+      response_time_ms: 4155
+      cpu_usage: 0.7893986027601126
+      memory_usage: 0.8692558512854783
+      connection_pool_usage: 0.8056887836841268
+      query_time_ms: 17766
+      deadlocks_per_sec: 9
+- timestamp: '2025-05-23T17:31:02.405786'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:23.405786'
+  event_type: connection_loss
+  description: 'Connection_Loss: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:34.405786'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 275
+    log_snippet: '[2025-05-23 17:30:11] FATAL mysql-primary: database network unreachable
+      detected'
+    metrics:
+      error_rate: 0.28525699996296616
+      response_time_ms: 5569
+      cpu_usage: 0.8369168342204931
+      memory_usage: 0.920183495020381
+      connection_pool_usage: 0.8965198454520571
+      query_time_ms: 21148
+      deadlocks_per_sec: 5
+- timestamp: '2025-05-23T17:31:39.405786'
+  event_type: corruption
+  description: 'Corruption: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:55.405786'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:39.405786'
+  event_type: connection_loss
+  description: 'Connection_Loss: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:42.405786'
+  event_type: corruption
+  description: 'Corruption: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:51:47.405786'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

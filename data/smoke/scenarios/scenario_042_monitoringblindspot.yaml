@@ -1,0 +1,70 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_184526
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1305
+metadata:
+  generated_at: '2025-05-23T18:45:26.564313'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.564147'
+  event_type: trigger
+  description: 'Initial failure detected: the alert'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:38.564147'
+  event_type: failure
+  description: 'Failure: to scale'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 56
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: to scale - operation
+      failed'
+    metrics:
+      error_rate: 0.3035354848975301
+      response_time_ms: 1721
+      cpu_usage: 0.9275356278534184
+      memory_usage: 0.8104822125665465
+- timestamp: '2025-05-23T18:49:26.564147'
+  event_type: recovery
+  description: 'Recovery: monitoring system'
+  injection_spec: null
+- timestamp: '2025-05-23T18:49:39.564147'
+  event_type: failure
+  description: 'Failure: the pod'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 133
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: the pod - operation
+      failed'
+    metrics:
+      error_rate: 0.51305166077758
+      response_time_ms: 4573
+      cpu_usage: 0.9922179504173235
+      memory_usage: 0.8197099974323473
+- timestamp: '2025-05-23T18:50:03.564147'
+  event_type: timeout
+  description: 'Timeout: the log'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 141
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: the log - operation
+      failed'
+    metrics:
+      error_rate: 0.5122289502562285
+      response_time_ms: 1201
+      cpu_usage: 0.9316011080080716
+      memory_usage: 0.995965728628401
+- timestamp: '2025-05-23T19:07:11.564147'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

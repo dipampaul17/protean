@@ -1,0 +1,90 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173011",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1582,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.439036",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.438919",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:34.438919",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 158,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR worker-consumer: disk space full in failure",
+        "metrics": {
+          "error_rate": 0.12683588368759732,
+          "response_time_ms": 7283,
+          "cpu_usage": 0.9741300264240635,
+          "memory_usage": 0.8982651818867117
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:34.438919",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 199,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-backend: connection timeout in failure",
+        "metrics": {
+          "error_rate": 0.3518029554104253,
+          "response_time_ms": 2793,
+          "cpu_usage": 0.9142151264855755,
+          "memory_usage": 0.8455814325355098
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:44.438919",
+      "event_type": "scaling",
+      "description": "Scaling: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:45.438919",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 81,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR nginx-proxy: connection timeout in failure",
+        "metrics": {
+          "error_rate": 0.8229647330126076,
+          "response_time_ms": 3176,
+          "cpu_usage": 0.8225228631076255,
+          "memory_usage": 0.9756494971500634
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:56:33.438919",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

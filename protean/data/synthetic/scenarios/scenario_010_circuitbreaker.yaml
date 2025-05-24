@@ -1,0 +1,89 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_172828
+description: Circuit breaker activation due to cascading service failures
+duration: 790
+metadata:
+  generated_at: '2025-05-23T17:28:28.460323'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:28:28.460164'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:28:50.460164'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 99
+    log_snippet: '[2025-05-23 17:28:28] ERROR auth-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.4521257798063435
+      response_time_ms: 3345
+      cpu_usage: 0.8021745342112783
+      memory_usage: 0.8196545936258427
+- timestamp: '2025-05-23T17:29:24.460164'
+  event_type: degradation
+  description: 'Degradation: memory limit exceeded'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: high
+    duration: 121
+    log_snippet: '[2025-05-23 17:28:28] ERROR payment-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.3905955661874172
+      response_time_ms: 6284
+      cpu_usage: 0.7180588317445742
+      memory_usage: 0.8679219821359399
+- timestamp: '2025-05-23T17:29:28.460164'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:40.460164'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 73
+    log_snippet: '[2025-05-23 17:28:28] ERROR payment-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.5549533375385165
+      response_time_ms: 8962
+      cpu_usage: 0.8648752676289935
+      memory_usage: 0.9875999483484215
+- timestamp: '2025-05-23T17:30:12.460164'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:31.460164'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 199
+    log_snippet: '[2025-05-23 17:28:28] ERROR notification-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.280494940640524
+      response_time_ms: 6471
+      cpu_usage: 0.7904999484424022
+      memory_usage: 0.8696382656874564
+- timestamp: '2025-05-23T17:41:38.460164'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

@@ -1,0 +1,114 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_184526",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 1128,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.658723",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.658482",
+      "event_type": "trigger",
+      "description": "Initial failure detected: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:39.658482",
+      "event_type": "recovery",
+      "description": "Recovery: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:52.658482",
+      "event_type": "recovery",
+      "description": "Recovery: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:19.658482",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 61,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.6835047462246069,
+          "response_time_ms": 7300,
+          "cpu_usage": 0.8151431829284731,
+          "memory_usage": 0.8828316462790865
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:49.658482",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 56,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.46034834810459324,
+          "response_time_ms": 9543,
+          "cpu_usage": 0.7404459643427197,
+          "memory_usage": 0.9634977878252893
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:04.658482",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 142,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.38435483141644144,
+          "response_time_ms": 4191,
+          "cpu_usage": 0.9809733466699264,
+          "memory_usage": 0.9788944943906763
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:22.658482",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 262,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.5806803738658749,
+          "response_time_ms": 2487,
+          "cpu_usage": 0.7666221906182642,
+          "memory_usage": 0.9933902712876135
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:04:14.658482",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

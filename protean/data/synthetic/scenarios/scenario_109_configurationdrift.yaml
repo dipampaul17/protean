@@ -1,0 +1,63 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173011
+description: Configuration inconsistencies causing service degradation
+duration: 754
+metadata:
+  generated_at: '2025-05-23T17:30:11.342053'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.341898'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:42.341898'
+  event_type: restart
+  description: 'Restart: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:50.341898'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 125
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.47370922377607183
+      response_time_ms: 5608
+      cpu_usage: 0.8370703267291213
+      memory_usage: 0.8297163662216556
+- timestamp: '2025-05-23T17:31:13.341898'
+  event_type: restart
+  description: 'Restart: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:02.341898'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 117
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: container crashed - operation
+      failed'
+    metrics:
+      error_rate: 0.786063754009582
+      response_time_ms: 5496
+      cpu_usage: 0.9490044333303577
+      memory_usage: 0.8912580312338414
+- timestamp: '2025-05-23T17:32:05.341898'
+  event_type: rollback
+  description: 'Rollback: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:42:45.341898'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

@@ -1,0 +1,119 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_172828
+description: Circuit breaker activation due to cascading service failures
+duration: 572
+metadata:
+  generated_at: '2025-05-23T17:28:28.460138'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:28:28.459910'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:28:45.459910'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 104
+    log_snippet: '[2025-05-23 17:28:28] ERROR notification-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.6581069322350273
+      response_time_ms: 3646
+      cpu_usage: 0.907556848013544
+      memory_usage: 0.8538147524272841
+- timestamp: '2025-05-23T17:28:59.459910'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 85
+    log_snippet: '[2025-05-23 17:28:28] ERROR payment-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.7491003521134115
+      response_time_ms: 9390
+      cpu_usage: 0.7605306231805411
+      memory_usage: 0.9525789311306161
+- timestamp: '2025-05-23T17:29:00.459910'
+  event_type: degradation
+  description: 'Degradation: authentication failed'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: high
+    duration: 163
+    log_snippet: '[2025-05-23 17:28:28] ERROR notification-service: authentication
+      failed - operation failed'
+    metrics:
+      error_rate: 0.21213377701534342
+      response_time_ms: 3305
+      cpu_usage: 0.8773374217316494
+      memory_usage: 0.8067284160119911
+- timestamp: '2025-05-23T17:29:00.459910'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 161
+    log_snippet: '[2025-05-23 17:28:28] ERROR notification-service: disk space full
+      - operation failed'
+    metrics:
+      error_rate: 0.5200909878095009
+      response_time_ms: 1726
+      cpu_usage: 0.8379910763407589
+      memory_usage: 0.8886587785009038
+- timestamp: '2025-05-23T17:29:03.459910'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 294
+    log_snippet: '[2025-05-23 17:28:28] ERROR user-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.3387873508195349
+      response_time_ms: 4618
+      cpu_usage: 0.9465594907617341
+      memory_usage: 0.9808934365851952
+- timestamp: '2025-05-23T17:29:10.459910'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 214
+    log_snippet: '[2025-05-23 17:28:28] ERROR notification-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.6796900949467146
+      response_time_ms: 2138
+      cpu_usage: 0.9999426536693199
+      memory_usage: 0.8939367818893708
+- timestamp: '2025-05-23T17:29:13.459910'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:29.459910'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:00.459910'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

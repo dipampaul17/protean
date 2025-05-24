@@ -1,0 +1,54 @@
+{
+  "category": "CascadingFailure",
+  "name": "CascadingFailure_20250523_172917",
+  "description": "Multi-service failure propagation scenario",
+  "duration": 1447,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.607528",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.607440",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:51.607440",
+      "event_type": "propagation",
+      "description": "Propagation: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:39.607440",
+      "event_type": "initial_failure",
+      "description": "Initial_Failure: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:55.607440",
+      "event_type": "cascade",
+      "description": "Cascade: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:06.607440",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:53:24.607440",
+      "event_type": "recovery",
+      "description": "System recovered: all services recovered",
+      "injection_spec": null
+    }
+  ]
+}

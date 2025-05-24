@@ -1,0 +1,89 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_184526
+description: Application deployment and rollback scenarios
+duration: 1427
+metadata:
+  generated_at: '2025-05-23T18:45:26.663001'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.662748'
+  event_type: trigger
+  description: 'Initial failure detected: docker container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:36.662748'
+  event_type: scaling
+  description: 'Scaling: container pod'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:38.662748'
+  event_type: failure
+  description: 'Failure: the deploy'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 186
+    log_snippet: '[2025-05-23 18:45:26] ERROR web-frontend: the deploy in failure'
+    metrics:
+      error_rate: 0.5513930187246084
+      response_time_ms: 3297
+      cpu_usage: 0.7527081174564536
+      memory_usage: 0.9214780373483424
+- timestamp: '2025-05-23T18:45:40.662748'
+  event_type: rollback
+  description: 'Rollback: kubernetes error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:59.662748'
+  event_type: failure
+  description: 'Failure: the pod'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 159
+    log_snippet: '[2025-05-23 18:45:26] ERROR worker-consumer: the pod in failure'
+    metrics:
+      error_rate: 0.6289102215311855
+      response_time_ms: 1335
+      cpu_usage: 0.9538269918677222
+      memory_usage: 0.8362130588149743
+- timestamp: '2025-05-23T18:46:20.662748'
+  event_type: failure
+  description: 'Failure: the deployment'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 281
+    log_snippet: '[2025-05-23 18:45:26] ERROR web-frontend: the deployment in failure'
+    metrics:
+      error_rate: 0.13821388047854377
+      response_time_ms: 9202
+      cpu_usage: 0.8359181982123709
+      memory_usage: 0.8710361103543123
+- timestamp: '2025-05-23T18:47:40.662748'
+  event_type: failure
+  description: 'Failure: a container'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 170
+    log_snippet: '[2025-05-23 18:45:26] ERROR web-frontend: a container in failure'
+    metrics:
+      error_rate: 0.7565697508589955
+      response_time_ms: 9181
+      cpu_usage: 0.9923142302629318
+      memory_usage: 0.9644316386830133
+- timestamp: '2025-05-23T18:48:15.662748'
+  event_type: deployment
+  description: 'Deployment: during deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T19:09:13.662748'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

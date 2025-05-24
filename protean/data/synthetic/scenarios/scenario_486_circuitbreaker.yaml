@@ -1,0 +1,100 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_172917
+description: Circuit breaker activation due to cascading service failures
+duration: 497
+metadata:
+  generated_at: '2025-05-23T17:29:17.746837'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:29:17.745572'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:34.745572'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 280
+    log_snippet: '[2025-05-23 17:29:17] ERROR user-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.16550824736379893
+      response_time_ms: 9219
+      cpu_usage: 0.7785184986009837
+      memory_usage: 0.860207796106512
+- timestamp: '2025-05-23T17:29:37.745572'
+  event_type: degradation
+  description: 'Degradation: container crashed'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: high
+    duration: 249
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: container crashed
+      - operation failed'
+    metrics:
+      error_rate: 0.6401399398961338
+      response_time_ms: 3323
+      cpu_usage: 0.7849392229740271
+      memory_usage: 0.8697894523693728
+- timestamp: '2025-05-23T17:29:58.745572'
+  event_type: degradation
+  description: 'Degradation: service unavailable'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: high
+    duration: 258
+    log_snippet: '[2025-05-23 17:29:17] ERROR user-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.7438137406827117
+      response_time_ms: 9072
+      cpu_usage: 0.8464646424584313
+      memory_usage: 0.9016767666592066
+- timestamp: '2025-05-23T17:30:23.745572'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 219
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.1500852269018177
+      response_time_ms: 6170
+      cpu_usage: 0.9157331356724625
+      memory_usage: 0.8269992885714196
+- timestamp: '2025-05-23T17:30:35.745572'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:36.745572'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 232
+    log_snippet: '[2025-05-23 17:29:17] ERROR user-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.5280629600802282
+      response_time_ms: 4783
+      cpu_usage: 0.9710079521630771
+      memory_usage: 0.8955391607912553
+- timestamp: '2025-05-23T17:37:34.745572'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

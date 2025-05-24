@@ -1,0 +1,55 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_172917
+description: Database connectivity and performance issues
+duration: 794
+metadata:
+  generated_at: '2025-05-23T17:29:17.543212'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.543085'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:04.543085'
+  event_type: connection_loss
+  description: 'Connection_Loss: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:09.543085'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 206
+    log_snippet: '[2025-05-23 17:29:17] ERROR redis-cache: circuit breaker triggered
+      in timeout'
+    metrics:
+      error_rate: 0.21016311823495465
+      response_time_ms: 2869
+      cpu_usage: 0.7405521630180387
+      memory_usage: 0.990942335410615
+      connection_pool_usage: 0.8713849045112474
+      query_time_ms: 15103
+      deadlocks_per_sec: 7
+- timestamp: '2025-05-23T17:30:10.543085'
+  event_type: connection_loss
+  description: 'Connection_Loss: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:17.543085'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:03.543085'
+  event_type: corruption
+  description: 'Corruption: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:42:31.543085'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

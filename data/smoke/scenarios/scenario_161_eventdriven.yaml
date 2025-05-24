@@ -1,0 +1,95 @@
+category: EventDriven
+name: EventDriven_20250523_184526
+description: Message queue and event processing failures
+duration: 916
+metadata:
+  generated_at: '2025-05-23T18:45:26.686081'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 3
+    high: 0
+events:
+- timestamp: '2025-05-23T18:45:26.685800'
+  event_type: trigger
+  description: 'Initial failure detected: single queue'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:42.685800'
+  event_type: recovery
+  description: 'Recovery: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:05.685800'
+  event_type: timeout
+  description: 'Timeout: main queue'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: medium
+    duration: 188
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-queue: queue processing main
+      queue'
+    metrics:
+      error_rate: 0.16059911885993883
+      response_time_ms: 717
+      cpu_usage: 0.6607298357613233
+      memory_usage: 0.6499987465431238
+      queue_depth: 22030
+      message_processing_rate: 8.03741785745366
+      consumer_lag_ms: 65190
+- timestamp: '2025-05-23T18:46:05.685800'
+  event_type: recovery
+  description: 'Recovery: using kafka'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:53.685800'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: to update'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:54.685800'
+  event_type: recovery
+  description: 'Recovery: new queue'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:15.685800'
+  event_type: message_loss
+  description: 'Message_Loss: the cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:16.685800'
+  event_type: timeout
+  description: 'Timeout: single queue'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: medium
+    duration: 250
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-queue: queue processing
+      single queue'
+    metrics:
+      error_rate: 0.29473645701856643
+      response_time_ms: 942
+      cpu_usage: 0.3921607948018154
+      memory_usage: 0.4802501358706812
+      queue_depth: 3575
+      message_processing_rate: 6.291151808497212
+      consumer_lag_ms: 52352
+- timestamp: '2025-05-23T18:47:16.685800'
+  event_type: timeout
+  description: 'Timeout: work queue'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: medium
+    duration: 175
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-queue: queue processing work
+      queue'
+    metrics:
+      error_rate: 0.19356251620869117
+      response_time_ms: 1852
+      cpu_usage: 0.4078753828112454
+      memory_usage: 0.5665446475540266
+      queue_depth: 10560
+      message_processing_rate: 6.518493759811443
+      consumer_lag_ms: 104401
+- timestamp: '2025-05-23T19:00:42.685800'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

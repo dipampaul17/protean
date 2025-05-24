@@ -1,0 +1,89 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_184526
+description: Infrastructure failure scenario for ScalingFailure
+duration: 774
+metadata:
+  generated_at: '2025-05-23T18:45:26.574536'
+  phrase_templates_used: 24
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.573772'
+  event_type: trigger
+  description: 'Initial failure detected: clusterip service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:13.573772'
+  event_type: recovery
+  description: 'Recovery: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:22.573772'
+  event_type: timeout
+  description: 'Timeout: nodeport service'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 97
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: nodeport service -
+      operation failed'
+    metrics:
+      error_rate: 0.8003973630705864
+      response_time_ms: 5382
+      cpu_usage: 0.7938011287107969
+      memory_usage: 0.8660272372304341
+- timestamp: '2025-05-23T18:46:25.573772'
+  event_type: timeout
+  description: 'Timeout: nodeport service'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 44
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: nodeport service -
+      operation failed'
+    metrics:
+      error_rate: 0.8309568177557812
+      response_time_ms: 3797
+      cpu_usage: 0.718549359327259
+      memory_usage: 0.8312292786186798
+- timestamp: '2025-05-23T18:46:29.573772'
+  event_type: recovery
+  description: 'Recovery: the pod'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:37.573772'
+  event_type: timeout
+  description: 'Timeout: https connection'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 88
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: https connection
+      - operation failed'
+    metrics:
+      error_rate: 0.20277494237783397
+      response_time_ms: 7830
+      cpu_usage: 0.8523445685106318
+      memory_usage: 0.9459545609611659
+- timestamp: '2025-05-23T18:46:59.573772'
+  event_type: timeout
+  description: 'Timeout: a cluster'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 83
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: a cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.44596506340850606
+      response_time_ms: 8329
+      cpu_usage: 0.9636756763644303
+      memory_usage: 0.9184878748333405
+- timestamp: '2025-05-23T18:58:20.573772'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

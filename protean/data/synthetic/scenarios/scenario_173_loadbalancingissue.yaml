@@ -1,0 +1,64 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173011
+description: Load balancer and traffic distribution problems
+duration: 1606
+metadata:
+  generated_at: '2025-05-23T17:30:11.358760'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.358627'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:39.358627'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:00.358627'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 71
+    log_snippet: '[2025-05-23 17:30:11] ERROR vpc-main: connection timeout in timeout'
+    metrics:
+      error_rate: 0.7750678203589607
+      response_time_ms: 9846
+      cpu_usage: 0.7829156656196099
+      memory_usage: 0.837524295119992
+      requests_per_sec: 9634
+      backend_health_pct: 0.4282940293586291
+      connection_timeouts: 290
+- timestamp: '2025-05-23T17:36:00.358627'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: load-balancer
+    severity: high
+    duration: 113
+    log_snippet: '[2025-05-23 17:30:11] ERROR load-balancer: connection timeout in
+      timeout'
+    metrics:
+      error_rate: 0.24874982423592096
+      response_time_ms: 7284
+      cpu_usage: 0.9228064187743817
+      memory_usage: 0.8444367820229046
+      requests_per_sec: 9077
+      backend_health_pct: 0.5382667413672095
+      connection_timeouts: 589
+- timestamp: '2025-05-23T17:36:23.358627'
+  event_type: backend_failure
+  description: 'Backend_Failure: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:56:57.358627'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

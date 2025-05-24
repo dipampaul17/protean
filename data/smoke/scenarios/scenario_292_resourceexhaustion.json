@@ -1,0 +1,156 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_184526",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 1258,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.745556",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 7
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.745226",
+      "event_type": "trigger",
+      "description": "Initial failure detected: most memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:11.745226",
+      "event_type": "failure",
+      "description": "Failure: the memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 49,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: the memory - operation failed",
+        "metrics": {
+          "error_rate": 0.1473725819052695,
+          "response_time_ms": 3003,
+          "cpu_usage": 0.7205289730126929,
+          "memory_usage": 0.8331938011362443
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:23.745226",
+      "event_type": "timeout",
+      "description": "Timeout: double scale",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 58,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: double scale - operation failed",
+        "metrics": {
+          "error_rate": 0.5030975818785041,
+          "response_time_ms": 9425,
+          "cpu_usage": 0.9630616905058114,
+          "memory_usage": 0.9647833729452281
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:19.745226",
+      "event_type": "failure",
+      "description": "Failure: urgent memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 97,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: urgent memory - operation failed",
+        "metrics": {
+          "error_rate": 0.7110580314068622,
+          "response_time_ms": 5404,
+          "cpu_usage": 0.8693175146915919,
+          "memory_usage": 0.9298552153784063
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:45.745226",
+      "event_type": "failure",
+      "description": "Failure: free disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 266,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: free disk - operation failed",
+        "metrics": {
+          "error_rate": 0.7304354110029515,
+          "response_time_ms": 2051,
+          "cpu_usage": 0.7584326153616515,
+          "memory_usage": 0.9589235577480437
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:51.745226",
+      "event_type": "failure",
+      "description": "Failure: em connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 72,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: em connection - operation failed",
+        "metrics": {
+          "error_rate": 0.8356757285180311,
+          "response_time_ms": 7829,
+          "cpu_usage": 0.9367104562592359,
+          "memory_usage": 0.9727755354330767
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:12.745226",
+      "event_type": "failure",
+      "description": "Failure: the memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 44,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: the memory - operation failed",
+        "metrics": {
+          "error_rate": 0.17092199988847315,
+          "response_time_ms": 8212,
+          "cpu_usage": 0.7762388208103743,
+          "memory_usage": 0.9138288664743652
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:18.745226",
+      "event_type": "timeout",
+      "description": "Timeout: redis connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 105,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: redis connection - operation failed",
+        "metrics": {
+          "error_rate": 0.8890947566035291,
+          "response_time_ms": 6458,
+          "cpu_usage": 0.9751029186031274,
+          "memory_usage": 0.8607304180462385
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:06:24.745226",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

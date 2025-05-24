@@ -1,0 +1,75 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_172828",
+  "description": "Message queue and event processing failures",
+  "duration": 1569,
+  "metadata": {
+    "generated_at": "2025-05-23T17:28:28.459046",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:28:28.458912",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:40.458912",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-queue",
+        "severity": "high",
+        "duration": 87,
+        "log_snippet": "[2025-05-23 17:28:28] ERROR notification-queue: queue processing connection timeout",
+        "metrics": {
+          "error_rate": 0.7488895106802435,
+          "response_time_ms": 7690,
+          "cpu_usage": 0.8319730523299289,
+          "memory_usage": 0.8666410871249699,
+          "queue_depth": 41403,
+          "message_processing_rate": 1.1598754262575794,
+          "consumer_lag_ms": 125395
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:14.458912",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:20.458912",
+      "event_type": "recovery",
+      "description": "Recovery: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:25.458912",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:44.458912",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:54:37.458912",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

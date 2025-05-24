@@ -1,0 +1,109 @@
+category: EventDriven
+name: EventDriven_20250523_172917
+description: Message queue and event processing failures
+duration: 1374
+metadata:
+  generated_at: '2025-05-23T17:29:17.532386'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:29:17.532067'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:51.532067'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: high
+    duration: 47
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-queue: queue processing
+      circuit breaker triggered'
+    metrics:
+      error_rate: 0.7141605726271208
+      response_time_ms: 3401
+      cpu_usage: 0.8111773212987767
+      memory_usage: 0.8032001576253042
+      queue_depth: 13902
+      message_processing_rate: 2.5886083630074377
+      consumer_lag_ms: 141568
+- timestamp: '2025-05-23T17:30:02.532067'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:10.532067'
+  event_type: message_loss
+  description: 'Message_Loss: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:27.532067'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 64
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-queue: queue processing service
+      unavailable'
+    metrics:
+      error_rate: 0.7520156472990132
+      response_time_ms: 3792
+      cpu_usage: 0.7448646103983138
+      memory_usage: 0.9279056678901435
+      queue_depth: 35028
+      message_processing_rate: 7.050383547007351
+      consumer_lag_ms: 245639
+- timestamp: '2025-05-23T17:30:56.532067'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: high
+    duration: 186
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-queue: queue processing
+      connection timeout'
+    metrics:
+      error_rate: 0.1088027438930098
+      response_time_ms: 1512
+      cpu_usage: 0.7763327574275334
+      memory_usage: 0.8310169952141658
+      queue_depth: 18032
+      message_processing_rate: 4.920461725455248
+      consumer_lag_ms: 175160
+- timestamp: '2025-05-23T17:31:20.532067'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 65
+    log_snippet: '[2025-05-23 17:29:17] ERROR batch-processing-queue: queue processing
+      disk space full'
+    metrics:
+      error_rate: 0.4820495914762972
+      response_time_ms: 9329
+      cpu_usage: 0.7061286099815127
+      memory_usage: 0.861145510723141
+      queue_depth: 48271
+      message_processing_rate: 0.7634321991907009
+      consumer_lag_ms: 270030
+- timestamp: '2025-05-23T17:31:40.532067'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:56.532067'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:52:11.532067'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

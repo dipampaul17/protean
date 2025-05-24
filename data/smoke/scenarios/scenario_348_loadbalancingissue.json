@@ -1,0 +1,78 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_184526",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 529,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.765275",
+    "phrase_templates_used": 13,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.765141",
+      "event_type": "trigger",
+      "description": "Initial failure detected: your cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:23.765141",
+      "event_type": "timeout",
+      "description": "Timeout: your cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 120,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR load-balancer: your cluster in timeout",
+        "metrics": {
+          "error_rate": 0.7798450499689817,
+          "response_time_ms": 4434,
+          "cpu_usage": 0.7674183568891907,
+          "memory_usage": 0.8218491104723189,
+          "requests_per_sec": 5952,
+          "backend_health_pct": 0.36979692371649764,
+          "connection_timeouts": 590
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:31.765141",
+      "event_type": "timeout",
+      "description": "Timeout: your cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 198,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR api-gateway: your cluster in timeout",
+        "metrics": {
+          "error_rate": 0.11944284251548148,
+          "response_time_ms": 6936,
+          "cpu_usage": 0.7200906932452728,
+          "memory_usage": 0.996210505797096,
+          "requests_per_sec": 2975,
+          "backend_health_pct": 0.3766571170069055,
+          "connection_timeouts": 726
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:41.765141",
+      "event_type": "scaling",
+      "description": "Scaling: web server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:54:15.765141",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

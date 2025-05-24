@@ -1,0 +1,67 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_172917
+description: Database connectivity and performance issues
+duration: 690
+metadata:
+  generated_at: '2025-05-23T17:29:17.600666'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.600478'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:40.600478'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 142
+    log_snippet: '[2025-05-23 17:29:17] FATAL postgres-replica: database network unreachable
+      detected'
+    metrics:
+      error_rate: 0.1680136740041559
+      response_time_ms: 3430
+      cpu_usage: 0.8580964168750812
+      memory_usage: 0.9791319836465223
+      connection_pool_usage: 0.9393530893552218
+      query_time_ms: 25749
+      deadlocks_per_sec: 5
+- timestamp: '2025-05-23T17:29:45.600478'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:49.600478'
+  event_type: corruption
+  description: 'Corruption: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:50.600478'
+  event_type: connection_loss
+  description: 'Connection_Loss: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:56.600478'
+  event_type: connection_loss
+  description: 'Connection_Loss: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:58.600478'
+  event_type: connection_loss
+  description: 'Connection_Loss: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:03.600478'
+  event_type: corruption
+  description: 'Corruption: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:39.600478'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:47.600478'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

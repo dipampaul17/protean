@@ -1,0 +1,150 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_184526",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 730,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.550997",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 3,
+      "medium": 1,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.550680",
+      "event_type": "trigger",
+      "description": "Initial failure detected: virtual memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:45.550680",
+      "event_type": "recovery",
+      "description": "Recovery: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:04.550680",
+      "event_type": "timeout",
+      "description": "Timeout: handling connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 113,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: handling connection - operation failed",
+        "metrics": {
+          "error_rate": 0.7533178102293262,
+          "response_time_ms": 6211,
+          "cpu_usage": 0.906837729136533,
+          "memory_usage": 0.8882115195401009
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:19.550680",
+      "event_type": "recovery",
+      "description": "Recovery: nginx log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:23.550680",
+      "event_type": "timeout",
+      "description": "Timeout: the server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 62,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.5463137187625955,
+          "response_time_ms": 6048,
+          "cpu_usage": 0.9562251212725825,
+          "memory_usage": 0.907076510818389
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:23.550680",
+      "event_type": "timeout",
+      "description": "Timeout: letter queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "medium",
+        "duration": 289,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: letter queue - operation failed",
+        "metrics": {
+          "error_rate": 0.17459978672619453,
+          "response_time_ms": 1718,
+          "cpu_usage": 0.6291590542928308,
+          "memory_usage": 0.6643521491390256
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:25.550680",
+      "event_type": "degradation",
+      "description": "Degradation: reduce alert",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "low",
+        "duration": 172,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: reduce alert - operation failed",
+        "metrics": {
+          "error_rate": 0.16100548849380725,
+          "response_time_ms": 1845,
+          "cpu_usage": 0.4546824545837184,
+          "memory_usage": 0.41166422142625425
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:30.550680",
+      "event_type": "degradation",
+      "description": "Degradation: to log",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "low",
+        "duration": 134,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: to log - operation failed",
+        "metrics": {
+          "error_rate": 0.05047574721077824,
+          "response_time_ms": 1948,
+          "cpu_usage": 0.3673045271909534,
+          "memory_usage": 0.4866652099652987
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:32.550680",
+      "event_type": "degradation",
+      "description": "Degradation: following error",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "low",
+        "duration": 130,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: following error - operation failed",
+        "metrics": {
+          "error_rate": 0.093409581381472,
+          "response_time_ms": 777,
+          "cpu_usage": 0.43791618186948883,
+          "memory_usage": 0.6173674073207966
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:57:36.550680",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

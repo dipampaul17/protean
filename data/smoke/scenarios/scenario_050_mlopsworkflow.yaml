@@ -1,0 +1,85 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_184526
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 863
+metadata:
+  generated_at: '2025-05-23T18:45:26.569035'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.568827'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:46.568827'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 139
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.29531106424528
+      response_time_ms: 4139
+      cpu_usage: 0.7490760474388385
+      memory_usage: 0.8955330394501282
+- timestamp: '2025-05-23T18:46:22.568827'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 103
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.20921945765996366
+      response_time_ms: 1949
+      cpu_usage: 0.9843412981581225
+      memory_usage: 0.8237344096743866
+- timestamp: '2025-05-23T18:47:04.568827'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:37.568827'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 114
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.7309829722462935
+      response_time_ms: 7490
+      cpu_usage: 0.9239433787000322
+      memory_usage: 0.9396457942946822
+- timestamp: '2025-05-23T18:48:13.568827'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 84
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.47810523110321224
+      response_time_ms: 6027
+      cpu_usage: 0.737504681822992
+      memory_usage: 0.940768664345028
+- timestamp: '2025-05-23T18:59:49.568827'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,84 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_173011",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 1644,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.425227",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.425098",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:41.425098",
+      "event_type": "scaling",
+      "description": "Scaling: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:57.425098",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 101,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR worker-consumer: container crashed in failure",
+        "metrics": {
+          "error_rate": 0.6000112231282663,
+          "response_time_ms": 9842,
+          "cpu_usage": 0.9859813763175418,
+          "memory_usage": 0.9777214188439846
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:01.425098",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 47,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-backend: database connection lost in failure",
+        "metrics": {
+          "error_rate": 0.6149786749946073,
+          "response_time_ms": 7121,
+          "cpu_usage": 0.7142904128412801,
+          "memory_usage": 0.834331595268477
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:51.425098",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:15.425098",
+      "event_type": "scaling",
+      "description": "Scaling: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:57:35.425098",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

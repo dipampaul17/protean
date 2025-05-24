@@ -1,0 +1,123 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173011",
+  "description": "Database connectivity and performance issues",
+  "duration": 1141,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.371650",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.370718",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:25.370718",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 104,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR redis-cache: connection timeout in timeout",
+        "metrics": {
+          "error_rate": 0.3984929186648043,
+          "response_time_ms": 9098,
+          "cpu_usage": 0.7310075274629414,
+          "memory_usage": 0.9269488415277922,
+          "connection_pool_usage": 0.9585217060742386,
+          "query_time_ms": 10325,
+          "deadlocks_per_sec": 8
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:38.370718",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:47.370718",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 234,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR redis-cache: container crashed in timeout",
+        "metrics": {
+          "error_rate": 0.5528445099222278,
+          "response_time_ms": 6422,
+          "cpu_usage": 0.7008414539177844,
+          "memory_usage": 0.8838870498095012,
+          "connection_pool_usage": 0.8762245170493719,
+          "query_time_ms": 25018,
+          "deadlocks_per_sec": 9
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:53.370718",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:21.370718",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "postgres-replica",
+        "severity": "high",
+        "duration": 239,
+        "log_snippet": "[2025-05-23 17:30:11] FATAL postgres-replica: database circuit breaker triggered detected",
+        "metrics": {
+          "error_rate": 0.13333240277910063,
+          "response_time_ms": 6025,
+          "cpu_usage": 0.7639401046760195,
+          "memory_usage": 0.9025113039252197,
+          "connection_pool_usage": 0.9626923269961185,
+          "query_time_ms": 21227,
+          "deadlocks_per_sec": 5
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:28.370718",
+      "event_type": "corruption",
+      "description": "Corruption: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:25.370718",
+      "event_type": "recovery",
+      "description": "Recovery: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:30.370718",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:12.370718",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

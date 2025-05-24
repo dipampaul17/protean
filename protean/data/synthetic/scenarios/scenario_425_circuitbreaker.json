@@ -1,0 +1,144 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_172917",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 561,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.724424",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.724000",
+      "event_type": "trigger",
+      "description": "Initial failure detected: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:35.724000",
+      "event_type": "recovery",
+      "description": "Recovery: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:42.724000",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 222,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.7928192572902965,
+          "response_time_ms": 7195,
+          "cpu_usage": 0.7972610502950023,
+          "memory_usage": 0.9548386046870243
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:52.724000",
+      "event_type": "failure",
+      "description": "Failure: memory limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 202,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR user-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.7133585433293831,
+          "response_time_ms": 6482,
+          "cpu_usage": 0.9026358517663373,
+          "memory_usage": 0.8226150276683594
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:02.724000",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 228,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.5124892047194017,
+          "response_time_ms": 9048,
+          "cpu_usage": 0.8866894509420223,
+          "memory_usage": 0.9453966529362231
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:05.724000",
+      "event_type": "degradation",
+      "description": "Degradation: service unavailable",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 300,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.35420648297017854,
+          "response_time_ms": 5277,
+          "cpu_usage": 0.8619781561580131,
+          "memory_usage": 0.9880463825281731
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:19.724000",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 105,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.7763087553682861,
+          "response_time_ms": 8730,
+          "cpu_usage": 0.7503674892340533,
+          "memory_usage": 0.9514217700146147
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:23.724000",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 290,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.18220363792916797,
+          "response_time_ms": 3284,
+          "cpu_usage": 0.8379461068756637,
+          "memory_usage": 0.8104052353694262
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:38.724000",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

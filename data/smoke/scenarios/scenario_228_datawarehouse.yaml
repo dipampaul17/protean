@@ -1,0 +1,119 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_184526
+description: Infrastructure failure scenario for DataWarehouse
+duration: 788
+metadata:
+  generated_at: '2025-05-23T18:45:26.708875'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T18:45:26.708569'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:46.708569'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 172
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.8301152112641256
+      response_time_ms: 3461
+      cpu_usage: 0.9932230277465985
+      memory_usage: 0.872735390546109
+- timestamp: '2025-05-23T18:45:51.708569'
+  event_type: recovery
+  description: 'Recovery: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:55.708569'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 271
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: deployment failed -
+      operation failed'
+    metrics:
+      error_rate: 0.7008472416752196
+      response_time_ms: 6757
+      cpu_usage: 0.864045349211993
+      memory_usage: 0.8953631514513315
+- timestamp: '2025-05-23T18:45:58.708569'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 286
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.6041912923914043
+      response_time_ms: 4904
+      cpu_usage: 0.7617051371593484
+      memory_usage: 0.927983527618536
+- timestamp: '2025-05-23T18:46:10.708569'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 80
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.22484491287174038
+      response_time_ms: 4424
+      cpu_usage: 0.7697023667008047
+      memory_usage: 0.8208223850510966
+- timestamp: '2025-05-23T18:46:15.708569'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 189
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.7419740607972356
+      response_time_ms: 7187
+      cpu_usage: 0.868747066962797
+      memory_usage: 0.8101803572632229
+- timestamp: '2025-05-23T18:46:18.708569'
+  event_type: recovery
+  description: 'Recovery: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:56.708569'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 46
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.6557032843153189
+      response_time_ms: 2718
+      cpu_usage: 0.9211494389354001
+      memory_usage: 0.8907816176768775
+- timestamp: '2025-05-23T18:58:34.708569'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

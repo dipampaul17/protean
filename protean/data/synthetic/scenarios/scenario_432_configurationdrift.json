@@ -1,0 +1,66 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173011",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 859,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.430287",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.430186",
+      "event_type": "trigger",
+      "description": "Initial failure detected: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:23.430186",
+      "event_type": "config_change",
+      "description": "Config_Change: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:32.430186",
+      "event_type": "config_change",
+      "description": "Config_Change: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:58.430186",
+      "event_type": "config_change",
+      "description": "Config_Change: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:02.430186",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 126,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.812600919170384,
+          "response_time_ms": 4107,
+          "cpu_usage": 0.7263427887445022,
+          "memory_usage": 0.8824256633814312
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:44:30.430186",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

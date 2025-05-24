@@ -1,0 +1,63 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_172917
+description: Circuit breaker activation due to cascading service failures
+duration: 1497
+metadata:
+  generated_at: '2025-05-23T17:29:17.606512'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.606383'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:31.606383'
+  event_type: degradation
+  description: 'Degradation: service unavailable'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: high
+    duration: 119
+    log_snippet: '[2025-05-23 17:29:17] ERROR auth-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.8454802922395519
+      response_time_ms: 9811
+      cpu_usage: 0.9898512610170853
+      memory_usage: 0.8016078640375129
+- timestamp: '2025-05-23T17:31:42.606383'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:18.606383'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:44.606383'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:52.606383'
+  event_type: degradation
+  description: 'Degradation: network unreachable'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: low
+    duration: 246
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.18048051586917208
+      response_time_ms: 185
+      cpu_usage: 0.6271512294663436
+      memory_usage: 0.5658557108914306
+- timestamp: '2025-05-23T17:54:14.606383'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

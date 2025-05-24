@@ -1,0 +1,52 @@
+category: CloudNative
+name: CloudNative_20250523_172917
+description: Kubernetes pod and container orchestration issues
+duration: 1032
+metadata:
+  generated_at: '2025-05-23T17:29:17.590232'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.590115'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:29.590115'
+  event_type: deployment
+  description: 'Deployment: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:55.590115'
+  event_type: deployment
+  description: 'Deployment: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:09.590115'
+  event_type: pod_restart
+  description: 'Pod_Restart: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:59.590115'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 103
+    log_snippet: '[2025-05-23 17:29:17] ERROR web-frontend: memory limit exceeded
+      in failure'
+    metrics:
+      error_rate: 0.2783105893241894
+      response_time_ms: 5209
+      cpu_usage: 0.9809509497423592
+      memory_usage: 0.9487897610654081
+- timestamp: '2025-05-23T17:31:21.590115'
+  event_type: pod_restart
+  description: 'Pod_Restart: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:29.590115'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

@@ -1,0 +1,102 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_172917",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 1104,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.676330",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.676141",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:44.676141",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 68,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR worker-consumer: database connection lost in failure",
+        "metrics": {
+          "error_rate": 0.8139284271375606,
+          "response_time_ms": 3350,
+          "cpu_usage": 0.779771400442267,
+          "memory_usage": 0.9902365153290023
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:56.676141",
+      "event_type": "scaling",
+      "description": "Scaling: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:21.676141",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 228,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR worker-consumer: rate limit exceeded in failure",
+        "metrics": {
+          "error_rate": 0.2313035680112722,
+          "response_time_ms": 4438,
+          "cpu_usage": 0.8121266389194015,
+          "memory_usage": 0.8892799952085769
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:25.676141",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:38.676141",
+      "event_type": "scaling",
+      "description": "Scaling: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:00.676141",
+      "event_type": "deployment",
+      "description": "Deployment: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:05.676141",
+      "event_type": "deployment",
+      "description": "Deployment: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:13.676141",
+      "event_type": "scaling",
+      "description": "Scaling: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:41.676141",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

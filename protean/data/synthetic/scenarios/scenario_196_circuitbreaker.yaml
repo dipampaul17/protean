@@ -1,0 +1,115 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173011
+description: Circuit breaker activation due to cascading service failures
+duration: 1139
+metadata:
+  generated_at: '2025-05-23T17:30:11.364242'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:30:11.364036'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:51.364036'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 84
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.15929302196312617
+      response_time_ms: 5794
+      cpu_usage: 0.8537626756796134
+      memory_usage: 0.9162154727153422
+- timestamp: '2025-05-23T17:31:06.364036'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:33.364036'
+  event_type: degradation
+  description: 'Degradation: rate limit exceeded'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: high
+    duration: 179
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: rate limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.6946291517779837
+      response_time_ms: 4151
+      cpu_usage: 0.9904554006119982
+      memory_usage: 0.8592105269893547
+- timestamp: '2025-05-23T17:31:35.364036'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 149
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.5054269729420107
+      response_time_ms: 5876
+      cpu_usage: 0.8437648486497529
+      memory_usage: 0.9514717480296395
+- timestamp: '2025-05-23T17:31:35.364036'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 35
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.15835786885054884
+      response_time_ms: 9100
+      cpu_usage: 0.9090110669259072
+      memory_usage: 0.8527059963666925
+- timestamp: '2025-05-23T17:32:03.364036'
+  event_type: degradation
+  description: 'Degradation: circuit breaker triggered'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: low
+    duration: 186
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.013240187068555898
+      response_time_ms: 1646
+      cpu_usage: 0.34979509892871713
+      memory_usage: 0.45040149004870256
+- timestamp: '2025-05-23T17:32:04.364036'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 92
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.14481701468769126
+      response_time_ms: 3430
+      cpu_usage: 0.8689076462911964
+      memory_usage: 0.8969714121676603
+- timestamp: '2025-05-23T17:49:10.364036'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

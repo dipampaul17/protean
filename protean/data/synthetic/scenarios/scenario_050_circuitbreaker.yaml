@@ -1,0 +1,59 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_172917
+description: Circuit breaker activation due to cascading service failures
+duration: 625
+metadata:
+  generated_at: '2025-05-23T17:29:17.535464'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.535306'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:53.535306'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 54
+    log_snippet: '[2025-05-23 17:29:17] ERROR user-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.6392468764063992
+      response_time_ms: 8292
+      cpu_usage: 0.7689985400379652
+      memory_usage: 0.8000922025624613
+- timestamp: '2025-05-23T17:30:28.535306'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:43.535306'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 40
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.3825370885307592
+      response_time_ms: 6153
+      cpu_usage: 0.8498407094502693
+      memory_usage: 0.9333318116032612
+- timestamp: '2025-05-23T17:31:00.535306'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:42.535306'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

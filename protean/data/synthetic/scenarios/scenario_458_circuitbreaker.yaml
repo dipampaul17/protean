@@ -1,0 +1,70 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_172917
+description: Circuit breaker activation due to cascading service failures
+duration: 1529
+metadata:
+  generated_at: '2025-05-23T17:29:17.737757'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:29:17.737286'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:40.737286'
+  event_type: degradation
+  description: 'Degradation: database connection lost'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: high
+    duration: 140
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.535458766629524
+      response_time_ms: 1566
+      cpu_usage: 0.9629623168172976
+      memory_usage: 0.82330722944754
+- timestamp: '2025-05-23T17:29:52.737286'
+  event_type: degradation
+  description: 'Degradation: queue overflow'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: high
+    duration: 109
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: queue overflow
+      - operation failed'
+    metrics:
+      error_rate: 0.7349259496354902
+      response_time_ms: 7028
+      cpu_usage: 0.9478301095560786
+      memory_usage: 0.9044335525366408
+- timestamp: '2025-05-23T17:30:23.737286'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 44
+    log_snippet: '[2025-05-23 17:29:17] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.2838455893993743
+      response_time_ms: 2656
+      cpu_usage: 0.9150091639796217
+      memory_usage: 0.9781281789679817
+- timestamp: '2025-05-23T17:32:44.737286'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:54:46.737286'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

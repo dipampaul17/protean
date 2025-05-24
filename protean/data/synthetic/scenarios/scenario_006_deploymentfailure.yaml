@@ -1,0 +1,45 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173011
+description: Application deployment and rollback scenarios
+duration: 412
+metadata:
+  generated_at: '2025-05-23T17:30:11.310516'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:30:11.310392'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:23.310392'
+  event_type: rollback
+  description: 'Rollback: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:38.310392'
+  event_type: rollback
+  description: 'Rollback: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:46.310392'
+  event_type: deployment
+  description: 'Deployment: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:48.310392'
+  event_type: deployment
+  description: 'Deployment: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:54.310392'
+  event_type: rollback
+  description: 'Rollback: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:57.310392'
+  event_type: rollback
+  description: 'Rollback: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:03.310392'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

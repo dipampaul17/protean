@@ -1,0 +1,82 @@
+category: Microservices
+name: Microservices_20250523_184526
+description: Infrastructure failure scenario for Microservices
+duration: 1131
+metadata:
+  generated_at: '2025-05-23T18:45:26.698685'
+  phrase_templates_used: 15
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.698444'
+  event_type: trigger
+  description: 'Initial failure detected: from service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:09.698444'
+  event_type: recovery
+  description: 'Recovery: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:12.698444'
+  event_type: recovery
+  description: 'Recovery: http connection'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:19.698444'
+  event_type: recovery
+  description: 'Recovery: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:15.698444'
+  event_type: failure
+  description: 'Failure: a container'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 52
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: a container - operation
+      failed'
+    metrics:
+      error_rate: 0.8405712851426905
+      response_time_ms: 2390
+      cpu_usage: 0.7652448044088566
+      memory_usage: 0.9543474161918895
+- timestamp: '2025-05-23T18:47:22.698444'
+  event_type: failure
+  description: 'Failure: a service'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 206
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.7561745758635025
+      response_time_ms: 3818
+      cpu_usage: 0.7290718024294379
+      memory_usage: 0.8607237940750333
+- timestamp: '2025-05-23T18:48:00.698444'
+  event_type: recovery
+  description: 'Recovery: following error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:07.698444'
+  event_type: failure
+  description: 'Failure: headless service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 237
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: headless service -
+      operation failed'
+    metrics:
+      error_rate: 0.7172211480604317
+      response_time_ms: 7118
+      cpu_usage: 0.7612270190697272
+      memory_usage: 0.960037896085739
+- timestamp: '2025-05-23T19:04:17.698444'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

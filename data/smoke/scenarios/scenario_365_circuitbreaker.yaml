@@ -1,0 +1,66 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_184526
+description: Circuit breaker activation due to cascading service failures
+duration: 789
+metadata:
+  generated_at: '2025-05-23T18:45:26.770650'
+  phrase_templates_used: 50
+  total_events: 5
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.770460'
+  event_type: trigger
+  description: 'Initial failure detected: labels service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:15.770460'
+  event_type: degradation
+  description: 'Degradation: handling connection'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: low
+    duration: 174
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: handling connection
+      - operation failed'
+    metrics:
+      error_rate: 0.22079120133994415
+      response_time_ms: 809
+      cpu_usage: 0.5003216657972979
+      memory_usage: 0.6812141739793361
+- timestamp: '2025-05-23T18:46:23.770460'
+  event_type: failure
+  description: 'Failure: following error'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 261
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: following error - operation
+      failed'
+    metrics:
+      error_rate: 0.6797933894298345
+      response_time_ms: 7299
+      cpu_usage: 0.9141027413497712
+      memory_usage: 0.9558353906420152
+- timestamp: '2025-05-23T18:47:12.770460'
+  event_type: timeout
+  description: 'Timeout: this error'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 238
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: this error - operation
+      failed'
+    metrics:
+      error_rate: 0.3943798701336527
+      response_time_ms: 7871
+      cpu_usage: 0.8904004302197452
+      memory_usage: 0.9992361216253473
+- timestamp: '2025-05-23T18:58:35.770460'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

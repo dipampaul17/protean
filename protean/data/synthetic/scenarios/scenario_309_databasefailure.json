@@ -1,0 +1,81 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173011",
+  "description": "Database connectivity and performance issues",
+  "duration": 545,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.396316",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.396173",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:24.396173",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:41.396173",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 40,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR mongodb-shard: circuit breaker triggered in timeout",
+        "metrics": {
+          "error_rate": 0.207555444011434,
+          "response_time_ms": 6411,
+          "cpu_usage": 0.8923606721019146,
+          "memory_usage": 0.9685714276491092,
+          "connection_pool_usage": 0.8148232866262478,
+          "query_time_ms": 26370,
+          "deadlocks_per_sec": 5
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:57.396173",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:09.396173",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:36.396173",
+      "event_type": "corruption",
+      "description": "Corruption: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:39.396173",
+      "event_type": "corruption",
+      "description": "Corruption: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:16.396173",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

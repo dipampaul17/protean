@@ -1,0 +1,108 @@
+{
+  "category": "NetworkPartition",
+  "name": "NetworkPartition_20250523_184526",
+  "description": "Infrastructure failure scenario for NetworkPartition",
+  "duration": 485,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.784306",
+    "phrase_templates_used": 4,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.784109",
+      "event_type": "trigger",
+      "description": "Initial failure detected: each node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:08.784109",
+      "event_type": "failure",
+      "description": "Failure: and node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 96,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: and node - operation failed",
+        "metrics": {
+          "error_rate": 0.6511164986648704,
+          "response_time_ms": 8379,
+          "cpu_usage": 0.7679058594482012,
+          "memory_usage": 0.9397526823482423
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:22.784109",
+      "event_type": "failure",
+      "description": "Failure: and node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 31,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: and node - operation failed",
+        "metrics": {
+          "error_rate": 0.3944330793853602,
+          "response_time_ms": 4292,
+          "cpu_usage": 0.9141832412333784,
+          "memory_usage": 0.8959698984596822
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:34.784109",
+      "event_type": "recovery",
+      "description": "Recovery: and memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:38.784109",
+      "event_type": "failure",
+      "description": "Failure: of disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 182,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: of disk - operation failed",
+        "metrics": {
+          "error_rate": 0.5510215387771557,
+          "response_time_ms": 6331,
+          "cpu_usage": 0.7285654356682624,
+          "memory_usage": 0.9753309217305413
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:53.784109",
+      "event_type": "failure",
+      "description": "Failure: of disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 34,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: of disk - operation failed",
+        "metrics": {
+          "error_rate": 0.29201704391149685,
+          "response_time_ms": 6903,
+          "cpu_usage": 0.7847374038695496,
+          "memory_usage": 0.9860728353004533
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:53:31.784109",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

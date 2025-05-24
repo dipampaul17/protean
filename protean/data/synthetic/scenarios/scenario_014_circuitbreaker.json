@@ -1,0 +1,84 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_172917",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 499,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.514874",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.514750",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:31.514750",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:41.514750",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 51,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.7198779863911601,
+          "response_time_ms": 6105,
+          "cpu_usage": 0.9594045443448487,
+          "memory_usage": 0.8674793841298871
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:42.514750",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 47,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.12550411258109373,
+          "response_time_ms": 6131,
+          "cpu_usage": 0.7154952364543006,
+          "memory_usage": 0.9862106369076695
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:01.514750",
+      "event_type": "recovery",
+      "description": "Recovery: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:01.514750",
+      "event_type": "recovery",
+      "description": "Recovery: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:36.514750",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+category: CloudNative
+name: CloudNative_20250523_172917
+description: Kubernetes pod and container orchestration issues
+duration: 1066
+metadata:
+  generated_at: '2025-05-23T17:29:17.612522'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.612353'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:39.612353'
+  event_type: scaling
+  description: 'Scaling: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:58.612353'
+  event_type: deployment
+  description: 'Deployment: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:04.612353'
+  event_type: deployment
+  description: 'Deployment: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:09.612353'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 256
+    log_snippet: '[2025-05-23 17:29:17] ERROR api-backend: rate limit exceeded in
+      failure'
+    metrics:
+      error_rate: 0.313123065529451
+      response_time_ms: 4330
+      cpu_usage: 0.8555731258857864
+      memory_usage: 0.9260594637168068
+- timestamp: '2025-05-23T17:30:13.612353'
+  event_type: pod_restart
+  description: 'Pod_Restart: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:20.612353'
+  event_type: pod_restart
+  description: 'Pod_Restart: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:48.612353'
+  event_type: scaling
+  description: 'Scaling: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:10.612353'
+  event_type: scaling
+  description: 'Scaling: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:03.612353'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

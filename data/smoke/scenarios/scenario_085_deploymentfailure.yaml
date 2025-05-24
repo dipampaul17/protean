@@ -1,0 +1,73 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_184526
+description: Application deployment and rollback scenarios
+duration: 1789
+metadata:
+  generated_at: '2025-05-23T18:45:26.644022'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.643582'
+  event_type: trigger
+  description: 'Initial failure detected: kubectl scale'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:59.643582'
+  event_type: rollback
+  description: 'Rollback: p error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:42.643582'
+  event_type: failure
+  description: 'Failure: the deployment'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 106
+    log_snippet: '[2025-05-23 18:45:26] ERROR api-backend: the deployment in failure'
+    metrics:
+      error_rate: 0.6741580999041648
+      response_time_ms: 3335
+      cpu_usage: 0.8195465902403696
+      memory_usage: 0.8681818238129825
+- timestamp: '2025-05-23T18:47:02.643582'
+  event_type: scaling
+  description: 'Scaling: your container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:15.643582'
+  event_type: rollback
+  description: 'Rollback: p error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:19.643582'
+  event_type: deployment
+  description: 'Deployment: kind deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:33.643582'
+  event_type: failure
+  description: 'Failure: a container'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 42
+    log_snippet: '[2025-05-23 18:45:26] ERROR api-backend: a container in failure'
+    metrics:
+      error_rate: 0.1322885876266014
+      response_time_ms: 3771
+      cpu_usage: 0.7618451276452503
+      memory_usage: 0.9138674061389788
+- timestamp: '2025-05-23T18:47:41.643582'
+  event_type: deployment
+  description: 'Deployment: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:58.643582'
+  event_type: deployment
+  description: 'Deployment: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T19:15:15.643582'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

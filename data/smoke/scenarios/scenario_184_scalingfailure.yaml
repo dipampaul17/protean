@@ -1,0 +1,119 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_184526
+description: Infrastructure failure scenario for ScalingFailure
+duration: 1313
+metadata:
+  generated_at: '2025-05-23T18:45:26.694505'
+  phrase_templates_used: 24
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T18:45:26.694208'
+  event_type: trigger
+  description: 'Initial failure detected: this service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:49.694208'
+  event_type: recovery
+  description: 'Recovery: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:06.694208'
+  event_type: timeout
+  description: 'Timeout: this service'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 197
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: this service - operation
+      failed'
+    metrics:
+      error_rate: 0.34910276783861127
+      response_time_ms: 1364
+      cpu_usage: 0.7706536961927862
+      memory_usage: 0.9049100384435415
+- timestamp: '2025-05-23T18:46:16.694208'
+  event_type: timeout
+  description: 'Timeout: which node'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 256
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: which node - operation
+      failed'
+    metrics:
+      error_rate: 0.24599492462681083
+      response_time_ms: 9895
+      cpu_usage: 0.8444795414668856
+      memory_usage: 0.8356895370290942
+- timestamp: '2025-05-23T18:46:35.694208'
+  event_type: timeout
+  description: 'Timeout: the service'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 127
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: the service - operation
+      failed'
+    metrics:
+      error_rate: 0.7518743662197831
+      response_time_ms: 4508
+      cpu_usage: 0.9865028403990526
+      memory_usage: 0.8078823930450757
+- timestamp: '2025-05-23T18:46:55.694208'
+  event_type: recovery
+  description: 'Recovery: to scale'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:29.694208'
+  event_type: timeout
+  description: 'Timeout: the service'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 220
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: the service - operation
+      failed'
+    metrics:
+      error_rate: 0.14772641340468295
+      response_time_ms: 2283
+      cpu_usage: 0.8933007124405716
+      memory_usage: 0.939810147558487
+- timestamp: '2025-05-23T18:47:34.694208'
+  event_type: timeout
+  description: 'Timeout: web server'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 135
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: web server - operation
+      failed'
+    metrics:
+      error_rate: 0.8377083986363542
+      response_time_ms: 3729
+      cpu_usage: 0.7884920431515198
+      memory_usage: 0.9979062018693797
+- timestamp: '2025-05-23T18:47:43.694208'
+  event_type: timeout
+  description: 'Timeout: of failure'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 236
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: of failure - operation
+      failed'
+    metrics:
+      error_rate: 0.6411755543120148
+      response_time_ms: 7062
+      cpu_usage: 0.9809969672573036
+      memory_usage: 0.9166520800772814
+- timestamp: '2025-05-23T19:07:19.694208'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,81 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173011
+description: Database connectivity and performance issues
+duration: 1248
+metadata:
+  generated_at: '2025-05-23T17:30:11.438403'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.438210'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:36.438210'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 102
+    log_snippet: '[2025-05-23 17:30:11] ERROR redis-cache: memory limit exceeded in
+      timeout'
+    metrics:
+      error_rate: 0.5815176832209846
+      response_time_ms: 3849
+      cpu_usage: 0.934271823776569
+      memory_usage: 0.982709099883952
+      connection_pool_usage: 0.9605120902256431
+      query_time_ms: 17902
+      deadlocks_per_sec: 1
+- timestamp: '2025-05-23T17:30:58.438210'
+  event_type: connection_loss
+  description: 'Connection_Loss: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:01.438210'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 235
+    log_snippet: '[2025-05-23 17:30:11] FATAL mysql-primary: database network unreachable
+      detected'
+    metrics:
+      error_rate: 0.47136176806813557
+      response_time_ms: 5205
+      cpu_usage: 0.9379987179289208
+      memory_usage: 0.8505389819108056
+      connection_pool_usage: 0.9606425390833989
+      query_time_ms: 6489
+      deadlocks_per_sec: 2
+- timestamp: '2025-05-23T17:31:04.438210'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:09.438210'
+  event_type: corruption
+  description: 'Corruption: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:11.438210'
+  event_type: connection_loss
+  description: 'Connection_Loss: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:13.438210'
+  event_type: connection_loss
+  description: 'Connection_Loss: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:30.438210'
+  event_type: connection_loss
+  description: 'Connection_Loss: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:59.438210'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

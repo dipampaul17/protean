@@ -1,0 +1,120 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_184526",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 770,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.558313",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.558054",
+      "event_type": "trigger",
+      "description": "Initial failure detected: low disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:45.558054",
+      "event_type": "timeout",
+      "description": "Timeout: main memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 199,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: main memory - operation failed",
+        "metrics": {
+          "error_rate": 0.8524518173828824,
+          "response_time_ms": 5228,
+          "cpu_usage": 0.864988440049372,
+          "memory_usage": 0.8197695567936847
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:52.558054",
+      "event_type": "recovery",
+      "description": "Recovery: the cache",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:00.558054",
+      "event_type": "failure",
+      "description": "Failure: to memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 127,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: to memory - operation failed",
+        "metrics": {
+          "error_rate": 0.14658950545653993,
+          "response_time_ms": 2804,
+          "cpu_usage": 0.7167242994986829,
+          "memory_usage": 0.892707746195253
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:33.558054",
+      "event_type": "timeout",
+      "description": "Timeout: heap memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 52,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: heap memory - operation failed",
+        "metrics": {
+          "error_rate": 0.1976840023269677,
+          "response_time_ms": 8483,
+          "cpu_usage": 0.8076778338164285,
+          "memory_usage": 0.9821903594068623
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:46.558054",
+      "event_type": "recovery",
+      "description": "Recovery: most memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:54.558054",
+      "event_type": "timeout",
+      "description": "Timeout: the limit",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "medium",
+        "duration": 99,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: the limit - operation failed",
+        "metrics": {
+          "error_rate": 0.17844730517110324,
+          "response_time_ms": 1898,
+          "cpu_usage": 0.6999037685803792,
+          "memory_usage": 0.6474526481431017
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:14.558054",
+      "event_type": "recovery",
+      "description": "Recovery: em connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:58:16.558054",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

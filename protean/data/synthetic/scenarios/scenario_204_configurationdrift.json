@@ -1,0 +1,114 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_172917",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 570,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.600430",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.600190",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:27.600190",
+      "event_type": "config_change",
+      "description": "Config_Change: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:29.600190",
+      "event_type": "restart",
+      "description": "Restart: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:30.600190",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 283,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.7239808801443692,
+          "response_time_ms": 9513,
+          "cpu_usage": 0.8695688028627632,
+          "memory_usage": 0.8032948992873519
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:36.600190",
+      "event_type": "restart",
+      "description": "Restart: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:58.600190",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 229,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.14040424114468764,
+          "response_time_ms": 4019,
+          "cpu_usage": 0.9878726063642522,
+          "memory_usage": 0.9187184943982796
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:10.600190",
+      "event_type": "rollback",
+      "description": "Rollback: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:11.600190",
+      "event_type": "restart",
+      "description": "Restart: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:13.600190",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 256,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.4571247844674071,
+          "response_time_ms": 7034,
+          "cpu_usage": 0.844139291632754,
+          "memory_usage": 0.9223237324099912
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:47.600190",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

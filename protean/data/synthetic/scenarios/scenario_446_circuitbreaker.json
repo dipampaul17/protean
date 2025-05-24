@@ -1,0 +1,144 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_172917",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1732,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.732908",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.732702",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:59.732702",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 262,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR user-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.36850366990468575,
+          "response_time_ms": 1170,
+          "cpu_usage": 0.9627504685077081,
+          "memory_usage": 0.9254695902688642
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:50.732702",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 156,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.6023658662314825,
+          "response_time_ms": 8453,
+          "cpu_usage": 0.9163505136031205,
+          "memory_usage": 0.9979854800364237
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:52.732702",
+      "event_type": "recovery",
+      "description": "Recovery: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:57.732702",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 271,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR user-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.2402287341499495,
+          "response_time_ms": 1842,
+          "cpu_usage": 0.852320686649857,
+          "memory_usage": 0.8254860744487807
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:09.732702",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 74,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.5714699458089231,
+          "response_time_ms": 9257,
+          "cpu_usage": 0.7942574002497048,
+          "memory_usage": 0.9313550829739459
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:34.732702",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 130,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.8684532324192993,
+          "response_time_ms": 4595,
+          "cpu_usage": 0.9440510723316531,
+          "memory_usage": 0.9921919643193671
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:21.732702",
+      "event_type": "degradation",
+      "description": "Degradation: rate limit exceeded",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 234,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.8121824337036534,
+          "response_time_ms": 3689,
+          "cpu_usage": 0.8867992350268091,
+          "memory_usage": 0.8691518411723345
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:58:09.732702",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

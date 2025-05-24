@@ -1,0 +1,37 @@
+category: CascadingFailure
+name: CascadingFailure_20250523_172917
+description: Multi-service failure propagation scenario
+duration: 322
+metadata:
+  generated_at: '2025-05-23T17:29:17.532523'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:29:17.532419'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:36.532419'
+  event_type: initial_failure
+  description: 'Initial_Failure: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:47.532419'
+  event_type: propagation
+  description: 'Propagation: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:08.532419'
+  event_type: initial_failure
+  description: 'Initial_Failure: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:27.532419'
+  event_type: initial_failure
+  description: 'Initial_Failure: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:39.532419'
+  event_type: recovery
+  description: 'System recovered: all services recovered'
+  injection_spec: null

@@ -1,0 +1,77 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_172917
+description: Database connectivity and performance issues
+duration: 839
+metadata:
+  generated_at: '2025-05-23T17:29:17.616454'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.616070'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:38.616070'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 90
+    log_snippet: '[2025-05-23 17:29:17] FATAL postgres-replica: database disk space
+      full detected'
+    metrics:
+      error_rate: 0.22616120742701887
+      response_time_ms: 6784
+      cpu_usage: 0.7746846298236381
+      memory_usage: 0.8745142061173565
+      connection_pool_usage: 0.8753785680605027
+      query_time_ms: 13109
+      deadlocks_per_sec: 6
+- timestamp: '2025-05-23T17:29:40.616070'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:50.616070'
+  event_type: corruption
+  description: 'Corruption: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:51.616070'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:53.616070'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:16.616070'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 259
+    log_snippet: '[2025-05-23 17:29:17] ERROR mongodb-shard: database connection lost
+      in timeout'
+    metrics:
+      error_rate: 0.5968113898133024
+      response_time_ms: 6478
+      cpu_usage: 0.9321973556773598
+      memory_usage: 0.9426869122933478
+      connection_pool_usage: 0.8327112874658309
+      query_time_ms: 10667
+      deadlocks_per_sec: 7
+- timestamp: '2025-05-23T17:31:13.616070'
+  event_type: recovery
+  description: 'Recovery: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:43:16.616070'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

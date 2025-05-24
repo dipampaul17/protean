@@ -1,0 +1,75 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_172917",
+  "description": "Message queue and event processing failures",
+  "duration": 654,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.585194",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.584931",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:29.584931",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:39.584931",
+      "event_type": "message_loss",
+      "description": "Message_Loss: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:23.584931",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:57.584931",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 60,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR batch-processing-queue: queue processing container crashed",
+        "metrics": {
+          "error_rate": 0.6706468219568082,
+          "response_time_ms": 2828,
+          "cpu_usage": 0.833831464505246,
+          "memory_usage": 0.903565102290908,
+          "queue_depth": 3959,
+          "message_processing_rate": 8.032740918533218,
+          "consumer_lag_ms": 203461
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:19.584931",
+      "event_type": "message_loss",
+      "description": "Message_Loss: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:11.584931",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

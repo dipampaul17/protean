@@ -1,0 +1,58 @@
+category: CloudNative
+name: CloudNative_20250523_172917
+description: Kubernetes pod and container orchestration issues
+duration: 499
+metadata:
+  generated_at: '2025-05-23T17:29:17.606805'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.606694'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:47.606694'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 34
+    log_snippet: '[2025-05-23 17:29:17] ERROR nginx-proxy: queue overflow in failure'
+    metrics:
+      error_rate: 0.46833039541461174
+      response_time_ms: 8152
+      cpu_usage: 0.780242825413208
+      memory_usage: 0.8513241433168641
+- timestamp: '2025-05-23T17:30:59.606694'
+  event_type: pod_restart
+  description: 'Pod_Restart: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:05.606694'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 96
+    log_snippet: '[2025-05-23 17:29:17] ERROR nginx-proxy: rate limit exceeded in
+      failure'
+    metrics:
+      error_rate: 0.4511474129955667
+      response_time_ms: 3066
+      cpu_usage: 0.9218929221257768
+      memory_usage: 0.951818336544519
+- timestamp: '2025-05-23T17:31:16.606694'
+  event_type: scaling
+  description: 'Scaling: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:36.606694'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

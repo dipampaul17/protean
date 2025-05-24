@@ -1,0 +1,96 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_184526",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 1540,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.819160",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.818974",
+      "event_type": "trigger",
+      "description": "Initial failure detected: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:00.818974",
+      "event_type": "recovery",
+      "description": "Recovery: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:49.818974",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 200,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.67671028332844,
+          "response_time_ms": 2909,
+          "cpu_usage": 0.7474005875162105,
+          "memory_usage": 0.9591306931845989
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:04.818974",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:49:12.818974",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 92,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.28010027544935645,
+          "response_time_ms": 3959,
+          "cpu_usage": 0.9027853863687253,
+          "memory_usage": 0.9559802573337174
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:50:03.818974",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 144,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.8911570985494909,
+          "response_time_ms": 9308,
+          "cpu_usage": 0.8003494842707848,
+          "memory_usage": 0.8804703363371746
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:11:06.818974",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

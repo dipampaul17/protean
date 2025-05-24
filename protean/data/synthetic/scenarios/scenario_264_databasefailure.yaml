@@ -1,0 +1,72 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_172917
+description: Database connectivity and performance issues
+duration: 1654
+metadata:
+  generated_at: '2025-05-23T17:29:17.629767'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.629504'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:35.629504'
+  event_type: corruption
+  description: 'Corruption: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:39.629504'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 226
+    log_snippet: '[2025-05-23 17:29:17] ERROR mongodb-shard: queue overflow in timeout'
+    metrics:
+      error_rate: 0.5096118319822094
+      response_time_ms: 3241
+      cpu_usage: 0.8721364418549469
+      memory_usage: 0.9479953815996387
+      connection_pool_usage: 0.861920631740442
+      query_time_ms: 9770
+      deadlocks_per_sec: 5
+- timestamp: '2025-05-23T17:29:43.629504'
+  event_type: connection_loss
+  description: 'Connection_Loss: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:52.629504'
+  event_type: corruption
+  description: 'Corruption: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:35.629504'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:06.629504'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 43
+    log_snippet: '[2025-05-23 17:29:17] ERROR redis-cache: network unreachable in
+      timeout'
+    metrics:
+      error_rate: 0.6978425770951279
+      response_time_ms: 7960
+      cpu_usage: 0.8793721743959437
+      memory_usage: 0.8553949796047983
+      connection_pool_usage: 0.9436929911578797
+      query_time_ms: 14317
+      deadlocks_per_sec: 6
+- timestamp: '2025-05-23T17:56:51.629504'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

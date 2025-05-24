@@ -1,0 +1,96 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173011
+description: Circuit breaker activation due to cascading service failures
+duration: 577
+metadata:
+  generated_at: '2025-05-23T17:30:11.353331'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:30:11.353183'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:42.353183'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 148
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.5348681473497024
+      response_time_ms: 1049
+      cpu_usage: 0.7873289780578564
+      memory_usage: 0.8959533496580443
+- timestamp: '2025-05-23T17:31:19.353183'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 231
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.8594921146845524
+      response_time_ms: 5838
+      cpu_usage: 0.920399360713156
+      memory_usage: 0.8223602092543695
+- timestamp: '2025-05-23T17:31:26.353183'
+  event_type: degradation
+  description: 'Degradation: deployment failed'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: high
+    duration: 89
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: deployment failed -
+      operation failed'
+    metrics:
+      error_rate: 0.6625891820588932
+      response_time_ms: 6745
+      cpu_usage: 0.7007976646717626
+      memory_usage: 0.8008391773948397
+- timestamp: '2025-05-23T17:31:27.353183'
+  event_type: degradation
+  description: 'Degradation: disk space full'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: low
+    duration: 49
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.2061217393591028
+      response_time_ms: 1689
+      cpu_usage: 0.3053241489031472
+      memory_usage: 0.5966719670246836
+- timestamp: '2025-05-23T17:31:53.353183'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 208
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.8804008399136605
+      response_time_ms: 4286
+      cpu_usage: 0.7659563161932291
+      memory_usage: 0.8155939210870488
+- timestamp: '2025-05-23T17:39:48.353183'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

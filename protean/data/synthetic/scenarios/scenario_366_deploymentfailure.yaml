@@ -1,0 +1,60 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173011
+description: Application deployment and rollback scenarios
+duration: 1257
+metadata:
+  generated_at: '2025-05-23T17:30:11.411193'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.411041'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:22.411041'
+  event_type: scaling
+  description: 'Scaling: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:53.411041'
+  event_type: scaling
+  description: 'Scaling: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:59.411041'
+  event_type: rollback
+  description: 'Rollback: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:20.411041'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 206
+    log_snippet: '[2025-05-23 17:30:11] ERROR nginx-proxy: database connection lost
+      in failure'
+    metrics:
+      error_rate: 0.594127719148984
+      response_time_ms: 4559
+      cpu_usage: 0.7494283217727313
+      memory_usage: 0.8835926603692165
+- timestamp: '2025-05-23T17:32:43.411041'
+  event_type: scaling
+  description: 'Scaling: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:44.411041'
+  event_type: deployment
+  description: 'Deployment: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:53.411041'
+  event_type: deployment
+  description: 'Deployment: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:51:08.411041'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

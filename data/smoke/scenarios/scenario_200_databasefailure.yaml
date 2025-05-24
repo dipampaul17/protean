@@ -1,0 +1,93 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_184526
+description: Database connectivity and performance issues
+duration: 749
+metadata:
+  generated_at: '2025-05-23T18:45:26.699389'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.699039'
+  event_type: trigger
+  description: 'Initial failure detected: postgresql database'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:50.699039'
+  event_type: corruption
+  description: 'Corruption: in memory'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:52.699039'
+  event_type: timeout
+  description: 'Timeout: strong update'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 146
+    log_snippet: '[2025-05-23 18:45:26] ERROR mongodb-shard: strong update in timeout'
+    metrics:
+      error_rate: 0.2931515172422584
+      response_time_ms: 9578
+      cpu_usage: 0.7512758103117539
+      memory_usage: 0.8425446148646192
+      connection_pool_usage: 0.8751123487938838
+      query_time_ms: 27455
+      deadlocks_per_sec: 9
+- timestamp: '2025-05-23T18:45:57.699039'
+  event_type: timeout
+  description: 'Timeout: the container'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 220
+    log_snippet: '[2025-05-23 18:45:26] ERROR mongodb-shard: the container in timeout'
+    metrics:
+      error_rate: 0.46070817897433525
+      response_time_ms: 2317
+      cpu_usage: 0.8468598523399643
+      memory_usage: 0.808802317802421
+      connection_pool_usage: 0.8632451453947444
+      query_time_ms: 7343
+      deadlocks_per_sec: 1
+- timestamp: '2025-05-23T18:46:06.699039'
+  event_type: recovery
+  description: 'Recovery: postgres container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:09.699039'
+  event_type: recovery
+  description: 'Recovery: mongodb database'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:15.699039'
+  event_type: recovery
+  description: 'Recovery: on database'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:50.699039'
+  event_type: corruption
+  description: 'Corruption: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:59.699039'
+  event_type: timeout
+  description: 'Timeout: the error'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 232
+    log_snippet: '[2025-05-23 18:45:26] FATAL postgres-replica: database the error
+      detected'
+    metrics:
+      error_rate: 0.5452685980549886
+      response_time_ms: 5253
+      cpu_usage: 0.9276822072705522
+      memory_usage: 0.8806332858279303
+      connection_pool_usage: 0.8725651768507092
+      query_time_ms: 29257
+      deadlocks_per_sec: 8
+- timestamp: '2025-05-23T18:57:55.699039'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

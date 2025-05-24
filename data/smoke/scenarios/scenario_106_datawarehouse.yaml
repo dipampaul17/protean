@@ -1,0 +1,74 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_184526
+description: Infrastructure failure scenario for DataWarehouse
+duration: 1729
+metadata:
+  generated_at: '2025-05-23T18:45:26.651563'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.651369'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:51.651369'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 124
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.3540803365634766
+      response_time_ms: 2160
+      cpu_usage: 0.9015827003411374
+      memory_usage: 0.942494562839342
+- timestamp: '2025-05-23T18:46:57.651369'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:02.651369'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 51
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.30348782714618566
+      response_time_ms: 7869
+      cpu_usage: 0.8563403902927637
+      memory_usage: 0.9378703500152958
+- timestamp: '2025-05-23T18:48:31.651369'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T18:50:47.651369'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 198
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: container crashed - operation
+      failed'
+    metrics:
+      error_rate: 0.8419039185371524
+      response_time_ms: 3359
+      cpu_usage: 0.915829586959912
+      memory_usage: 0.8188329133165129
+- timestamp: '2025-05-23T19:14:15.651369'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

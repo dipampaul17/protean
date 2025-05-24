@@ -1,0 +1,93 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_184526
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 645
+metadata:
+  generated_at: '2025-05-23T18:45:26.707251'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.706607'
+  event_type: trigger
+  description: 'Initial failure detected: a connection'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:40.706607'
+  event_type: recovery
+  description: 'Recovery: most memory'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:41.706607'
+  event_type: failure
+  description: 'Failure: a node'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 207
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: a node - operation
+      failed'
+    metrics:
+      error_rate: 0.23900472330710834
+      response_time_ms: 3522
+      cpu_usage: 0.9889084234937378
+      memory_usage: 0.9412882330100685
+- timestamp: '2025-05-23T18:45:42.706607'
+  event_type: recovery
+  description: 'Recovery: a node'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:45.706607'
+  event_type: failure
+  description: 'Failure: a connection'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 245
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: a connection -
+      operation failed'
+    metrics:
+      error_rate: 0.6999151625250413
+      response_time_ms: 2946
+      cpu_usage: 0.889351266790957
+      memory_usage: 0.8636160099244758
+- timestamp: '2025-05-23T18:45:54.706607'
+  event_type: timeout
+  description: 'Timeout: the cache'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 42
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: the cache - operation
+      failed'
+    metrics:
+      error_rate: 0.5846239915147411
+      response_time_ms: 7754
+      cpu_usage: 0.8922870309296203
+      memory_usage: 0.8317919870045855
+- timestamp: '2025-05-23T18:46:00.706607'
+  event_type: failure
+  description: 'Failure: customer service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 168
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: customer service
+      - operation failed'
+    metrics:
+      error_rate: 0.1506318085531384
+      response_time_ms: 4086
+      cpu_usage: 0.8132150191294105
+      memory_usage: 0.933497726913165
+- timestamp: '2025-05-23T18:46:12.706607'
+  event_type: recovery
+  description: 'Recovery: float scale'
+  injection_spec: null
+- timestamp: '2025-05-23T18:56:11.706607'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

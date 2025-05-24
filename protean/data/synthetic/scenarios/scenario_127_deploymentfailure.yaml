@@ -1,0 +1,60 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_172917
+description: Application deployment and rollback scenarios
+duration: 1163
+metadata:
+  generated_at: '2025-05-23T17:29:17.579087'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.578937'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:36.578937'
+  event_type: scaling
+  description: 'Scaling: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:52.578937'
+  event_type: rollback
+  description: 'Rollback: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:59.578937'
+  event_type: scaling
+  description: 'Scaling: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:24.578937'
+  event_type: rollback
+  description: 'Rollback: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:29.578937'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 237
+    log_snippet: '[2025-05-23 17:29:17] ERROR web-frontend: database connection lost
+      in failure'
+    metrics:
+      error_rate: 0.6880341719955791
+      response_time_ms: 5960
+      cpu_usage: 0.9741857484885676
+      memory_usage: 0.917264121892631
+- timestamp: '2025-05-23T17:30:51.578937'
+  event_type: deployment
+  description: 'Deployment: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:32.578937'
+  event_type: deployment
+  description: 'Deployment: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:40.578937'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

@@ -1,0 +1,102 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173011",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 986,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.368781",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.368629",
+      "event_type": "trigger",
+      "description": "Initial failure detected: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:45.368629",
+      "event_type": "recovery",
+      "description": "Recovery: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:25.368629",
+      "event_type": "recovery",
+      "description": "Recovery: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:58.368629",
+      "event_type": "recovery",
+      "description": "Recovery: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:09.368629",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 148,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.8604332258825207,
+          "response_time_ms": 4636,
+          "cpu_usage": 0.729610664829576,
+          "memory_usage": 0.8321672670251717
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:37.368629",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 173,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR user-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.708430043159075,
+          "response_time_ms": 8163,
+          "cpu_usage": 0.8199115822852127,
+          "memory_usage": 0.9559147059377736
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:47.368629",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 204,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.23012129439238604,
+          "response_time_ms": 6400,
+          "cpu_usage": 0.9098496491984222,
+          "memory_usage": 0.9566294496631055
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:37.368629",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

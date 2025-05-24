@@ -1,0 +1,77 @@
+category: EventDriven
+name: EventDriven_20250523_173011
+description: Message queue and event processing failures
+duration: 762
+metadata:
+  generated_at: '2025-05-23T17:30:11.333800'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.333629'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:32.333629'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:27.333629'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:30.333629'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: high
+    duration: 204
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-queue: queue processing
+      connection timeout'
+    metrics:
+      error_rate: 0.10215341149760669
+      response_time_ms: 6521
+      cpu_usage: 0.7967128422676241
+      memory_usage: 0.8761460886996493
+      queue_depth: 48048
+      message_processing_rate: 6.666011213574541
+      consumer_lag_ms: 241397
+- timestamp: '2025-05-23T17:31:36.333629'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:36.333629'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 232
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-queue: queue processing authentication
+      failed'
+    metrics:
+      error_rate: 0.5576377988033848
+      response_time_ms: 6125
+      cpu_usage: 0.8749459733089693
+      memory_usage: 0.8230544985844725
+      queue_depth: 8579
+      message_processing_rate: 6.343991047264391
+      consumer_lag_ms: 135197
+- timestamp: '2025-05-23T17:31:46.333629'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:50.333629'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:42:53.333629'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

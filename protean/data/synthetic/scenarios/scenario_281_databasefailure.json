@@ -1,0 +1,93 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173011",
+  "description": "Database connectivity and performance issues",
+  "duration": 525,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.390015",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.389754",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:24.389754",
+      "event_type": "corruption",
+      "description": "Corruption: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:30.389754",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:36.389754",
+      "event_type": "corruption",
+      "description": "Corruption: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:41.389754",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "postgres-replica",
+        "severity": "high",
+        "duration": 274,
+        "log_snippet": "[2025-05-23 17:30:11] FATAL postgres-replica: database connection timeout detected",
+        "metrics": {
+          "error_rate": 0.13146492800139492,
+          "response_time_ms": 8040,
+          "cpu_usage": 0.7884001524171189,
+          "memory_usage": 0.9265195485655918,
+          "connection_pool_usage": 0.9856685383746623,
+          "query_time_ms": 22316,
+          "deadlocks_per_sec": 4
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:57.389754",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:58.389754",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:05.389754",
+      "event_type": "corruption",
+      "description": "Corruption: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:15.389754",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:56.389754",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

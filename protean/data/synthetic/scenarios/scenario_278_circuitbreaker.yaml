@@ -1,0 +1,100 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_172917
+description: Circuit breaker activation due to cascading service failures
+duration: 848
+metadata:
+  generated_at: '2025-05-23T17:29:17.642336'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:29:17.642159'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:33.642159'
+  event_type: degradation
+  description: 'Degradation: network unreachable'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: low
+    duration: 135
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.11269238185553887
+      response_time_ms: 756
+      cpu_usage: 0.5348057923319008
+      memory_usage: 0.5157185579822543
+- timestamp: '2025-05-23T17:30:47.642159'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 37
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: disk space full
+      - operation failed'
+    metrics:
+      error_rate: 0.83234188506132
+      response_time_ms: 8038
+      cpu_usage: 0.7666297113021986
+      memory_usage: 0.8661844109448187
+- timestamp: '2025-05-23T17:30:47.642159'
+  event_type: degradation
+  description: 'Degradation: deployment failed'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: high
+    duration: 107
+    log_snippet: '[2025-05-23 17:29:17] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.17003910615529944
+      response_time_ms: 2675
+      cpu_usage: 0.8781589195244303
+      memory_usage: 0.8833691737356356
+- timestamp: '2025-05-23T17:30:52.642159'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 170
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.3558156560020499
+      response_time_ms: 4173
+      cpu_usage: 0.8677489167433523
+      memory_usage: 0.9625573003844432
+- timestamp: '2025-05-23T17:31:02.642159'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 43
+    log_snippet: '[2025-05-23 17:29:17] ERROR user-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.44763610236305973
+      response_time_ms: 5973
+      cpu_usage: 0.7003463399921049
+      memory_usage: 0.8680944695158033
+- timestamp: '2025-05-23T17:31:19.642159'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:43:25.642159'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

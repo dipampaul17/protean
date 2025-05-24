@@ -1,0 +1,114 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173011",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1508,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.423580",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.423422",
+      "event_type": "trigger",
+      "description": "Initial failure detected: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:13.423422",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 164,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.1148872200453524,
+          "response_time_ms": 5169,
+          "cpu_usage": 0.8576827690976112,
+          "memory_usage": 0.9127513093694585
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:20.423422",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:09.423422",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 141,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.22305016719486687,
+          "response_time_ms": 3547,
+          "cpu_usage": 0.7256952266584916,
+          "memory_usage": 0.950091289503463
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:49.423422",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 231,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR user-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.19749437986222082,
+          "response_time_ms": 1368,
+          "cpu_usage": 0.7381086203522443,
+          "memory_usage": 0.9056203715136331
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:48.423422",
+      "event_type": "recovery",
+      "description": "Recovery: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:02.423422",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 126,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.4603967337229714,
+          "response_time_ms": 6873,
+          "cpu_usage": 0.9457275278068653,
+          "memory_usage": 0.9265112355572308
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:55:19.423422",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

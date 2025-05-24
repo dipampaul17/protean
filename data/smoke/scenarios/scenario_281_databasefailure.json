@@ -1,0 +1,90 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_184526",
+  "description": "Database connectivity and performance issues",
+  "duration": 781,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.740558",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.740375",
+      "event_type": "trigger",
+      "description": "Initial failure detected: postgres database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:41.740375",
+      "event_type": "corruption",
+      "description": "Corruption: postgres container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:47.740375",
+      "event_type": "recovery",
+      "description": "Recovery: postgres database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:48.740375",
+      "event_type": "timeout",
+      "description": "Timeout: the database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 208,
+        "log_snippet": "[2025-05-23 18:45:26] FATAL mysql-primary: database the database detected",
+        "metrics": {
+          "error_rate": 0.740551064950018,
+          "response_time_ms": 9852,
+          "cpu_usage": 0.986150121287873,
+          "memory_usage": 0.8123442804944934,
+          "connection_pool_usage": 0.8075319822212101,
+          "query_time_ms": 18238,
+          "deadlocks_per_sec": 8
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:28.740375",
+      "event_type": "timeout",
+      "description": "Timeout: sql server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 280,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR redis-cache: sql server in timeout",
+        "metrics": {
+          "error_rate": 0.7487402712776872,
+          "response_time_ms": 6469,
+          "cpu_usage": 0.8429648924333912,
+          "memory_usage": 0.9787019099169318,
+          "connection_pool_usage": 0.9729600274712331,
+          "query_time_ms": 15680,
+          "deadlocks_per_sec": 9
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:10.740375",
+      "event_type": "recovery",
+      "description": "Recovery: on database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:58:27.740375",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

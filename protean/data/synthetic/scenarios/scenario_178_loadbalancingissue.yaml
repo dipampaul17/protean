@@ -1,0 +1,68 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173011
+description: Load balancer and traffic distribution problems
+duration: 355
+metadata:
+  generated_at: '2025-05-23T17:30:11.359674'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.359545'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:22.359545'
+  event_type: backend_failure
+  description: 'Backend_Failure: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:55.359545'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: api-gateway
+    severity: high
+    duration: 149
+    log_snippet: '[2025-05-23 17:30:11] ERROR api-gateway: database connection lost
+      in timeout'
+    metrics:
+      error_rate: 0.7246072912355703
+      response_time_ms: 1104
+      cpu_usage: 0.8718353496078337
+      memory_usage: 0.8275996432982432
+      requests_per_sec: 1131
+      backend_health_pct: 0.5193095001730753
+      connection_timeouts: 539
+- timestamp: '2025-05-23T17:30:59.359545'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:21.359545'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 101
+    log_snippet: '[2025-05-23 17:30:11] ERROR subnet-private: queue overflow in timeout'
+    metrics:
+      error_rate: 0.11335854796478612
+      response_time_ms: 7051
+      cpu_usage: 0.7624416366102581
+      memory_usage: 0.8660536462961914
+      requests_per_sec: 1127
+      backend_health_pct: 0.39185793789489826
+      connection_timeouts: 247
+- timestamp: '2025-05-23T17:31:22.359545'
+  event_type: scaling
+  description: 'Scaling: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:06.359545'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

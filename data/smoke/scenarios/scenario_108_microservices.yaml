@@ -1,0 +1,100 @@
+category: Microservices
+name: Microservices_20250523_184526
+description: Infrastructure failure scenario for Microservices
+duration: 1086
+metadata:
+  generated_at: '2025-05-23T18:45:26.652126'
+  phrase_templates_used: 15
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T18:45:26.651873'
+  event_type: trigger
+  description: 'Initial failure detected: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:48.651873'
+  event_type: timeout
+  description: 'Timeout: a container'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 123
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: a container - operation
+      failed'
+    metrics:
+      error_rate: 0.8773331885146973
+      response_time_ms: 4363
+      cpu_usage: 0.813928459812336
+      memory_usage: 0.8528137253393739
+- timestamp: '2025-05-23T18:46:20.651873'
+  event_type: failure
+  description: 'Failure: a container'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 169
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: a container - operation
+      failed'
+    metrics:
+      error_rate: 0.8027776683406784
+      response_time_ms: 5247
+      cpu_usage: 0.8718095226269982
+      memory_usage: 0.875627057052475
+- timestamp: '2025-05-23T18:46:24.651873'
+  event_type: failure
+  description: 'Failure: following error'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 80
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: following error - operation
+      failed'
+    metrics:
+      error_rate: 0.6766190049588466
+      response_time_ms: 1200
+      cpu_usage: 0.7283429639774495
+      memory_usage: 0.8705195444494626
+- timestamp: '2025-05-23T18:46:58.651873'
+  event_type: recovery
+  description: 'Recovery: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:21.651873'
+  event_type: failure
+  description: 'Failure: strong service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 30
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: strong service - operation
+      failed'
+    metrics:
+      error_rate: 0.8655901103022713
+      response_time_ms: 6631
+      cpu_usage: 0.8998985006582645
+      memory_usage: 0.9553206179011469
+- timestamp: '2025-05-23T18:47:33.651873'
+  event_type: failure
+  description: 'Failure: another container'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 264
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: another container - operation
+      failed'
+    metrics:
+      error_rate: 0.5202545120128675
+      response_time_ms: 5416
+      cpu_usage: 0.8179946418392856
+      memory_usage: 0.8392638957080828
+- timestamp: '2025-05-23T19:03:32.651873'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

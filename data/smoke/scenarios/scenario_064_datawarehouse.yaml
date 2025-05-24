@@ -1,0 +1,48 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_184526
+description: Infrastructure failure scenario for DataWarehouse
+duration: 988
+metadata:
+  generated_at: '2025-05-23T18:45:26.576587'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T18:45:26.576442'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:21.576442'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:23.576442'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 147
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.7168557427058736
+      response_time_ms: 9411
+      cpu_usage: 0.8401634155599613
+      memory_usage: 0.8959255113455687
+- timestamp: '2025-05-23T18:49:20.576442'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T18:49:32.576442'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T19:01:54.576442'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

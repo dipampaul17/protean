@@ -1,0 +1,114 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_184526",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1273,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.824211",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.823982",
+      "event_type": "trigger",
+      "description": "Initial failure detected: uwsgi server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:30.823982",
+      "event_type": "recovery",
+      "description": "Recovery: customer service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:02.823982",
+      "event_type": "failure",
+      "description": "Failure: exceeded timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 162,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: exceeded timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.5037967916869531,
+          "response_time_ms": 8799,
+          "cpu_usage": 0.8669003071452555,
+          "memory_usage": 0.9747903405031388
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:22.823982",
+      "event_type": "failure",
+      "description": "Failure: a timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 120,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: a timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.7341558893088941,
+          "response_time_ms": 5492,
+          "cpu_usage": 0.7209257096429614,
+          "memory_usage": 0.8753588773942478
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:45.823982",
+      "event_type": "recovery",
+      "description": "Recovery: code server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:30.823982",
+      "event_type": "failure",
+      "description": "Failure: a queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "medium",
+        "duration": 122,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: a queue - operation failed",
+        "metrics": {
+          "error_rate": 0.17031316702067037,
+          "response_time_ms": 433,
+          "cpu_usage": 0.7779987365959625,
+          "memory_usage": 0.6093347327168345
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:49.823982",
+      "event_type": "timeout",
+      "description": "Timeout: a timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 67,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: a timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.16227841287512013,
+          "response_time_ms": 3557,
+          "cpu_usage": 0.9083274990941023,
+          "memory_usage": 0.9163699969969925
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:06:39.823982",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

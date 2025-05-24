@@ -1,0 +1,75 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_172917",
+  "description": "Database connectivity and performance issues",
+  "duration": 1607,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.718550",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.718206",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:03.718206",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:38.718206",
+      "event_type": "recovery",
+      "description": "Recovery: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:02.718206",
+      "event_type": "corruption",
+      "description": "Corruption: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:31.718206",
+      "event_type": "corruption",
+      "description": "Corruption: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:08.718206",
+      "event_type": "timeout",
+      "description": "Timeout: disk space full",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 120,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR redis-cache: disk space full in timeout",
+        "metrics": {
+          "error_rate": 0.3043926598471348,
+          "response_time_ms": 5687,
+          "cpu_usage": 0.7295765549567744,
+          "memory_usage": 0.9792788907361676,
+          "connection_pool_usage": 0.8680154120710721,
+          "query_time_ms": 21427,
+          "deadlocks_per_sec": 10
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:56:04.718206",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

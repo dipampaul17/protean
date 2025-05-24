@@ -1,0 +1,55 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173011
+description: Application deployment and rollback scenarios
+duration: 1083
+metadata:
+  generated_at: '2025-05-23T17:30:11.416925'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.416723'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:21.416723'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 223
+    log_snippet: '[2025-05-23 17:30:11] ERROR api-backend: container crashed in failure'
+    metrics:
+      error_rate: 0.48281669093076995
+      response_time_ms: 1109
+      cpu_usage: 0.7562513535436148
+      memory_usage: 0.8558738123630334
+- timestamp: '2025-05-23T17:30:30.416723'
+  event_type: deployment
+  description: 'Deployment: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:48.416723'
+  event_type: scaling
+  description: 'Scaling: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:33.416723'
+  event_type: rollback
+  description: 'Rollback: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:55.416723'
+  event_type: deployment
+  description: 'Deployment: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:09.416723'
+  event_type: rollback
+  description: 'Rollback: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:14.416723'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

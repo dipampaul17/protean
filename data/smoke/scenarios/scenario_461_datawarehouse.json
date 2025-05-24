@@ -1,0 +1,138 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_184526",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 1621,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.815803",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.815500",
+      "event_type": "trigger",
+      "description": "Initial failure detected: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:57.815500",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 274,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.4158440687098378,
+          "response_time_ms": 2736,
+          "cpu_usage": 0.7716853843560405,
+          "memory_usage": 0.9720653985704757
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:01.815500",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 127,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.5736484662256357,
+          "response_time_ms": 2677,
+          "cpu_usage": 0.7182303458645664,
+          "memory_usage": 0.8452699869703224
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:26.815500",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 95,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.20287116829320662,
+          "response_time_ms": 2750,
+          "cpu_usage": 0.8624282095915763,
+          "memory_usage": 0.9362387034727521
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:29.815500",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 205,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.7187840624989114,
+          "response_time_ms": 7755,
+          "cpu_usage": 0.7593201220416058,
+          "memory_usage": 0.8146859078743613
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:35.815500",
+      "event_type": "recovery",
+      "description": "Recovery: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:43.815500",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 223,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.46399465934969564,
+          "response_time_ms": 6410,
+          "cpu_usage": 0.7243168302357625,
+          "memory_usage": 0.8369257659210286
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:47.815500",
+      "event_type": "recovery",
+      "description": "Recovery: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:35.815500",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:12:27.815500",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

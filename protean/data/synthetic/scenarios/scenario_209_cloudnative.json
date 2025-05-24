@@ -1,0 +1,72 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_172917",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 991,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.601675",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.601534",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:35.601534",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 66,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR api-backend: circuit breaker triggered in failure",
+        "metrics": {
+          "error_rate": 0.8656452332145902,
+          "response_time_ms": 8791,
+          "cpu_usage": 0.8401570569346589,
+          "memory_usage": 0.9741444646112637
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:08.601534",
+      "event_type": "deployment",
+      "description": "Deployment: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:38.601534",
+      "event_type": "deployment",
+      "description": "Deployment: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:12.601534",
+      "event_type": "deployment",
+      "description": "Deployment: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:26.601534",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:45:48.601534",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

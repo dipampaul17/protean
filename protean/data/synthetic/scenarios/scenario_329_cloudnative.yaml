@@ -1,0 +1,60 @@
+category: CloudNative
+name: CloudNative_20250523_172917
+description: Kubernetes pod and container orchestration issues
+duration: 587
+metadata:
+  generated_at: '2025-05-23T17:29:17.687288'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.686715'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:34.686715'
+  event_type: scaling
+  description: 'Scaling: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:36.686715'
+  event_type: pod_restart
+  description: 'Pod_Restart: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:40.686715'
+  event_type: scaling
+  description: 'Scaling: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:55.686715'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 91
+    log_snippet: '[2025-05-23 17:29:17] ERROR worker-consumer: authentication failed
+      in failure'
+    metrics:
+      error_rate: 0.35114865229392167
+      response_time_ms: 6210
+      cpu_usage: 0.917434311834179
+      memory_usage: 0.957148654780462
+- timestamp: '2025-05-23T17:30:05.686715'
+  event_type: deployment
+  description: 'Deployment: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:14.686715'
+  event_type: pod_restart
+  description: 'Pod_Restart: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:18.686715'
+  event_type: scaling
+  description: 'Scaling: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:04.686715'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

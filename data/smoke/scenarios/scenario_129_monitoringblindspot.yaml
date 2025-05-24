@@ -1,0 +1,112 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_184526
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 824
+metadata:
+  generated_at: '2025-05-23T18:45:26.659710'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T18:45:26.659365'
+  event_type: trigger
+  description: 'Initial failure detected: a server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:47.659365'
+  event_type: recovery
+  description: 'Recovery: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:07.659365'
+  event_type: failure
+  description: 'Failure: each node'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 54
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: each node - operation
+      failed'
+    metrics:
+      error_rate: 0.24892436449474564
+      response_time_ms: 2385
+      cpu_usage: 0.8270757256780458
+      memory_usage: 0.8517969557196308
+- timestamp: '2025-05-23T18:46:20.659365'
+  event_type: timeout
+  description: 'Timeout: the node'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 172
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: the node - operation failed'
+    metrics:
+      error_rate: 0.4679757194087495
+      response_time_ms: 4426
+      cpu_usage: 0.9728196168125738
+      memory_usage: 0.9410229068488046
+- timestamp: '2025-05-23T18:46:47.659365'
+  event_type: timeout
+  description: 'Timeout: of cpu'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 89
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: of cpu - operation failed'
+    metrics:
+      error_rate: 0.32408240743507366
+      response_time_ms: 9604
+      cpu_usage: 0.7935494156549945
+      memory_usage: 0.9810799123558382
+- timestamp: '2025-05-23T18:47:11.659365'
+  event_type: timeout
+  description: 'Timeout: the cluster'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 146
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: the cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.15127501294364826
+      response_time_ms: 9584
+      cpu_usage: 0.7032928009835612
+      memory_usage: 0.9818382448953691
+- timestamp: '2025-05-23T18:47:17.659365'
+  event_type: failure
+  description: 'Failure: us log'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 90
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: us log - operation
+      failed'
+    metrics:
+      error_rate: 0.613024007531512
+      response_time_ms: 7136
+      cpu_usage: 0.9048875747222404
+      memory_usage: 0.8715777099106399
+- timestamp: '2025-05-23T18:47:22.659365'
+  event_type: failure
+  description: 'Failure: a node'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 101
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: a node - operation failed'
+    metrics:
+      error_rate: 0.21412359472810927
+      response_time_ms: 3111
+      cpu_usage: 0.9414601231454972
+      memory_usage: 0.8978235313838901
+- timestamp: '2025-05-23T18:59:10.659365'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

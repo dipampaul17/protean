@@ -1,0 +1,69 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173011",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 928,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.419761",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.419661",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:22.419661",
+      "event_type": "scaling",
+      "description": "Scaling: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:54.419661",
+      "event_type": "scaling",
+      "description": "Scaling: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:06.419661",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:43.419661",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 169,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-gateway: rate limit exceeded in timeout",
+        "metrics": {
+          "error_rate": 0.13899275921989826,
+          "response_time_ms": 3252,
+          "cpu_usage": 0.8047192194481696,
+          "memory_usage": 0.8251220208605299,
+          "requests_per_sec": 2779,
+          "backend_health_pct": 0.4986999026651366,
+          "connection_timeouts": 964
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:45:39.419661",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

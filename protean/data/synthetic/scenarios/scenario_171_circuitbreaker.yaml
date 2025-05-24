@@ -1,0 +1,81 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173011
+description: Circuit breaker activation due to cascading service failures
+duration: 510
+metadata:
+  generated_at: '2025-05-23T17:30:11.358391'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:30:11.358119'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:47.358119'
+  event_type: degradation
+  description: 'Degradation: circuit breaker triggered'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: low
+    duration: 288
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: circuit breaker
+      triggered - operation failed'
+    metrics:
+      error_rate: 0.10058484038063101
+      response_time_ms: 496
+      cpu_usage: 0.7829128496693247
+      memory_usage: 0.6101888454684246
+- timestamp: '2025-05-23T17:31:16.358119'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 50
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.31064355873299726
+      response_time_ms: 3091
+      cpu_usage: 0.838837128135672
+      memory_usage: 0.8973768399554463
+- timestamp: '2025-05-23T17:31:31.358119'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 278
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.5150575937208349
+      response_time_ms: 8567
+      cpu_usage: 0.862994042567669
+      memory_usage: 0.9184196592357391
+- timestamp: '2025-05-23T17:31:57.358119'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 180
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: rate limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.8088503971935086
+      response_time_ms: 8299
+      cpu_usage: 0.770959123523174
+      memory_usage: 0.9751887200942319
+- timestamp: '2025-05-23T17:38:41.358119'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

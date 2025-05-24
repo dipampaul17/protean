@@ -1,0 +1,66 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_184526",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1062,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.688966",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.688827",
+      "event_type": "trigger",
+      "description": "Initial failure detected: following error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:41.688827",
+      "event_type": "failure",
+      "description": "Failure: kind deployment",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 286,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR api-backend: kind deployment in failure",
+        "metrics": {
+          "error_rate": 0.3160350188689196,
+          "response_time_ms": 8885,
+          "cpu_usage": 0.9243072526032945,
+          "memory_usage": 0.8699424195590006
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:47.688827",
+      "event_type": "scaling",
+      "description": "Scaling: kubernetes cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:53.688827",
+      "event_type": "deployment",
+      "description": "Deployment: p error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:49:10.688827",
+      "event_type": "scaling",
+      "description": "Scaling: failed to",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:03:08.688827",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

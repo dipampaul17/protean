@@ -1,0 +1,46 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_172917
+description: Database connectivity and performance issues
+duration: 1623
+metadata:
+  generated_at: '2025-05-23T17:29:17.751923'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.751830'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:10.751830'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 142
+    log_snippet: '[2025-05-23 17:29:17] ERROR redis-cache: container crashed in timeout'
+    metrics:
+      error_rate: 0.2485436799475873
+      response_time_ms: 3468
+      cpu_usage: 0.7051037383377019
+      memory_usage: 0.8852407594447835
+      connection_pool_usage: 0.8078428285358791
+      query_time_ms: 13256
+      deadlocks_per_sec: 5
+- timestamp: '2025-05-23T17:34:29.751830'
+  event_type: corruption
+  description: 'Corruption: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:41.751830'
+  event_type: recovery
+  description: 'Recovery: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:56:20.751830'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

@@ -1,0 +1,84 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173011",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1161,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.383618",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.383421",
+      "event_type": "trigger",
+      "description": "Initial failure detected: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:46.383421",
+      "event_type": "rollback",
+      "description": "Rollback: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:12.383421",
+      "event_type": "failure",
+      "description": "Failure: memory limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 182,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR user-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.7888011363959428,
+          "response_time_ms": 8922,
+          "cpu_usage": 0.8500882672673071,
+          "memory_usage": 0.9049770260897002
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:21.383421",
+      "event_type": "rollback",
+      "description": "Rollback: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:27.383421",
+      "event_type": "restart",
+      "description": "Restart: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:31.383421",
+      "event_type": "config_change",
+      "description": "Config_Change: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:02.383421",
+      "event_type": "restart",
+      "description": "Restart: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:27.383421",
+      "event_type": "restart",
+      "description": "Restart: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:32.383421",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

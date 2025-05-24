@@ -1,0 +1,70 @@
+category: DataCorruption
+name: DataCorruption_20250523_184526
+description: Infrastructure failure scenario for DataCorruption
+duration: 1498
+metadata:
+  generated_at: '2025-05-23T18:45:26.770425'
+  phrase_templates_used: 36
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.770195'
+  event_type: trigger
+  description: 'Initial failure detected: a database'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:42.770195'
+  event_type: failure
+  description: 'Failure: only container'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 299
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: only container - operation
+      failed'
+    metrics:
+      error_rate: 0.26581591762010637
+      response_time_ms: 9090
+      cpu_usage: 0.961204096197384
+      memory_usage: 0.9213594501346773
+- timestamp: '2025-05-23T18:48:14.770195'
+  event_type: timeout
+  description: 'Timeout: the connection'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 142
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: the connection - operation
+      failed'
+    metrics:
+      error_rate: 0.894304419476746
+      response_time_ms: 8141
+      cpu_usage: 0.9239998914395365
+      memory_usage: 0.8739673064091629
+- timestamp: '2025-05-23T18:50:13.770195'
+  event_type: recovery
+  description: 'Recovery: to node'
+  injection_spec: null
+- timestamp: '2025-05-23T18:50:19.770195'
+  event_type: failure
+  description: 'Failure: the server'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 113
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.6005415701124006
+      response_time_ms: 9807
+      cpu_usage: 0.8191528495482615
+      memory_usage: 0.9666396582985552
+- timestamp: '2025-05-23T19:10:24.770195'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

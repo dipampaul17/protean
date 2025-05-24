@@ -1,0 +1,58 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173011
+description: Load balancer and traffic distribution problems
+duration: 811
+metadata:
+  generated_at: '2025-05-23T17:30:11.387056'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.386917'
+  event_type: trigger
+  description: 'Initial failure detected: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:44.386917'
+  event_type: scaling
+  description: 'Scaling: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:52.386917'
+  event_type: scaling
+  description: 'Scaling: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:19.386917'
+  event_type: backend_failure
+  description: 'Backend_Failure: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:31.386917'
+  event_type: backend_failure
+  description: 'Backend_Failure: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:34.386917'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 54
+    log_snippet: '[2025-05-23 17:30:11] ERROR subnet-private: disk space full in timeout'
+    metrics:
+      error_rate: 0.5133173129732411
+      response_time_ms: 6066
+      cpu_usage: 0.7568958685276715
+      memory_usage: 0.9366236852269256
+      requests_per_sec: 5729
+      backend_health_pct: 0.551226772655175
+      connection_timeouts: 423
+- timestamp: '2025-05-23T17:31:36.386917'
+  event_type: backend_failure
+  description: 'Backend_Failure: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:43:42.386917'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

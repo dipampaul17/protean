@@ -1,0 +1,115 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_184526
+description: Infrastructure failure scenario for ETLPipeline
+duration: 354
+metadata:
+  generated_at: '2025-05-23T18:45:26.649614'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T18:45:26.649336'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:36.649336'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 88
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: container crashed - operation
+      failed'
+    metrics:
+      error_rate: 0.5340752846668255
+      response_time_ms: 7494
+      cpu_usage: 0.9412307146759604
+      memory_usage: 0.8689491004787888
+- timestamp: '2025-05-23T18:45:37.649336'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 214
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.6786543884280614
+      response_time_ms: 1792
+      cpu_usage: 0.8518702955381922
+      memory_usage: 0.920043871254662
+- timestamp: '2025-05-23T18:45:42.649336'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 187
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.49072681211848623
+      response_time_ms: 9259
+      cpu_usage: 0.8516391695541423
+      memory_usage: 0.8332204429255886
+- timestamp: '2025-05-23T18:45:43.649336'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 99
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.6945459731602712
+      response_time_ms: 8187
+      cpu_usage: 0.9298379669338867
+      memory_usage: 0.8872354847673265
+- timestamp: '2025-05-23T18:45:43.649336'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 73
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: rate limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.6929166412659572
+      response_time_ms: 6600
+      cpu_usage: 0.7274642109001966
+      memory_usage: 0.9479777894508135
+- timestamp: '2025-05-23T18:45:48.649336'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 198
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: deployment failed -
+      operation failed'
+    metrics:
+      error_rate: 0.7953561314838891
+      response_time_ms: 7044
+      cpu_usage: 0.7509286647483036
+      memory_usage: 0.9219330032839359
+- timestamp: '2025-05-23T18:46:03.649336'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T18:51:20.649336'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

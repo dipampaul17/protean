@@ -1,0 +1,47 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_184526
+description: Database connectivity and performance issues
+duration: 1353
+metadata:
+  generated_at: '2025-05-23T18:45:26.827273'
+  phrase_templates_used: 50
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T18:45:26.826702'
+  event_type: trigger
+  description: 'Initial failure detected: a database'
+  injection_spec: null
+- timestamp: '2025-05-23T18:49:21.826702'
+  event_type: corruption
+  description: 'Corruption: requires restart'
+  injection_spec: null
+- timestamp: '2025-05-23T18:50:16.826702'
+  event_type: timeout
+  description: 'Timeout: the cache'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 112
+    log_snippet: '[2025-05-23 18:45:26] FATAL postgres-replica: database the cache
+      detected'
+    metrics:
+      error_rate: 0.32021029856386135
+      response_time_ms: 2118
+      cpu_usage: 0.7072019689208541
+      memory_usage: 0.942198902411196
+      connection_pool_usage: 0.957761237945248
+      query_time_ms: 10446
+      deadlocks_per_sec: 10
+- timestamp: '2025-05-23T18:51:30.826702'
+  event_type: connection_loss
+  description: 'Connection_Loss: the connection'
+  injection_spec: null
+- timestamp: '2025-05-23T19:07:59.826702'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

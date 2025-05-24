@@ -1,0 +1,56 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_172917
+description: Configuration inconsistencies causing service degradation
+duration: 347
+metadata:
+  generated_at: '2025-05-23T17:29:17.742171'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.742031'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:31.742031'
+  event_type: restart
+  description: 'Restart: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:35.742031'
+  event_type: restart
+  description: 'Restart: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:36.742031'
+  event_type: config_change
+  description: 'Config_Change: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:40.742031'
+  event_type: rollback
+  description: 'Rollback: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:59.742031'
+  event_type: restart
+  description: 'Restart: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:14.742031'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 82
+    log_snippet: '[2025-05-23 17:29:17] ERROR user-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.8459839932851091
+      response_time_ms: 9194
+      cpu_usage: 0.8835415239231904
+      memory_usage: 0.949456829823724
+- timestamp: '2025-05-23T17:35:04.742031'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

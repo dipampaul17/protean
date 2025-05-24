@@ -1,0 +1,72 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_173011",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 1697,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.385835",
+    "phrase_templates_used": 0,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.385737",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:46.385737",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 235,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR web-frontend: queue overflow in failure",
+        "metrics": {
+          "error_rate": 0.31445407217136945,
+          "response_time_ms": 2583,
+          "cpu_usage": 0.9427332717389049,
+          "memory_usage": 0.879833812958773
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:35.385737",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 53,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR worker-consumer: container crashed in failure",
+        "metrics": {
+          "error_rate": 0.47301622253843956,
+          "response_time_ms": 5609,
+          "cpu_usage": 0.7908805017079185,
+          "memory_usage": 0.8029857515078607
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:18.385737",
+      "event_type": "deployment",
+      "description": "Deployment: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:58:28.385737",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_184526",
+  "description": "Message queue and event processing failures",
+  "duration": 1730,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.682118",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.664379",
+      "event_type": "trigger",
+      "description": "Initial failure detected: following error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:04.664379",
+      "event_type": "recovery",
+      "description": "Recovery: a network",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:05.664379",
+      "event_type": "recovery",
+      "description": "Recovery: connection refused",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:49.664379",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: rabbitmq server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:58.664379",
+      "event_type": "recovery",
+      "description": "Recovery: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:34.664379",
+      "event_type": "timeout",
+      "description": "Timeout: to node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 194,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-queue: queue processing to node",
+        "metrics": {
+          "error_rate": 0.6620778517783755,
+          "response_time_ms": 1059,
+          "cpu_usage": 0.7870392774761211,
+          "memory_usage": 0.9056018400463813,
+          "queue_depth": 8291,
+          "message_processing_rate": 7.140443451876646,
+          "consumer_lag_ms": 285530
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:49:11.664379",
+      "event_type": "timeout",
+      "description": "Timeout: the server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 133,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-queue: queue processing the server",
+        "metrics": {
+          "error_rate": 0.8505441005615785,
+          "response_time_ms": 2462,
+          "cpu_usage": 0.7339326518012695,
+          "memory_usage": 0.8632874359940124,
+          "queue_depth": 39305,
+          "message_processing_rate": 0.8124494692898447,
+          "consumer_lag_ms": 221052
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:49:23.664379",
+      "event_type": "timeout",
+      "description": "Timeout: server restart",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 49,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-queue: queue processing server restart",
+        "metrics": {
+          "error_rate": 0.8616572922347133,
+          "response_time_ms": 4795,
+          "cpu_usage": 0.7362627592520433,
+          "memory_usage": 0.8881646312758604,
+          "queue_depth": 49954,
+          "message_processing_rate": 1.4870152338783358,
+          "consumer_lag_ms": 185996
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:14:16.664379",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

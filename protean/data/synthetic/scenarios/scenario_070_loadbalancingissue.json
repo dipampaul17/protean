@@ -1,0 +1,93 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_172917",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 698,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.542592",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.542413",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:28.542413",
+      "event_type": "scaling",
+      "description": "Scaling: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:29.542413",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:31.542413",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:04.542413",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:06.542413",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:20.542413",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "subnet-private",
+        "severity": "high",
+        "duration": 288,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR subnet-private: queue overflow in timeout",
+        "metrics": {
+          "error_rate": 0.7205603247113845,
+          "response_time_ms": 8281,
+          "cpu_usage": 0.8612792296649636,
+          "memory_usage": 0.9121491394450836,
+          "requests_per_sec": 100,
+          "backend_health_pct": 0.49144953527218765,
+          "connection_timeouts": 988
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:30.542413",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:41.542413",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:55.542413",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

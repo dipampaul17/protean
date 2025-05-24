@@ -1,0 +1,63 @@
+category: CloudNative
+name: CloudNative_20250523_184526
+description: Kubernetes pod and container orchestration issues
+duration: 322
+metadata:
+  generated_at: '2025-05-23T18:45:26.753808'
+  phrase_templates_used: 39
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T18:45:26.753563'
+  event_type: trigger
+  description: 'Initial failure detected: eks cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:37.753563'
+  event_type: deployment
+  description: 'Deployment: failed container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:38.753563'
+  event_type: deployment
+  description: 'Deployment: dns server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:43.753563'
+  event_type: pod_restart
+  description: 'Pod_Restart: gt service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:44.753563'
+  event_type: scaling
+  description: 'Scaling: gt service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:49.753563'
+  event_type: deployment
+  description: 'Deployment: failed container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:04.753563'
+  event_type: deployment
+  description: 'Deployment: your cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:05.753563'
+  event_type: scaling
+  description: 'Scaling: code pod'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:06.753563'
+  event_type: failure
+  description: 'Failure: the pod'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 154
+    log_snippet: '[2025-05-23 18:45:26] ERROR nginx-proxy: the pod in failure'
+    metrics:
+      error_rate: 0.466085914118728
+      response_time_ms: 8663
+      cpu_usage: 0.9599749176512402
+      memory_usage: 0.8802213221000225
+- timestamp: '2025-05-23T18:50:48.753563'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

@@ -1,0 +1,55 @@
+category: EventDriven
+name: EventDriven_20250523_173011
+description: Message queue and event processing failures
+duration: 674
+metadata:
+  generated_at: '2025-05-23T17:30:11.323353'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.323234'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:26.323234'
+  event_type: message_loss
+  description: 'Message_Loss: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:32.323234'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 254
+    log_snippet: '[2025-05-23 17:30:11] ERROR batch-processing-queue: queue processing
+      container crashed'
+    metrics:
+      error_rate: 0.645472579763092
+      response_time_ms: 2344
+      cpu_usage: 0.7977830941251847
+      memory_usage: 0.9042643696691701
+      queue_depth: 20906
+      message_processing_rate: 3.4218852122112335
+      consumer_lag_ms: 222580
+- timestamp: '2025-05-23T17:32:02.323234'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:17.323234'
+  event_type: message_loss
+  description: 'Message_Loss: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:18.323234'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:25.323234'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

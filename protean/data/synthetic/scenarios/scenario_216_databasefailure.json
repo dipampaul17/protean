@@ -1,0 +1,93 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173011",
+  "description": "Database connectivity and performance issues",
+  "duration": 1617,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.369468",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.369297",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:11.369297",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:39.369297",
+      "event_type": "recovery",
+      "description": "Recovery: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:00.369297",
+      "event_type": "corruption",
+      "description": "Corruption: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:26.369297",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 105,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR redis-cache: connection timeout in timeout",
+        "metrics": {
+          "error_rate": 0.7243047785560208,
+          "response_time_ms": 1733,
+          "cpu_usage": 0.9671897795006622,
+          "memory_usage": 0.9197724564391168,
+          "connection_pool_usage": 0.9877782840667837,
+          "query_time_ms": 15280,
+          "deadlocks_per_sec": 2
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:30.369297",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:33.369297",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:58.369297",
+      "event_type": "corruption",
+      "description": "Corruption: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:22.369297",
+      "event_type": "corruption",
+      "description": "Corruption: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:57:08.369297",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

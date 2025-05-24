@@ -1,0 +1,90 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_172917",
+  "description": "Database connectivity and performance issues",
+  "duration": 1717,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.742823",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.742689",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:32.742689",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 231,
+        "log_snippet": "[2025-05-23 17:29:17] FATAL mysql-primary: database network unreachable detected",
+        "metrics": {
+          "error_rate": 0.40404134612898046,
+          "response_time_ms": 4752,
+          "cpu_usage": 0.9265592142790741,
+          "memory_usage": 0.9846257835673763,
+          "connection_pool_usage": 0.9357416493186366,
+          "query_time_ms": 23150,
+          "deadlocks_per_sec": 7
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:50.742689",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:55.742689",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 89,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR redis-cache: connection timeout in timeout",
+        "metrics": {
+          "error_rate": 0.21057328374488363,
+          "response_time_ms": 3504,
+          "cpu_usage": 0.9770260411824734,
+          "memory_usage": 0.8853827994677298,
+          "connection_pool_usage": 0.9885029811250586,
+          "query_time_ms": 22263,
+          "deadlocks_per_sec": 8
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:34.742689",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:44.742689",
+      "event_type": "recovery",
+      "description": "Recovery: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:57:54.742689",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

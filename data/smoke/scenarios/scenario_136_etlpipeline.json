@@ -1,0 +1,126 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_184526",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 1381,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.662358",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.662062",
+      "event_type": "trigger",
+      "description": "Initial failure detected: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:44.662062",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 100,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.5078566093888991,
+          "response_time_ms": 3072,
+          "cpu_usage": 0.8403341644685516,
+          "memory_usage": 0.9134065259117757
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:52.662062",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 126,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.20191539437761438,
+          "response_time_ms": 9792,
+          "cpu_usage": 0.8415055938421594,
+          "memory_usage": 0.8419154350517891
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:14.662062",
+      "event_type": "recovery",
+      "description": "Recovery: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:40.662062",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:08.662062",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 167,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.33845064725865176,
+          "response_time_ms": 7556,
+          "cpu_usage": 0.8191738522039855,
+          "memory_usage": 0.8413458423714557
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:57.662062",
+      "event_type": "recovery",
+      "description": "Recovery: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:08.662062",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 146,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.5265045457095964,
+          "response_time_ms": 4935,
+          "cpu_usage": 0.8925718471946719,
+          "memory_usage": 0.8571990246838828
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:10.662062",
+      "event_type": "recovery",
+      "description": "Recovery: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:08:27.662062",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

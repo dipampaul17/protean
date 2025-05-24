@@ -1,0 +1,84 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_184526",
+  "description": "Database connectivity and performance issues",
+  "duration": 1066,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.663770",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.663612",
+      "event_type": "trigger",
+      "description": "Initial failure detected: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:35.663612",
+      "event_type": "timeout",
+      "description": "Timeout: using docker",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 86,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR mongodb-shard: using docker in timeout",
+        "metrics": {
+          "error_rate": 0.8155010684285247,
+          "response_time_ms": 2567,
+          "cpu_usage": 0.7505877209383934,
+          "memory_usage": 0.8912368047816096,
+          "connection_pool_usage": 0.8777183742937407,
+          "query_time_ms": 21846,
+          "deadlocks_per_sec": 6
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:24.663612",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:48.663612",
+      "event_type": "recovery",
+      "description": "Recovery: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:49:03.663612",
+      "event_type": "timeout",
+      "description": "Timeout: the update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 101,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR redis-cache: the update in timeout",
+        "metrics": {
+          "error_rate": 0.2729062389221995,
+          "response_time_ms": 7375,
+          "cpu_usage": 0.9649954388038251,
+          "memory_usage": 0.8327555225628276,
+          "connection_pool_usage": 0.9908134070244747,
+          "query_time_ms": 7639,
+          "deadlocks_per_sec": 9
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:03:12.663612",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_184526
+description: Database connectivity and performance issues
+duration: 1535
+metadata:
+  generated_at: '2025-05-23T18:45:26.740344'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T18:45:26.740132'
+  event_type: trigger
+  description: 'Initial failure detected: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:28.740132'
+  event_type: corruption
+  description: 'Corruption: code server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:55.740132'
+  event_type: connection_loss
+  description: 'Connection_Loss: the database'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:08.740132'
+  event_type: corruption
+  description: 'Corruption: code server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:52.740132'
+  event_type: timeout
+  description: 'Timeout: the database'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 92
+    log_snippet: '[2025-05-23 18:45:26] ERROR mongodb-shard: the database in timeout'
+    metrics:
+      error_rate: 0.860798765538178
+      response_time_ms: 2218
+      cpu_usage: 0.9624149986192643
+      memory_usage: 0.8444754935862652
+      connection_pool_usage: 0.8589775022008901
+      query_time_ms: 25628
+      deadlocks_per_sec: 2
+- timestamp: '2025-05-23T18:48:18.740132'
+  event_type: recovery
+  description: 'Recovery: postgres container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:38.740132'
+  event_type: corruption
+  description: 'Corruption: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:49.740132'
+  event_type: recovery
+  description: 'Recovery: your database'
+  injection_spec: null
+- timestamp: '2025-05-23T19:11:01.740132'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

@@ -1,0 +1,78 @@
+{
+  "category": "NetworkPartition",
+  "name": "NetworkPartition_20250523_184526",
+  "description": "Infrastructure failure scenario for NetworkPartition",
+  "duration": 519,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.695560",
+    "phrase_templates_used": 4,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.695341",
+      "event_type": "trigger",
+      "description": "Initial failure detected: each node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:26.695341",
+      "event_type": "recovery",
+      "description": "Recovery: each node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:26.695341",
+      "event_type": "timeout",
+      "description": "Timeout: each node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 35,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: each node - operation failed",
+        "metrics": {
+          "error_rate": 0.4537371056602977,
+          "response_time_ms": 6961,
+          "cpu_usage": 0.7704863255489878,
+          "memory_usage": 0.9499832248524428
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:36.695341",
+      "event_type": "timeout",
+      "description": "Timeout: and node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 66,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: and node - operation failed",
+        "metrics": {
+          "error_rate": 0.6249334528321333,
+          "response_time_ms": 2821,
+          "cpu_usage": 0.9566359023568627,
+          "memory_usage": 0.8419210413820404
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:14.695341",
+      "event_type": "recovery",
+      "description": "Recovery: and node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:54:05.695341",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

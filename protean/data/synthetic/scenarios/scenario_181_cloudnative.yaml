@@ -1,0 +1,82 @@
+category: CloudNative
+name: CloudNative_20250523_173011
+description: Kubernetes pod and container orchestration issues
+duration: 1075
+metadata:
+  generated_at: '2025-05-23T17:30:11.360793'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:30:11.360623'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:22.360623'
+  event_type: pod_restart
+  description: 'Pod_Restart: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:40.360623'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 64
+    log_snippet: '[2025-05-23 17:30:11] ERROR web-frontend: database connection lost
+      in failure'
+    metrics:
+      error_rate: 0.3155326564293611
+      response_time_ms: 5951
+      cpu_usage: 0.7214139421841829
+      memory_usage: 0.8738579103158262
+- timestamp: '2025-05-23T17:30:58.360623'
+  event_type: pod_restart
+  description: 'Pod_Restart: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:56.360623'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 164
+    log_snippet: '[2025-05-23 17:30:11] ERROR worker-consumer: circuit breaker triggered
+      in failure'
+    metrics:
+      error_rate: 0.824525150064197
+      response_time_ms: 1174
+      cpu_usage: 0.7556866975275741
+      memory_usage: 0.9954860996956025
+- timestamp: '2025-05-23T17:32:13.360623'
+  event_type: deployment
+  description: 'Deployment: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:14.360623'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 246
+    log_snippet: '[2025-05-23 17:30:11] ERROR api-backend: database connection lost
+      in failure'
+    metrics:
+      error_rate: 0.5324884541036359
+      response_time_ms: 9824
+      cpu_usage: 0.8822506131579372
+      memory_usage: 0.8080557661297328
+- timestamp: '2025-05-23T17:32:27.360623'
+  event_type: scaling
+  description: 'Scaling: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:06.360623'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

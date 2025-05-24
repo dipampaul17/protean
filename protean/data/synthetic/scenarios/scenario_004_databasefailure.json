@@ -1,0 +1,90 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173011",
+  "description": "Database connectivity and performance issues",
+  "duration": 888,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.310252",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.310116",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:09.310116",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 99,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR redis-cache: container crashed in timeout",
+        "metrics": {
+          "error_rate": 0.3515417075490228,
+          "response_time_ms": 8189,
+          "cpu_usage": 0.9325539456949268,
+          "memory_usage": 0.9233147166221218,
+          "connection_pool_usage": 0.9431402930958563,
+          "query_time_ms": 25591,
+          "deadlocks_per_sec": 6
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:11.310116",
+      "event_type": "corruption",
+      "description": "Corruption: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:31.310116",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:40.310116",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:48.310116",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 233,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR mongodb-shard: network unreachable in timeout",
+        "metrics": {
+          "error_rate": 0.420228806181263,
+          "response_time_ms": 3543,
+          "cpu_usage": 0.819938802256022,
+          "memory_usage": 0.9344952433128562,
+          "connection_pool_usage": 0.8485415880993535,
+          "query_time_ms": 16633,
+          "deadlocks_per_sec": 6
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:44:59.310116",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

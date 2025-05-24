@@ -1,0 +1,78 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_184526",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1286,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.710635",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.710480",
+      "event_type": "trigger",
+      "description": "Initial failure detected: code error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:36.710480",
+      "event_type": "recovery",
+      "description": "Recovery: the log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:57.710480",
+      "event_type": "failure",
+      "description": "Failure: the error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 70,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: the error - operation failed",
+        "metrics": {
+          "error_rate": 0.44620786304106286,
+          "response_time_ms": 7907,
+          "cpu_usage": 0.972704962766159,
+          "memory_usage": 0.8775511972398232
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:49:45.710480",
+      "event_type": "recovery",
+      "description": "Recovery: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:50:29.710480",
+      "event_type": "degradation",
+      "description": "Degradation: var log",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "low",
+        "duration": 48,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: var log - operation failed",
+        "metrics": {
+          "error_rate": 0.28068077944004927,
+          "response_time_ms": 166,
+          "cpu_usage": 0.742516048093502,
+          "memory_usage": 0.6619858471507292
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:06:52.710480",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

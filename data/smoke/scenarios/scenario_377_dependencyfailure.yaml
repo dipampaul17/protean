@@ -1,0 +1,74 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_184526
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1735
+metadata:
+  generated_at: '2025-05-23T18:45:26.775032'
+  phrase_templates_used: 45
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.774803'
+  event_type: trigger
+  description: 'Initial failure detected: external service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:13.774803'
+  event_type: recovery
+  description: 'Recovery: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:33.774803'
+  event_type: failure
+  description: 'Failure: exist error'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 85
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: exist error - operation
+      failed'
+    metrics:
+      error_rate: 0.28312900794882245
+      response_time_ms: 4288
+      cpu_usage: 0.9735315452897761
+      memory_usage: 0.9888076623850648
+- timestamp: '2025-05-23T18:49:30.774803'
+  event_type: recovery
+  description: 'Recovery: headless service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:50:32.774803'
+  event_type: timeout
+  description: 'Timeout: upstream queue'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: medium
+    duration: 106
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: upstream queue - operation
+      failed'
+    metrics:
+      error_rate: 0.1189598262178207
+      response_time_ms: 1571
+      cpu_usage: 0.6502745149780932
+      memory_usage: 0.5539615027226941
+- timestamp: '2025-05-23T18:51:09.774803'
+  event_type: timeout
+  description: 'Timeout: nginx service'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 179
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: nginx service - operation
+      failed'
+    metrics:
+      error_rate: 0.3863967613102107
+      response_time_ms: 3891
+      cpu_usage: 0.9916308792981579
+      memory_usage: 0.9416801301036777
+- timestamp: '2025-05-23T19:14:21.774803'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

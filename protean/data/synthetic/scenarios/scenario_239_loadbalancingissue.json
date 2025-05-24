@@ -1,0 +1,153 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173011",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 1357,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.374751",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.374532",
+      "event_type": "trigger",
+      "description": "Initial failure detected: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:35.374532",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 291,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-gateway: queue overflow in timeout",
+        "metrics": {
+          "error_rate": 0.17671423792899496,
+          "response_time_ms": 2915,
+          "cpu_usage": 0.9399193904596441,
+          "memory_usage": 0.902407329051483,
+          "requests_per_sec": 4956,
+          "backend_health_pct": 0.5680904921167995,
+          "connection_timeouts": 379
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:46.374532",
+      "event_type": "scaling",
+      "description": "Scaling: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:00.374532",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "subnet-private",
+        "severity": "high",
+        "duration": 162,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR subnet-private: database connection lost in timeout",
+        "metrics": {
+          "error_rate": 0.7209569482589065,
+          "response_time_ms": 6371,
+          "cpu_usage": 0.9708615719928229,
+          "memory_usage": 0.8365711861044848,
+          "requests_per_sec": 3017,
+          "backend_health_pct": 0.5527599089141451,
+          "connection_timeouts": 663
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:21.374532",
+      "event_type": "scaling",
+      "description": "Scaling: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:34.374532",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 198,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-gateway: database connection lost in timeout",
+        "metrics": {
+          "error_rate": 0.3840558850493274,
+          "response_time_ms": 3797,
+          "cpu_usage": 0.8057516116684069,
+          "memory_usage": 0.9342244722293191,
+          "requests_per_sec": 7523,
+          "backend_health_pct": 0.7343893884500581,
+          "connection_timeouts": 897
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:43.374532",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 204,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-gateway: container crashed in timeout",
+        "metrics": {
+          "error_rate": 0.6759059807848715,
+          "response_time_ms": 3193,
+          "cpu_usage": 0.804873751985657,
+          "memory_usage": 0.9927023807947302,
+          "requests_per_sec": 1873,
+          "backend_health_pct": 0.49832716153613626,
+          "connection_timeouts": 864
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:37.374532",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "subnet-private",
+        "severity": "high",
+        "duration": 186,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR subnet-private: database connection lost in timeout",
+        "metrics": {
+          "error_rate": 0.7560491780258791,
+          "response_time_ms": 8608,
+          "cpu_usage": 0.8258794695179579,
+          "memory_usage": 0.9792677920827314,
+          "requests_per_sec": 7136,
+          "backend_health_pct": 0.3843749218388557,
+          "connection_timeouts": 625
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:39.374532",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:52:48.374532",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

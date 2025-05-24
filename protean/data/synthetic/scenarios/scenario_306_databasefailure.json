@@ -1,0 +1,138 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_172917",
+  "description": "Database connectivity and performance issues",
+  "duration": 896,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.680425",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.680225",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:05.680225",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 35,
+        "log_snippet": "[2025-05-23 17:29:17] FATAL mysql-primary: database deployment failed detected",
+        "metrics": {
+          "error_rate": 0.12830235610311347,
+          "response_time_ms": 6434,
+          "cpu_usage": 0.7288505476213859,
+          "memory_usage": 0.9334075887768084,
+          "connection_pool_usage": 0.8045496108601882,
+          "query_time_ms": 23720,
+          "deadlocks_per_sec": 8
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:07.680225",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 111,
+        "log_snippet": "[2025-05-23 17:29:17] FATAL mysql-primary: database circuit breaker triggered detected",
+        "metrics": {
+          "error_rate": 0.10924262154770564,
+          "response_time_ms": 3499,
+          "cpu_usage": 0.804928024168104,
+          "memory_usage": 0.8394661823394329,
+          "connection_pool_usage": 0.9621993048029563,
+          "query_time_ms": 18553,
+          "deadlocks_per_sec": 6
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:10.680225",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 107,
+        "log_snippet": "[2025-05-23 17:29:17] FATAL mysql-primary: database memory limit exceeded detected",
+        "metrics": {
+          "error_rate": 0.8543668899886584,
+          "response_time_ms": 7583,
+          "cpu_usage": 0.7042978520001522,
+          "memory_usage": 0.978311319979621,
+          "connection_pool_usage": 0.840872756478192,
+          "query_time_ms": 13255,
+          "deadlocks_per_sec": 3
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:12.680225",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 153,
+        "log_snippet": "[2025-05-23 17:29:17] FATAL mysql-primary: database circuit breaker triggered detected",
+        "metrics": {
+          "error_rate": 0.2384507888256665,
+          "response_time_ms": 4673,
+          "cpu_usage": 0.7396088291347037,
+          "memory_usage": 0.8459555786854336,
+          "connection_pool_usage": 0.8458132944989347,
+          "query_time_ms": 26559,
+          "deadlocks_per_sec": 9
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:23.680225",
+      "event_type": "recovery",
+      "description": "Recovery: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:26.680225",
+      "event_type": "recovery",
+      "description": "Recovery: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:43.680225",
+      "event_type": "recovery",
+      "description": "Recovery: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:04.680225",
+      "event_type": "corruption",
+      "description": "Corruption: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:44:13.680225",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

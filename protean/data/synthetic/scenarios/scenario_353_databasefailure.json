@@ -1,0 +1,75 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_172917",
+  "description": "Database connectivity and performance issues",
+  "duration": 1476,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.702115",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.701994",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:37.701994",
+      "event_type": "timeout",
+      "description": "Timeout: disk space full",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 39,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR redis-cache: disk space full in timeout",
+        "metrics": {
+          "error_rate": 0.8951647158780672,
+          "response_time_ms": 3780,
+          "cpu_usage": 0.8097194674218668,
+          "memory_usage": 0.9448835056122501,
+          "connection_pool_usage": 0.9417540794251698,
+          "query_time_ms": 19631,
+          "deadlocks_per_sec": 5
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:23.701994",
+      "event_type": "corruption",
+      "description": "Corruption: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:30.701994",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:39.701994",
+      "event_type": "corruption",
+      "description": "Corruption: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:13.701994",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:53:53.701994",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

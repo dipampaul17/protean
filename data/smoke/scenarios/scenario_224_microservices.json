@@ -1,0 +1,120 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_184526",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 401,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.707552",
+    "phrase_templates_used": 15,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.707290",
+      "event_type": "trigger",
+      "description": "Initial failure detected: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:42.707290",
+      "event_type": "timeout",
+      "description": "Timeout: lt service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 159,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: lt service - operation failed",
+        "metrics": {
+          "error_rate": 0.8999018561348539,
+          "response_time_ms": 1056,
+          "cpu_usage": 0.9451626230695467,
+          "memory_usage": 0.8308583664573393
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:55.707290",
+      "event_type": "failure",
+      "description": "Failure: to service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 150,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: to service - operation failed",
+        "metrics": {
+          "error_rate": 0.6271640013254447,
+          "response_time_ms": 8356,
+          "cpu_usage": 0.8491440954780471,
+          "memory_usage": 0.8992895136372232
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:06.707290",
+      "event_type": "timeout",
+      "description": "Timeout: from service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 41,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: from service - operation failed",
+        "metrics": {
+          "error_rate": 0.6000737028040068,
+          "response_time_ms": 6039,
+          "cpu_usage": 0.80087468791328,
+          "memory_usage": 0.8298162298354412
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:06.707290",
+      "event_type": "recovery",
+      "description": "Recovery: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:11.707290",
+      "event_type": "recovery",
+      "description": "Recovery: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:19.707290",
+      "event_type": "recovery",
+      "description": "Recovery: lt service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:21.707290",
+      "event_type": "failure",
+      "description": "Failure: lt service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 105,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: lt service - operation failed",
+        "metrics": {
+          "error_rate": 0.37424699707625864,
+          "response_time_ms": 8602,
+          "cpu_usage": 0.928697936656009,
+          "memory_usage": 0.980325884934754
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:52:07.707290",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

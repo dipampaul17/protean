@@ -1,0 +1,82 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173011
+description: Application deployment and rollback scenarios
+duration: 1117
+metadata:
+  generated_at: '2025-05-23T17:30:11.445323'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:30:11.445153'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:29.445153'
+  event_type: deployment
+  description: 'Deployment: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:33.445153'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 274
+    log_snippet: '[2025-05-23 17:30:11] ERROR web-frontend: authentication failed
+      in failure'
+    metrics:
+      error_rate: 0.4687569543431648
+      response_time_ms: 4260
+      cpu_usage: 0.8454950458951608
+      memory_usage: 0.8829884712935551
+- timestamp: '2025-05-23T17:30:52.445153'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 169
+    log_snippet: '[2025-05-23 17:30:11] ERROR web-frontend: network unreachable in
+      failure'
+    metrics:
+      error_rate: 0.7469106565484299
+      response_time_ms: 4659
+      cpu_usage: 0.7838220781516533
+      memory_usage: 0.9969691332012086
+- timestamp: '2025-05-23T17:31:04.445153'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 32
+    log_snippet: '[2025-05-23 17:30:11] ERROR web-frontend: database connection lost
+      in failure'
+    metrics:
+      error_rate: 0.23286741366286068
+      response_time_ms: 6984
+      cpu_usage: 0.8626687636089359
+      memory_usage: 0.9907635867196161
+- timestamp: '2025-05-23T17:31:46.445153'
+  event_type: scaling
+  description: 'Scaling: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:06.445153'
+  event_type: scaling
+  description: 'Scaling: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:44.445153'
+  event_type: rollback
+  description: 'Rollback: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:48.445153'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

@@ -1,0 +1,64 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_184526
+description: Database connectivity and performance issues
+duration: 649
+metadata:
+  generated_at: '2025-05-23T18:45:26.768400'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.768235'
+  event_type: trigger
+  description: 'Initial failure detected: mysql database'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:51.768235'
+  event_type: timeout
+  description: 'Timeout: docker container'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 61
+    log_snippet: '[2025-05-23 18:45:26] FATAL postgres-replica: database docker container
+      detected'
+    metrics:
+      error_rate: 0.1955427436964258
+      response_time_ms: 6185
+      cpu_usage: 0.912945451150576
+      memory_usage: 0.8162837840067778
+      connection_pool_usage: 0.8885694885225792
+      query_time_ms: 24102
+      deadlocks_per_sec: 5
+- timestamp: '2025-05-23T18:46:59.768235'
+  event_type: timeout
+  description: 'Timeout: p error'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 283
+    log_snippet: '[2025-05-23 18:45:26] FATAL mysql-primary: database p error detected'
+    metrics:
+      error_rate: 0.4463406357830543
+      response_time_ms: 6210
+      cpu_usage: 0.9322294183658087
+      memory_usage: 0.9232974763610888
+      connection_pool_usage: 0.868469468298411
+      query_time_ms: 17489
+      deadlocks_per_sec: 10
+- timestamp: '2025-05-23T18:47:19.768235'
+  event_type: connection_loss
+  description: 'Connection_Loss: to fix'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:46.768235'
+  event_type: corruption
+  description: 'Corruption: code update'
+  injection_spec: null
+- timestamp: '2025-05-23T18:56:15.768235'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

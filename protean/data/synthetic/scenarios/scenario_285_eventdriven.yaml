@@ -1,0 +1,73 @@
+category: EventDriven
+name: EventDriven_20250523_173011
+description: Message queue and event processing failures
+duration: 1311
+metadata:
+  generated_at: '2025-05-23T17:30:11.390735'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.390586'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:55.390586'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 261
+    log_snippet: '[2025-05-23 17:30:11] ERROR batch-processing-queue: queue processing
+      service unavailable'
+    metrics:
+      error_rate: 0.5501807590372522
+      response_time_ms: 4151
+      cpu_usage: 0.9888652247604127
+      memory_usage: 0.972402342587428
+      queue_depth: 2241
+      message_processing_rate: 1.1502109782689007
+      consumer_lag_ms: 260879
+- timestamp: '2025-05-23T17:32:08.390586'
+  event_type: message_loss
+  description: 'Message_Loss: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:02.390586'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:19.390586'
+  event_type: message_loss
+  description: 'Message_Loss: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:24.390586'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: high
+    duration: 241
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-queue: queue processing
+      queue overflow'
+    metrics:
+      error_rate: 0.30831281627559304
+      response_time_ms: 4285
+      cpu_usage: 0.8103639853197336
+      memory_usage: 0.9028727213567178
+      queue_depth: 39294
+      message_processing_rate: 4.480382776233667
+      consumer_lag_ms: 222024
+- timestamp: '2025-05-23T17:33:30.390586'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:52:02.390586'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

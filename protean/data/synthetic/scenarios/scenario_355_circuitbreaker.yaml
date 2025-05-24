@@ -1,0 +1,115 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173011
+description: Circuit breaker activation due to cascading service failures
+duration: 1180
+metadata:
+  generated_at: '2025-05-23T17:30:11.407527'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:30:11.407339'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:28.407339'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 121
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.3728214362253538
+      response_time_ms: 4246
+      cpu_usage: 0.8774932948684055
+      memory_usage: 0.9760289559780463
+- timestamp: '2025-05-23T17:30:30.407339'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:49.407339'
+  event_type: degradation
+  description: 'Degradation: rate limit exceeded'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: high
+    duration: 98
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.5708139022918165
+      response_time_ms: 1007
+      cpu_usage: 0.9407197003452715
+      memory_usage: 0.8782483914037567
+- timestamp: '2025-05-23T17:31:11.407339'
+  event_type: degradation
+  description: 'Degradation: memory limit exceeded'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: high
+    duration: 254
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.749170953632348
+      response_time_ms: 1117
+      cpu_usage: 0.945717668651892
+      memory_usage: 0.9289903487351244
+- timestamp: '2025-05-23T17:31:37.407339'
+  event_type: degradation
+  description: 'Degradation: authentication failed'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: high
+    duration: 115
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.8297909626166845
+      response_time_ms: 8270
+      cpu_usage: 0.7563187381675347
+      memory_usage: 0.9586625511680357
+- timestamp: '2025-05-23T17:32:25.407339'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 255
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.28921490561282115
+      response_time_ms: 5945
+      cpu_usage: 0.768829812837202
+      memory_usage: 0.8610746048560176
+- timestamp: '2025-05-23T17:32:36.407339'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 64
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: queue overflow
+      - operation failed'
+    metrics:
+      error_rate: 0.3912564435339624
+      response_time_ms: 9809
+      cpu_usage: 0.8319013866843388
+      memory_usage: 0.8326675030109303
+- timestamp: '2025-05-23T17:49:51.407339'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

@@ -1,0 +1,90 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173011",
+  "description": "Message queue and event processing failures",
+  "duration": 1634,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.428631",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.428506",
+      "event_type": "trigger",
+      "description": "Initial failure detected: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:26.428506",
+      "event_type": "message_loss",
+      "description": "Message_Loss: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:41.428506",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:57.428506",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-queue",
+        "severity": "high",
+        "duration": 139,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-queue: queue processing connection timeout",
+        "metrics": {
+          "error_rate": 0.14804751907868108,
+          "response_time_ms": 1033,
+          "cpu_usage": 0.7760539627951254,
+          "memory_usage": 0.8354392324418664,
+          "queue_depth": 27414,
+          "message_processing_rate": 7.578774331138069,
+          "consumer_lag_ms": 255305
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:47.428506",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:15.428506",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 274,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR batch-processing-queue: queue processing authentication failed",
+        "metrics": {
+          "error_rate": 0.3351359050294761,
+          "response_time_ms": 6394,
+          "cpu_usage": 0.9828756286804443,
+          "memory_usage": 0.8202699495725378,
+          "queue_depth": 11323,
+          "message_processing_rate": 2.638299445226984,
+          "consumer_lag_ms": 207924
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:57:25.428506",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

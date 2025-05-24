@@ -1,0 +1,62 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_172917
+description: Application deployment and rollback scenarios
+duration: 1776
+metadata:
+  generated_at: '2025-05-23T17:29:17.515808'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.515682'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:35.515682'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 194
+    log_snippet: '[2025-05-23 17:29:17] ERROR nginx-proxy: deployment failed in failure'
+    metrics:
+      error_rate: 0.2769996263829896
+      response_time_ms: 6108
+      cpu_usage: 0.7730828528804258
+      memory_usage: 0.8064583379872264
+- timestamp: '2025-05-23T17:32:46.515682'
+  event_type: scaling
+  description: 'Scaling: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:02.515682'
+  event_type: rollback
+  description: 'Rollback: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:14.515682'
+  event_type: scaling
+  description: 'Scaling: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:43.515682'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 252
+    log_snippet: '[2025-05-23 17:29:17] ERROR web-frontend: service unavailable in
+      failure'
+    metrics:
+      error_rate: 0.15591163192102836
+      response_time_ms: 2036
+      cpu_usage: 0.7007323458358697
+      memory_usage: 0.9816244259088843
+- timestamp: '2025-05-23T17:58:53.515682'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

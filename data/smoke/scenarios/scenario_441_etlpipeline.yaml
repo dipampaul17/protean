@@ -1,0 +1,108 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_184526
+description: Infrastructure failure scenario for ETLPipeline
+duration: 1591
+metadata:
+  generated_at: '2025-05-23T18:45:26.808506'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T18:45:26.808200'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:36.808200'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 137
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.28377913340342636
+      response_time_ms: 4414
+      cpu_usage: 0.8542556455726895
+      memory_usage: 0.9136708613425966
+- timestamp: '2025-05-23T18:45:37.808200'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:38.808200'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 179
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.16910519481916708
+      response_time_ms: 9764
+      cpu_usage: 0.887762660186078
+      memory_usage: 0.812264058254358
+- timestamp: '2025-05-23T18:45:53.808200'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 194
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.5587184172203664
+      response_time_ms: 5065
+      cpu_usage: 0.9827912084080995
+      memory_usage: 0.986697438349436
+- timestamp: '2025-05-23T18:45:54.808200'
+  event_type: recovery
+  description: 'Recovery: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:27.808200'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 135
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.7789365000048836
+      response_time_ms: 3463
+      cpu_usage: 0.7010326297541136
+      memory_usage: 0.9295591964572885
+- timestamp: '2025-05-23T18:47:37.808200'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:42.808200'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 289
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.2896075996655598
+      response_time_ms: 8629
+      cpu_usage: 0.7229976426624634
+      memory_usage: 0.8717635614858326
+- timestamp: '2025-05-23T19:11:57.808200'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

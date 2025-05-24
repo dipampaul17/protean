@@ -1,0 +1,144 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_184526",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 858,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.552357",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.552065",
+      "event_type": "trigger",
+      "description": "Initial failure detected: http server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:00.552065",
+      "event_type": "failure",
+      "description": "Failure: the database",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 80,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: the database - operation failed",
+        "metrics": {
+          "error_rate": 0.2664999991847681,
+          "response_time_ms": 7316,
+          "cpu_usage": 0.9791324879559808,
+          "memory_usage": 0.8251148728694206
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:34.552065",
+      "event_type": "timeout",
+      "description": "Timeout: float scale",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 145,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: float scale - operation failed",
+        "metrics": {
+          "error_rate": 0.3399519144046493,
+          "response_time_ms": 5856,
+          "cpu_usage": 0.9102035944674242,
+          "memory_usage": 0.8181040322808991
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:49.552065",
+      "event_type": "timeout",
+      "description": "Timeout: heap memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 130,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: heap memory - operation failed",
+        "metrics": {
+          "error_rate": 0.10365090982763432,
+          "response_time_ms": 7917,
+          "cpu_usage": 0.709306701478606,
+          "memory_usage": 0.9979502765420878
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:58.552065",
+      "event_type": "timeout",
+      "description": "Timeout: lt container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 123,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: lt container - operation failed",
+        "metrics": {
+          "error_rate": 0.8726856312217766,
+          "response_time_ms": 3385,
+          "cpu_usage": 0.9081070136855443,
+          "memory_usage": 0.9517722084152457
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:00.552065",
+      "event_type": "recovery",
+      "description": "Recovery: the memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:20.552065",
+      "event_type": "failure",
+      "description": "Failure: heap memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 271,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: heap memory - operation failed",
+        "metrics": {
+          "error_rate": 0.49681487837910077,
+          "response_time_ms": 8288,
+          "cpu_usage": 0.9599313111357355,
+          "memory_usage": 0.9267428603494626
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:25.552065",
+      "event_type": "failure",
+      "description": "Failure: accessed memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 141,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: accessed memory - operation failed",
+        "metrics": {
+          "error_rate": 0.47127502589553183,
+          "response_time_ms": 7397,
+          "cpu_usage": 0.7422473280884279,
+          "memory_usage": 0.8856009540230537
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:59:44.552065",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

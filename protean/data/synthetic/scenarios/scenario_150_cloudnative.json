@@ -1,0 +1,120 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_172917",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 1386,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.585407",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.585218",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:18.585218",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 287,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR nginx-proxy: authentication failed in failure",
+        "metrics": {
+          "error_rate": 0.36568488415264155,
+          "response_time_ms": 6773,
+          "cpu_usage": 0.8941070925117292,
+          "memory_usage": 0.9376354495106511
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:57.585218",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 129,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR api-backend: container crashed in failure",
+        "metrics": {
+          "error_rate": 0.7663132480709381,
+          "response_time_ms": 6265,
+          "cpu_usage": 0.9300540379889447,
+          "memory_usage": 0.8139813105470707
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:18.585218",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 159,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR api-backend: network unreachable in failure",
+        "metrics": {
+          "error_rate": 0.4798856413154692,
+          "response_time_ms": 4469,
+          "cpu_usage": 0.833957670637454,
+          "memory_usage": 0.8046754983323541
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:33.585218",
+      "event_type": "deployment",
+      "description": "Deployment: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:04.585218",
+      "event_type": "deployment",
+      "description": "Deployment: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:30.585218",
+      "event_type": "scaling",
+      "description": "Scaling: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:30.585218",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 299,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR web-frontend: circuit breaker triggered in failure",
+        "metrics": {
+          "error_rate": 0.14566677085799223,
+          "response_time_ms": 4854,
+          "cpu_usage": 0.947852247585117,
+          "memory_usage": 0.8437115048280059
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:52:23.585218",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

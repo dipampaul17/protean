@@ -1,0 +1,78 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_173011",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 1784,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.311990",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.311887",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:25.311887",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:04.311887",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 151,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR nginx-proxy: deployment failed in failure",
+        "metrics": {
+          "error_rate": 0.14341898410624776,
+          "response_time_ms": 4281,
+          "cpu_usage": 0.7060692905479462,
+          "memory_usage": 0.9478368381291971
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:30.311887",
+      "event_type": "deployment",
+      "description": "Deployment: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:48.311887",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 72,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-backend: network unreachable in failure",
+        "metrics": {
+          "error_rate": 0.24435114463545712,
+          "response_time_ms": 9702,
+          "cpu_usage": 0.8891188956631358,
+          "memory_usage": 0.8932536394859422
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:59:55.311887",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_184526
+description: Circuit breaker activation due to cascading service failures
+duration: 987
+metadata:
+  generated_at: '2025-05-23T18:45:26.750650'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T18:45:26.750378'
+  event_type: trigger
+  description: 'Initial failure detected: uwsgi server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:53.750378'
+  event_type: failure
+  description: 'Failure: session timeout'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 123
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: session timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.18708047402262196
+      response_time_ms: 4285
+      cpu_usage: 0.8206066289470871
+      memory_usage: 0.8944468068300426
+- timestamp: '2025-05-23T18:46:10.750378'
+  event_type: degradation
+  description: 'Degradation: this error'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: low
+    duration: 45
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: this error - operation
+      failed'
+    metrics:
+      error_rate: 0.18741893919083646
+      response_time_ms: 1182
+      cpu_usage: 0.7165535830199177
+      memory_usage: 0.6017025388609647
+- timestamp: '2025-05-23T18:46:41.750378'
+  event_type: failure
+  description: 'Failure: nginx error'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 56
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: nginx error - operation
+      failed'
+    metrics:
+      error_rate: 0.873839118420476
+      response_time_ms: 7632
+      cpu_usage: 0.9105747357828957
+      memory_usage: 0.8707247297657286
+- timestamp: '2025-05-23T18:46:42.750378'
+  event_type: timeout
+  description: 'Timeout: the error'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 273
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.24228196302318397
+      response_time_ms: 5680
+      cpu_usage: 0.8234612710271969
+      memory_usage: 0.9151999093217822
+- timestamp: '2025-05-23T18:46:47.750378'
+  event_type: timeout
+  description: 'Timeout: to log'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 211
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: to log - operation
+      failed'
+    metrics:
+      error_rate: 0.7444503655926642
+      response_time_ms: 6130
+      cpu_usage: 0.837029914567001
+      memory_usage: 0.9561993380972041
+- timestamp: '2025-05-23T18:47:11.750378'
+  event_type: failure
+  description: 'Failure: exceeded timeout'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 149
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: exceeded timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.10762253619425986
+      response_time_ms: 5115
+      cpu_usage: 0.7551042849136492
+      memory_usage: 0.8217922759391377
+- timestamp: '2025-05-23T18:47:15.750378'
+  event_type: recovery
+  description: 'Recovery: to fix'
+  injection_spec: null
+- timestamp: '2025-05-23T19:01:53.750378'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

@@ -1,0 +1,89 @@
+category: Microservices
+name: Microservices_20250523_184526
+description: Infrastructure failure scenario for Microservices
+duration: 1450
+metadata:
+  generated_at: '2025-05-23T18:45:26.823948'
+  phrase_templates_used: 15
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.823715'
+  event_type: trigger
+  description: 'Initial failure detected: lt service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:37.823715'
+  event_type: failure
+  description: 'Failure: lt service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 269
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: lt service - operation
+      failed'
+    metrics:
+      error_rate: 0.6986281589295527
+      response_time_ms: 2311
+      cpu_usage: 0.8524842108203334
+      memory_usage: 0.9752026905775084
+- timestamp: '2025-05-23T18:45:46.823715'
+  event_type: recovery
+  description: 'Recovery: to service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:07.823715'
+  event_type: recovery
+  description: 'Recovery: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:23.823715'
+  event_type: failure
+  description: 'Failure: another container'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 106
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: another container - operation
+      failed'
+    metrics:
+      error_rate: 0.39220744384508144
+      response_time_ms: 3975
+      cpu_usage: 0.8782765914147667
+      memory_usage: 0.8243923797123203
+- timestamp: '2025-05-23T18:48:44.823715'
+  event_type: failure
+  description: 'Failure: lt service'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 254
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: lt service - operation
+      failed'
+    metrics:
+      error_rate: 0.21556525128208187
+      response_time_ms: 4081
+      cpu_usage: 0.8804953117530375
+      memory_usage: 0.9833021601218537
+- timestamp: '2025-05-23T18:49:02.823715'
+  event_type: timeout
+  description: 'Timeout: another container'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 39
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: another container -
+      operation failed'
+    metrics:
+      error_rate: 0.8212535741524428
+      response_time_ms: 5951
+      cpu_usage: 0.8501875513309813
+      memory_usage: 0.9031387342883394
+- timestamp: '2025-05-23T19:09:36.823715'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

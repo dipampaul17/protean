@@ -1,0 +1,46 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_184526
+description: Load balancer and traffic distribution problems
+duration: 1213
+metadata:
+  generated_at: '2025-05-23T18:45:26.579534'
+  phrase_templates_used: 13
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T18:45:26.579410'
+  event_type: trigger
+  description: 'Initial failure detected: load balancer'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:15.579410'
+  event_type: scaling
+  description: 'Scaling: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:29.579410'
+  event_type: timeout
+  description: 'Timeout: a service'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 35
+    log_snippet: '[2025-05-23 18:45:26] ERROR subnet-private: a service in timeout'
+    metrics:
+      error_rate: 0.7672587451369653
+      response_time_ms: 2267
+      cpu_usage: 0.7542152519860268
+      memory_usage: 0.941203156793373
+      requests_per_sec: 7394
+      backend_health_pct: 0.4761996421330851
+      connection_timeouts: 859
+- timestamp: '2025-05-23T18:51:00.579410'
+  event_type: backend_failure
+  description: 'Backend_Failure: a pod'
+  injection_spec: null
+- timestamp: '2025-05-23T19:05:39.579410'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

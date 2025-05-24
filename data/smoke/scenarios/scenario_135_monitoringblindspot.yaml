@@ -1,0 +1,118 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_184526
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1069
+metadata:
+  generated_at: '2025-05-23T18:45:26.662029'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T18:45:26.661727'
+  event_type: trigger
+  description: 'Initial failure detected: customer service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:49.661727'
+  event_type: timeout
+  description: 'Timeout: kubernetes cluster'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 266
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: kubernetes cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.6959752546882748
+      response_time_ms: 1055
+      cpu_usage: 0.8008953226424823
+      memory_usage: 0.8416037722498781
+- timestamp: '2025-05-23T18:46:06.661727'
+  event_type: failure
+  description: 'Failure: us log'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 119
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: us log - operation failed'
+    metrics:
+      error_rate: 0.37227648929628365
+      response_time_ms: 1384
+      cpu_usage: 0.957793897809265
+      memory_usage: 0.9073488724398471
+- timestamp: '2025-05-23T18:46:06.661727'
+  event_type: failure
+  description: 'Failure: the memory'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 161
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: the memory - operation
+      failed'
+    metrics:
+      error_rate: 0.4228271226356709
+      response_time_ms: 7323
+      cpu_usage: 0.7481837963657079
+      memory_usage: 0.8760518953428852
+- timestamp: '2025-05-23T18:46:22.661727'
+  event_type: recovery
+  description: 'Recovery: the alert'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:26.661727'
+  event_type: recovery
+  description: 'Recovery: code error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:53.661727'
+  event_type: failure
+  description: 'Failure: to monitor'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 94
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: to monitor - operation
+      failed'
+    metrics:
+      error_rate: 0.13889800084042436
+      response_time_ms: 2420
+      cpu_usage: 0.8313426751032102
+      memory_usage: 0.9784221791730269
+- timestamp: '2025-05-23T18:47:21.661727'
+  event_type: timeout
+  description: 'Timeout: the server'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 98
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.6627777338244591
+      response_time_ms: 1955
+      cpu_usage: 0.8281508689572715
+      memory_usage: 0.9057788680187162
+- timestamp: '2025-05-23T18:47:32.661727'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 163
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.7652378573873742
+      response_time_ms: 3238
+      cpu_usage: 0.723438414813136
+      memory_usage: 0.8918280498725291
+- timestamp: '2025-05-23T19:03:15.661727'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

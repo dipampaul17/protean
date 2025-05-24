@@ -1,0 +1,69 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173011
+description: Load balancer and traffic distribution problems
+duration: 1101
+metadata:
+  generated_at: '2025-05-23T17:30:11.352219'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.352078'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:33.352078'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: load-balancer
+    severity: high
+    duration: 223
+    log_snippet: '[2025-05-23 17:30:11] ERROR load-balancer: network unreachable in
+      timeout'
+    metrics:
+      error_rate: 0.3030204610276599
+      response_time_ms: 9986
+      cpu_usage: 0.9275507329988161
+      memory_usage: 0.813055262653956
+      requests_per_sec: 1031
+      backend_health_pct: 0.545421495260104
+      connection_timeouts: 25
+- timestamp: '2025-05-23T17:30:47.352078'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:15.352078'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:24.352078'
+  event_type: scaling
+  description: 'Scaling: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:33.352078'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: api-gateway
+    severity: high
+    duration: 127
+    log_snippet: '[2025-05-23 17:30:11] ERROR api-gateway: memory limit exceeded in
+      timeout'
+    metrics:
+      error_rate: 0.4231417114994258
+      response_time_ms: 9871
+      cpu_usage: 0.8246425724689256
+      memory_usage: 0.9251952021776085
+      requests_per_sec: 1089
+      backend_health_pct: 0.40772842792065556
+      connection_timeouts: 183
+- timestamp: '2025-05-23T17:48:32.352078'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

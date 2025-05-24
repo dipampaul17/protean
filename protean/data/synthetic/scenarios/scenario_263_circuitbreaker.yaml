@@ -1,0 +1,115 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173011
+description: Circuit breaker activation due to cascading service failures
+duration: 1645
+metadata:
+  generated_at: '2025-05-23T17:30:11.385215'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:30:11.385027'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:21.385027'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 224
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.5378059896229368
+      response_time_ms: 2081
+      cpu_usage: 0.9916400690065821
+      memory_usage: 0.976357258130313
+- timestamp: '2025-05-23T17:30:45.385027'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:52.385027'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 113
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.30164794535135364
+      response_time_ms: 6652
+      cpu_usage: 0.8429022861891654
+      memory_usage: 0.8285250807209235
+- timestamp: '2025-05-23T17:31:58.385027'
+  event_type: degradation
+  description: 'Degradation: authentication failed'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: high
+    duration: 214
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.7096092249153545
+      response_time_ms: 9144
+      cpu_usage: 0.9385066601108795
+      memory_usage: 0.8561482770174991
+- timestamp: '2025-05-23T17:33:14.385027'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 226
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.5357184856777509
+      response_time_ms: 4101
+      cpu_usage: 0.8632018529952737
+      memory_usage: 0.9212068862164285
+- timestamp: '2025-05-23T17:33:22.385027'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 224
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.7183252403087516
+      response_time_ms: 6981
+      cpu_usage: 0.767935002412347
+      memory_usage: 0.8183469332805555
+- timestamp: '2025-05-23T17:33:38.385027'
+  event_type: degradation
+  description: 'Degradation: container crashed'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: high
+    duration: 58
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: container crashed - operation
+      failed'
+    metrics:
+      error_rate: 0.7002270546640496
+      response_time_ms: 4195
+      cpu_usage: 0.7852512539288193
+      memory_usage: 0.910690125669937
+- timestamp: '2025-05-23T17:57:36.385027'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

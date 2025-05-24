@@ -1,0 +1,53 @@
+category: CascadingFailure
+name: CascadingFailure_20250523_173011
+description: Multi-service failure propagation scenario
+duration: 379
+metadata:
+  generated_at: '2025-05-23T17:30:11.320440'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:30:11.320243'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:24.320243'
+  event_type: cascade
+  description: 'Cascade: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:27.320243'
+  event_type: propagation
+  description: 'Propagation: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:33.320243'
+  event_type: propagation
+  description: 'Propagation: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:36.320243'
+  event_type: propagation
+  description: 'Propagation: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:43.320243'
+  event_type: cascade
+  description: 'Cascade: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:44.320243'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:48.320243'
+  event_type: cascade
+  description: 'Cascade: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:48.320243'
+  event_type: propagation
+  description: 'Propagation: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:30.320243'
+  event_type: recovery
+  description: 'System recovered: all services recovered'
+  injection_spec: null

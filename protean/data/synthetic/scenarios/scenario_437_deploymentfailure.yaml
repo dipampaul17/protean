@@ -1,0 +1,78 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_172917
+description: Application deployment and rollback scenarios
+duration: 1383
+metadata:
+  generated_at: '2025-05-23T17:29:17.729625'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:29:17.729373'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:54.729373'
+  event_type: rollback
+  description: 'Rollback: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:42.729373'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 51
+    log_snippet: '[2025-05-23 17:29:17] ERROR api-backend: authentication failed in
+      failure'
+    metrics:
+      error_rate: 0.8625169046418975
+      response_time_ms: 4513
+      cpu_usage: 0.828246676103195
+      memory_usage: 0.8726226116565075
+- timestamp: '2025-05-23T17:31:49.729373'
+  event_type: rollback
+  description: 'Rollback: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:51.729373'
+  event_type: rollback
+  description: 'Rollback: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:50.729373'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 237
+    log_snippet: '[2025-05-23 17:29:17] ERROR web-frontend: network unreachable in
+      failure'
+    metrics:
+      error_rate: 0.37549628495476484
+      response_time_ms: 6530
+      cpu_usage: 0.7026345961041114
+      memory_usage: 0.8567048838556746
+- timestamp: '2025-05-23T17:33:01.729373'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 55
+    log_snippet: '[2025-05-23 17:29:17] ERROR web-frontend: network unreachable in
+      failure'
+    metrics:
+      error_rate: 0.6681901045330167
+      response_time_ms: 4765
+      cpu_usage: 0.715303333014065
+      memory_usage: 0.9259276037310171
+- timestamp: '2025-05-23T17:52:20.729373'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

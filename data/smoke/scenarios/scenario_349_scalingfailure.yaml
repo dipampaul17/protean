@@ -1,0 +1,127 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_184526
+description: Infrastructure failure scenario for ScalingFailure
+duration: 1516
+metadata:
+  generated_at: '2025-05-23T18:45:26.766147'
+  phrase_templates_used: 24
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 7
+events:
+- timestamp: '2025-05-23T18:45:26.765324'
+  event_type: trigger
+  description: 'Initial failure detected: this service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:57.765324'
+  event_type: timeout
+  description: 'Timeout: a node'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 249
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: a node - operation failed'
+    metrics:
+      error_rate: 0.6496982994441792
+      response_time_ms: 3810
+      cpu_usage: 0.8882525507120641
+      memory_usage: 0.9745830967030084
+- timestamp: '2025-05-23T18:46:12.765324'
+  event_type: failure
+  description: 'Failure: the pod'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 135
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: the pod - operation
+      failed'
+    metrics:
+      error_rate: 0.8178627158416094
+      response_time_ms: 4938
+      cpu_usage: 0.9780818253119126
+      memory_usage: 0.9702153661416278
+- timestamp: '2025-05-23T18:46:58.765324'
+  event_type: timeout
+  description: 'Timeout: scaling scale'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 126
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: scaling scale
+      - operation failed'
+    metrics:
+      error_rate: 0.32624788814396255
+      response_time_ms: 1440
+      cpu_usage: 0.7636016003813545
+      memory_usage: 0.9345211705285524
+- timestamp: '2025-05-23T18:46:59.765324'
+  event_type: failure
+  description: 'Failure: https connection'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 88
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: https connection
+      - operation failed'
+    metrics:
+      error_rate: 0.5366688627186978
+      response_time_ms: 6158
+      cpu_usage: 0.9981246120624285
+      memory_usage: 0.8642686885579056
+- timestamp: '2025-05-23T18:47:16.765324'
+  event_type: recovery
+  description: 'Recovery: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:55.765324'
+  event_type: failure
+  description: 'Failure: the pod'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 241
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: the pod - operation failed'
+    metrics:
+      error_rate: 0.7280783307882173
+      response_time_ms: 6163
+      cpu_usage: 0.888601206218001
+      memory_usage: 0.8681181648288199
+- timestamp: '2025-05-23T18:48:27.765324'
+  event_type: timeout
+  description: 'Timeout: the node'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 294
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: the node - operation failed'
+    metrics:
+      error_rate: 0.8086168387887982
+      response_time_ms: 1658
+      cpu_usage: 0.7403232633343569
+      memory_usage: 0.8932604435298731
+- timestamp: '2025-05-23T18:48:29.765324'
+  event_type: timeout
+  description: 'Timeout: per server'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 32
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: per server - operation
+      failed'
+    metrics:
+      error_rate: 0.8965456882605035
+      response_time_ms: 7287
+      cpu_usage: 0.7297572161658986
+      memory_usage: 0.9754647234259722
+- timestamp: '2025-05-23T19:10:42.765324'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

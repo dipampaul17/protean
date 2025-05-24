@@ -1,0 +1,44 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173011
+description: Configuration inconsistencies causing service degradation
+duration: 1645
+metadata:
+  generated_at: '2025-05-23T17:30:11.401736'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.401650'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:28.401650'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 187
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.156909018067371
+      response_time_ms: 1824
+      cpu_usage: 0.7945321841535988
+      memory_usage: 0.97604542391246
+- timestamp: '2025-05-23T17:35:50.401650'
+  event_type: restart
+  description: 'Restart: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:34.401650'
+  event_type: restart
+  description: 'Restart: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:57:36.401650'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

@@ -1,0 +1,51 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173011
+description: Database connectivity and performance issues
+duration: 1378
+metadata:
+  generated_at: '2025-05-23T17:30:11.378322'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.378224'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:11.378224'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 270
+    log_snippet: '[2025-05-23 17:30:11] ERROR mongodb-shard: circuit breaker triggered
+      in timeout'
+    metrics:
+      error_rate: 0.5310922819822348
+      response_time_ms: 1388
+      cpu_usage: 0.7650868247350522
+      memory_usage: 0.9281204300114816
+      connection_pool_usage: 0.9875852117142043
+      query_time_ms: 12238
+      deadlocks_per_sec: 3
+- timestamp: '2025-05-23T17:32:28.378224'
+  event_type: connection_loss
+  description: 'Connection_Loss: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:43.378224'
+  event_type: connection_loss
+  description: 'Connection_Loss: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:04.378224'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:53:09.378224'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

@@ -1,0 +1,81 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_184526
+description: Infrastructure failure scenario for DataWarehouse
+duration: 1562
+metadata:
+  generated_at: '2025-05-23T18:45:26.701427'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.701255'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:03.701255'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 87
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.8691323371333085
+      response_time_ms: 6939
+      cpu_usage: 0.7014168125408223
+      memory_usage: 0.8254820417209404
+- timestamp: '2025-05-23T18:46:19.701255'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 147
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: queue overflow
+      - operation failed'
+    metrics:
+      error_rate: 0.7967395570516597
+      response_time_ms: 5983
+      cpu_usage: 0.8291790482318406
+      memory_usage: 0.8867004845997749
+- timestamp: '2025-05-23T18:46:23.701255'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 167
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: container crashed
+      - operation failed'
+    metrics:
+      error_rate: 0.8470417076787149
+      response_time_ms: 7163
+      cpu_usage: 0.9499878950860912
+      memory_usage: 0.8270345763100405
+- timestamp: '2025-05-23T18:51:20.701255'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 171
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: deployment failed
+      - operation failed'
+    metrics:
+      error_rate: 0.40676302787185725
+      response_time_ms: 1756
+      cpu_usage: 0.9237758874814331
+      memory_usage: 0.849189498171236
+- timestamp: '2025-05-23T19:11:28.701255'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,126 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_184526
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 1700
+metadata:
+  generated_at: '2025-05-23T18:45:26.684074'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 7
+events:
+- timestamp: '2025-05-23T18:45:26.683772'
+  event_type: trigger
+  description: 'Initial failure detected: us log'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:30.683772'
+  event_type: failure
+  description: 'Failure: the memory'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 107
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: the memory - operation
+      failed'
+    metrics:
+      error_rate: 0.6131687619328661
+      response_time_ms: 7409
+      cpu_usage: 0.7397417494522227
+      memory_usage: 0.8262330148134631
+- timestamp: '2025-05-23T18:46:47.683772'
+  event_type: timeout
+  description: 'Timeout: free disk'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 74
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: free disk - operation
+      failed'
+    metrics:
+      error_rate: 0.7547429298581303
+      response_time_ms: 9515
+      cpu_usage: 0.7601490592164832
+      memory_usage: 0.8996279454369821
+- timestamp: '2025-05-23T18:47:11.683772'
+  event_type: failure
+  description: 'Failure: free disk'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 139
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: free disk - operation
+      failed'
+    metrics:
+      error_rate: 0.8533276202194985
+      response_time_ms: 7282
+      cpu_usage: 0.8263950599661246
+      memory_usage: 0.9843716565958974
+- timestamp: '2025-05-23T18:47:14.683772'
+  event_type: timeout
+  description: 'Timeout: info node'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 273
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: info node - operation
+      failed'
+    metrics:
+      error_rate: 0.8874864874238343
+      response_time_ms: 7083
+      cpu_usage: 0.9690813709796988
+      memory_usage: 0.8389248144736053
+- timestamp: '2025-05-23T18:47:46.683772'
+  event_type: timeout
+  description: 'Timeout: strong update'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 106
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: strong update
+      - operation failed'
+    metrics:
+      error_rate: 0.10573626290770886
+      response_time_ms: 5381
+      cpu_usage: 0.7114173807378341
+      memory_usage: 0.8853128538533858
+- timestamp: '2025-05-23T18:47:55.683772'
+  event_type: timeout
+  description: 'Timeout: most memory'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 178
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: most memory -
+      operation failed'
+    metrics:
+      error_rate: 0.6604440792903613
+      response_time_ms: 6796
+      cpu_usage: 0.9650508155765269
+      memory_usage: 0.996005892778363
+- timestamp: '2025-05-23T18:48:26.683772'
+  event_type: timeout
+  description: 'Timeout: us log'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 172
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: us log - operation
+      failed'
+    metrics:
+      error_rate: 0.33460018806540914
+      response_time_ms: 9534
+      cpu_usage: 0.966877604434889
+      memory_usage: 0.8390264447157052
+- timestamp: '2025-05-23T19:13:46.683772'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

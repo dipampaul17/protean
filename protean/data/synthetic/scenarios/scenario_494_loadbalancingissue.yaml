@@ -1,0 +1,58 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_172917
+description: Load balancer and traffic distribution problems
+duration: 933
+metadata:
+  generated_at: '2025-05-23T17:29:17.749357'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.748961'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:38.748961'
+  event_type: backend_failure
+  description: 'Backend_Failure: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:43.748961'
+  event_type: backend_failure
+  description: 'Backend_Failure: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:22.748961'
+  event_type: backend_failure
+  description: 'Backend_Failure: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:57.748961'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: load-balancer
+    severity: high
+    duration: 287
+    log_snippet: '[2025-05-23 17:29:17] ERROR load-balancer: disk space full in timeout'
+    metrics:
+      error_rate: 0.12113758858960635
+      response_time_ms: 8110
+      cpu_usage: 0.9825734550863635
+      memory_usage: 0.9483831026430928
+      requests_per_sec: 7268
+      backend_health_pct: 0.7275514058482944
+      connection_timeouts: 122
+- timestamp: '2025-05-23T17:31:01.748961'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:08.748961'
+  event_type: backend_failure
+  description: 'Backend_Failure: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:44:50.748961'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

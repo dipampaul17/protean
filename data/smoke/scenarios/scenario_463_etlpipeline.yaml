@@ -1,0 +1,93 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_184526
+description: Infrastructure failure scenario for ETLPipeline
+duration: 1331
+metadata:
+  generated_at: '2025-05-23T18:45:26.816419'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.816172'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:57.816172'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:08.816172'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 132
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.23188437556978272
+      response_time_ms: 5802
+      cpu_usage: 0.7564342889100087
+      memory_usage: 0.8325379641496655
+- timestamp: '2025-05-23T18:46:14.816172'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 241
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.7096110131967838
+      response_time_ms: 6569
+      cpu_usage: 0.8029405627995122
+      memory_usage: 0.8700789714442382
+- timestamp: '2025-05-23T18:46:21.816172'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 235
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.6010125204134054
+      response_time_ms: 3621
+      cpu_usage: 0.965199310894592
+      memory_usage: 0.816680969392069
+- timestamp: '2025-05-23T18:47:11.816172'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:59.816172'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 285
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: container crashed
+      - operation failed'
+    metrics:
+      error_rate: 0.28560053279010306
+      response_time_ms: 3591
+      cpu_usage: 0.7759623699243797
+      memory_usage: 0.8449260508492025
+- timestamp: '2025-05-23T18:48:01.816172'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T19:07:37.816172'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

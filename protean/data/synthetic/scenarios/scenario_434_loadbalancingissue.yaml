@@ -1,0 +1,68 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_172917
+description: Load balancer and traffic distribution problems
+duration: 1589
+metadata:
+  generated_at: '2025-05-23T17:29:17.728744'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.728499'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:38.728499'
+  event_type: backend_failure
+  description: 'Backend_Failure: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:05.728499'
+  event_type: backend_failure
+  description: 'Backend_Failure: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:47.728499'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:54.728499'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 89
+    log_snippet: '[2025-05-23 17:29:17] ERROR subnet-private: database connection
+      lost in timeout'
+    metrics:
+      error_rate: 0.6983705178704114
+      response_time_ms: 5450
+      cpu_usage: 0.9103254578529394
+      memory_usage: 0.8390311887187938
+      requests_per_sec: 4808
+      backend_health_pct: 0.7219009650230902
+      connection_timeouts: 876
+- timestamp: '2025-05-23T17:34:21.728499'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: api-gateway
+    severity: high
+    duration: 87
+    log_snippet: '[2025-05-23 17:29:17] ERROR api-gateway: connection timeout in timeout'
+    metrics:
+      error_rate: 0.12440774840329621
+      response_time_ms: 5936
+      cpu_usage: 0.9506839259545166
+      memory_usage: 0.8567660476540114
+      requests_per_sec: 2756
+      backend_health_pct: 0.5035288432836091
+      connection_timeouts: 187
+- timestamp: '2025-05-23T17:55:46.728499'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

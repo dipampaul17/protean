@@ -1,0 +1,59 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173011
+description: Application deployment and rollback scenarios
+duration: 1720
+metadata:
+  generated_at: '2025-05-23T17:30:11.393704'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.393588'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:36.393588'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 174
+    log_snippet: '[2025-05-23 17:30:11] ERROR worker-consumer: container crashed in
+      failure'
+    metrics:
+      error_rate: 0.19887261489246688
+      response_time_ms: 9321
+      cpu_usage: 0.7922093509984728
+      memory_usage: 0.832095501316872
+- timestamp: '2025-05-23T17:34:14.393588'
+  event_type: deployment
+  description: 'Deployment: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:23.393588'
+  event_type: scaling
+  description: 'Scaling: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:16.393588'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 207
+    log_snippet: '[2025-05-23 17:30:11] ERROR worker-consumer: authentication failed
+      in failure'
+    metrics:
+      error_rate: 0.7801793947624842
+      response_time_ms: 8664
+      cpu_usage: 0.7647142833185249
+      memory_usage: 0.8818883905664125
+- timestamp: '2025-05-23T17:58:51.393588'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

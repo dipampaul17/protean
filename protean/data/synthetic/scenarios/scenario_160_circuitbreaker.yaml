@@ -1,0 +1,93 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173011
+description: Circuit breaker activation due to cascading service failures
+duration: 979
+metadata:
+  generated_at: '2025-05-23T17:30:11.355683'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:30:11.354689'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:43.354689'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:44.354689'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 34
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.6068830982953621
+      response_time_ms: 1594
+      cpu_usage: 0.9795355761282227
+      memory_usage: 0.9325385680121043
+- timestamp: '2025-05-23T17:30:45.354689'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 162
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.8258554639988797
+      response_time_ms: 9741
+      cpu_usage: 0.777132138006236
+      memory_usage: 0.9554536007588251
+- timestamp: '2025-05-23T17:31:08.354689'
+  event_type: degradation
+  description: 'Degradation: authentication failed'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: high
+    duration: 82
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.49542180266066593
+      response_time_ms: 5202
+      cpu_usage: 0.9912534109813544
+      memory_usage: 0.9389735739235029
+- timestamp: '2025-05-23T17:31:44.354689'
+  event_type: degradation
+  description: 'Degradation: container crashed'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: high
+    duration: 57
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: container crashed -
+      operation failed'
+    metrics:
+      error_rate: 0.7765115480804958
+      response_time_ms: 7573
+      cpu_usage: 0.8955148014449162
+      memory_usage: 0.8648889978171307
+- timestamp: '2025-05-23T17:31:57.354689'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:13.354689'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:30.354689'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

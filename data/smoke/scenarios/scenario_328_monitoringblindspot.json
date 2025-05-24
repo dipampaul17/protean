@@ -1,0 +1,90 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_184526",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 643,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.757703",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.757430",
+      "event_type": "trigger",
+      "description": "Initial failure detected: monitoring system",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:04.757430",
+      "event_type": "failure",
+      "description": "Failure: monitoring system",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 98,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: monitoring system - operation failed",
+        "metrics": {
+          "error_rate": 0.8695571752799974,
+          "response_time_ms": 1742,
+          "cpu_usage": 0.7568735004044619,
+          "memory_usage": 0.8452808572611867
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:29.757430",
+      "event_type": "failure",
+      "description": "Failure: of cpu",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 146,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: of cpu - operation failed",
+        "metrics": {
+          "error_rate": 0.15865876853828925,
+          "response_time_ms": 6137,
+          "cpu_usage": 0.7161501608683823,
+          "memory_usage": 0.8835455464666926
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:37.757430",
+      "event_type": "recovery",
+      "description": "Recovery: kubernetes cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:05.757430",
+      "event_type": "failure",
+      "description": "Failure: to fix",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 151,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: to fix - operation failed",
+        "metrics": {
+          "error_rate": 0.33327714316742807,
+          "response_time_ms": 2862,
+          "cpu_usage": 0.9064296664202611,
+          "memory_usage": 0.9068075393844153
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:56:09.757430",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

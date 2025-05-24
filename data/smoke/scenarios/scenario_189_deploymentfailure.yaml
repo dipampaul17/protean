@@ -1,0 +1,55 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_184526
+description: Application deployment and rollback scenarios
+duration: 1701
+metadata:
+  generated_at: '2025-05-23T18:45:26.695807'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T18:45:26.695598'
+  event_type: trigger
+  description: 'Initial failure detected: rolling update'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:53.695598'
+  event_type: rollback
+  description: 'Rollback: during deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:07.695598'
+  event_type: rollback
+  description: 'Rollback: your container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:22.695598'
+  event_type: rollback
+  description: 'Rollback: during deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:14.695598'
+  event_type: deployment
+  description: 'Deployment: failed to'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:16.695598'
+  event_type: rollback
+  description: 'Rollback: headless service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:23.695598'
+  event_type: failure
+  description: 'Failure: code container'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 161
+    log_snippet: '[2025-05-23 18:45:26] ERROR web-frontend: code container in failure'
+    metrics:
+      error_rate: 0.2973820153831791
+      response_time_ms: 9910
+      cpu_usage: 0.7918060706490226
+      memory_usage: 0.9339516812599017
+- timestamp: '2025-05-23T19:13:47.695598'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

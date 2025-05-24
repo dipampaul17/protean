@@ -1,0 +1,93 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173011",
+  "description": "Message queue and event processing failures",
+  "duration": 1095,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.437555",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.436684",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:40.436684",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:40.436684",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:51.436684",
+      "event_type": "message_loss",
+      "description": "Message_Loss: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:53.436684",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:34.436684",
+      "event_type": "message_loss",
+      "description": "Message_Loss: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:01.436684",
+      "event_type": "message_loss",
+      "description": "Message_Loss: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:01.436684",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 194,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-queue: queue processing memory limit exceeded",
+        "metrics": {
+          "error_rate": 0.8852734079327377,
+          "response_time_ms": 6426,
+          "cpu_usage": 0.8282083685498922,
+          "memory_usage": 0.9281050217240705,
+          "queue_depth": 16833,
+          "message_processing_rate": 6.66095801076467,
+          "consumer_lag_ms": 139108
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:08.436684",
+      "event_type": "recovery",
+      "description": "Recovery: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:26.436684",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_184526
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1504
+metadata:
+  generated_at: '2025-05-23T18:45:26.689290'
+  phrase_templates_used: 45
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T18:45:26.688997'
+  event_type: trigger
+  description: 'Initial failure detected: web server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:20.688997'
+  event_type: recovery
+  description: 'Recovery: code server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:49.688997'
+  event_type: recovery
+  description: 'Recovery: quot network'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:27.688997'
+  event_type: recovery
+  description: 'Recovery: to network'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:48.688997'
+  event_type: failure
+  description: 'Failure: the node'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 62
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: the node - operation
+      failed'
+    metrics:
+      error_rate: 0.12928642205875696
+      response_time_ms: 3791
+      cpu_usage: 0.9190988136649336
+      memory_usage: 0.8304152978235699
+- timestamp: '2025-05-23T18:48:17.688997'
+  event_type: recovery
+  description: 'Recovery: api server'
+  injection_spec: null
+- timestamp: '2025-05-23T19:10:30.688997'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,126 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173011",
+  "description": "Database connectivity and performance issues",
+  "duration": 1371,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.430162",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.429990",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:33.429990",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 89,
+        "log_snippet": "[2025-05-23 17:30:11] FATAL mysql-primary: database service unavailable detected",
+        "metrics": {
+          "error_rate": 0.5821182190505279,
+          "response_time_ms": 3112,
+          "cpu_usage": 0.9319667308737951,
+          "memory_usage": 0.859697604065619,
+          "connection_pool_usage": 0.800876021666787,
+          "query_time_ms": 15942,
+          "deadlocks_per_sec": 9
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:35.429990",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:07.429990",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 181,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR mongodb-shard: container crashed in timeout",
+        "metrics": {
+          "error_rate": 0.6969037823203912,
+          "response_time_ms": 8482,
+          "cpu_usage": 0.9420867237534886,
+          "memory_usage": 0.8281286047317806,
+          "connection_pool_usage": 0.9688306539200391,
+          "query_time_ms": 7800,
+          "deadlocks_per_sec": 5
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:38.429990",
+      "event_type": "corruption",
+      "description": "Corruption: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:38.429990",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "postgres-replica",
+        "severity": "high",
+        "duration": 230,
+        "log_snippet": "[2025-05-23 17:30:11] FATAL postgres-replica: database deployment failed detected",
+        "metrics": {
+          "error_rate": 0.33151993929830914,
+          "response_time_ms": 7168,
+          "cpu_usage": 0.8674538905936168,
+          "memory_usage": 0.9265902485663133,
+          "connection_pool_usage": 0.8525547003548095,
+          "query_time_ms": 14470,
+          "deadlocks_per_sec": 7
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:15.429990",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 178,
+        "log_snippet": "[2025-05-23 17:30:11] FATAL mysql-primary: database deployment failed detected",
+        "metrics": {
+          "error_rate": 0.8163203004509184,
+          "response_time_ms": 3447,
+          "cpu_usage": 0.8730425212200874,
+          "memory_usage": 0.8724196820494785,
+          "connection_pool_usage": 0.8366881900912585,
+          "query_time_ms": 22019,
+          "deadlocks_per_sec": 2
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:53:02.429990",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

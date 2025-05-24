@@ -1,0 +1,90 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_172917",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1259,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.611508",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.611358",
+      "event_type": "trigger",
+      "description": "Initial failure detected: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:48.611358",
+      "event_type": "scaling",
+      "description": "Scaling: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:12.611358",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 283,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR api-backend: deployment failed in failure",
+        "metrics": {
+          "error_rate": 0.2012123388340779,
+          "response_time_ms": 4968,
+          "cpu_usage": 0.928156108714029,
+          "memory_usage": 0.940779758288651
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:07.611358",
+      "event_type": "deployment",
+      "description": "Deployment: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:44.611358",
+      "event_type": "scaling",
+      "description": "Scaling: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:21.611358",
+      "event_type": "deployment",
+      "description": "Deployment: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:21.611358",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 90,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR api-backend: authentication failed in failure",
+        "metrics": {
+          "error_rate": 0.40956277011560693,
+          "response_time_ms": 4768,
+          "cpu_usage": 0.8182356109537756,
+          "memory_usage": 0.853272248994123
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:16.611358",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

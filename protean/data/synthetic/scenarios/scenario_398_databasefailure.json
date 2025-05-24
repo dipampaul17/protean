@@ -1,0 +1,75 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173011",
+  "description": "Database connectivity and performance issues",
+  "duration": 1182,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.422919",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.422803",
+      "event_type": "trigger",
+      "description": "Initial failure detected: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:41.422803",
+      "event_type": "corruption",
+      "description": "Corruption: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:54.422803",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:20.422803",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 208,
+        "log_snippet": "[2025-05-23 17:30:11] FATAL mysql-primary: database rate limit exceeded detected",
+        "metrics": {
+          "error_rate": 0.5232152590416379,
+          "response_time_ms": 4248,
+          "cpu_usage": 0.8713775948741806,
+          "memory_usage": 0.8656860908901771,
+          "connection_pool_usage": 0.8561699446104916,
+          "query_time_ms": 25528,
+          "deadlocks_per_sec": 6
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:44.422803",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:55.422803",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:53.422803",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

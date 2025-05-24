@@ -1,0 +1,93 @@
+category: Microservices
+name: Microservices_20250523_184526
+description: Infrastructure failure scenario for Microservices
+duration: 1675
+metadata:
+  generated_at: '2025-05-23T18:45:26.691019'
+  phrase_templates_used: 15
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.690771'
+  event_type: trigger
+  description: 'Initial failure detected: docker network'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:40.690771'
+  event_type: recovery
+  description: 'Recovery: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:47.690771'
+  event_type: timeout
+  description: 'Timeout: a cluster'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 127
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: a cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.3778317862623616
+      response_time_ms: 6573
+      cpu_usage: 0.9015835914630621
+      memory_usage: 0.8048382314620086
+- timestamp: '2025-05-23T18:46:27.690771'
+  event_type: timeout
+  description: 'Timeout: a cluster'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 59
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: a cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.5853410148467043
+      response_time_ms: 3043
+      cpu_usage: 0.8842796030407953
+      memory_usage: 0.9931295772584294
+- timestamp: '2025-05-23T18:46:52.690771'
+  event_type: recovery
+  description: 'Recovery: lt service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:28.690771'
+  event_type: timeout
+  description: 'Timeout: docker network'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 65
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: docker network
+      - operation failed'
+    metrics:
+      error_rate: 0.4780720143650359
+      response_time_ms: 5363
+      cpu_usage: 0.7013395235071064
+      memory_usage: 0.8932868592243163
+- timestamp: '2025-05-23T18:47:31.690771'
+  event_type: recovery
+  description: 'Recovery: http connection'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:39.690771'
+  event_type: failure
+  description: 'Failure: a container'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 144
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: a container - operation
+      failed'
+    metrics:
+      error_rate: 0.516106884374275
+      response_time_ms: 3146
+      cpu_usage: 0.969030595321109
+      memory_usage: 0.8072101432032679
+- timestamp: '2025-05-23T19:13:21.690771'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

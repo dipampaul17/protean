@@ -1,0 +1,90 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_184526",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1578,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.811144",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.810899",
+      "event_type": "trigger",
+      "description": "Initial failure detected: temporary failure",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:36.810899",
+      "event_type": "scaling",
+      "description": "Scaling: container pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:03.810899",
+      "event_type": "scaling",
+      "description": "Scaling: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:05.810899",
+      "event_type": "failure",
+      "description": "Failure: using jenkins",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 136,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR worker-consumer: using jenkins in failure",
+        "metrics": {
+          "error_rate": 0.5708818934446701,
+          "response_time_ms": 2101,
+          "cpu_usage": 0.9091270889329227,
+          "memory_usage": 0.8025091131697674
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:26.810899",
+      "event_type": "rollback",
+      "description": "Rollback: jenkins container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:40.810899",
+      "event_type": "deployment",
+      "description": "Deployment: and deploy",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:15.810899",
+      "event_type": "scaling",
+      "description": "Scaling: code error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:18.810899",
+      "event_type": "rollback",
+      "description": "Rollback: during deployment",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:53.810899",
+      "event_type": "deployment",
+      "description": "Deployment: using docker",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:11:44.810899",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

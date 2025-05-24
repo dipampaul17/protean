@@ -1,0 +1,115 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_184526
+description: Circuit breaker activation due to cascading service failures
+duration: 1438
+metadata:
+  generated_at: '2025-05-23T18:45:26.556924'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 3
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.555413'
+  event_type: trigger
+  description: 'Initial failure detected: true error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:42.555413'
+  event_type: timeout
+  description: 'Timeout: the container'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 49
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: the container - operation
+      failed'
+    metrics:
+      error_rate: 0.8012298003275731
+      response_time_ms: 7872
+      cpu_usage: 0.798110796582225
+      memory_usage: 0.840099071065076
+- timestamp: '2025-05-23T18:47:04.555413'
+  event_type: recovery
+  description: 'Recovery: message queue'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:52.555413'
+  event_type: degradation
+  description: 'Degradation: labels service'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: low
+    duration: 235
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: labels service - operation
+      failed'
+    metrics:
+      error_rate: 0.06341001953301488
+      response_time_ms: 935
+      cpu_usage: 0.523454403283341
+      memory_usage: 0.44217440548121895
+- timestamp: '2025-05-23T18:47:54.555413'
+  event_type: failure
+  description: 'Failure: session timeout'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 119
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: session timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.11543233794719221
+      response_time_ms: 3059
+      cpu_usage: 0.7909526251781231
+      memory_usage: 0.9507956809467425
+- timestamp: '2025-05-23T18:48:02.555413'
+  event_type: degradation
+  description: 'Degradation: to monitor'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: low
+    duration: 217
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: to monitor - operation
+      failed'
+    metrics:
+      error_rate: 0.06875026175980081
+      response_time_ms: 1782
+      cpu_usage: 0.5604266341518894
+      memory_usage: 0.6332582785463238
+- timestamp: '2025-05-23T18:48:32.555413'
+  event_type: failure
+  description: 'Failure: following error'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 85
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: following error - operation
+      failed'
+    metrics:
+      error_rate: 0.23533973614611484
+      response_time_ms: 5566
+      cpu_usage: 0.8251731399940119
+      memory_usage: 0.981292734093127
+- timestamp: '2025-05-23T18:48:44.555413'
+  event_type: degradation
+  description: 'Degradation: p update'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: low
+    duration: 215
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: p update - operation
+      failed'
+    metrics:
+      error_rate: 0.05945379704657066
+      response_time_ms: 1643
+      cpu_usage: 0.5321568524559561
+      memory_usage: 0.4223094080467668
+- timestamp: '2025-05-23T19:09:24.555413'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

@@ -1,0 +1,96 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_184526
+description: Infrastructure failure scenario for ETLPipeline
+duration: 935
+metadata:
+  generated_at: '2025-05-23T18:45:26.709565'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T18:45:26.709352'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:57.709352'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 43
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.5946572838239538
+      response_time_ms: 6885
+      cpu_usage: 0.8461241284698122
+      memory_usage: 0.8665221733566782
+- timestamp: '2025-05-23T18:46:27.709352'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 133
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.17507783344349123
+      response_time_ms: 4126
+      cpu_usage: 0.7629632429641457
+      memory_usage: 0.9340056660984077
+- timestamp: '2025-05-23T18:46:36.709352'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 207
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.15595489428111975
+      response_time_ms: 7580
+      cpu_usage: 0.7016917085070994
+      memory_usage: 0.9853327577690671
+- timestamp: '2025-05-23T18:48:03.709352'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 124
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: rate limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.4300391072417783
+      response_time_ms: 6254
+      cpu_usage: 0.8343088784896717
+      memory_usage: 0.9511110889693065
+- timestamp: '2025-05-23T18:48:27.709352'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 118
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.3859149941932848
+      response_time_ms: 8529
+      cpu_usage: 0.8545166447395934
+      memory_usage: 0.903164835425452
+- timestamp: '2025-05-23T19:01:01.709352'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

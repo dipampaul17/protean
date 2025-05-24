@@ -1,0 +1,120 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_184526",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 1389,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.817895",
+    "phrase_templates_used": 15,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.817645",
+      "event_type": "trigger",
+      "description": "Initial failure detected: docker network",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:13.817645",
+      "event_type": "failure",
+      "description": "Failure: ui service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 177,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: ui service - operation failed",
+        "metrics": {
+          "error_rate": 0.40450521659513494,
+          "response_time_ms": 8410,
+          "cpu_usage": 0.79166478070011,
+          "memory_usage": 0.9584874422440068
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:22.817645",
+      "event_type": "timeout",
+      "description": "Timeout: from service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 63,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: from service - operation failed",
+        "metrics": {
+          "error_rate": 0.8073440245529716,
+          "response_time_ms": 5036,
+          "cpu_usage": 0.7932727712061346,
+          "memory_usage": 0.9517054268951184
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:29.817645",
+      "event_type": "recovery",
+      "description": "Recovery: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:11.817645",
+      "event_type": "failure",
+      "description": "Failure: strong service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 103,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: strong service - operation failed",
+        "metrics": {
+          "error_rate": 0.625973322484102,
+          "response_time_ms": 4573,
+          "cpu_usage": 0.7985821272978528,
+          "memory_usage": 0.9458650235695163
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:12.817645",
+      "event_type": "failure",
+      "description": "Failure: another container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 216,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: another container - operation failed",
+        "metrics": {
+          "error_rate": 0.7778754312270401,
+          "response_time_ms": 1587,
+          "cpu_usage": 0.793907462309497,
+          "memory_usage": 0.9984971417242272
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:36.817645",
+      "event_type": "recovery",
+      "description": "Recovery: ui service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:40.817645",
+      "event_type": "recovery",
+      "description": "Recovery: strong service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:08:35.817645",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

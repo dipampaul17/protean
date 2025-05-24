@@ -1,0 +1,144 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173011",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 365,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.344753",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.344548",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:24.344548",
+      "event_type": "degradation",
+      "description": "Degradation: memory limit exceeded",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 249,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR auth-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.2573789210509683,
+          "response_time_ms": 5864,
+          "cpu_usage": 0.7955779263425624,
+          "memory_usage": 0.9321574474110605
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:28.344548",
+      "event_type": "recovery",
+      "description": "Recovery: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:44.344548",
+      "event_type": "degradation",
+      "description": "Degradation: database connection lost",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 244,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.5025171104597859,
+          "response_time_ms": 6541,
+          "cpu_usage": 0.785928151828609,
+          "memory_usage": 0.8447837626270975
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:49.344548",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 165,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR auth-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.47378370715976736,
+          "response_time_ms": 5467,
+          "cpu_usage": 0.8103044255675995,
+          "memory_usage": 0.9751837678460015
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:53.344548",
+      "event_type": "failure",
+      "description": "Failure: memory limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 79,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR user-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.5304839060418917,
+          "response_time_ms": 7887,
+          "cpu_usage": 0.8365737695092458,
+          "memory_usage": 0.941989856194279
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:54.344548",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 162,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR user-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.14452771723358399,
+          "response_time_ms": 5729,
+          "cpu_usage": 0.8884602052370935,
+          "memory_usage": 0.9647137785738339
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:01.344548",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 92,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR auth-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.5371916069087054,
+          "response_time_ms": 1244,
+          "cpu_usage": 0.9249186257355329,
+          "memory_usage": 0.9220133649367066
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:16.344548",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

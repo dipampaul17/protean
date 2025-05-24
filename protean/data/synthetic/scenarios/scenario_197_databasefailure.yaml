@@ -1,0 +1,59 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_172917
+description: Database connectivity and performance issues
+duration: 1693
+metadata:
+  generated_at: '2025-05-23T17:29:17.597329'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.597163'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:29.597163'
+  event_type: connection_loss
+  description: 'Connection_Loss: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:44.597163'
+  event_type: corruption
+  description: 'Corruption: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:23.597163'
+  event_type: connection_loss
+  description: 'Connection_Loss: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:29.597163'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 83
+    log_snippet: '[2025-05-23 17:29:17] ERROR mongodb-shard: network unreachable in
+      timeout'
+    metrics:
+      error_rate: 0.13159267609910152
+      response_time_ms: 7804
+      cpu_usage: 0.9838266453521559
+      memory_usage: 0.851070690777347
+      connection_pool_usage: 0.9730213783661673
+      query_time_ms: 5289
+      deadlocks_per_sec: 1
+- timestamp: '2025-05-23T17:32:59.597163'
+  event_type: corruption
+  description: 'Corruption: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:33.597163'
+  event_type: connection_loss
+  description: 'Connection_Loss: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:57:30.597163'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

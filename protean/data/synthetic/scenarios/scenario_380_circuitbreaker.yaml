@@ -1,0 +1,104 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173011
+description: Circuit breaker activation due to cascading service failures
+duration: 1791
+metadata:
+  generated_at: '2025-05-23T17:30:11.418655'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:30:11.418465'
+  event_type: trigger
+  description: 'Initial failure detected: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:36.418465'
+  event_type: degradation
+  description: 'Degradation: queue overflow'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: high
+    duration: 172
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.35473846399863873
+      response_time_ms: 1761
+      cpu_usage: 0.7687182037146524
+      memory_usage: 0.8829936728479802
+- timestamp: '2025-05-23T17:30:50.418465'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 206
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.6965921338336871
+      response_time_ms: 7291
+      cpu_usage: 0.7688896095999422
+      memory_usage: 0.8735825399741565
+- timestamp: '2025-05-23T17:31:10.418465'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 110
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.4159863526862372
+      response_time_ms: 9549
+      cpu_usage: 0.7174309074035221
+      memory_usage: 0.9799542650619801
+- timestamp: '2025-05-23T17:31:15.418465'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:21.418465'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 143
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: rate limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.7360643801631198
+      response_time_ms: 6721
+      cpu_usage: 0.7483056779037786
+      memory_usage: 0.9909642109838149
+- timestamp: '2025-05-23T17:32:00.418465'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 174
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: container crashed
+      - operation failed'
+    metrics:
+      error_rate: 0.44477360149778
+      response_time_ms: 7441
+      cpu_usage: 0.7239518197583
+      memory_usage: 0.9843967559614311
+- timestamp: '2025-05-23T17:33:19.418465'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T18:00:02.418465'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

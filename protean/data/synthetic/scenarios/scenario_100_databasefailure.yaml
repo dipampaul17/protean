@@ -1,0 +1,55 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_172917
+description: Database connectivity and performance issues
+duration: 580
+metadata:
+  generated_at: '2025-05-23T17:29:17.571268'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.571133'
+  event_type: trigger
+  description: 'Initial failure detected: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:31.571133'
+  event_type: corruption
+  description: 'Corruption: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:04.571133'
+  event_type: connection_loss
+  description: 'Connection_Loss: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:22.571133'
+  event_type: connection_loss
+  description: 'Connection_Loss: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:26.571133'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 63
+    log_snippet: '[2025-05-23 17:29:17] FATAL mysql-primary: database rate limit exceeded
+      detected'
+    metrics:
+      error_rate: 0.8726935442524334
+      response_time_ms: 6935
+      cpu_usage: 0.7903002317802275
+      memory_usage: 0.9817006383397572
+      connection_pool_usage: 0.8652412998699275
+      query_time_ms: 23691
+      deadlocks_per_sec: 2
+- timestamp: '2025-05-23T17:31:04.571133'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:57.571133'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

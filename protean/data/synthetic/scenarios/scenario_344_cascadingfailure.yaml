@@ -1,0 +1,45 @@
+category: CascadingFailure
+name: CascadingFailure_20250523_173011
+description: Multi-service failure propagation scenario
+duration: 1175
+metadata:
+  generated_at: '2025-05-23T17:30:11.405425'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:30:11.405297'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:22.405297'
+  event_type: initial_failure
+  description: 'Initial_Failure: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:47.405297'
+  event_type: cascade
+  description: 'Cascade: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:14.405297'
+  event_type: cascade
+  description: 'Cascade: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:20.405297'
+  event_type: cascade
+  description: 'Cascade: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:42.405297'
+  event_type: propagation
+  description: 'Propagation: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:18.405297'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:46.405297'
+  event_type: recovery
+  description: 'System recovered: all services recovered'
+  injection_spec: null

@@ -1,0 +1,75 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173011
+description: Application deployment and rollback scenarios
+duration: 935
+metadata:
+  generated_at: '2025-05-23T17:30:11.401942'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.401759'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:58.401759'
+  event_type: rollback
+  description: 'Rollback: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:02.401759'
+  event_type: scaling
+  description: 'Scaling: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:04.401759'
+  event_type: rollback
+  description: 'Rollback: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:11.401759'
+  event_type: scaling
+  description: 'Scaling: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:23.401759'
+  event_type: rollback
+  description: 'Rollback: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:41.401759'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 220
+    log_snippet: '[2025-05-23 17:30:11] ERROR nginx-proxy: database connection lost
+      in failure'
+    metrics:
+      error_rate: 0.32793005083788185
+      response_time_ms: 9720
+      cpu_usage: 0.7324857689395992
+      memory_usage: 0.8423606560713317
+- timestamp: '2025-05-23T17:31:54.401759'
+  event_type: deployment
+  description: 'Deployment: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:07.401759'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 43
+    log_snippet: '[2025-05-23 17:30:11] ERROR worker-consumer: service unavailable
+      in failure'
+    metrics:
+      error_rate: 0.19955385941315182
+      response_time_ms: 1150
+      cpu_usage: 0.7807138626144332
+      memory_usage: 0.9503258948811344
+- timestamp: '2025-05-23T17:45:46.401759'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

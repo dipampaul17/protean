@@ -1,0 +1,48 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173011
+description: Configuration inconsistencies causing service degradation
+duration: 531
+metadata:
+  generated_at: '2025-05-23T17:30:11.436471'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.435776'
+  event_type: trigger
+  description: 'Initial failure detected: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:28.435776'
+  event_type: config_change
+  description: 'Config_Change: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:40.435776'
+  event_type: rollback
+  description: 'Rollback: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:14.435776'
+  event_type: rollback
+  description: 'Rollback: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:58.435776'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 101
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.7902111969316364
+      response_time_ms: 3705
+      cpu_usage: 0.7424144976396281
+      memory_usage: 0.8179515500589294
+- timestamp: '2025-05-23T17:39:02.435776'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

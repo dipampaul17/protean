@@ -1,0 +1,84 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_173011",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 1094,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.338575",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.338411",
+      "event_type": "trigger",
+      "description": "Initial failure detected: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:30.338411",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:53.338411",
+      "event_type": "deployment",
+      "description": "Deployment: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:24.338411",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:29.338411",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 185,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR nginx-proxy: database connection lost in failure",
+        "metrics": {
+          "error_rate": 0.1336815098208276,
+          "response_time_ms": 6715,
+          "cpu_usage": 0.7758332429232149,
+          "memory_usage": 0.8514807499637105
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:36.338411",
+      "event_type": "deployment",
+      "description": "Deployment: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:38.338411",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:46.338411",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:25.338411",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

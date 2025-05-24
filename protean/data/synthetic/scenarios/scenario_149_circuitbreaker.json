@@ -1,0 +1,162 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173011",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1672,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.353157",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.352939",
+      "event_type": "trigger",
+      "description": "Initial failure detected: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:21.352939",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 88,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.5715246640099223,
+          "response_time_ms": 8549,
+          "cpu_usage": 0.9216369315876806,
+          "memory_usage": 0.9678138118236629
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:16.352939",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 128,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.7953903870155964,
+          "response_time_ms": 8776,
+          "cpu_usage": 0.9966794034494708,
+          "memory_usage": 0.9767483996020174
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:34.352939",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 129,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.7095061559183392,
+          "response_time_ms": 9587,
+          "cpu_usage": 0.7038272888599307,
+          "memory_usage": 0.8766934285731118
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:45.352939",
+      "event_type": "degradation",
+      "description": "Degradation: deployment failed",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 60,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.25884787687810573,
+          "response_time_ms": 9241,
+          "cpu_usage": 0.8073789377851631,
+          "memory_usage": 0.8568027302867586
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:00.352939",
+      "event_type": "recovery",
+      "description": "Recovery: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:05.352939",
+      "event_type": "degradation",
+      "description": "Degradation: network unreachable",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "low",
+        "duration": 161,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR user-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.16532153153384982,
+          "response_time_ms": 594,
+          "cpu_usage": 0.3274976722200647,
+          "memory_usage": 0.4815629539104164
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:12.352939",
+      "event_type": "degradation",
+      "description": "Degradation: authentication failed",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 144,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.47383453182681645,
+          "response_time_ms": 1635,
+          "cpu_usage": 0.818682543942725,
+          "memory_usage": 0.9372537484048625
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:28.352939",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 157,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.4969151515748228,
+          "response_time_ms": 7381,
+          "cpu_usage": 0.7907903251586913,
+          "memory_usage": 0.8874682112231496
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:58:03.352939",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

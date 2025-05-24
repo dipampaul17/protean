@@ -1,0 +1,90 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173011",
+  "description": "Message queue and event processing failures",
+  "duration": 1118,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.367883",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.367747",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:40.367747",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:28.367747",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 258,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-queue: queue processing memory limit exceeded",
+        "metrics": {
+          "error_rate": 0.7886540482643011,
+          "response_time_ms": 5040,
+          "cpu_usage": 0.9567199111861473,
+          "memory_usage": 0.9240340901038995,
+          "queue_depth": 25488,
+          "message_processing_rate": 7.42562671912756,
+          "consumer_lag_ms": 157752
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:40.367747",
+      "event_type": "message_loss",
+      "description": "Message_Loss: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:24.367747",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 287,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR batch-processing-queue: queue processing network unreachable",
+        "metrics": {
+          "error_rate": 0.5738431705584761,
+          "response_time_ms": 8591,
+          "cpu_usage": 0.8482456779821742,
+          "memory_usage": 0.8790482233156153,
+          "queue_depth": 21672,
+          "message_processing_rate": 0.40448133994090474,
+          "consumer_lag_ms": 291150
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:52.367747",
+      "event_type": "message_loss",
+      "description": "Message_Loss: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:49.367747",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

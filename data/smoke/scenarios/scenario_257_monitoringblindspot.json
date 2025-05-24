@@ -1,0 +1,108 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_184526",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1613,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.733504",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.733262",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:54.733262",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:57.733262",
+      "event_type": "recovery",
+      "description": "Recovery: the database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:37.733262",
+      "event_type": "recovery",
+      "description": "Recovery: parse error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:50.733262",
+      "event_type": "timeout",
+      "description": "Timeout: to scale",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 31,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: to scale - operation failed",
+        "metrics": {
+          "error_rate": 0.4889789896114274,
+          "response_time_ms": 2511,
+          "cpu_usage": 0.9905183525292165,
+          "memory_usage": 0.9279591986895999
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:54.733262",
+      "event_type": "failure",
+      "description": "Failure: reduce alert",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 74,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: reduce alert - operation failed",
+        "metrics": {
+          "error_rate": 0.4218756538981079,
+          "response_time_ms": 3691,
+          "cpu_usage": 0.9391886669598872,
+          "memory_usage": 0.9373216948765056
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:49:11.733262",
+      "event_type": "failure",
+      "description": "Failure: code error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 224,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: code error - operation failed",
+        "metrics": {
+          "error_rate": 0.22884793204441403,
+          "response_time_ms": 5248,
+          "cpu_usage": 0.9183684769242715,
+          "memory_usage": 0.8460442144654725
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:49:14.733262",
+      "event_type": "recovery",
+      "description": "Recovery: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:12:19.733262",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+category: NetworkPartition
+name: NetworkPartition_20250523_184526
+description: Infrastructure failure scenario for NetworkPartition
+duration: 398
+metadata:
+  generated_at: '2025-05-23T18:45:26.642062'
+  phrase_templates_used: 4
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.641877'
+  event_type: trigger
+  description: 'Initial failure detected: each node'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:46.641877'
+  event_type: failure
+  description: 'Failure: and memory'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 228
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: and memory - operation
+      failed'
+    metrics:
+      error_rate: 0.2548552234286759
+      response_time_ms: 9307
+      cpu_usage: 0.7193352123630379
+      memory_usage: 0.9068270246630983
+- timestamp: '2025-05-23T18:46:18.641877'
+  event_type: timeout
+  description: 'Timeout: and memory'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 300
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: and memory - operation
+      failed'
+    metrics:
+      error_rate: 0.3183755208472888
+      response_time_ms: 4900
+      cpu_usage: 0.7349794473854908
+      memory_usage: 0.9114739967053362
+- timestamp: '2025-05-23T18:46:34.641877'
+  event_type: failure
+  description: 'Failure: and node'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 117
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: and node - operation
+      failed'
+    metrics:
+      error_rate: 0.4549878958590703
+      response_time_ms: 2537
+      cpu_usage: 0.7819271850593669
+      memory_usage: 0.9259419685043726
+- timestamp: '2025-05-23T18:47:02.641877'
+  event_type: timeout
+  description: 'Timeout: of disk'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 215
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: of disk - operation failed'
+    metrics:
+      error_rate: 0.4577803137958891
+      response_time_ms: 4844
+      cpu_usage: 0.9836436240134592
+      memory_usage: 0.9097095396289325
+- timestamp: '2025-05-23T18:52:04.641877'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

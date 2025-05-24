@@ -1,0 +1,90 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173011",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 970,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.435642",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.435498",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:35.435498",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 142,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR web-frontend: circuit breaker triggered in failure",
+        "metrics": {
+          "error_rate": 0.530034639979631,
+          "response_time_ms": 4676,
+          "cpu_usage": 0.9565617574939778,
+          "memory_usage": 0.8642684989419822
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:47.435498",
+      "event_type": "deployment",
+      "description": "Deployment: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:49.435498",
+      "event_type": "deployment",
+      "description": "Deployment: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:20.435498",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 91,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-backend: rate limit exceeded in failure",
+        "metrics": {
+          "error_rate": 0.4354432982526799,
+          "response_time_ms": 1691,
+          "cpu_usage": 0.8674599641967602,
+          "memory_usage": 0.8455721583954687
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:39.435498",
+      "event_type": "rollback",
+      "description": "Rollback: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:12.435498",
+      "event_type": "deployment",
+      "description": "Deployment: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:21.435498",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

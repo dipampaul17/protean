@@ -1,0 +1,120 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_172917",
+  "description": "Message queue and event processing failures",
+  "duration": 491,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.680599",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.680450",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:37.680450",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 252,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-queue: queue processing queue overflow",
+        "metrics": {
+          "error_rate": 0.535846780537622,
+          "response_time_ms": 7312,
+          "cpu_usage": 0.8751518778938316,
+          "memory_usage": 0.9976647976886929,
+          "queue_depth": 22997,
+          "message_processing_rate": 7.8597572420979525,
+          "consumer_lag_ms": 16614
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:41.680450",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-queue",
+        "severity": "high",
+        "duration": 124,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-queue: queue processing service unavailable",
+        "metrics": {
+          "error_rate": 0.7618293408617731,
+          "response_time_ms": 1796,
+          "cpu_usage": 0.7592800375663141,
+          "memory_usage": 0.8234494749179405,
+          "queue_depth": 21249,
+          "message_processing_rate": 9.223313722664928,
+          "consumer_lag_ms": 197247
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:49.680450",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-queue",
+        "severity": "high",
+        "duration": 271,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-queue: queue processing circuit breaker triggered",
+        "metrics": {
+          "error_rate": 0.618459243125982,
+          "response_time_ms": 1320,
+          "cpu_usage": 0.9536128467102731,
+          "memory_usage": 0.9070369452575895,
+          "queue_depth": 17327,
+          "message_processing_rate": 3.0717003581580373,
+          "consumer_lag_ms": 75064
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:04.680450",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-queue",
+        "severity": "high",
+        "duration": 74,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-queue: queue processing network unreachable",
+        "metrics": {
+          "error_rate": 0.14924946008344478,
+          "response_time_ms": 8070,
+          "cpu_usage": 0.8568557060687043,
+          "memory_usage": 0.830920126406981,
+          "queue_depth": 9571,
+          "message_processing_rate": 7.414916843045181,
+          "consumer_lag_ms": 129379
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:14.680450",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:28.680450",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

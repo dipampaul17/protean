@@ -1,0 +1,58 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173011
+description: Application deployment and rollback scenarios
+duration: 608
+metadata:
+  generated_at: '2025-05-23T17:30:11.401012'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.400904'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:02.400904'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 49
+    log_snippet: '[2025-05-23 17:30:11] ERROR nginx-proxy: authentication failed in
+      failure'
+    metrics:
+      error_rate: 0.2887746111678835
+      response_time_ms: 4095
+      cpu_usage: 0.769387705794059
+      memory_usage: 0.8947736334416243
+- timestamp: '2025-05-23T17:31:34.400904'
+  event_type: deployment
+  description: 'Deployment: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:37.400904'
+  event_type: scaling
+  description: 'Scaling: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:55.400904'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 245
+    log_snippet: '[2025-05-23 17:30:11] ERROR nginx-proxy: connection timeout in failure'
+    metrics:
+      error_rate: 0.3491226815466083
+      response_time_ms: 8472
+      cpu_usage: 0.8671030417263117
+      memory_usage: 0.969657707139441
+- timestamp: '2025-05-23T17:40:19.400904'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

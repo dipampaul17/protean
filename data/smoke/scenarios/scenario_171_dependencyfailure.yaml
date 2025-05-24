@@ -1,0 +1,70 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_184526
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1529
+metadata:
+  generated_at: '2025-05-23T18:45:26.690123'
+  phrase_templates_used: 45
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.689933'
+  event_type: trigger
+  description: 'Initial failure detected: coirq error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:42.689933'
+  event_type: timeout
+  description: 'Timeout: the server'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 156
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.8861622828533771
+      response_time_ms: 5340
+      cpu_usage: 0.73435165024433
+      memory_usage: 0.8275790046481092
+- timestamp: '2025-05-23T18:48:25.689933'
+  event_type: timeout
+  description: 'Timeout: code error'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 64
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: code error - operation
+      failed'
+    metrics:
+      error_rate: 0.3695436618301019
+      response_time_ms: 9379
+      cpu_usage: 0.7224195628674285
+      memory_usage: 0.887426325697649
+- timestamp: '2025-05-23T18:50:03.689933'
+  event_type: recovery
+  description: 'Recovery: to network'
+  injection_spec: null
+- timestamp: '2025-05-23T18:50:47.689933'
+  event_type: timeout
+  description: 'Timeout: to network'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 101
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: to network - operation
+      failed'
+    metrics:
+      error_rate: 0.2155477789064989
+      response_time_ms: 9050
+      cpu_usage: 0.8424445846276999
+      memory_usage: 0.9036633177337998
+- timestamp: '2025-05-23T19:10:55.689933'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

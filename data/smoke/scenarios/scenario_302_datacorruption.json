@@ -1,0 +1,114 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_184526",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 670,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.748692",
+    "phrase_templates_used": 36,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 2,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.748465",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:59.748465",
+      "event_type": "timeout",
+      "description": "Timeout: code queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "medium",
+        "duration": 159,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: code queue - operation failed",
+        "metrics": {
+          "error_rate": 0.17464923569320456,
+          "response_time_ms": 1039,
+          "cpu_usage": 0.6340939943661206,
+          "memory_usage": 0.627236796984363
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:00.748465",
+      "event_type": "recovery",
+      "description": "Recovery: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:03.748465",
+      "event_type": "recovery",
+      "description": "Recovery: to fix",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:33.748465",
+      "event_type": "failure",
+      "description": "Failure: the queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "medium",
+        "duration": 102,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.16959382743363546,
+          "response_time_ms": 1436,
+          "cpu_usage": 0.6574461302983575,
+          "memory_usage": 0.4261460489586382
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:33.748465",
+      "event_type": "failure",
+      "description": "Failure: second node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 41,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: second node - operation failed",
+        "metrics": {
+          "error_rate": 0.30145169086605705,
+          "response_time_ms": 3711,
+          "cpu_usage": 0.7105087180575876,
+          "memory_usage": 0.8859403825504298
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:08.748465",
+      "event_type": "timeout",
+      "description": "Timeout: a cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 253,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: a cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.27912970798378134,
+          "response_time_ms": 8467,
+          "cpu_usage": 0.7725352054786663,
+          "memory_usage": 0.9912264625320775
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:56:36.748465",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

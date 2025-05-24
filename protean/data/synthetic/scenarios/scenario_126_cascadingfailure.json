@@ -1,0 +1,78 @@
+{
+  "category": "CascadingFailure",
+  "name": "CascadingFailure_20250523_172917",
+  "description": "Multi-service failure propagation scenario",
+  "duration": 1106,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.578914",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.578750",
+      "event_type": "trigger",
+      "description": "Initial failure detected: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:27.578750",
+      "event_type": "cascade",
+      "description": "Cascade: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:21.578750",
+      "event_type": "initial_failure",
+      "description": "Initial_Failure: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:32.578750",
+      "event_type": "cascade",
+      "description": "Cascade: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:37.578750",
+      "event_type": "propagation",
+      "description": "Propagation: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:37.578750",
+      "event_type": "cascade",
+      "description": "Cascade: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:54.578750",
+      "event_type": "cascade",
+      "description": "Cascade: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:59.578750",
+      "event_type": "propagation",
+      "description": "Propagation: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:33.578750",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:43.578750",
+      "event_type": "recovery",
+      "description": "System recovered: all services recovered",
+      "injection_spec": null
+    }
+  ]
+}

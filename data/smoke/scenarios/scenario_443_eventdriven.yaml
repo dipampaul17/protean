@@ -1,0 +1,55 @@
+category: EventDriven
+name: EventDriven_20250523_184526
+description: Message queue and event processing failures
+duration: 1572
+metadata:
+  generated_at: '2025-05-23T18:45:26.809469'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T18:45:26.808690'
+  event_type: trigger
+  description: 'Initial failure detected: ephemeral node'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:37.808690'
+  event_type: timeout
+  description: 'Timeout: strong update'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 56
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-queue: queue processing strong
+      update'
+    metrics:
+      error_rate: 0.3731398544461385
+      response_time_ms: 9434
+      cpu_usage: 0.9896352849020906
+      memory_usage: 0.9070661243221966
+      queue_depth: 28846
+      message_processing_rate: 7.275989171001439
+      consumer_lag_ms: 139802
+- timestamp: '2025-05-23T18:46:20.808690'
+  event_type: recovery
+  description: 'Recovery: badmatch error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:29.808690'
+  event_type: recovery
+  description: 'Recovery: channel connection'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:49.808690'
+  event_type: recovery
+  description: 'Recovery: kafka cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:29.808690'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: main queue'
+  injection_spec: null
+- timestamp: '2025-05-23T19:11:38.808690'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

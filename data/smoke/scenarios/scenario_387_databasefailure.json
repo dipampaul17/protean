@@ -1,0 +1,132 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_184526",
+  "description": "Database connectivity and performance issues",
+  "duration": 775,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.778227",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.777952",
+      "event_type": "trigger",
+      "description": "Initial failure detected: postgresql database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:36.777952",
+      "event_type": "timeout",
+      "description": "Timeout: the queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "medium",
+        "duration": 274,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR mongodb-shard: the queue in timeout",
+        "metrics": {
+          "error_rate": 0.06552350612642685,
+          "response_time_ms": 1895,
+          "cpu_usage": 0.5177465386420101,
+          "memory_usage": 0.5755620656633023,
+          "connection_pool_usage": 0.8605376053273341,
+          "query_time_ms": 14544,
+          "deadlocks_per_sec": 4
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:08.777952",
+      "event_type": "corruption",
+      "description": "Corruption: mysql database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:11.777952",
+      "event_type": "timeout",
+      "description": "Timeout: the container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 168,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR mongodb-shard: the container in timeout",
+        "metrics": {
+          "error_rate": 0.38767407223202743,
+          "response_time_ms": 3751,
+          "cpu_usage": 0.8642334099567898,
+          "memory_usage": 0.919965709017291,
+          "connection_pool_usage": 0.8176127320603762,
+          "query_time_ms": 11646,
+          "deadlocks_per_sec": 6
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:43.777952",
+      "event_type": "timeout",
+      "description": "Timeout: a container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "postgres-replica",
+        "severity": "high",
+        "duration": 109,
+        "log_snippet": "[2025-05-23 18:45:26] FATAL postgres-replica: database a container detected",
+        "metrics": {
+          "error_rate": 0.30437167502266504,
+          "response_time_ms": 8930,
+          "cpu_usage": 0.9912770271181394,
+          "memory_usage": 0.8594890515249419,
+          "connection_pool_usage": 0.9456787887504442,
+          "query_time_ms": 19173,
+          "deadlocks_per_sec": 10
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:59.777952",
+      "event_type": "timeout",
+      "description": "Timeout: code update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 215,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR redis-cache: code update in timeout",
+        "metrics": {
+          "error_rate": 0.49488455423916955,
+          "response_time_ms": 6218,
+          "cpu_usage": 0.9308538391777146,
+          "memory_usage": 0.9416242322574715,
+          "connection_pool_usage": 0.8814365333461667,
+          "query_time_ms": 23917,
+          "deadlocks_per_sec": 10
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:03.777952",
+      "event_type": "recovery",
+      "description": "Recovery: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:12.777952",
+      "event_type": "recovery",
+      "description": "Recovery: following error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:58:21.777952",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

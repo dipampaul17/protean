@@ -1,0 +1,81 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_184526
+description: Infrastructure failure scenario for DependencyFailure
+duration: 512
+metadata:
+  generated_at: '2025-05-23T18:45:26.689516'
+  phrase_templates_used: 45
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.689327'
+  event_type: trigger
+  description: 'Initial failure detected: following error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:03.689327'
+  event_type: timeout
+  description: 'Timeout: to monitor'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 165
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: to monitor - operation
+      failed'
+    metrics:
+      error_rate: 0.24320343803534694
+      response_time_ms: 6154
+      cpu_usage: 0.7075526493322201
+      memory_usage: 0.8753715253616076
+- timestamp: '2025-05-23T18:46:46.689327'
+  event_type: failure
+  description: 'Failure: coirq error'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 286
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: coirq error - operation
+      failed'
+    metrics:
+      error_rate: 0.7220067200780591
+      response_time_ms: 7007
+      cpu_usage: 0.7863004792046985
+      memory_usage: 0.8311825251211779
+- timestamp: '2025-05-23T18:46:55.689327'
+  event_type: failure
+  description: 'Failure: the error'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 232
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.18570030615255792
+      response_time_ms: 3498
+      cpu_usage: 0.9424920375716382
+      memory_usage: 0.9886034535179885
+- timestamp: '2025-05-23T18:47:07.689327'
+  event_type: failure
+  description: 'Failure: code error'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 62
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: code error - operation
+      failed'
+    metrics:
+      error_rate: 0.275223958703088
+      response_time_ms: 9899
+      cpu_usage: 0.8931346398998841
+      memory_usage: 0.9145228383038806
+- timestamp: '2025-05-23T18:53:58.689327'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

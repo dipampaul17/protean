@@ -1,0 +1,41 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_172917
+description: Configuration inconsistencies causing service degradation
+duration: 1187
+metadata:
+  generated_at: '2025-05-23T17:29:17.747664'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:29:17.747480'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:39.747480'
+  event_type: rollback
+  description: 'Rollback: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:24.747480'
+  event_type: restart
+  description: 'Restart: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:36.747480'
+  event_type: restart
+  description: 'Restart: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:02.747480'
+  event_type: config_change
+  description: 'Config_Change: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:42.747480'
+  event_type: rollback
+  description: 'Rollback: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:04.747480'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

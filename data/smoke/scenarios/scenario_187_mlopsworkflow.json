@@ -1,0 +1,144 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_184526",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 786,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.695310",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.695043",
+      "event_type": "trigger",
+      "description": "Initial failure detected: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:41.695043",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 239,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.6498729922220834,
+          "response_time_ms": 8016,
+          "cpu_usage": 0.7673830836563945,
+          "memory_usage": 0.8735069980939242
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:04.695043",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:26.695043",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 278,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.3750151025746983,
+          "response_time_ms": 1844,
+          "cpu_usage": 0.8254638417893888,
+          "memory_usage": 0.9305741810678998
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:37.695043",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 69,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.5180535306043147,
+          "response_time_ms": 6204,
+          "cpu_usage": 0.8936952608440015,
+          "memory_usage": 0.9510257511288114
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:44.695043",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 110,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.23530912183296585,
+          "response_time_ms": 5604,
+          "cpu_usage": 0.7237515148694287,
+          "memory_usage": 0.920080216978348
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:59.695043",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 93,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.17473117145685527,
+          "response_time_ms": 1615,
+          "cpu_usage": 0.9923654624507161,
+          "memory_usage": 0.9898729362612545
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:16.695043",
+      "event_type": "timeout",
+      "description": "Timeout: disk space full",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 66,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.3639026471204462,
+          "response_time_ms": 8476,
+          "cpu_usage": 0.8866280293384212,
+          "memory_usage": 0.8140623292577321
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:58:32.695043",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

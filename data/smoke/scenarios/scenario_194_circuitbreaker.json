@@ -1,0 +1,96 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_184526",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1795,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.697394",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.696662",
+      "event_type": "trigger",
+      "description": "Initial failure detected: us log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:50.696662",
+      "event_type": "timeout",
+      "description": "Timeout: the timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 273,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: the timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.8909110815932788,
+          "response_time_ms": 4468,
+          "cpu_usage": 0.9183827274637919,
+          "memory_usage": 0.8225168908562595
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:06.696662",
+      "event_type": "recovery",
+      "description": "Recovery: kubernetes cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:49:45.696662",
+      "event_type": "recovery",
+      "description": "Recovery: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:49:56.696662",
+      "event_type": "failure",
+      "description": "Failure: gateway timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 189,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: gateway timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.6714155261140623,
+          "response_time_ms": 5485,
+          "cpu_usage": 0.8317804400221731,
+          "memory_usage": 0.9348371798004691
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:50:22.696662",
+      "event_type": "failure",
+      "description": "Failure: the container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 263,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.3507962460703179,
+          "response_time_ms": 8159,
+          "cpu_usage": 0.7421120209316026,
+          "memory_usage": 0.916115401606865
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:15:21.696662",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

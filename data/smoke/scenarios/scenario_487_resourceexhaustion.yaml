@@ -1,0 +1,84 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_184526
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 1400
+metadata:
+  generated_at: '2025-05-23T18:45:26.824453'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.824245'
+  event_type: trigger
+  description: 'Initial failure detected: of disk'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:58.824245'
+  event_type: timeout
+  description: 'Timeout: a connection'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 217
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: a connection - operation
+      failed'
+    metrics:
+      error_rate: 0.6298832554741067
+      response_time_ms: 8714
+      cpu_usage: 0.8795969422904646
+      memory_usage: 0.9134906495598191
+- timestamp: '2025-05-23T18:46:17.824245'
+  event_type: recovery
+  description: 'Recovery: redis connection'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:50.824245'
+  event_type: failure
+  description: 'Failure: served memory'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 250
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: served memory - operation
+      failed'
+    metrics:
+      error_rate: 0.5053034805475022
+      response_time_ms: 4953
+      cpu_usage: 0.9684110132185779
+      memory_usage: 0.9716571431719547
+- timestamp: '2025-05-23T18:48:55.824245'
+  event_type: timeout
+  description: 'Timeout: the queue'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: medium
+    duration: 256
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: the queue - operation
+      failed'
+    metrics:
+      error_rate: 0.12754353959003384
+      response_time_ms: 278
+      cpu_usage: 0.4985672077422113
+      memory_usage: 0.5957552958565111
+- timestamp: '2025-05-23T18:49:53.824245'
+  event_type: failure
+  description: 'Failure: the pod'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 71
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: the pod - operation failed'
+    metrics:
+      error_rate: 0.14849230885879888
+      response_time_ms: 9216
+      cpu_usage: 0.7923446593985422
+      memory_usage: 0.8833270018401604
+- timestamp: '2025-05-23T19:08:46.824245'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

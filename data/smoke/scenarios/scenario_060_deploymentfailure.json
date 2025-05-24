@@ -1,0 +1,78 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_184526",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1379,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.575749",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.575461",
+      "event_type": "trigger",
+      "description": "Initial failure detected: code error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:37.575461",
+      "event_type": "failure",
+      "description": "Failure: kind deployment",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 95,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR web-frontend: kind deployment in failure",
+        "metrics": {
+          "error_rate": 0.7418511419311871,
+          "response_time_ms": 9456,
+          "cpu_usage": 0.9602878955713683,
+          "memory_usage": 0.9163515078466544
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:08.575461",
+      "event_type": "deployment",
+      "description": "Deployment: following error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:14.575461",
+      "event_type": "scaling",
+      "description": "Scaling: apache server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:44.575461",
+      "event_type": "deployment",
+      "description": "Deployment: the deployment",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:51.575461",
+      "event_type": "scaling",
+      "description": "Scaling: jenkins container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:30.575461",
+      "event_type": "rollback",
+      "description": "Rollback: to deploy",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:08:25.575461",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173011",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1197,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.309791",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.309467",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:10.309467",
+      "event_type": "degradation",
+      "description": "Degradation: service unavailable",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 94,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.6645101589988914,
+          "response_time_ms": 2739,
+          "cpu_usage": 0.842064507256877,
+          "memory_usage": 0.9783414901732798
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:28.309467",
+      "event_type": "recovery",
+      "description": "Recovery: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:30.309467",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 51,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.8274765837195597,
+          "response_time_ms": 9525,
+          "cpu_usage": 0.7065850873918448,
+          "memory_usage": 0.9682558546660581
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:36.309467",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 190,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.7708505990622748,
+          "response_time_ms": 7219,
+          "cpu_usage": 0.8084776344449036,
+          "memory_usage": 0.8820192844195438
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:49.309467",
+      "event_type": "degradation",
+      "description": "Degradation: network unreachable",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "low",
+        "duration": 69,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.2849282110270824,
+          "response_time_ms": 887,
+          "cpu_usage": 0.63482799587041,
+          "memory_usage": 0.6966797238930196
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:57.309467",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 125,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.692182895597549,
+          "response_time_ms": 1863,
+          "cpu_usage": 0.9043376826083251,
+          "memory_usage": 0.931226293951202
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:00.309467",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 149,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR auth-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.8870366769286933,
+          "response_time_ms": 2926,
+          "cpu_usage": 0.9835225196312155,
+          "memory_usage": 0.8712999698432689
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:40.309467",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:08.309467",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

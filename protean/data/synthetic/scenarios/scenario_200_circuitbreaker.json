@@ -1,0 +1,72 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173011",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 301,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.365608",
+    "phrase_templates_used": 0,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.365489",
+      "event_type": "trigger",
+      "description": "Initial failure detected: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:33.365489",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 263,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR auth-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.1081039991991169,
+          "response_time_ms": 1979,
+          "cpu_usage": 0.8321624645193747,
+          "memory_usage": 0.9098285775897369
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:01.365489",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 102,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.3972222046979125,
+          "response_time_ms": 6994,
+          "cpu_usage": 0.8707824646370859,
+          "memory_usage": 0.8304707172304826
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:49.365489",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:12.365489",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

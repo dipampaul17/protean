@@ -1,0 +1,69 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173011",
+  "description": "Database connectivity and performance issues",
+  "duration": 1404,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.373703",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.373598",
+      "event_type": "trigger",
+      "description": "Initial failure detected: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:34.373598",
+      "event_type": "corruption",
+      "description": "Corruption: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:43.373598",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:34.373598",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:35.373598",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 56,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR mongodb-shard: service unavailable in timeout",
+        "metrics": {
+          "error_rate": 0.8588453871131578,
+          "response_time_ms": 6335,
+          "cpu_usage": 0.941348991650196,
+          "memory_usage": 0.860366746929282,
+          "connection_pool_usage": 0.8492537763098319,
+          "query_time_ms": 9014,
+          "deadlocks_per_sec": 2
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:53:35.373598",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

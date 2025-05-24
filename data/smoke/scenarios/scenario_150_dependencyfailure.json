@@ -1,0 +1,138 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_184526",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 1697,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.683284",
+    "phrase_templates_used": 45,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 2,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.682969",
+      "event_type": "trigger",
+      "description": "Initial failure detected: exist error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:38.682969",
+      "event_type": "timeout",
+      "description": "Timeout: federated queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "medium",
+        "duration": 35,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: federated queue - operation failed",
+        "metrics": {
+          "error_rate": 0.01824742642045129,
+          "response_time_ms": 1273,
+          "cpu_usage": 0.5940068251700339,
+          "memory_usage": 0.6346531632210012
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:39.682969",
+      "event_type": "recovery",
+      "description": "Recovery: vpn connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:53.682969",
+      "event_type": "timeout",
+      "description": "Timeout: the service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 252,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: the service - operation failed",
+        "metrics": {
+          "error_rate": 0.7059700004149533,
+          "response_time_ms": 2591,
+          "cpu_usage": 0.9064894466618438,
+          "memory_usage": 0.9352484485514021
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:56.682969",
+      "event_type": "recovery",
+      "description": "Recovery: inventory service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:00.682969",
+      "event_type": "timeout",
+      "description": "Timeout: the queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "medium",
+        "duration": 174,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.19103748581833885,
+          "response_time_ms": 1835,
+          "cpu_usage": 0.6021834308991403,
+          "memory_usage": 0.4979595140581534
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:24.682969",
+      "event_type": "failure",
+      "description": "Failure: work log",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 298,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: work log - operation failed",
+        "metrics": {
+          "error_rate": 0.1351022548927505,
+          "response_time_ms": 9896,
+          "cpu_usage": 0.8421564497594731,
+          "memory_usage": 0.8717380853371068
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:24.682969",
+      "event_type": "recovery",
+      "description": "Recovery: the log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:32.682969",
+      "event_type": "timeout",
+      "description": "Timeout: headless service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 80,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: headless service - operation failed",
+        "metrics": {
+          "error_rate": 0.892223266308933,
+          "response_time_ms": 8997,
+          "cpu_usage": 0.9775869565799417,
+          "memory_usage": 0.8104239116861666
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:13:43.682969",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

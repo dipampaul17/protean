@@ -1,0 +1,53 @@
+category: CascadingFailure
+name: CascadingFailure_20250523_173011
+description: Multi-service failure propagation scenario
+duration: 1579
+metadata:
+  generated_at: '2025-05-23T17:30:11.353850'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:30:11.353692'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:29.353692'
+  event_type: initial_failure
+  description: 'Initial_Failure: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:39.353692'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:34.353692'
+  event_type: propagation
+  description: 'Propagation: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:56.353692'
+  event_type: initial_failure
+  description: 'Initial_Failure: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:09.353692'
+  event_type: propagation
+  description: 'Propagation: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:30.353692'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:49.353692'
+  event_type: propagation
+  description: 'Propagation: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:06.353692'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:56:30.353692'
+  event_type: recovery
+  description: 'System recovered: all services recovered'
+  injection_spec: null

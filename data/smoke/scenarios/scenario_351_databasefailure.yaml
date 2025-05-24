@@ -1,0 +1,60 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_184526
+description: Database connectivity and performance issues
+duration: 1490
+metadata:
+  generated_at: '2025-05-23T18:45:26.766576'
+  phrase_templates_used: 50
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.766442'
+  event_type: trigger
+  description: 'Initial failure detected: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:42.766442'
+  event_type: recovery
+  description: 'Recovery: in memory'
+  injection_spec: null
+- timestamp: '2025-05-23T18:50:40.766442'
+  event_type: timeout
+  description: 'Timeout: the service'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 105
+    log_snippet: '[2025-05-23 18:45:26] FATAL mysql-primary: database the service
+      detected'
+    metrics:
+      error_rate: 0.5053243335467263
+      response_time_ms: 3999
+      cpu_usage: 0.8006386486225668
+      memory_usage: 0.874233189062621
+      connection_pool_usage: 0.9255540504767826
+      query_time_ms: 15135
+      deadlocks_per_sec: 4
+- timestamp: '2025-05-23T18:50:42.766442'
+  event_type: timeout
+  description: 'Timeout: in memory'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 81
+    log_snippet: '[2025-05-23 18:45:26] FATAL mysql-primary: database in memory detected'
+    metrics:
+      error_rate: 0.1885952553878336
+      response_time_ms: 6199
+      cpu_usage: 0.8399287664678217
+      memory_usage: 0.9352507013412682
+      connection_pool_usage: 0.883364168238159
+      query_time_ms: 20518
+      deadlocks_per_sec: 10
+- timestamp: '2025-05-23T19:10:16.766442'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

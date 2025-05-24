@@ -1,0 +1,162 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_184526",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 636,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.757374",
+    "phrase_templates_used": 36,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 2,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.756510",
+      "event_type": "trigger",
+      "description": "Initial failure detected: data container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:41.756510",
+      "event_type": "timeout",
+      "description": "Timeout: a database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 89,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: a database - operation failed",
+        "metrics": {
+          "error_rate": 0.3544213031575172,
+          "response_time_ms": 2670,
+          "cpu_usage": 0.7125537035462014,
+          "memory_usage": 0.8583804961037423
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:45.756510",
+      "event_type": "recovery",
+      "description": "Recovery: code queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:04.756510",
+      "event_type": "failure",
+      "description": "Failure: head queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "medium",
+        "duration": 134,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: head queue - operation failed",
+        "metrics": {
+          "error_rate": 0.29960394552976566,
+          "response_time_ms": 395,
+          "cpu_usage": 0.7106654458693484,
+          "memory_usage": 0.4483230656271431
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:13.756510",
+      "event_type": "failure",
+      "description": "Failure: new container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 246,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: new container - operation failed",
+        "metrics": {
+          "error_rate": 0.1782354132979311,
+          "response_time_ms": 1026,
+          "cpu_usage": 0.7207027741012454,
+          "memory_usage": 0.8034305010033167
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:29.756510",
+      "event_type": "failure",
+      "description": "Failure: strong update",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 276,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.6674053189991744,
+          "response_time_ms": 9428,
+          "cpu_usage": 0.8674896089165474,
+          "memory_usage": 0.9781818101248523
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:37.756510",
+      "event_type": "timeout",
+      "description": "Timeout: the container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 80,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.5512169637422766,
+          "response_time_ms": 7440,
+          "cpu_usage": 0.7988635653908215,
+          "memory_usage": 0.8768546051218138
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:37.756510",
+      "event_type": "failure",
+      "description": "Failure: second node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 221,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: second node - operation failed",
+        "metrics": {
+          "error_rate": 0.27705273818784476,
+          "response_time_ms": 1477,
+          "cpu_usage": 0.7067956749790487,
+          "memory_usage": 0.9290090800255605
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:40.756510",
+      "event_type": "failure",
+      "description": "Failure: code queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "medium",
+        "duration": 110,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: code queue - operation failed",
+        "metrics": {
+          "error_rate": 0.14963825202069833,
+          "response_time_ms": 1385,
+          "cpu_usage": 0.3926061891898546,
+          "memory_usage": 0.4538393582203131
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:56:02.756510",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

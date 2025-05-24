@@ -1,0 +1,138 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_172917",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 734,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.642571",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.642361",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:33.642361",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "vpc-main",
+        "severity": "high",
+        "duration": 160,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR vpc-main: authentication failed in timeout",
+        "metrics": {
+          "error_rate": 0.18522222195410026,
+          "response_time_ms": 5602,
+          "cpu_usage": 0.756188027851969,
+          "memory_usage": 0.8737879689357944,
+          "requests_per_sec": 171,
+          "backend_health_pct": 0.7381633646310726,
+          "connection_timeouts": 113
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:37.642361",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 129,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR api-gateway: database connection lost in timeout",
+        "metrics": {
+          "error_rate": 0.18182495085270312,
+          "response_time_ms": 7097,
+          "cpu_usage": 0.7890173424552154,
+          "memory_usage": 0.9790927768610521,
+          "requests_per_sec": 9753,
+          "backend_health_pct": 0.45924377169341085,
+          "connection_timeouts": 598
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:08.642361",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "subnet-private",
+        "severity": "high",
+        "duration": 246,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR subnet-private: memory limit exceeded in timeout",
+        "metrics": {
+          "error_rate": 0.46947197849565037,
+          "response_time_ms": 3296,
+          "cpu_usage": 0.7567127755955678,
+          "memory_usage": 0.9270533698280441,
+          "requests_per_sec": 6553,
+          "backend_health_pct": 0.6421708045091072,
+          "connection_timeouts": 608
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:13.642361",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:14.642361",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 102,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR api-gateway: rate limit exceeded in timeout",
+        "metrics": {
+          "error_rate": 0.7272087197598058,
+          "response_time_ms": 3311,
+          "cpu_usage": 0.7696798168778177,
+          "memory_usage": 0.9983890753676996,
+          "requests_per_sec": 3916,
+          "backend_health_pct": 0.40753733972565415,
+          "connection_timeouts": 921
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:14.642361",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:24.642361",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:28.642361",
+      "event_type": "scaling",
+      "description": "Scaling: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:41:31.642361",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

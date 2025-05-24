@@ -1,0 +1,72 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_184526",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 581,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.730006",
+    "phrase_templates_used": 0,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.729882",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:07.729882",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 210,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.7896542949652349,
+          "response_time_ms": 2969,
+          "cpu_usage": 0.7353523846740441,
+          "memory_usage": 0.887237352734444
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:41.729882",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:12.729882",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 214,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.6054601730403576,
+          "response_time_ms": 2409,
+          "cpu_usage": 0.7044479200214223,
+          "memory_usage": 0.8813140742598503
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:55:07.729882",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

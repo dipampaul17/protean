@@ -1,0 +1,67 @@
+category: Microservices
+name: Microservices_20250523_184526
+description: Infrastructure failure scenario for Microservices
+duration: 349
+metadata:
+  generated_at: '2025-05-23T18:45:26.554482'
+  phrase_templates_used: 15
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 1
+events:
+- timestamp: '2025-05-23T18:45:26.554158'
+  event_type: trigger
+  description: 'Initial failure detected: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:38.554158'
+  event_type: timeout
+  description: 'Timeout: from service'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 86
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: from service - operation
+      failed'
+    metrics:
+      error_rate: 0.11114066738695492
+      response_time_ms: 3158
+      cpu_usage: 0.8383476874878331
+      memory_usage: 0.9793343507666562
+- timestamp: '2025-05-23T18:45:42.554158'
+  event_type: recovery
+  description: 'Recovery: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:43.554158'
+  event_type: timeout
+  description: 'Timeout: the queue'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: medium
+    duration: 40
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: the queue - operation
+      failed'
+    metrics:
+      error_rate: 0.13161225887005498
+      response_time_ms: 953
+      cpu_usage: 0.7025973139836157
+      memory_usage: 0.6636999927244627
+- timestamp: '2025-05-23T18:45:51.554158'
+  event_type: recovery
+  description: 'Recovery: lt service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:58.554158'
+  event_type: recovery
+  description: 'Recovery: http connection'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:22.554158'
+  event_type: recovery
+  description: 'Recovery: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:51:15.554158'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

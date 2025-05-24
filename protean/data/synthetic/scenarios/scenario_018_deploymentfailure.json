@@ -1,0 +1,114 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_172917",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 493,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.515546",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.515358",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:40.515358",
+      "event_type": "scaling",
+      "description": "Scaling: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:44.515358",
+      "event_type": "deployment",
+      "description": "Deployment: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:47.515358",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 156,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR nginx-proxy: rate limit exceeded in failure",
+        "metrics": {
+          "error_rate": 0.6416379835124381,
+          "response_time_ms": 8510,
+          "cpu_usage": 0.7143335344195157,
+          "memory_usage": 0.9119581813003672
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:51.515358",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 95,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR nginx-proxy: disk space full in failure",
+        "metrics": {
+          "error_rate": 0.22196002407809046,
+          "response_time_ms": 2815,
+          "cpu_usage": 0.7494428199932661,
+          "memory_usage": 0.8020465285397715
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:58.515358",
+      "event_type": "rollback",
+      "description": "Rollback: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:04.515358",
+      "event_type": "deployment",
+      "description": "Deployment: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:09.515358",
+      "event_type": "rollback",
+      "description": "Rollback: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:09.515358",
+      "event_type": "failure",
+      "description": "Failure: memory limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 237,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR web-frontend: memory limit exceeded in failure",
+        "metrics": {
+          "error_rate": 0.21936299381237268,
+          "response_time_ms": 5431,
+          "cpu_usage": 0.7263393751940755,
+          "memory_usage": 0.9681025690004834
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:30.515358",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

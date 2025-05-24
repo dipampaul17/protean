@@ -1,0 +1,78 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_172917",
+  "description": "Database connectivity and performance issues",
+  "duration": 827,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.589123",
+    "phrase_templates_used": 0,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.588982",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:40.588982",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 245,
+        "log_snippet": "[2025-05-23 17:29:17] FATAL mysql-primary: database deployment failed detected",
+        "metrics": {
+          "error_rate": 0.4647723602705438,
+          "response_time_ms": 4609,
+          "cpu_usage": 0.939786612487908,
+          "memory_usage": 0.8483806530487815,
+          "connection_pool_usage": 0.9170263360043814,
+          "query_time_ms": 17097,
+          "deadlocks_per_sec": 8
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:19.588982",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 164,
+        "log_snippet": "[2025-05-23 17:29:17] FATAL mysql-primary: database authentication failed detected",
+        "metrics": {
+          "error_rate": 0.26335987989555054,
+          "response_time_ms": 7350,
+          "cpu_usage": 0.9032368554743704,
+          "memory_usage": 0.9695177172727408,
+          "connection_pool_usage": 0.8103019639687662,
+          "query_time_ms": 26778,
+          "deadlocks_per_sec": 10
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:56.588982",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:43:04.588982",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

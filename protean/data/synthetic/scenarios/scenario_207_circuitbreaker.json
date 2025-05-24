@@ -1,0 +1,126 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_172917",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1271,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.600998",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.600824",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:40.600824",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 105,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR user-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.2361481596782168,
+          "response_time_ms": 4360,
+          "cpu_usage": 0.7313953744631361,
+          "memory_usage": 0.8315412147994741
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:12.600824",
+      "event_type": "degradation",
+      "description": "Degradation: queue overflow",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 270,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.3709410092972073,
+          "response_time_ms": 7731,
+          "cpu_usage": 0.9913176609476722,
+          "memory_usage": 0.8025770867018567
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:20.600824",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 60,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR user-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.31528021690485275,
+          "response_time_ms": 8708,
+          "cpu_usage": 0.8889899096734066,
+          "memory_usage": 0.8360766671200743
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:29.600824",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 223,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.844076201892721,
+          "response_time_ms": 8350,
+          "cpu_usage": 0.8975112410206034,
+          "memory_usage": 0.9130088715197044
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:47.600824",
+      "event_type": "recovery",
+      "description": "Recovery: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:26.600824",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 95,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.5373418065360678,
+          "response_time_ms": 2168,
+          "cpu_usage": 0.9464357370900303,
+          "memory_usage": 0.8841152423308315
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:28.600824",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

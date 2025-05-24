@@ -1,0 +1,52 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_172917
+description: Application deployment and rollback scenarios
+duration: 1386
+metadata:
+  generated_at: '2025-05-23T17:29:17.544601'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.544486'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:38.544486'
+  event_type: deployment
+  description: 'Deployment: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:57.544486'
+  event_type: deployment
+  description: 'Deployment: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:06.544486'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 297
+    log_snippet: '[2025-05-23 17:29:17] ERROR worker-consumer: memory limit exceeded
+      in failure'
+    metrics:
+      error_rate: 0.8135934568042694
+      response_time_ms: 8972
+      cpu_usage: 0.8976176367250405
+      memory_usage: 0.8213076158609548
+- timestamp: '2025-05-23T17:32:16.544486'
+  event_type: scaling
+  description: 'Scaling: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:05.544486'
+  event_type: deployment
+  description: 'Deployment: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:52:23.544486'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

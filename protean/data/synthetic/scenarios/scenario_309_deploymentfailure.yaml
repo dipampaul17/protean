@@ -1,0 +1,62 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_172917
+description: Application deployment and rollback scenarios
+duration: 1295
+metadata:
+  generated_at: '2025-05-23T17:29:17.680907'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.680758'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:39.680758'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 207
+    log_snippet: '[2025-05-23 17:29:17] ERROR web-frontend: container crashed in failure'
+    metrics:
+      error_rate: 0.12493678845426928
+      response_time_ms: 3533
+      cpu_usage: 0.8644925993400921
+      memory_usage: 0.9690183640748199
+- timestamp: '2025-05-23T17:30:26.680758'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 241
+    log_snippet: '[2025-05-23 17:29:17] ERROR web-frontend: network unreachable in
+      failure'
+    metrics:
+      error_rate: 0.6059009524411668
+      response_time_ms: 4214
+      cpu_usage: 0.9614346010730053
+      memory_usage: 0.8859216817380811
+- timestamp: '2025-05-23T17:30:31.680758'
+  event_type: deployment
+  description: 'Deployment: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:11.680758'
+  event_type: rollback
+  description: 'Rollback: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:39.680758'
+  event_type: deployment
+  description: 'Deployment: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:52.680758'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

@@ -1,0 +1,59 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_184526
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1331
+metadata:
+  generated_at: '2025-05-23T18:45:26.783143'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.782991'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:33.782991'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:12.782991'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 131
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: container crashed
+      - operation failed'
+    metrics:
+      error_rate: 0.44025478467944945
+      response_time_ms: 6605
+      cpu_usage: 0.9092743530321848
+      memory_usage: 0.9511294938129788
+- timestamp: '2025-05-23T18:49:35.782991'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T18:50:19.782991'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 193
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.5881544493887957
+      response_time_ms: 7627
+      cpu_usage: 0.8633293818354382
+      memory_usage: 0.9048018350997885
+- timestamp: '2025-05-23T19:07:37.782991'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

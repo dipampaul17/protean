@@ -1,0 +1,77 @@
+category: CloudNative
+name: CloudNative_20250523_173011
+description: Kubernetes pod and container orchestration issues
+duration: 337
+metadata:
+  generated_at: '2025-05-23T17:30:11.342254'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:30:11.342085'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:27.342085'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 215
+    log_snippet: '[2025-05-23 17:30:11] ERROR web-frontend: deployment failed in failure'
+    metrics:
+      error_rate: 0.6532685141373277
+      response_time_ms: 7965
+      cpu_usage: 0.768582527267757
+      memory_usage: 0.9125069095231052
+- timestamp: '2025-05-23T17:30:35.342085'
+  event_type: deployment
+  description: 'Deployment: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:36.342085'
+  event_type: pod_restart
+  description: 'Pod_Restart: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:45.342085'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 132
+    log_snippet: '[2025-05-23 17:30:11] ERROR web-frontend: network unreachable in
+      failure'
+    metrics:
+      error_rate: 0.6029054086634337
+      response_time_ms: 9629
+      cpu_usage: 0.8775893964078254
+      memory_usage: 0.8331980643553965
+- timestamp: '2025-05-23T17:30:54.342085'
+  event_type: deployment
+  description: 'Deployment: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:00.342085'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 93
+    log_snippet: '[2025-05-23 17:30:11] ERROR nginx-proxy: rate limit exceeded in
+      failure'
+    metrics:
+      error_rate: 0.7692010414435425
+      response_time_ms: 2705
+      cpu_usage: 0.71927504064447
+      memory_usage: 0.9213736430293202
+- timestamp: '2025-05-23T17:35:48.342085'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

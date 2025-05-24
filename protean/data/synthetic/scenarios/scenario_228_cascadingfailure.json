@@ -1,0 +1,78 @@
+{
+  "category": "CascadingFailure",
+  "name": "CascadingFailure_20250523_172917",
+  "description": "Multi-service failure propagation scenario",
+  "duration": 461,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.607253",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.607092",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:37.607092",
+      "event_type": "propagation",
+      "description": "Propagation: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:40.607092",
+      "event_type": "initial_failure",
+      "description": "Initial_Failure: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:51.607092",
+      "event_type": "propagation",
+      "description": "Propagation: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:04.607092",
+      "event_type": "propagation",
+      "description": "Propagation: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:07.607092",
+      "event_type": "cascade",
+      "description": "Cascade: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:10.607092",
+      "event_type": "recovery",
+      "description": "Recovery: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:11.607092",
+      "event_type": "recovery",
+      "description": "Recovery: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:12.607092",
+      "event_type": "recovery",
+      "description": "Recovery: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:58.607092",
+      "event_type": "recovery",
+      "description": "System recovered: all services recovered",
+      "injection_spec": null
+    }
+  ]
+}

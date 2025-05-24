@@ -1,0 +1,96 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_184526",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 1076,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.788059",
+    "phrase_templates_used": 15,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.787862",
+      "event_type": "trigger",
+      "description": "Initial failure detected: docker network",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:45.787862",
+      "event_type": "failure",
+      "description": "Failure: the queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "medium",
+        "duration": 227,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.04372330115447711,
+          "response_time_ms": 1132,
+          "cpu_usage": 0.7980513998624661,
+          "memory_usage": 0.6264502354336102
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:57.787862",
+      "event_type": "failure",
+      "description": "Failure: another container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 167,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: another container - operation failed",
+        "metrics": {
+          "error_rate": 0.8521021838951567,
+          "response_time_ms": 8700,
+          "cpu_usage": 0.8245586585785284,
+          "memory_usage": 0.9976466548833967
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:21.787862",
+      "event_type": "recovery",
+      "description": "Recovery: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:08.787862",
+      "event_type": "failure",
+      "description": "Failure: http connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 254,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: http connection - operation failed",
+        "metrics": {
+          "error_rate": 0.6646325136489415,
+          "response_time_ms": 7001,
+          "cpu_usage": 0.8299855497432909,
+          "memory_usage": 0.8298923554615572
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:55.787862",
+      "event_type": "recovery",
+      "description": "Recovery: to service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:03:22.787862",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173011
+description: Circuit breaker activation due to cascading service failures
+duration: 1031
+metadata:
+  generated_at: '2025-05-23T17:30:11.362081'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:30:11.361929'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:03.361929'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 208
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.20780743494396436
+      response_time_ms: 8869
+      cpu_usage: 0.7091742320271
+      memory_usage: 0.9582765204183225
+- timestamp: '2025-05-23T17:32:23.361929'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 211
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.7776818943162085
+      response_time_ms: 9338
+      cpu_usage: 0.9382737470937574
+      memory_usage: 0.8259031163650669
+- timestamp: '2025-05-23T17:32:30.361929'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 134
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.37382681238690907
+      response_time_ms: 6309
+      cpu_usage: 0.9729220862967148
+      memory_usage: 0.8827946806722324
+- timestamp: '2025-05-23T17:33:23.361929'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:34.361929'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 101
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.5931732156128112
+      response_time_ms: 4962
+      cpu_usage: 0.7666625685148202
+      memory_usage: 0.9328672054194455
+- timestamp: '2025-05-23T17:47:22.361929'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

@@ -1,0 +1,81 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173011
+description: Circuit breaker activation due to cascading service failures
+duration: 1668
+metadata:
+  generated_at: '2025-05-23T17:30:11.386359'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:30:11.386225'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:38.386225'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 274
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.21510637995665116
+      response_time_ms: 8435
+      cpu_usage: 0.769884806676667
+      memory_usage: 0.9905876415720839
+- timestamp: '2025-05-23T17:30:54.386225'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 137
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.8542049947887177
+      response_time_ms: 2790
+      cpu_usage: 0.9645165005772578
+      memory_usage: 0.939159276233601
+- timestamp: '2025-05-23T17:31:19.386225'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 163
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.8295492992465456
+      response_time_ms: 9668
+      cpu_usage: 0.8065457860311382
+      memory_usage: 0.8876075143270689
+- timestamp: '2025-05-23T17:31:32.386225'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 230
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.24831096784898687
+      response_time_ms: 2921
+      cpu_usage: 0.8395288592173957
+      memory_usage: 0.9947227381382885
+- timestamp: '2025-05-23T17:57:59.386225'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

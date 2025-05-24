@@ -1,0 +1,90 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173011",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 803,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.359278",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.359126",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:37.359126",
+      "event_type": "restart",
+      "description": "Restart: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:39.359126",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 275,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.26553400226566726,
+          "response_time_ms": 4489,
+          "cpu_usage": 0.9164325558705493,
+          "memory_usage": 0.9291711976638061
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:02.359126",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 45,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR auth-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.3856053297673888,
+          "response_time_ms": 2041,
+          "cpu_usage": 0.9258111140040519,
+          "memory_usage": 0.8150281370427404
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:31.359126",
+      "event_type": "restart",
+      "description": "Restart: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:06.359126",
+      "event_type": "config_change",
+      "description": "Config_Change: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:11.359126",
+      "event_type": "restart",
+      "description": "Restart: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:43:34.359126",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

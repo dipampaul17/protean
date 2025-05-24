@@ -1,0 +1,63 @@
+category: EventDriven
+name: EventDriven_20250523_184526
+description: Message queue and event processing failures
+duration: 972
+metadata:
+  generated_at: '2025-05-23T18:45:26.782957'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T18:45:26.782162'
+  event_type: trigger
+  description: 'Initial failure detected: server restart'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:36.782162'
+  event_type: message_loss
+  description: 'Message_Loss: ephemeral node'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:56.782162'
+  event_type: recovery
+  description: 'Recovery: of node'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:48.782162'
+  event_type: recovery
+  description: 'Recovery: config server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:11.782162'
+  event_type: timeout
+  description: 'Timeout: the memory'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 126
+    log_snippet: '[2025-05-23 18:45:26] ERROR batch-processing-queue: queue processing
+      the memory'
+    metrics:
+      error_rate: 0.8223698158700545
+      response_time_ms: 4679
+      cpu_usage: 0.8018293527931389
+      memory_usage: 0.8238844282407056
+      queue_depth: 12122
+      message_processing_rate: 1.755342353343394
+      consumer_lag_ms: 124502
+- timestamp: '2025-05-23T18:47:15.782162'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: to update'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:23.782162'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:24.782162'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: to update'
+  injection_spec: null
+- timestamp: '2025-05-23T19:01:38.782162'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

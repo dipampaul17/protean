@@ -1,0 +1,55 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173011
+description: Circuit breaker activation due to cascading service failures
+duration: 821
+metadata:
+  generated_at: '2025-05-23T17:30:11.339512'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.339420'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:50.339420'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 287
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.7486688640055852
+      response_time_ms: 5657
+      cpu_usage: 0.755070314199527
+      memory_usage: 0.92290137953768
+- timestamp: '2025-05-23T17:32:10.339420'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 285
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.45236695409674954
+      response_time_ms: 3906
+      cpu_usage: 0.7238163688613103
+      memory_usage: 0.9057722029414023
+- timestamp: '2025-05-23T17:32:55.339420'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:43:52.339420'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

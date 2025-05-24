@@ -1,0 +1,70 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173011
+description: Circuit breaker activation due to cascading service failures
+duration: 1262
+metadata:
+  generated_at: '2025-05-23T17:30:11.358525'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:30:11.358415'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:32.358415'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 125
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: authentication
+      failed - operation failed'
+    metrics:
+      error_rate: 0.15521471057843456
+      response_time_ms: 5741
+      cpu_usage: 0.9988601099235144
+      memory_usage: 0.8400893250794198
+- timestamp: '2025-05-23T17:33:40.358415'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 299
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.792455416400803
+      response_time_ms: 2209
+      cpu_usage: 0.987754398129613
+      memory_usage: 0.9920719914093077
+- timestamp: '2025-05-23T17:34:52.358415'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:53.358415'
+  event_type: degradation
+  description: 'Degradation: service unavailable'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: high
+    duration: 51
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.39139832475143155
+      response_time_ms: 7541
+      cpu_usage: 0.7321767223190278
+      memory_usage: 0.9365285600065381
+- timestamp: '2025-05-23T17:51:13.358415'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

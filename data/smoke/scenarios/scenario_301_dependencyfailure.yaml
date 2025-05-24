@@ -1,0 +1,93 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_184526
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1157
+metadata:
+  generated_at: '2025-05-23T18:45:26.748432'
+  phrase_templates_used: 45
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.748175'
+  event_type: trigger
+  description: 'Initial failure detected: external service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:40.748175'
+  event_type: recovery
+  description: 'Recovery: the log'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:52.748175'
+  event_type: timeout
+  description: 'Timeout: nginx error'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 266
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: nginx error -
+      operation failed'
+    metrics:
+      error_rate: 0.35306743595587387
+      response_time_ms: 7851
+      cpu_usage: 0.9422804354119075
+      memory_usage: 0.9953564320047346
+- timestamp: '2025-05-23T18:45:58.748175'
+  event_type: failure
+  description: 'Failure: upstream queue'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: medium
+    duration: 59
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: upstream queue - operation
+      failed'
+    metrics:
+      error_rate: 0.03849883220900921
+      response_time_ms: 935
+      cpu_usage: 0.4408627760129036
+      memory_usage: 0.6858573911037059
+- timestamp: '2025-05-23T18:46:00.748175'
+  event_type: recovery
+  description: 'Recovery: the connection'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:10.748175'
+  event_type: timeout
+  description: 'Timeout: the service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 222
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: the service -
+      operation failed'
+    metrics:
+      error_rate: 0.8787719489150719
+      response_time_ms: 1517
+      cpu_usage: 0.7210451232292793
+      memory_usage: 0.8955805859771153
+- timestamp: '2025-05-23T18:46:14.748175'
+  event_type: recovery
+  description: 'Recovery: quot network'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:27.748175'
+  event_type: timeout
+  description: 'Timeout: the error'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 40
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.5610867532649594
+      response_time_ms: 5132
+      cpu_usage: 0.9831340908413215
+      memory_usage: 0.8851604621002651
+- timestamp: '2025-05-23T19:04:43.748175'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

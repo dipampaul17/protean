@@ -1,0 +1,70 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_184526
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 363
+metadata:
+  generated_at: '2025-05-23T18:45:26.818273'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.818110'
+  event_type: trigger
+  description: 'Initial failure detected: connection refused'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:50.818110'
+  event_type: failure
+  description: 'Failure: code container'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 43
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: code container - operation
+      failed'
+    metrics:
+      error_rate: 0.6901147291237125
+      response_time_ms: 8890
+      cpu_usage: 0.854052887932966
+      memory_usage: 0.8337343606741427
+- timestamp: '2025-05-23T18:45:53.818110'
+  event_type: recovery
+  description: 'Recovery: the pod'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:23.818110'
+  event_type: failure
+  description: 'Failure: the pod'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 283
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: the pod - operation
+      failed'
+    metrics:
+      error_rate: 0.7246523764754855
+      response_time_ms: 3529
+      cpu_usage: 0.7954161910489059
+      memory_usage: 0.9212528546852728
+- timestamp: '2025-05-23T18:46:31.818110'
+  event_type: timeout
+  description: 'Timeout: each node'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 66
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: each node - operation
+      failed'
+    metrics:
+      error_rate: 0.24009624072962651
+      response_time_ms: 2608
+      cpu_usage: 0.8277194296412221
+      memory_usage: 0.9315623228921154
+- timestamp: '2025-05-23T18:51:29.818110'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,69 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_184526
+description: Infrastructure failure scenario for ScalingFailure
+duration: 1636
+metadata:
+  generated_at: '2025-05-23T18:45:26.694710'
+  phrase_templates_used: 24
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.694538'
+  event_type: trigger
+  description: 'Initial failure detected: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:58.694538'
+  event_type: recovery
+  description: 'Recovery: the service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:49:23.694538'
+  event_type: failure
+  description: 'Failure: a server'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 113
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: a server - operation failed'
+    metrics:
+      error_rate: 0.20054205313209456
+      response_time_ms: 7134
+      cpu_usage: 0.85949193223657
+      memory_usage: 0.9833013633022754
+- timestamp: '2025-05-23T18:52:13.694538'
+  event_type: timeout
+  description: 'Timeout: this error'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 61
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: this error - operation
+      failed'
+    metrics:
+      error_rate: 0.7074708517542098
+      response_time_ms: 9673
+      cpu_usage: 0.9722497093848949
+      memory_usage: 0.8319339085738403
+- timestamp: '2025-05-23T18:52:15.694538'
+  event_type: failure
+  description: 'Failure: nodeport service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 79
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: nodeport service -
+      operation failed'
+    metrics:
+      error_rate: 0.4129428943002369
+      response_time_ms: 3712
+      cpu_usage: 0.8100363866307482
+      memory_usage: 0.9805044710404582
+- timestamp: '2025-05-23T19:12:42.694538'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

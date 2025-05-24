@@ -1,0 +1,130 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_184526
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 1378
+metadata:
+  generated_at: '2025-05-23T18:45:26.756266'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 6
+events:
+- timestamp: '2025-05-23T18:45:26.755535'
+  event_type: trigger
+  description: 'Initial failure detected: main memory'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:55.755535'
+  event_type: failure
+  description: 'Failure: the limit'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: medium
+    duration: 202
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: the limit - operation
+      failed'
+    metrics:
+      error_rate: 0.0508597334028179
+      response_time_ms: 539
+      cpu_usage: 0.3152370618074353
+      memory_usage: 0.6458688560215058
+- timestamp: '2025-05-23T18:46:16.755535'
+  event_type: timeout
+  description: 'Timeout: high memory'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 239
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: high memory - operation
+      failed'
+    metrics:
+      error_rate: 0.5889988411518153
+      response_time_ms: 8967
+      cpu_usage: 0.8923485893330743
+      memory_usage: 0.9081007829271649
+- timestamp: '2025-05-23T18:46:20.755535'
+  event_type: timeout
+  description: 'Timeout: the database'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 137
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: the database -
+      operation failed'
+    metrics:
+      error_rate: 0.8596293291015495
+      response_time_ms: 6363
+      cpu_usage: 0.7408958920281558
+      memory_usage: 0.8329490090577659
+- timestamp: '2025-05-23T18:46:48.755535'
+  event_type: recovery
+  description: 'Recovery: double scale'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:05.755535'
+  event_type: failure
+  description: 'Failure: em connection'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 49
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: em connection
+      - operation failed'
+    metrics:
+      error_rate: 0.4871885946605702
+      response_time_ms: 5842
+      cpu_usage: 0.9953503345351549
+      memory_usage: 0.9624621297815146
+- timestamp: '2025-05-23T18:47:31.755535'
+  event_type: failure
+  description: 'Failure: a node'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 127
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: a node - operation
+      failed'
+    metrics:
+      error_rate: 0.49098677801985946
+      response_time_ms: 1309
+      cpu_usage: 0.8430463889426802
+      memory_usage: 0.8451401740380137
+- timestamp: '2025-05-23T18:47:35.755535'
+  event_type: timeout
+  description: 'Timeout: potential memory'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 274
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: potential memory
+      - operation failed'
+    metrics:
+      error_rate: 0.6817439404754628
+      response_time_ms: 5891
+      cpu_usage: 0.9671269764449049
+      memory_usage: 0.8696288605237384
+- timestamp: '2025-05-23T18:47:37.755535'
+  event_type: timeout
+  description: 'Timeout: low disk'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 35
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: low disk - operation
+      failed'
+    metrics:
+      error_rate: 0.28192105341067714
+      response_time_ms: 8588
+      cpu_usage: 0.9727910871910337
+      memory_usage: 0.9214268968442958
+- timestamp: '2025-05-23T19:08:24.755535'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

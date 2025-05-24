@@ -1,0 +1,84 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_172917",
+  "description": "Message queue and event processing failures",
+  "duration": 1397,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.585986",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.585739",
+      "event_type": "trigger",
+      "description": "Initial failure detected: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:23.585739",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 164,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR batch-processing-queue: queue processing database connection lost",
+        "metrics": {
+          "error_rate": 0.2871615891313638,
+          "response_time_ms": 5470,
+          "cpu_usage": 0.7594204607751082,
+          "memory_usage": 0.9934803460760995,
+          "queue_depth": 17427,
+          "message_processing_rate": 8.917650353292203,
+          "consumer_lag_ms": 172598
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:48.585739",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:21.585739",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 92,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR batch-processing-queue: queue processing service unavailable",
+        "metrics": {
+          "error_rate": 0.3221284546573935,
+          "response_time_ms": 8806,
+          "cpu_usage": 0.73256668520878,
+          "memory_usage": 0.918637332111803,
+          "queue_depth": 39425,
+          "message_processing_rate": 3.8460219010931875,
+          "consumer_lag_ms": 272144
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:45.585739",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:52:34.585739",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_184526",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 686,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.699587",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.699421",
+      "event_type": "trigger",
+      "description": "Initial failure detected: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:21.699421",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 293,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.625876216935027,
+          "response_time_ms": 6212,
+          "cpu_usage": 0.7274031968324675,
+          "memory_usage": 0.9134341108566831
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:01.699421",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 161,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.15159270067076636,
+          "response_time_ms": 9601,
+          "cpu_usage": 0.9716484955995731,
+          "memory_usage": 0.9832761690806254
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:13.699421",
+      "event_type": "recovery",
+      "description": "Recovery: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:39.699421",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 298,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.31363615204540396,
+          "response_time_ms": 9392,
+          "cpu_usage": 0.9715073194494879,
+          "memory_usage": 0.888660577542507
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:56:52.699421",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

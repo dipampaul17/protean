@@ -1,0 +1,93 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_184526
+description: Infrastructure failure scenario for ScalingFailure
+duration: 1138
+metadata:
+  generated_at: '2025-05-23T18:45:26.811625'
+  phrase_templates_used: 24
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.811367'
+  event_type: trigger
+  description: 'Initial failure detected: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:36.811367'
+  event_type: timeout
+  description: 'Timeout: the cluster'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 129
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: the cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.8510697181331116
+      response_time_ms: 2875
+      cpu_usage: 0.9075275792806194
+      memory_usage: 0.8806594974250157
+- timestamp: '2025-05-23T18:46:20.811367'
+  event_type: failure
+  description: 'Failure: scaling scale'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 233
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: scaling scale - operation
+      failed'
+    metrics:
+      error_rate: 0.41958559198506795
+      response_time_ms: 7790
+      cpu_usage: 0.8737259680877522
+      memory_usage: 0.8421243622720976
+- timestamp: '2025-05-23T18:46:37.811367'
+  event_type: recovery
+  description: 'Recovery: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:55.811367'
+  event_type: failure
+  description: 'Failure: https connection'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 287
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: https connection -
+      operation failed'
+    metrics:
+      error_rate: 0.12006574794721098
+      response_time_ms: 1227
+      cpu_usage: 0.7086965875703691
+      memory_usage: 0.9543652219273917
+- timestamp: '2025-05-23T18:47:17.811367'
+  event_type: recovery
+  description: 'Recovery: per server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:56.811367'
+  event_type: failure
+  description: 'Failure: nodeport service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 278
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: nodeport service -
+      operation failed'
+    metrics:
+      error_rate: 0.8228589790262394
+      response_time_ms: 7479
+      cpu_usage: 0.8020209940867141
+      memory_usage: 0.9631930450782626
+- timestamp: '2025-05-23T18:48:04.811367'
+  event_type: recovery
+  description: 'Recovery: web server'
+  injection_spec: null
+- timestamp: '2025-05-23T19:04:24.811367'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

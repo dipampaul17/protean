@@ -1,0 +1,87 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_172917
+description: Database connectivity and performance issues
+duration: 1359
+metadata:
+  generated_at: '2025-05-23T17:29:17.745544'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:29:17.744605'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:08.744605'
+  event_type: corruption
+  description: 'Corruption: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:28.744605'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 162
+    log_snippet: '[2025-05-23 17:29:17] ERROR mongodb-shard: network unreachable in
+      timeout'
+    metrics:
+      error_rate: 0.1162506312769268
+      response_time_ms: 9660
+      cpu_usage: 0.9905294768520626
+      memory_usage: 0.8994140244468323
+      connection_pool_usage: 0.925157437218597
+      query_time_ms: 23576
+      deadlocks_per_sec: 7
+- timestamp: '2025-05-23T17:31:40.744605'
+  event_type: connection_loss
+  description: 'Connection_Loss: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:33.744605'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 168
+    log_snippet: '[2025-05-23 17:29:17] ERROR mongodb-shard: container crashed in
+      timeout'
+    metrics:
+      error_rate: 0.2994417273276542
+      response_time_ms: 9145
+      cpu_usage: 0.8025354344384292
+      memory_usage: 0.9584993503013639
+      connection_pool_usage: 0.9225900639867711
+      query_time_ms: 12766
+      deadlocks_per_sec: 7
+- timestamp: '2025-05-23T17:32:47.744605'
+  event_type: corruption
+  description: 'Corruption: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:02.744605'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 114
+    log_snippet: '[2025-05-23 17:29:17] FATAL mysql-primary: database memory limit
+      exceeded detected'
+    metrics:
+      error_rate: 0.18837428759865393
+      response_time_ms: 3359
+      cpu_usage: 0.7341820516278406
+      memory_usage: 0.8052808919596819
+      connection_pool_usage: 0.8922302604219641
+      query_time_ms: 24158
+      deadlocks_per_sec: 9
+- timestamp: '2025-05-23T17:51:56.744605'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

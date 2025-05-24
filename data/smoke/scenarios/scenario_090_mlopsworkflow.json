@@ -1,0 +1,162 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_184526",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 1000,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.646727",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 7
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.646297",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:54.646297",
+      "event_type": "timeout",
+      "description": "Timeout: disk space full",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 118,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.34526326304984356,
+          "response_time_ms": 7269,
+          "cpu_usage": 0.7819909791064381,
+          "memory_usage": 0.810200856270014
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:55.646297",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:10.646297",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 155,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.7755433922324507,
+          "response_time_ms": 2766,
+          "cpu_usage": 0.7612739140275064,
+          "memory_usage": 0.9675297083225662
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:20.646297",
+      "event_type": "failure",
+      "description": "Failure: memory limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 84,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.5749086046546094,
+          "response_time_ms": 5692,
+          "cpu_usage": 0.7576205644711136,
+          "memory_usage": 0.8918899486195558
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:32.646297",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 184,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.4726562406752828,
+          "response_time_ms": 9092,
+          "cpu_usage": 0.8804929454791393,
+          "memory_usage": 0.9523655318151918
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:38.646297",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 59,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.2259037986500424,
+          "response_time_ms": 5339,
+          "cpu_usage": 0.759195819486997,
+          "memory_usage": 0.8468888110060389
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:39.646297",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 76,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.41303846978117975,
+          "response_time_ms": 6713,
+          "cpu_usage": 0.7141084559030437,
+          "memory_usage": 0.8422653413493197
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:21.646297",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 68,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.3276444608190716,
+          "response_time_ms": 2781,
+          "cpu_usage": 0.7156839333826375,
+          "memory_usage": 0.8246143323242375
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:02:06.646297",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

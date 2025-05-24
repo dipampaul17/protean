@@ -1,0 +1,55 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_184526
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1500
+metadata:
+  generated_at: '2025-05-23T18:45:26.772914'
+  phrase_templates_used: 50
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.772771'
+  event_type: trigger
+  description: 'Initial failure detected: a server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:48.772771'
+  event_type: timeout
+  description: 'Timeout: code alert'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 300
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: code alert - operation
+      failed'
+    metrics:
+      error_rate: 0.25534996864303017
+      response_time_ms: 9896
+      cpu_usage: 0.9976179535183392
+      memory_usage: 0.9312928990765362
+- timestamp: '2025-05-23T18:46:37.772771'
+  event_type: timeout
+  description: 'Timeout: a container'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 262
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: a container - operation
+      failed'
+    metrics:
+      error_rate: 0.8305045555146904
+      response_time_ms: 1910
+      cpu_usage: 0.8713353223180168
+      memory_usage: 0.9220281590286064
+- timestamp: '2025-05-23T18:53:44.772771'
+  event_type: recovery
+  description: 'Recovery: reduce alert'
+  injection_spec: null
+- timestamp: '2025-05-23T19:10:26.772771'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

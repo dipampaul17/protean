@@ -1,0 +1,47 @@
+category: EventDriven
+name: EventDriven_20250523_184526
+description: Message queue and event processing failures
+duration: 1038
+metadata:
+  generated_at: '2025-05-23T18:45:26.690284'
+  phrase_templates_used: 50
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 0
+events:
+- timestamp: '2025-05-23T18:45:26.690163'
+  event_type: trigger
+  description: 'Initial failure detected: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:11.690163'
+  event_type: message_loss
+  description: 'Message_Loss: failed to'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:46.690163'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: a network'
+  injection_spec: null
+- timestamp: '2025-05-23T18:49:00.690163'
+  event_type: timeout
+  description: 'Timeout: that queue'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: medium
+    duration: 261
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-queue: queue processing
+      that queue'
+    metrics:
+      error_rate: 0.027029581463096822
+      response_time_ms: 992
+      cpu_usage: 0.5421668716780895
+      memory_usage: 0.6695621617171394
+      queue_depth: 1429
+      message_processing_rate: 9.206642887683554
+      consumer_lag_ms: 252056
+- timestamp: '2025-05-23T19:02:44.690163'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

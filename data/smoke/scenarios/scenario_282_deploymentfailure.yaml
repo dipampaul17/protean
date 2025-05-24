@@ -1,0 +1,84 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_184526
+description: Application deployment and rollback scenarios
+duration: 1285
+metadata:
+  generated_at: '2025-05-23T18:45:26.741351'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.740589'
+  event_type: trigger
+  description: 'Initial failure detected: apache server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:44.740589'
+  event_type: scaling
+  description: 'Scaling: my deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:04.740589'
+  event_type: scaling
+  description: 'Scaling: container pod'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:13.740589'
+  event_type: scaling
+  description: 'Scaling: kind deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:52.740589'
+  event_type: rollback
+  description: 'Rollback: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:13.740589'
+  event_type: deployment
+  description: 'Deployment: kubernetes cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:15.740589'
+  event_type: failure
+  description: 'Failure: the server'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 66
+    log_snippet: '[2025-05-23 18:45:26] ERROR web-frontend: the server in failure'
+    metrics:
+      error_rate: 0.4897177655036502
+      response_time_ms: 8072
+      cpu_usage: 0.8796209063738661
+      memory_usage: 0.9010191279788357
+- timestamp: '2025-05-23T18:47:34.740589'
+  event_type: failure
+  description: 'Failure: an error'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 55
+    log_snippet: '[2025-05-23 18:45:26] ERROR api-backend: an error in failure'
+    metrics:
+      error_rate: 0.45788080556074817
+      response_time_ms: 2670
+      cpu_usage: 0.7445224537200238
+      memory_usage: 0.8656040361439824
+- timestamp: '2025-05-23T18:47:44.740589'
+  event_type: failure
+  description: 'Failure: during deployment'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 127
+    log_snippet: '[2025-05-23 18:45:26] ERROR worker-consumer: during deployment in
+      failure'
+    metrics:
+      error_rate: 0.15755078006379383
+      response_time_ms: 1450
+      cpu_usage: 0.7027748589320304
+      memory_usage: 0.8547128920846433
+- timestamp: '2025-05-23T19:06:51.740589'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

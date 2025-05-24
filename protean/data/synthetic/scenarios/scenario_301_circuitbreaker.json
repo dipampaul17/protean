@@ -1,0 +1,138 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173011",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 374,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.395045",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.394863",
+      "event_type": "trigger",
+      "description": "Initial failure detected: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:22.394863",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 299,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.5926737833246492,
+          "response_time_ms": 4622,
+          "cpu_usage": 0.9321019204341988,
+          "memory_usage": 0.8141261215327151
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:33.394863",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 110,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR user-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.12245209818355898,
+          "response_time_ms": 8814,
+          "cpu_usage": 0.9532371961509213,
+          "memory_usage": 0.9874716176149125
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:37.394863",
+      "event_type": "degradation",
+      "description": "Degradation: circuit breaker triggered",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "low",
+        "duration": 226,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.1268896230641977,
+          "response_time_ms": 871,
+          "cpu_usage": 0.7310960406228294,
+          "memory_usage": 0.48685264793775773
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:50.394863",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 90,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.3573744217928835,
+          "response_time_ms": 2968,
+          "cpu_usage": 0.9890414866499171,
+          "memory_usage": 0.9237228577790451
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:59.394863",
+      "event_type": "degradation",
+      "description": "Degradation: rate limit exceeded",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 292,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.6356771800293848,
+          "response_time_ms": 6573,
+          "cpu_usage": 0.8478391637569449,
+          "memory_usage": 0.8948043007143871
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:06.394863",
+      "event_type": "timeout",
+      "description": "Timeout: disk space full",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 238,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.39023045623832153,
+          "response_time_ms": 2821,
+          "cpu_usage": 0.753585374742641,
+          "memory_usage": 0.8878568192047496
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:25.394863",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

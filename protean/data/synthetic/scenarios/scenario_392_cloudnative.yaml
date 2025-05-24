@@ -1,0 +1,58 @@
+category: CloudNative
+name: CloudNative_20250523_173011
+description: Kubernetes pod and container orchestration issues
+duration: 364
+metadata:
+  generated_at: '2025-05-23T17:30:11.420350'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.420242'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:01.420242'
+  event_type: scaling
+  description: 'Scaling: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:19.420242'
+  event_type: deployment
+  description: 'Deployment: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:28.420242'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 168
+    log_snippet: '[2025-05-23 17:30:11] ERROR web-frontend: container crashed in failure'
+    metrics:
+      error_rate: 0.20161165565296973
+      response_time_ms: 7265
+      cpu_usage: 0.7397911605781339
+      memory_usage: 0.907745997997283
+- timestamp: '2025-05-23T17:31:35.420242'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 224
+    log_snippet: '[2025-05-23 17:30:11] ERROR api-backend: network unreachable in
+      failure'
+    metrics:
+      error_rate: 0.8977399719980721
+      response_time_ms: 9728
+      cpu_usage: 0.9295472751374362
+      memory_usage: 0.8285040439431298
+- timestamp: '2025-05-23T17:36:15.420242'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

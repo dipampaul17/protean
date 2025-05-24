@@ -1,0 +1,66 @@
+{
+  "category": "CascadingFailure",
+  "name": "CascadingFailure_20250523_172917",
+  "description": "Multi-service failure propagation scenario",
+  "duration": 461,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.537099",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.536554",
+      "event_type": "trigger",
+      "description": "Initial failure detected: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:48.536554",
+      "event_type": "propagation",
+      "description": "Propagation: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:49.536554",
+      "event_type": "propagation",
+      "description": "Propagation: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:54.536554",
+      "event_type": "propagation",
+      "description": "Propagation: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:03.536554",
+      "event_type": "cascade",
+      "description": "Cascade: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:13.536554",
+      "event_type": "propagation",
+      "description": "Propagation: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:27.536554",
+      "event_type": "recovery",
+      "description": "Recovery: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:58.536554",
+      "event_type": "recovery",
+      "description": "System recovered: all services recovered",
+      "injection_spec": null
+    }
+  ]
+}

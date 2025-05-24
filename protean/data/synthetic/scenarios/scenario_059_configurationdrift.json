@@ -1,0 +1,90 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173011",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1432,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.328186",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.327723",
+      "event_type": "trigger",
+      "description": "Initial failure detected: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:21.327723",
+      "event_type": "restart",
+      "description": "Restart: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:35.327723",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 81,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.6523581994298155,
+          "response_time_ms": 8009,
+          "cpu_usage": 0.7843557360626833,
+          "memory_usage": 0.8651873629649431
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:36.327723",
+      "event_type": "config_change",
+      "description": "Config_Change: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:38.327723",
+      "event_type": "config_change",
+      "description": "Config_Change: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:05.327723",
+      "event_type": "rollback",
+      "description": "Rollback: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:13.327723",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 100,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.16084024204909841,
+          "response_time_ms": 3126,
+          "cpu_usage": 0.7175630103242404,
+          "memory_usage": 0.8006392429117589
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:54:03.327723",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

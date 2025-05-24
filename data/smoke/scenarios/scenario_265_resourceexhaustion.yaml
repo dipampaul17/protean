@@ -1,0 +1,97 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_184526
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 1136
+metadata:
+  generated_at: '2025-05-23T18:45:26.735592'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.735312'
+  event_type: trigger
+  description: 'Initial failure detected: and fix'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:40.735312'
+  event_type: timeout
+  description: 'Timeout: the server'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 186
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.5585001397793555
+      response_time_ms: 8352
+      cpu_usage: 0.8240342500563465
+      memory_usage: 0.8592315088099163
+- timestamp: '2025-05-23T18:45:50.735312'
+  event_type: failure
+  description: 'Failure: potential memory'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 122
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: potential memory - operation
+      failed'
+    metrics:
+      error_rate: 0.41866648559764463
+      response_time_ms: 1843
+      cpu_usage: 0.9998912118538898
+      memory_usage: 0.9321175496041803
+- timestamp: '2025-05-23T18:46:07.735312'
+  event_type: recovery
+  description: 'Recovery: the disk'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:11.735312'
+  event_type: recovery
+  description: 'Recovery: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:32.735312'
+  event_type: timeout
+  description: 'Timeout: of memory'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 83
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: of memory - operation
+      failed'
+    metrics:
+      error_rate: 0.6854437268661779
+      response_time_ms: 1584
+      cpu_usage: 0.9149958464517826
+      memory_usage: 0.9848664739176329
+- timestamp: '2025-05-23T18:46:51.735312'
+  event_type: recovery
+  description: 'Recovery: info node'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:06.735312'
+  event_type: timeout
+  description: 'Timeout: main memory'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 259
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: main memory - operation
+      failed'
+    metrics:
+      error_rate: 0.3460407978041117
+      response_time_ms: 5016
+      cpu_usage: 0.751170363166926
+      memory_usage: 0.8711609968556684
+- timestamp: '2025-05-23T18:47:41.735312'
+  event_type: recovery
+  description: 'Recovery: heap memory'
+  injection_spec: null
+- timestamp: '2025-05-23T19:04:22.735312'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

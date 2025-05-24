@@ -1,0 +1,60 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173011
+description: Application deployment and rollback scenarios
+duration: 581
+metadata:
+  generated_at: '2025-05-23T17:30:11.392600'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.392447'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:22.392447'
+  event_type: rollback
+  description: 'Rollback: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:36.392447'
+  event_type: rollback
+  description: 'Rollback: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:47.392447'
+  event_type: rollback
+  description: 'Rollback: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:52.392447'
+  event_type: scaling
+  description: 'Scaling: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:03.392447'
+  event_type: scaling
+  description: 'Scaling: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:18.392447'
+  event_type: scaling
+  description: 'Scaling: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:27.392447'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 147
+    log_snippet: '[2025-05-23 17:30:11] ERROR nginx-proxy: memory limit exceeded in
+      failure'
+    metrics:
+      error_rate: 0.5760597664893038
+      response_time_ms: 9406
+      cpu_usage: 0.8354627719351594
+      memory_usage: 0.8180469188902055
+- timestamp: '2025-05-23T17:39:52.392447'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

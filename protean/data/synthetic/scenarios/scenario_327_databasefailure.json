@@ -1,0 +1,108 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_172917",
+  "description": "Database connectivity and performance issues",
+  "duration": 503,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.686343",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.686156",
+      "event_type": "trigger",
+      "description": "Initial failure detected: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:32.686156",
+      "event_type": "recovery",
+      "description": "Recovery: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:34.686156",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 298,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR mongodb-shard: queue overflow in timeout",
+        "metrics": {
+          "error_rate": 0.25290463501019983,
+          "response_time_ms": 1692,
+          "cpu_usage": 0.9997227857904925,
+          "memory_usage": 0.9805811072400917,
+          "connection_pool_usage": 0.9977996956001354,
+          "query_time_ms": 18086,
+          "deadlocks_per_sec": 6
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:41.686156",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:45.686156",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:47.686156",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:08.686156",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 39,
+        "log_snippet": "[2025-05-23 17:29:17] FATAL mysql-primary: database authentication failed detected",
+        "metrics": {
+          "error_rate": 0.6731936257880804,
+          "response_time_ms": 6815,
+          "cpu_usage": 0.8486511638776311,
+          "memory_usage": 0.9114935986842061,
+          "connection_pool_usage": 0.8687933375034084,
+          "query_time_ms": 6647,
+          "deadlocks_per_sec": 9
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:14.686156",
+      "event_type": "recovery",
+      "description": "Recovery: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:15.686156",
+      "event_type": "corruption",
+      "description": "Corruption: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:40.686156",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

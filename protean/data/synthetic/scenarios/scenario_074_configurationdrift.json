@@ -1,0 +1,84 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_172917",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 323,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.543585",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.543425",
+      "event_type": "trigger",
+      "description": "Initial failure detected: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:30.543425",
+      "event_type": "restart",
+      "description": "Restart: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:35.543425",
+      "event_type": "config_change",
+      "description": "Config_Change: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:43.543425",
+      "event_type": "rollback",
+      "description": "Rollback: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:47.543425",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 223,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.3158216575690417,
+          "response_time_ms": 8648,
+          "cpu_usage": 0.9355786553819596,
+          "memory_usage": 0.8070189642696768
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:52.543425",
+      "event_type": "config_change",
+      "description": "Config_Change: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:53.543425",
+      "event_type": "config_change",
+      "description": "Config_Change: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:02.543425",
+      "event_type": "config_change",
+      "description": "Config_Change: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:40.543425",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

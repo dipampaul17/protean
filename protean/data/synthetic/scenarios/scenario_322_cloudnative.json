@@ -1,0 +1,102 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_172917",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 942,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.685318",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.685130",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:08.685130",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:14.685130",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:20.685130",
+      "event_type": "deployment",
+      "description": "Deployment: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:26.685130",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 138,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR nginx-proxy: disk space full in failure",
+        "metrics": {
+          "error_rate": 0.22781653947239475,
+          "response_time_ms": 2072,
+          "cpu_usage": 0.7382175177444107,
+          "memory_usage": 0.8867662170898373
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:36.685130",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 255,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR worker-consumer: container crashed in failure",
+        "metrics": {
+          "error_rate": 0.6631813424614523,
+          "response_time_ms": 8438,
+          "cpu_usage": 0.7649601519481902,
+          "memory_usage": 0.8003310575150494
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:55.685130",
+      "event_type": "scaling",
+      "description": "Scaling: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:59.685130",
+      "event_type": "deployment",
+      "description": "Deployment: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:11.685130",
+      "event_type": "scaling",
+      "description": "Scaling: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:44:59.685130",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

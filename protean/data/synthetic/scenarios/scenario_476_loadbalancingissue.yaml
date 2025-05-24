@@ -1,0 +1,51 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_172917
+description: Load balancer and traffic distribution problems
+duration: 1067
+metadata:
+  generated_at: '2025-05-23T17:29:17.743315'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.743212'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:43.743212'
+  event_type: backend_failure
+  description: 'Backend_Failure: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:20.743212'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:41.743212'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: load-balancer
+    severity: high
+    duration: 30
+    log_snippet: '[2025-05-23 17:29:17] ERROR load-balancer: container crashed in
+      timeout'
+    metrics:
+      error_rate: 0.8047522774536118
+      response_time_ms: 8742
+      cpu_usage: 0.8158655394362705
+      memory_usage: 0.8356831613484641
+      requests_per_sec: 1923
+      backend_health_pct: 0.42894769831854834
+      connection_timeouts: 667
+- timestamp: '2025-05-23T17:33:22.743212'
+  event_type: scaling
+  description: 'Scaling: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:04.743212'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

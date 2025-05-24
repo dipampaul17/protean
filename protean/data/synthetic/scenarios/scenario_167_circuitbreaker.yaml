@@ -1,0 +1,74 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_172917
+description: Circuit breaker activation due to cascading service failures
+duration: 1355
+metadata:
+  generated_at: '2025-05-23T17:29:17.589780'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:29:17.589646'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:30.589646'
+  event_type: recovery
+  description: 'Recovery: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:39.589646'
+  event_type: degradation
+  description: 'Degradation: rate limit exceeded'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: high
+    duration: 80
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-service: rate limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.23709551686430316
+      response_time_ms: 1054
+      cpu_usage: 0.9309386759633914
+      memory_usage: 0.920499160750046
+- timestamp: '2025-05-23T17:30:09.589646'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:06.589646'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 66
+    log_snippet: '[2025-05-23 17:29:17] ERROR user-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.6162296945289414
+      response_time_ms: 6598
+      cpu_usage: 0.9990857975142755
+      memory_usage: 0.9411612564232408
+- timestamp: '2025-05-23T17:31:46.589646'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 250
+    log_snippet: '[2025-05-23 17:29:17] ERROR auth-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.38580937663998305
+      response_time_ms: 4666
+      cpu_usage: 0.9120877452266054
+      memory_usage: 0.8564209043763287
+- timestamp: '2025-05-23T17:51:52.589646'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

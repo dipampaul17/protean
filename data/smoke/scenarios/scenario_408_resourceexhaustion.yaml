@@ -1,0 +1,58 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_184526
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 1558
+metadata:
+  generated_at: '2025-05-23T18:45:26.784735'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.784586'
+  event_type: trigger
+  description: 'Initial failure detected: associative cache'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:47.784586'
+  event_type: failure
+  description: 'Failure: the pod'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 147
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: the pod - operation failed'
+    metrics:
+      error_rate: 0.5858419019537446
+      response_time_ms: 3208
+      cpu_usage: 0.7224478535185814
+      memory_usage: 0.859422300375721
+- timestamp: '2025-05-23T18:47:11.784586'
+  event_type: recovery
+  description: 'Recovery: accessed memory'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:38.784586'
+  event_type: timeout
+  description: 'Timeout: scaled service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 201
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: scaled service
+      - operation failed'
+    metrics:
+      error_rate: 0.5787623609105941
+      response_time_ms: 4250
+      cpu_usage: 0.8230077713624724
+      memory_usage: 0.9286398283229881
+- timestamp: '2025-05-23T18:49:32.784586'
+  event_type: recovery
+  description: 'Recovery: heap memory'
+  injection_spec: null
+- timestamp: '2025-05-23T19:11:24.784586'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

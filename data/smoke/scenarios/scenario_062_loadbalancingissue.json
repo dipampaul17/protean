@@ -1,0 +1,84 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_184526",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 535,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.576233",
+    "phrase_templates_used": 13,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.576067",
+      "event_type": "trigger",
+      "description": "Initial failure detected: that node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:32.576067",
+      "event_type": "timeout",
+      "description": "Timeout: kafka pod",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 218,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR api-gateway: kafka pod in timeout",
+        "metrics": {
+          "error_rate": 0.4569237997274713,
+          "response_time_ms": 9356,
+          "cpu_usage": 0.7265373788019942,
+          "memory_usage": 0.9412837980093014,
+          "requests_per_sec": 7226,
+          "backend_health_pct": 0.42825330629633307,
+          "connection_timeouts": 590
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:17.576067",
+      "event_type": "timeout",
+      "description": "Timeout: a pod",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "subnet-private",
+        "severity": "high",
+        "duration": 48,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR subnet-private: a pod in timeout",
+        "metrics": {
+          "error_rate": 0.4537432854151815,
+          "response_time_ms": 6407,
+          "cpu_usage": 0.735549265695745,
+          "memory_usage": 0.8755446774453157,
+          "requests_per_sec": 8926,
+          "backend_health_pct": 0.3923571013375659,
+          "connection_timeouts": 524
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:19.576067",
+      "event_type": "scaling",
+      "description": "Scaling: in connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:37.576067",
+      "event_type": "scaling",
+      "description": "Scaling: kafka pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:54:21.576067",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

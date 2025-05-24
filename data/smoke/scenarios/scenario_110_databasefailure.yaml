@@ -1,0 +1,89 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_184526
+description: Database connectivity and performance issues
+duration: 503
+metadata:
+  generated_at: '2025-05-23T18:45:26.652726'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.652473'
+  event_type: trigger
+  description: 'Initial failure detected: message queue'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:37.652473'
+  event_type: corruption
+  description: 'Corruption: clustered index'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:37.652473'
+  event_type: timeout
+  description: 'Timeout: create database'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 49
+    log_snippet: '[2025-05-23 18:45:26] ERROR redis-cache: create database in timeout'
+    metrics:
+      error_rate: 0.20711017742855528
+      response_time_ms: 6057
+      cpu_usage: 0.7680678146512973
+      memory_usage: 0.8785624387403586
+      connection_pool_usage: 0.9884366687974568
+      query_time_ms: 26260
+      deadlocks_per_sec: 4
+- timestamp: '2025-05-23T18:45:38.652473'
+  event_type: recovery
+  description: 'Recovery: the container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:42.652473'
+  event_type: timeout
+  description: 'Timeout: postgres container'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 290
+    log_snippet: '[2025-05-23 18:45:26] ERROR mongodb-shard: postgres container in
+      timeout'
+    metrics:
+      error_rate: 0.7477721585327559
+      response_time_ms: 6093
+      cpu_usage: 0.8701584053542369
+      memory_usage: 0.8381966282949321
+      connection_pool_usage: 0.9448702785753953
+      query_time_ms: 15238
+      deadlocks_per_sec: 1
+- timestamp: '2025-05-23T18:45:58.652473'
+  event_type: corruption
+  description: 'Corruption: get update'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:21.652473'
+  event_type: connection_loss
+  description: 'Connection_Loss: mongodb database'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:37.652473'
+  event_type: timeout
+  description: 'Timeout: p error'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 292
+    log_snippet: '[2025-05-23 18:45:26] ERROR mongodb-shard: p error in timeout'
+    metrics:
+      error_rate: 0.29445799206975887
+      response_time_ms: 8618
+      cpu_usage: 0.8645057791651248
+      memory_usage: 0.8552015163574573
+      connection_pool_usage: 0.9804206401069051
+      query_time_ms: 24594
+      deadlocks_per_sec: 10
+- timestamp: '2025-05-23T18:53:49.652473'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

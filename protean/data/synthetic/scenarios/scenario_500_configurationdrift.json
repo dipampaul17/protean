@@ -1,0 +1,96 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173011",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 485,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.447656",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.446760",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:31.446760",
+      "event_type": "restart",
+      "description": "Restart: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:44.446760",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 251,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.379452062177282,
+          "response_time_ms": 6938,
+          "cpu_usage": 0.95435494125985,
+          "memory_usage": 0.922276392630481
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:47.446760",
+      "event_type": "config_change",
+      "description": "Config_Change: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:02.446760",
+      "event_type": "restart",
+      "description": "Restart: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:10.446760",
+      "event_type": "rollback",
+      "description": "Rollback: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:18.446760",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 38,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR auth-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.5646933105790956,
+          "response_time_ms": 5179,
+          "cpu_usage": 0.7392683545338763,
+          "memory_usage": 0.8847969800288483
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:20.446760",
+      "event_type": "restart",
+      "description": "Restart: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:16.446760",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_184526",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1790,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.690735",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 2,
+      "medium": 1,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.690449",
+      "event_type": "trigger",
+      "description": "Initial failure detected: reduce alert",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:40.690449",
+      "event_type": "recovery",
+      "description": "Recovery: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:24.690449",
+      "event_type": "recovery",
+      "description": "Recovery: to pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:24.690449",
+      "event_type": "degradation",
+      "description": "Degradation: kubernetes cluster",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "low",
+        "duration": 87,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: kubernetes cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.18455685128315474,
+          "response_time_ms": 697,
+          "cpu_usage": 0.669273873127621,
+          "memory_usage": 0.6727238494927991
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:58.690449",
+      "event_type": "timeout",
+      "description": "Timeout: letter queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "medium",
+        "duration": 83,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: letter queue - operation failed",
+        "metrics": {
+          "error_rate": 0.2378020457392783,
+          "response_time_ms": 769,
+          "cpu_usage": 0.6009607255575478,
+          "memory_usage": 0.5826445983811015
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:01.690449",
+      "event_type": "timeout",
+      "description": "Timeout: kubernetes cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 225,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: kubernetes cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.1701876478888841,
+          "response_time_ms": 2935,
+          "cpu_usage": 0.946565725828231,
+          "memory_usage": 0.9365332028537903
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:12.690449",
+      "event_type": "recovery",
+      "description": "Recovery: code error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:32.690449",
+      "event_type": "degradation",
+      "description": "Degradation: a timeout",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 53,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: a timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.11677779368605307,
+          "response_time_ms": 1824,
+          "cpu_usage": 0.8149342551416922,
+          "memory_usage": 0.8824096622553299
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:54.690449",
+      "event_type": "degradation",
+      "description": "Degradation: following error",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "low",
+        "duration": 133,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: following error - operation failed",
+        "metrics": {
+          "error_rate": 0.20767100966766205,
+          "response_time_ms": 1931,
+          "cpu_usage": 0.6288407084273016,
+          "memory_usage": 0.5046268503202154
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:15:16.690449",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_172917
+description: Circuit breaker activation due to cascading service failures
+duration: 1080
+metadata:
+  generated_at: '2025-05-23T17:29:17.613309'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:29:17.612545'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:28.612545'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:50.612545'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 212
+    log_snippet: '[2025-05-23 17:29:17] ERROR auth-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.8055390223189342
+      response_time_ms: 7391
+      cpu_usage: 0.8688687248564071
+      memory_usage: 0.8379474769925277
+- timestamp: '2025-05-23T17:30:08.612545'
+  event_type: degradation
+  description: 'Degradation: authentication failed'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: high
+    duration: 35
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: authentication
+      failed - operation failed'
+    metrics:
+      error_rate: 0.8930882980974113
+      response_time_ms: 4536
+      cpu_usage: 0.9741705469833543
+      memory_usage: 0.9810706545918642
+- timestamp: '2025-05-23T17:30:21.612545'
+  event_type: degradation
+  description: 'Degradation: rate limit exceeded'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: high
+    duration: 92
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: rate limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.1449749510719773
+      response_time_ms: 6891
+      cpu_usage: 0.8482150976604492
+      memory_usage: 0.9978727439933266
+- timestamp: '2025-05-23T17:30:55.612545'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:40.612545'
+  event_type: degradation
+  description: 'Degradation: deployment failed'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: high
+    duration: 280
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-service: deployment failed -
+      operation failed'
+    metrics:
+      error_rate: 0.12200722084022608
+      response_time_ms: 5019
+      cpu_usage: 0.8879423370677033
+      memory_usage: 0.9851613367628448
+- timestamp: '2025-05-23T17:47:17.612545'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

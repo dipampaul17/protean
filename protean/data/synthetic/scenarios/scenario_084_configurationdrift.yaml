@@ -1,0 +1,74 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173011
+description: Configuration inconsistencies causing service degradation
+duration: 1400
+metadata:
+  generated_at: '2025-05-23T17:30:11.334575'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:30:11.334404'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:33.334404'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 289
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.6107827323306151
+      response_time_ms: 3718
+      cpu_usage: 0.9121671715632091
+      memory_usage: 0.8855236204882017
+- timestamp: '2025-05-23T17:32:00.334404'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 118
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.2481037065623898
+      response_time_ms: 1491
+      cpu_usage: 0.7687644408090242
+      memory_usage: 0.955009178619117
+- timestamp: '2025-05-23T17:32:27.334404'
+  event_type: rollback
+  description: 'Rollback: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:26.334404'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 247
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.5090007234512033
+      response_time_ms: 9855
+      cpu_usage: 0.867649854672932
+      memory_usage: 0.9582377277412006
+- timestamp: '2025-05-23T17:33:27.334404'
+  event_type: config_change
+  description: 'Config_Change: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:53:31.334404'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

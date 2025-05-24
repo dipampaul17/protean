@@ -1,0 +1,59 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_172917
+description: Circuit breaker activation due to cascading service failures
+duration: 1346
+metadata:
+  generated_at: '2025-05-23T17:29:17.680735'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.680624'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:01.680624'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:18.680624'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 269
+    log_snippet: '[2025-05-23 17:29:17] ERROR auth-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.25600019447997735
+      response_time_ms: 3461
+      cpu_usage: 0.8613029690997809
+      memory_usage: 0.8102236893819983
+- timestamp: '2025-05-23T17:31:11.680624'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:13.680624'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 208
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: authentication
+      failed - operation failed'
+    metrics:
+      error_rate: 0.7563953027760358
+      response_time_ms: 4578
+      cpu_usage: 0.9690380709116135
+      memory_usage: 0.8083196361922215
+- timestamp: '2025-05-23T17:51:43.680624'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

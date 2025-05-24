@@ -1,0 +1,102 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173011
+description: Load balancer and traffic distribution problems
+duration: 1091
+metadata:
+  generated_at: '2025-05-23T17:30:11.402318'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:30:11.401966'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:57.401966'
+  event_type: backend_failure
+  description: 'Backend_Failure: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:28.401966'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: load-balancer
+    severity: high
+    duration: 62
+    log_snippet: '[2025-05-23 17:30:11] ERROR load-balancer: deployment failed in
+      timeout'
+    metrics:
+      error_rate: 0.504726383609273
+      response_time_ms: 6700
+      cpu_usage: 0.8234364110260013
+      memory_usage: 0.9097652900836364
+      requests_per_sec: 7464
+      backend_health_pct: 0.4686571814470604
+      connection_timeouts: 955
+- timestamp: '2025-05-23T17:31:29.401966'
+  event_type: scaling
+  description: 'Scaling: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:14.401966'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: api-gateway
+    severity: high
+    duration: 294
+    log_snippet: '[2025-05-23 17:30:11] ERROR api-gateway: deployment failed in timeout'
+    metrics:
+      error_rate: 0.22664775159215936
+      response_time_ms: 8156
+      cpu_usage: 0.9728558057287978
+      memory_usage: 0.9918170914938593
+      requests_per_sec: 325
+      backend_health_pct: 0.579133233115393
+      connection_timeouts: 790
+- timestamp: '2025-05-23T17:32:19.401966'
+  event_type: backend_failure
+  description: 'Backend_Failure: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:33.401966'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: api-gateway
+    severity: high
+    duration: 211
+    log_snippet: '[2025-05-23 17:30:11] ERROR api-gateway: container crashed in timeout'
+    metrics:
+      error_rate: 0.161474075379508
+      response_time_ms: 8346
+      cpu_usage: 0.7851272772603858
+      memory_usage: 0.9422997975044296
+      requests_per_sec: 1216
+      backend_health_pct: 0.518793482815732
+      connection_timeouts: 864
+- timestamp: '2025-05-23T17:32:34.401966'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: api-gateway
+    severity: high
+    duration: 40
+    log_snippet: '[2025-05-23 17:30:11] ERROR api-gateway: disk space full in timeout'
+    metrics:
+      error_rate: 0.4158429739860917
+      response_time_ms: 8127
+      cpu_usage: 0.9158832378898546
+      memory_usage: 0.8679173562168484
+      requests_per_sec: 4681
+      backend_health_pct: 0.6804496010454809
+      connection_timeouts: 110
+- timestamp: '2025-05-23T17:48:22.401966'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

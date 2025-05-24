@@ -1,0 +1,66 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_184526",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 1089,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.805312",
+    "phrase_templates_used": 39,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.805155",
+      "event_type": "trigger",
+      "description": "Initial failure detected: context cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:53.805155",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: failed container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:16.805155",
+      "event_type": "deployment",
+      "description": "Deployment: code service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:23.805155",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: your container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:49:14.805155",
+      "event_type": "failure",
+      "description": "Failure: your pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 45,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR web-frontend: your pod in failure",
+        "metrics": {
+          "error_rate": 0.17997969399755345,
+          "response_time_ms": 7912,
+          "cpu_usage": 0.7653451580986141,
+          "memory_usage": 0.9034089997817344
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:03:35.805155",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

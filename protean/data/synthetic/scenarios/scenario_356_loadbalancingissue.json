@@ -1,0 +1,87 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_172917",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 628,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.702658",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.702489",
+      "event_type": "trigger",
+      "description": "Initial failure detected: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:37.702489",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:45.702489",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "vpc-main",
+        "severity": "high",
+        "duration": 275,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR vpc-main: queue overflow in timeout",
+        "metrics": {
+          "error_rate": 0.43583997934788277,
+          "response_time_ms": 9917,
+          "cpu_usage": 0.8704567915736685,
+          "memory_usage": 0.9196658599898174,
+          "requests_per_sec": 5003,
+          "backend_health_pct": 0.7364181773863048,
+          "connection_timeouts": 544
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:47.702489",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:50.702489",
+      "event_type": "scaling",
+      "description": "Scaling: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:03.702489",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:09.702489",
+      "event_type": "scaling",
+      "description": "Scaling: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:18.702489",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:45.702489",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

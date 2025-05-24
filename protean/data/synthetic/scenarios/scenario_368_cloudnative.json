@@ -1,0 +1,102 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_173011",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 1471,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.411569",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.411387",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:26.411387",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:42.411387",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 208,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-backend: service unavailable in failure",
+        "metrics": {
+          "error_rate": 0.7943729895054592,
+          "response_time_ms": 6531,
+          "cpu_usage": 0.8721724458987925,
+          "memory_usage": 0.9479500009300159
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:42.411387",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:57.411387",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:59.411387",
+      "event_type": "deployment",
+      "description": "Deployment: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:05.411387",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 202,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-backend: circuit breaker triggered in failure",
+        "metrics": {
+          "error_rate": 0.769363499752153,
+          "response_time_ms": 8768,
+          "cpu_usage": 0.7052216481116499,
+          "memory_usage": 0.8772474482869622
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:47.411387",
+      "event_type": "scaling",
+      "description": "Scaling: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:05.411387",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:54:42.411387",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

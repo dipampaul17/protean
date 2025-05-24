@@ -1,0 +1,49 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_184526
+description: Load balancer and traffic distribution problems
+duration: 318
+metadata:
+  generated_at: '2025-05-23T18:45:26.805864'
+  phrase_templates_used: 13
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T18:45:26.805346'
+  event_type: trigger
+  description: 'Initial failure detected: web server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:37.805346'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: web server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:00.805346'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:01.805346'
+  event_type: backend_failure
+  description: 'Backend_Failure: loadbalancer service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:03.805346'
+  event_type: backend_failure
+  description: 'Backend_Failure: load balancer'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:06.805346'
+  event_type: backend_failure
+  description: 'Backend_Failure: a server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:09.805346'
+  event_type: backend_failure
+  description: 'Backend_Failure: a server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:09.805346'
+  event_type: backend_failure
+  description: 'Backend_Failure: web server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:50:44.805346'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

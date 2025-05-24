@@ -1,0 +1,63 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_184526",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 507,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.735017",
+    "phrase_templates_used": 13,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.734895",
+      "event_type": "trigger",
+      "description": "Initial failure detected: in connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:36.734895",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: loadbalancer service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:11.734895",
+      "event_type": "timeout",
+      "description": "Timeout: strong update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 214,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR load-balancer: strong update in timeout",
+        "metrics": {
+          "error_rate": 0.13695395160494794,
+          "response_time_ms": 1540,
+          "cpu_usage": 0.7783037780554738,
+          "memory_usage": 0.9556384713043788,
+          "requests_per_sec": 6190,
+          "backend_health_pct": 0.4981190982453202,
+          "connection_timeouts": 490
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:52.734895",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:53:53.734895",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

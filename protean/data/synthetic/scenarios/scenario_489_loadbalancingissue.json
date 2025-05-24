@@ -1,0 +1,102 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_172917",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 777,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.747436",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.747265",
+      "event_type": "trigger",
+      "description": "Initial failure detected: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:36.747265",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:31.747265",
+      "event_type": "scaling",
+      "description": "Scaling: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:33.747265",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "vpc-main",
+        "severity": "high",
+        "duration": 164,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR vpc-main: database connection lost in timeout",
+        "metrics": {
+          "error_rate": 0.18784964782619964,
+          "response_time_ms": 1870,
+          "cpu_usage": 0.7272000646501784,
+          "memory_usage": 0.9260059702244644,
+          "requests_per_sec": 3679,
+          "backend_health_pct": 0.701751803966944,
+          "connection_timeouts": 877
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:46.747265",
+      "event_type": "scaling",
+      "description": "Scaling: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:51.747265",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "vpc-main",
+        "severity": "high",
+        "duration": 35,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR vpc-main: rate limit exceeded in timeout",
+        "metrics": {
+          "error_rate": 0.6928529917122799,
+          "response_time_ms": 6818,
+          "cpu_usage": 0.760098761572078,
+          "memory_usage": 0.988425304818675,
+          "requests_per_sec": 9625,
+          "backend_health_pct": 0.3497864177382795,
+          "connection_timeouts": 91
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:59.747265",
+      "event_type": "scaling",
+      "description": "Scaling: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:02.747265",
+      "event_type": "scaling",
+      "description": "Scaling: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:42:14.747265",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

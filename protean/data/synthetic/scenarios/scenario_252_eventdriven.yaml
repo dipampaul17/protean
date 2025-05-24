@@ -1,0 +1,91 @@
+category: EventDriven
+name: EventDriven_20250523_173011
+description: Message queue and event processing failures
+duration: 1199
+metadata:
+  generated_at: '2025-05-23T17:30:11.378519'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:30:11.378347'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:30.378347'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 127
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-queue: queue processing authentication
+      failed'
+    metrics:
+      error_rate: 0.7674845558473183
+      response_time_ms: 5344
+      cpu_usage: 0.7563936172403529
+      memory_usage: 0.9975272723319916
+      queue_depth: 7441
+      message_processing_rate: 5.427990208126648
+      consumer_lag_ms: 291718
+- timestamp: '2025-05-23T17:30:39.378347'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:46.378347'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 54
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-queue: queue processing circuit
+      breaker triggered'
+    metrics:
+      error_rate: 0.43726539962236244
+      response_time_ms: 9864
+      cpu_usage: 0.7861707168325939
+      memory_usage: 0.8073677024473657
+      queue_depth: 45228
+      message_processing_rate: 9.890804580476658
+      consumer_lag_ms: 260176
+- timestamp: '2025-05-23T17:31:15.378347'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:22.378347'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:01.378347'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:13.378347'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: high
+    duration: 156
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-queue: queue processing
+      service unavailable'
+    metrics:
+      error_rate: 0.7218710311380824
+      response_time_ms: 5384
+      cpu_usage: 0.8362213272906668
+      memory_usage: 0.892826144214979
+      queue_depth: 15078
+      message_processing_rate: 9.077714147211385
+      consumer_lag_ms: 102982
+- timestamp: '2025-05-23T17:50:10.378347'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

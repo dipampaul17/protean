@@ -1,0 +1,66 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_184526",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 967,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.685767",
+    "phrase_templates_used": 39,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.685623",
+      "event_type": "trigger",
+      "description": "Initial failure detected: getting error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:59.685623",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: deleted pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:43.685623",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: gt service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:56.685623",
+      "event_type": "deployment",
+      "description": "Deployment: gt service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:49:09.685623",
+      "event_type": "failure",
+      "description": "Failure: failed container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 259,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR api-backend: failed container in failure",
+        "metrics": {
+          "error_rate": 0.6619999135895777,
+          "response_time_ms": 9175,
+          "cpu_usage": 0.9954719437882826,
+          "memory_usage": 0.8323478291089981
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:01:33.685623",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

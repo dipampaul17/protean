@@ -1,0 +1,108 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_184526",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 425,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.563610",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.563407",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:58.563407",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 131,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.2141567635969942,
+          "response_time_ms": 2339,
+          "cpu_usage": 0.80672903471239,
+          "memory_usage": 0.8169505772992918
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:05.563407",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 35,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.896131443393246,
+          "response_time_ms": 8621,
+          "cpu_usage": 0.9579319409480604,
+          "memory_usage": 0.9023638905104311
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:17.563407",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 123,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.7506749133752962,
+          "response_time_ms": 3214,
+          "cpu_usage": 0.7551985283616621,
+          "memory_usage": 0.9137320057440437
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:32.563407",
+      "event_type": "recovery",
+      "description": "Recovery: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:49.563407",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 125,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.2843151969748391,
+          "response_time_ms": 5057,
+          "cpu_usage": 0.7491402304081909,
+          "memory_usage": 0.9129601727562558
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:52:31.563407",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

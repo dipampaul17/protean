@@ -1,0 +1,90 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_172917",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 398,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.529565",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.529377",
+      "event_type": "trigger",
+      "description": "Initial failure detected: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:34.529377",
+      "event_type": "rollback",
+      "description": "Rollback: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:35.529377",
+      "event_type": "config_change",
+      "description": "Config_Change: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:36.529377",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 34,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.37705081185950184,
+          "response_time_ms": 8852,
+          "cpu_usage": 0.7729307567239286,
+          "memory_usage": 0.9659995833429083
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:39.529377",
+      "event_type": "config_change",
+      "description": "Config_Change: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:46.529377",
+      "event_type": "rollback",
+      "description": "Rollback: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:47.529377",
+      "event_type": "restart",
+      "description": "Restart: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:56.529377",
+      "event_type": "rollback",
+      "description": "Rollback: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:04.529377",
+      "event_type": "config_change",
+      "description": "Config_Change: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:55.529377",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

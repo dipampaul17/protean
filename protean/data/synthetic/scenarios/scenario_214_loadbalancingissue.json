@@ -1,0 +1,141 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173011",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 332,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.369122",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.368947",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:30.368947",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 182,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR load-balancer: connection timeout in timeout",
+        "metrics": {
+          "error_rate": 0.2720876824295392,
+          "response_time_ms": 5871,
+          "cpu_usage": 0.7898831282978518,
+          "memory_usage": 0.9913253789232137,
+          "requests_per_sec": 8407,
+          "backend_health_pct": 0.7149111988409091,
+          "connection_timeouts": 703
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:34.368947",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 156,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-gateway: connection timeout in timeout",
+        "metrics": {
+          "error_rate": 0.41488461044800895,
+          "response_time_ms": 6237,
+          "cpu_usage": 0.8072073075134132,
+          "memory_usage": 0.8980471753271059,
+          "requests_per_sec": 7247,
+          "backend_health_pct": 0.44444833115332827,
+          "connection_timeouts": 832
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:39.368947",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "subnet-private",
+        "severity": "high",
+        "duration": 66,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR subnet-private: deployment failed in timeout",
+        "metrics": {
+          "error_rate": 0.4150074952831496,
+          "response_time_ms": 1322,
+          "cpu_usage": 0.9498891821557496,
+          "memory_usage": 0.8915618878294335,
+          "requests_per_sec": 1045,
+          "backend_health_pct": 0.7899919360274626,
+          "connection_timeouts": 768
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:43.368947",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 129,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-gateway: deployment failed in timeout",
+        "metrics": {
+          "error_rate": 0.7004684625253704,
+          "response_time_ms": 8638,
+          "cpu_usage": 0.7119882899809389,
+          "memory_usage": 0.9466154623915386,
+          "requests_per_sec": 941,
+          "backend_health_pct": 0.608753676860387,
+          "connection_timeouts": 275
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:50.368947",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 279,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR load-balancer: container crashed in timeout",
+        "metrics": {
+          "error_rate": 0.5949554976287899,
+          "response_time_ms": 1283,
+          "cpu_usage": 0.7491433313403992,
+          "memory_usage": 0.9327399475183946,
+          "requests_per_sec": 2401,
+          "backend_health_pct": 0.5204822459872933,
+          "connection_timeouts": 38
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:04.368947",
+      "event_type": "scaling",
+      "description": "Scaling: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:43.368947",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

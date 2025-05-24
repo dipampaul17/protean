@@ -1,0 +1,78 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_184526",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 425,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.562808",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 0
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.562607",
+      "event_type": "trigger",
+      "description": "Initial failure detected: using jenkins",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:56.562607",
+      "event_type": "rollback",
+      "description": "Rollback: the deploy",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:57.562607",
+      "event_type": "rollback",
+      "description": "Rollback: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:04.562607",
+      "event_type": "rollback",
+      "description": "Rollback: code container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:25.562607",
+      "event_type": "scaling",
+      "description": "Scaling: docker container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:30.562607",
+      "event_type": "failure",
+      "description": "Failure: the queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "medium",
+        "duration": 195,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR nginx-proxy: the queue in failure",
+        "metrics": {
+          "error_rate": 0.1291486698156282,
+          "response_time_ms": 1712,
+          "cpu_usage": 0.38242634995261665,
+          "memory_usage": 0.5476536454192651
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:34.562607",
+      "event_type": "scaling",
+      "description": "Scaling: your deployment",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:52:31.562607",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_184526",
+  "description": "Database connectivity and performance issues",
+  "duration": 401,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.560380",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.560160",
+      "event_type": "trigger",
+      "description": "Initial failure detected: following error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:58.560160",
+      "event_type": "timeout",
+      "description": "Timeout: sudo service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 292,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR redis-cache: sudo service in timeout",
+        "metrics": {
+          "error_rate": 0.46209571826864626,
+          "response_time_ms": 3024,
+          "cpu_usage": 0.7036413933320066,
+          "memory_usage": 0.9223066079195412,
+          "connection_pool_usage": 0.9026408229212941,
+          "query_time_ms": 19551,
+          "deadlocks_per_sec": 7
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:00.560160",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: sql server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:21.560160",
+      "event_type": "timeout",
+      "description": "Timeout: redis server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 227,
+        "log_snippet": "[2025-05-23 18:45:26] FATAL mysql-primary: database redis server detected",
+        "metrics": {
+          "error_rate": 0.18602667703566259,
+          "response_time_ms": 8822,
+          "cpu_usage": 0.8927957882753353,
+          "memory_usage": 0.8139830096527602,
+          "connection_pool_usage": 0.852903407528982,
+          "query_time_ms": 5950,
+          "deadlocks_per_sec": 5
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:46.560160",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: get update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:52:07.560160",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

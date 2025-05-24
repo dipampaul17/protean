@@ -1,0 +1,95 @@
+category: EventDriven
+name: EventDriven_20250523_173011
+description: Message queue and event processing failures
+duration: 731
+metadata:
+  generated_at: '2025-05-23T17:30:11.409795'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:30:11.408779'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:32.408779'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 299
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-queue: queue processing service
+      unavailable'
+    metrics:
+      error_rate: 0.6447849580947013
+      response_time_ms: 1480
+      cpu_usage: 0.9159443472740171
+      memory_usage: 0.901361981273156
+      queue_depth: 40273
+      message_processing_rate: 6.145682847826245
+      consumer_lag_ms: 234932
+- timestamp: '2025-05-23T17:30:35.408779'
+  event_type: recovery
+  description: 'Recovery: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:38.408779'
+  event_type: message_loss
+  description: 'Message_Loss: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:53.408779'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 56
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-queue: queue processing network
+      unreachable'
+    metrics:
+      error_rate: 0.41831525902935707
+      response_time_ms: 4750
+      cpu_usage: 0.7303842362963846
+      memory_usage: 0.9405692054013569
+      queue_depth: 48635
+      message_processing_rate: 5.850580694061137
+      consumer_lag_ms: 234022
+- timestamp: '2025-05-23T17:31:01.408779'
+  event_type: message_loss
+  description: 'Message_Loss: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:08.408779'
+  event_type: message_loss
+  description: 'Message_Loss: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:29.408779'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:30.408779'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: high
+    duration: 160
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-queue: queue processing
+      disk space full'
+    metrics:
+      error_rate: 0.23589789688258841
+      response_time_ms: 5513
+      cpu_usage: 0.867875809557323
+      memory_usage: 0.9929918258895218
+      queue_depth: 20681
+      message_processing_rate: 6.812982734381234
+      consumer_lag_ms: 293083
+- timestamp: '2025-05-23T17:42:22.408779'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

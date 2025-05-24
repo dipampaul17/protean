@@ -1,0 +1,96 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173011",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 710,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.435218",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.435071",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:23.435071",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 212,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-gateway: circuit breaker triggered in timeout",
+        "metrics": {
+          "error_rate": 0.10802158426523825,
+          "response_time_ms": 8683,
+          "cpu_usage": 0.7659187331621166,
+          "memory_usage": 0.9816282395033695,
+          "requests_per_sec": 6505,
+          "backend_health_pct": 0.6282666741323808,
+          "connection_timeouts": 629
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:23.435071",
+      "event_type": "scaling",
+      "description": "Scaling: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:23.435071",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:40.435071",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:00.435071",
+      "event_type": "scaling",
+      "description": "Scaling: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:43.435071",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 249,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR load-balancer: deployment failed in timeout",
+        "metrics": {
+          "error_rate": 0.20902762253205856,
+          "response_time_ms": 1364,
+          "cpu_usage": 0.9062566000680181,
+          "memory_usage": 0.8113275852019393,
+          "requests_per_sec": 5291,
+          "backend_health_pct": 0.6033946815063503,
+          "connection_timeouts": 101
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:42:01.435071",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

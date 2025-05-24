@@ -1,0 +1,90 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173011",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1233,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.402800",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.402647",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:37.402647",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 107,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR web-frontend: disk space full in failure",
+        "metrics": {
+          "error_rate": 0.22173534494133645,
+          "response_time_ms": 9478,
+          "cpu_usage": 0.8936657144821273,
+          "memory_usage": 0.9982180990956728
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:56.402647",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 165,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR worker-consumer: authentication failed in failure",
+        "metrics": {
+          "error_rate": 0.4820727428166841,
+          "response_time_ms": 9030,
+          "cpu_usage": 0.9459387000944719,
+          "memory_usage": 0.8399163000796497
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:12.402647",
+      "event_type": "rollback",
+      "description": "Rollback: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:27.402647",
+      "event_type": "rollback",
+      "description": "Rollback: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:15.402647",
+      "event_type": "deployment",
+      "description": "Deployment: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:29.402647",
+      "event_type": "deployment",
+      "description": "Deployment: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:44.402647",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

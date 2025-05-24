@@ -1,0 +1,144 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_172917",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1672,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.708492",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.708279",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:34.708279",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 201,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.6607128511243964,
+          "response_time_ms": 9840,
+          "cpu_usage": 0.7847851490427517,
+          "memory_usage": 0.9286008909769208
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:22.708279",
+      "event_type": "degradation",
+      "description": "Degradation: container crashed",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 291,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.18875106667322905,
+          "response_time_ms": 2793,
+          "cpu_usage": 0.9849715902717372,
+          "memory_usage": 0.949502370738858
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:05.708279",
+      "event_type": "degradation",
+      "description": "Degradation: deployment failed",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 159,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.5624374819054029,
+          "response_time_ms": 3096,
+          "cpu_usage": 0.8845994534939867,
+          "memory_usage": 0.9205878790450558
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:48.708279",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:49.708279",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 224,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.2725131559996501,
+          "response_time_ms": 5698,
+          "cpu_usage": 0.9464545509969331,
+          "memory_usage": 0.9326389406717752
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:55.708279",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 157,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.45741016470705687,
+          "response_time_ms": 4061,
+          "cpu_usage": 0.9491120895305449,
+          "memory_usage": 0.9696416189806697
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:14.708279",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 230,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.4213207356900335,
+          "response_time_ms": 7607,
+          "cpu_usage": 0.7829266482154649,
+          "memory_usage": 0.833541101599061
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:57:09.708279",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_172917",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1029,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.685104",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.684975",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:38.684975",
+      "event_type": "degradation",
+      "description": "Degradation: rate limit exceeded",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 204,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.39277684261384627,
+          "response_time_ms": 8489,
+          "cpu_usage": 0.738125852537992,
+          "memory_usage": 0.8293141223205552
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:49.684975",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 51,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR user-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.5048678567576419,
+          "response_time_ms": 2524,
+          "cpu_usage": 0.8160542775020698,
+          "memory_usage": 0.8078882782960837
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:15.684975",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 119,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.6353856976193104,
+          "response_time_ms": 2291,
+          "cpu_usage": 0.7537711503327963,
+          "memory_usage": 0.928006569426387
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:57.684975",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 77,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.27366969950007536,
+          "response_time_ms": 2377,
+          "cpu_usage": 0.7589298198967663,
+          "memory_usage": 0.921008242640321
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:26.684975",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

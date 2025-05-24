@@ -1,0 +1,66 @@
+category: NetworkPartition
+name: NetworkPartition_20250523_184526
+description: Infrastructure failure scenario for NetworkPartition
+duration: 723
+metadata:
+  generated_at: '2025-05-23T18:45:26.732889'
+  phrase_templates_used: 4
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.732751'
+  event_type: trigger
+  description: 'Initial failure detected: each node'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:57.732751'
+  event_type: failure
+  description: 'Failure: and memory'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 64
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: and memory - operation
+      failed'
+    metrics:
+      error_rate: 0.41336909830968405
+      response_time_ms: 4928
+      cpu_usage: 0.7933484425658374
+      memory_usage: 0.8940167986260106
+- timestamp: '2025-05-23T18:47:22.732751'
+  event_type: timeout
+  description: 'Timeout: each node'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 152
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: each node - operation
+      failed'
+    metrics:
+      error_rate: 0.8093921519280274
+      response_time_ms: 1072
+      cpu_usage: 0.8261162431095294
+      memory_usage: 0.9283732143842233
+- timestamp: '2025-05-23T18:48:53.732751'
+  event_type: timeout
+  description: 'Timeout: and node'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 249
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: and node - operation
+      failed'
+    metrics:
+      error_rate: 0.6016486432109407
+      response_time_ms: 5260
+      cpu_usage: 0.7954479389641846
+      memory_usage: 0.925251287935995
+- timestamp: '2025-05-23T18:57:29.732751'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,104 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_172917
+description: Circuit breaker activation due to cascading service failures
+duration: 1638
+metadata:
+  generated_at: '2025-05-23T17:29:17.586443'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:29:17.586247'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:34.586247'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 143
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.859012414931114
+      response_time_ms: 2371
+      cpu_usage: 0.8059400224919386
+      memory_usage: 0.9414395000613658
+- timestamp: '2025-05-23T17:29:47.586247'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 177
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-service: rate limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.6476377160561368
+      response_time_ms: 3289
+      cpu_usage: 0.7842526528964353
+      memory_usage: 0.9245925250792054
+- timestamp: '2025-05-23T17:31:18.586247'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 147
+    log_snippet: '[2025-05-23 17:29:17] ERROR auth-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.8499139788222044
+      response_time_ms: 3502
+      cpu_usage: 0.8311155015409927
+      memory_usage: 0.802258921800316
+- timestamp: '2025-05-23T17:31:58.586247'
+  event_type: degradation
+  description: 'Degradation: authentication failed'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: high
+    duration: 40
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: authentication
+      failed - operation failed'
+    metrics:
+      error_rate: 0.6724266949318217
+      response_time_ms: 1605
+      cpu_usage: 0.7199609919011203
+      memory_usage: 0.9997164113419732
+- timestamp: '2025-05-23T17:32:23.586247'
+  event_type: recovery
+  description: 'Recovery: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:33.586247'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:10.586247'
+  event_type: degradation
+  description: 'Degradation: service unavailable'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: high
+    duration: 268
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.34216472971107403
+      response_time_ms: 6676
+      cpu_usage: 0.9685058997998062
+      memory_usage: 0.8529006439576843
+- timestamp: '2025-05-23T17:56:35.586247'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

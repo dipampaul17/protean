@@ -1,0 +1,55 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_172917
+description: Circuit breaker activation due to cascading service failures
+duration: 1225
+metadata:
+  generated_at: '2025-05-23T17:29:17.516146'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.516057'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:28.516057'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:08.516057'
+  event_type: degradation
+  description: 'Degradation: queue overflow'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: high
+    duration: 150
+    log_snippet: '[2025-05-23 17:29:17] ERROR user-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.7172767746093628
+      response_time_ms: 9443
+      cpu_usage: 0.9447696406006885
+      memory_usage: 0.9343264456433955
+- timestamp: '2025-05-23T17:35:32.516057'
+  event_type: degradation
+  description: 'Degradation: queue overflow'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: high
+    duration: 137
+    log_snippet: '[2025-05-23 17:29:17] ERROR auth-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.832032364283627
+      response_time_ms: 9516
+      cpu_usage: 0.8370492357654624
+      memory_usage: 0.805874884515983
+- timestamp: '2025-05-23T17:49:42.516057'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

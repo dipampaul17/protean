@@ -1,0 +1,93 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173011",
+  "description": "Message queue and event processing failures",
+  "duration": 900,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.418039",
+    "phrase_templates_used": 0,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.417913",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:28.417913",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 230,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR batch-processing-queue: queue processing connection timeout",
+        "metrics": {
+          "error_rate": 0.6986857901891368,
+          "response_time_ms": 7281,
+          "cpu_usage": 0.795146798917531,
+          "memory_usage": 0.9073288892845378,
+          "queue_depth": 29660,
+          "message_processing_rate": 9.467130791068902,
+          "consumer_lag_ms": 226619
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:35.417913",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-queue",
+        "severity": "high",
+        "duration": 129,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-queue: queue processing queue overflow",
+        "metrics": {
+          "error_rate": 0.34891090859969365,
+          "response_time_ms": 2035,
+          "cpu_usage": 0.8721053925406466,
+          "memory_usage": 0.940704849878542,
+          "queue_depth": 44749,
+          "message_processing_rate": 2.700459430814499,
+          "consumer_lag_ms": 198837
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:42.417913",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-queue",
+        "severity": "high",
+        "duration": 156,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-queue: queue processing database connection lost",
+        "metrics": {
+          "error_rate": 0.7824817528483599,
+          "response_time_ms": 5658,
+          "cpu_usage": 0.827385953138889,
+          "memory_usage": 0.9010016937988562,
+          "queue_depth": 40263,
+          "message_processing_rate": 7.95393387570341,
+          "consumer_lag_ms": 283642
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:45:11.417913",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

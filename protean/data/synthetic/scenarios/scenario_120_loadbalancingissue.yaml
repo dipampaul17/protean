@@ -1,0 +1,51 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_172917
+description: Load balancer and traffic distribution problems
+duration: 711
+metadata:
+  generated_at: '2025-05-23T17:29:17.576050'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.575947'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:46.575947'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:25.575947'
+  event_type: scaling
+  description: 'Scaling: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:47.575947'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 85
+    log_snippet: '[2025-05-23 17:29:17] ERROR subnet-private: deployment failed in
+      timeout'
+    metrics:
+      error_rate: 0.6025612846252788
+      response_time_ms: 7610
+      cpu_usage: 0.7068505833732396
+      memory_usage: 0.8781489049000044
+      requests_per_sec: 4235
+      backend_health_pct: 0.6031057435085705
+      connection_timeouts: 919
+- timestamp: '2025-05-23T17:32:02.575947'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:08.575947'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

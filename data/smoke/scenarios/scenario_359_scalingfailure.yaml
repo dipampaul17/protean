@@ -1,0 +1,100 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_184526
+description: Infrastructure failure scenario for ScalingFailure
+duration: 625
+metadata:
+  generated_at: '2025-05-23T18:45:26.769179'
+  phrase_templates_used: 24
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T18:45:26.768938'
+  event_type: trigger
+  description: 'Initial failure detected: this service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:56.768938'
+  event_type: timeout
+  description: 'Timeout: of failure'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 65
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: of failure - operation
+      failed'
+    metrics:
+      error_rate: 0.7570666875153255
+      response_time_ms: 6398
+      cpu_usage: 0.9737690235176486
+      memory_usage: 0.9511666532089689
+- timestamp: '2025-05-23T18:46:06.768938'
+  event_type: failure
+  description: 'Failure: of failure'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 172
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: of failure - operation
+      failed'
+    metrics:
+      error_rate: 0.6771735717206149
+      response_time_ms: 3980
+      cpu_usage: 0.9775850563626394
+      memory_usage: 0.8086706418831591
+- timestamp: '2025-05-23T18:46:38.768938'
+  event_type: timeout
+  description: 'Timeout: the service'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 277
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: the service - operation
+      failed'
+    metrics:
+      error_rate: 0.33961338930612267
+      response_time_ms: 2466
+      cpu_usage: 0.9000297742246839
+      memory_usage: 0.8816086960996242
+- timestamp: '2025-05-23T18:46:49.768938'
+  event_type: timeout
+  description: 'Timeout: load balancer'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 90
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: load balancer - operation
+      failed'
+    metrics:
+      error_rate: 0.5806115101749287
+      response_time_ms: 2373
+      cpu_usage: 0.9429426022341627
+      memory_usage: 0.843218868305014
+- timestamp: '2025-05-23T18:46:51.768938'
+  event_type: timeout
+  description: 'Timeout: clusterip service'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 210
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: clusterip service -
+      operation failed'
+    metrics:
+      error_rate: 0.6388134232001457
+      response_time_ms: 6704
+      cpu_usage: 0.9664473664020183
+      memory_usage: 0.9428660118836582
+- timestamp: '2025-05-23T18:46:54.768938'
+  event_type: recovery
+  description: 'Recovery: which node'
+  injection_spec: null
+- timestamp: '2025-05-23T18:55:51.768938'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,64 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_184526
+description: Database connectivity and performance issues
+duration: 1499
+metadata:
+  generated_at: '2025-05-23T18:45:26.660282'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.659744'
+  event_type: trigger
+  description: 'Initial failure detected: sql server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:12.659744'
+  event_type: timeout
+  description: 'Timeout: in memory'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 54
+    log_snippet: '[2025-05-23 18:45:26] FATAL postgres-replica: database in memory
+      detected'
+    metrics:
+      error_rate: 0.2298497054996454
+      response_time_ms: 5091
+      cpu_usage: 0.8427192131388858
+      memory_usage: 0.8801939681974916
+      connection_pool_usage: 0.8153116282948617
+      query_time_ms: 28045
+      deadlocks_per_sec: 10
+- timestamp: '2025-05-23T18:47:27.659744'
+  event_type: timeout
+  description: 'Timeout: in memory'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 210
+    log_snippet: '[2025-05-23 18:45:26] FATAL mysql-primary: database in memory detected'
+    metrics:
+      error_rate: 0.3272497991427923
+      response_time_ms: 3233
+      cpu_usage: 0.7201528236643239
+      memory_usage: 0.9174923113577658
+      connection_pool_usage: 0.8669196445724263
+      query_time_ms: 13791
+      deadlocks_per_sec: 8
+- timestamp: '2025-05-23T18:48:06.659744'
+  event_type: recovery
+  description: 'Recovery: p error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:50:04.659744'
+  event_type: connection_loss
+  description: 'Connection_Loss: clustered index'
+  injection_spec: null
+- timestamp: '2025-05-23T19:10:25.659744'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

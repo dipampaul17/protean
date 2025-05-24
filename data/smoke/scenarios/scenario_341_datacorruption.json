@@ -1,0 +1,114 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_184526",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 335,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.763514",
+    "phrase_templates_used": 36,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.763034",
+      "event_type": "trigger",
+      "description": "Initial failure detected: duplicate update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:38.763034",
+      "event_type": "failure",
+      "description": "Failure: context cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 202,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: context cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.3009465834266878,
+          "response_time_ms": 6123,
+          "cpu_usage": 0.8273948540952514,
+          "memory_usage": 0.9725836521487019
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:39.763034",
+      "event_type": "failure",
+      "description": "Failure: transaction log",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 182,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: transaction log - operation failed",
+        "metrics": {
+          "error_rate": 0.795862132768424,
+          "response_time_ms": 6087,
+          "cpu_usage": 0.9417285454847273,
+          "memory_usage": 0.8367585424165197
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:44.763034",
+      "event_type": "timeout",
+      "description": "Timeout: data container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 133,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: data container - operation failed",
+        "metrics": {
+          "error_rate": 0.3510880397475664,
+          "response_time_ms": 2554,
+          "cpu_usage": 0.8285588854857269,
+          "memory_usage": 0.9031187362442488
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:50.763034",
+      "event_type": "recovery",
+      "description": "Recovery: partitioned queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:57.763034",
+      "event_type": "failure",
+      "description": "Failure: original container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 177,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: original container - operation failed",
+        "metrics": {
+          "error_rate": 0.10431649844757214,
+          "response_time_ms": 6541,
+          "cpu_usage": 0.9514425737389026,
+          "memory_usage": 0.9802117405572893
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:18.763034",
+      "event_type": "recovery",
+      "description": "Recovery: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:51:01.763034",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

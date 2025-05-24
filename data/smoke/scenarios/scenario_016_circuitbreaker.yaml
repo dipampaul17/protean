@@ -1,0 +1,96 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_184526
+description: Circuit breaker activation due to cascading service failures
+duration: 1008
+metadata:
+  generated_at: '2025-05-23T18:45:26.554884'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.554522'
+  event_type: trigger
+  description: 'Initial failure detected: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:52.554522'
+  event_type: timeout
+  description: 'Timeout: to resolve'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 75
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: to resolve - operation
+      failed'
+    metrics:
+      error_rate: 0.4646900231768515
+      response_time_ms: 5756
+      cpu_usage: 0.8118925314037818
+      memory_usage: 0.9727792027991156
+- timestamp: '2025-05-23T18:46:05.554522'
+  event_type: failure
+  description: 'Failure: code error'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 222
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: code error - operation
+      failed'
+    metrics:
+      error_rate: 0.5645127358062662
+      response_time_ms: 9045
+      cpu_usage: 0.8234410228032748
+      memory_usage: 0.8107552960780396
+- timestamp: '2025-05-23T18:46:06.554522'
+  event_type: timeout
+  description: 'Timeout: a service'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 257
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.7324677079027136
+      response_time_ms: 9052
+      cpu_usage: 0.889536318217046
+      memory_usage: 0.9122966130887818
+- timestamp: '2025-05-23T18:47:31.554522'
+  event_type: failure
+  description: 'Failure: the container'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 131
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: the container
+      - operation failed'
+    metrics:
+      error_rate: 0.7111619734885545
+      response_time_ms: 4385
+      cpu_usage: 0.829940255748226
+      memory_usage: 0.8091720495449463
+- timestamp: '2025-05-23T18:47:47.554522'
+  event_type: degradation
+  description: 'Degradation: an error'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: low
+    duration: 223
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: an error - operation
+      failed'
+    metrics:
+      error_rate: 0.02537000547853554
+      response_time_ms: 1149
+      cpu_usage: 0.7431600493990563
+      memory_usage: 0.6220714525147466
+- timestamp: '2025-05-23T19:02:14.554522'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

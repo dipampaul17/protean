@@ -1,0 +1,66 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173011",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1703,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.351691",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.351549",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:05.351549",
+      "event_type": "rollback",
+      "description": "Rollback: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:30.351549",
+      "event_type": "scaling",
+      "description": "Scaling: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:41.351549",
+      "event_type": "deployment",
+      "description": "Deployment: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:48.351549",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 233,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR web-frontend: connection timeout in failure",
+        "metrics": {
+          "error_rate": 0.4830683195791793,
+          "response_time_ms": 3097,
+          "cpu_usage": 0.8286392779917233,
+          "memory_usage": 0.8114699066867748
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:58:34.351549",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

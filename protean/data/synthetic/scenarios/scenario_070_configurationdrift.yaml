@@ -1,0 +1,63 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173011
+description: Configuration inconsistencies causing service degradation
+duration: 1281
+metadata:
+  generated_at: '2025-05-23T17:30:11.330496'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.330351'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:47.330351'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 119
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.611003115566586
+      response_time_ms: 8499
+      cpu_usage: 0.885275860579183
+      memory_usage: 0.844918579990858
+- timestamp: '2025-05-23T17:31:54.330351'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 38
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.28488015455182564
+      response_time_ms: 3428
+      cpu_usage: 0.9919555537351401
+      memory_usage: 0.9215178135481507
+- timestamp: '2025-05-23T17:32:31.330351'
+  event_type: restart
+  description: 'Restart: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:17.330351'
+  event_type: rollback
+  description: 'Rollback: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:59.330351'
+  event_type: rollback
+  description: 'Rollback: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:51:32.330351'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

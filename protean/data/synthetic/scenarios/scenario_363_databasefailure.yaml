@@ -1,0 +1,105 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173011
+description: Database connectivity and performance issues
+duration: 1544
+metadata:
+  generated_at: '2025-05-23T17:30:11.410717'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:30:11.410532'
+  event_type: trigger
+  description: 'Initial failure detected: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:43.410532'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 279
+    log_snippet: '[2025-05-23 17:30:11] ERROR redis-cache: database connection lost
+      in timeout'
+    metrics:
+      error_rate: 0.4460157845931051
+      response_time_ms: 1564
+      cpu_usage: 0.9970706971364307
+      memory_usage: 0.8016353244426135
+      connection_pool_usage: 0.9456749741771935
+      query_time_ms: 13164
+      deadlocks_per_sec: 7
+- timestamp: '2025-05-23T17:30:56.410532'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:11.410532'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:12.410532'
+  event_type: connection_loss
+  description: 'Connection_Loss: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:38.410532'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 78
+    log_snippet: '[2025-05-23 17:30:11] ERROR redis-cache: database connection lost
+      in timeout'
+    metrics:
+      error_rate: 0.19250344983443313
+      response_time_ms: 8396
+      cpu_usage: 0.752951391674045
+      memory_usage: 0.9906869937720207
+      connection_pool_usage: 0.9950227888915042
+      query_time_ms: 10902
+      deadlocks_per_sec: 9
+- timestamp: '2025-05-23T17:32:17.410532'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 298
+    log_snippet: '[2025-05-23 17:30:11] FATAL mysql-primary: database deployment failed
+      detected'
+    metrics:
+      error_rate: 0.4966715613724827
+      response_time_ms: 1587
+      cpu_usage: 0.9246332438480871
+      memory_usage: 0.9974107551505955
+      connection_pool_usage: 0.9455409910292435
+      query_time_ms: 7258
+      deadlocks_per_sec: 4
+- timestamp: '2025-05-23T17:32:45.410532'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 169
+    log_snippet: '[2025-05-23 17:30:11] ERROR redis-cache: circuit breaker triggered
+      in timeout'
+    metrics:
+      error_rate: 0.21041460297233386
+      response_time_ms: 6247
+      cpu_usage: 0.8112866896487526
+      memory_usage: 0.9619011470696854
+      connection_pool_usage: 0.8001195418687377
+      query_time_ms: 21504
+      deadlocks_per_sec: 5
+- timestamp: '2025-05-23T17:55:55.410532'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

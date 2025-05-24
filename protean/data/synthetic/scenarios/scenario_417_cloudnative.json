@@ -1,0 +1,96 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_173011",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 1509,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.427709",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.426786",
+      "event_type": "trigger",
+      "description": "Initial failure detected: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:05.426786",
+      "event_type": "deployment",
+      "description": "Deployment: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:18.426786",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 228,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR web-frontend: authentication failed in failure",
+        "metrics": {
+          "error_rate": 0.4035061727123972,
+          "response_time_ms": 4015,
+          "cpu_usage": 0.7156948919450069,
+          "memory_usage": 0.9137348287128205
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:23.426786",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:43.426786",
+      "event_type": "scaling",
+      "description": "Scaling: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:50.426786",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:18.426786",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 265,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR web-frontend: circuit breaker triggered in failure",
+        "metrics": {
+          "error_rate": 0.5930456680807841,
+          "response_time_ms": 3035,
+          "cpu_usage": 0.9496665642396649,
+          "memory_usage": 0.9208442548851852
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:25.426786",
+      "event_type": "deployment",
+      "description": "Deployment: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:55:20.426786",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_184526",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 847,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.685050",
+    "phrase_templates_used": 45,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.684900",
+      "event_type": "trigger",
+      "description": "Initial failure detected: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:11.684900",
+      "event_type": "failure",
+      "description": "Failure: exist error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 73,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: exist error - operation failed",
+        "metrics": {
+          "error_rate": 0.6377512003195464,
+          "response_time_ms": 7914,
+          "cpu_usage": 0.9322627475679705,
+          "memory_usage": 0.8173872138167454
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:17.684900",
+      "event_type": "timeout",
+      "description": "Timeout: inventory service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 204,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: inventory service - operation failed",
+        "metrics": {
+          "error_rate": 0.899542912397238,
+          "response_time_ms": 8709,
+          "cpu_usage": 0.75669943302176,
+          "memory_usage": 0.9971124555583645
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:49:41.684900",
+      "event_type": "failure",
+      "description": "Failure: the connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 133,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: the connection - operation failed",
+        "metrics": {
+          "error_rate": 0.496321030714277,
+          "response_time_ms": 5066,
+          "cpu_usage": 0.7844835833613254,
+          "memory_usage": 0.9423798410903383
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:59:33.684900",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

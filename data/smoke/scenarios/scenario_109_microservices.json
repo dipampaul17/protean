@@ -1,0 +1,126 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_184526",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 343,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.652439",
+    "phrase_templates_used": 15,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 2,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.652159",
+      "event_type": "trigger",
+      "description": "Initial failure detected: lt service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:38.652159",
+      "event_type": "recovery",
+      "description": "Recovery: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:39.652159",
+      "event_type": "recovery",
+      "description": "Recovery: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:39.652159",
+      "event_type": "timeout",
+      "description": "Timeout: docker network",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 130,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: docker network - operation failed",
+        "metrics": {
+          "error_rate": 0.7904389656792228,
+          "response_time_ms": 4982,
+          "cpu_usage": 0.8564111519521174,
+          "memory_usage": 0.945330616782949
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:43.652159",
+      "event_type": "recovery",
+      "description": "Recovery: to service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:47.652159",
+      "event_type": "recovery",
+      "description": "Recovery: http connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:57.652159",
+      "event_type": "failure",
+      "description": "Failure: following error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 50,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: following error - operation failed",
+        "metrics": {
+          "error_rate": 0.44761798321171264,
+          "response_time_ms": 2230,
+          "cpu_usage": 0.9112335553960725,
+          "memory_usage": 0.8188725111598927
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:59.652159",
+      "event_type": "failure",
+      "description": "Failure: the queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "medium",
+        "duration": 205,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.19613448032563477,
+          "response_time_ms": 1897,
+          "cpu_usage": 0.739335825790471,
+          "memory_usage": 0.5917352707897676
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:03.652159",
+      "event_type": "timeout",
+      "description": "Timeout: the queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "medium",
+        "duration": 147,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.18977839308941943,
+          "response_time_ms": 506,
+          "cpu_usage": 0.6886866871584583,
+          "memory_usage": 0.4231886033600921
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:51:09.652159",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

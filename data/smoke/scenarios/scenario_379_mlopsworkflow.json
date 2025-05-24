@@ -1,0 +1,90 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_184526",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 1647,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.775587",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.775377",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:32.775377",
+      "event_type": "recovery",
+      "description": "Recovery: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:54.775377",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 31,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.2415219784288044,
+          "response_time_ms": 2166,
+          "cpu_usage": 0.8995653320205543,
+          "memory_usage": 0.9095368657180283
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:49:32.775377",
+      "event_type": "recovery",
+      "description": "Recovery: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:49:34.775377",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 123,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.8794811223641107,
+          "response_time_ms": 5662,
+          "cpu_usage": 0.7575902744096549,
+          "memory_usage": 0.8627353671347056
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:49:50.775377",
+      "event_type": "recovery",
+      "description": "Recovery: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:49:53.775377",
+      "event_type": "recovery",
+      "description": "Recovery: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:12:53.775377",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

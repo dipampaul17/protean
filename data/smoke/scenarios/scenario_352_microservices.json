@@ -1,0 +1,114 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_184526",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 563,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.767248",
+    "phrase_templates_used": 15,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.766608",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:04.766608",
+      "event_type": "timeout",
+      "description": "Timeout: the queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "medium",
+        "duration": 156,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.21568060063015243,
+          "response_time_ms": 1709,
+          "cpu_usage": 0.6060814516934588,
+          "memory_usage": 0.4616985945624438
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:05.766608",
+      "event_type": "failure",
+      "description": "Failure: following error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 267,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: following error - operation failed",
+        "metrics": {
+          "error_rate": 0.5294301206716312,
+          "response_time_ms": 7514,
+          "cpu_usage": 0.7833878782053296,
+          "memory_usage": 0.9158888346209201
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:17.766608",
+      "event_type": "recovery",
+      "description": "Recovery: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:27.766608",
+      "event_type": "recovery",
+      "description": "Recovery: following error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:32.766608",
+      "event_type": "timeout",
+      "description": "Timeout: http connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 172,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: http connection - operation failed",
+        "metrics": {
+          "error_rate": 0.33004515249059607,
+          "response_time_ms": 3202,
+          "cpu_usage": 0.7780814433801035,
+          "memory_usage": 0.985878219550455
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:50.766608",
+      "event_type": "timeout",
+      "description": "Timeout: a service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 216,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.7647242287999523,
+          "response_time_ms": 1789,
+          "cpu_usage": 0.9814700212008591,
+          "memory_usage": 0.869845466895563
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:54:49.766608",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

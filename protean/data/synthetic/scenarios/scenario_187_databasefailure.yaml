@@ -1,0 +1,54 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_172917
+description: Database connectivity and performance issues
+duration: 1361
+metadata:
+  generated_at: '2025-05-23T17:29:17.595253'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.595136'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:28.595136'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:56.595136'
+  event_type: connection_loss
+  description: 'Connection_Loss: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:30.595136'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:17.595136'
+  event_type: connection_loss
+  description: 'Connection_Loss: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:23.595136'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 247
+    log_snippet: '[2025-05-23 17:29:17] ERROR redis-cache: queue overflow in timeout'
+    metrics:
+      error_rate: 0.21743031713839311
+      response_time_ms: 6987
+      cpu_usage: 0.8279910912573916
+      memory_usage: 0.9608373971479973
+      connection_pool_usage: 0.8349136775576151
+      query_time_ms: 17177
+      deadlocks_per_sec: 3
+- timestamp: '2025-05-23T17:51:58.595136'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

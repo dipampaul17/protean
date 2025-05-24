@@ -1,0 +1,102 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_184526",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 1354,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.654220",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.653605",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:28.653605",
+      "event_type": "recovery",
+      "description": "Recovery: the connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:58.653605",
+      "event_type": "timeout",
+      "description": "Timeout: lt container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 111,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: lt container - operation failed",
+        "metrics": {
+          "error_rate": 0.8624756787621676,
+          "response_time_ms": 4179,
+          "cpu_usage": 0.9318134900205705,
+          "memory_usage": 0.8068627548953128
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:05.653605",
+      "event_type": "timeout",
+      "description": "Timeout: redis connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 185,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: redis connection - operation failed",
+        "metrics": {
+          "error_rate": 0.7729953748775595,
+          "response_time_ms": 9306,
+          "cpu_usage": 0.8556563838175283,
+          "memory_usage": 0.8634454878009257
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:28.653605",
+      "event_type": "timeout",
+      "description": "Timeout: urgent memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 56,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: urgent memory - operation failed",
+        "metrics": {
+          "error_rate": 0.6704528750097283,
+          "response_time_ms": 4047,
+          "cpu_usage": 0.7977341745943711,
+          "memory_usage": 0.9896312602456818
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:54.653605",
+      "event_type": "recovery",
+      "description": "Recovery: the database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:49:04.653605",
+      "event_type": "recovery",
+      "description": "Recovery: the database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:08:00.653605",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

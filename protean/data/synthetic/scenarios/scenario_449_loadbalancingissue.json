@@ -1,0 +1,105 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173011",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 1634,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.434898",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.434746",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:07.434746",
+      "event_type": "scaling",
+      "description": "Scaling: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:10.434746",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 174,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR load-balancer: circuit breaker triggered in timeout",
+        "metrics": {
+          "error_rate": 0.5741998360959646,
+          "response_time_ms": 4500,
+          "cpu_usage": 0.8472565767365788,
+          "memory_usage": 0.802925744089592,
+          "requests_per_sec": 1102,
+          "backend_health_pct": 0.676754251894907,
+          "connection_timeouts": 555
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:30.434746",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 267,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-gateway: service unavailable in timeout",
+        "metrics": {
+          "error_rate": 0.1206503370283138,
+          "response_time_ms": 6500,
+          "cpu_usage": 0.8518473866341704,
+          "memory_usage": 0.9547920718244016,
+          "requests_per_sec": 3746,
+          "backend_health_pct": 0.3921403661086199,
+          "connection_timeouts": 767
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:01.434746",
+      "event_type": "scaling",
+      "description": "Scaling: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:05.434746",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "vpc-main",
+        "severity": "high",
+        "duration": 203,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR vpc-main: database connection lost in timeout",
+        "metrics": {
+          "error_rate": 0.24838489406169506,
+          "response_time_ms": 6983,
+          "cpu_usage": 0.7346038122801151,
+          "memory_usage": 0.9689190067791864,
+          "requests_per_sec": 3995,
+          "backend_health_pct": 0.3190103350841791,
+          "connection_timeouts": 554
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:57:25.434746",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173011
+description: Circuit breaker activation due to cascading service failures
+duration: 569
+metadata:
+  generated_at: '2025-05-23T17:30:11.364539'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 7
+events:
+- timestamp: '2025-05-23T17:30:11.364267'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:23.364267'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 145
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: circuit breaker
+      triggered - operation failed'
+    metrics:
+      error_rate: 0.8465060740131428
+      response_time_ms: 4044
+      cpu_usage: 0.9020740842892908
+      memory_usage: 0.8884069303167024
+- timestamp: '2025-05-23T17:30:37.364267'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 300
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.3332666611561752
+      response_time_ms: 5957
+      cpu_usage: 0.8317760450633852
+      memory_usage: 0.8506783311997876
+- timestamp: '2025-05-23T17:30:39.364267'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 290
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.3455481882648601
+      response_time_ms: 7074
+      cpu_usage: 0.9264078324494344
+      memory_usage: 0.9654533106758197
+- timestamp: '2025-05-23T17:30:50.364267'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 109
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.3961702009069591
+      response_time_ms: 4754
+      cpu_usage: 0.7562877863499685
+      memory_usage: 0.9797780267161421
+- timestamp: '2025-05-23T17:30:56.364267'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 231
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: authentication
+      failed - operation failed'
+    metrics:
+      error_rate: 0.4586843961853114
+      response_time_ms: 3846
+      cpu_usage: 0.9821603978351647
+      memory_usage: 0.9444651093837186
+- timestamp: '2025-05-23T17:31:30.364267'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 183
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.20462114791951802
+      response_time_ms: 7657
+      cpu_usage: 0.8890175547821386
+      memory_usage: 0.981293742685174
+- timestamp: '2025-05-23T17:31:31.364267'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 157
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.8837057495024391
+      response_time_ms: 1161
+      cpu_usage: 0.9501747762946652
+      memory_usage: 0.9041456612411859
+- timestamp: '2025-05-23T17:39:40.364267'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

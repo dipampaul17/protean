@@ -1,0 +1,90 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_172917",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1659,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.685898",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.685768",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:39.685768",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 191,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.2594026369780462,
+          "response_time_ms": 6269,
+          "cpu_usage": 0.9882855149516494,
+          "memory_usage": 0.859303336695275
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:48.685768",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 140,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR user-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.19939172399188784,
+          "response_time_ms": 1596,
+          "cpu_usage": 0.8940109377754994,
+          "memory_usage": 0.9200750996091549
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:12.685768",
+      "event_type": "restart",
+      "description": "Restart: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:17.685768",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 247,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.24455595357175045,
+          "response_time_ms": 5245,
+          "cpu_usage": 0.9765391681238694,
+          "memory_usage": 0.83783086630783
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:56:56.685768",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

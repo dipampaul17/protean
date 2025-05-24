@@ -1,0 +1,46 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_172917
+description: Database connectivity and performance issues
+duration: 1710
+metadata:
+  generated_at: '2025-05-23T17:29:17.515656'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.515572'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:09.515572'
+  event_type: connection_loss
+  description: 'Connection_Loss: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:13.515572'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:54.515572'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 58
+    log_snippet: '[2025-05-23 17:29:17] ERROR mongodb-shard: queue overflow in timeout'
+    metrics:
+      error_rate: 0.45247605958989057
+      response_time_ms: 7680
+      cpu_usage: 0.8500521519248654
+      memory_usage: 0.8033643821745926
+      connection_pool_usage: 0.8388402075630237
+      query_time_ms: 5432
+      deadlocks_per_sec: 2
+- timestamp: '2025-05-23T17:57:47.515572'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

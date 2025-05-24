@@ -1,0 +1,55 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_172917
+description: Circuit breaker activation due to cascading service failures
+duration: 1669
+metadata:
+  generated_at: '2025-05-23T17:29:17.744580'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.744484'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:30.744484'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 69
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.3413856706062244
+      response_time_ms: 1436
+      cpu_usage: 0.8650717863532909
+      memory_usage: 0.8686028879817719
+- timestamp: '2025-05-23T17:38:07.744484'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:33.744484'
+  event_type: degradation
+  description: 'Degradation: network unreachable'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: low
+    duration: 136
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.2734193350473006
+      response_time_ms: 618
+      cpu_usage: 0.3703299514770257
+      memory_usage: 0.641190329893303
+- timestamp: '2025-05-23T17:57:06.744484'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

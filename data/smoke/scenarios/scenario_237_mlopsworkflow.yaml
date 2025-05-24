@@ -1,0 +1,55 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_184526
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1544
+metadata:
+  generated_at: '2025-05-23T18:45:26.727031'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.726888'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:52.726888'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 95
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.4426904071259965
+      response_time_ms: 3084
+      cpu_usage: 0.9503462861967935
+      memory_usage: 0.9419378877125961
+- timestamp: '2025-05-23T18:46:34.726888'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:02.726888'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 286
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: deployment failed
+      - operation failed'
+    metrics:
+      error_rate: 0.482677293209809
+      response_time_ms: 9406
+      cpu_usage: 0.9880253700821742
+      memory_usage: 0.8321471282986979
+- timestamp: '2025-05-23T19:11:10.726888'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,126 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_172917",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1495,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.744192",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.744023",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:32.744023",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 190,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.3184418349390683,
+          "response_time_ms": 8027,
+          "cpu_usage": 0.7611534745897766,
+          "memory_usage": 0.932189618502929
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:44.744023",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 253,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.33446336213028094,
+          "response_time_ms": 8583,
+          "cpu_usage": 0.848873558380804,
+          "memory_usage": 0.8245946089364897
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:45.744023",
+      "event_type": "degradation",
+      "description": "Degradation: memory limit exceeded",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 120,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.3243157379438065,
+          "response_time_ms": 2549,
+          "cpu_usage": 0.9022445951459551,
+          "memory_usage": 0.8318763427776811
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:03.744023",
+      "event_type": "recovery",
+      "description": "Recovery: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:41.744023",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 270,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.4802146056343388,
+          "response_time_ms": 2549,
+          "cpu_usage": 0.9788517596265365,
+          "memory_usage": 0.9086493858702659
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:30.744023",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 79,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.6429310349287916,
+          "response_time_ms": 4300,
+          "cpu_usage": 0.959520391034766,
+          "memory_usage": 0.8050595952744404
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:54:12.744023",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

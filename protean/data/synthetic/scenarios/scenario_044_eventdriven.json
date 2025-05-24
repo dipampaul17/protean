@@ -1,0 +1,108 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_172917",
+  "description": "Message queue and event processing failures",
+  "duration": 1708,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.533229",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.532942",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:30.532942",
+      "event_type": "message_loss",
+      "description": "Message_Loss: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:51.532942",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 117,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR batch-processing-queue: queue processing rate limit exceeded",
+        "metrics": {
+          "error_rate": 0.1498249765076139,
+          "response_time_ms": 7418,
+          "cpu_usage": 0.8818364213778932,
+          "memory_usage": 0.9753848290000087,
+          "queue_depth": 41769,
+          "message_processing_rate": 5.648014566703792,
+          "consumer_lag_ms": 124220
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:56.532942",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:02.532942",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:02.532942",
+      "event_type": "message_loss",
+      "description": "Message_Loss: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:15.532942",
+      "event_type": "recovery",
+      "description": "Recovery: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:18.532942",
+      "event_type": "message_loss",
+      "description": "Message_Loss: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:35.532942",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 246,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-queue: queue processing circuit breaker triggered",
+        "metrics": {
+          "error_rate": 0.23805056861530202,
+          "response_time_ms": 5868,
+          "cpu_usage": 0.8727390819229486,
+          "memory_usage": 0.936867368500612,
+          "queue_depth": 32421,
+          "message_processing_rate": 3.619732832385557,
+          "consumer_lag_ms": 200519
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:57:45.532942",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173011",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1089,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.440002",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.439788",
+      "event_type": "trigger",
+      "description": "Initial failure detected: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:21.439788",
+      "event_type": "rollback",
+      "description": "Rollback: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:32.439788",
+      "event_type": "deployment",
+      "description": "Deployment: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:45.439788",
+      "event_type": "scaling",
+      "description": "Scaling: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:05.439788",
+      "event_type": "rollback",
+      "description": "Rollback: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:11.439788",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 142,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-backend: queue overflow in failure",
+        "metrics": {
+          "error_rate": 0.27515627180592617,
+          "response_time_ms": 1830,
+          "cpu_usage": 0.8975310207036595,
+          "memory_usage": 0.8939054005781095
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:14.439788",
+      "event_type": "rollback",
+      "description": "Rollback: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:03.439788",
+      "event_type": "rollback",
+      "description": "Rollback: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:23.439788",
+      "event_type": "scaling",
+      "description": "Scaling: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:20.439788",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+category: EventDriven
+name: EventDriven_20250523_172917
+description: Message queue and event processing failures
+duration: 1661
+metadata:
+  generated_at: '2025-05-23T17:29:17.693500'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:29:17.692943'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:32.692943'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 229
+    log_snippet: '[2025-05-23 17:29:17] ERROR batch-processing-queue: queue processing
+      rate limit exceeded'
+    metrics:
+      error_rate: 0.41786303874222774
+      response_time_ms: 5920
+      cpu_usage: 0.7014073162872724
+      memory_usage: 0.9100406941957394
+      queue_depth: 27662
+      message_processing_rate: 9.683726109269184
+      consumer_lag_ms: 254388
+- timestamp: '2025-05-23T17:29:50.692943'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:51.692943'
+  event_type: message_loss
+  description: 'Message_Loss: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:39.692943'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 193
+    log_snippet: '[2025-05-23 17:29:17] ERROR batch-processing-queue: queue processing
+      disk space full'
+    metrics:
+      error_rate: 0.5825797035907481
+      response_time_ms: 8964
+      cpu_usage: 0.8958263949422287
+      memory_usage: 0.9471777406270434
+      queue_depth: 31332
+      message_processing_rate: 6.4103413838046635
+      consumer_lag_ms: 142372
+- timestamp: '2025-05-23T17:30:53.692943'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 32
+    log_snippet: '[2025-05-23 17:29:17] ERROR batch-processing-queue: queue processing
+      service unavailable'
+    metrics:
+      error_rate: 0.42700639094852644
+      response_time_ms: 2149
+      cpu_usage: 0.8906354977488706
+      memory_usage: 0.9275437111339553
+      queue_depth: 5806
+      message_processing_rate: 4.600881305317912
+      consumer_lag_ms: 185066
+- timestamp: '2025-05-23T17:31:28.692943'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 154
+    log_snippet: '[2025-05-23 17:29:17] ERROR batch-processing-queue: queue processing
+      deployment failed'
+    metrics:
+      error_rate: 0.30538886238946567
+      response_time_ms: 9730
+      cpu_usage: 0.8073277910313198
+      memory_usage: 0.8850938055368619
+      queue_depth: 29407
+      message_processing_rate: 5.818909780528067
+      consumer_lag_ms: 278857
+- timestamp: '2025-05-23T17:31:38.692943'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 56
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-queue: queue processing service
+      unavailable'
+    metrics:
+      error_rate: 0.713808863299132
+      response_time_ms: 4129
+      cpu_usage: 0.9010734550882106
+      memory_usage: 0.8475969701461556
+      queue_depth: 3144
+      message_processing_rate: 4.286165363960478
+      consumer_lag_ms: 68882
+- timestamp: '2025-05-23T17:56:58.692943'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

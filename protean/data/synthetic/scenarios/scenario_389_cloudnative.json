@@ -1,0 +1,90 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_173011",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 1503,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.419903",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.419784",
+      "event_type": "trigger",
+      "description": "Initial failure detected: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:57.419784",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 50,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR worker-consumer: disk space full in failure",
+        "metrics": {
+          "error_rate": 0.6929897991154833,
+          "response_time_ms": 7948,
+          "cpu_usage": 0.9474603644997691,
+          "memory_usage": 0.921073792349415
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:05.419784",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 40,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR worker-consumer: network unreachable in failure",
+        "metrics": {
+          "error_rate": 0.14017909032567744,
+          "response_time_ms": 3392,
+          "cpu_usage": 0.7778534444446056,
+          "memory_usage": 0.8289710755325027
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:20.419784",
+      "event_type": "deployment",
+      "description": "Deployment: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:05.419784",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 66,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR worker-consumer: database connection lost in failure",
+        "metrics": {
+          "error_rate": 0.8642819160527718,
+          "response_time_ms": 7383,
+          "cpu_usage": 0.7521030286095077,
+          "memory_usage": 0.867450073050057
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:55:14.419784",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

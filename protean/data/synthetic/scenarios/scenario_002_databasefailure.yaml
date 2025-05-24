@@ -1,0 +1,83 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173011
+description: Database connectivity and performance issues
+duration: 324
+metadata:
+  generated_at: '2025-05-23T17:30:11.309984'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:30:11.309829'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:37.309829'
+  event_type: corruption
+  description: 'Corruption: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:39.309829'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 40
+    log_snippet: '[2025-05-23 17:30:11] ERROR redis-cache: authentication failed in
+      timeout'
+    metrics:
+      error_rate: 0.6873656223292424
+      response_time_ms: 8509
+      cpu_usage: 0.9907901558172199
+      memory_usage: 0.8185140748072831
+      connection_pool_usage: 0.839405111603457
+      query_time_ms: 19815
+      deadlocks_per_sec: 2
+- timestamp: '2025-05-23T17:30:45.309829'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 86
+    log_snippet: '[2025-05-23 17:30:11] FATAL mysql-primary: database authentication
+      failed detected'
+    metrics:
+      error_rate: 0.21524417252721256
+      response_time_ms: 4327
+      cpu_usage: 0.9890536021492735
+      memory_usage: 0.9504388364167393
+      connection_pool_usage: 0.9022326073134772
+      query_time_ms: 8006
+      deadlocks_per_sec: 8
+- timestamp: '2025-05-23T17:30:49.309829'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 272
+    log_snippet: '[2025-05-23 17:30:11] ERROR redis-cache: memory limit exceeded in
+      timeout'
+    metrics:
+      error_rate: 0.8800270286724178
+      response_time_ms: 7310
+      cpu_usage: 0.8570735335224793
+      memory_usage: 0.9612602609999805
+      connection_pool_usage: 0.9596264901774741
+      query_time_ms: 21962
+      deadlocks_per_sec: 2
+- timestamp: '2025-05-23T17:30:53.309829'
+  event_type: connection_loss
+  description: 'Connection_Loss: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:35.309829'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

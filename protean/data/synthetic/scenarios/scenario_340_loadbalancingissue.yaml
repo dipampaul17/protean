@@ -1,0 +1,73 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173011
+description: Load balancer and traffic distribution problems
+duration: 1100
+metadata:
+  generated_at: '2025-05-23T17:30:11.404748'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.404598'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:34.404598'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: api-gateway
+    severity: high
+    duration: 63
+    log_snippet: '[2025-05-23 17:30:11] ERROR api-gateway: authentication failed in
+      timeout'
+    metrics:
+      error_rate: 0.8015468721823885
+      response_time_ms: 2680
+      cpu_usage: 0.7597654026666365
+      memory_usage: 0.8898756217005473
+      requests_per_sec: 8773
+      backend_health_pct: 0.6279325993707527
+      connection_timeouts: 588
+- timestamp: '2025-05-23T17:30:35.404598'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 133
+    log_snippet: '[2025-05-23 17:30:11] ERROR subnet-private: database connection
+      lost in timeout'
+    metrics:
+      error_rate: 0.2966675619728518
+      response_time_ms: 3075
+      cpu_usage: 0.8772460233332813
+      memory_usage: 0.9190288412064687
+      requests_per_sec: 6092
+      backend_health_pct: 0.7349060726879404
+      connection_timeouts: 162
+- timestamp: '2025-05-23T17:30:59.404598'
+  event_type: backend_failure
+  description: 'Backend_Failure: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:09.404598'
+  event_type: backend_failure
+  description: 'Backend_Failure: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:53.404598'
+  event_type: backend_failure
+  description: 'Backend_Failure: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:55.404598'
+  event_type: backend_failure
+  description: 'Backend_Failure: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:31.404598'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

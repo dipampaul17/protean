@@ -1,0 +1,75 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_172917",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 803,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.678384",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.678261",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:32.678261",
+      "event_type": "scaling",
+      "description": "Scaling: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:43.678261",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:53.678261",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 245,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR load-balancer: container crashed in timeout",
+        "metrics": {
+          "error_rate": 0.3716639880285131,
+          "response_time_ms": 9394,
+          "cpu_usage": 0.8831677341549478,
+          "memory_usage": 0.8925555132246316,
+          "requests_per_sec": 5973,
+          "backend_health_pct": 0.5518328193457622,
+          "connection_timeouts": 210
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:13.678261",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:55.678261",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:42:40.678261",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

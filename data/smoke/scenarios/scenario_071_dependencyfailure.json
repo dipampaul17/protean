@@ -1,0 +1,72 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_184526",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 738,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.578739",
+    "phrase_templates_used": 45,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.578597",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:25.578597",
+      "event_type": "timeout",
+      "description": "Timeout: web server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 106,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: web server - operation failed",
+        "metrics": {
+          "error_rate": 0.6975282982304002,
+          "response_time_ms": 7750,
+          "cpu_usage": 0.8780881842125449,
+          "memory_usage": 0.9833375075734628
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:04.578597",
+      "event_type": "failure",
+      "description": "Failure: destination node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 206,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: destination node - operation failed",
+        "metrics": {
+          "error_rate": 0.7286124031118291,
+          "response_time_ms": 8161,
+          "cpu_usage": 0.9006114941301714,
+          "memory_usage": 0.9010720680024703
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:49:00.578597",
+      "event_type": "recovery",
+      "description": "Recovery: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:57:44.578597",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

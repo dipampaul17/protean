@@ -1,0 +1,62 @@
+category: CloudNative
+name: CloudNative_20250523_172917
+description: Kubernetes pod and container orchestration issues
+duration: 878
+metadata:
+  generated_at: '2025-05-23T17:29:17.708250'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.708103'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:35.708103'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 65
+    log_snippet: '[2025-05-23 17:29:17] ERROR worker-consumer: service unavailable
+      in failure'
+    metrics:
+      error_rate: 0.7488815281627063
+      response_time_ms: 3225
+      cpu_usage: 0.9699560997802253
+      memory_usage: 0.9240798684813217
+- timestamp: '2025-05-23T17:29:53.708103'
+  event_type: deployment
+  description: 'Deployment: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:56.708103'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 215
+    log_snippet: '[2025-05-23 17:29:17] ERROR worker-consumer: queue overflow in failure'
+    metrics:
+      error_rate: 0.21217601356085292
+      response_time_ms: 6318
+      cpu_usage: 0.96814246762813
+      memory_usage: 0.9358823664330892
+- timestamp: '2025-05-23T17:30:09.708103'
+  event_type: scaling
+  description: 'Scaling: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:02.708103'
+  event_type: deployment
+  description: 'Deployment: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:43:55.708103'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

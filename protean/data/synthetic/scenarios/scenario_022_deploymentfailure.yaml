@@ -1,0 +1,63 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173011
+description: Application deployment and rollback scenarios
+duration: 1654
+metadata:
+  generated_at: '2025-05-23T17:30:11.312745'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.312620'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:17.312620'
+  event_type: deployment
+  description: 'Deployment: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:06.312620'
+  event_type: deployment
+  description: 'Deployment: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:27.312620'
+  event_type: scaling
+  description: 'Scaling: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:53.312620'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 90
+    log_snippet: '[2025-05-23 17:30:11] ERROR worker-consumer: circuit breaker triggered
+      in failure'
+    metrics:
+      error_rate: 0.8505571273210702
+      response_time_ms: 1022
+      cpu_usage: 0.8098486492014122
+      memory_usage: 0.8792308998580107
+- timestamp: '2025-05-23T17:34:25.312620'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 125
+    log_snippet: '[2025-05-23 17:30:11] ERROR web-frontend: network unreachable in
+      failure'
+    metrics:
+      error_rate: 0.8435640046638667
+      response_time_ms: 2306
+      cpu_usage: 0.9361499468402313
+      memory_usage: 0.9459421011306659
+- timestamp: '2025-05-23T17:57:45.312620'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

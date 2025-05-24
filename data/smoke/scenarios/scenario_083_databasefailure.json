@@ -1,0 +1,75 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_184526",
+  "description": "Database connectivity and performance issues",
+  "duration": 1022,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.642875",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.642638",
+      "event_type": "trigger",
+      "description": "Initial failure detected: in memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:11.642638",
+      "event_type": "recovery",
+      "description": "Recovery: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:42.642638",
+      "event_type": "timeout",
+      "description": "Timeout: the server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 299,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR mongodb-shard: the server in timeout",
+        "metrics": {
+          "error_rate": 0.5893118594061652,
+          "response_time_ms": 7206,
+          "cpu_usage": 0.8593475504978528,
+          "memory_usage": 0.99677769568014,
+          "connection_pool_usage": 0.8115985034271131,
+          "query_time_ms": 6192,
+          "deadlocks_per_sec": 8
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:34.642638",
+      "event_type": "recovery",
+      "description": "Recovery: to server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:05.642638",
+      "event_type": "recovery",
+      "description": "Recovery: postgres database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:45.642638",
+      "event_type": "recovery",
+      "description": "Recovery: api server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:02:28.642638",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

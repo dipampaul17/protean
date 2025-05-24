@@ -1,0 +1,84 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_184526",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 470,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.558784",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.558644",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:48.558644",
+      "event_type": "failure",
+      "description": "Failure: kubernetes cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 106,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: kubernetes cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.20559905884552,
+          "response_time_ms": 9533,
+          "cpu_usage": 0.8353408304668106,
+          "memory_usage": 0.9021660195075782
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:48.558644",
+      "event_type": "timeout",
+      "description": "Timeout: an alert",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 114,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: an alert - operation failed",
+        "metrics": {
+          "error_rate": 0.532003104065156,
+          "response_time_ms": 2555,
+          "cpu_usage": 0.7024103957166039,
+          "memory_usage": 0.9718908534823687
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:02.558644",
+      "event_type": "failure",
+      "description": "Failure: connection refused",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 243,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: connection refused - operation failed",
+        "metrics": {
+          "error_rate": 0.3148401167302586,
+          "response_time_ms": 4852,
+          "cpu_usage": 0.730512921863283,
+          "memory_usage": 0.9408805308192423
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:53:16.558644",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_184526
+description: Circuit breaker activation due to cascading service failures
+duration: 679
+metadata:
+  generated_at: '2025-05-23T18:45:26.824714'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 2
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.824486'
+  event_type: trigger
+  description: 'Initial failure detected: value memory'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:43.824486'
+  event_type: failure
+  description: 'Failure: to log'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 88
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: to log - operation
+      failed'
+    metrics:
+      error_rate: 0.18934483007939182
+      response_time_ms: 7450
+      cpu_usage: 0.9199757407956128
+      memory_usage: 0.9792437893375419
+- timestamp: '2025-05-23T18:45:54.824486'
+  event_type: recovery
+  description: 'Recovery: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:25.824486'
+  event_type: recovery
+  description: 'Recovery: value memory'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:30.824486'
+  event_type: degradation
+  description: 'Degradation: docker container'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: low
+    duration: 254
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: docker container - operation
+      failed'
+    metrics:
+      error_rate: 0.08954048004933247
+      response_time_ms: 1553
+      cpu_usage: 0.5316388542474973
+      memory_usage: 0.6403741826597198
+- timestamp: '2025-05-23T18:46:38.824486'
+  event_type: timeout
+  description: 'Timeout: session timeout'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 83
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: session timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.2958013762183428
+      response_time_ms: 5613
+      cpu_usage: 0.9599478907411596
+      memory_usage: 0.8176765442978179
+- timestamp: '2025-05-23T18:46:40.824486'
+  event_type: degradation
+  description: 'Degradation: a service'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: low
+    duration: 181
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.22932421100287242
+      response_time_ms: 1029
+      cpu_usage: 0.5508641107025264
+      memory_usage: 0.40048760583595866
+- timestamp: '2025-05-23T18:56:45.824486'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

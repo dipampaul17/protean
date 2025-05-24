@@ -1,0 +1,69 @@
+category: EventDriven
+name: EventDriven_20250523_172917
+description: Message queue and event processing failures
+duration: 424
+metadata:
+  generated_at: '2025-05-23T17:29:17.576556'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.576309'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:15.576309'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:20.576309'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 213
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-queue: queue processing rate
+      limit exceeded'
+    metrics:
+      error_rate: 0.7784227018316578
+      response_time_ms: 6533
+      cpu_usage: 0.7183021180703195
+      memory_usage: 0.9368836842159058
+      queue_depth: 17553
+      message_processing_rate: 8.332643424170211
+      consumer_lag_ms: 50688
+- timestamp: '2025-05-23T17:30:27.576309'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: high
+    duration: 134
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-queue: queue processing
+      service unavailable'
+    metrics:
+      error_rate: 0.39023562294041736
+      response_time_ms: 6380
+      cpu_usage: 0.8449418809492785
+      memory_usage: 0.857215495359352
+      queue_depth: 10781
+      message_processing_rate: 9.259488771114544
+      consumer_lag_ms: 13993
+- timestamp: '2025-05-23T17:30:30.576309'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:33.576309'
+  event_type: message_loss
+  description: 'Message_Loss: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:21.576309'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

@@ -1,0 +1,81 @@
+category: EventDriven
+name: EventDriven_20250523_172917
+description: Message queue and event processing failures
+duration: 507
+metadata:
+  generated_at: '2025-05-23T17:29:17.570086'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.569560'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:32.569560'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:32.569560'
+  event_type: message_loss
+  description: 'Message_Loss: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:51.569560'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:52.569560'
+  event_type: message_loss
+  description: 'Message_Loss: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:58.569560'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:10.569560'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:13.569560'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: high
+    duration: 32
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-queue: queue processing
+      service unavailable'
+    metrics:
+      error_rate: 0.8828303433765826
+      response_time_ms: 4645
+      cpu_usage: 0.939751022694528
+      memory_usage: 0.9576493018768114
+      queue_depth: 8993
+      message_processing_rate: 7.249982370103741
+      consumer_lag_ms: 98571
+- timestamp: '2025-05-23T17:30:18.569560'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 275
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-queue: queue processing network
+      unreachable'
+    metrics:
+      error_rate: 0.4807218892012991
+      response_time_ms: 7600
+      cpu_usage: 0.7826127481049139
+      memory_usage: 0.9172568731434875
+      queue_depth: 8856
+      message_processing_rate: 4.689965582941673
+      consumer_lag_ms: 187044
+- timestamp: '2025-05-23T17:37:44.569560'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

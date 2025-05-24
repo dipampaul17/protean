@@ -1,0 +1,66 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173011",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 767,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.440270",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.440162",
+      "event_type": "trigger",
+      "description": "Initial failure detected: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:28.440162",
+      "event_type": "rollback",
+      "description": "Rollback: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:47.440162",
+      "event_type": "deployment",
+      "description": "Deployment: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:55.440162",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 160,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-backend: circuit breaker triggered in failure",
+        "metrics": {
+          "error_rate": 0.5981923603056774,
+          "response_time_ms": 4807,
+          "cpu_usage": 0.987280198609046,
+          "memory_usage": 0.8725125733466509
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:52.440162",
+      "event_type": "deployment",
+      "description": "Deployment: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:42:58.440162",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

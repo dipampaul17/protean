@@ -1,0 +1,87 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_184526",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 1432,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.661694",
+    "phrase_templates_used": 13,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.661466",
+      "event_type": "trigger",
+      "description": "Initial failure detected: kafka pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:57.661466",
+      "event_type": "scaling",
+      "description": "Scaling: in connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:04.661466",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:33.661466",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: loadbalancer service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:45.661466",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: kafka pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:47.661466",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:06.661466",
+      "event_type": "timeout",
+      "description": "Timeout: in connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "vpc-main",
+        "severity": "high",
+        "duration": 74,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR vpc-main: in connection in timeout",
+        "metrics": {
+          "error_rate": 0.454906396424267,
+          "response_time_ms": 4343,
+          "cpu_usage": 0.8360732786066252,
+          "memory_usage": 0.9668801799339364,
+          "requests_per_sec": 8510,
+          "backend_health_pct": 0.45179244527032847,
+          "connection_timeouts": 435
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:36.661466",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: your cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:09:18.661466",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

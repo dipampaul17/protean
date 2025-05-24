@@ -1,0 +1,74 @@
+category: CloudNative
+name: CloudNative_20250523_172917
+description: Kubernetes pod and container orchestration issues
+duration: 1170
+metadata:
+  generated_at: '2025-05-23T17:29:17.612329'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.612147'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:17.612147'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 67
+    log_snippet: '[2025-05-23 17:29:17] ERROR web-frontend: circuit breaker triggered
+      in failure'
+    metrics:
+      error_rate: 0.12427981175038046
+      response_time_ms: 3695
+      cpu_usage: 0.9741447283665746
+      memory_usage: 0.9458864586872867
+- timestamp: '2025-05-23T17:30:54.612147'
+  event_type: pod_restart
+  description: 'Pod_Restart: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:58.612147'
+  event_type: scaling
+  description: 'Scaling: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:15.612147'
+  event_type: scaling
+  description: 'Scaling: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:21.612147'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 54
+    log_snippet: '[2025-05-23 17:29:17] ERROR nginx-proxy: queue overflow in failure'
+    metrics:
+      error_rate: 0.7680553752340686
+      response_time_ms: 5794
+      cpu_usage: 0.8552653794990974
+      memory_usage: 0.8361491851445584
+- timestamp: '2025-05-23T17:31:21.612147'
+  event_type: pod_restart
+  description: 'Pod_Restart: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:42.612147'
+  event_type: scaling
+  description: 'Scaling: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:43.612147'
+  event_type: scaling
+  description: 'Scaling: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:47.612147'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

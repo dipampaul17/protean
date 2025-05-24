@@ -1,0 +1,78 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_172917",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 665,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.606358",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.606246",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:28.606246",
+      "event_type": "deployment",
+      "description": "Deployment: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:05.606246",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 82,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR worker-consumer: circuit breaker triggered in failure",
+        "metrics": {
+          "error_rate": 0.569238840225631,
+          "response_time_ms": 5821,
+          "cpu_usage": 0.7268111868008995,
+          "memory_usage": 0.8346576255507672
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:10.606246",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:42.606246",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 31,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR web-frontend: service unavailable in failure",
+        "metrics": {
+          "error_rate": 0.2576232067053919,
+          "response_time_ms": 2803,
+          "cpu_usage": 0.7442047830036189,
+          "memory_usage": 0.9934917147194731
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:22.606246",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

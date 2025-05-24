@@ -1,0 +1,74 @@
+category: DataCorruption
+name: DataCorruption_20250523_184526
+description: Infrastructure failure scenario for DataCorruption
+duration: 1747
+metadata:
+  generated_at: '2025-05-23T18:45:26.550093'
+  phrase_templates_used: 36
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.549662'
+  event_type: trigger
+  description: 'Initial failure detected: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:08.549662'
+  event_type: timeout
+  description: 'Timeout: the server'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 111
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.752034758887166
+      response_time_ms: 7060
+      cpu_usage: 0.8678727163235188
+      memory_usage: 0.9552947358208109
+- timestamp: '2025-05-23T18:47:34.549662'
+  event_type: timeout
+  description: 'Timeout: the container'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 172
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: the container
+      - operation failed'
+    metrics:
+      error_rate: 0.5779101357828584
+      response_time_ms: 1924
+      cpu_usage: 0.7846297574831076
+      memory_usage: 0.8190663850153861
+- timestamp: '2025-05-23T18:48:09.549662'
+  event_type: failure
+  description: 'Failure: the queue'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: medium
+    duration: 293
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: the queue - operation
+      failed'
+    metrics:
+      error_rate: 0.19276534186640332
+      response_time_ms: 1412
+      cpu_usage: 0.3933323059318228
+      memory_usage: 0.6807198261111578
+- timestamp: '2025-05-23T18:49:47.549662'
+  event_type: recovery
+  description: 'Recovery: the database'
+  injection_spec: null
+- timestamp: '2025-05-23T18:50:01.549662'
+  event_type: recovery
+  description: 'Recovery: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T19:14:33.549662'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

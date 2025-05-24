@@ -1,0 +1,66 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_172917
+description: Circuit breaker activation due to cascading service failures
+duration: 1734
+metadata:
+  generated_at: '2025-05-23T17:29:17.726273'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:29:17.725613'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:53.725613'
+  event_type: degradation
+  description: 'Degradation: container crashed'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: high
+    duration: 138
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-service: container crashed -
+      operation failed'
+    metrics:
+      error_rate: 0.17912710204528476
+      response_time_ms: 5933
+      cpu_usage: 0.9352348373064385
+      memory_usage: 0.8294622073451132
+- timestamp: '2025-05-23T17:35:31.725613'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 211
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.15122204089580357
+      response_time_ms: 6521
+      cpu_usage: 0.7248103872761195
+      memory_usage: 0.8941926209709445
+- timestamp: '2025-05-23T17:38:27.725613'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 272
+    log_snippet: '[2025-05-23 17:29:17] ERROR auth-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.23081318227224515
+      response_time_ms: 9868
+      cpu_usage: 0.8487859945368019
+      memory_usage: 0.8834450474924932
+- timestamp: '2025-05-23T17:58:11.725613'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

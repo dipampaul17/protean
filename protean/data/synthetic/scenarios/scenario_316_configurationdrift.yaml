@@ -1,0 +1,86 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173011
+description: Configuration inconsistencies causing service degradation
+duration: 1176
+metadata:
+  generated_at: '2025-05-23T17:30:11.397415'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:30:11.397220'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:24.397220'
+  event_type: config_change
+  description: 'Config_Change: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:35.397220'
+  event_type: rollback
+  description: 'Rollback: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:36.397220'
+  event_type: rollback
+  description: 'Rollback: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:32.397220'
+  event_type: config_change
+  description: 'Config_Change: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:33.397220'
+  event_type: rollback
+  description: 'Rollback: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:48.397220'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 259
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.658559901139433
+      response_time_ms: 8906
+      cpu_usage: 0.8769748941340777
+      memory_usage: 0.8717568365118552
+- timestamp: '2025-05-23T17:32:21.397220'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 242
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.1322688103643005
+      response_time_ms: 5193
+      cpu_usage: 0.76743665720837
+      memory_usage: 0.8389935708001014
+- timestamp: '2025-05-23T17:32:36.397220'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 214
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.24069751674739584
+      response_time_ms: 4360
+      cpu_usage: 0.774054624089224
+      memory_usage: 0.8451878387482901
+- timestamp: '2025-05-23T17:49:47.397220'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

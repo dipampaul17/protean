@@ -1,0 +1,59 @@
+category: DataCorruption
+name: DataCorruption_20250523_184526
+description: Infrastructure failure scenario for DataCorruption
+duration: 865
+metadata:
+  generated_at: '2025-05-23T18:45:26.743959'
+  phrase_templates_used: 36
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.743668'
+  event_type: trigger
+  description: 'Initial failure detected: the database'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:28.743668'
+  event_type: timeout
+  description: 'Timeout: the connection'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 165
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: the connection - operation
+      failed'
+    metrics:
+      error_rate: 0.46669804062290343
+      response_time_ms: 6271
+      cpu_usage: 0.7800168258060836
+      memory_usage: 0.931617539196604
+- timestamp: '2025-05-23T18:46:33.743668'
+  event_type: recovery
+  description: 'Recovery: a queue'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:13.743668'
+  event_type: recovery
+  description: 'Recovery: new container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:52.743668'
+  event_type: timeout
+  description: 'Timeout: docker container'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 236
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: docker container - operation
+      failed'
+    metrics:
+      error_rate: 0.5920352111480732
+      response_time_ms: 6424
+      cpu_usage: 0.9922471777431918
+      memory_usage: 0.8743491674689848
+- timestamp: '2025-05-23T18:59:51.743668'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

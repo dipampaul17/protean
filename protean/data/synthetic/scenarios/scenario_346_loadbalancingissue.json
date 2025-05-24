@@ -1,0 +1,132 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173011",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 1657,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.405761",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.405576",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:29.405576",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:50.405576",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "subnet-private",
+        "severity": "high",
+        "duration": 40,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR subnet-private: database connection lost in timeout",
+        "metrics": {
+          "error_rate": 0.35544629525142823,
+          "response_time_ms": 8205,
+          "cpu_usage": 0.7928940090576272,
+          "memory_usage": 0.8846811848477547,
+          "requests_per_sec": 2909,
+          "backend_health_pct": 0.789248366873281,
+          "connection_timeouts": 714
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:54.405576",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:36.405576",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "subnet-private",
+        "severity": "high",
+        "duration": 120,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR subnet-private: database connection lost in timeout",
+        "metrics": {
+          "error_rate": 0.36385254029405845,
+          "response_time_ms": 2754,
+          "cpu_usage": 0.9429308467306186,
+          "memory_usage": 0.8302747179133921,
+          "requests_per_sec": 3164,
+          "backend_health_pct": 0.329468388302074,
+          "connection_timeouts": 783
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:54.405576",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 256,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-gateway: circuit breaker triggered in timeout",
+        "metrics": {
+          "error_rate": 0.3448282329758392,
+          "response_time_ms": 9707,
+          "cpu_usage": 0.7336665886360879,
+          "memory_usage": 0.9905528376976978,
+          "requests_per_sec": 2603,
+          "backend_health_pct": 0.7733286740933223,
+          "connection_timeouts": 724
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:59.405576",
+      "event_type": "scaling",
+      "description": "Scaling: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:37.405576",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 91,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR load-balancer: container crashed in timeout",
+        "metrics": {
+          "error_rate": 0.3070087000869439,
+          "response_time_ms": 7536,
+          "cpu_usage": 0.7991632331420704,
+          "memory_usage": 0.8488890238556512,
+          "requests_per_sec": 8257,
+          "backend_health_pct": 0.5625862587782624,
+          "connection_timeouts": 981
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:57:48.405576",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

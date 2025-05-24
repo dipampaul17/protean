@@ -1,0 +1,105 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_172917
+description: Application deployment and rollback scenarios
+duration: 580
+metadata:
+  generated_at: '2025-05-23T17:29:17.584874'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:29:17.584671'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:27.584671'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 104
+    log_snippet: '[2025-05-23 17:29:17] ERROR nginx-proxy: container crashed in failure'
+    metrics:
+      error_rate: 0.8532278919065992
+      response_time_ms: 5904
+      cpu_usage: 0.9597582551356993
+      memory_usage: 0.9874350690304119
+- timestamp: '2025-05-23T17:29:36.584671'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 157
+    log_snippet: '[2025-05-23 17:29:17] ERROR api-backend: rate limit exceeded in
+      failure'
+    metrics:
+      error_rate: 0.8766667216595107
+      response_time_ms: 3950
+      cpu_usage: 0.8348201513830316
+      memory_usage: 0.9261135260823303
+- timestamp: '2025-05-23T17:29:39.584671'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 152
+    log_snippet: '[2025-05-23 17:29:17] ERROR api-backend: circuit breaker triggered
+      in failure'
+    metrics:
+      error_rate: 0.5728963279639834
+      response_time_ms: 5274
+      cpu_usage: 0.9544968535325251
+      memory_usage: 0.9796164251515185
+- timestamp: '2025-05-23T17:29:42.584671'
+  event_type: scaling
+  description: 'Scaling: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:49.584671'
+  event_type: scaling
+  description: 'Scaling: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:05.584671'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 62
+    log_snippet: '[2025-05-23 17:29:17] ERROR nginx-proxy: queue overflow in failure'
+    metrics:
+      error_rate: 0.3313295556176119
+      response_time_ms: 7983
+      cpu_usage: 0.9257680326086886
+      memory_usage: 0.8948476298937779
+- timestamp: '2025-05-23T17:30:19.584671'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 80
+    log_snippet: '[2025-05-23 17:29:17] ERROR nginx-proxy: connection timeout in failure'
+    metrics:
+      error_rate: 0.5501376956557563
+      response_time_ms: 9269
+      cpu_usage: 0.8160911891965809
+      memory_usage: 0.886829962723151
+- timestamp: '2025-05-23T17:30:28.584671'
+  event_type: scaling
+  description: 'Scaling: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:57.584671'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

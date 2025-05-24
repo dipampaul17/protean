@@ -1,0 +1,67 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_184526
+description: Infrastructure failure scenario for ETLPipeline
+duration: 1165
+metadata:
+  generated_at: '2025-05-23T18:45:26.738420'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.738212'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:09.738212'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 157
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.7477465316739235
+      response_time_ms: 9607
+      cpu_usage: 0.9346039801373376
+      memory_usage: 0.8503711287907945
+- timestamp: '2025-05-23T18:46:56.738212'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:30.738212'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 291
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.32637909781013574
+      response_time_ms: 2533
+      cpu_usage: 0.848185252058066
+      memory_usage: 0.8508877905778793
+- timestamp: '2025-05-23T18:47:41.738212'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:55.738212'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:22.738212'
+  event_type: recovery
+  description: 'Recovery: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T19:04:51.738212'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

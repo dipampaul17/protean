@@ -1,0 +1,59 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173011
+description: Circuit breaker activation due to cascading service failures
+duration: 1600
+metadata:
+  generated_at: '2025-05-23T17:30:11.423398'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.423292'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:02.423292'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 224
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.3403306531474405
+      response_time_ms: 9796
+      cpu_usage: 0.8682156990392375
+      memory_usage: 0.8191911346238395
+- timestamp: '2025-05-23T17:36:09.423292'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:10.423292'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 153
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.18566715655167637
+      response_time_ms: 2682
+      cpu_usage: 0.8855099161701049
+      memory_usage: 0.8913252395835637
+- timestamp: '2025-05-23T17:36:11.423292'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:56:51.423292'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

@@ -1,0 +1,78 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_172917",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 1166,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.539266",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.539146",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:08.539146",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:39.539146",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 81,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR api-backend: container crashed in failure",
+        "metrics": {
+          "error_rate": 0.11803651439259388,
+          "response_time_ms": 6855,
+          "cpu_usage": 0.8118091147507025,
+          "memory_usage": 0.9355752978218208
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:12.539146",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 213,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR nginx-proxy: authentication failed in failure",
+        "metrics": {
+          "error_rate": 0.8087935508403757,
+          "response_time_ms": 9636,
+          "cpu_usage": 0.9258207793401176,
+          "memory_usage": 0.9020348675450044
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:48.539146",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:43.539146",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

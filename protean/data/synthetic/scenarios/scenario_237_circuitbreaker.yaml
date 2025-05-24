@@ -1,0 +1,66 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_172917
+description: Circuit breaker activation due to cascading service failures
+duration: 692
+metadata:
+  generated_at: '2025-05-23T17:29:17.609952'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:29:17.609852'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:29.609852'
+  event_type: degradation
+  description: 'Degradation: memory limit exceeded'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: high
+    duration: 112
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.282033729963459
+      response_time_ms: 9830
+      cpu_usage: 0.9469648655035217
+      memory_usage: 0.8118166661135691
+- timestamp: '2025-05-23T17:32:00.609852'
+  event_type: degradation
+  description: 'Degradation: queue overflow'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: high
+    duration: 132
+    log_snippet: '[2025-05-23 17:29:17] ERROR auth-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.2204830071319818
+      response_time_ms: 7437
+      cpu_usage: 0.9571333188136315
+      memory_usage: 0.8490101055520471
+- timestamp: '2025-05-23T17:32:12.609852'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 228
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: container crashed
+      - operation failed'
+    metrics:
+      error_rate: 0.6105498649836363
+      response_time_ms: 9003
+      cpu_usage: 0.7710115854499278
+      memory_usage: 0.8907987518665582
+- timestamp: '2025-05-23T17:40:49.609852'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

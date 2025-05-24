@@ -1,0 +1,77 @@
+category: EventDriven
+name: EventDriven_20250523_173011
+description: Message queue and event processing failures
+duration: 690
+metadata:
+  generated_at: '2025-05-23T17:30:11.367722'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.367513'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:27.367513'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:30.367513'
+  event_type: message_loss
+  description: 'Message_Loss: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:53.367513'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 196
+    log_snippet: '[2025-05-23 17:30:11] ERROR batch-processing-queue: queue processing
+      database connection lost'
+    metrics:
+      error_rate: 0.8710288603939274
+      response_time_ms: 3673
+      cpu_usage: 0.9951322280644977
+      memory_usage: 0.9499992414977579
+      queue_depth: 33836
+      message_processing_rate: 2.1469092903292446
+      consumer_lag_ms: 243315
+- timestamp: '2025-05-23T17:30:55.367513'
+  event_type: message_loss
+  description: 'Message_Loss: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:00.367513'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:26.367513'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:47.367513'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 120
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-queue: queue processing container
+      crashed'
+    metrics:
+      error_rate: 0.10423426136609307
+      response_time_ms: 1886
+      cpu_usage: 0.8641988485173163
+      memory_usage: 0.933494489619362
+      queue_depth: 14325
+      message_processing_rate: 0.1211012487746787
+      consumer_lag_ms: 148990
+- timestamp: '2025-05-23T17:41:41.367513'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

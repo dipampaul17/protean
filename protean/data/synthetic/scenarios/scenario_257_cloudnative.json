@@ -1,0 +1,114 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_172917",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 1644,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.615903",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.615489",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:38.615489",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:49.615489",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:03.615489",
+      "event_type": "scaling",
+      "description": "Scaling: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:30.615489",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 74,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR nginx-proxy: network unreachable in failure",
+        "metrics": {
+          "error_rate": 0.8627091054735037,
+          "response_time_ms": 8190,
+          "cpu_usage": 0.9758754907944085,
+          "memory_usage": 0.9052466946497492
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:08.615489",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:34.615489",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 259,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR api-backend: connection timeout in failure",
+        "metrics": {
+          "error_rate": 0.247850074179374,
+          "response_time_ms": 3239,
+          "cpu_usage": 0.9649151594317302,
+          "memory_usage": 0.8113230817595444
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:36.615489",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 245,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR web-frontend: disk space full in failure",
+        "metrics": {
+          "error_rate": 0.35894110453190764,
+          "response_time_ms": 1539,
+          "cpu_usage": 0.8230211118273303,
+          "memory_usage": 0.9017063967264188
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:15.615489",
+      "event_type": "deployment",
+      "description": "Deployment: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:56:41.615489",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

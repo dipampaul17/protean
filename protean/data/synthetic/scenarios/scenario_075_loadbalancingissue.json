@@ -1,0 +1,96 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173011",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 405,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.332487",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.332322",
+      "event_type": "trigger",
+      "description": "Initial failure detected: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:31.332322",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:39.332322",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:46.332322",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:53.332322",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:55.332322",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 185,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR load-balancer: queue overflow in timeout",
+        "metrics": {
+          "error_rate": 0.1340358372236847,
+          "response_time_ms": 3613,
+          "cpu_usage": 0.7666632630993085,
+          "memory_usage": 0.9858970882590887,
+          "requests_per_sec": 5894,
+          "backend_health_pct": 0.7767614290065865,
+          "connection_timeouts": 966
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:12.332322",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 182,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-gateway: deployment failed in timeout",
+        "metrics": {
+          "error_rate": 0.36080750769089354,
+          "response_time_ms": 5103,
+          "cpu_usage": 0.8889017590175474,
+          "memory_usage": 0.9863227108803906,
+          "requests_per_sec": 521,
+          "backend_health_pct": 0.4121023584305768,
+          "connection_timeouts": 203
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:56.332322",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

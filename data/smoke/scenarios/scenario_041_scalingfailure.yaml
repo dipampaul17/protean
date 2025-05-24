@@ -1,0 +1,70 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_184526
+description: Infrastructure failure scenario for ScalingFailure
+duration: 898
+metadata:
+  generated_at: '2025-05-23T18:45:26.564113'
+  phrase_templates_used: 24
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.563944'
+  event_type: trigger
+  description: 'Initial failure detected: to scale'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:48.563944'
+  event_type: failure
+  description: 'Failure: the service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 108
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: the service - operation
+      failed'
+    metrics:
+      error_rate: 0.7479114215290666
+      response_time_ms: 9991
+      cpu_usage: 0.7311043759862728
+      memory_usage: 0.9509985670019097
+- timestamp: '2025-05-23T18:46:56.563944'
+  event_type: recovery
+  description: 'Recovery: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:20.563944'
+  event_type: failure
+  description: 'Failure: which node'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 237
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: which node - operation
+      failed'
+    metrics:
+      error_rate: 0.33942079644617684
+      response_time_ms: 8852
+      cpu_usage: 0.7404867616149393
+      memory_usage: 0.844100127894094
+- timestamp: '2025-05-23T18:48:03.563944'
+  event_type: failure
+  description: 'Failure: the service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 128
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: the service -
+      operation failed'
+    metrics:
+      error_rate: 0.8747957270546461
+      response_time_ms: 1430
+      cpu_usage: 0.8853913339421181
+      memory_usage: 0.819362291355184
+- timestamp: '2025-05-23T19:00:24.563944'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

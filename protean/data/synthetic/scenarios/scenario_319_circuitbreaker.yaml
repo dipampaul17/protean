@@ -1,0 +1,70 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173011
+description: Circuit breaker activation due to cascading service failures
+duration: 1607
+metadata:
+  generated_at: '2025-05-23T17:30:11.398650'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.398494'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:27.398494'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 231
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.776910561251888
+      response_time_ms: 2352
+      cpu_usage: 0.8303513068669739
+      memory_usage: 0.9688474594460001
+- timestamp: '2025-05-23T17:33:23.398494'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 74
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.6944630925000238
+      response_time_ms: 4002
+      cpu_usage: 0.9482392651006942
+      memory_usage: 0.9834376686399798
+- timestamp: '2025-05-23T17:35:43.398494'
+  event_type: degradation
+  description: 'Degradation: circuit breaker triggered'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: low
+    duration: 211
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: circuit breaker
+      triggered - operation failed'
+    metrics:
+      error_rate: 0.06952669279493487
+      response_time_ms: 1744
+      cpu_usage: 0.4980748299222176
+      memory_usage: 0.5432304613756974
+- timestamp: '2025-05-23T17:36:30.398494'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:56:58.398494'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

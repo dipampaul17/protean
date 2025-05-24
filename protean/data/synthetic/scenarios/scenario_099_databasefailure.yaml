@@ -1,0 +1,67 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173011
+description: Database connectivity and performance issues
+duration: 358
+metadata:
+  generated_at: '2025-05-23T17:30:11.338783'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.338601'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:24.338601'
+  event_type: connection_loss
+  description: 'Connection_Loss: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:27.338601'
+  event_type: corruption
+  description: 'Corruption: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:36.338601'
+  event_type: corruption
+  description: 'Corruption: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:39.338601'
+  event_type: corruption
+  description: 'Corruption: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:39.338601'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:40.338601'
+  event_type: connection_loss
+  description: 'Connection_Loss: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:46.338601'
+  event_type: recovery
+  description: 'Recovery: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:46.338601'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 199
+    log_snippet: '[2025-05-23 17:30:11] ERROR redis-cache: database connection lost
+      in timeout'
+    metrics:
+      error_rate: 0.204491588771677
+      response_time_ms: 5852
+      cpu_usage: 0.7681988072131786
+      memory_usage: 0.927497909411084
+      connection_pool_usage: 0.936496169613087
+      query_time_ms: 21790
+      deadlocks_per_sec: 2
+- timestamp: '2025-05-23T17:36:09.338601'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

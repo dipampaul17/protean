@@ -1,0 +1,49 @@
+category: CascadingFailure
+name: CascadingFailure_20250523_173011
+description: Multi-service failure propagation scenario
+duration: 1108
+metadata:
+  generated_at: '2025-05-23T17:30:11.431641'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:30:11.430729'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:43.430729'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:44.430729'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:22.430729'
+  event_type: initial_failure
+  description: 'Initial_Failure: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:38.430729'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:17.430729'
+  event_type: initial_failure
+  description: 'Initial_Failure: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:17.430729'
+  event_type: propagation
+  description: 'Propagation: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:32.430729'
+  event_type: propagation
+  description: 'Propagation: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:39.430729'
+  event_type: recovery
+  description: 'System recovered: all services recovered'
+  injection_spec: null

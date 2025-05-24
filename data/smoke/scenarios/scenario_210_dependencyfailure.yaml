@@ -1,0 +1,97 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_184526
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1625
+metadata:
+  generated_at: '2025-05-23T18:45:26.701726'
+  phrase_templates_used: 45
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 2
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.701458'
+  event_type: trigger
+  description: 'Initial failure detected: to network'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:28.701458'
+  event_type: failure
+  description: 'Failure: upstream queue'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: medium
+    duration: 203
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: upstream queue
+      - operation failed'
+    metrics:
+      error_rate: 0.1329703583767517
+      response_time_ms: 1883
+      cpu_usage: 0.6217152876420797
+      memory_usage: 0.40671565484836963
+- timestamp: '2025-05-23T18:46:28.701458'
+  event_type: recovery
+  description: 'Recovery: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:40.701458'
+  event_type: recovery
+  description: 'Recovery: following error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:56.701458'
+  event_type: recovery
+  description: 'Recovery: illuminate queue'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:22.701458'
+  event_type: failure
+  description: 'Failure: upstream queue'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: medium
+    duration: 107
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: upstream queue - operation
+      failed'
+    metrics:
+      error_rate: 0.15682488065639708
+      response_time_ms: 1201
+      cpu_usage: 0.7500377948809156
+      memory_usage: 0.5767338543703043
+- timestamp: '2025-05-23T18:47:25.701458'
+  event_type: failure
+  description: 'Failure: var log'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 44
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: var log - operation
+      failed'
+    metrics:
+      error_rate: 0.6726187663317471
+      response_time_ms: 7192
+      cpu_usage: 0.9524863764682328
+      memory_usage: 0.9752735915810085
+- timestamp: '2025-05-23T18:47:43.701458'
+  event_type: timeout
+  description: 'Timeout: closed connection'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 196
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: closed connection -
+      operation failed'
+    metrics:
+      error_rate: 0.3639856622579053
+      response_time_ms: 1935
+      cpu_usage: 0.9485196999446794
+      memory_usage: 0.9792909334582137
+- timestamp: '2025-05-23T18:47:47.701458'
+  event_type: recovery
+  description: 'Recovery: work log'
+  injection_spec: null
+- timestamp: '2025-05-23T19:12:31.701458'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

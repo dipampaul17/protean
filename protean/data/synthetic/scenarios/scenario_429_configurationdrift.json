@@ -1,0 +1,114 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_172917",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1623,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.726593",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.726300",
+      "event_type": "trigger",
+      "description": "Initial failure detected: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:34.726300",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 83,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.24616169649777364,
+          "response_time_ms": 9155,
+          "cpu_usage": 0.9225530183311539,
+          "memory_usage": 0.996608252529952
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:55.726300",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 286,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR user-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.2647364563160811,
+          "response_time_ms": 9774,
+          "cpu_usage": 0.8158554014092837,
+          "memory_usage": 0.8674606499120364
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:23.726300",
+      "event_type": "restart",
+      "description": "Restart: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:42.726300",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 46,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.17052682934373492,
+          "response_time_ms": 5437,
+          "cpu_usage": 0.9048065596438475,
+          "memory_usage": 0.8034075542200549
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:59.726300",
+      "event_type": "config_change",
+      "description": "Config_Change: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:04.726300",
+      "event_type": "config_change",
+      "description": "Config_Change: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:15.726300",
+      "event_type": "config_change",
+      "description": "Config_Change: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:03.726300",
+      "event_type": "rollback",
+      "description": "Rollback: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:56:20.726300",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

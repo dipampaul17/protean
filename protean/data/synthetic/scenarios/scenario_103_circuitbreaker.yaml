@@ -1,0 +1,70 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173011
+description: Circuit breaker activation due to cascading service failures
+duration: 951
+metadata:
+  generated_at: '2025-05-23T17:30:11.339395'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.339270'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:36.339270'
+  event_type: degradation
+  description: 'Degradation: disk space full'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: low
+    duration: 191
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.17148032219382556
+      response_time_ms: 1093
+      cpu_usage: 0.4735349875037511
+      memory_usage: 0.6827556595663855
+- timestamp: '2025-05-23T17:31:31.339270'
+  event_type: degradation
+  description: 'Degradation: memory limit exceeded'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: high
+    duration: 124
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.7770736991838049
+      response_time_ms: 1398
+      cpu_usage: 0.8753166601899438
+      memory_usage: 0.8421173674185299
+- timestamp: '2025-05-23T17:31:33.339270'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:28.339270'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 266
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: container crashed - operation
+      failed'
+    metrics:
+      error_rate: 0.4709603787814006
+      response_time_ms: 6068
+      cpu_usage: 0.9791971357096696
+      memory_usage: 0.9446092321372788
+- timestamp: '2025-05-23T17:46:02.339270'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

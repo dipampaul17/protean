@@ -1,0 +1,90 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173011",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1465,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.391498",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.391329",
+      "event_type": "trigger",
+      "description": "Initial failure detected: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:29.391329",
+      "event_type": "restart",
+      "description": "Restart: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:00.391329",
+      "event_type": "config_change",
+      "description": "Config_Change: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:03.391329",
+      "event_type": "restart",
+      "description": "Restart: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:06.391329",
+      "event_type": "config_change",
+      "description": "Config_Change: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:16.391329",
+      "event_type": "config_change",
+      "description": "Config_Change: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:25.391329",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 90,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.6302368382670398,
+          "response_time_ms": 7808,
+          "cpu_usage": 0.997548144566635,
+          "memory_usage": 0.8098701718365581
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:36.391329",
+      "event_type": "config_change",
+      "description": "Config_Change: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:41.391329",
+      "event_type": "config_change",
+      "description": "Config_Change: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:54:36.391329",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

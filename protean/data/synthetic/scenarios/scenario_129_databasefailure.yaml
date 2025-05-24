@@ -1,0 +1,79 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173011
+description: Database connectivity and performance issues
+duration: 1589
+metadata:
+  generated_at: '2025-05-23T17:30:11.347422'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:30:11.347151'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:44.347151'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 236
+    log_snippet: '[2025-05-23 17:30:11] ERROR mongodb-shard: database connection lost
+      in timeout'
+    metrics:
+      error_rate: 0.2928340407170371
+      response_time_ms: 4998
+      cpu_usage: 0.8838381353978566
+      memory_usage: 0.9006683485155789
+      connection_pool_usage: 0.9575614545534524
+      query_time_ms: 15942
+      deadlocks_per_sec: 5
+- timestamp: '2025-05-23T17:31:52.347151'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 282
+    log_snippet: '[2025-05-23 17:30:11] FATAL mysql-primary: database memory limit
+      exceeded detected'
+    metrics:
+      error_rate: 0.7756690420660912
+      response_time_ms: 2857
+      cpu_usage: 0.7550571900605922
+      memory_usage: 0.9995202081480987
+      connection_pool_usage: 0.8414659553632045
+      query_time_ms: 11554
+      deadlocks_per_sec: 10
+- timestamp: '2025-05-23T17:34:13.347151'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 102
+    log_snippet: '[2025-05-23 17:30:11] ERROR mongodb-shard: connection timeout in
+      timeout'
+    metrics:
+      error_rate: 0.27726928539316553
+      response_time_ms: 2248
+      cpu_usage: 0.7269079085424444
+      memory_usage: 0.9452926084040152
+      connection_pool_usage: 0.8008556840777697
+      query_time_ms: 17389
+      deadlocks_per_sec: 7
+- timestamp: '2025-05-23T17:34:51.347151'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:56:40.347151'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

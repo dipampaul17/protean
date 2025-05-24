@@ -1,0 +1,89 @@
+category: Microservices
+name: Microservices_20250523_184526
+description: Infrastructure failure scenario for Microservices
+duration: 363
+metadata:
+  generated_at: '2025-05-23T18:45:26.765106'
+  phrase_templates_used: 15
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.764872'
+  event_type: trigger
+  description: 'Initial failure detected: from service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:41.764872'
+  event_type: failure
+  description: 'Failure: docker network'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 180
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: docker network - operation
+      failed'
+    metrics:
+      error_rate: 0.10356815233546124
+      response_time_ms: 7097
+      cpu_usage: 0.9577015869670993
+      memory_usage: 0.8414652444739706
+- timestamp: '2025-05-23T18:45:58.764872'
+  event_type: recovery
+  description: 'Recovery: lt service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:02.764872'
+  event_type: failure
+  description: 'Failure: another container'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 204
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: another container
+      - operation failed'
+    metrics:
+      error_rate: 0.5942770091845556
+      response_time_ms: 9506
+      cpu_usage: 0.8565948612055276
+      memory_usage: 0.9679377080883222
+- timestamp: '2025-05-23T18:46:08.764872'
+  event_type: failure
+  description: 'Failure: strong service'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 164
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: strong service - operation
+      failed'
+    metrics:
+      error_rate: 0.75722075744331
+      response_time_ms: 5378
+      cpu_usage: 0.7304741882072241
+      memory_usage: 0.9686345326450763
+- timestamp: '2025-05-23T18:46:10.764872'
+  event_type: recovery
+  description: 'Recovery: http connection'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:18.764872'
+  event_type: timeout
+  description: 'Timeout: ui service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 200
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: ui service - operation
+      failed'
+    metrics:
+      error_rate: 0.1797857643824209
+      response_time_ms: 7175
+      cpu_usage: 0.9132100736381982
+      memory_usage: 0.8553048718874894
+- timestamp: '2025-05-23T18:51:29.764872'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,123 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173011",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 1637,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.373329",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.373137",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:46.373137",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 96,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-gateway: rate limit exceeded in timeout",
+        "metrics": {
+          "error_rate": 0.6346084066221415,
+          "response_time_ms": 4888,
+          "cpu_usage": 0.7986222716230337,
+          "memory_usage": 0.9437544596950098,
+          "requests_per_sec": 1492,
+          "backend_health_pct": 0.5575215244931023,
+          "connection_timeouts": 604
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:40.373137",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:40.373137",
+      "event_type": "scaling",
+      "description": "Scaling: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:57.373137",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 30,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-gateway: service unavailable in timeout",
+        "metrics": {
+          "error_rate": 0.6191108529285473,
+          "response_time_ms": 5249,
+          "cpu_usage": 0.8525973686563791,
+          "memory_usage": 0.9670853119852751,
+          "requests_per_sec": 6649,
+          "backend_health_pct": 0.5002959391314064,
+          "connection_timeouts": 539
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:04.373137",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "subnet-private",
+        "severity": "high",
+        "duration": 109,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR subnet-private: rate limit exceeded in timeout",
+        "metrics": {
+          "error_rate": 0.664731316047346,
+          "response_time_ms": 5422,
+          "cpu_usage": 0.9708908247284014,
+          "memory_usage": 0.8849333195907223,
+          "requests_per_sec": 4906,
+          "backend_health_pct": 0.7943120316947034,
+          "connection_timeouts": 698
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:14.373137",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:16.373137",
+      "event_type": "scaling",
+      "description": "Scaling: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:17.373137",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:57:28.373137",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

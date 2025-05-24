@@ -1,0 +1,74 @@
+category: CloudNative
+name: CloudNative_20250523_172917
+description: Kubernetes pod and container orchestration issues
+duration: 377
+metadata:
+  generated_at: '2025-05-23T17:29:17.586218'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.586020'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:29.586020'
+  event_type: scaling
+  description: 'Scaling: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:32.586020'
+  event_type: pod_restart
+  description: 'Pod_Restart: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:44.586020'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 170
+    log_snippet: '[2025-05-23 17:29:17] ERROR web-frontend: deployment failed in failure'
+    metrics:
+      error_rate: 0.6355358970721402
+      response_time_ms: 4543
+      cpu_usage: 0.7579175916366796
+      memory_usage: 0.8298783775772869
+- timestamp: '2025-05-23T17:29:45.586020'
+  event_type: scaling
+  description: 'Scaling: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:49.586020'
+  event_type: deployment
+  description: 'Deployment: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:57.586020'
+  event_type: deployment
+  description: 'Deployment: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:58.586020'
+  event_type: scaling
+  description: 'Scaling: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:04.586020'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 108
+    log_snippet: '[2025-05-23 17:29:17] ERROR web-frontend: rate limit exceeded in
+      failure'
+    metrics:
+      error_rate: 0.30233705021239166
+      response_time_ms: 9534
+      cpu_usage: 0.7371063940660045
+      memory_usage: 0.9915706611302757
+- timestamp: '2025-05-23T17:35:34.586020'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

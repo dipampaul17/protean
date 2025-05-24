@@ -1,0 +1,90 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_172917
+description: Database connectivity and performance issues
+duration: 787
+metadata:
+  generated_at: '2025-05-23T17:29:17.593662'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:29:17.592714'
+  event_type: trigger
+  description: 'Initial failure detected: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:45.592714'
+  event_type: corruption
+  description: 'Corruption: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:47.592714'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 239
+    log_snippet: '[2025-05-23 17:29:17] FATAL postgres-replica: database disk space
+      full detected'
+    metrics:
+      error_rate: 0.10745389382596784
+      response_time_ms: 9371
+      cpu_usage: 0.7204333387084785
+      memory_usage: 0.9443300416057214
+      connection_pool_usage: 0.9295002200084477
+      query_time_ms: 29094
+      deadlocks_per_sec: 1
+- timestamp: '2025-05-23T17:30:01.592714'
+  event_type: corruption
+  description: 'Corruption: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:10.592714'
+  event_type: connection_loss
+  description: 'Connection_Loss: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:11.592714'
+  event_type: connection_loss
+  description: 'Connection_Loss: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:41.592714'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 73
+    log_snippet: '[2025-05-23 17:29:17] ERROR mongodb-shard: disk space full in timeout'
+    metrics:
+      error_rate: 0.5582983662810712
+      response_time_ms: 8603
+      cpu_usage: 0.9677936784973291
+      memory_usage: 0.8620241834120212
+      connection_pool_usage: 0.8663175713909659
+      query_time_ms: 10224
+      deadlocks_per_sec: 1
+- timestamp: '2025-05-23T17:30:44.592714'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 112
+    log_snippet: '[2025-05-23 17:29:17] FATAL postgres-replica: database disk space
+      full detected'
+    metrics:
+      error_rate: 0.17345632442753028
+      response_time_ms: 8760
+      cpu_usage: 0.704108005342281
+      memory_usage: 0.8243357107680727
+      connection_pool_usage: 0.9970038255636249
+      query_time_ms: 22732
+      deadlocks_per_sec: 7
+- timestamp: '2025-05-23T17:42:24.592714'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

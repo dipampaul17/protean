@@ -1,0 +1,84 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_184526",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 562,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.777379",
+    "phrase_templates_used": 0,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.777232",
+      "event_type": "trigger",
+      "description": "Initial failure detected: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:11.777232",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 119,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.7895718595146262,
+          "response_time_ms": 9264,
+          "cpu_usage": 0.8067329324461455,
+          "memory_usage": 0.9745697245576574
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:31.777232",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 224,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.22085981240822036,
+          "response_time_ms": 6379,
+          "cpu_usage": 0.9353684702928394,
+          "memory_usage": 0.9688806349585004
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:13.777232",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 36,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.5264554300690752,
+          "response_time_ms": 4881,
+          "cpu_usage": 0.7886880064678045,
+          "memory_usage": 0.8471406098513148
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:54:48.777232",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

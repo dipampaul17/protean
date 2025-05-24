@@ -1,0 +1,84 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_184526",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 1592,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.726850",
+    "phrase_templates_used": 24,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.710666",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:54.710666",
+      "event_type": "recovery",
+      "description": "Recovery: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:25.710666",
+      "event_type": "timeout",
+      "description": "Timeout: a cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 280,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: a cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.3583620609808008,
+          "response_time_ms": 6219,
+          "cpu_usage": 0.9361434582501061,
+          "memory_usage": 0.9675771496758682
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:30.710666",
+      "event_type": "recovery",
+      "description": "Recovery: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:44.710666",
+      "event_type": "failure",
+      "description": "Failure: the node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 154,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: the node - operation failed",
+        "metrics": {
+          "error_rate": 0.7125074662461781,
+          "response_time_ms": 3602,
+          "cpu_usage": 0.7447660892093831,
+          "memory_usage": 0.9267590641173032
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:58.710666",
+      "event_type": "recovery",
+      "description": "Recovery: an error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:11:58.710666",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

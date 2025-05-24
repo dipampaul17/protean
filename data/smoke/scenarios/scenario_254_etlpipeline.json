@@ -1,0 +1,102 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_184526",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 1248,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.732717",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.732496",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:58.732496",
+      "event_type": "recovery",
+      "description": "Recovery: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:44.732496",
+      "event_type": "recovery",
+      "description": "Recovery: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:04.732496",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 111,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.4421366924413207,
+          "response_time_ms": 1587,
+          "cpu_usage": 0.7842454186984201,
+          "memory_usage": 0.9954467591672969
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:42.732496",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 92,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.4309851867320367,
+          "response_time_ms": 5417,
+          "cpu_usage": 0.8755497235428327,
+          "memory_usage": 0.9902407799503334
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:55.732496",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 260,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.4828748594175949,
+          "response_time_ms": 7209,
+          "cpu_usage": 0.8926765208841079,
+          "memory_usage": 0.9703040117971872
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:09.732496",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:06:14.732496",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173011
+description: Circuit breaker activation due to cascading service failures
+duration: 852
+metadata:
+  generated_at: '2025-05-23T17:30:11.438895'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:30:11.438653'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:21.438653'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 291
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.4201706459972966
+      response_time_ms: 1660
+      cpu_usage: 0.7780201998036723
+      memory_usage: 0.8197303952598405
+- timestamp: '2025-05-23T17:31:23.438653'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 157
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: queue overflow
+      - operation failed'
+    metrics:
+      error_rate: 0.8569072779381385
+      response_time_ms: 3527
+      cpu_usage: 0.9936602839052115
+      memory_usage: 0.9786095314653345
+- timestamp: '2025-05-23T17:31:49.438653'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 185
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.8455847389691825
+      response_time_ms: 9955
+      cpu_usage: 0.7395245946581048
+      memory_usage: 0.8663609483257849
+- timestamp: '2025-05-23T17:32:09.438653'
+  event_type: degradation
+  description: 'Degradation: queue overflow'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: high
+    duration: 275
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.414567535839258
+      response_time_ms: 4235
+      cpu_usage: 0.8443848213631797
+      memory_usage: 0.8805378875480716
+- timestamp: '2025-05-23T17:32:48.438653'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:44:23.438653'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

@@ -1,0 +1,85 @@
+category: CloudNative
+name: CloudNative_20250523_172917
+description: Kubernetes pod and container orchestration issues
+duration: 566
+metadata:
+  generated_at: '2025-05-23T17:29:17.611958'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:29:17.611763'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:34.611763'
+  event_type: pod_restart
+  description: 'Pod_Restart: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:35.611763'
+  event_type: pod_restart
+  description: 'Pod_Restart: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:36.611763'
+  event_type: pod_restart
+  description: 'Pod_Restart: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:39.611763'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 207
+    log_snippet: '[2025-05-23 17:29:17] ERROR web-frontend: container crashed in failure'
+    metrics:
+      error_rate: 0.48396480519318086
+      response_time_ms: 4694
+      cpu_usage: 0.7952144528869163
+      memory_usage: 0.8625368062800955
+- timestamp: '2025-05-23T17:30:08.611763'
+  event_type: deployment
+  description: 'Deployment: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:15.611763'
+  event_type: pod_restart
+  description: 'Pod_Restart: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:16.611763'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 241
+    log_snippet: '[2025-05-23 17:29:17] ERROR nginx-proxy: network unreachable in
+      failure'
+    metrics:
+      error_rate: 0.2128466532233068
+      response_time_ms: 7424
+      cpu_usage: 0.9078954444116162
+      memory_usage: 0.8740080167635313
+- timestamp: '2025-05-23T17:30:27.611763'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 133
+    log_snippet: '[2025-05-23 17:29:17] ERROR web-frontend: database connection lost
+      in failure'
+    metrics:
+      error_rate: 0.4445667035369504
+      response_time_ms: 7665
+      cpu_usage: 0.7265097382759572
+      memory_usage: 0.8089766603110647
+- timestamp: '2025-05-23T17:38:43.611763'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

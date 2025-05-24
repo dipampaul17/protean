@@ -1,0 +1,60 @@
+{
+  "category": "CascadingFailure",
+  "name": "CascadingFailure_20250523_172917",
+  "description": "Multi-service failure propagation scenario",
+  "duration": 1290,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.588488",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.587620",
+      "event_type": "trigger",
+      "description": "Initial failure detected: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:59.587620",
+      "event_type": "recovery",
+      "description": "Recovery: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:16.587620",
+      "event_type": "propagation",
+      "description": "Propagation: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:34.587620",
+      "event_type": "initial_failure",
+      "description": "Initial_Failure: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:15.587620",
+      "event_type": "recovery",
+      "description": "Recovery: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:09.587620",
+      "event_type": "propagation",
+      "description": "Propagation: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:47.587620",
+      "event_type": "recovery",
+      "description": "System recovered: all services recovered",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_184526",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 1105,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.552558",
+    "phrase_templates_used": 36,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.552393",
+      "event_type": "trigger",
+      "description": "Initial failure detected: new container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:46.552393",
+      "event_type": "timeout",
+      "description": "Timeout: same node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 300,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: same node - operation failed",
+        "metrics": {
+          "error_rate": 0.7027354638287555,
+          "response_time_ms": 6512,
+          "cpu_usage": 0.8222656074457149,
+          "memory_usage": 0.9382459975121306
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:17.552393",
+      "event_type": "timeout",
+      "description": "Timeout: partitioned queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "medium",
+        "duration": 252,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: partitioned queue - operation failed",
+        "metrics": {
+          "error_rate": 0.17340971163821556,
+          "response_time_ms": 847,
+          "cpu_usage": 0.7122505462366591,
+          "memory_usage": 0.4925512177115522
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:21.552393",
+      "event_type": "recovery",
+      "description": "Recovery: ebs storage",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:51.552393",
+      "event_type": "recovery",
+      "description": "Recovery: original container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:03:51.552393",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

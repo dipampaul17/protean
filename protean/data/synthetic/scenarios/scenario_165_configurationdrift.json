@@ -1,0 +1,90 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_172917",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 840,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.589426",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.589268",
+      "event_type": "trigger",
+      "description": "Initial failure detected: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:28.589268",
+      "event_type": "config_change",
+      "description": "Config_Change: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:39.589268",
+      "event_type": "rollback",
+      "description": "Rollback: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:59.589268",
+      "event_type": "rollback",
+      "description": "Rollback: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:54.589268",
+      "event_type": "config_change",
+      "description": "Config_Change: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:56.589268",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 122,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.7804362072561334,
+          "response_time_ms": 7185,
+          "cpu_usage": 0.9682618815168111,
+          "memory_usage": 0.9390997060433297
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:29.589268",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 93,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR user-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.4131394637305168,
+          "response_time_ms": 2121,
+          "cpu_usage": 0.8483689505404348,
+          "memory_usage": 0.8312800662290203
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:43:17.589268",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

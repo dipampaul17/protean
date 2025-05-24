@@ -1,0 +1,78 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_172917",
+  "description": "Database connectivity and performance issues",
+  "duration": 529,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.586614",
+    "phrase_templates_used": 0,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.586469",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:55.586469",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 63,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR redis-cache: network unreachable in timeout",
+        "metrics": {
+          "error_rate": 0.22364641906967597,
+          "response_time_ms": 9198,
+          "cpu_usage": 0.7841832159747395,
+          "memory_usage": 0.8626528371296711,
+          "connection_pool_usage": 0.962603033974635,
+          "query_time_ms": 18543,
+          "deadlocks_per_sec": 4
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:24.586469",
+      "event_type": "corruption",
+      "description": "Corruption: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:12.586469",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 40,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR redis-cache: connection timeout in timeout",
+        "metrics": {
+          "error_rate": 0.13440800192946548,
+          "response_time_ms": 8269,
+          "cpu_usage": 0.80335858915201,
+          "memory_usage": 0.8362195431126764,
+          "connection_pool_usage": 0.8805609585240912,
+          "query_time_ms": 14976,
+          "deadlocks_per_sec": 8
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:06.586469",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173011
+description: Configuration inconsistencies causing service degradation
+duration: 1376
+metadata:
+  generated_at: '2025-05-23T17:30:11.376672'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:30:11.375778'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:01.375778'
+  event_type: rollback
+  description: 'Rollback: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:45.375778'
+  event_type: restart
+  description: 'Restart: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:50.375778'
+  event_type: rollback
+  description: 'Rollback: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:00.375778'
+  event_type: restart
+  description: 'Restart: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:46.375778'
+  event_type: config_change
+  description: 'Config_Change: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:53:07.375778'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

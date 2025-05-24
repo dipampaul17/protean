@@ -1,0 +1,44 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_184526
+description: Configuration inconsistencies causing service degradation
+duration: 626
+metadata:
+  generated_at: '2025-05-23T18:45:26.817453'
+  phrase_templates_used: 50
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T18:45:26.817338'
+  event_type: trigger
+  description: 'Initial failure detected: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:46.817338'
+  event_type: rollback
+  description: 'Rollback: docker network'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:33.817338'
+  event_type: failure
+  description: 'Failure: redis server'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 127
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: redis server - operation
+      failed'
+    metrics:
+      error_rate: 0.15514149363342736
+      response_time_ms: 2010
+      cpu_usage: 0.887484663602823
+      memory_usage: 0.8441124900647148
+- timestamp: '2025-05-23T18:48:29.817338'
+  event_type: restart
+  description: 'Restart: following error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:55:52.817338'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

@@ -1,0 +1,82 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_184526
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1254
+metadata:
+  generated_at: '2025-05-23T18:45:26.568560'
+  phrase_templates_used: 45
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.568040'
+  event_type: trigger
+  description: 'Initial failure detected: jenkins server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:38.568040'
+  event_type: timeout
+  description: 'Timeout: connect service'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 72
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: connect service - operation
+      failed'
+    metrics:
+      error_rate: 0.3163534933241895
+      response_time_ms: 8230
+      cpu_usage: 0.9506810222939523
+      memory_usage: 0.9338032472948754
+- timestamp: '2025-05-23T18:46:12.568040'
+  event_type: failure
+  description: 'Failure: to update'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 77
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: to update - operation
+      failed'
+    metrics:
+      error_rate: 0.7748616941419495
+      response_time_ms: 5553
+      cpu_usage: 0.8635433128426063
+      memory_usage: 0.9215140729077562
+- timestamp: '2025-05-23T18:46:18.568040'
+  event_type: recovery
+  description: 'Recovery: per pod'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:22.568040'
+  event_type: recovery
+  description: 'Recovery: to network'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:26.568040'
+  event_type: recovery
+  description: 'Recovery: upstream queue'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:37.568040'
+  event_type: timeout
+  description: 'Timeout: jenkins server'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 288
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: jenkins server
+      - operation failed'
+    metrics:
+      error_rate: 0.2593261581354912
+      response_time_ms: 9908
+      cpu_usage: 0.9757387439610266
+      memory_usage: 0.9245149327928519
+- timestamp: '2025-05-23T18:47:37.568040'
+  event_type: recovery
+  description: 'Recovery: vpn connection'
+  injection_spec: null
+- timestamp: '2025-05-23T19:06:20.568040'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

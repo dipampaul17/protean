@@ -1,0 +1,126 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_184526",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 703,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.688542",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.687656",
+      "event_type": "trigger",
+      "description": "Initial failure detected: free disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:36.687656",
+      "event_type": "failure",
+      "description": "Failure: reading database",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 95,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: reading database - operation failed",
+        "metrics": {
+          "error_rate": 0.6563982724157541,
+          "response_time_ms": 5948,
+          "cpu_usage": 0.7453382496513727,
+          "memory_usage": 0.9280454811822894
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:44.687656",
+      "event_type": "failure",
+      "description": "Failure: float scale",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 178,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: float scale - operation failed",
+        "metrics": {
+          "error_rate": 0.20890890478513022,
+          "response_time_ms": 2329,
+          "cpu_usage": 0.8728580757401532,
+          "memory_usage": 0.9048771179193429
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:18.687656",
+      "event_type": "timeout",
+      "description": "Timeout: customer service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 256,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: customer service - operation failed",
+        "metrics": {
+          "error_rate": 0.14454162459998,
+          "response_time_ms": 2118,
+          "cpu_usage": 0.8301272405047457,
+          "memory_usage": 0.9447967691684032
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:09.687656",
+      "event_type": "recovery",
+      "description": "Recovery: a node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:16.687656",
+      "event_type": "failure",
+      "description": "Failure: code cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 127,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: code cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.19828244205525714,
+          "response_time_ms": 6772,
+          "cpu_usage": 0.9059120218930274,
+          "memory_usage": 0.8751171440423574
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:23.687656",
+      "event_type": "failure",
+      "description": "Failure: the disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 192,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: the disk - operation failed",
+        "metrics": {
+          "error_rate": 0.845963638872275,
+          "response_time_ms": 1900,
+          "cpu_usage": 0.8756734652503837,
+          "memory_usage": 0.9013345291634242
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:57:09.687656",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

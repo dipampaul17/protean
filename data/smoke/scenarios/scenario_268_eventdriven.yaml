@@ -1,0 +1,105 @@
+category: EventDriven
+name: EventDriven_20250523_184526
+description: Message queue and event processing failures
+duration: 1243
+metadata:
+  generated_at: '2025-05-23T18:45:26.737539'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.736616'
+  event_type: trigger
+  description: 'Initial failure detected: that queue'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:08.736616'
+  event_type: recovery
+  description: 'Recovery: using rabbitmq'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:13.736616'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: following error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:28.736616'
+  event_type: timeout
+  description: 'Timeout: following error'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: high
+    duration: 267
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-queue: queue processing
+      following error'
+    metrics:
+      error_rate: 0.37719058555691853
+      response_time_ms: 4504
+      cpu_usage: 0.7778810406771975
+      memory_usage: 0.8225545740474328
+      queue_depth: 26177
+      message_processing_rate: 0.4724590754046518
+      consumer_lag_ms: 64053
+- timestamp: '2025-05-23T18:46:30.736616'
+  event_type: recovery
+  description: 'Recovery: rabbitmq service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:38.736616'
+  event_type: timeout
+  description: 'Timeout: using rabbitmq'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 165
+    log_snippet: '[2025-05-23 18:45:26] ERROR batch-processing-queue: queue processing
+      using rabbitmq'
+    metrics:
+      error_rate: 0.1086411574843444
+      response_time_ms: 5662
+      cpu_usage: 0.9836343573654327
+      memory_usage: 0.8660397538362605
+      queue_depth: 10591
+      message_processing_rate: 0.7192524185421102
+      consumer_lag_ms: 210894
+- timestamp: '2025-05-23T18:46:56.736616'
+  event_type: timeout
+  description: 'Timeout: the queue'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: medium
+    duration: 243
+    log_snippet: '[2025-05-23 18:45:26] ERROR batch-processing-queue: queue processing
+      the queue'
+    metrics:
+      error_rate: 0.07836983174506962
+      response_time_ms: 1080
+      cpu_usage: 0.45924644244497254
+      memory_usage: 0.5087050567655598
+      queue_depth: 45457
+      message_processing_rate: 2.820326024837134
+      consumer_lag_ms: 240503
+- timestamp: '2025-05-23T18:47:09.736616'
+  event_type: timeout
+  description: 'Timeout: docker container'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 32
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-queue: queue processing docker
+      container'
+    metrics:
+      error_rate: 0.7994971678126096
+      response_time_ms: 2682
+      cpu_usage: 0.7424738878180661
+      memory_usage: 0.9949663800388846
+      queue_depth: 27291
+      message_processing_rate: 1.9487000877082514
+      consumer_lag_ms: 272332
+- timestamp: '2025-05-23T19:06:09.736616'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

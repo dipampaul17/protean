@@ -1,0 +1,66 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_184526
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1736
+metadata:
+  generated_at: '2025-05-23T18:45:26.736570'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.736374'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:27.736374'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 296
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.5356595170387289
+      response_time_ms: 6229
+      cpu_usage: 0.7653021552138635
+      memory_usage: 0.877193242950478
+- timestamp: '2025-05-23T18:46:53.736374'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 45
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.6759350291298094
+      response_time_ms: 2133
+      cpu_usage: 0.9536686541063633
+      memory_usage: 0.9723636895001
+- timestamp: '2025-05-23T18:54:20.736374'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 39
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.46341782845049917
+      response_time_ms: 3937
+      cpu_usage: 0.9225793886133292
+      memory_usage: 0.9562084216678821
+- timestamp: '2025-05-23T19:14:22.736374'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

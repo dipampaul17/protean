@@ -1,0 +1,138 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173011",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 574,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.394839",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.394627",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:24.394627",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 292,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR auth-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.2899839651339844,
+          "response_time_ms": 9967,
+          "cpu_usage": 0.8639372542278839,
+          "memory_usage": 0.9209139232621628
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:30.394627",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 103,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.48857140042360425,
+          "response_time_ms": 6860,
+          "cpu_usage": 0.8651202493215665,
+          "memory_usage": 0.8430360522361536
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:38.394627",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:43.394627",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 74,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR user-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.5782748248797159,
+          "response_time_ms": 4595,
+          "cpu_usage": 0.9037566331649388,
+          "memory_usage": 0.8454153983222067
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:45.394627",
+      "event_type": "degradation",
+      "description": "Degradation: queue overflow",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 242,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR user-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.8568567839283151,
+          "response_time_ms": 2676,
+          "cpu_usage": 0.7263918793776013,
+          "memory_usage": 0.9316071507864258
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:11.394627",
+      "event_type": "recovery",
+      "description": "Recovery: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:16.394627",
+      "event_type": "recovery",
+      "description": "Recovery: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:17.394627",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 294,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR auth-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.6408262373175472,
+          "response_time_ms": 3166,
+          "cpu_usage": 0.9498746060523873,
+          "memory_usage": 0.9542687365941194
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:45.394627",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

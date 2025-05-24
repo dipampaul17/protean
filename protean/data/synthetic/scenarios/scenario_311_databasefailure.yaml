@@ -1,0 +1,54 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173011
+description: Database connectivity and performance issues
+duration: 1706
+metadata:
+  generated_at: '2025-05-23T17:30:11.396590'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.396464'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:23.396464'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:27.396464'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 85
+    log_snippet: '[2025-05-23 17:30:11] ERROR mongodb-shard: queue overflow in timeout'
+    metrics:
+      error_rate: 0.6688061850434195
+      response_time_ms: 1960
+      cpu_usage: 0.9966256568087942
+      memory_usage: 0.8721359948719739
+      connection_pool_usage: 0.8183573563843788
+      query_time_ms: 22352
+      deadlocks_per_sec: 2
+- timestamp: '2025-05-23T17:33:00.396464'
+  event_type: corruption
+  description: 'Corruption: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:02.396464'
+  event_type: connection_loss
+  description: 'Connection_Loss: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:52.396464'
+  event_type: corruption
+  description: 'Corruption: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:58:37.396464'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

@@ -1,0 +1,84 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173011",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 1408,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.310838",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.310723",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:47.310723",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 180,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR load-balancer: network unreachable in timeout",
+        "metrics": {
+          "error_rate": 0.5214011995868969,
+          "response_time_ms": 2207,
+          "cpu_usage": 0.8459773578454419,
+          "memory_usage": 0.9176042187818069,
+          "requests_per_sec": 9420,
+          "backend_health_pct": 0.6509344264452539,
+          "connection_timeouts": 559
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:23.310723",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 171,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR load-balancer: rate limit exceeded in timeout",
+        "metrics": {
+          "error_rate": 0.2579086930331034,
+          "response_time_ms": 5513,
+          "cpu_usage": 0.774862029806591,
+          "memory_usage": 0.8489863817182869,
+          "requests_per_sec": 2665,
+          "backend_health_pct": 0.31301434096609876,
+          "connection_timeouts": 474
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:48.310723",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:55.310723",
+      "event_type": "scaling",
+      "description": "Scaling: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:53:39.310723",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

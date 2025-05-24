@@ -1,0 +1,81 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_184526
+description: Circuit breaker activation due to cascading service failures
+duration: 1290
+metadata:
+  generated_at: '2025-05-23T18:45:26.750093'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.749913'
+  event_type: trigger
+  description: 'Initial failure detected: exceeded timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:55.749913'
+  event_type: timeout
+  description: 'Timeout: nginx server'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 202
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: nginx server - operation
+      failed'
+    metrics:
+      error_rate: 0.22113584918373574
+      response_time_ms: 2052
+      cpu_usage: 0.7362660946637996
+      memory_usage: 0.8536715205103418
+- timestamp: '2025-05-23T18:46:44.749913'
+  event_type: timeout
+  description: 'Timeout: handling connection'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 171
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: handling connection -
+      operation failed'
+    metrics:
+      error_rate: 0.5141742183725525
+      response_time_ms: 4250
+      cpu_usage: 0.7529961102915256
+      memory_usage: 0.8974289807501087
+- timestamp: '2025-05-23T18:47:12.749913'
+  event_type: degradation
+  description: 'Degradation: ssh connection'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: low
+    duration: 161
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: ssh connection - operation
+      failed'
+    metrics:
+      error_rate: 0.08791566675408358
+      response_time_ms: 544
+      cpu_usage: 0.5587652578548586
+      memory_usage: 0.45414073479665995
+- timestamp: '2025-05-23T18:47:33.749913'
+  event_type: timeout
+  description: 'Timeout: exceeded timeout'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 81
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: exceeded timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.7724536418473943
+      response_time_ms: 1651
+      cpu_usage: 0.9118394773238069
+      memory_usage: 0.8068876314865903
+- timestamp: '2025-05-23T19:06:56.749913'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

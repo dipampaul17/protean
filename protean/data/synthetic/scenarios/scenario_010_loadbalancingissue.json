@@ -1,0 +1,108 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_172917",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 1103,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.514223",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.514036",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:27.514036",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:25.514036",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 238,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR api-gateway: memory limit exceeded in timeout",
+        "metrics": {
+          "error_rate": 0.5721116205332369,
+          "response_time_ms": 8241,
+          "cpu_usage": 0.8855213970510575,
+          "memory_usage": 0.9467465316510921,
+          "requests_per_sec": 9303,
+          "backend_health_pct": 0.5746515092569471,
+          "connection_timeouts": 163
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:36.514036",
+      "event_type": "timeout",
+      "description": "Timeout: disk space full",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "subnet-private",
+        "severity": "high",
+        "duration": 196,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR subnet-private: disk space full in timeout",
+        "metrics": {
+          "error_rate": 0.8937125313754838,
+          "response_time_ms": 2885,
+          "cpu_usage": 0.7641221706906624,
+          "memory_usage": 0.8477323724743409,
+          "requests_per_sec": 3756,
+          "backend_health_pct": 0.36056429689514885,
+          "connection_timeouts": 370
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:42.514036",
+      "event_type": "scaling",
+      "description": "Scaling: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:42.514036",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:51.514036",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:19.514036",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:27.514036",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:40.514036",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

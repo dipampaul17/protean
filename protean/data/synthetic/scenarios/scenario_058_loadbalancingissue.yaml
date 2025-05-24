@@ -1,0 +1,72 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_172917
+description: Load balancer and traffic distribution problems
+duration: 1504
+metadata:
+  generated_at: '2025-05-23T17:29:17.538233'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.538082'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:37.538082'
+  event_type: backend_failure
+  description: 'Backend_Failure: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:26.538082'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 99
+    log_snippet: '[2025-05-23 17:29:17] ERROR vpc-main: service unavailable in timeout'
+    metrics:
+      error_rate: 0.2024342713380535
+      response_time_ms: 3107
+      cpu_usage: 0.7401353441853946
+      memory_usage: 0.8946628853089609
+      requests_per_sec: 7805
+      backend_health_pct: 0.7600895480362289
+      connection_timeouts: 542
+- timestamp: '2025-05-23T17:31:07.538082'
+  event_type: backend_failure
+  description: 'Backend_Failure: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:08.538082'
+  event_type: backend_failure
+  description: 'Backend_Failure: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:37.538082'
+  event_type: backend_failure
+  description: 'Backend_Failure: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:16.538082'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: load-balancer
+    severity: high
+    duration: 178
+    log_snippet: '[2025-05-23 17:29:17] ERROR load-balancer: authentication failed
+      in timeout'
+    metrics:
+      error_rate: 0.7216494044785797
+      response_time_ms: 2264
+      cpu_usage: 0.7748443268536687
+      memory_usage: 0.9369158824119255
+      requests_per_sec: 3648
+      backend_health_pct: 0.3300198608878386
+      connection_timeouts: 65
+- timestamp: '2025-05-23T17:54:21.538082'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

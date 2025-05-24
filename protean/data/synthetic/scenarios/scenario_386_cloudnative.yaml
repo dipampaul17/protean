@@ -1,0 +1,67 @@
+category: CloudNative
+name: CloudNative_20250523_173011
+description: Kubernetes pod and container orchestration issues
+duration: 587
+metadata:
+  generated_at: '2025-05-23T17:30:11.419439'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.419294'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:29.419294'
+  event_type: pod_restart
+  description: 'Pod_Restart: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:43.419294'
+  event_type: pod_restart
+  description: 'Pod_Restart: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:25.419294'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 237
+    log_snippet: '[2025-05-23 17:30:11] ERROR api-backend: circuit breaker triggered
+      in failure'
+    metrics:
+      error_rate: 0.3857176049199028
+      response_time_ms: 8442
+      cpu_usage: 0.9180756851483958
+      memory_usage: 0.8411815615393613
+- timestamp: '2025-05-23T17:31:32.419294'
+  event_type: scaling
+  description: 'Scaling: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:34.419294'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 147
+    log_snippet: '[2025-05-23 17:30:11] ERROR worker-consumer: circuit breaker triggered
+      in failure'
+    metrics:
+      error_rate: 0.8770661480966488
+      response_time_ms: 9887
+      cpu_usage: 0.8809001905613776
+      memory_usage: 0.9339800382887694
+- timestamp: '2025-05-23T17:31:43.419294'
+  event_type: deployment
+  description: 'Deployment: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:58.419294'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

@@ -1,0 +1,90 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_184526",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 1275,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.653142",
+    "phrase_templates_used": 24,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.652760",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:07.652760",
+      "event_type": "timeout",
+      "description": "Timeout: the cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 274,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: the cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.6934675199941727,
+          "response_time_ms": 3607,
+          "cpu_usage": 0.8597068814193574,
+          "memory_usage": 0.8930348532538454
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:34.652760",
+      "event_type": "failure",
+      "description": "Failure: the server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 266,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.8631351921751932,
+          "response_time_ms": 9120,
+          "cpu_usage": 0.9158963958214608,
+          "memory_usage": 0.8326835090753493
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:04.652760",
+      "event_type": "recovery",
+      "description": "Recovery: which node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:27.652760",
+      "event_type": "recovery",
+      "description": "Recovery: to scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:22.652760",
+      "event_type": "recovery",
+      "description": "Recovery: of failure",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:34.652760",
+      "event_type": "recovery",
+      "description": "Recovery: a node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:06:41.652760",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

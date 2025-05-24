@@ -1,0 +1,108 @@
+{
+  "category": "NetworkPartition",
+  "name": "NetworkPartition_20250523_184526",
+  "description": "Infrastructure failure scenario for NetworkPartition",
+  "duration": 576,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.790067",
+    "phrase_templates_used": 4,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.789824",
+      "event_type": "trigger",
+      "description": "Initial failure detected: each node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:51.789824",
+      "event_type": "failure",
+      "description": "Failure: each node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 286,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: each node - operation failed",
+        "metrics": {
+          "error_rate": 0.7518070953536776,
+          "response_time_ms": 1713,
+          "cpu_usage": 0.8253176448559169,
+          "memory_usage": 0.9831192370097974
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:07.789824",
+      "event_type": "recovery",
+      "description": "Recovery: and memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:09.789824",
+      "event_type": "recovery",
+      "description": "Recovery: and memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:18.789824",
+      "event_type": "timeout",
+      "description": "Timeout: and memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 34,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: and memory - operation failed",
+        "metrics": {
+          "error_rate": 0.7655871521559122,
+          "response_time_ms": 1796,
+          "cpu_usage": 0.9957948494982247,
+          "memory_usage": 0.855191802378699
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:18.789824",
+      "event_type": "recovery",
+      "description": "Recovery: and memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:26.789824",
+      "event_type": "recovery",
+      "description": "Recovery: of disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:36.789824",
+      "event_type": "failure",
+      "description": "Failure: and memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 173,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: and memory - operation failed",
+        "metrics": {
+          "error_rate": 0.5467102133860472,
+          "response_time_ms": 2218,
+          "cpu_usage": 0.9110079551622268,
+          "memory_usage": 0.9267699912117707
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:55:02.789824",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

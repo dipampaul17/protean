@@ -1,0 +1,90 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173011",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1171,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.441680",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.441503",
+      "event_type": "trigger",
+      "description": "Initial failure detected: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:30.441503",
+      "event_type": "rollback",
+      "description": "Rollback: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:59.441503",
+      "event_type": "rollback",
+      "description": "Rollback: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:59.441503",
+      "event_type": "restart",
+      "description": "Restart: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:01.441503",
+      "event_type": "config_change",
+      "description": "Config_Change: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:06.441503",
+      "event_type": "rollback",
+      "description": "Rollback: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:19.441503",
+      "event_type": "restart",
+      "description": "Restart: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:23.441503",
+      "event_type": "restart",
+      "description": "Restart: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:52.441503",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 193,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.7695858720965078,
+          "response_time_ms": 6579,
+          "cpu_usage": 0.9975269075861602,
+          "memory_usage": 0.8990243797460834
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:42.441503",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

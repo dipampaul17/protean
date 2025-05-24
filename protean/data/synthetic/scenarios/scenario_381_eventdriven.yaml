@@ -1,0 +1,95 @@
+category: EventDriven
+name: EventDriven_20250523_172917
+description: Message queue and event processing failures
+duration: 814
+metadata:
+  generated_at: '2025-05-23T17:29:17.708869'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:29:17.708666'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:27.708666'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: high
+    duration: 89
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-queue: queue processing
+      database connection lost'
+    metrics:
+      error_rate: 0.3593057273858039
+      response_time_ms: 7886
+      cpu_usage: 0.735699040872831
+      memory_usage: 0.8948424050826318
+      queue_depth: 41566
+      message_processing_rate: 2.525251182176184
+      consumer_lag_ms: 10053
+- timestamp: '2025-05-23T17:29:33.708666'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 165
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-queue: queue processing network
+      unreachable'
+    metrics:
+      error_rate: 0.6153804837673387
+      response_time_ms: 1277
+      cpu_usage: 0.9592740030777843
+      memory_usage: 0.8925526093365793
+      queue_depth: 41602
+      message_processing_rate: 6.746760715425761
+      consumer_lag_ms: 283508
+- timestamp: '2025-05-23T17:29:46.708666'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:54.708666'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: high
+    duration: 299
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-queue: queue processing
+      rate limit exceeded'
+    metrics:
+      error_rate: 0.5166525753810033
+      response_time_ms: 4935
+      cpu_usage: 0.7639254915013739
+      memory_usage: 0.8683323474647364
+      queue_depth: 24179
+      message_processing_rate: 3.0128278940324655
+      consumer_lag_ms: 256324
+- timestamp: '2025-05-23T17:30:07.708666'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:29.708666'
+  event_type: message_loss
+  description: 'Message_Loss: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:29.708666'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:47.708666'
+  event_type: message_loss
+  description: 'Message_Loss: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:42:51.708666'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

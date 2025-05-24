@@ -1,0 +1,90 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173011",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1539,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.377247",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.377101",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:49.377101",
+      "event_type": "config_change",
+      "description": "Config_Change: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:51.377101",
+      "event_type": "rollback",
+      "description": "Rollback: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:05.377101",
+      "event_type": "restart",
+      "description": "Restart: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:01.377101",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 56,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR user-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.6088472509443713,
+          "response_time_ms": 1558,
+          "cpu_usage": 0.8352564387789433,
+          "memory_usage": 0.8597122145613865
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:30.377101",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 163,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR auth-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.6850524462939459,
+          "response_time_ms": 7435,
+          "cpu_usage": 0.967390536932536,
+          "memory_usage": 0.8395086338423574
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:50.377101",
+      "event_type": "restart",
+      "description": "Restart: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:55:50.377101",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

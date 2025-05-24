@@ -1,0 +1,96 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_184526
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 478
+metadata:
+  generated_at: '2025-05-23T18:45:26.647930'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T18:45:26.647707'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:54.647707'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 198
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.6500363498557635
+      response_time_ms: 5951
+      cpu_usage: 0.9687110451948775
+      memory_usage: 0.8721257046521657
+- timestamp: '2025-05-23T18:46:27.647707'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 38
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.838604347057523
+      response_time_ms: 3609
+      cpu_usage: 0.8569155077751289
+      memory_usage: 0.8676114764450729
+- timestamp: '2025-05-23T18:46:51.647707'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 99
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.8722604168625445
+      response_time_ms: 5389
+      cpu_usage: 0.9190957102472429
+      memory_usage: 0.8398859077830201
+- timestamp: '2025-05-23T18:46:53.647707'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 170
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.3557268593786236
+      response_time_ms: 3771
+      cpu_usage: 0.9039748354817092
+      memory_usage: 0.8075750613592181
+- timestamp: '2025-05-23T18:46:54.647707'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 190
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.6591941674245729
+      response_time_ms: 8912
+      cpu_usage: 0.9536886082284681
+      memory_usage: 0.8536845799245142
+- timestamp: '2025-05-23T18:53:24.647707'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

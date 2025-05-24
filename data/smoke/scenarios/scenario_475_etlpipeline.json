@@ -1,0 +1,108 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_184526",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 1014,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.818942",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.818748",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:39.818748",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 39,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.8296226569550869,
+          "response_time_ms": 3339,
+          "cpu_usage": 0.7710068402636773,
+          "memory_usage": 0.8727012500794658
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:11.818748",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 149,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.4420692653441989,
+          "response_time_ms": 6518,
+          "cpu_usage": 0.7953099426676417,
+          "memory_usage": 0.9478946386866008
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:31.818748",
+      "event_type": "recovery",
+      "description": "Recovery: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:48.818748",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 257,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.5428176098218895,
+          "response_time_ms": 1785,
+          "cpu_usage": 0.722879342255612,
+          "memory_usage": 0.9908495531857899
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:04.818748",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 292,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.4020317911650986,
+          "response_time_ms": 1566,
+          "cpu_usage": 0.8880889101945166,
+          "memory_usage": 0.8407211123709091
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:02:20.818748",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

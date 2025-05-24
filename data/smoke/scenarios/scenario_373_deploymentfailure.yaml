@@ -1,0 +1,59 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_184526
+description: Application deployment and rollback scenarios
+duration: 1162
+metadata:
+  generated_at: '2025-05-23T18:45:26.773819'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T18:45:26.773597'
+  event_type: trigger
+  description: 'Initial failure detected: docker container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:42.773597'
+  event_type: rollback
+  description: 'Rollback: and deploy'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:48.773597'
+  event_type: failure
+  description: 'Failure: the container'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 75
+    log_snippet: '[2025-05-23 18:45:26] ERROR web-frontend: the container in failure'
+    metrics:
+      error_rate: 0.43067863027062003
+      response_time_ms: 9786
+      cpu_usage: 0.7968817864934331
+      memory_usage: 0.9735511622571098
+- timestamp: '2025-05-23T18:46:18.773597'
+  event_type: rollback
+  description: 'Rollback: using cache'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:06.773597'
+  event_type: scaling
+  description: 'Scaling: reviewing error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:16.773597'
+  event_type: deployment
+  description: 'Deployment: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:46.773597'
+  event_type: scaling
+  description: 'Scaling: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:03.773597'
+  event_type: deployment
+  description: 'Deployment: using docker'
+  injection_spec: null
+- timestamp: '2025-05-23T19:04:48.773597'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

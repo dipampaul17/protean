@@ -1,0 +1,93 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_184526
+description: Infrastructure failure scenario for DataWarehouse
+duration: 992
+metadata:
+  generated_at: '2025-05-23T18:45:26.780463'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.780206'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:49.780206'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 174
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.24736704207599686
+      response_time_ms: 1198
+      cpu_usage: 0.931442142399034
+      memory_usage: 0.8497603563759374
+- timestamp: '2025-05-23T18:46:02.780206'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 47
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.4772624995202096
+      response_time_ms: 4855
+      cpu_usage: 0.9026922252173977
+      memory_usage: 0.8649909983809516
+- timestamp: '2025-05-23T18:46:04.780206'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 261
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: deployment failed -
+      operation failed'
+    metrics:
+      error_rate: 0.4277510086468097
+      response_time_ms: 7916
+      cpu_usage: 0.924719001668951
+      memory_usage: 0.8265221506585144
+- timestamp: '2025-05-23T18:46:38.780206'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:55.780206'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:09.780206'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 300
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.37403266891963305
+      response_time_ms: 5745
+      cpu_usage: 0.9045622387954794
+      memory_usage: 0.8689150113268418
+- timestamp: '2025-05-23T18:47:30.780206'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T19:01:58.780206'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

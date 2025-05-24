@@ -1,0 +1,51 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_172917
+description: Load balancer and traffic distribution problems
+duration: 1520
+metadata:
+  generated_at: '2025-05-23T17:29:17.611107'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.610986'
+  event_type: trigger
+  description: 'Initial failure detected: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:37.610986'
+  event_type: scaling
+  description: 'Scaling: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:05.610986'
+  event_type: scaling
+  description: 'Scaling: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:37.610986'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 35
+    log_snippet: '[2025-05-23 17:29:17] ERROR subnet-private: circuit breaker triggered
+      in timeout'
+    metrics:
+      error_rate: 0.3649089393644366
+      response_time_ms: 7159
+      cpu_usage: 0.9023760167823663
+      memory_usage: 0.8762863370215335
+      requests_per_sec: 9914
+      backend_health_pct: 0.5262218352252259
+      connection_timeouts: 555
+- timestamp: '2025-05-23T17:35:28.610986'
+  event_type: backend_failure
+  description: 'Backend_Failure: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:54:37.610986'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

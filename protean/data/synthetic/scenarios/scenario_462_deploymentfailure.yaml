@@ -1,0 +1,64 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173011
+description: Application deployment and rollback scenarios
+duration: 663
+metadata:
+  generated_at: '2025-05-23T17:30:11.438186'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.438009'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:23.438009'
+  event_type: rollback
+  description: 'Rollback: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:40.438009'
+  event_type: rollback
+  description: 'Rollback: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:55.438009'
+  event_type: deployment
+  description: 'Deployment: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:06.438009'
+  event_type: scaling
+  description: 'Scaling: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:08.438009'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 265
+    log_snippet: '[2025-05-23 17:30:11] ERROR api-backend: rate limit exceeded in
+      failure'
+    metrics:
+      error_rate: 0.30261543248946454
+      response_time_ms: 1537
+      cpu_usage: 0.8269761982188328
+      memory_usage: 0.887253162337689
+- timestamp: '2025-05-23T17:31:17.438009'
+  event_type: deployment
+  description: 'Deployment: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:18.438009'
+  event_type: rollback
+  description: 'Rollback: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:29.438009'
+  event_type: scaling
+  description: 'Scaling: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:14.438009'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

@@ -1,0 +1,90 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_184526",
+  "description": "Database connectivity and performance issues",
+  "duration": 1157,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.557335",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.557140",
+      "event_type": "trigger",
+      "description": "Initial failure detected: p error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:46.557140",
+      "event_type": "timeout",
+      "description": "Timeout: var log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "postgres-replica",
+        "severity": "high",
+        "duration": 100,
+        "log_snippet": "[2025-05-23 18:45:26] FATAL postgres-replica: database var log detected",
+        "metrics": {
+          "error_rate": 0.3241910173471788,
+          "response_time_ms": 1963,
+          "cpu_usage": 0.8702750618231903,
+          "memory_usage": 0.8758634207099889,
+          "connection_pool_usage": 0.9425102110754762,
+          "query_time_ms": 15240,
+          "deadlocks_per_sec": 4
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:18.557140",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: postgres database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:19.557140",
+      "event_type": "recovery",
+      "description": "Recovery: to fix",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:48.557140",
+      "event_type": "timeout",
+      "description": "Timeout: the queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "medium",
+        "duration": 139,
+        "log_snippet": "[2025-05-23 18:45:26] FATAL mysql-primary: database the queue detected",
+        "metrics": {
+          "error_rate": 0.046263467772645825,
+          "response_time_ms": 1132,
+          "cpu_usage": 0.5207517265120192,
+          "memory_usage": 0.42976463560642225,
+          "connection_pool_usage": 0.9595142196676654,
+          "query_time_ms": 18699,
+          "deadlocks_per_sec": 8
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:40.557140",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: sql server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:04:43.557140",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

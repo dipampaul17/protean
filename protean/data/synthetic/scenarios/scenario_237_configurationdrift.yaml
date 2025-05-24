@@ -1,0 +1,86 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173011
+description: Configuration inconsistencies causing service degradation
+duration: 505
+metadata:
+  generated_at: '2025-05-23T17:30:11.374287'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:30:11.374097'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:26.374097'
+  event_type: rollback
+  description: 'Rollback: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:30.374097'
+  event_type: restart
+  description: 'Restart: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:33.374097'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 39
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.8995340130889635
+      response_time_ms: 3742
+      cpu_usage: 0.935020865501066
+      memory_usage: 0.8239980814177595
+- timestamp: '2025-05-23T17:30:42.374097'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 247
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.7807964489900883
+      response_time_ms: 5818
+      cpu_usage: 0.9773222411692533
+      memory_usage: 0.8122760787030295
+- timestamp: '2025-05-23T17:30:52.374097'
+  event_type: rollback
+  description: 'Rollback: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:59.374097'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 145
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: circuit breaker
+      triggered - operation failed'
+    metrics:
+      error_rate: 0.3889793480020852
+      response_time_ms: 4640
+      cpu_usage: 0.9487274553117158
+      memory_usage: 0.9979045737959744
+- timestamp: '2025-05-23T17:30:59.374097'
+  event_type: config_change
+  description: 'Config_Change: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:00.374097'
+  event_type: rollback
+  description: 'Rollback: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:36.374097'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

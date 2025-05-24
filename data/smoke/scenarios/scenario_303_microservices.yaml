@@ -1,0 +1,108 @@
+category: Microservices
+name: Microservices_20250523_184526
+description: Infrastructure failure scenario for Microservices
+duration: 865
+metadata:
+  generated_at: '2025-05-23T18:45:26.749027'
+  phrase_templates_used: 15
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T18:45:26.748725'
+  event_type: trigger
+  description: 'Initial failure detected: the container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:37.748725'
+  event_type: failure
+  description: 'Failure: the container'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 253
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: the container - operation
+      failed'
+    metrics:
+      error_rate: 0.33729327770414275
+      response_time_ms: 3055
+      cpu_usage: 0.9327922749922885
+      memory_usage: 0.9405507549334138
+- timestamp: '2025-05-23T18:45:50.748725'
+  event_type: failure
+  description: 'Failure: headless service'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 199
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: headless service - operation
+      failed'
+    metrics:
+      error_rate: 0.45360001525897065
+      response_time_ms: 2475
+      cpu_usage: 0.906390037745285
+      memory_usage: 0.9419035467662412
+- timestamp: '2025-05-23T18:46:02.748725'
+  event_type: recovery
+  description: 'Recovery: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:11.748725'
+  event_type: failure
+  description: 'Failure: ui service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 89
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: ui service - operation
+      failed'
+    metrics:
+      error_rate: 0.6336563044242712
+      response_time_ms: 9770
+      cpu_usage: 0.8331825016261086
+      memory_usage: 0.8955248659077345
+- timestamp: '2025-05-23T18:46:43.748725'
+  event_type: recovery
+  description: 'Recovery: ui service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:54.748725'
+  event_type: recovery
+  description: 'Recovery: docker network'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:06.748725'
+  event_type: timeout
+  description: 'Timeout: to service'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 226
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: to service - operation
+      failed'
+    metrics:
+      error_rate: 0.638336854453694
+      response_time_ms: 2072
+      cpu_usage: 0.781515733506619
+      memory_usage: 0.8710775637654886
+- timestamp: '2025-05-23T18:47:12.748725'
+  event_type: failure
+  description: 'Failure: a container'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 93
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: a container -
+      operation failed'
+    metrics:
+      error_rate: 0.6769407571231797
+      response_time_ms: 9528
+      cpu_usage: 0.9502133636012261
+      memory_usage: 0.974382702434131
+- timestamp: '2025-05-23T18:59:51.748725'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

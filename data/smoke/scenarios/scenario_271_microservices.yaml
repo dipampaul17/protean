@@ -1,0 +1,85 @@
+category: Microservices
+name: Microservices_20250523_184526
+description: Infrastructure failure scenario for Microservices
+duration: 1375
+metadata:
+  generated_at: '2025-05-23T18:45:26.738178'
+  phrase_templates_used: 15
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.737969'
+  event_type: trigger
+  description: 'Initial failure detected: strong service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:05.737969'
+  event_type: recovery
+  description: 'Recovery: ui service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:17.737969'
+  event_type: timeout
+  description: 'Timeout: ui service'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 102
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: ui service - operation
+      failed'
+    metrics:
+      error_rate: 0.7031318324455543
+      response_time_ms: 7152
+      cpu_usage: 0.8745157222514457
+      memory_usage: 0.830770658480399
+- timestamp: '2025-05-23T18:47:32.737969'
+  event_type: failure
+  description: 'Failure: another container'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 228
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: another container -
+      operation failed'
+    metrics:
+      error_rate: 0.43384183297106704
+      response_time_ms: 4960
+      cpu_usage: 0.9317740670100657
+      memory_usage: 0.9583892552994429
+- timestamp: '2025-05-23T18:47:33.737969'
+  event_type: timeout
+  description: 'Timeout: a cluster'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 146
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: a cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.23426772570155718
+      response_time_ms: 8183
+      cpu_usage: 0.7674776717359465
+      memory_usage: 0.8208914190388704
+- timestamp: '2025-05-23T18:49:45.737969'
+  event_type: timeout
+  description: 'Timeout: ui service'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 190
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: ui service - operation
+      failed'
+    metrics:
+      error_rate: 0.6709338742901922
+      response_time_ms: 9690
+      cpu_usage: 0.858805831275237
+      memory_usage: 0.9927646958950701
+- timestamp: '2025-05-23T19:08:21.737969'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

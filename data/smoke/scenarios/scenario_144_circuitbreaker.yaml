@@ -1,0 +1,48 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_184526
+description: Circuit breaker activation due to cascading service failures
+duration: 988
+metadata:
+  generated_at: '2025-05-23T18:45:26.663940'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T18:45:26.663803'
+  event_type: trigger
+  description: 'Initial failure detected: labels service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:46.663803'
+  event_type: recovery
+  description: 'Recovery: the connection'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:17.663803'
+  event_type: recovery
+  description: 'Recovery: letter queue'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:45.663803'
+  event_type: timeout
+  description: 'Timeout: to monitor'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 137
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: to monitor - operation
+      failed'
+    metrics:
+      error_rate: 0.621344772960352
+      response_time_ms: 5367
+      cpu_usage: 0.7586708868878043
+      memory_usage: 0.9697562140231318
+- timestamp: '2025-05-23T18:47:02.663803'
+  event_type: recovery
+  description: 'Recovery: value memory'
+  injection_spec: null
+- timestamp: '2025-05-23T19:01:54.663803'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

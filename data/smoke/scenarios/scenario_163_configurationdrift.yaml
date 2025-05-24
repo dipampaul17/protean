@@ -1,0 +1,64 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_184526
+description: Configuration inconsistencies causing service degradation
+duration: 1212
+metadata:
+  generated_at: '2025-05-23T18:45:26.687447'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T18:45:26.686488'
+  event_type: trigger
+  description: 'Initial failure detected: elasticsearch cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:47.686488'
+  event_type: restart
+  description: 'Restart: to deploy'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:47.686488'
+  event_type: failure
+  description: 'Failure: redis container'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 75
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: redis container - operation
+      failed'
+    metrics:
+      error_rate: 0.8509064248420694
+      response_time_ms: 5411
+      cpu_usage: 0.873670429341327
+      memory_usage: 0.8534574686563554
+- timestamp: '2025-05-23T18:46:04.686488'
+  event_type: config_change
+  description: 'Config_Change: redis server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:39.686488'
+  event_type: config_change
+  description: 'Config_Change: the pod'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:48.686488'
+  event_type: config_change
+  description: 'Config_Change: var log'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:49.686488'
+  event_type: restart
+  description: 'Restart: nginx restart'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:05.686488'
+  event_type: config_change
+  description: 'Config_Change: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:57.686488'
+  event_type: restart
+  description: 'Restart: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T19:05:38.686488'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

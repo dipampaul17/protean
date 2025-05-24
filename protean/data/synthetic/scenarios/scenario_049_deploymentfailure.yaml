@@ -1,0 +1,47 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_172917
+description: Application deployment and rollback scenarios
+duration: 1029
+metadata:
+  generated_at: '2025-05-23T17:29:17.534672'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.534494'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:29.534494'
+  event_type: scaling
+  description: 'Scaling: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:11.534494'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 138
+    log_snippet: '[2025-05-23 17:29:17] ERROR nginx-proxy: disk space full in failure'
+    metrics:
+      error_rate: 0.6333383963915742
+      response_time_ms: 5574
+      cpu_usage: 0.8771031097158378
+      memory_usage: 0.8466534619015875
+- timestamp: '2025-05-23T17:32:23.534494'
+  event_type: deployment
+  description: 'Deployment: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:34.534494'
+  event_type: rollback
+  description: 'Rollback: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:26.534494'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

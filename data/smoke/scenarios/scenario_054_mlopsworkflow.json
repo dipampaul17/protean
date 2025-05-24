@@ -1,0 +1,126 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_184526",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 1433,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.571281",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.570438",
+      "event_type": "trigger",
+      "description": "Initial failure detected: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:01.570438",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 114,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.19924840051895273,
+          "response_time_ms": 6286,
+          "cpu_usage": 0.8146079618012736,
+          "memory_usage": 0.8594064292387341
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:56.570438",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 267,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.7072941414711232,
+          "response_time_ms": 3649,
+          "cpu_usage": 0.7485833026900335,
+          "memory_usage": 0.9324662772472659
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:14.570438",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 127,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.35665502883229616,
+          "response_time_ms": 6989,
+          "cpu_usage": 0.9636784350181609,
+          "memory_usage": 0.9851400007290636
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:42.570438",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 73,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.3005190538768765,
+          "response_time_ms": 8261,
+          "cpu_usage": 0.8403762987702019,
+          "memory_usage": 0.8437631516164263
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:48.570438",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:55.570438",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 242,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.2893254387353901,
+          "response_time_ms": 1708,
+          "cpu_usage": 0.7782715273341682,
+          "memory_usage": 0.9995085166605391
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:09:19.570438",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

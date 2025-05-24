@@ -1,0 +1,86 @@
+category: CloudNative
+name: CloudNative_20250523_172917
+description: Kubernetes pod and container orchestration issues
+duration: 701
+metadata:
+  generated_at: '2025-05-23T17:29:17.706841'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:29:17.706581'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:32.706581'
+  event_type: pod_restart
+  description: 'Pod_Restart: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:46.706581'
+  event_type: pod_restart
+  description: 'Pod_Restart: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:04.706581'
+  event_type: scaling
+  description: 'Scaling: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:12.706581'
+  event_type: pod_restart
+  description: 'Pod_Restart: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:22.706581'
+  event_type: deployment
+  description: 'Deployment: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:24.706581'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 206
+    log_snippet: '[2025-05-23 17:29:17] ERROR web-frontend: rate limit exceeded in
+      failure'
+    metrics:
+      error_rate: 0.48777354964110076
+      response_time_ms: 9783
+      cpu_usage: 0.8827521744253222
+      memory_usage: 0.9619909430740117
+- timestamp: '2025-05-23T17:30:26.706581'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 276
+    log_snippet: '[2025-05-23 17:29:17] ERROR web-frontend: circuit breaker triggered
+      in failure'
+    metrics:
+      error_rate: 0.7280423464282019
+      response_time_ms: 7528
+      cpu_usage: 0.8569608236189162
+      memory_usage: 0.9272147458846315
+- timestamp: '2025-05-23T17:30:29.706581'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 267
+    log_snippet: '[2025-05-23 17:29:17] ERROR worker-consumer: deployment failed in
+      failure'
+    metrics:
+      error_rate: 0.6234044273763834
+      response_time_ms: 1988
+      cpu_usage: 0.7671290290901237
+      memory_usage: 0.8274863759445072
+- timestamp: '2025-05-23T17:40:58.706581'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

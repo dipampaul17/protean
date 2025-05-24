@@ -1,0 +1,59 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_184526
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 825
+metadata:
+  generated_at: '2025-05-23T18:45:26.653517'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.653224'
+  event_type: trigger
+  description: 'Initial failure detected: a pod'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:57.653224'
+  event_type: recovery
+  description: 'Recovery: monitoring memory'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:38.653224'
+  event_type: recovery
+  description: 'Recovery: quot pod'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:43.653224'
+  event_type: failure
+  description: 'Failure: used cpu'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 175
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: used cpu - operation
+      failed'
+    metrics:
+      error_rate: 0.39816895647531947
+      response_time_ms: 8714
+      cpu_usage: 0.8248426890720623
+      memory_usage: 0.8609479205803483
+- timestamp: '2025-05-23T18:48:22.653224'
+  event_type: failure
+  description: 'Failure: monitoring service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 45
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: monitoring service
+      - operation failed'
+    metrics:
+      error_rate: 0.22934942073268616
+      response_time_ms: 3685
+      cpu_usage: 0.7930640773511363
+      memory_usage: 0.8865372987877395
+- timestamp: '2025-05-23T18:59:11.653224'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

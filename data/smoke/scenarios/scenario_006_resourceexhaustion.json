@@ -1,0 +1,126 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_184526",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 1196,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.551572",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.551278",
+      "event_type": "trigger",
+      "description": "Initial failure detected: info node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:50.551278",
+      "event_type": "recovery",
+      "description": "Recovery: main memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:57.551278",
+      "event_type": "recovery",
+      "description": "Recovery: float scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:58.551278",
+      "event_type": "timeout",
+      "description": "Timeout: the disk",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 69,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: the disk - operation failed",
+        "metrics": {
+          "error_rate": 0.8930281365980085,
+          "response_time_ms": 7520,
+          "cpu_usage": 0.9297885734363096,
+          "memory_usage": 0.9177211526073074
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:03.551278",
+      "event_type": "timeout",
+      "description": "Timeout: message queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "medium",
+        "duration": 226,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: message queue - operation failed",
+        "metrics": {
+          "error_rate": 0.18831624377665013,
+          "response_time_ms": 618,
+          "cpu_usage": 0.7133279614511656,
+          "memory_usage": 0.4334995102074332
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:20.551278",
+      "event_type": "recovery",
+      "description": "Recovery: to monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:27.551278",
+      "event_type": "failure",
+      "description": "Failure: most memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 271,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: most memory - operation failed",
+        "metrics": {
+          "error_rate": 0.4183422276958215,
+          "response_time_ms": 5718,
+          "cpu_usage": 0.8682020047146644,
+          "memory_usage": 0.8841800347200154
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:30.551278",
+      "event_type": "recovery",
+      "description": "Recovery: reading database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:32.551278",
+      "event_type": "failure",
+      "description": "Failure: of disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 227,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: of disk - operation failed",
+        "metrics": {
+          "error_rate": 0.13895596184200418,
+          "response_time_ms": 2078,
+          "cpu_usage": 0.9939252377465495,
+          "memory_usage": 0.8210812115891698
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:05:22.551278",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

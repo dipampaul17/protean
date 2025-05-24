@@ -1,0 +1,90 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173011",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 1040,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.317544",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.314934",
+      "event_type": "trigger",
+      "description": "Initial failure detected: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:35.314934",
+      "event_type": "scaling",
+      "description": "Scaling: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:56.314934",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 266,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR load-balancer: rate limit exceeded in timeout",
+        "metrics": {
+          "error_rate": 0.2602166506486585,
+          "response_time_ms": 1620,
+          "cpu_usage": 0.8286831848442108,
+          "memory_usage": 0.8409013275439938,
+          "requests_per_sec": 5898,
+          "backend_health_pct": 0.3328664478098223,
+          "connection_timeouts": 45
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:39.314934",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "subnet-private",
+        "severity": "high",
+        "duration": 250,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR subnet-private: network unreachable in timeout",
+        "metrics": {
+          "error_rate": 0.43970367640756136,
+          "response_time_ms": 7830,
+          "cpu_usage": 0.7385265673757057,
+          "memory_usage": 0.9577359589724863,
+          "requests_per_sec": 880,
+          "backend_health_pct": 0.604228269980646,
+          "connection_timeouts": 933
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:29.314934",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:03.314934",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:31.314934",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

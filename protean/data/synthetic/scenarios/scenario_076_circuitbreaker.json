@@ -1,0 +1,84 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_172917",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1443,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.543825",
+    "phrase_templates_used": 0,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.543723",
+      "event_type": "trigger",
+      "description": "Initial failure detected: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:23.543723",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 226,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.325947668216109,
+          "response_time_ms": 5980,
+          "cpu_usage": 0.8211689786156706,
+          "memory_usage": 0.9106681788264639
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:31.543723",
+      "event_type": "degradation",
+      "description": "Degradation: service unavailable",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 247,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.32702967557423235,
+          "response_time_ms": 1631,
+          "cpu_usage": 0.7665120982118111,
+          "memory_usage": 0.9681102632505312
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:57.543723",
+      "event_type": "degradation",
+      "description": "Degradation: circuit breaker triggered",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "low",
+        "duration": 281,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.09465810910713712,
+          "response_time_ms": 1442,
+          "cpu_usage": 0.33241375900735076,
+          "memory_usage": 0.4443817530781207
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:53:20.543723",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

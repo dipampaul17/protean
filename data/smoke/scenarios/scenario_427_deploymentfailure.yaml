@@ -1,0 +1,43 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_184526
+description: Application deployment and rollback scenarios
+duration: 590
+metadata:
+  generated_at: '2025-05-23T18:45:26.790405'
+  phrase_templates_used: 50
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T18:45:26.790290'
+  event_type: trigger
+  description: 'Initial failure detected: my deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:11.790290'
+  event_type: scaling
+  description: 'Scaling: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:17.790290'
+  event_type: failure
+  description: 'Failure: apache server'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 254
+    log_snippet: '[2025-05-23 18:45:26] ERROR worker-consumer: apache server in failure'
+    metrics:
+      error_rate: 0.14286927643874714
+      response_time_ms: 1126
+      cpu_usage: 0.9532676313311337
+      memory_usage: 0.9885025082818197
+- timestamp: '2025-05-23T18:48:11.790290'
+  event_type: scaling
+  description: 'Scaling: during deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T18:55:16.790290'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

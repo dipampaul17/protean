@@ -1,0 +1,96 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_172917",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1506,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.732300",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.732113",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:04.732113",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 151,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR web-frontend: disk space full in failure",
+        "metrics": {
+          "error_rate": 0.21929684633873753,
+          "response_time_ms": 5144,
+          "cpu_usage": 0.8519487786551808,
+          "memory_usage": 0.9038308948759851
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:01.732113",
+      "event_type": "deployment",
+      "description": "Deployment: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:39.732113",
+      "event_type": "scaling",
+      "description": "Scaling: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:48.732113",
+      "event_type": "rollback",
+      "description": "Rollback: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:49.732113",
+      "event_type": "scaling",
+      "description": "Scaling: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:19.732113",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 98,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR web-frontend: connection timeout in failure",
+        "metrics": {
+          "error_rate": 0.6984462577706144,
+          "response_time_ms": 4450,
+          "cpu_usage": 0.8141556502809661,
+          "memory_usage": 0.8805369052431545
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:24.732113",
+      "event_type": "deployment",
+      "description": "Deployment: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:54:23.732113",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

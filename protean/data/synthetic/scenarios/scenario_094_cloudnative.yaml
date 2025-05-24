@@ -1,0 +1,63 @@
+category: CloudNative
+name: CloudNative_20250523_173011
+description: Kubernetes pod and container orchestration issues
+duration: 1152
+metadata:
+  generated_at: '2025-05-23T17:30:11.337796'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.337663'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:25.337663'
+  event_type: scaling
+  description: 'Scaling: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:04.337663'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 246
+    log_snippet: '[2025-05-23 17:30:11] ERROR api-backend: database connection lost
+      in failure'
+    metrics:
+      error_rate: 0.3221793546776207
+      response_time_ms: 3301
+      cpu_usage: 0.8848853913427033
+      memory_usage: 0.8721000054419901
+- timestamp: '2025-05-23T17:32:00.337663'
+  event_type: pod_restart
+  description: 'Pod_Restart: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:07.337663'
+  event_type: pod_restart
+  description: 'Pod_Restart: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:36.337663'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 229
+    log_snippet: '[2025-05-23 17:30:11] ERROR web-frontend: network unreachable in
+      failure'
+    metrics:
+      error_rate: 0.6675268354989699
+      response_time_ms: 7407
+      cpu_usage: 0.7962977694865649
+      memory_usage: 0.8708278131181962
+- timestamp: '2025-05-23T17:49:23.337663'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

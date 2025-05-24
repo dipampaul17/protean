@@ -1,0 +1,63 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_172917
+description: Configuration inconsistencies causing service degradation
+duration: 1591
+metadata:
+  generated_at: '2025-05-23T17:29:17.548090'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.547883'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:48.547883'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 203
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-service: container crashed -
+      operation failed'
+    metrics:
+      error_rate: 0.6485711964227158
+      response_time_ms: 5691
+      cpu_usage: 0.9810901138766659
+      memory_usage: 0.901245618391742
+- timestamp: '2025-05-23T17:32:06.547883'
+  event_type: config_change
+  description: 'Config_Change: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:47.547883'
+  event_type: restart
+  description: 'Restart: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:56.547883'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 233
+    log_snippet: '[2025-05-23 17:29:17] ERROR user-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.4850193973324056
+      response_time_ms: 3947
+      cpu_usage: 0.7849216711062744
+      memory_usage: 0.8540985890515361
+- timestamp: '2025-05-23T17:34:22.547883'
+  event_type: restart
+  description: 'Restart: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:55:48.547883'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

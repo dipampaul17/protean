@@ -1,0 +1,67 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_172917
+description: Configuration inconsistencies causing service degradation
+duration: 1780
+metadata:
+  generated_at: '2025-05-23T17:29:17.515333'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.515187'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:01.515187'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 263
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.7079086028023477
+      response_time_ms: 7882
+      cpu_usage: 0.8304015516837404
+      memory_usage: 0.9808509146744319
+- timestamp: '2025-05-23T17:31:37.515187'
+  event_type: config_change
+  description: 'Config_Change: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:39.515187'
+  event_type: restart
+  description: 'Restart: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:00.515187'
+  event_type: config_change
+  description: 'Config_Change: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:27.515187'
+  event_type: restart
+  description: 'Restart: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:05.515187'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 198
+    log_snippet: '[2025-05-23 17:29:17] ERROR auth-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.1247214808637816
+      response_time_ms: 8736
+      cpu_usage: 0.8250163601838064
+      memory_usage: 0.8937107249999191
+- timestamp: '2025-05-23T17:58:57.515187'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

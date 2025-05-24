@@ -1,0 +1,70 @@
+category: CloudNative
+name: CloudNative_20250523_172917
+description: Kubernetes pod and container orchestration issues
+duration: 754
+metadata:
+  generated_at: '2025-05-23T17:29:17.697121'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.696912'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:40.696912'
+  event_type: pod_restart
+  description: 'Pod_Restart: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:07.696912'
+  event_type: pod_restart
+  description: 'Pod_Restart: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:31.696912'
+  event_type: pod_restart
+  description: 'Pod_Restart: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:51.696912'
+  event_type: pod_restart
+  description: 'Pod_Restart: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:56.696912'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 237
+    log_snippet: '[2025-05-23 17:29:17] ERROR web-frontend: container crashed in failure'
+    metrics:
+      error_rate: 0.2457151826300822
+      response_time_ms: 5038
+      cpu_usage: 0.7448346127196943
+      memory_usage: 0.9525940302801201
+- timestamp: '2025-05-23T17:30:59.696912'
+  event_type: pod_restart
+  description: 'Pod_Restart: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:01.696912'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 66
+    log_snippet: '[2025-05-23 17:29:17] ERROR nginx-proxy: network unreachable in
+      failure'
+    metrics:
+      error_rate: 0.33474605800592094
+      response_time_ms: 5825
+      cpu_usage: 0.8959103876843982
+      memory_usage: 0.8980380739534495
+- timestamp: '2025-05-23T17:41:51.696912'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

@@ -1,0 +1,102 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_172917",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 608,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.513665",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.513499",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:33.513499",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 184,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR web-frontend: database connection lost in failure",
+        "metrics": {
+          "error_rate": 0.5160811863126668,
+          "response_time_ms": 7955,
+          "cpu_usage": 0.9529024624957898,
+          "memory_usage": 0.9776647816251642
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:50.513499",
+      "event_type": "scaling",
+      "description": "Scaling: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:56.513499",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 297,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR api-backend: authentication failed in failure",
+        "metrics": {
+          "error_rate": 0.5361521430050042,
+          "response_time_ms": 1132,
+          "cpu_usage": 0.7424406358004364,
+          "memory_usage": 0.9228908770083043
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:28.513499",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 150,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR api-backend: database connection lost in failure",
+        "metrics": {
+          "error_rate": 0.46785272727157134,
+          "response_time_ms": 6465,
+          "cpu_usage": 0.9280378411240096,
+          "memory_usage": 0.9419611410877261
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:29.513499",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:34.513499",
+      "event_type": "scaling",
+      "description": "Scaling: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:25.513499",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

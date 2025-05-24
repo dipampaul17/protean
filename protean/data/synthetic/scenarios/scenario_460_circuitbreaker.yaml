@@ -1,0 +1,130 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_172917
+description: Circuit breaker activation due to cascading service failures
+duration: 819
+metadata:
+  generated_at: '2025-05-23T17:29:17.739129'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 7
+events:
+- timestamp: '2025-05-23T17:29:17.738082'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:50.738082'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 210
+    log_snippet: '[2025-05-23 17:29:17] ERROR auth-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.5177389605621844
+      response_time_ms: 2363
+      cpu_usage: 0.872029851590934
+      memory_usage: 0.9434660860273355
+- timestamp: '2025-05-23T17:30:02.738082'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 89
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.7417179013024507
+      response_time_ms: 9187
+      cpu_usage: 0.8098248905106219
+      memory_usage: 0.8196858494684224
+- timestamp: '2025-05-23T17:30:08.738082'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 223
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.7115118904218768
+      response_time_ms: 9514
+      cpu_usage: 0.7787066174182179
+      memory_usage: 0.9989212631623168
+- timestamp: '2025-05-23T17:30:20.738082'
+  event_type: degradation
+  description: 'Degradation: memory limit exceeded'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: high
+    duration: 76
+    log_snippet: '[2025-05-23 17:29:17] ERROR auth-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.26842973470925313
+      response_time_ms: 4819
+      cpu_usage: 0.8607808411554684
+      memory_usage: 0.9326312385014565
+- timestamp: '2025-05-23T17:30:29.738082'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 95
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.1858604738184557
+      response_time_ms: 2584
+      cpu_usage: 0.8624899979521576
+      memory_usage: 0.8650476389784265
+- timestamp: '2025-05-23T17:30:38.738082'
+  event_type: degradation
+  description: 'Degradation: deployment failed'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: high
+    duration: 153
+    log_snippet: '[2025-05-23 17:29:17] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.2572692072956955
+      response_time_ms: 2066
+      cpu_usage: 0.8546007335987736
+      memory_usage: 0.8907843797955934
+- timestamp: '2025-05-23T17:30:46.738082'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 157
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.7627458436107485
+      response_time_ms: 7760
+      cpu_usage: 0.988779865017213
+      memory_usage: 0.9137260870690175
+- timestamp: '2025-05-23T17:30:54.738082'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:42:56.738082'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

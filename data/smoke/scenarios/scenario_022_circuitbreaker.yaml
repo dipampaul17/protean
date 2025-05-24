@@ -1,0 +1,118 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_184526
+description: Circuit breaker activation due to cascading service failures
+duration: 945
+metadata:
+  generated_at: '2025-05-23T18:45:26.558021'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 1
+    medium: 2
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.557714'
+  event_type: trigger
+  description: 'Initial failure detected: to pod'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:43.557714'
+  event_type: failure
+  description: 'Failure: handling connection'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 154
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: handling connection
+      - operation failed'
+    metrics:
+      error_rate: 0.6241507248967987
+      response_time_ms: 1900
+      cpu_usage: 0.9269457751345738
+      memory_usage: 0.9383850788786501
+- timestamp: '2025-05-23T18:45:57.557714'
+  event_type: failure
+  description: 'Failure: an error'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 247
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: an error - operation failed'
+    metrics:
+      error_rate: 0.3057846818523829
+      response_time_ms: 8498
+      cpu_usage: 0.9530530032120937
+      memory_usage: 0.8135541667380859
+- timestamp: '2025-05-23T18:46:17.557714'
+  event_type: degradation
+  description: 'Degradation: client error'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: low
+    duration: 186
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: client error -
+      operation failed'
+    metrics:
+      error_rate: 0.27821666490574426
+      response_time_ms: 1672
+      cpu_usage: 0.3693692283108121
+      memory_usage: 0.4023710869779013
+- timestamp: '2025-05-23T18:46:40.557714'
+  event_type: recovery
+  description: 'Recovery: the log'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:52.557714'
+  event_type: failure
+  description: 'Failure: letter queue'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: medium
+    duration: 77
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: letter queue - operation
+      failed'
+    metrics:
+      error_rate: 0.0751814700973741
+      response_time_ms: 604
+      cpu_usage: 0.563536354702263
+      memory_usage: 0.4660871905090482
+- timestamp: '2025-05-23T18:47:11.557714'
+  event_type: recovery
+  description: 'Recovery: customer service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:12.557714'
+  event_type: timeout
+  description: 'Timeout: virtual memory'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 291
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: virtual memory - operation
+      failed'
+    metrics:
+      error_rate: 0.3201940417699405
+      response_time_ms: 3209
+      cpu_usage: 0.7702121473544672
+      memory_usage: 0.9018782521409122
+- timestamp: '2025-05-23T18:47:22.557714'
+  event_type: failure
+  description: 'Failure: letter queue'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: medium
+    duration: 202
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: letter queue - operation
+      failed'
+    metrics:
+      error_rate: 0.1188313601431474
+      response_time_ms: 1399
+      cpu_usage: 0.6722605714150458
+      memory_usage: 0.5370374128856557
+- timestamp: '2025-05-23T19:01:11.557714'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

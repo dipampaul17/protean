@@ -1,0 +1,63 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_172917",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 894,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.598627",
+    "phrase_templates_used": 0,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.598536",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:23.598536",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 168,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR load-balancer: network unreachable in timeout",
+        "metrics": {
+          "error_rate": 0.6308580921046386,
+          "response_time_ms": 7264,
+          "cpu_usage": 0.8226517410439257,
+          "memory_usage": 0.9237426943956857,
+          "requests_per_sec": 1716,
+          "backend_health_pct": 0.7511866534099477,
+          "connection_timeouts": 680
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:41.598536",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:10.598536",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:44:11.598536",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

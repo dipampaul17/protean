@@ -1,0 +1,72 @@
+{
+  "category": "CascadingFailure",
+  "name": "CascadingFailure_20250523_173011",
+  "description": "Multi-service failure propagation scenario",
+  "duration": 579,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.445607",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.445462",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:26.445462",
+      "event_type": "cascade",
+      "description": "Cascade: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:31.445462",
+      "event_type": "propagation",
+      "description": "Propagation: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:48.445462",
+      "event_type": "propagation",
+      "description": "Propagation: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:52.445462",
+      "event_type": "cascade",
+      "description": "Cascade: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:03.445462",
+      "event_type": "initial_failure",
+      "description": "Initial_Failure: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:14.445462",
+      "event_type": "propagation",
+      "description": "Propagation: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:30.445462",
+      "event_type": "propagation",
+      "description": "Propagation: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:50.445462",
+      "event_type": "recovery",
+      "description": "System recovered: all services recovered",
+      "injection_spec": null
+    }
+  ]
+}

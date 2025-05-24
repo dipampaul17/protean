@@ -1,0 +1,63 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_172917
+description: Load balancer and traffic distribution problems
+duration: 488
+metadata:
+  generated_at: '2025-05-23T17:29:17.613488'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.613334'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:31.613334'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:44.613334'
+  event_type: backend_failure
+  description: 'Backend_Failure: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:44.613334'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:51.613334'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:53.613334'
+  event_type: backend_failure
+  description: 'Backend_Failure: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:15.613334'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:24.613334'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 297
+    log_snippet: '[2025-05-23 17:29:17] ERROR subnet-private: deployment failed in
+      timeout'
+    metrics:
+      error_rate: 0.3264927700517555
+      response_time_ms: 6748
+      cpu_usage: 0.9335286463393715
+      memory_usage: 0.8941124208194379
+      requests_per_sec: 1322
+      backend_health_pct: 0.7424674148802581
+      connection_timeouts: 564
+- timestamp: '2025-05-23T17:37:25.613334'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

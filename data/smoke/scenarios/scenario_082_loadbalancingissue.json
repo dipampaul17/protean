@@ -1,0 +1,108 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_184526",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 1506,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.642597",
+    "phrase_templates_used": 13,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.642098",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:39.642098",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: your cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:32.642098",
+      "event_type": "timeout",
+      "description": "Timeout: loadbalancer service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "vpc-main",
+        "severity": "high",
+        "duration": 84,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR vpc-main: loadbalancer service in timeout",
+        "metrics": {
+          "error_rate": 0.31013372920972837,
+          "response_time_ms": 1762,
+          "cpu_usage": 0.872042539008494,
+          "memory_usage": 0.9283512136744057,
+          "requests_per_sec": 2464,
+          "backend_health_pct": 0.49254799624127943,
+          "connection_timeouts": 259
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:07.642098",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: kafka pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:12.642098",
+      "event_type": "timeout",
+      "description": "Timeout: in connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 271,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR api-gateway: in connection in timeout",
+        "metrics": {
+          "error_rate": 0.8002521669511813,
+          "response_time_ms": 6268,
+          "cpu_usage": 0.8691426598309525,
+          "memory_usage": 0.9224168286791522,
+          "requests_per_sec": 9461,
+          "backend_health_pct": 0.6319520451537793,
+          "connection_timeouts": 668
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:16.642098",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: that node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:09.642098",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:11.642098",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:32.642098",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:10:32.642098",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

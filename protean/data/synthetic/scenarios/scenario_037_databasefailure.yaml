@@ -1,0 +1,47 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173011
+description: Database connectivity and performance issues
+duration: 463
+metadata:
+  generated_at: '2025-05-23T17:30:11.320157'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.319725'
+  event_type: trigger
+  description: 'Initial failure detected: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:46.319725'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:50.319725'
+  event_type: connection_loss
+  description: 'Connection_Loss: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:09.319725'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 84
+    log_snippet: '[2025-05-23 17:30:11] FATAL mysql-primary: database queue overflow
+      detected'
+    metrics:
+      error_rate: 0.5433310836075395
+      response_time_ms: 7570
+      cpu_usage: 0.9900170318253345
+      memory_usage: 0.9422653749634077
+      connection_pool_usage: 0.9128397612329451
+      query_time_ms: 18544
+      deadlocks_per_sec: 9
+- timestamp: '2025-05-23T17:37:54.319725'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

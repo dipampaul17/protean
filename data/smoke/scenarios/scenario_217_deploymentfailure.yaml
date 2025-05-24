@@ -1,0 +1,86 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_184526
+description: Application deployment and rollback scenarios
+duration: 951
+metadata:
+  generated_at: '2025-05-23T18:45:26.704850'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.704623'
+  event_type: trigger
+  description: 'Initial failure detected: an error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:44.704623'
+  event_type: failure
+  description: 'Failure: a deployment'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 176
+    log_snippet: '[2025-05-23 18:45:26] ERROR web-frontend: a deployment in failure'
+    metrics:
+      error_rate: 0.36393022554151544
+      response_time_ms: 9159
+      cpu_usage: 0.9346389164161721
+      memory_usage: 0.9807145470713171
+- timestamp: '2025-05-23T18:45:54.704623'
+  event_type: failure
+  description: 'Failure: a service'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 40
+    log_snippet: '[2025-05-23 18:45:26] ERROR web-frontend: a service in failure'
+    metrics:
+      error_rate: 0.7671879456696954
+      response_time_ms: 3413
+      cpu_usage: 0.8031855527802201
+      memory_usage: 0.8467929468983317
+- timestamp: '2025-05-23T18:46:22.704623'
+  event_type: failure
+  description: 'Failure: your container'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 182
+    log_snippet: '[2025-05-23 18:45:26] ERROR nginx-proxy: your container in failure'
+    metrics:
+      error_rate: 0.5157072391670809
+      response_time_ms: 1369
+      cpu_usage: 0.8750293658398302
+      memory_usage: 0.9681796833852737
+- timestamp: '2025-05-23T18:47:32.704623'
+  event_type: rollback
+  description: 'Rollback: my deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:33.704623'
+  event_type: failure
+  description: 'Failure: reviewing error'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 104
+    log_snippet: '[2025-05-23 18:45:26] ERROR worker-consumer: reviewing error in
+      failure'
+    metrics:
+      error_rate: 0.12620418998307273
+      response_time_ms: 9243
+      cpu_usage: 0.7450239620014697
+      memory_usage: 0.833031202338617
+- timestamp: '2025-05-23T18:47:44.704623'
+  event_type: rollback
+  description: 'Rollback: using cache'
+  injection_spec: null
+- timestamp: '2025-05-23T19:01:17.704623'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

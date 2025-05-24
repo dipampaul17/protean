@@ -1,0 +1,104 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173011
+description: Circuit breaker activation due to cascading service failures
+duration: 710
+metadata:
+  generated_at: '2025-05-23T17:30:11.390379'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:30:11.390190'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:25.390190'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 152
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.5359494058810816
+      response_time_ms: 5917
+      cpu_usage: 0.7451741621343263
+      memory_usage: 0.9467299950443105
+- timestamp: '2025-05-23T17:30:25.390190'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:50.390190'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 243
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.24626801586456246
+      response_time_ms: 5618
+      cpu_usage: 0.9726358556385888
+      memory_usage: 0.9739118080565912
+- timestamp: '2025-05-23T17:30:52.390190'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 207
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: container crashed
+      - operation failed'
+    metrics:
+      error_rate: 0.37469308425568637
+      response_time_ms: 7769
+      cpu_usage: 0.8134624622593092
+      memory_usage: 0.8477022992647576
+- timestamp: '2025-05-23T17:31:01.390190'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:02.390190'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 87
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.7625616645168054
+      response_time_ms: 4274
+      cpu_usage: 0.9066869335899722
+      memory_usage: 0.8828974006428315
+- timestamp: '2025-05-23T17:31:52.390190'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 40
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: container crashed - operation
+      failed'
+    metrics:
+      error_rate: 0.7764783968158699
+      response_time_ms: 7696
+      cpu_usage: 0.7250897914136385
+      memory_usage: 0.809189508065696
+- timestamp: '2025-05-23T17:42:01.390190'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

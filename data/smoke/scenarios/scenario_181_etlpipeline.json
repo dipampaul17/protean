@@ -1,0 +1,102 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_184526",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 751,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.693608",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.693425",
+      "event_type": "trigger",
+      "description": "Initial failure detected: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:48.693425",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 177,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.14757380630602476,
+          "response_time_ms": 1470,
+          "cpu_usage": 0.9916670800536206,
+          "memory_usage": 0.8373718087212814
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:58.693425",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 294,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.7341129440622424,
+          "response_time_ms": 7408,
+          "cpu_usage": 0.9852464559777381,
+          "memory_usage": 0.8125872437739481
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:24.693425",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 201,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.6974446536472584,
+          "response_time_ms": 4401,
+          "cpu_usage": 0.7829835706938765,
+          "memory_usage": 0.8495230040279752
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:03.693425",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 32,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.3278650094637213,
+          "response_time_ms": 4198,
+          "cpu_usage": 0.9939180527724684,
+          "memory_usage": 0.9796676710669708
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:57:57.693425",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_184526",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 652,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.742905",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.742709",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:18.742709",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 223,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.7446262374620387,
+          "response_time_ms": 2505,
+          "cpu_usage": 0.9817558644495962,
+          "memory_usage": 0.9457929887579215
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:27.742709",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:35.742709",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 139,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.1482792537254068,
+          "response_time_ms": 9430,
+          "cpu_usage": 0.7571843124973441,
+          "memory_usage": 0.8335456115815264
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:37.742709",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:26.742709",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:56:18.742709",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

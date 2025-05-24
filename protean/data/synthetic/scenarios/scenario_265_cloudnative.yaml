@@ -1,0 +1,75 @@
+category: CloudNative
+name: CloudNative_20250523_172917
+description: Kubernetes pod and container orchestration issues
+duration: 569
+metadata:
+  generated_at: '2025-05-23T17:29:17.631546'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.629797'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:28.629797'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 253
+    log_snippet: '[2025-05-23 17:29:17] ERROR nginx-proxy: database connection lost
+      in failure'
+    metrics:
+      error_rate: 0.3853120275321288
+      response_time_ms: 8929
+      cpu_usage: 0.8721428493748717
+      memory_usage: 0.8503324420287726
+- timestamp: '2025-05-23T17:29:35.629797'
+  event_type: deployment
+  description: 'Deployment: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:40.629797'
+  event_type: pod_restart
+  description: 'Pod_Restart: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:59.629797'
+  event_type: pod_restart
+  description: 'Pod_Restart: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:02.629797'
+  event_type: scaling
+  description: 'Scaling: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:06.629797'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 122
+    log_snippet: '[2025-05-23 17:29:17] ERROR web-frontend: network unreachable in
+      failure'
+    metrics:
+      error_rate: 0.5927918533911198
+      response_time_ms: 5496
+      cpu_usage: 0.8088736097098683
+      memory_usage: 0.9397371491746318
+- timestamp: '2025-05-23T17:30:18.629797'
+  event_type: deployment
+  description: 'Deployment: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:20.629797'
+  event_type: deployment
+  description: 'Deployment: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:46.629797'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

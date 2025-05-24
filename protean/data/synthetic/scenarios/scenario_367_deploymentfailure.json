@@ -1,0 +1,72 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_172917",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1725,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.704362",
+    "phrase_templates_used": 0,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.704271",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:43.704271",
+      "event_type": "scaling",
+      "description": "Scaling: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:58.704271",
+      "event_type": "failure",
+      "description": "Failure: memory limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 80,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR api-backend: memory limit exceeded in failure",
+        "metrics": {
+          "error_rate": 0.14393801852236443,
+          "response_time_ms": 7948,
+          "cpu_usage": 0.7251926654755017,
+          "memory_usage": 0.9570778748265482
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:13.704271",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 249,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR web-frontend: deployment failed in failure",
+        "metrics": {
+          "error_rate": 0.37283599011943713,
+          "response_time_ms": 2712,
+          "cpu_usage": 0.9808179403114893,
+          "memory_usage": 0.8409807307672421
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:58:02.704271",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

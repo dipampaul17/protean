@@ -1,0 +1,50 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173011
+description: Load balancer and traffic distribution problems
+duration: 1100
+metadata:
+  generated_at: '2025-05-23T17:30:11.347040'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.346852'
+  event_type: trigger
+  description: 'Initial failure detected: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:32.346852'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 122
+    log_snippet: '[2025-05-23 17:30:11] ERROR vpc-main: network unreachable in timeout'
+    metrics:
+      error_rate: 0.1030969405547447
+      response_time_ms: 9706
+      cpu_usage: 0.9109344991762427
+      memory_usage: 0.8729701983639467
+      requests_per_sec: 1651
+      backend_health_pct: 0.568238415363767
+      connection_timeouts: 33
+- timestamp: '2025-05-23T17:30:37.346852'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:47.346852'
+  event_type: backend_failure
+  description: 'Backend_Failure: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:10.346852'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:31.346852'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

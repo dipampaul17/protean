@@ -1,0 +1,51 @@
+category: EventDriven
+name: EventDriven_20250523_173011
+description: Message queue and event processing failures
+duration: 1056
+metadata:
+  generated_at: '2025-05-23T17:30:11.367488'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.367385'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:49.367385'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:50.367385'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:45.367385'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 138
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-queue: queue processing connection
+      timeout'
+    metrics:
+      error_rate: 0.36175845146451124
+      response_time_ms: 5706
+      cpu_usage: 0.9951377923548896
+      memory_usage: 0.8363187100725125
+      queue_depth: 18359
+      message_processing_rate: 3.7760396321827643
+      consumer_lag_ms: 232527
+- timestamp: '2025-05-23T17:34:26.367385'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:47.367385'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

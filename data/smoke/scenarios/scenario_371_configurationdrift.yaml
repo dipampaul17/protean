@@ -1,0 +1,45 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_184526
+description: Configuration inconsistencies causing service degradation
+duration: 1575
+metadata:
+  generated_at: '2025-05-23T18:45:26.773350'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T18:45:26.772951'
+  event_type: trigger
+  description: 'Initial failure detected: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:46.772951'
+  event_type: rollback
+  description: 'Rollback: using docker'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:58.772951'
+  event_type: rollback
+  description: 'Rollback: elasticsearch cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:05.772951'
+  event_type: rollback
+  description: 'Rollback: the container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:32.772951'
+  event_type: restart
+  description: 'Restart: rabbitmq server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:49:13.772951'
+  event_type: rollback
+  description: 'Rollback: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:49:31.772951'
+  event_type: config_change
+  description: 'Config_Change: the container'
+  injection_spec: null
+- timestamp: '2025-05-23T19:11:41.772951'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

@@ -1,0 +1,59 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_172917
+description: Application deployment and rollback scenarios
+duration: 598
+metadata:
+  generated_at: '2025-05-23T17:29:17.684637'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.684403'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:24.684403'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 153
+    log_snippet: '[2025-05-23 17:29:17] ERROR worker-consumer: container crashed in
+      failure'
+    metrics:
+      error_rate: 0.7441299100856051
+      response_time_ms: 1154
+      cpu_usage: 0.8048272140003633
+      memory_usage: 0.8601996474841145
+- timestamp: '2025-05-23T17:30:28.684403'
+  event_type: rollback
+  description: 'Rollback: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:40.684403'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 235
+    log_snippet: '[2025-05-23 17:29:17] ERROR worker-consumer: service unavailable
+      in failure'
+    metrics:
+      error_rate: 0.415591120114015
+      response_time_ms: 1399
+      cpu_usage: 0.7064872923837401
+      memory_usage: 0.8494555757189439
+- timestamp: '2025-05-23T17:31:38.684403'
+  event_type: deployment
+  description: 'Deployment: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:15.684403'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

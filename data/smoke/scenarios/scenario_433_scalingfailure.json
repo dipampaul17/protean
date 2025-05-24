@@ -1,0 +1,150 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_184526",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 1155,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.806532",
+    "phrase_templates_used": 24,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.806125",
+      "event_type": "trigger",
+      "description": "Initial failure detected: scaling scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:54.806125",
+      "event_type": "failure",
+      "description": "Failure: this error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 70,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: this error - operation failed",
+        "metrics": {
+          "error_rate": 0.852475148211638,
+          "response_time_ms": 9374,
+          "cpu_usage": 0.9479954063943205,
+          "memory_usage": 0.9808902498548324
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:26.806125",
+      "event_type": "failure",
+      "description": "Failure: load balancer",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 209,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: load balancer - operation failed",
+        "metrics": {
+          "error_rate": 0.6371159854407581,
+          "response_time_ms": 6198,
+          "cpu_usage": 0.7422048063506531,
+          "memory_usage": 0.8724966396881554
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:32.806125",
+      "event_type": "failure",
+      "description": "Failure: this service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 106,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: this service - operation failed",
+        "metrics": {
+          "error_rate": 0.30344687057229924,
+          "response_time_ms": 7816,
+          "cpu_usage": 0.9915841311138667,
+          "memory_usage": 0.9936407237618364
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:00.806125",
+      "event_type": "failure",
+      "description": "Failure: a service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 78,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.19433415797999976,
+          "response_time_ms": 7806,
+          "cpu_usage": 0.8855294904846088,
+          "memory_usage": 0.9491232680085656
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:01.806125",
+      "event_type": "recovery",
+      "description": "Recovery: an error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:07.806125",
+      "event_type": "timeout",
+      "description": "Timeout: web server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 216,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: web server - operation failed",
+        "metrics": {
+          "error_rate": 0.3380697973586517,
+          "response_time_ms": 7708,
+          "cpu_usage": 0.998439574696934,
+          "memory_usage": 0.9502633114861315
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:14.806125",
+      "event_type": "recovery",
+      "description": "Recovery: a server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:18.806125",
+      "event_type": "timeout",
+      "description": "Timeout: aws application",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 66,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: aws application - operation failed",
+        "metrics": {
+          "error_rate": 0.3261987805127271,
+          "response_time_ms": 4519,
+          "cpu_usage": 0.7448914238332466,
+          "memory_usage": 0.8885269520345652
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:04:41.806125",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

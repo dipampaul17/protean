@@ -1,0 +1,107 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_184526
+description: Infrastructure failure scenario for DependencyFailure
+duration: 624
+metadata:
+  generated_at: '2025-05-23T18:45:26.566326'
+  phrase_templates_used: 45
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.564658'
+  event_type: trigger
+  description: 'Initial failure detected: the node'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:43.564658'
+  event_type: timeout
+  description: 'Timeout: the log'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 90
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: the log - operation failed'
+    metrics:
+      error_rate: 0.5164101006611593
+      response_time_ms: 3777
+      cpu_usage: 0.8041795112202792
+      memory_usage: 0.8658771070652809
+- timestamp: '2025-05-23T18:45:47.564658'
+  event_type: timeout
+  description: 'Timeout: connect service'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 36
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: connect service - operation
+      failed'
+    metrics:
+      error_rate: 0.36404587854969106
+      response_time_ms: 5045
+      cpu_usage: 0.7037471606462803
+      memory_usage: 0.8978179371059104
+- timestamp: '2025-05-23T18:46:05.564658'
+  event_type: failure
+  description: 'Failure: the server'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 100
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.7756049838265441
+      response_time_ms: 8730
+      cpu_usage: 0.7517917310225853
+      memory_usage: 0.9094025206465018
+- timestamp: '2025-05-23T18:46:06.564658'
+  event_type: recovery
+  description: 'Recovery: lt connection'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:08.564658'
+  event_type: recovery
+  description: 'Recovery: api server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:17.564658'
+  event_type: timeout
+  description: 'Timeout: quot network'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 195
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: quot network - operation
+      failed'
+    metrics:
+      error_rate: 0.7578272395593815
+      response_time_ms: 7621
+      cpu_usage: 0.9862172720387007
+      memory_usage: 0.9557716656184547
+- timestamp: '2025-05-23T18:46:33.564658'
+  event_type: recovery
+  description: 'Recovery: proxy server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:34.564658'
+  event_type: timeout
+  description: 'Timeout: federated queue'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: medium
+    duration: 56
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: federated queue - operation
+      failed'
+    metrics:
+      error_rate: 0.1259722862939582
+      response_time_ms: 1841
+      cpu_usage: 0.3638460583740776
+      memory_usage: 0.5466338288023451
+- timestamp: '2025-05-23T18:55:50.564658'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

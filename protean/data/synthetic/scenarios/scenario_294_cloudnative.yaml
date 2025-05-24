@@ -1,0 +1,63 @@
+category: CloudNative
+name: CloudNative_20250523_172917
+description: Kubernetes pod and container orchestration issues
+duration: 1183
+metadata:
+  generated_at: '2025-05-23T17:29:17.678235'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.678092'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:16.678092'
+  event_type: deployment
+  description: 'Deployment: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:40.678092'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 229
+    log_snippet: '[2025-05-23 17:29:17] ERROR worker-consumer: deployment failed in
+      failure'
+    metrics:
+      error_rate: 0.7183651307808904
+      response_time_ms: 8660
+      cpu_usage: 0.7896472858015672
+      memory_usage: 0.8412808286180559
+- timestamp: '2025-05-23T17:30:48.678092'
+  event_type: scaling
+  description: 'Scaling: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:37.678092'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 101
+    log_snippet: '[2025-05-23 17:29:17] ERROR web-frontend: network unreachable in
+      failure'
+    metrics:
+      error_rate: 0.18682741240439438
+      response_time_ms: 6506
+      cpu_usage: 0.8028999327200401
+      memory_usage: 0.8101877095608678
+- timestamp: '2025-05-23T17:32:23.678092'
+  event_type: deployment
+  description: 'Deployment: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:00.678092'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

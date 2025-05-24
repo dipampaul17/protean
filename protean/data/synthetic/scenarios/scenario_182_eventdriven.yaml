@@ -1,0 +1,69 @@
+category: EventDriven
+name: EventDriven_20250523_172917
+description: Message queue and event processing failures
+duration: 349
+metadata:
+  generated_at: '2025-05-23T17:29:17.594526'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.594385'
+  event_type: trigger
+  description: 'Initial failure detected: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:37.594385'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 271
+    log_snippet: '[2025-05-23 17:29:17] ERROR batch-processing-queue: queue processing
+      service unavailable'
+    metrics:
+      error_rate: 0.360585794151718
+      response_time_ms: 1458
+      cpu_usage: 0.896035383740725
+      memory_usage: 0.8249415002061352
+      queue_depth: 36607
+      message_processing_rate: 7.737256377340461
+      consumer_lag_ms: 196960
+- timestamp: '2025-05-23T17:29:37.594385'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 235
+    log_snippet: '[2025-05-23 17:29:17] ERROR batch-processing-queue: queue processing
+      authentication failed'
+    metrics:
+      error_rate: 0.6794836804152191
+      response_time_ms: 5043
+      cpu_usage: 0.8551131207055858
+      memory_usage: 0.9547083121136285
+      queue_depth: 26111
+      message_processing_rate: 0.9896087493867816
+      consumer_lag_ms: 80443
+- timestamp: '2025-05-23T17:29:46.594385'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:11.594385'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:17.594385'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:06.594385'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

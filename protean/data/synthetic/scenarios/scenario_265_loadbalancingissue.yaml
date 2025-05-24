@@ -1,0 +1,73 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173011
+description: Load balancer and traffic distribution problems
+duration: 1411
+metadata:
+  generated_at: '2025-05-23T17:30:11.385554'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.385346'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:39.385346'
+  event_type: scaling
+  description: 'Scaling: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:50.385346'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: load-balancer
+    severity: high
+    duration: 285
+    log_snippet: '[2025-05-23 17:30:11] ERROR load-balancer: deployment failed in
+      timeout'
+    metrics:
+      error_rate: 0.6418386317076372
+      response_time_ms: 7580
+      cpu_usage: 0.8643334768159873
+      memory_usage: 0.8440742996273229
+      requests_per_sec: 8212
+      backend_health_pct: 0.7212654281393924
+      connection_timeouts: 776
+- timestamp: '2025-05-23T17:30:54.385346'
+  event_type: scaling
+  description: 'Scaling: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:55.385346'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 170
+    log_snippet: '[2025-05-23 17:30:11] ERROR vpc-main: circuit breaker triggered
+      in timeout'
+    metrics:
+      error_rate: 0.27553918052814047
+      response_time_ms: 4092
+      cpu_usage: 0.9977783639295124
+      memory_usage: 0.9097123139700827
+      requests_per_sec: 1139
+      backend_health_pct: 0.3580168900076884
+      connection_timeouts: 852
+- timestamp: '2025-05-23T17:33:02.385346'
+  event_type: scaling
+  description: 'Scaling: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:58.385346'
+  event_type: backend_failure
+  description: 'Backend_Failure: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:53:42.385346'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

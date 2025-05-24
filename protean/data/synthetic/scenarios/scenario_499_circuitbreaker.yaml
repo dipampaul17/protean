@@ -1,0 +1,141 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173011
+description: Circuit breaker activation due to cascading service failures
+duration: 380
+metadata:
+  generated_at: '2025-05-23T17:30:11.446733'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 7
+events:
+- timestamp: '2025-05-23T17:30:11.446510'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:21.446510'
+  event_type: degradation
+  description: 'Degradation: disk space full'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: low
+    duration: 299
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: disk space full
+      - operation failed'
+    metrics:
+      error_rate: 0.19949357842644874
+      response_time_ms: 1433
+      cpu_usage: 0.7849768616967303
+      memory_usage: 0.6501838090587512
+- timestamp: '2025-05-23T17:30:25.446510'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 32
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.8429606057912652
+      response_time_ms: 5919
+      cpu_usage: 0.7609870583429138
+      memory_usage: 0.8572385238687842
+- timestamp: '2025-05-23T17:30:29.446510'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 166
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.37584399467556284
+      response_time_ms: 4920
+      cpu_usage: 0.9581179887760669
+      memory_usage: 0.9148579861697286
+- timestamp: '2025-05-23T17:30:31.446510'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 232
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.3836122350640909
+      response_time_ms: 2913
+      cpu_usage: 0.8868237401228654
+      memory_usage: 0.8403367820968718
+- timestamp: '2025-05-23T17:30:32.446510'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 135
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.7261937142246714
+      response_time_ms: 7455
+      cpu_usage: 0.8669461441628274
+      memory_usage: 0.8299135312876287
+- timestamp: '2025-05-23T17:30:39.446510'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 284
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: queue overflow
+      - operation failed'
+    metrics:
+      error_rate: 0.2826521857226364
+      response_time_ms: 1362
+      cpu_usage: 0.7507255763969874
+      memory_usage: 0.9186680438520901
+- timestamp: '2025-05-23T17:30:51.446510'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 252
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.5550158833867299
+      response_time_ms: 6639
+      cpu_usage: 0.7155597905721095
+      memory_usage: 0.8117744024508053
+- timestamp: '2025-05-23T17:30:58.446510'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 103
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.8633959942315562
+      response_time_ms: 2801
+      cpu_usage: 0.8300463848632313
+      memory_usage: 0.9057515414609917
+- timestamp: '2025-05-23T17:36:31.446510'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

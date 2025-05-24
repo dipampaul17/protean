@@ -1,0 +1,126 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_184526",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1341,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.710445",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.710199",
+      "event_type": "trigger",
+      "description": "Initial failure detected: kubernetes pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:38.710199",
+      "event_type": "recovery",
+      "description": "Recovery: quot server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:02.710199",
+      "event_type": "failure",
+      "description": "Failure: code container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 67,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: code container - operation failed",
+        "metrics": {
+          "error_rate": 0.40136987852223327,
+          "response_time_ms": 7143,
+          "cpu_usage": 0.722930605398645,
+          "memory_usage": 0.9210250888041802
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:15.710199",
+      "event_type": "timeout",
+      "description": "Timeout: used cpu",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 197,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: used cpu - operation failed",
+        "metrics": {
+          "error_rate": 0.47013637913684747,
+          "response_time_ms": 7189,
+          "cpu_usage": 0.7655989457595216,
+          "memory_usage": 0.9394684795452163
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:36.710199",
+      "event_type": "failure",
+      "description": "Failure: kubernetes pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 62,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: kubernetes pod - operation failed",
+        "metrics": {
+          "error_rate": 0.45298819848268945,
+          "response_time_ms": 3644,
+          "cpu_usage": 0.9312860511878547,
+          "memory_usage": 0.8523079082342199
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:47.710199",
+      "event_type": "failure",
+      "description": "Failure: the node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 148,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: the node - operation failed",
+        "metrics": {
+          "error_rate": 0.8945916346390346,
+          "response_time_ms": 2120,
+          "cpu_usage": 0.8495432119276713,
+          "memory_usage": 0.8499239644994488
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:46.710199",
+      "event_type": "failure",
+      "description": "Failure: the alert",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 131,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: the alert - operation failed",
+        "metrics": {
+          "error_rate": 0.8214075523972453,
+          "response_time_ms": 9673,
+          "cpu_usage": 0.9462186330565012,
+          "memory_usage": 0.8406489067809396
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:07:47.710199",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

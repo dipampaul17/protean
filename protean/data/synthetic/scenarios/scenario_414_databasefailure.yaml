@@ -1,0 +1,91 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173011
+description: Database connectivity and performance issues
+duration: 434
+metadata:
+  generated_at: '2025-05-23T17:30:11.425779'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:30:11.425605'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:31.425605'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:56.425605'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:59.425605'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 88
+    log_snippet: '[2025-05-23 17:30:11] FATAL postgres-replica: database container
+      crashed detected'
+    metrics:
+      error_rate: 0.17684845344115027
+      response_time_ms: 9621
+      cpu_usage: 0.7615040651731512
+      memory_usage: 0.989472566719925
+      connection_pool_usage: 0.9601878136058921
+      query_time_ms: 18831
+      deadlocks_per_sec: 9
+- timestamp: '2025-05-23T17:31:06.425605'
+  event_type: corruption
+  description: 'Corruption: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:07.425605'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 217
+    log_snippet: '[2025-05-23 17:30:11] ERROR mongodb-shard: connection timeout in
+      timeout'
+    metrics:
+      error_rate: 0.18468713829417702
+      response_time_ms: 2730
+      cpu_usage: 0.7809216848740482
+      memory_usage: 0.889242578052049
+      connection_pool_usage: 0.8293419507751361
+      query_time_ms: 19081
+      deadlocks_per_sec: 7
+- timestamp: '2025-05-23T17:31:10.425605'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 138
+    log_snippet: '[2025-05-23 17:30:11] FATAL mysql-primary: database queue overflow
+      detected'
+    metrics:
+      error_rate: 0.12734308750100995
+      response_time_ms: 8394
+      cpu_usage: 0.8713604315988753
+      memory_usage: 0.9728828629477612
+      connection_pool_usage: 0.9673083430925989
+      query_time_ms: 11137
+      deadlocks_per_sec: 2
+- timestamp: '2025-05-23T17:31:11.425605'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:25.425605'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

@@ -1,0 +1,126 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_184526
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1741
+metadata:
+  generated_at: '2025-05-23T18:45:26.804820'
+  phrase_templates_used: 45
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 7
+events:
+- timestamp: '2025-05-23T18:45:26.790438'
+  event_type: trigger
+  description: 'Initial failure detected: to monitor'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:48.790438'
+  event_type: timeout
+  description: 'Timeout: to update'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 43
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: to update - operation
+      failed'
+    metrics:
+      error_rate: 0.6218941877879482
+      response_time_ms: 8194
+      cpu_usage: 0.9802383921145762
+      memory_usage: 0.8359332085798565
+- timestamp: '2025-05-23T18:46:06.790438'
+  event_type: timeout
+  description: 'Timeout: inventory service'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 67
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: inventory service -
+      operation failed'
+    metrics:
+      error_rate: 0.5803466362452068
+      response_time_ms: 1771
+      cpu_usage: 0.8850214413753993
+      memory_usage: 0.9696132984724588
+- timestamp: '2025-05-23T18:47:01.790438'
+  event_type: timeout
+  description: 'Timeout: the service'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 108
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: the service - operation
+      failed'
+    metrics:
+      error_rate: 0.6496943908950894
+      response_time_ms: 3999
+      cpu_usage: 0.8952793087880896
+      memory_usage: 0.8920201904831815
+- timestamp: '2025-05-23T18:47:13.790438'
+  event_type: timeout
+  description: 'Timeout: the container'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 259
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: the container
+      - operation failed'
+    metrics:
+      error_rate: 0.22969131682894375
+      response_time_ms: 3455
+      cpu_usage: 0.9341943640528254
+      memory_usage: 0.998716713253842
+- timestamp: '2025-05-23T18:47:22.790438'
+  event_type: timeout
+  description: 'Timeout: the server'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 82
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.5821419966513702
+      response_time_ms: 2800
+      cpu_usage: 0.9103288973934516
+      memory_usage: 0.8232361712664025
+- timestamp: '2025-05-23T18:48:05.790438'
+  event_type: failure
+  description: 'Failure: nginx service'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 269
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: nginx service - operation
+      failed'
+    metrics:
+      error_rate: 0.7030167731765878
+      response_time_ms: 3578
+      cpu_usage: 0.7890215737195431
+      memory_usage: 0.9985610194830978
+- timestamp: '2025-05-23T18:48:14.790438'
+  event_type: failure
+  description: 'Failure: the service'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 248
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: the service - operation
+      failed'
+    metrics:
+      error_rate: 0.8729638738271642
+      response_time_ms: 1712
+      cpu_usage: 0.7602337197111811
+      memory_usage: 0.8166643199052483
+- timestamp: '2025-05-23T19:14:27.790438'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

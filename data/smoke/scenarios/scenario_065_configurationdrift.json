@@ -1,0 +1,108 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_184526",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1014,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.576863",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.576619",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:38.576619",
+      "event_type": "failure",
+      "description": "Failure: to update",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 149,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: to update - operation failed",
+        "metrics": {
+          "error_rate": 0.8341265995219088,
+          "response_time_ms": 8788,
+          "cpu_usage": 0.7159655807799544,
+          "memory_usage": 0.9085664893435844
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:07.576619",
+      "event_type": "failure",
+      "description": "Failure: following error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 251,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: following error - operation failed",
+        "metrics": {
+          "error_rate": 0.6128348671767074,
+          "response_time_ms": 4810,
+          "cpu_usage": 0.7701257095371243,
+          "memory_usage": 0.8528136186799582
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:08.576619",
+      "event_type": "rollback",
+      "description": "Rollback: nginx restart",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:27.576619",
+      "event_type": "restart",
+      "description": "Restart: nginx container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:39.576619",
+      "event_type": "rollback",
+      "description": "Rollback: kubernetes cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:00.576619",
+      "event_type": "failure",
+      "description": "Failure: nginx container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 60,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: nginx container - operation failed",
+        "metrics": {
+          "error_rate": 0.5240322455738982,
+          "response_time_ms": 6641,
+          "cpu_usage": 0.9279434628973171,
+          "memory_usage": 0.8163654035192186
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:05.576619",
+      "event_type": "rollback",
+      "description": "Rollback: kafka cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:02:20.576619",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

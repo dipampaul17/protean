@@ -1,0 +1,90 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_184526",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 719,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.812572",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.812365",
+      "event_type": "trigger",
+      "description": "Initial failure detected: float scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:38.812365",
+      "event_type": "failure",
+      "description": "Failure: em connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 147,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: em connection - operation failed",
+        "metrics": {
+          "error_rate": 0.7397892785984677,
+          "response_time_ms": 2529,
+          "cpu_usage": 0.9607635085483586,
+          "memory_usage": 0.8594508651525967
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:18.812365",
+      "event_type": "recovery",
+      "description": "Recovery: low disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:53.812365",
+      "event_type": "recovery",
+      "description": "Recovery: heap memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:55.812365",
+      "event_type": "recovery",
+      "description": "Recovery: high memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:01.812365",
+      "event_type": "recovery",
+      "description": "Recovery: heap memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:05.812365",
+      "event_type": "failure",
+      "description": "Failure: http server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 120,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: http server - operation failed",
+        "metrics": {
+          "error_rate": 0.6883749544907036,
+          "response_time_ms": 8566,
+          "cpu_usage": 0.760907923754133,
+          "memory_usage": 0.9953434037858288
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:57:25.812365",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

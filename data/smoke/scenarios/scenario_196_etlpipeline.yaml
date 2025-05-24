@@ -1,0 +1,93 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_184526
+description: Infrastructure failure scenario for ETLPipeline
+duration: 1112
+metadata:
+  generated_at: '2025-05-23T18:45:26.698411'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.697603'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:45.697603'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 264
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: rate limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.2179242653197993
+      response_time_ms: 9183
+      cpu_usage: 0.835922839254672
+      memory_usage: 0.824256067441768
+- timestamp: '2025-05-23T18:46:05.697603'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 196
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.22567563981375402
+      response_time_ms: 5586
+      cpu_usage: 0.7939964612013071
+      memory_usage: 0.9453414867610275
+- timestamp: '2025-05-23T18:46:11.697603'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:26.697603'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:49.697603'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 262
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.21067901302123834
+      response_time_ms: 9356
+      cpu_usage: 0.8056714039851667
+      memory_usage: 0.9744922173444006
+- timestamp: '2025-05-23T18:47:50.697603'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:59.697603'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 32
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.2506909412329821
+      response_time_ms: 8723
+      cpu_usage: 0.9012515437307014
+      memory_usage: 0.9977757324789658
+- timestamp: '2025-05-23T19:03:58.697603'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

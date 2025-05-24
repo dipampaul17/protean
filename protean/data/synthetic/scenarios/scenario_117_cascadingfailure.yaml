@@ -1,0 +1,53 @@
+category: CascadingFailure
+name: CascadingFailure_20250523_172917
+description: Multi-service failure propagation scenario
+duration: 1129
+metadata:
+  generated_at: '2025-05-23T17:29:17.575716'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:29:17.575551'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:29.575551'
+  event_type: cascade
+  description: 'Cascade: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:30.575551'
+  event_type: initial_failure
+  description: 'Initial_Failure: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:09.575551'
+  event_type: cascade
+  description: 'Cascade: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:24.575551'
+  event_type: propagation
+  description: 'Propagation: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:31.575551'
+  event_type: propagation
+  description: 'Propagation: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:41.575551'
+  event_type: recovery
+  description: 'Recovery: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:56.575551'
+  event_type: propagation
+  description: 'Propagation: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:28.575551'
+  event_type: initial_failure
+  description: 'Initial_Failure: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:06.575551'
+  event_type: recovery
+  description: 'System recovered: all services recovered'
+  injection_spec: null

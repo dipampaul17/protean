@@ -1,0 +1,66 @@
+category: CloudNative
+name: CloudNative_20250523_184526
+description: Kubernetes pod and container orchestration issues
+duration: 1007
+metadata:
+  generated_at: '2025-05-23T18:45:26.727360'
+  phrase_templates_used: 39
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.727111'
+  event_type: trigger
+  description: 'Initial failure detected: the pod'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:44.727111'
+  event_type: scaling
+  description: 'Scaling: docker container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:56.727111'
+  event_type: failure
+  description: 'Failure: kubernetes cluster'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 216
+    log_snippet: '[2025-05-23 18:45:26] ERROR web-frontend: kubernetes cluster in
+      failure'
+    metrics:
+      error_rate: 0.39749059248611385
+      response_time_ms: 9675
+      cpu_usage: 0.8353946462867345
+      memory_usage: 0.9153402285556822
+- timestamp: '2025-05-23T18:46:01.727111'
+  event_type: scaling
+  description: 'Scaling: kubernetes pod'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:39.727111'
+  event_type: pod_restart
+  description: 'Pod_Restart: delete pod'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:45.727111'
+  event_type: deployment
+  description: 'Deployment: kubernetes service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:10.727111'
+  event_type: failure
+  description: 'Failure: any log'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 54
+    log_snippet: '[2025-05-23 18:45:26] ERROR worker-consumer: any log in failure'
+    metrics:
+      error_rate: 0.5007039583516574
+      response_time_ms: 1979
+      cpu_usage: 0.9237567777448346
+      memory_usage: 0.9730512461772302
+- timestamp: '2025-05-23T19:02:13.727111'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

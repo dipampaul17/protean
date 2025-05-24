@@ -1,0 +1,49 @@
+category: CascadingFailure
+name: CascadingFailure_20250523_172917
+description: Multi-service failure propagation scenario
+duration: 1158
+metadata:
+  generated_at: '2025-05-23T17:29:17.591117'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:29:17.590842'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:31.590842'
+  event_type: propagation
+  description: 'Propagation: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:07.590842'
+  event_type: initial_failure
+  description: 'Initial_Failure: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:25.590842'
+  event_type: initial_failure
+  description: 'Initial_Failure: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:46.590842'
+  event_type: propagation
+  description: 'Propagation: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:03.590842'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:04.590842'
+  event_type: propagation
+  description: 'Propagation: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:15.590842'
+  event_type: cascade
+  description: 'Cascade: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:35.590842'
+  event_type: recovery
+  description: 'System recovered: all services recovered'
+  injection_spec: null

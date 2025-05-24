@@ -1,0 +1,81 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173011
+description: Circuit breaker activation due to cascading service failures
+duration: 396
+metadata:
+  generated_at: '2025-05-23T17:30:11.321623'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:30:11.321479'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:41.321479'
+  event_type: degradation
+  description: 'Degradation: container crashed'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: high
+    duration: 59
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: container crashed -
+      operation failed'
+    metrics:
+      error_rate: 0.3125909867136157
+      response_time_ms: 4324
+      cpu_usage: 0.7244224631223487
+      memory_usage: 0.8739749929209546
+- timestamp: '2025-05-23T17:30:48.321479'
+  event_type: degradation
+  description: 'Degradation: network unreachable'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: low
+    duration: 183
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.15597603325283438
+      response_time_ms: 497
+      cpu_usage: 0.5370670456323963
+      memory_usage: 0.4141828623546916
+- timestamp: '2025-05-23T17:31:18.321479'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 173
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.15789553978875884
+      response_time_ms: 9608
+      cpu_usage: 0.7804502154740603
+      memory_usage: 0.9886597012151688
+- timestamp: '2025-05-23T17:31:43.321479'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 108
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: container crashed
+      - operation failed'
+    metrics:
+      error_rate: 0.7494511897318511
+      response_time_ms: 8349
+      cpu_usage: 0.9505945787845074
+      memory_usage: 0.8683916173830157
+- timestamp: '2025-05-23T17:36:47.321479'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

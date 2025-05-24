@@ -1,0 +1,126 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_184526",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1474,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.826323",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.825658",
+      "event_type": "trigger",
+      "description": "Initial failure detected: prometheus server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:54.825658",
+      "event_type": "recovery",
+      "description": "Recovery: a node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:58.825658",
+      "event_type": "timeout",
+      "description": "Timeout: to fix",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 128,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: to fix - operation failed",
+        "metrics": {
+          "error_rate": 0.12749553495191465,
+          "response_time_ms": 6543,
+          "cpu_usage": 0.7880275661402757,
+          "memory_usage": 0.9557207716292382
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:03.825658",
+      "event_type": "timeout",
+      "description": "Timeout: and memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 269,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: and memory - operation failed",
+        "metrics": {
+          "error_rate": 0.748500603123359,
+          "response_time_ms": 5157,
+          "cpu_usage": 0.7518553685750439,
+          "memory_usage": 0.8694635141906933
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:18.825658",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 36,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.22794966968870042,
+          "response_time_ms": 8426,
+          "cpu_usage": 0.815099292055902,
+          "memory_usage": 0.9936601193353465
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:49.825658",
+      "event_type": "failure",
+      "description": "Failure: a node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 43,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: a node - operation failed",
+        "metrics": {
+          "error_rate": 0.47012789100643415,
+          "response_time_ms": 2890,
+          "cpu_usage": 0.909247544933661,
+          "memory_usage": 0.9123797243907124
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:49:07.825658",
+      "event_type": "failure",
+      "description": "Failure: monitoring service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 35,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: monitoring service - operation failed",
+        "metrics": {
+          "error_rate": 0.6107100241669591,
+          "response_time_ms": 3236,
+          "cpu_usage": 0.8700026187222977,
+          "memory_usage": 0.9177183699851286
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:10:00.825658",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

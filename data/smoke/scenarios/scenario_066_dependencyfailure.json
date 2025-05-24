@@ -1,0 +1,132 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_184526",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 1090,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.577164",
+    "phrase_templates_used": 45,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.576895",
+      "event_type": "trigger",
+      "description": "Initial failure detected: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:40.576895",
+      "event_type": "recovery",
+      "description": "Recovery: federated queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:51.576895",
+      "event_type": "timeout",
+      "description": "Timeout: lt connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 66,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: lt connection - operation failed",
+        "metrics": {
+          "error_rate": 0.17103876840721535,
+          "response_time_ms": 6382,
+          "cpu_usage": 0.712632626615619,
+          "memory_usage": 0.89814898797102
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:57.576895",
+      "event_type": "recovery",
+      "description": "Recovery: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:58.576895",
+      "event_type": "failure",
+      "description": "Failure: existing connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 135,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: existing connection - operation failed",
+        "metrics": {
+          "error_rate": 0.7807142427566317,
+          "response_time_ms": 5339,
+          "cpu_usage": 0.9913954579284097,
+          "memory_usage": 0.8984008332323388
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:16.576895",
+      "event_type": "timeout",
+      "description": "Timeout: jenkins server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 245,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: jenkins server - operation failed",
+        "metrics": {
+          "error_rate": 0.13268277258805458,
+          "response_time_ms": 5475,
+          "cpu_usage": 0.8480548614777121,
+          "memory_usage": 0.865058011754219
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:48.576895",
+      "event_type": "failure",
+      "description": "Failure: var log",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 63,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: var log - operation failed",
+        "metrics": {
+          "error_rate": 0.851666745118571,
+          "response_time_ms": 1646,
+          "cpu_usage": 0.9054966384971732,
+          "memory_usage": 0.9008746577518496
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:49.576895",
+      "event_type": "timeout",
+      "description": "Timeout: closed connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 222,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: closed connection - operation failed",
+        "metrics": {
+          "error_rate": 0.6146542920107387,
+          "response_time_ms": 8431,
+          "cpu_usage": 0.8334457801473915,
+          "memory_usage": 0.9905389883260418
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:03:36.576895",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

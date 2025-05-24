@@ -1,0 +1,80 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_184526
+description: Circuit breaker activation due to cascading service failures
+duration: 1283
+metadata:
+  generated_at: '2025-05-23T18:45:26.777917'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.777737'
+  event_type: trigger
+  description: 'Initial failure detected: customer service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:10.777737'
+  event_type: failure
+  description: 'Failure: handling connection'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 148
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: handling connection
+      - operation failed'
+    metrics:
+      error_rate: 0.47580071779859057
+      response_time_ms: 8455
+      cpu_usage: 0.8522598308621485
+      memory_usage: 0.9486288714821206
+- timestamp: '2025-05-23T18:46:44.777737'
+  event_type: timeout
+  description: 'Timeout: to restart'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 123
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: to restart - operation
+      failed'
+    metrics:
+      error_rate: 0.8651909449720437
+      response_time_ms: 4837
+      cpu_usage: 0.8741056891212149
+      memory_usage: 0.9784841374328914
+- timestamp: '2025-05-23T18:47:34.777737'
+  event_type: failure
+  description: 'Failure: p update'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 144
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: p update - operation failed'
+    metrics:
+      error_rate: 0.5357463325244832
+      response_time_ms: 9913
+      cpu_usage: 0.74912327619688
+      memory_usage: 0.9827522050371692
+- timestamp: '2025-05-23T18:48:57.777737'
+  event_type: failure
+  description: 'Failure: a service'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 300
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.42750436946150117
+      response_time_ms: 3904
+      cpu_usage: 0.941138121862833
+      memory_usage: 0.8976815166616321
+- timestamp: '2025-05-23T19:06:49.777737'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

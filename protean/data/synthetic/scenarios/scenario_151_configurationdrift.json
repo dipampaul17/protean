@@ -1,0 +1,126 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173011",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 496,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.353549",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.353355",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:24.353355",
+      "event_type": "rollback",
+      "description": "Rollback: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:37.353355",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 163,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.4006920277817043,
+          "response_time_ms": 8195,
+          "cpu_usage": 0.8878366209838202,
+          "memory_usage": 0.962723112855972
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:43.353355",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 73,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.6533411800524184,
+          "response_time_ms": 7119,
+          "cpu_usage": 0.7412319429396492,
+          "memory_usage": 0.8768371210081265
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:50.353355",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 79,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR user-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.65701877736191,
+          "response_time_ms": 8797,
+          "cpu_usage": 0.9650317954667039,
+          "memory_usage": 0.8621103244655351
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:56.353355",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 243,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR auth-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.5960025781385325,
+          "response_time_ms": 9916,
+          "cpu_usage": 0.7103770673776124,
+          "memory_usage": 0.9128889331314886
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:00.353355",
+      "event_type": "config_change",
+      "description": "Config_Change: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:06.353355",
+      "event_type": "rollback",
+      "description": "Rollback: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:11.353355",
+      "event_type": "restart",
+      "description": "Restart: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:27.353355",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

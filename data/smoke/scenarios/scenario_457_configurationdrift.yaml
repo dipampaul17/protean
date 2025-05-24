@@ -1,0 +1,86 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_184526
+description: Configuration inconsistencies causing service degradation
+duration: 1094
+metadata:
+  generated_at: '2025-05-23T18:45:26.813429'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.813153'
+  event_type: trigger
+  description: 'Initial failure detected: string container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:58.813153'
+  event_type: config_change
+  description: 'Config_Change: code server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:59.813153'
+  event_type: failure
+  description: 'Failure: kubernetes service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 73
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: kubernetes service
+      - operation failed'
+    metrics:
+      error_rate: 0.8099847100610827
+      response_time_ms: 2371
+      cpu_usage: 0.9548226253491927
+      memory_usage: 0.9925563519551677
+- timestamp: '2025-05-23T18:46:05.813153'
+  event_type: failure
+  description: 'Failure: to update'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 297
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: to update - operation
+      failed'
+    metrics:
+      error_rate: 0.8597770576033951
+      response_time_ms: 8387
+      cpu_usage: 0.9225932152726645
+      memory_usage: 0.8175050912818045
+- timestamp: '2025-05-23T18:46:05.813153'
+  event_type: restart
+  description: 'Restart: kafka log'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:30.813153'
+  event_type: restart
+  description: 'Restart: redis node'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:02.813153'
+  event_type: restart
+  description: 'Restart: proxy server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:03.813153'
+  event_type: restart
+  description: 'Restart: nginx restart'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:37.813153'
+  event_type: failure
+  description: 'Failure: following error'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 33
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: following error
+      - operation failed'
+    metrics:
+      error_rate: 0.6041122781158182
+      response_time_ms: 4551
+      cpu_usage: 0.7797105287367677
+      memory_usage: 0.8552197398754414
+- timestamp: '2025-05-23T19:03:40.813153'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

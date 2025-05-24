@@ -1,0 +1,85 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173011
+description: Application deployment and rollback scenarios
+duration: 499
+metadata:
+  generated_at: '2025-05-23T17:30:11.363824'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:30:11.363618'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:27.363618'
+  event_type: scaling
+  description: 'Scaling: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:30.363618'
+  event_type: deployment
+  description: 'Deployment: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:39.363618'
+  event_type: scaling
+  description: 'Scaling: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:48.363618'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 191
+    log_snippet: '[2025-05-23 17:30:11] ERROR nginx-proxy: service unavailable in
+      failure'
+    metrics:
+      error_rate: 0.3958766853702035
+      response_time_ms: 1765
+      cpu_usage: 0.8835228486310889
+      memory_usage: 0.979079661441538
+- timestamp: '2025-05-23T17:30:52.363618'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 263
+    log_snippet: '[2025-05-23 17:30:11] ERROR worker-consumer: memory limit exceeded
+      in failure'
+    metrics:
+      error_rate: 0.1741038848493152
+      response_time_ms: 4831
+      cpu_usage: 0.7684780316834253
+      memory_usage: 0.9018106501609544
+- timestamp: '2025-05-23T17:30:57.363618'
+  event_type: deployment
+  description: 'Deployment: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:11.363618'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 204
+    log_snippet: '[2025-05-23 17:30:11] ERROR web-frontend: disk space full in failure'
+    metrics:
+      error_rate: 0.7915944104844118
+      response_time_ms: 6058
+      cpu_usage: 0.733938031251308
+      memory_usage: 0.8379953153349505
+- timestamp: '2025-05-23T17:31:13.363618'
+  event_type: rollback
+  description: 'Rollback: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:30.363618'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

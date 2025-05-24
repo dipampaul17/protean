@@ -1,0 +1,72 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_173011",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 1656,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.368923",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.368805",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:41.368805",
+      "event_type": "deployment",
+      "description": "Deployment: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:10.368805",
+      "event_type": "scaling",
+      "description": "Scaling: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:17.368805",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 237,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR web-frontend: disk space full in failure",
+        "metrics": {
+          "error_rate": 0.4710413682958261,
+          "response_time_ms": 6731,
+          "cpu_usage": 0.7695332960552073,
+          "memory_usage": 0.9884410304800402
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:13.368805",
+      "event_type": "deployment",
+      "description": "Deployment: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:16.368805",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:57:47.368805",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_172917",
+  "description": "Database connectivity and performance issues",
+  "duration": 1063,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.514382",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.514247",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:40.514247",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:07.514247",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:41.514247",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "postgres-replica",
+        "severity": "high",
+        "duration": 43,
+        "log_snippet": "[2025-05-23 17:29:17] FATAL postgres-replica: database container crashed detected",
+        "metrics": {
+          "error_rate": 0.3325613390094351,
+          "response_time_ms": 9895,
+          "cpu_usage": 0.9903486863563693,
+          "memory_usage": 0.9113842261370506,
+          "connection_pool_usage": 0.805560034878182,
+          "query_time_ms": 17147,
+          "deadlocks_per_sec": 9
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:59.514247",
+      "event_type": "recovery",
+      "description": "Recovery: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:16.514247",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 198,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR mongodb-shard: queue overflow in timeout",
+        "metrics": {
+          "error_rate": 0.30110775613782415,
+          "response_time_ms": 3924,
+          "cpu_usage": 0.7928376144048344,
+          "memory_usage": 0.9382837867574803,
+          "connection_pool_usage": 0.8781438346040139,
+          "query_time_ms": 19984,
+          "deadlocks_per_sec": 3
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:00.514247",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

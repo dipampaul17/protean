@@ -1,0 +1,47 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_172917
+description: Application deployment and rollback scenarios
+duration: 1614
+metadata:
+  generated_at: '2025-05-23T17:29:17.585717'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.585621'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:58.585621'
+  event_type: scaling
+  description: 'Scaling: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:05.585621'
+  event_type: deployment
+  description: 'Deployment: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:45.585621'
+  event_type: deployment
+  description: 'Deployment: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:01.585621'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 142
+    log_snippet: '[2025-05-23 17:29:17] ERROR web-frontend: container crashed in failure'
+    metrics:
+      error_rate: 0.42578800877372525
+      response_time_ms: 6472
+      cpu_usage: 0.9692186031904835
+      memory_usage: 0.8114836074046511
+- timestamp: '2025-05-23T17:56:11.585621'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

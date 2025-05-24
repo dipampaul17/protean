@@ -1,0 +1,102 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_172917",
+  "description": "Database connectivity and performance issues",
+  "duration": 1078,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.569141",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.568968",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:11.568968",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 195,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR redis-cache: service unavailable in timeout",
+        "metrics": {
+          "error_rate": 0.8601263149095905,
+          "response_time_ms": 4869,
+          "cpu_usage": 0.7287765176772972,
+          "memory_usage": 0.8434267659658605,
+          "connection_pool_usage": 0.9430406354420936,
+          "query_time_ms": 28842,
+          "deadlocks_per_sec": 10
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:25.568968",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 213,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR mongodb-shard: queue overflow in timeout",
+        "metrics": {
+          "error_rate": 0.48329121200284664,
+          "response_time_ms": 3833,
+          "cpu_usage": 0.8441579356965877,
+          "memory_usage": 0.8715820913337231,
+          "connection_pool_usage": 0.8824163641357439,
+          "query_time_ms": 11789,
+          "deadlocks_per_sec": 10
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:33.568968",
+      "event_type": "corruption",
+      "description": "Corruption: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:53.568968",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:25.568968",
+      "event_type": "recovery",
+      "description": "Recovery: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:40.568968",
+      "event_type": "corruption",
+      "description": "Corruption: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:40.568968",
+      "event_type": "corruption",
+      "description": "Corruption: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:15.568968",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

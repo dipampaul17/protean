@@ -1,0 +1,96 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173011",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 622,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.410303",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.410166",
+      "event_type": "trigger",
+      "description": "Initial failure detected: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:26.410166",
+      "event_type": "degradation",
+      "description": "Degradation: circuit breaker triggered",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "low",
+        "duration": 247,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR auth-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.1469589104886796,
+          "response_time_ms": 1620,
+          "cpu_usage": 0.5559142065455697,
+          "memory_usage": 0.5887989899339003
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:30.410166",
+      "event_type": "recovery",
+      "description": "Recovery: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:31.410166",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:26.410166",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 43,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR user-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.658692809542029,
+          "response_time_ms": 8235,
+          "cpu_usage": 0.8820198398164381,
+          "memory_usage": 0.840225314829548
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:34.410166",
+      "event_type": "degradation",
+      "description": "Degradation: service unavailable",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 193,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR user-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.240446967948132,
+          "response_time_ms": 7313,
+          "cpu_usage": 0.9305113893433797,
+          "memory_usage": 0.8163541453530923
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:33.410166",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

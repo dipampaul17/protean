@@ -1,0 +1,90 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_184526",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 599,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.758517",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.758244",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:39.758244",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 34,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.47983643136399157,
+          "response_time_ms": 7251,
+          "cpu_usage": 0.7628188260606441,
+          "memory_usage": 0.8431429163173666
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:54.758244",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 259,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.2722856339966834,
+          "response_time_ms": 1023,
+          "cpu_usage": 0.735786626559963,
+          "memory_usage": 0.9958900308065992
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:58.758244",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 110,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.525962560157684,
+          "response_time_ms": 4077,
+          "cpu_usage": 0.9615203360645125,
+          "memory_usage": 0.9110342700837046
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:03.758244",
+      "event_type": "recovery",
+      "description": "Recovery: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:55:25.758244",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

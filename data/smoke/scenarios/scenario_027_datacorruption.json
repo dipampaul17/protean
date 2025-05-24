@@ -1,0 +1,84 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_184526",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 1347,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.559261",
+    "phrase_templates_used": 36,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.559056",
+      "event_type": "trigger",
+      "description": "Initial failure detected: message queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:25.559056",
+      "event_type": "failure",
+      "description": "Failure: new container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 161,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: new container - operation failed",
+        "metrics": {
+          "error_rate": 0.3618788821584954,
+          "response_time_ms": 5336,
+          "cpu_usage": 0.7101393479512045,
+          "memory_usage": 0.9599394705447686
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:02.559056",
+      "event_type": "timeout",
+      "description": "Timeout: the database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 290,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: the database - operation failed",
+        "metrics": {
+          "error_rate": 0.8113026659972119,
+          "response_time_ms": 6220,
+          "cpu_usage": 0.7660879728030522,
+          "memory_usage": 0.8283694321520017
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:49:18.559056",
+      "event_type": "timeout",
+      "description": "Timeout: code queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "medium",
+        "duration": 218,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: code queue - operation failed",
+        "metrics": {
+          "error_rate": 0.12946454085032258,
+          "response_time_ms": 651,
+          "cpu_usage": 0.41387301663273923,
+          "memory_usage": 0.5766484266056513
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:07:53.559056",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

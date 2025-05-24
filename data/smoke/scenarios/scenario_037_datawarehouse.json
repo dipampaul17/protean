@@ -1,0 +1,138 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_184526",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 1189,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.563146",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.562843",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:03.562843",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 77,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.7203198581963449,
+          "response_time_ms": 6502,
+          "cpu_usage": 0.7429784625623016,
+          "memory_usage": 0.9996063530646038
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:08.562843",
+      "event_type": "recovery",
+      "description": "Recovery: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:25.562843",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 299,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.7971300045322518,
+          "response_time_ms": 2331,
+          "cpu_usage": 0.8063001276218127,
+          "memory_usage": 0.9234535665355814
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:49.562843",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 50,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.7409609369909602,
+          "response_time_ms": 6353,
+          "cpu_usage": 0.7653459970056729,
+          "memory_usage": 0.9295670700171135
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:53.562843",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:55.562843",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 298,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.13893696596281915,
+          "response_time_ms": 6680,
+          "cpu_usage": 0.8635697695800086,
+          "memory_usage": 0.8303446447286261
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:02.562843",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:31.562843",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 43,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.4990208804286457,
+          "response_time_ms": 3439,
+          "cpu_usage": 0.886422603798849,
+          "memory_usage": 0.9073643158971577
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:05:15.562843",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

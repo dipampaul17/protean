@@ -1,0 +1,56 @@
+category: CloudNative
+name: CloudNative_20250523_173011
+description: Kubernetes pod and container orchestration issues
+duration: 1721
+metadata:
+  generated_at: '2025-05-23T17:30:11.325608'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.324641'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:05.324641'
+  event_type: deployment
+  description: 'Deployment: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:23.324641'
+  event_type: pod_restart
+  description: 'Pod_Restart: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:40.324641'
+  event_type: deployment
+  description: 'Deployment: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:54.324641'
+  event_type: scaling
+  description: 'Scaling: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:15.324641'
+  event_type: pod_restart
+  description: 'Pod_Restart: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:18.324641'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 165
+    log_snippet: '[2025-05-23 17:30:11] ERROR web-frontend: memory limit exceeded
+      in failure'
+    metrics:
+      error_rate: 0.43250715278952956
+      response_time_ms: 8443
+      cpu_usage: 0.8135744274048196
+      memory_usage: 0.8345086105379325
+- timestamp: '2025-05-23T17:58:52.324641'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

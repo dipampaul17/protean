@@ -1,0 +1,75 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173011
+description: Load balancer and traffic distribution problems
+duration: 726
+metadata:
+  generated_at: '2025-05-23T17:30:11.349702'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.349272'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:23.349272'
+  event_type: backend_failure
+  description: 'Backend_Failure: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:49.349272'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 253
+    log_snippet: '[2025-05-23 17:30:11] ERROR vpc-main: deployment failed in timeout'
+    metrics:
+      error_rate: 0.7309202644856594
+      response_time_ms: 5679
+      cpu_usage: 0.9156456460647712
+      memory_usage: 0.9282730830967263
+      requests_per_sec: 2087
+      backend_health_pct: 0.3527161448652142
+      connection_timeouts: 176
+- timestamp: '2025-05-23T17:31:12.349272'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:26.349272'
+  event_type: scaling
+  description: 'Scaling: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:34.349272'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:44.349272'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:51.349272'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: api-gateway
+    severity: high
+    duration: 114
+    log_snippet: '[2025-05-23 17:30:11] ERROR api-gateway: queue overflow in timeout'
+    metrics:
+      error_rate: 0.4797667435453553
+      response_time_ms: 8806
+      cpu_usage: 0.7714446816894946
+      memory_usage: 0.9779692595119762
+      requests_per_sec: 1176
+      backend_health_pct: 0.34843163306503194
+      connection_timeouts: 653
+- timestamp: '2025-05-23T17:42:17.349272'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

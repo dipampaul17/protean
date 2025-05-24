@@ -1,0 +1,104 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_172917
+description: Circuit breaker activation due to cascading service failures
+duration: 656
+metadata:
+  generated_at: '2025-05-23T17:29:17.686128'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:29:17.685924'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:34.685924'
+  event_type: degradation
+  description: 'Degradation: service unavailable'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: high
+    duration: 113
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.8153873614385339
+      response_time_ms: 3423
+      cpu_usage: 0.8268111168790678
+      memory_usage: 0.9459037128586516
+- timestamp: '2025-05-23T17:29:56.685924'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 181
+    log_snippet: '[2025-05-23 17:29:17] ERROR auth-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.21493971234276074
+      response_time_ms: 7293
+      cpu_usage: 0.8296347509927469
+      memory_usage: 0.9024688665973226
+- timestamp: '2025-05-23T17:30:03.685924'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:22.685924'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 250
+    log_snippet: '[2025-05-23 17:29:17] ERROR auth-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.1401283594934224
+      response_time_ms: 6284
+      cpu_usage: 0.9299409270256684
+      memory_usage: 0.9316457505572161
+- timestamp: '2025-05-23T17:30:30.685924'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 54
+    log_snippet: '[2025-05-23 17:29:17] ERROR auth-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.15425297467091603
+      response_time_ms: 9914
+      cpu_usage: 0.7011247442178143
+      memory_usage: 0.9395745172370703
+- timestamp: '2025-05-23T17:30:33.685924'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 56
+    log_snippet: '[2025-05-23 17:29:17] ERROR auth-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.8949645412409537
+      response_time_ms: 9310
+      cpu_usage: 0.7441750631807894
+      memory_usage: 0.9233055493619344
+- timestamp: '2025-05-23T17:30:39.685924'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:13.685924'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

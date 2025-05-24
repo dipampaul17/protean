@@ -1,0 +1,70 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_172917
+description: Circuit breaker activation due to cascading service failures
+duration: 489
+metadata:
+  generated_at: '2025-05-23T17:29:17.717197'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:29:17.717001'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:49.717001'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 96
+    log_snippet: '[2025-05-23 17:29:17] ERROR auth-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.5463566511058835
+      response_time_ms: 3829
+      cpu_usage: 0.9380367644742642
+      memory_usage: 0.8207043657593786
+- timestamp: '2025-05-23T17:30:03.717001'
+  event_type: degradation
+  description: 'Degradation: database connection lost'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: high
+    duration: 77
+    log_snippet: '[2025-05-23 17:29:17] ERROR auth-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.2748947095383543
+      response_time_ms: 3225
+      cpu_usage: 0.81685459958162
+      memory_usage: 0.9019839565283149
+- timestamp: '2025-05-23T17:30:51.717001'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:54.717001'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 170
+    log_snippet: '[2025-05-23 17:29:17] ERROR auth-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.41669145444403977
+      response_time_ms: 6682
+      cpu_usage: 0.8897413353861883
+      memory_usage: 0.9361291109360234
+- timestamp: '2025-05-23T17:37:26.717001'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

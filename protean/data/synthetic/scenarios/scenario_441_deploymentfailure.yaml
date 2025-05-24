@@ -1,0 +1,69 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_172917
+description: Application deployment and rollback scenarios
+duration: 1286
+metadata:
+  generated_at: '2025-05-23T17:29:17.731845'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:29:17.731598'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:56.731598'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 106
+    log_snippet: '[2025-05-23 17:29:17] ERROR api-backend: database connection lost
+      in failure'
+    metrics:
+      error_rate: 0.2289754549263935
+      response_time_ms: 8998
+      cpu_usage: 0.8039885551546426
+      memory_usage: 0.8076145004516507
+- timestamp: '2025-05-23T17:30:52.731598'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 92
+    log_snippet: '[2025-05-23 17:29:17] ERROR api-backend: deployment failed in failure'
+    metrics:
+      error_rate: 0.22643446343990137
+      response_time_ms: 8611
+      cpu_usage: 0.7101816857451463
+      memory_usage: 0.8357385665144632
+- timestamp: '2025-05-23T17:32:57.731598'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 57
+    log_snippet: '[2025-05-23 17:29:17] ERROR worker-consumer: authentication failed
+      in failure'
+    metrics:
+      error_rate: 0.6161732172530551
+      response_time_ms: 1072
+      cpu_usage: 0.7368327291282202
+      memory_usage: 0.933743214907116
+- timestamp: '2025-05-23T17:33:12.731598'
+  event_type: deployment
+  description: 'Deployment: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:43.731598'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

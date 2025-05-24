@@ -1,0 +1,65 @@
+category: EventDriven
+name: EventDriven_20250523_184526
+description: Message queue and event processing failures
+duration: 1064
+metadata:
+  generated_at: '2025-05-23T18:45:26.685589'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 1
+events:
+- timestamp: '2025-05-23T18:45:26.685426'
+  event_type: trigger
+  description: 'Initial failure detected: rabbitmq queue'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:56.685426'
+  event_type: timeout
+  description: 'Timeout: work queue'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: medium
+    duration: 132
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-queue: queue processing work
+      queue'
+    metrics:
+      error_rate: 0.09675168528044745
+      response_time_ms: 1396
+      cpu_usage: 0.3751600214326789
+      memory_usage: 0.591446742473317
+      queue_depth: 43414
+      message_processing_rate: 1.454489383272134
+      consumer_lag_ms: 145267
+- timestamp: '2025-05-23T18:45:56.685426'
+  event_type: message_loss
+  description: 'Message_Loss: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:49.685426'
+  event_type: timeout
+  description: 'Timeout: this error'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 53
+    log_snippet: '[2025-05-23 18:45:26] ERROR batch-processing-queue: queue processing
+      this error'
+    metrics:
+      error_rate: 0.7900559131500982
+      response_time_ms: 6126
+      cpu_usage: 0.7107880383797066
+      memory_usage: 0.9407496932640389
+      queue_depth: 29247
+      message_processing_rate: 2.679275025925786
+      consumer_lag_ms: 165178
+- timestamp: '2025-05-23T18:49:38.685426'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: p error'
+  injection_spec: null
+- timestamp: '2025-05-23T19:03:10.685426'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

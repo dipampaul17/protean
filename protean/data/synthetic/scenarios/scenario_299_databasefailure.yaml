@@ -1,0 +1,93 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173011
+description: Database connectivity and performance issues
+duration: 774
+metadata:
+  generated_at: '2025-05-23T17:30:11.394602'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:30:11.393730'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:30.393730'
+  event_type: connection_loss
+  description: 'Connection_Loss: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:55.393730'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 207
+    log_snippet: '[2025-05-23 17:30:11] ERROR redis-cache: queue overflow in timeout'
+    metrics:
+      error_rate: 0.7930945410091433
+      response_time_ms: 5104
+      cpu_usage: 0.9212463813747305
+      memory_usage: 0.8852475894734418
+      connection_pool_usage: 0.8753285548833262
+      query_time_ms: 19593
+      deadlocks_per_sec: 2
+- timestamp: '2025-05-23T17:31:12.393730'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 188
+    log_snippet: '[2025-05-23 17:30:11] FATAL postgres-replica: database disk space
+      full detected'
+    metrics:
+      error_rate: 0.3068712921907853
+      response_time_ms: 7018
+      cpu_usage: 0.9685626246264778
+      memory_usage: 0.8761429000037444
+      connection_pool_usage: 0.8638502408923656
+      query_time_ms: 19892
+      deadlocks_per_sec: 2
+- timestamp: '2025-05-23T17:31:17.393730'
+  event_type: connection_loss
+  description: 'Connection_Loss: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:25.393730'
+  event_type: corruption
+  description: 'Corruption: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:27.393730'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 170
+    log_snippet: '[2025-05-23 17:30:11] ERROR redis-cache: container crashed in timeout'
+    metrics:
+      error_rate: 0.17084752200817768
+      response_time_ms: 8604
+      cpu_usage: 0.8264966626330761
+      memory_usage: 0.8008258756054596
+      connection_pool_usage: 0.8430366307357028
+      query_time_ms: 23215
+      deadlocks_per_sec: 10
+- timestamp: '2025-05-23T17:31:35.393730'
+  event_type: corruption
+  description: 'Corruption: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:47.393730'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:43:05.393730'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

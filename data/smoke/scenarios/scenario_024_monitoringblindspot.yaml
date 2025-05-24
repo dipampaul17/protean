@@ -1,0 +1,111 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_184526
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1106
+metadata:
+  generated_at: '2025-05-23T18:45:26.558610'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T18:45:26.558348'
+  event_type: trigger
+  description: 'Initial failure detected: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:36.558348'
+  event_type: failure
+  description: 'Failure: the pod'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 34
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: the pod - operation
+      failed'
+    metrics:
+      error_rate: 0.3726542833996894
+      response_time_ms: 7886
+      cpu_usage: 0.816748680029531
+      memory_usage: 0.9534043304596703
+- timestamp: '2025-05-23T18:45:52.558348'
+  event_type: failure
+  description: 'Failure: web server'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 204
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: web server - operation
+      failed'
+    metrics:
+      error_rate: 0.46373155209966743
+      response_time_ms: 1341
+      cpu_usage: 0.7815048357950903
+      memory_usage: 0.8443300110705367
+- timestamp: '2025-05-23T18:45:56.558348'
+  event_type: failure
+  description: 'Failure: to fix'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 65
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: to fix - operation
+      failed'
+    metrics:
+      error_rate: 0.157424241304396
+      response_time_ms: 7949
+      cpu_usage: 0.9792009738538339
+      memory_usage: 0.9072195488297145
+- timestamp: '2025-05-23T18:46:12.558348'
+  event_type: timeout
+  description: 'Timeout: the cluster'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 136
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: the cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.32937139875836374
+      response_time_ms: 7933
+      cpu_usage: 0.981403738526671
+      memory_usage: 0.8542224601582835
+- timestamp: '2025-05-23T18:46:26.558348'
+  event_type: failure
+  description: 'Failure: strong update'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 140
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: strong update - operation
+      failed'
+    metrics:
+      error_rate: 0.39626766623560894
+      response_time_ms: 1388
+      cpu_usage: 0.875362053319722
+      memory_usage: 0.8811959397045593
+- timestamp: '2025-05-23T18:46:28.558348'
+  event_type: failure
+  description: 'Failure: monitoring service'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 288
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: monitoring service - operation
+      failed'
+    metrics:
+      error_rate: 0.5821975020206174
+      response_time_ms: 4333
+      cpu_usage: 0.8575839176230338
+      memory_usage: 0.9396863675187858
+- timestamp: '2025-05-23T19:03:52.558348'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

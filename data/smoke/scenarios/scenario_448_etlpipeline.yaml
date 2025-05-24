@@ -1,0 +1,59 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_184526
+description: Infrastructure failure scenario for ETLPipeline
+duration: 422
+metadata:
+  generated_at: '2025-05-23T18:45:26.811334'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.811176'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:38.811176'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 191
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.22433748097183914
+      response_time_ms: 6434
+      cpu_usage: 0.7957149069851432
+      memory_usage: 0.9781525123219594
+- timestamp: '2025-05-23T18:45:47.811176'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:02.811176'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 42
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.2862342776862068
+      response_time_ms: 8966
+      cpu_usage: 0.9353718182950395
+      memory_usage: 0.9213775183706996
+- timestamp: '2025-05-23T18:46:36.811176'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T18:52:28.811176'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

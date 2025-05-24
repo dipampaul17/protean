@@ -1,0 +1,138 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_172917",
+  "description": "Message queue and event processing failures",
+  "duration": 1260,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.605079",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.604470",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:32.604470",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 268,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR batch-processing-queue: queue processing memory limit exceeded",
+        "metrics": {
+          "error_rate": 0.2252306705464557,
+          "response_time_ms": 7193,
+          "cpu_usage": 0.7344539080287136,
+          "memory_usage": 0.9496924778130162,
+          "queue_depth": 18950,
+          "message_processing_rate": 1.5940759939018403,
+          "consumer_lag_ms": 268199
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:00.604470",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 78,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-queue: queue processing circuit breaker triggered",
+        "metrics": {
+          "error_rate": 0.4647973439061346,
+          "response_time_ms": 4416,
+          "cpu_usage": 0.8838217029342951,
+          "memory_usage": 0.9192750224232884,
+          "queue_depth": 40312,
+          "message_processing_rate": 9.737592141151254,
+          "consumer_lag_ms": 47279
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:05.604470",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:20.604470",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:48.604470",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 107,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR batch-processing-queue: queue processing circuit breaker triggered",
+        "metrics": {
+          "error_rate": 0.22162560884803473,
+          "response_time_ms": 9330,
+          "cpu_usage": 0.8006789514397832,
+          "memory_usage": 0.840703585691068,
+          "queue_depth": 41997,
+          "message_processing_rate": 4.835307395668,
+          "consumer_lag_ms": 154833
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:56.604470",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 176,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-queue: queue processing container crashed",
+        "metrics": {
+          "error_rate": 0.6786054442312583,
+          "response_time_ms": 9952,
+          "cpu_usage": 0.8967648719897927,
+          "memory_usage": 0.8201675290659893,
+          "queue_depth": 20543,
+          "message_processing_rate": 5.740339447759988,
+          "consumer_lag_ms": 152759
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:37.604470",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:39.604470",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:17.604470",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

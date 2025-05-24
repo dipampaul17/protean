@@ -1,0 +1,66 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_184526
+description: Circuit breaker activation due to cascading service failures
+duration: 416
+metadata:
+  generated_at: '2025-05-23T18:45:26.825626'
+  phrase_templates_used: 50
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.825487'
+  event_type: trigger
+  description: 'Initial failure detected: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:44.825487'
+  event_type: failure
+  description: 'Failure: to fix'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 122
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: to fix - operation
+      failed'
+    metrics:
+      error_rate: 0.8438896112113199
+      response_time_ms: 4766
+      cpu_usage: 0.9767062781148138
+      memory_usage: 0.9224276459127885
+- timestamp: '2025-05-23T18:46:47.825487'
+  event_type: timeout
+  description: 'Timeout: quot error'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 272
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: quot error - operation
+      failed'
+    metrics:
+      error_rate: 0.3990818710277996
+      response_time_ms: 9439
+      cpu_usage: 0.9113622493977829
+      memory_usage: 0.922415198137129
+- timestamp: '2025-05-23T18:47:07.825487'
+  event_type: timeout
+  description: 'Timeout: nginx server'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 105
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: nginx server - operation
+      failed'
+    metrics:
+      error_rate: 0.3460991090400223
+      response_time_ms: 9809
+      cpu_usage: 0.724872690259981
+      memory_usage: 0.854572604514559
+- timestamp: '2025-05-23T18:52:22.825487'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

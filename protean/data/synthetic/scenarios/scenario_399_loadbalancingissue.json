@@ -1,0 +1,81 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_172917",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 391,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.715337",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.714993",
+      "event_type": "trigger",
+      "description": "Initial failure detected: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:37.714993",
+      "event_type": "scaling",
+      "description": "Scaling: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:51.714993",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:56.714993",
+      "event_type": "scaling",
+      "description": "Scaling: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:02.714993",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "subnet-private",
+        "severity": "high",
+        "duration": 37,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR subnet-private: network unreachable in timeout",
+        "metrics": {
+          "error_rate": 0.48754358072261694,
+          "response_time_ms": 9385,
+          "cpu_usage": 0.9731766003796569,
+          "memory_usage": 0.9560949766150331,
+          "requests_per_sec": 7596,
+          "backend_health_pct": 0.6248261292081149,
+          "connection_timeouts": 146
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:03.714993",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:08.714993",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:48.714993",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

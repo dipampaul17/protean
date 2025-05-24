@@ -1,0 +1,74 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173011
+description: Circuit breaker activation due to cascading service failures
+duration: 1198
+metadata:
+  generated_at: '2025-05-23T17:30:11.322685'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:30:11.322549'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:32.322549'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 281
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.48621714830396334
+      response_time_ms: 9241
+      cpu_usage: 0.906808078917261
+      memory_usage: 0.9538327117257606
+- timestamp: '2025-05-23T17:31:17.322549'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 48
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.7660250417821135
+      response_time_ms: 5791
+      cpu_usage: 0.7462349128312682
+      memory_usage: 0.939315591418028
+- timestamp: '2025-05-23T17:31:36.322549'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 267
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.37067146270737517
+      response_time_ms: 9597
+      cpu_usage: 0.8016646604709132
+      memory_usage: 0.8525390649974458
+- timestamp: '2025-05-23T17:33:17.322549'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:20.322549'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:09.322549'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

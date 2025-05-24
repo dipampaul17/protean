@@ -1,0 +1,78 @@
+{
+  "category": "CascadingFailure",
+  "name": "CascadingFailure_20250523_173011",
+  "description": "Multi-service failure propagation scenario",
+  "duration": 1293,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.400708",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.400542",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:46.400542",
+      "event_type": "propagation",
+      "description": "Propagation: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:11.400542",
+      "event_type": "initial_failure",
+      "description": "Initial_Failure: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:18.400542",
+      "event_type": "cascade",
+      "description": "Cascade: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:25.400542",
+      "event_type": "propagation",
+      "description": "Propagation: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:39.400542",
+      "event_type": "initial_failure",
+      "description": "Initial_Failure: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:43.400542",
+      "event_type": "cascade",
+      "description": "Cascade: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:03.400542",
+      "event_type": "cascade",
+      "description": "Cascade: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:46.400542",
+      "event_type": "propagation",
+      "description": "Propagation: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:51:44.400542",
+      "event_type": "recovery",
+      "description": "System recovered: all services recovered",
+      "injection_spec": null
+    }
+  ]
+}

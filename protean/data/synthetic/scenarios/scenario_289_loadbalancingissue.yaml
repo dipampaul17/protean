@@ -1,0 +1,41 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173011
+description: Load balancer and traffic distribution problems
+duration: 780
+metadata:
+  generated_at: '2025-05-23T17:30:11.391306'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:30:11.391195'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:55.391195'
+  event_type: backend_failure
+  description: 'Backend_Failure: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:55.391195'
+  event_type: backend_failure
+  description: 'Backend_Failure: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:59.391195'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:19.391195'
+  event_type: backend_failure
+  description: 'Backend_Failure: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:18.391195'
+  event_type: scaling
+  description: 'Scaling: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:43:11.391195'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

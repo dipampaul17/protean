@@ -1,0 +1,79 @@
+category: CloudNative
+name: CloudNative_20250523_184526
+description: Kubernetes pod and container orchestration issues
+duration: 401
+metadata:
+  generated_at: '2025-05-23T18:45:26.571574'
+  phrase_templates_used: 39
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.571322'
+  event_type: trigger
+  description: 'Initial failure detected: your pod'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:36.571322'
+  event_type: failure
+  description: 'Failure: eks cluster'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 137
+    log_snippet: '[2025-05-23 18:45:26] ERROR api-backend: eks cluster in failure'
+    metrics:
+      error_rate: 0.21269206495283585
+      response_time_ms: 2579
+      cpu_usage: 0.7622845504840298
+      memory_usage: 0.955213800472235
+- timestamp: '2025-05-23T18:45:40.571322'
+  event_type: deployment
+  description: 'Deployment: your service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:45.571322'
+  event_type: deployment
+  description: 'Deployment: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:01.571322'
+  event_type: failure
+  description: 'Failure: an error'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 255
+    log_snippet: '[2025-05-23 18:45:26] ERROR web-frontend: an error in failure'
+    metrics:
+      error_rate: 0.14275848853325776
+      response_time_ms: 9025
+      cpu_usage: 0.7632728420876445
+      memory_usage: 0.8548978039016926
+- timestamp: '2025-05-23T18:46:19.571322'
+  event_type: deployment
+  description: 'Deployment: code pod'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:22.571322'
+  event_type: failure
+  description: 'Failure: deleted pod'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 89
+    log_snippet: '[2025-05-23 18:45:26] ERROR nginx-proxy: deleted pod in failure'
+    metrics:
+      error_rate: 0.5173201217929392
+      response_time_ms: 1119
+      cpu_usage: 0.7387324556778883
+      memory_usage: 0.9977765894896211
+- timestamp: '2025-05-23T18:46:22.571322'
+  event_type: deployment
+  description: 'Deployment: getting error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:52:07.571322'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

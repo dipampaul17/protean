@@ -1,0 +1,81 @@
+category: EventDriven
+name: EventDriven_20250523_172917
+description: Message queue and event processing failures
+duration: 1346
+metadata:
+  generated_at: '2025-05-23T17:29:17.680201'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.680017'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:09.680017'
+  event_type: message_loss
+  description: 'Message_Loss: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:33.680017'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: high
+    duration: 206
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-queue: queue processing
+      circuit breaker triggered'
+    metrics:
+      error_rate: 0.4971423113470711
+      response_time_ms: 9078
+      cpu_usage: 0.7880330250287958
+      memory_usage: 0.9949544244286264
+      queue_depth: 37638
+      message_processing_rate: 2.857863883376758
+      consumer_lag_ms: 23216
+- timestamp: '2025-05-23T17:30:36.680017'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:53.680017'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:54.680017'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 34
+    log_snippet: '[2025-05-23 17:29:17] ERROR batch-processing-queue: queue processing
+      deployment failed'
+    metrics:
+      error_rate: 0.4246943114512438
+      response_time_ms: 7451
+      cpu_usage: 0.9729951028121071
+      memory_usage: 0.9028727456833909
+      queue_depth: 34958
+      message_processing_rate: 9.118433476887201
+      consumer_lag_ms: 203615
+- timestamp: '2025-05-23T17:31:35.680017'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:53.680017'
+  event_type: message_loss
+  description: 'Message_Loss: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:54.680017'
+  event_type: message_loss
+  description: 'Message_Loss: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:51:43.680017'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

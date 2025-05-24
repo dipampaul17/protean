@@ -1,0 +1,62 @@
+category: CloudNative
+name: CloudNative_20250523_172917
+description: Kubernetes pod and container orchestration issues
+duration: 1262
+metadata:
+  generated_at: '2025-05-23T17:29:17.703199'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.703070'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:26.703070'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 251
+    log_snippet: '[2025-05-23 17:29:17] ERROR web-frontend: connection timeout in
+      failure'
+    metrics:
+      error_rate: 0.32960159026824015
+      response_time_ms: 8278
+      cpu_usage: 0.9691163038188721
+      memory_usage: 0.9193617590717205
+- timestamp: '2025-05-23T17:31:33.703070'
+  event_type: deployment
+  description: 'Deployment: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:55.703070'
+  event_type: scaling
+  description: 'Scaling: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:01.703070'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 118
+    log_snippet: '[2025-05-23 17:29:17] ERROR api-backend: disk space full in failure'
+    metrics:
+      error_rate: 0.20131439688163066
+      response_time_ms: 7852
+      cpu_usage: 0.9647010507940179
+      memory_usage: 0.8335578625642416
+- timestamp: '2025-05-23T17:32:54.703070'
+  event_type: deployment
+  description: 'Deployment: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:19.703070'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

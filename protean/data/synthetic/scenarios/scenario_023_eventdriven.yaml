@@ -1,0 +1,55 @@
+category: EventDriven
+name: EventDriven_20250523_173011
+description: Message queue and event processing failures
+duration: 728
+metadata:
+  generated_at: '2025-05-23T17:30:11.312888'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.312770'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:42.312770'
+  event_type: message_loss
+  description: 'Message_Loss: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:05.312770'
+  event_type: message_loss
+  description: 'Message_Loss: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:55.312770'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:10.312770'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: high
+    duration: 96
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-queue: queue processing
+      service unavailable'
+    metrics:
+      error_rate: 0.8617905933090704
+      response_time_ms: 9011
+      cpu_usage: 0.854808675115026
+      memory_usage: 0.8291437413224679
+      queue_depth: 12977
+      message_processing_rate: 7.5400613666071346
+      consumer_lag_ms: 138022
+- timestamp: '2025-05-23T17:32:22.312770'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:42:19.312770'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

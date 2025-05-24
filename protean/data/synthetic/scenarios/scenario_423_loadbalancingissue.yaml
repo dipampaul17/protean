@@ -1,0 +1,76 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_172917
+description: Load balancer and traffic distribution problems
+duration: 658
+metadata:
+  generated_at: '2025-05-23T17:29:17.723524'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.723082'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:44.723082'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:53.723082'
+  event_type: backend_failure
+  description: 'Backend_Failure: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:07.723082'
+  event_type: scaling
+  description: 'Scaling: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:10.723082'
+  event_type: backend_failure
+  description: 'Backend_Failure: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:12.723082'
+  event_type: scaling
+  description: 'Scaling: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:37.723082'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: api-gateway
+    severity: high
+    duration: 89
+    log_snippet: '[2025-05-23 17:29:17] ERROR api-gateway: container crashed in timeout'
+    metrics:
+      error_rate: 0.3444673744536221
+      response_time_ms: 5670
+      cpu_usage: 0.9011759306998705
+      memory_usage: 0.9839349770743067
+      requests_per_sec: 1581
+      backend_health_pct: 0.5971366089131707
+      connection_timeouts: 20
+- timestamp: '2025-05-23T17:30:42.723082'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 286
+    log_snippet: '[2025-05-23 17:29:17] ERROR subnet-private: service unavailable
+      in timeout'
+    metrics:
+      error_rate: 0.6596838234646654
+      response_time_ms: 5824
+      cpu_usage: 0.7595525080948419
+      memory_usage: 0.907285814956267
+      requests_per_sec: 9505
+      backend_health_pct: 0.7087619349693458
+      connection_timeouts: 664
+- timestamp: '2025-05-23T17:40:15.723082'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

@@ -1,0 +1,46 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_172917
+description: Database connectivity and performance issues
+duration: 418
+metadata:
+  generated_at: '2025-05-23T17:29:17.684331'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.684194'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:18.684194'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 67
+    log_snippet: '[2025-05-23 17:29:17] ERROR mongodb-shard: disk space full in timeout'
+    metrics:
+      error_rate: 0.6693684712910533
+      response_time_ms: 5385
+      cpu_usage: 0.9595857733250164
+      memory_usage: 0.8480498154330763
+      connection_pool_usage: 0.8236403860142276
+      query_time_ms: 17019
+      deadlocks_per_sec: 1
+- timestamp: '2025-05-23T17:30:51.684194'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:22.684194'
+  event_type: recovery
+  description: 'Recovery: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:15.684194'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

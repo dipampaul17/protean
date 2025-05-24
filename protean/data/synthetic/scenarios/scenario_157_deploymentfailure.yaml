@@ -1,0 +1,83 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173011
+description: Application deployment and rollback scenarios
+duration: 710
+metadata:
+  generated_at: '2025-05-23T17:30:11.354436'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:30:11.354295'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:51.354295'
+  event_type: deployment
+  description: 'Deployment: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:19.354295'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 85
+    log_snippet: '[2025-05-23 17:30:11] ERROR web-frontend: deployment failed in failure'
+    metrics:
+      error_rate: 0.1191872807237024
+      response_time_ms: 5011
+      cpu_usage: 0.7822761992028306
+      memory_usage: 0.9587015634036004
+- timestamp: '2025-05-23T17:31:27.354295'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 209
+    log_snippet: '[2025-05-23 17:30:11] ERROR web-frontend: disk space full in failure'
+    metrics:
+      error_rate: 0.4895451213682145
+      response_time_ms: 2311
+      cpu_usage: 0.9146376031194486
+      memory_usage: 0.8797651108792747
+- timestamp: '2025-05-23T17:31:44.354295'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 82
+    log_snippet: '[2025-05-23 17:30:11] ERROR worker-consumer: rate limit exceeded
+      in failure'
+    metrics:
+      error_rate: 0.1386909890938231
+      response_time_ms: 6208
+      cpu_usage: 0.8634829130483811
+      memory_usage: 0.920906408884389
+- timestamp: '2025-05-23T17:31:54.354295'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 279
+    log_snippet: '[2025-05-23 17:30:11] ERROR api-backend: service unavailable in
+      failure'
+    metrics:
+      error_rate: 0.15758288600180254
+      response_time_ms: 4142
+      cpu_usage: 0.7670718067829689
+      memory_usage: 0.9446380252770494
+- timestamp: '2025-05-23T17:42:01.354295'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

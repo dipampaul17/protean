@@ -1,0 +1,63 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_184526
+description: Application deployment and rollback scenarios
+duration: 755
+metadata:
+  generated_at: '2025-05-23T18:45:26.828357'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T18:45:26.828102'
+  event_type: trigger
+  description: 'Initial failure detected: kubernetes error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:43.828102'
+  event_type: deployment
+  description: 'Deployment: the cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:18.828102'
+  event_type: deployment
+  description: 'Deployment: kafka monitor'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:23.828102'
+  event_type: failure
+  description: 'Failure: to update'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 71
+    log_snippet: '[2025-05-23 18:45:26] ERROR nginx-proxy: to update in failure'
+    metrics:
+      error_rate: 0.8980452120248693
+      response_time_ms: 7174
+      cpu_usage: 0.7049029466569678
+      memory_usage: 0.9531065673313994
+- timestamp: '2025-05-23T18:46:36.828102'
+  event_type: rollback
+  description: 'Rollback: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:37.828102'
+  event_type: rollback
+  description: 'Rollback: jenkins container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:39.828102'
+  event_type: rollback
+  description: 'Rollback: a pod'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:46.828102'
+  event_type: deployment
+  description: 'Deployment: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:54.828102'
+  event_type: rollback
+  description: 'Rollback: to update'
+  injection_spec: null
+- timestamp: '2025-05-23T18:58:01.828102'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

@@ -1,0 +1,81 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_172917",
+  "description": "Message queue and event processing failures",
+  "duration": 486,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.717838",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.717546",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:28.717546",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 250,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-queue: queue processing rate limit exceeded",
+        "metrics": {
+          "error_rate": 0.7982506819356711,
+          "response_time_ms": 7486,
+          "cpu_usage": 0.934894205647841,
+          "memory_usage": 0.9624666457591228,
+          "queue_depth": 9165,
+          "message_processing_rate": 8.082424500520517,
+          "consumer_lag_ms": 73777
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:43.717546",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:54.717546",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:56.717546",
+      "event_type": "message_loss",
+      "description": "Message_Loss: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:05.717546",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:38.717546",
+      "event_type": "message_loss",
+      "description": "Message_Loss: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:23.717546",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

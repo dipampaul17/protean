@@ -1,0 +1,102 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173011",
+  "description": "Database connectivity and performance issues",
+  "duration": 1190,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.378200",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.378040",
+      "event_type": "trigger",
+      "description": "Initial failure detected: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:21.378040",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:58.378040",
+      "event_type": "recovery",
+      "description": "Recovery: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:03.378040",
+      "event_type": "recovery",
+      "description": "Recovery: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:21.378040",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 263,
+        "log_snippet": "[2025-05-23 17:30:11] FATAL mysql-primary: database database connection lost detected",
+        "metrics": {
+          "error_rate": 0.16432214601522643,
+          "response_time_ms": 2075,
+          "cpu_usage": 0.7672880641277291,
+          "memory_usage": 0.9776333183416475,
+          "connection_pool_usage": 0.8188620913231395,
+          "query_time_ms": 13056,
+          "deadlocks_per_sec": 4
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:25.378040",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:17.378040",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "postgres-replica",
+        "severity": "high",
+        "duration": 268,
+        "log_snippet": "[2025-05-23 17:30:11] FATAL postgres-replica: database network unreachable detected",
+        "metrics": {
+          "error_rate": 0.8816418825822216,
+          "response_time_ms": 3803,
+          "cpu_usage": 0.9899903634932898,
+          "memory_usage": 0.9292450516873282,
+          "connection_pool_usage": 0.8477304402999943,
+          "query_time_ms": 18881,
+          "deadlocks_per_sec": 6
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:44.378040",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:01.378040",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

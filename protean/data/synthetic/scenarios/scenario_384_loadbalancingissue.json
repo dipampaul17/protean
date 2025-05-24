@@ -1,0 +1,69 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_172917",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 826,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.709339",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.709223",
+      "event_type": "trigger",
+      "description": "Initial failure detected: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:29.709223",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:05.709223",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:36.709223",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "vpc-main",
+        "severity": "high",
+        "duration": 251,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR vpc-main: network unreachable in timeout",
+        "metrics": {
+          "error_rate": 0.5150496500012876,
+          "response_time_ms": 5261,
+          "cpu_usage": 0.7746581400578734,
+          "memory_usage": 0.8731049027287049,
+          "requests_per_sec": 9904,
+          "backend_health_pct": 0.4603898271220191,
+          "connection_timeouts": 259
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:39.709223",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:43:03.709223",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

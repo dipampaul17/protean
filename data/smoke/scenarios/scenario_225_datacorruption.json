@@ -1,0 +1,90 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_184526",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 948,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.707755",
+    "phrase_templates_used": 36,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.707587",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:37.707587",
+      "event_type": "timeout",
+      "description": "Timeout: message queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "medium",
+        "duration": 261,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: message queue - operation failed",
+        "metrics": {
+          "error_rate": 0.06871438779998933,
+          "response_time_ms": 781,
+          "cpu_usage": 0.4959189645610101,
+          "memory_usage": 0.4163220299957196
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:02.707587",
+      "event_type": "timeout",
+      "description": "Timeout: a database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 53,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: a database - operation failed",
+        "metrics": {
+          "error_rate": 0.20025976143496615,
+          "response_time_ms": 9034,
+          "cpu_usage": 0.9161724163789033,
+          "memory_usage": 0.9803069526413468
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:18.707587",
+      "event_type": "timeout",
+      "description": "Timeout: to node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 53,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: to node - operation failed",
+        "metrics": {
+          "error_rate": 0.5245926367294949,
+          "response_time_ms": 2822,
+          "cpu_usage": 0.8049849325191476,
+          "memory_usage": 0.9866386703241746
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:49:11.707587",
+      "event_type": "recovery",
+      "description": "Recovery: second node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:01:14.707587",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_184526
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 1542
+metadata:
+  generated_at: '2025-05-23T18:45:26.737798'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 2
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.737583'
+  event_type: trigger
+  description: 'Initial failure detected: the cache'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:51.737583'
+  event_type: timeout
+  description: 'Timeout: message queue'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: medium
+    duration: 157
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: message queue - operation
+      failed'
+    metrics:
+      error_rate: 0.21517701420769186
+      response_time_ms: 967
+      cpu_usage: 0.7216152870179179
+      memory_usage: 0.5842938929211913
+- timestamp: '2025-05-23T18:46:57.737583'
+  event_type: failure
+  description: 'Failure: the pod'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 39
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: the pod - operation failed'
+    metrics:
+      error_rate: 0.22161966678667328
+      response_time_ms: 2467
+      cpu_usage: 0.7037409251209775
+      memory_usage: 0.9084411441638842
+- timestamp: '2025-05-23T18:47:00.737583'
+  event_type: failure
+  description: 'Failure: the memory'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 90
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: the memory - operation
+      failed'
+    metrics:
+      error_rate: 0.8065218504117687
+      response_time_ms: 7958
+      cpu_usage: 0.8759048806492918
+      memory_usage: 0.8329766555629503
+- timestamp: '2025-05-23T18:47:30.737583'
+  event_type: recovery
+  description: 'Recovery: main memory'
+  injection_spec: null
+- timestamp: '2025-05-23T18:49:33.737583'
+  event_type: timeout
+  description: 'Timeout: the queue'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: medium
+    duration: 264
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: the queue - operation
+      failed'
+    metrics:
+      error_rate: 0.033361491245923386
+      response_time_ms: 200
+      cpu_usage: 0.3089558658412481
+      memory_usage: 0.525842491827585
+- timestamp: '2025-05-23T19:11:08.737583'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

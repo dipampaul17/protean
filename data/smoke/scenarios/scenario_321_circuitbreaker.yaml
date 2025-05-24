@@ -1,0 +1,74 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_184526
+description: Circuit breaker activation due to cascading service failures
+duration: 494
+metadata:
+  generated_at: '2025-05-23T18:45:26.754777'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.754539'
+  event_type: trigger
+  description: 'Initial failure detected: us log'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:59.754539'
+  event_type: recovery
+  description: 'Recovery: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:04.754539'
+  event_type: failure
+  description: 'Failure: kubernetes cluster'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 239
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: kubernetes cluster
+      - operation failed'
+    metrics:
+      error_rate: 0.7193048509737496
+      response_time_ms: 9618
+      cpu_usage: 0.711712838396433
+      memory_usage: 0.8243407122752165
+- timestamp: '2025-05-23T18:46:12.754539'
+  event_type: failure
+  description: 'Failure: to restart'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 151
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: to restart - operation
+      failed'
+    metrics:
+      error_rate: 0.5624673723743342
+      response_time_ms: 1502
+      cpu_usage: 0.771426031553402
+      memory_usage: 0.9449734289347889
+- timestamp: '2025-05-23T18:46:36.754539'
+  event_type: recovery
+  description: 'Recovery: to log'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:59.754539'
+  event_type: degradation
+  description: 'Degradation: customer service'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: low
+    duration: 281
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: customer service
+      - operation failed'
+    metrics:
+      error_rate: 0.24739442693516756
+      response_time_ms: 772
+      cpu_usage: 0.5035068369035082
+      memory_usage: 0.5250297895716928
+- timestamp: '2025-05-23T18:53:40.754539'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

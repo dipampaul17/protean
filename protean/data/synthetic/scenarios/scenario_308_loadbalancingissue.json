@@ -1,0 +1,87 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173011",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 508,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.396148",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.395985",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:21.395985",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "subnet-private",
+        "severity": "high",
+        "duration": 109,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR subnet-private: queue overflow in timeout",
+        "metrics": {
+          "error_rate": 0.3354240221208752,
+          "response_time_ms": 7452,
+          "cpu_usage": 0.9068924835532562,
+          "memory_usage": 0.822724834585166,
+          "requests_per_sec": 8723,
+          "backend_health_pct": 0.6818314067182714,
+          "connection_timeouts": 417
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:32.395985",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:38.395985",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:40.395985",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:44.395985",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:15.395985",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:18.395985",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:39.395985",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

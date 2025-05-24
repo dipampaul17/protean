@@ -1,0 +1,78 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_172917",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 895,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.606670",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.606536",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:37.606536",
+      "event_type": "restart",
+      "description": "Restart: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:39.606536",
+      "event_type": "restart",
+      "description": "Restart: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:35.606536",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 98,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.4266944220713068,
+          "response_time_ms": 7270,
+          "cpu_usage": 0.8335223167087156,
+          "memory_usage": 0.8257606792417355
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:03.606536",
+      "event_type": "config_change",
+      "description": "Config_Change: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:20.606536",
+      "event_type": "config_change",
+      "description": "Config_Change: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:20.606536",
+      "event_type": "rollback",
+      "description": "Rollback: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:44:12.606536",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

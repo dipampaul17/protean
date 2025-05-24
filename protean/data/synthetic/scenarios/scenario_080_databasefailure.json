@@ -1,0 +1,111 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173011",
+  "description": "Database connectivity and performance issues",
+  "duration": 1159,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.333601",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.333173",
+      "event_type": "trigger",
+      "description": "Initial failure detected: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:17.333173",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:45.333173",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 183,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR mongodb-shard: rate limit exceeded in timeout",
+        "metrics": {
+          "error_rate": 0.7989450151073563,
+          "response_time_ms": 7685,
+          "cpu_usage": 0.8735387967743402,
+          "memory_usage": 0.9018481315927555,
+          "connection_pool_usage": 0.8255023704514771,
+          "query_time_ms": 7473,
+          "deadlocks_per_sec": 7
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:56.333173",
+      "event_type": "corruption",
+      "description": "Corruption: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:19.333173",
+      "event_type": "corruption",
+      "description": "Corruption: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:27.333173",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 73,
+        "log_snippet": "[2025-05-23 17:30:11] FATAL mysql-primary: database rate limit exceeded detected",
+        "metrics": {
+          "error_rate": 0.6788853393210147,
+          "response_time_ms": 9685,
+          "cpu_usage": 0.8029352945938255,
+          "memory_usage": 0.9596753646899264,
+          "connection_pool_usage": 0.8158212588641941,
+          "query_time_ms": 10587,
+          "deadlocks_per_sec": 4
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:00.333173",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 218,
+        "log_snippet": "[2025-05-23 17:30:11] FATAL mysql-primary: database deployment failed detected",
+        "metrics": {
+          "error_rate": 0.3618076834765034,
+          "response_time_ms": 2810,
+          "cpu_usage": 0.8683231170541255,
+          "memory_usage": 0.8988901729687903,
+          "connection_pool_usage": 0.9956748809930805,
+          "query_time_ms": 13559,
+          "deadlocks_per_sec": 8
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:30.333173",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

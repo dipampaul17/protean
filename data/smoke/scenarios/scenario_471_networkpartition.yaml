@@ -1,0 +1,59 @@
+category: NetworkPartition
+name: NetworkPartition_20250523_184526
+description: Infrastructure failure scenario for NetworkPartition
+duration: 1384
+metadata:
+  generated_at: '2025-05-23T18:45:26.818078'
+  phrase_templates_used: 4
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.817928'
+  event_type: trigger
+  description: 'Initial failure detected: each node'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:01.817928'
+  event_type: recovery
+  description: 'Recovery: and memory'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:31.817928'
+  event_type: recovery
+  description: 'Recovery: and node'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:32.817928'
+  event_type: timeout
+  description: 'Timeout: and memory'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 284
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: and memory - operation
+      failed'
+    metrics:
+      error_rate: 0.17978544083253817
+      response_time_ms: 3941
+      cpu_usage: 0.8915624320977562
+      memory_usage: 0.9547371333396281
+- timestamp: '2025-05-23T18:49:17.817928'
+  event_type: failure
+  description: 'Failure: and memory'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 280
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: and memory - operation
+      failed'
+    metrics:
+      error_rate: 0.4909594281552603
+      response_time_ms: 4021
+      cpu_usage: 0.7232282623977891
+      memory_usage: 0.9678371245472468
+- timestamp: '2025-05-23T19:08:30.817928'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

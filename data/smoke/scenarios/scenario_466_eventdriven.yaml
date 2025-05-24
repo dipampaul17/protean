@@ -1,0 +1,73 @@
+category: EventDriven
+name: EventDriven_20250523_184526
+description: Message queue and event processing failures
+duration: 1264
+metadata:
+  generated_at: '2025-05-23T18:45:26.817149'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.816945'
+  event_type: trigger
+  description: 'Initial failure detected: config server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:11.816945'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:30.816945'
+  event_type: timeout
+  description: 'Timeout: following error'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: high
+    duration: 196
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-queue: queue processing
+      following error'
+    metrics:
+      error_rate: 0.7260403622506589
+      response_time_ms: 9542
+      cpu_usage: 0.8523217245552213
+      memory_usage: 0.8328697732694513
+      queue_depth: 26580
+      message_processing_rate: 5.515534616158919
+      consumer_lag_ms: 182942
+- timestamp: '2025-05-23T18:47:55.816945'
+  event_type: message_loss
+  description: 'Message_Loss: p error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:56.816945'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:59.816945'
+  event_type: message_loss
+  description: 'Message_Loss: to node'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:04.816945'
+  event_type: timeout
+  description: 'Timeout: using kafka'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 144
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-queue: queue processing using
+      kafka'
+    metrics:
+      error_rate: 0.7654895071784255
+      response_time_ms: 3659
+      cpu_usage: 0.9397679686105366
+      memory_usage: 0.8212024104901153
+      queue_depth: 5766
+      message_processing_rate: 8.367492003520528
+      consumer_lag_ms: 90200
+- timestamp: '2025-05-23T19:06:30.816945'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

@@ -1,0 +1,59 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_184526
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 398
+metadata:
+  generated_at: '2025-05-23T18:45:26.647671'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.647491'
+  event_type: trigger
+  description: 'Initial failure detected: float scale'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:36.647491'
+  event_type: failure
+  description: 'Failure: heap memory'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 287
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: heap memory -
+      operation failed'
+    metrics:
+      error_rate: 0.4097936366516852
+      response_time_ms: 3529
+      cpu_usage: 0.9770413695804403
+      memory_usage: 0.8833870901906494
+- timestamp: '2025-05-23T18:46:37.647491'
+  event_type: recovery
+  description: 'Recovery: the memory'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:55.647491'
+  event_type: timeout
+  description: 'Timeout: em connection'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 42
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: em connection - operation
+      failed'
+    metrics:
+      error_rate: 0.10186426338980654
+      response_time_ms: 9477
+      cpu_usage: 0.836654692917164
+      memory_usage: 0.9624044345662669
+- timestamp: '2025-05-23T18:46:55.647491'
+  event_type: recovery
+  description: 'Recovery: the database'
+  injection_spec: null
+- timestamp: '2025-05-23T18:52:04.647491'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

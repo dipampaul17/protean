@@ -1,0 +1,49 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_172917
+description: Configuration inconsistencies causing service degradation
+duration: 665
+metadata:
+  generated_at: '2025-05-23T17:29:17.532917'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:29:17.532548'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:29.532548'
+  event_type: rollback
+  description: 'Rollback: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:42.532548'
+  event_type: rollback
+  description: 'Rollback: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:47.532548'
+  event_type: restart
+  description: 'Restart: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:49.532548'
+  event_type: rollback
+  description: 'Rollback: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:06.532548'
+  event_type: rollback
+  description: 'Rollback: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:16.532548'
+  event_type: restart
+  description: 'Restart: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:23.532548'
+  event_type: rollback
+  description: 'Rollback: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:22.532548'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

@@ -1,0 +1,59 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_184526
+description: Configuration inconsistencies causing service degradation
+duration: 623
+metadata:
+  generated_at: '2025-05-23T18:45:26.562343'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.562146'
+  event_type: trigger
+  description: 'Initial failure detected: docker network'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:18.562146'
+  event_type: failure
+  description: 'Failure: the log'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 248
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: the log - operation
+      failed'
+    metrics:
+      error_rate: 0.10538112577135489
+      response_time_ms: 2922
+      cpu_usage: 0.760857587657969
+      memory_usage: 0.9622549710335602
+- timestamp: '2025-05-23T18:47:26.562146'
+  event_type: rollback
+  description: 'Rollback: kubernetes service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:53.562146'
+  event_type: failure
+  description: 'Failure: elasticsearch cluster'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 165
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: elasticsearch cluster
+      - operation failed'
+    metrics:
+      error_rate: 0.31566640440952665
+      response_time_ms: 7717
+      cpu_usage: 0.7442948734426217
+      memory_usage: 0.9536297014744106
+- timestamp: '2025-05-23T18:47:56.562146'
+  event_type: rollback
+  description: 'Rollback: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T18:55:49.562146'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

@@ -1,0 +1,120 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_172917",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1748,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.534299",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.533825",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:50.533825",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 283,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR user-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.7500184110770556,
+          "response_time_ms": 5393,
+          "cpu_usage": 0.882483979096537,
+          "memory_usage": 0.8191460235950061
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:02.533825",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:21.533825",
+      "event_type": "recovery",
+      "description": "Recovery: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:52.533825",
+      "event_type": "degradation",
+      "description": "Degradation: disk space full",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "low",
+        "duration": 194,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.030816241074650724,
+          "response_time_ms": 1496,
+          "cpu_usage": 0.6233108153512015,
+          "memory_usage": 0.44041011668630453
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:54.533825",
+      "event_type": "degradation",
+      "description": "Degradation: connection timeout",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 53,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR user-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.6982199150595901,
+          "response_time_ms": 8398,
+          "cpu_usage": 0.7911636335307837,
+          "memory_usage": 0.9408622439269059
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:55.533825",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:19.533825",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 297,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.685126570812807,
+          "response_time_ms": 9653,
+          "cpu_usage": 0.9819261817237787,
+          "memory_usage": 0.9039242990860276
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:58:25.533825",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+category: CloudNative
+name: CloudNative_20250523_172917
+description: Kubernetes pod and container orchestration issues
+duration: 693
+metadata:
+  generated_at: '2025-05-23T17:29:17.695729'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.695507'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:33.695507'
+  event_type: deployment
+  description: 'Deployment: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:36.695507'
+  event_type: pod_restart
+  description: 'Pod_Restart: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:50.695507'
+  event_type: scaling
+  description: 'Scaling: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:52.695507'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 164
+    log_snippet: '[2025-05-23 17:29:17] ERROR nginx-proxy: queue overflow in failure'
+    metrics:
+      error_rate: 0.794997299011611
+      response_time_ms: 8549
+      cpu_usage: 0.9584791423116423
+      memory_usage: 0.8687210768306817
+- timestamp: '2025-05-23T17:30:08.695507'
+  event_type: deployment
+  description: 'Deployment: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:24.695507'
+  event_type: deployment
+  description: 'Deployment: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:35.695507'
+  event_type: scaling
+  description: 'Scaling: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:39.695507'
+  event_type: deployment
+  description: 'Deployment: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:50.695507'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

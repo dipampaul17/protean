@@ -1,0 +1,123 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173011",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 969,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.397196",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.396996",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:32.396996",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:36.396996",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:11.396996",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:16.396996",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:31.396996",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 189,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR load-balancer: circuit breaker triggered in timeout",
+        "metrics": {
+          "error_rate": 0.8086519287690341,
+          "response_time_ms": 3061,
+          "cpu_usage": 0.926679975865996,
+          "memory_usage": 0.9149928040343555,
+          "requests_per_sec": 5390,
+          "backend_health_pct": 0.48969204962709356,
+          "connection_timeouts": 45
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:38.396996",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 153,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-gateway: database connection lost in timeout",
+        "metrics": {
+          "error_rate": 0.6152733269154139,
+          "response_time_ms": 4631,
+          "cpu_usage": 0.7157749116645644,
+          "memory_usage": 0.9946024149890569,
+          "requests_per_sec": 9632,
+          "backend_health_pct": 0.7034352214535147,
+          "connection_timeouts": 922
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:40.396996",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:03.396996",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "vpc-main",
+        "severity": "high",
+        "duration": 239,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR vpc-main: circuit breaker triggered in timeout",
+        "metrics": {
+          "error_rate": 0.5545919500291249,
+          "response_time_ms": 9451,
+          "cpu_usage": 0.944280269179531,
+          "memory_usage": 0.8513249871569325,
+          "requests_per_sec": 1542,
+          "backend_health_pct": 0.5127782033071626,
+          "connection_timeouts": 89
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:20.396996",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_184526",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 1535,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.557106",
+    "phrase_templates_used": 0,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.556966",
+      "event_type": "trigger",
+      "description": "Initial failure detected: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:50.556966",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:29.556966",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 217,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.4188222451512539,
+          "response_time_ms": 3075,
+          "cpu_usage": 0.8479687029992649,
+          "memory_usage": 0.9375487124126171
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:53:06.556966",
+      "event_type": "timeout",
+      "description": "Timeout: disk space full",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 37,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.5524989513767938,
+          "response_time_ms": 7399,
+          "cpu_usage": 0.936403855509683,
+          "memory_usage": 0.9906439170379633
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:11:01.556966",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

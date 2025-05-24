@@ -1,0 +1,84 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_172917",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1386,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.599857",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.599477",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:34.599477",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 127,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR api-backend: connection timeout in failure",
+        "metrics": {
+          "error_rate": 0.8369852396073917,
+          "response_time_ms": 3352,
+          "cpu_usage": 0.7439325213283913,
+          "memory_usage": 0.9732380195065363
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:53.599477",
+      "event_type": "rollback",
+      "description": "Rollback: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:55.599477",
+      "event_type": "deployment",
+      "description": "Deployment: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:03.599477",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 72,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR worker-consumer: queue overflow in failure",
+        "metrics": {
+          "error_rate": 0.42928939971086766,
+          "response_time_ms": 1130,
+          "cpu_usage": 0.8044404186453931,
+          "memory_usage": 0.8058377712123875
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:33.599477",
+      "event_type": "rollback",
+      "description": "Rollback: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:52:23.599477",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

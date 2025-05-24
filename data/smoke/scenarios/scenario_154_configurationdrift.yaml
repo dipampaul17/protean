@@ -1,0 +1,75 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_184526
+description: Configuration inconsistencies causing service degradation
+duration: 647
+metadata:
+  generated_at: '2025-05-23T18:45:26.684420'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.684148'
+  event_type: trigger
+  description: 'Initial failure detected: docker container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:37.684148'
+  event_type: config_change
+  description: 'Config_Change: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:51.684148'
+  event_type: config_change
+  description: 'Config_Change: kubernetes cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:53.684148'
+  event_type: config_change
+  description: 'Config_Change: nginx restart'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:57.684148'
+  event_type: config_change
+  description: 'Config_Change: string container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:57.684148'
+  event_type: failure
+  description: 'Failure: elasticsearch cluster'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 250
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: elasticsearch cluster
+      - operation failed'
+    metrics:
+      error_rate: 0.41789451877017836
+      response_time_ms: 9705
+      cpu_usage: 0.8059189217202083
+      memory_usage: 0.85625083827356
+- timestamp: '2025-05-23T18:46:24.684148'
+  event_type: config_change
+  description: 'Config_Change: the service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:36.684148'
+  event_type: config_change
+  description: 'Config_Change: proxy server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:39.684148'
+  event_type: failure
+  description: 'Failure: elasticsearch cluster'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 39
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: elasticsearch cluster
+      - operation failed'
+    metrics:
+      error_rate: 0.15658042554749257
+      response_time_ms: 4911
+      cpu_usage: 0.8701502108752088
+      memory_usage: 0.938421368535389
+- timestamp: '2025-05-23T18:56:13.684148'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

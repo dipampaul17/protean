@@ -1,0 +1,114 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173011",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1027,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.311043",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.310861",
+      "event_type": "trigger",
+      "description": "Initial failure detected: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:26.310861",
+      "event_type": "failure",
+      "description": "Failure: memory limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 138,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR worker-consumer: memory limit exceeded in failure",
+        "metrics": {
+          "error_rate": 0.17057314116679623,
+          "response_time_ms": 5002,
+          "cpu_usage": 0.7121006362755041,
+          "memory_usage": 0.8552040988104214
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:32.310861",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 242,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR worker-consumer: rate limit exceeded in failure",
+        "metrics": {
+          "error_rate": 0.7190310991671514,
+          "response_time_ms": 5950,
+          "cpu_usage": 0.8897089443357519,
+          "memory_usage": 0.8469361037472085
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:52.310861",
+      "event_type": "scaling",
+      "description": "Scaling: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:01.310861",
+      "event_type": "failure",
+      "description": "Failure: memory limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 253,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR web-frontend: memory limit exceeded in failure",
+        "metrics": {
+          "error_rate": 0.2596316183197881,
+          "response_time_ms": 8023,
+          "cpu_usage": 0.9389851430139178,
+          "memory_usage": 0.9646751050469093
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:06.310861",
+      "event_type": "rollback",
+      "description": "Rollback: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:19.310861",
+      "event_type": "deployment",
+      "description": "Deployment: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:57.310861",
+      "event_type": "scaling",
+      "description": "Scaling: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:15.310861",
+      "event_type": "scaling",
+      "description": "Scaling: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:18.310861",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

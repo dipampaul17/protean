@@ -1,0 +1,86 @@
+category: CloudNative
+name: CloudNative_20250523_173011
+description: Kubernetes pod and container orchestration issues
+duration: 887
+metadata:
+  generated_at: '2025-05-23T17:30:11.366869'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:30:11.365755'
+  event_type: trigger
+  description: 'Initial failure detected: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:22.365755'
+  event_type: scaling
+  description: 'Scaling: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:45.365755'
+  event_type: pod_restart
+  description: 'Pod_Restart: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:50.365755'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 96
+    log_snippet: '[2025-05-23 17:30:11] ERROR worker-consumer: container crashed in
+      failure'
+    metrics:
+      error_rate: 0.6830487550081792
+      response_time_ms: 8860
+      cpu_usage: 0.7899377770014694
+      memory_usage: 0.8591688930437867
+- timestamp: '2025-05-23T17:31:06.365755'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 43
+    log_snippet: '[2025-05-23 17:30:11] ERROR web-frontend: service unavailable in
+      failure'
+    metrics:
+      error_rate: 0.7244220956485561
+      response_time_ms: 7101
+      cpu_usage: 0.8668592997586326
+      memory_usage: 0.8442858885192687
+- timestamp: '2025-05-23T17:31:24.365755'
+  event_type: pod_restart
+  description: 'Pod_Restart: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:34.365755'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 76
+    log_snippet: '[2025-05-23 17:30:11] ERROR web-frontend: memory limit exceeded
+      in failure'
+    metrics:
+      error_rate: 0.6160677328894045
+      response_time_ms: 8150
+      cpu_usage: 0.8219742187936907
+      memory_usage: 0.9954181038575803
+- timestamp: '2025-05-23T17:31:45.365755'
+  event_type: pod_restart
+  description: 'Pod_Restart: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:52.365755'
+  event_type: scaling
+  description: 'Scaling: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:44:58.365755'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

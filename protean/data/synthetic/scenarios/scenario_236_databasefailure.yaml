@@ -1,0 +1,63 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_172917
+description: Database connectivity and performance issues
+duration: 823
+metadata:
+  generated_at: '2025-05-23T17:29:17.609828'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.609710'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:54.609710'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:29.609710'
+  event_type: corruption
+  description: 'Corruption: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:53.609710'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 293
+    log_snippet: '[2025-05-23 17:29:17] ERROR redis-cache: connection timeout in timeout'
+    metrics:
+      error_rate: 0.7475117555280141
+      response_time_ms: 2911
+      cpu_usage: 0.9372734460782856
+      memory_usage: 0.9099063862957951
+      connection_pool_usage: 0.9754083945099927
+      query_time_ms: 24786
+      deadlocks_per_sec: 1
+- timestamp: '2025-05-23T17:31:53.609710'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 58
+    log_snippet: '[2025-05-23 17:29:17] ERROR redis-cache: disk space full in timeout'
+    metrics:
+      error_rate: 0.2702007353310248
+      response_time_ms: 7304
+      cpu_usage: 0.9554013912191196
+      memory_usage: 0.8289612805461315
+      connection_pool_usage: 0.8120777568223437
+      query_time_ms: 21474
+      deadlocks_per_sec: 8
+- timestamp: '2025-05-23T17:43:00.609710'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

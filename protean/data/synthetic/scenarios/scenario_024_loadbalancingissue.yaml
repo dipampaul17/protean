@@ -1,0 +1,81 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173011
+description: Load balancer and traffic distribution problems
+duration: 939
+metadata:
+  generated_at: '2025-05-23T17:30:11.313091'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.312912'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:45.312912'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 195
+    log_snippet: '[2025-05-23 17:30:11] ERROR subnet-private: database connection
+      lost in timeout'
+    metrics:
+      error_rate: 0.2878691868820032
+      response_time_ms: 7599
+      cpu_usage: 0.963971508714226
+      memory_usage: 0.945357476133964
+      requests_per_sec: 8068
+      backend_health_pct: 0.7365181708510666
+      connection_timeouts: 445
+- timestamp: '2025-05-23T17:30:50.312912'
+  event_type: backend_failure
+  description: 'Backend_Failure: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:19.312912'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: load-balancer
+    severity: high
+    duration: 134
+    log_snippet: '[2025-05-23 17:30:11] ERROR load-balancer: container crashed in
+      timeout'
+    metrics:
+      error_rate: 0.4272022738241722
+      response_time_ms: 8890
+      cpu_usage: 0.7633415593358229
+      memory_usage: 0.9564775183757506
+      requests_per_sec: 6445
+      backend_health_pct: 0.4187655545250622
+      connection_timeouts: 739
+- timestamp: '2025-05-23T17:31:24.312912'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:38.312912'
+  event_type: scaling
+  description: 'Scaling: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:40.312912'
+  event_type: backend_failure
+  description: 'Backend_Failure: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:45.312912'
+  event_type: scaling
+  description: 'Scaling: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:50.312912'
+  event_type: scaling
+  description: 'Scaling: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:45:50.312912'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

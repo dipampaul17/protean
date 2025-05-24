@@ -1,0 +1,162 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_184526",
+  "description": "Message queue and event processing failures",
+  "duration": 694,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.685391",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 4,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.685084",
+      "event_type": "trigger",
+      "description": "Initial failure detected: p error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:52.685084",
+      "event_type": "timeout",
+      "description": "Timeout: work queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-queue",
+        "severity": "medium",
+        "duration": 216,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-queue: queue processing work queue",
+        "metrics": {
+          "error_rate": 0.250387254526259,
+          "response_time_ms": 836,
+          "cpu_usage": 0.7685616533396208,
+          "memory_usage": 0.571071108786514,
+          "queue_depth": 19206,
+          "message_processing_rate": 6.3982739409356215,
+          "consumer_lag_ms": 71273
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:55.685084",
+      "event_type": "timeout",
+      "description": "Timeout: new queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "medium",
+        "duration": 147,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-queue: queue processing new queue",
+        "metrics": {
+          "error_rate": 0.18346826936334276,
+          "response_time_ms": 696,
+          "cpu_usage": 0.7859702944109357,
+          "memory_usage": 0.45161126097435916,
+          "queue_depth": 37900,
+          "message_processing_rate": 5.9553838922415,
+          "consumer_lag_ms": 145751
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:01.685084",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: error error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:06.685084",
+      "event_type": "timeout",
+      "description": "Timeout: task queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-queue",
+        "severity": "medium",
+        "duration": 115,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-queue: queue processing task queue",
+        "metrics": {
+          "error_rate": 0.199781935360187,
+          "response_time_ms": 473,
+          "cpu_usage": 0.7050255983459119,
+          "memory_usage": 0.48031392850042404,
+          "queue_depth": 38580,
+          "message_processing_rate": 9.238702069332211,
+          "consumer_lag_ms": 83361
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:09.685084",
+      "event_type": "timeout",
+      "description": "Timeout: that queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "medium",
+        "duration": 136,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR batch-processing-queue: queue processing that queue",
+        "metrics": {
+          "error_rate": 0.22014840125132099,
+          "response_time_ms": 1154,
+          "cpu_usage": 0.5274994577918275,
+          "memory_usage": 0.5196205742554159,
+          "queue_depth": 31243,
+          "message_processing_rate": 5.980390506088958,
+          "consumer_lag_ms": 183205
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:09.685084",
+      "event_type": "timeout",
+      "description": "Timeout: to restart",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 206,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR batch-processing-queue: queue processing to restart",
+        "metrics": {
+          "error_rate": 0.21508378106915133,
+          "response_time_ms": 9700,
+          "cpu_usage": 0.8532483067812746,
+          "memory_usage": 0.907091903175996,
+          "queue_depth": 2684,
+          "message_processing_rate": 1.6059175231958898,
+          "consumer_lag_ms": 234869
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:35.685084",
+      "event_type": "timeout",
+      "description": "Timeout: current node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-queue",
+        "severity": "high",
+        "duration": 47,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-queue: queue processing current node",
+        "metrics": {
+          "error_rate": 0.35977634951884285,
+          "response_time_ms": 1776,
+          "cpu_usage": 0.8158581496374556,
+          "memory_usage": 0.9887572291577755,
+          "queue_depth": 38850,
+          "message_processing_rate": 0.7727596729796868,
+          "consumer_lag_ms": 207746
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:57:00.685084",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

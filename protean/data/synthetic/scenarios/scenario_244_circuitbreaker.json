@@ -1,0 +1,120 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_172917",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 528,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.611332",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 2,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.611145",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:47.611145",
+      "event_type": "degradation",
+      "description": "Degradation: circuit breaker triggered",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "low",
+        "duration": 205,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.22156866632101985,
+          "response_time_ms": 1436,
+          "cpu_usage": 0.6993750180975726,
+          "memory_usage": 0.45927607356306405
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:49.611145",
+      "event_type": "degradation",
+      "description": "Degradation: container crashed",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 71,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.2576722063964503,
+          "response_time_ms": 8956,
+          "cpu_usage": 0.7267004890206507,
+          "memory_usage": 0.9815544171348525
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:02.611145",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 164,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.4308068596750576,
+          "response_time_ms": 8534,
+          "cpu_usage": 0.8088690052117673,
+          "memory_usage": 0.9268766792086267
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:26.611145",
+      "event_type": "degradation",
+      "description": "Degradation: network unreachable",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "low",
+        "duration": 99,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR user-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.20828025565667616,
+          "response_time_ms": 1772,
+          "cpu_usage": 0.400542785817458,
+          "memory_usage": 0.453398089537858
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:58.611145",
+      "event_type": "degradation",
+      "description": "Degradation: database connection lost",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 136,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.7453105580033238,
+          "response_time_ms": 7992,
+          "cpu_usage": 0.7645290128009186,
+          "memory_usage": 0.9184964186996056
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:05.611145",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

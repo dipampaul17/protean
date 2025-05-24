@@ -1,0 +1,88 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_184526
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 852
+metadata:
+  generated_at: '2025-05-23T18:45:26.689899'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.689557'
+  event_type: trigger
+  description: 'Initial failure detected: the node'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:52.689557'
+  event_type: recovery
+  description: 'Recovery: the log'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:01.689557'
+  event_type: failure
+  description: 'Failure: the server'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 47
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.532353992219596
+      response_time_ms: 2459
+      cpu_usage: 0.8528647984468006
+      memory_usage: 0.9384936722954856
+- timestamp: '2025-05-23T18:46:13.689557'
+  event_type: timeout
+  description: 'Timeout: kubernetes cluster'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 292
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: kubernetes cluster
+      - operation failed'
+    metrics:
+      error_rate: 0.7800866345562331
+      response_time_ms: 6148
+      cpu_usage: 0.9374863706886059
+      memory_usage: 0.9809962481379813
+- timestamp: '2025-05-23T18:46:33.689557'
+  event_type: recovery
+  description: 'Recovery: prometheus server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:37.689557'
+  event_type: failure
+  description: 'Failure: the log'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 216
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: the log - operation failed'
+    metrics:
+      error_rate: 0.2587310425591001
+      response_time_ms: 6475
+      cpu_usage: 0.9757238350824811
+      memory_usage: 0.9124548340691607
+- timestamp: '2025-05-23T18:47:11.689557'
+  event_type: timeout
+  description: 'Timeout: web server'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 281
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: web server - operation
+      failed'
+    metrics:
+      error_rate: 0.6287401561278224
+      response_time_ms: 4716
+      cpu_usage: 0.8066482520988741
+      memory_usage: 0.8954884933929808
+- timestamp: '2025-05-23T18:59:38.689557'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

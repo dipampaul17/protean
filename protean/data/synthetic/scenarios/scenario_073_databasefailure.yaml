@@ -1,0 +1,67 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173011
+description: Database connectivity and performance issues
+duration: 1685
+metadata:
+  generated_at: '2025-05-23T17:30:11.332054'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.331635'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:46.331635'
+  event_type: connection_loss
+  description: 'Connection_Loss: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:12.331635'
+  event_type: corruption
+  description: 'Corruption: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:22.331635'
+  event_type: connection_loss
+  description: 'Connection_Loss: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:20.331635'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:06.331635'
+  event_type: corruption
+  description: 'Corruption: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:10.331635'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 104
+    log_snippet: '[2025-05-23 17:30:11] FATAL mysql-primary: database disk space full
+      detected'
+    metrics:
+      error_rate: 0.3412406915318167
+      response_time_ms: 2252
+      cpu_usage: 0.9689050138410213
+      memory_usage: 0.9450348276109906
+      connection_pool_usage: 0.8197824606441102
+      query_time_ms: 7269
+      deadlocks_per_sec: 5
+- timestamp: '2025-05-23T17:33:16.331635'
+  event_type: connection_loss
+  description: 'Connection_Loss: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:27.331635'
+  event_type: corruption
+  description: 'Corruption: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:58:16.331635'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

@@ -1,0 +1,66 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173011
+description: Load balancer and traffic distribution problems
+duration: 1293
+metadata:
+  generated_at: '2025-05-23T17:30:11.347906'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.347722'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:32.347722'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:56.347722'
+  event_type: backend_failure
+  description: 'Backend_Failure: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:58.347722'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:12.347722'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:39.347722'
+  event_type: backend_failure
+  description: 'Backend_Failure: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:07.347722'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:11.347722'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 203
+    log_snippet: '[2025-05-23 17:30:11] ERROR vpc-main: deployment failed in timeout'
+    metrics:
+      error_rate: 0.15738541381009227
+      response_time_ms: 2484
+      cpu_usage: 0.9891312574259035
+      memory_usage: 0.9773871547392794
+      requests_per_sec: 8876
+      backend_health_pct: 0.5720410389033179
+      connection_timeouts: 134
+- timestamp: '2025-05-23T17:32:35.347722'
+  event_type: scaling
+  description: 'Scaling: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:51:44.347722'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

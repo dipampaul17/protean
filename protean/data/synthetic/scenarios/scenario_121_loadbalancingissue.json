@@ -1,0 +1,87 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173011",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 579,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.344522",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.344356",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:25.344356",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:43.344356",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:51.344356",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:08.344356",
+      "event_type": "scaling",
+      "description": "Scaling: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:13.344356",
+      "event_type": "timeout",
+      "description": "Timeout: disk space full",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 53,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-gateway: disk space full in timeout",
+        "metrics": {
+          "error_rate": 0.22505191279432024,
+          "response_time_ms": 7374,
+          "cpu_usage": 0.9732337740237468,
+          "memory_usage": 0.9050173939750095,
+          "requests_per_sec": 986,
+          "backend_health_pct": 0.6013517913785845,
+          "connection_timeouts": 187
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:17.344356",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:18.344356",
+      "event_type": "scaling",
+      "description": "Scaling: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:50.344356",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

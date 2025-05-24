@@ -1,0 +1,33 @@
+category: CascadingFailure
+name: CascadingFailure_20250523_172917
+description: Multi-service failure propagation scenario
+duration: 1688
+metadata:
+  generated_at: '2025-05-23T17:29:17.703300'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:29:17.703225'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:43.703225'
+  event_type: cascade
+  description: 'Cascade: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:43.703225'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:12.703225'
+  event_type: propagation
+  description: 'Propagation: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:57:25.703225'
+  event_type: recovery
+  description: 'System recovered: all services recovered'
+  injection_spec: null

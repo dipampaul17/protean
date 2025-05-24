@@ -1,0 +1,88 @@
+category: CloudNative
+name: CloudNative_20250523_173011
+description: Kubernetes pod and container orchestration issues
+duration: 917
+metadata:
+  generated_at: '2025-05-23T17:30:11.310699'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:30:11.310540'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:28.310540'
+  event_type: scaling
+  description: 'Scaling: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:40.310540'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 60
+    log_snippet: '[2025-05-23 17:30:11] ERROR nginx-proxy: circuit breaker triggered
+      in failure'
+    metrics:
+      error_rate: 0.7530017193305911
+      response_time_ms: 2995
+      cpu_usage: 0.8825723784152106
+      memory_usage: 0.8828072803710737
+- timestamp: '2025-05-23T17:31:28.310540'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 247
+    log_snippet: '[2025-05-23 17:30:11] ERROR api-backend: container crashed in failure'
+    metrics:
+      error_rate: 0.3348353237786639
+      response_time_ms: 3769
+      cpu_usage: 0.8725211129525324
+      memory_usage: 0.9171595431294188
+- timestamp: '2025-05-23T17:31:30.310540'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 61
+    log_snippet: '[2025-05-23 17:30:11] ERROR worker-consumer: container crashed in
+      failure'
+    metrics:
+      error_rate: 0.16186965526674177
+      response_time_ms: 2481
+      cpu_usage: 0.7498244186698628
+      memory_usage: 0.952429830330594
+- timestamp: '2025-05-23T17:31:50.310540'
+  event_type: pod_restart
+  description: 'Pod_Restart: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:30.310540'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 102
+    log_snippet: '[2025-05-23 17:30:11] ERROR nginx-proxy: database connection lost
+      in failure'
+    metrics:
+      error_rate: 0.39423896601662545
+      response_time_ms: 9105
+      cpu_usage: 0.9258082266773324
+      memory_usage: 0.8931830812791859
+- timestamp: '2025-05-23T17:45:28.310540'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

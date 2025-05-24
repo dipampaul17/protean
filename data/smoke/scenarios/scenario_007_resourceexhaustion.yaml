@@ -1,0 +1,44 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_184526
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 384
+metadata:
+  generated_at: '2025-05-23T18:45:26.551730'
+  phrase_templates_used: 50
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T18:45:26.551608'
+  event_type: trigger
+  description: 'Initial failure detected: in memory'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:48.551608'
+  event_type: timeout
+  description: 'Timeout: in memory'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 155
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: in memory - operation
+      failed'
+    metrics:
+      error_rate: 0.7994359148949405
+      response_time_ms: 6320
+      cpu_usage: 0.8786019962922496
+      memory_usage: 0.9029378727062307
+- timestamp: '2025-05-23T18:45:56.551608'
+  event_type: recovery
+  description: 'Recovery: http server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:31.551608'
+  event_type: recovery
+  description: 'Recovery: double scale'
+  injection_spec: null
+- timestamp: '2025-05-23T18:51:50.551608'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,72 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173011",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 609,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.369744",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.369623",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:25.369623",
+      "event_type": "deployment",
+      "description": "Deployment: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:30.369623",
+      "event_type": "deployment",
+      "description": "Deployment: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:45.369623",
+      "event_type": "deployment",
+      "description": "Deployment: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:04.369623",
+      "event_type": "deployment",
+      "description": "Deployment: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:05.369623",
+      "event_type": "failure",
+      "description": "Failure: memory limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 79,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-backend: memory limit exceeded in failure",
+        "metrics": {
+          "error_rate": 0.693922590720142,
+          "response_time_ms": 7151,
+          "cpu_usage": 0.7194864156199512,
+          "memory_usage": 0.9736392840736617
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:20.369623",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

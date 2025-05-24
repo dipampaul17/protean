@@ -1,0 +1,76 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_184526
+description: Database connectivity and performance issues
+duration: 659
+metadata:
+  generated_at: '2025-05-23T18:45:26.762601'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.761941'
+  event_type: trigger
+  description: 'Initial failure detected: relational database'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:52.761941'
+  event_type: corruption
+  description: 'Corruption: code error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:02.761941'
+  event_type: recovery
+  description: 'Recovery: your database'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:14.761941'
+  event_type: timeout
+  description: 'Timeout: the server'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 158
+    log_snippet: '[2025-05-23 18:45:26] ERROR redis-cache: the server in timeout'
+    metrics:
+      error_rate: 0.37795111671681914
+      response_time_ms: 1025
+      cpu_usage: 0.7470678956380041
+      memory_usage: 0.949444634855068
+      connection_pool_usage: 0.8802964999125472
+      query_time_ms: 9156
+      deadlocks_per_sec: 2
+- timestamp: '2025-05-23T18:46:34.761941'
+  event_type: recovery
+  description: 'Recovery: my database'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:40.761941'
+  event_type: timeout
+  description: 'Timeout: the service'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 136
+    log_snippet: '[2025-05-23 18:45:26] FATAL postgres-replica: database the service
+      detected'
+    metrics:
+      error_rate: 0.8428371051130895
+      response_time_ms: 7260
+      cpu_usage: 0.9124868258792357
+      memory_usage: 0.9650563628013952
+      connection_pool_usage: 0.9314795754841655
+      query_time_ms: 7987
+      deadlocks_per_sec: 7
+- timestamp: '2025-05-23T18:46:42.761941'
+  event_type: recovery
+  description: 'Recovery: mysql error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:57.761941'
+  event_type: recovery
+  description: 'Recovery: your database'
+  injection_spec: null
+- timestamp: '2025-05-23T18:56:25.761941'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

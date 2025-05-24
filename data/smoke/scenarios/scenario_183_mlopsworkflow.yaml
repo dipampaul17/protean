@@ -1,0 +1,85 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_184526
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1323
+metadata:
+  generated_at: '2025-05-23T18:45:26.694174'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.693971'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:14.693971'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 82
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.4691542829100692
+      response_time_ms: 8656
+      cpu_usage: 0.9295093194603131
+      memory_usage: 0.830063377864196
+- timestamp: '2025-05-23T18:48:16.693971'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 60
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: disk space full
+      - operation failed'
+    metrics:
+      error_rate: 0.4945618611799041
+      response_time_ms: 7905
+      cpu_usage: 0.8650782660576406
+      memory_usage: 0.9088318787412525
+- timestamp: '2025-05-23T18:48:53.693971'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T18:49:07.693971'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 255
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.5458167280389014
+      response_time_ms: 3361
+      cpu_usage: 0.9143821686375727
+      memory_usage: 0.9822631523370109
+- timestamp: '2025-05-23T18:49:46.693971'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 291
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.17412180351491716
+      response_time_ms: 2257
+      cpu_usage: 0.9730563416394126
+      memory_usage: 0.9262853065479105
+- timestamp: '2025-05-23T19:07:29.693971'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

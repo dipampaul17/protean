@@ -1,0 +1,48 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_172917
+description: Application deployment and rollback scenarios
+duration: 1442
+metadata:
+  generated_at: '2025-05-23T17:29:17.713326'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.713213'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:27.713213'
+  event_type: scaling
+  description: 'Scaling: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:21.713213'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 117
+    log_snippet: '[2025-05-23 17:29:17] ERROR api-backend: circuit breaker triggered
+      in failure'
+    metrics:
+      error_rate: 0.27725895234723286
+      response_time_ms: 4359
+      cpu_usage: 0.9127515970826096
+      memory_usage: 0.8060527777967809
+- timestamp: '2025-05-23T17:33:47.713213'
+  event_type: rollback
+  description: 'Rollback: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:56.713213'
+  event_type: deployment
+  description: 'Deployment: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:53:19.713213'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

@@ -1,0 +1,48 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_172917
+description: Application deployment and rollback scenarios
+duration: 400
+metadata:
+  generated_at: '2025-05-23T17:29:17.538356'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.538258'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:43.538258'
+  event_type: deployment
+  description: 'Deployment: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:52.538258'
+  event_type: scaling
+  description: 'Scaling: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:54.538258'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 226
+    log_snippet: '[2025-05-23 17:29:17] ERROR worker-consumer: deployment failed in
+      failure'
+    metrics:
+      error_rate: 0.8771237537731923
+      response_time_ms: 6989
+      cpu_usage: 0.9259516360445741
+      memory_usage: 0.8377726659118618
+- timestamp: '2025-05-23T17:30:00.538258'
+  event_type: rollback
+  description: 'Rollback: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:57.538258'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

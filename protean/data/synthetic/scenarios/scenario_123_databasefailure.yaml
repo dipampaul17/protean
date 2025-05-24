@@ -1,0 +1,65 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173011
+description: Database connectivity and performance issues
+duration: 666
+metadata:
+  generated_at: '2025-05-23T17:30:11.345536'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.344777'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:25.344777'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 176
+    log_snippet: '[2025-05-23 17:30:11] FATAL postgres-replica: database memory limit
+      exceeded detected'
+    metrics:
+      error_rate: 0.2940045277869887
+      response_time_ms: 9373
+      cpu_usage: 0.7805452194545268
+      memory_usage: 0.8669752647451585
+      connection_pool_usage: 0.9183704582230483
+      query_time_ms: 13413
+      deadlocks_per_sec: 7
+- timestamp: '2025-05-23T17:31:32.344777'
+  event_type: corruption
+  description: 'Corruption: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:04.344777'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:11.344777'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 196
+    log_snippet: '[2025-05-23 17:30:11] ERROR redis-cache: database connection lost
+      in timeout'
+    metrics:
+      error_rate: 0.5590571282029558
+      response_time_ms: 7291
+      cpu_usage: 0.8152268409998293
+      memory_usage: 0.995971197517896
+      connection_pool_usage: 0.8752063608552714
+      query_time_ms: 27538
+      deadlocks_per_sec: 8
+- timestamp: '2025-05-23T17:41:17.344777'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

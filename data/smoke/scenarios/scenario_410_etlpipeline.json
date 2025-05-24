@@ -1,0 +1,126 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_184526",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 1400,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.785158",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.784921",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:37.784921",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 258,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.17731365421139236,
+          "response_time_ms": 2060,
+          "cpu_usage": 0.924855289274617,
+          "memory_usage": 0.9109514606485466
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:26.784921",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 108,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.638783068415876,
+          "response_time_ms": 6424,
+          "cpu_usage": 0.7755682990103286,
+          "memory_usage": 0.9120738327096303
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:32.784921",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 250,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.8395360995701607,
+          "response_time_ms": 2819,
+          "cpu_usage": 0.9814190123477984,
+          "memory_usage": 0.9398838274240965
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:45.784921",
+      "event_type": "timeout",
+      "description": "Timeout: disk space full",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 160,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.6065844635748007,
+          "response_time_ms": 9142,
+          "cpu_usage": 0.7105051765090044,
+          "memory_usage": 0.9599660730662801
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:09.784921",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 94,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.765301773245603,
+          "response_time_ms": 1877,
+          "cpu_usage": 0.7185643900859539,
+          "memory_usage": 0.8764212112827707
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:49:16.784921",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:08:46.784921",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

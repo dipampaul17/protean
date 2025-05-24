@@ -1,0 +1,96 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_184526",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 862,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.742669",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.741718",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a deployment",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:46.741718",
+      "event_type": "deployment",
+      "description": "Deployment: failed to",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:05.741718",
+      "event_type": "deployment",
+      "description": "Deployment: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:33.741718",
+      "event_type": "failure",
+      "description": "Failure: using jenkins",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 176,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR worker-consumer: using jenkins in failure",
+        "metrics": {
+          "error_rate": 0.7926495801547943,
+          "response_time_ms": 1528,
+          "cpu_usage": 0.8542138989999553,
+          "memory_usage": 0.8472328033273678
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:44.741718",
+      "event_type": "deployment",
+      "description": "Deployment: using docker",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:48.741718",
+      "event_type": "deployment",
+      "description": "Deployment: code error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:16.741718",
+      "event_type": "failure",
+      "description": "Failure: using docker",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 206,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR worker-consumer: using docker in failure",
+        "metrics": {
+          "error_rate": 0.615087337984422,
+          "response_time_ms": 9178,
+          "cpu_usage": 0.9473716500145405,
+          "memory_usage": 0.9807684803485901
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:23.741718",
+      "event_type": "deployment",
+      "description": "Deployment: my deployment",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:59:48.741718",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

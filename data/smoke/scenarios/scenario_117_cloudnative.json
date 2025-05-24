@@ -1,0 +1,78 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_184526",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 1065,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.656359",
+    "phrase_templates_used": 39,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.655744",
+      "event_type": "trigger",
+      "description": "Initial failure detected: api server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:21.655744",
+      "event_type": "failure",
+      "description": "Failure: any log",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 95,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR nginx-proxy: any log in failure",
+        "metrics": {
+          "error_rate": 0.2938308284122398,
+          "response_time_ms": 5128,
+          "cpu_usage": 0.890989321317361,
+          "memory_usage": 0.8483768890126557
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:35.655744",
+      "event_type": "deployment",
+      "description": "Deployment: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:22.655744",
+      "event_type": "failure",
+      "description": "Failure: kubernetes pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 146,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR worker-consumer: kubernetes pod in failure",
+        "metrics": {
+          "error_rate": 0.5898603505163684,
+          "response_time_ms": 1788,
+          "cpu_usage": 0.7733730405379964,
+          "memory_usage": 0.8629337276814635
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:42.655744",
+      "event_type": "deployment",
+      "description": "Deployment: getting error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:03:11.655744",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

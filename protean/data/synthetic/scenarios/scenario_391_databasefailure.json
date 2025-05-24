@@ -1,0 +1,63 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173011",
+  "description": "Database connectivity and performance issues",
+  "duration": 1403,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.420218",
+    "phrase_templates_used": 0,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.420135",
+      "event_type": "trigger",
+      "description": "Initial failure detected: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:30.420135",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 151,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR mongodb-shard: deployment failed in timeout",
+        "metrics": {
+          "error_rate": 0.7565722034257111,
+          "response_time_ms": 5241,
+          "cpu_usage": 0.7003967563327588,
+          "memory_usage": 0.9864076057292117,
+          "connection_pool_usage": 0.957737482826902,
+          "query_time_ms": 14101,
+          "deadlocks_per_sec": 10
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:07.420135",
+      "event_type": "corruption",
+      "description": "Corruption: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:49.420135",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:53:34.420135",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

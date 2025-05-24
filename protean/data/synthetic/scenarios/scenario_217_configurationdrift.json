@@ -1,0 +1,78 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173011",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1037,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.369600",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.369493",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:40.369493",
+      "event_type": "restart",
+      "description": "Restart: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:27.369493",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 130,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR auth-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.6762303988308648,
+          "response_time_ms": 6764,
+          "cpu_usage": 0.8698027890451174,
+          "memory_usage": 0.8754310249562463
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:06.369493",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 181,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.8995854184711712,
+          "response_time_ms": 5605,
+          "cpu_usage": 0.9668848391443974,
+          "memory_usage": 0.9317947626429945
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:29.369493",
+      "event_type": "rollback",
+      "description": "Rollback: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:28.369493",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

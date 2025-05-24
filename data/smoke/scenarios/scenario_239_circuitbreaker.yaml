@@ -1,0 +1,99 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_184526
+description: Circuit breaker activation due to cascading service failures
+duration: 1189
+metadata:
+  generated_at: '2025-05-23T18:45:26.727646'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 3
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.727396'
+  event_type: trigger
+  description: 'Initial failure detected: uwsgi server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:03.727396'
+  event_type: failure
+  description: 'Failure: connection refused'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 297
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: connection refused
+      - operation failed'
+    metrics:
+      error_rate: 0.12679664331068424
+      response_time_ms: 7017
+      cpu_usage: 0.8281948062332244
+      memory_usage: 0.9170698014432754
+- timestamp: '2025-05-23T18:47:14.727396'
+  event_type: timeout
+  description: 'Timeout: a timeout'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 129
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: a timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.38416815187459585
+      response_time_ms: 4340
+      cpu_usage: 0.953809123069577
+      memory_usage: 0.82789355193757
+- timestamp: '2025-05-23T18:47:38.727396'
+  event_type: degradation
+  description: 'Degradation: client error'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: low
+    duration: 114
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: client error - operation
+      failed'
+    metrics:
+      error_rate: 0.16459430604011158
+      response_time_ms: 300
+      cpu_usage: 0.6441736156657076
+      memory_usage: 0.5382302188039925
+- timestamp: '2025-05-23T18:47:46.727396'
+  event_type: recovery
+  description: 'Recovery: to monitor'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:11.727396'
+  event_type: degradation
+  description: 'Degradation: to resolve'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: low
+    duration: 132
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: to resolve - operation
+      failed'
+    metrics:
+      error_rate: 0.09273016446286783
+      response_time_ms: 1133
+      cpu_usage: 0.5244120249209336
+      memory_usage: 0.48320347524548024
+- timestamp: '2025-05-23T18:48:31.727396'
+  event_type: degradation
+  description: 'Degradation: an error'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: low
+    duration: 224
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: an error - operation failed'
+    metrics:
+      error_rate: 0.21212837420368894
+      response_time_ms: 482
+      cpu_usage: 0.424331384808529
+      memory_usage: 0.5661395998428218
+- timestamp: '2025-05-23T19:05:15.727396'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

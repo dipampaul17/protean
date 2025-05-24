@@ -1,0 +1,85 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_184526
+description: Database connectivity and performance issues
+duration: 467
+metadata:
+  generated_at: '2025-05-23T18:45:26.746182'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.745594'
+  event_type: trigger
+  description: 'Initial failure detected: my database'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:45.745594'
+  event_type: recovery
+  description: 'Recovery: to update'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:13.745594'
+  event_type: timeout
+  description: 'Timeout: p error'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 264
+    log_snippet: '[2025-05-23 18:45:26] ERROR mongodb-shard: p error in timeout'
+    metrics:
+      error_rate: 0.762624581370439
+      response_time_ms: 2858
+      cpu_usage: 0.9023951795688728
+      memory_usage: 0.9045466342865719
+      connection_pool_usage: 0.9999956222372812
+      query_time_ms: 16522
+      deadlocks_per_sec: 5
+- timestamp: '2025-05-23T18:46:20.745594'
+  event_type: timeout
+  description: 'Timeout: get update'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 82
+    log_snippet: '[2025-05-23 18:45:26] ERROR mongodb-shard: get update in timeout'
+    metrics:
+      error_rate: 0.44315567043131954
+      response_time_ms: 5167
+      cpu_usage: 0.9391753116117738
+      memory_usage: 0.95464486384134
+      connection_pool_usage: 0.9958591977427722
+      query_time_ms: 23832
+      deadlocks_per_sec: 5
+- timestamp: '2025-05-23T18:46:28.745594'
+  event_type: corruption
+  description: 'Corruption: relational database'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:32.745594'
+  event_type: timeout
+  description: 'Timeout: code error'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 168
+    log_snippet: '[2025-05-23 18:45:26] FATAL postgres-replica: database code error
+      detected'
+    metrics:
+      error_rate: 0.8316481956831182
+      response_time_ms: 8083
+      cpu_usage: 0.8985836584339963
+      memory_usage: 0.9791321788638763
+      connection_pool_usage: 0.8732431518586586
+      query_time_ms: 19049
+      deadlocks_per_sec: 3
+- timestamp: '2025-05-23T18:46:34.745594'
+  event_type: connection_loss
+  description: 'Connection_Loss: message queue'
+  injection_spec: null
+- timestamp: '2025-05-23T18:53:13.745594'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

@@ -1,0 +1,62 @@
+category: CloudNative
+name: CloudNative_20250523_172917
+description: Kubernetes pod and container orchestration issues
+duration: 399
+metadata:
+  generated_at: '2025-05-23T17:29:17.723926'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.723622'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:30.723622'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 160
+    log_snippet: '[2025-05-23 17:29:17] ERROR web-frontend: circuit breaker triggered
+      in failure'
+    metrics:
+      error_rate: 0.43165466239968964
+      response_time_ms: 6509
+      cpu_usage: 0.9422485068035232
+      memory_usage: 0.9273100429068795
+- timestamp: '2025-05-23T17:29:42.723622'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 79
+    log_snippet: '[2025-05-23 17:29:17] ERROR web-frontend: disk space full in failure'
+    metrics:
+      error_rate: 0.33162287662570106
+      response_time_ms: 4440
+      cpu_usage: 0.9834574779633404
+      memory_usage: 0.9144829018998873
+- timestamp: '2025-05-23T17:30:02.723622'
+  event_type: scaling
+  description: 'Scaling: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:03.723622'
+  event_type: scaling
+  description: 'Scaling: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:22.723622'
+  event_type: pod_restart
+  description: 'Pod_Restart: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:56.723622'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

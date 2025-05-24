@@ -1,0 +1,102 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_184526",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 621,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.704185",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.703788",
+      "event_type": "trigger",
+      "description": "Initial failure detected: var log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:36.703788",
+      "event_type": "restart",
+      "description": "Restart: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:43.703788",
+      "event_type": "failure",
+      "description": "Failure: code server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 83,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: code server - operation failed",
+        "metrics": {
+          "error_rate": 0.4668691175494756,
+          "response_time_ms": 2036,
+          "cpu_usage": 0.8100332345182988,
+          "memory_usage": 0.8178986385559867
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:06.703788",
+      "event_type": "failure",
+      "description": "Failure: redis node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 223,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: redis node - operation failed",
+        "metrics": {
+          "error_rate": 0.7479950685359759,
+          "response_time_ms": 3290,
+          "cpu_usage": 0.7008174422973006,
+          "memory_usage": 0.811276287618113
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:28.703788",
+      "event_type": "config_change",
+      "description": "Config_Change: using docker",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:44.703788",
+      "event_type": "failure",
+      "description": "Failure: the server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 263,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.7668096214667597,
+          "response_time_ms": 5952,
+          "cpu_usage": 0.7938947814269163,
+          "memory_usage": 0.9588095384366306
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:56.703788",
+      "event_type": "config_change",
+      "description": "Config_Change: using docker",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:55:47.703788",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

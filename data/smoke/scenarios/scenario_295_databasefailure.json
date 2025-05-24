@@ -1,0 +1,69 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_184526",
+  "description": "Database connectivity and performance issues",
+  "duration": 445,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.746585",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.746437",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:44.746437",
+      "event_type": "timeout",
+      "description": "Timeout: the server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 105,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR mongodb-shard: the server in timeout",
+        "metrics": {
+          "error_rate": 0.5692628475198802,
+          "response_time_ms": 8694,
+          "cpu_usage": 0.7695162523698892,
+          "memory_usage": 0.8035590072676876,
+          "connection_pool_usage": 0.9689962989959682,
+          "query_time_ms": 12497,
+          "deadlocks_per_sec": 4
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:53.746437",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: redis server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:53.746437",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:12.746437",
+      "event_type": "recovery",
+      "description": "Recovery: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:52:51.746437",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

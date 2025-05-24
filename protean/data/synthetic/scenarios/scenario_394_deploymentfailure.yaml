@@ -1,0 +1,56 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173011
+description: Application deployment and rollback scenarios
+duration: 1146
+metadata:
+  generated_at: '2025-05-23T17:30:11.420656'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.420522'
+  event_type: trigger
+  description: 'Initial failure detected: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:55.420522'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 253
+    log_snippet: '[2025-05-23 17:30:11] ERROR web-frontend: network unreachable in
+      failure'
+    metrics:
+      error_rate: 0.6697058337414672
+      response_time_ms: 2739
+      cpu_usage: 0.7074837109208489
+      memory_usage: 0.8065514854411842
+- timestamp: '2025-05-23T17:31:32.420522'
+  event_type: scaling
+  description: 'Scaling: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:35.420522'
+  event_type: deployment
+  description: 'Deployment: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:47.420522'
+  event_type: scaling
+  description: 'Scaling: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:23.420522'
+  event_type: deployment
+  description: 'Deployment: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:35.420522'
+  event_type: rollback
+  description: 'Rollback: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:17.420522'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

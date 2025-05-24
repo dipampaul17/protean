@@ -1,0 +1,102 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_184526",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 533,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.750346",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.750125",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:38.750125",
+      "event_type": "failure",
+      "description": "Failure: to update",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 193,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: to update - operation failed",
+        "metrics": {
+          "error_rate": 0.7939140872653491,
+          "response_time_ms": 8920,
+          "cpu_usage": 0.7499224141785373,
+          "memory_usage": 0.8584642491993073
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:04.750125",
+      "event_type": "config_change",
+      "description": "Config_Change: kubernetes service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:07.750125",
+      "event_type": "rollback",
+      "description": "Rollback: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:19.750125",
+      "event_type": "failure",
+      "description": "Failure: the queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "medium",
+        "duration": 129,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.15550719963166748,
+          "response_time_ms": 1713,
+          "cpu_usage": 0.6429907548662348,
+          "memory_usage": 0.610505025120872
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:26.750125",
+      "event_type": "failure",
+      "description": "Failure: nginx container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 64,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: nginx container - operation failed",
+        "metrics": {
+          "error_rate": 0.8846246375836054,
+          "response_time_ms": 6909,
+          "cpu_usage": 0.7929517897681283,
+          "memory_usage": 0.898965823727425
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:41.750125",
+      "event_type": "rollback",
+      "description": "Rollback: the cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:54:19.750125",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

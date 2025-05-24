@@ -1,0 +1,69 @@
+category: EventDriven
+name: EventDriven_20250523_173011
+description: Message queue and event processing failures
+duration: 419
+metadata:
+  generated_at: '2025-05-23T17:30:11.334139'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.333825'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:43.333825'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: high
+    duration: 221
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-queue: queue processing
+      network unreachable'
+    metrics:
+      error_rate: 0.4439618077399159
+      response_time_ms: 1299
+      cpu_usage: 0.9702217460007838
+      memory_usage: 0.8811704404613919
+      queue_depth: 27792
+      message_processing_rate: 6.741137494919071
+      consumer_lag_ms: 171287
+- timestamp: '2025-05-23T17:30:49.333825'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:58.333825'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 185
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-queue: queue processing network
+      unreachable'
+    metrics:
+      error_rate: 0.2512927151027442
+      response_time_ms: 2883
+      cpu_usage: 0.9654085681430539
+      memory_usage: 0.9310335272369199
+      queue_depth: 34717
+      message_processing_rate: 1.955285516145463
+      consumer_lag_ms: 267832
+- timestamp: '2025-05-23T17:31:02.333825'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:08.333825'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:10.333825'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

@@ -1,0 +1,162 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_184526",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 1589,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.768903",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 7
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.768590",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:33.768590",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 149,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.8567363883310117,
+          "response_time_ms": 2099,
+          "cpu_usage": 0.8158707837688551,
+          "memory_usage": 0.8583892241966159
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:37.768590",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:47.768590",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 286,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.3224733417875075,
+          "response_time_ms": 6660,
+          "cpu_usage": 0.7145199748205529,
+          "memory_usage": 0.9330637398871655
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:06.768590",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 71,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.6603216587417686,
+          "response_time_ms": 9717,
+          "cpu_usage": 0.9209955223587933,
+          "memory_usage": 0.9842029646151129
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:19.768590",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 222,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.44387119468552916,
+          "response_time_ms": 4329,
+          "cpu_usage": 0.8792920749008373,
+          "memory_usage": 0.988629156134436
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:48.768590",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 93,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.6064437922052986,
+          "response_time_ms": 1617,
+          "cpu_usage": 0.9338759119849491,
+          "memory_usage": 0.9799713354495481
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:49.768590",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 178,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.423742973350124,
+          "response_time_ms": 7295,
+          "cpu_usage": 0.9992952640513146,
+          "memory_usage": 0.9517981568134133
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:38.768590",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 101,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.20865111282889126,
+          "response_time_ms": 1186,
+          "cpu_usage": 0.7467799151535499,
+          "memory_usage": 0.8574385509397082
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:11:55.768590",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

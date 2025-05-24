@@ -1,0 +1,45 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_172917
+description: Application deployment and rollback scenarios
+duration: 1045
+metadata:
+  generated_at: '2025-05-23T17:29:17.695141'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:29:17.694958'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:34.694958'
+  event_type: scaling
+  description: 'Scaling: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:11.694958'
+  event_type: scaling
+  description: 'Scaling: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:57.694958'
+  event_type: deployment
+  description: 'Deployment: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:18.694958'
+  event_type: deployment
+  description: 'Deployment: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:54.694958'
+  event_type: deployment
+  description: 'Deployment: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:06.694958'
+  event_type: rollback
+  description: 'Rollback: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:42.694958'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

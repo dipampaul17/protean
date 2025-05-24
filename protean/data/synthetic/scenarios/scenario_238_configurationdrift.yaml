@@ -1,0 +1,97 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173011
+description: Configuration inconsistencies causing service degradation
+duration: 1430
+metadata:
+  generated_at: '2025-05-23T17:30:11.374508'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:30:11.374312'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:25.374312'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 86
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.7253507875831754
+      response_time_ms: 5765
+      cpu_usage: 0.8953680138007529
+      memory_usage: 0.9853278284872982
+- timestamp: '2025-05-23T17:30:33.374312'
+  event_type: restart
+  description: 'Restart: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:35.374312'
+  event_type: config_change
+  description: 'Config_Change: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:37.374312'
+  event_type: restart
+  description: 'Restart: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:49.374312'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 66
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.8775025520076157
+      response_time_ms: 3111
+      cpu_usage: 0.8129889948582175
+      memory_usage: 0.80241312446291
+- timestamp: '2025-05-23T17:32:00.374312'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 171
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: container crashed - operation
+      failed'
+    metrics:
+      error_rate: 0.7401243347839913
+      response_time_ms: 2533
+      cpu_usage: 0.8771525690096931
+      memory_usage: 0.956368120616969
+- timestamp: '2025-05-23T17:32:21.374312'
+  event_type: rollback
+  description: 'Rollback: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:58.374312'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 265
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.44096167216512727
+      response_time_ms: 4263
+      cpu_usage: 0.7170582228607749
+      memory_usage: 0.8141447033108395
+- timestamp: '2025-05-23T17:54:01.374312'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

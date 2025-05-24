@@ -1,0 +1,144 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173011",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1206,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.444938",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.444743",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:30.444743",
+      "event_type": "degradation",
+      "description": "Degradation: deployment failed",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 200,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.39647270474653673,
+          "response_time_ms": 9298,
+          "cpu_usage": 0.9358759864167592,
+          "memory_usage": 0.8997683007995846
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:34.444743",
+      "event_type": "degradation",
+      "description": "Degradation: deployment failed",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 174,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.7213240091330353,
+          "response_time_ms": 1561,
+          "cpu_usage": 0.8895147649340727,
+          "memory_usage": 0.922316245183181
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:36.444743",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 81,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR user-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.6288320987073219,
+          "response_time_ms": 7936,
+          "cpu_usage": 0.7611300841497997,
+          "memory_usage": 0.9677867035819757
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:45.444743",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 46,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.3793840332034394,
+          "response_time_ms": 9661,
+          "cpu_usage": 0.9723733657473965,
+          "memory_usage": 0.8041728346480654
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:56.444743",
+      "event_type": "degradation",
+      "description": "Degradation: queue overflow",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 287,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.7233182714135702,
+          "response_time_ms": 4019,
+          "cpu_usage": 0.86412732941664,
+          "memory_usage": 0.8194765010675218
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:54.444743",
+      "event_type": "degradation",
+      "description": "Degradation: connection timeout",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 84,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.20251164512233588,
+          "response_time_ms": 2314,
+          "cpu_usage": 0.8388645088976258,
+          "memory_usage": 0.8638785831393454
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:59.444743",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:17.444743",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+category: EventDriven
+name: EventDriven_20250523_172917
+description: Message queue and event processing failures
+duration: 658
+metadata:
+  generated_at: '2025-05-23T17:29:17.685523'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:29:17.685344'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:30.685344'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: high
+    duration: 170
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-queue: queue processing
+      network unreachable'
+    metrics:
+      error_rate: 0.4844988475092765
+      response_time_ms: 9993
+      cpu_usage: 0.9378101548838691
+      memory_usage: 0.992901950172557
+      queue_depth: 44109
+      message_processing_rate: 0.5943970507704049
+      consumer_lag_ms: 263201
+- timestamp: '2025-05-23T17:29:48.685344'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: high
+    duration: 246
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-queue: queue processing
+      deployment failed'
+    metrics:
+      error_rate: 0.3380226610680528
+      response_time_ms: 3170
+      cpu_usage: 0.9251228068143731
+      memory_usage: 0.8739658356212924
+      queue_depth: 1726
+      message_processing_rate: 1.132313837070722
+      consumer_lag_ms: 80110
+- timestamp: '2025-05-23T17:29:54.685344'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:57.685344'
+  event_type: message_loss
+  description: 'Message_Loss: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:03.685344'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: high
+    duration: 66
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-queue: queue processing
+      deployment failed'
+    metrics:
+      error_rate: 0.1262147372709709
+      response_time_ms: 6741
+      cpu_usage: 0.9819983564379073
+      memory_usage: 0.9035092080614081
+      queue_depth: 3677
+      message_processing_rate: 5.148105388011259
+      consumer_lag_ms: 142249
+- timestamp: '2025-05-23T17:30:29.685344'
+  event_type: message_loss
+  description: 'Message_Loss: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:33.685344'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:15.685344'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

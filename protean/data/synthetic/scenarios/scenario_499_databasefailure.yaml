@@ -1,0 +1,104 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_172917
+description: Database connectivity and performance issues
+duration: 740
+metadata:
+  generated_at: '2025-05-23T17:29:17.751800'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:29:17.751582'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:30.751582'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 258
+    log_snippet: '[2025-05-23 17:29:17] ERROR redis-cache: container crashed in timeout'
+    metrics:
+      error_rate: 0.7475463668340406
+      response_time_ms: 7880
+      cpu_usage: 0.9904218465214305
+      memory_usage: 0.8344808567397501
+      connection_pool_usage: 0.8967866270504466
+      query_time_ms: 29931
+      deadlocks_per_sec: 7
+- timestamp: '2025-05-23T17:29:34.751582'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 259
+    log_snippet: '[2025-05-23 17:29:17] FATAL mysql-primary: database disk space full
+      detected'
+    metrics:
+      error_rate: 0.7729843887941672
+      response_time_ms: 9521
+      cpu_usage: 0.8437302282329123
+      memory_usage: 0.8301000085645739
+      connection_pool_usage: 0.89264449647465
+      query_time_ms: 25373
+      deadlocks_per_sec: 10
+- timestamp: '2025-05-23T17:29:41.751582'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:53.751582'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 101
+    log_snippet: '[2025-05-23 17:29:17] ERROR mongodb-shard: database connection lost
+      in timeout'
+    metrics:
+      error_rate: 0.5383823765472211
+      response_time_ms: 7975
+      cpu_usage: 0.8396859520556395
+      memory_usage: 0.9379428723380542
+      connection_pool_usage: 0.9519634543957785
+      query_time_ms: 21318
+      deadlocks_per_sec: 6
+- timestamp: '2025-05-23T17:30:30.751582'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 162
+    log_snippet: '[2025-05-23 17:29:17] ERROR redis-cache: rate limit exceeded in
+      timeout'
+    metrics:
+      error_rate: 0.36987508070573305
+      response_time_ms: 2042
+      cpu_usage: 0.9215288553015654
+      memory_usage: 0.9722010770547639
+      connection_pool_usage: 0.9803922858319877
+      query_time_ms: 24476
+      deadlocks_per_sec: 9
+- timestamp: '2025-05-23T17:30:37.751582'
+  event_type: corruption
+  description: 'Corruption: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:57.751582'
+  event_type: corruption
+  description: 'Corruption: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:37.751582'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

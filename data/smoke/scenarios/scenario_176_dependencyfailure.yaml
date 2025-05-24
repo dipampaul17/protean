@@ -1,0 +1,104 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_184526
+description: Infrastructure failure scenario for DependencyFailure
+duration: 699
+metadata:
+  generated_at: '2025-05-23T18:45:26.691309'
+  phrase_templates_used: 45
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.691051'
+  event_type: trigger
+  description: 'Initial failure detected: proxy server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:45.691051'
+  event_type: timeout
+  description: 'Timeout: coirq error'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 241
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: coirq error -
+      operation failed'
+    metrics:
+      error_rate: 0.640491560573089
+      response_time_ms: 1916
+      cpu_usage: 0.9791293101982235
+      memory_usage: 0.9663314191890018
+- timestamp: '2025-05-23T18:45:50.691051'
+  event_type: recovery
+  description: 'Recovery: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:32.691051'
+  event_type: timeout
+  description: 'Timeout: the error'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 69
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.3979692092042092
+      response_time_ms: 2905
+      cpu_usage: 0.8265965449685219
+      memory_usage: 0.9777406053587374
+- timestamp: '2025-05-23T18:46:34.691051'
+  event_type: recovery
+  description: 'Recovery: var log'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:35.691051'
+  event_type: timeout
+  description: 'Timeout: to monitor'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 260
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: to monitor - operation
+      failed'
+    metrics:
+      error_rate: 0.23299214787265
+      response_time_ms: 2211
+      cpu_usage: 0.964421738198945
+      memory_usage: 0.9874879290622229
+- timestamp: '2025-05-23T18:46:40.691051'
+  event_type: failure
+  description: 'Failure: exist error'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 236
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: exist error - operation
+      failed'
+    metrics:
+      error_rate: 0.7751767352448556
+      response_time_ms: 2836
+      cpu_usage: 0.8353359835956458
+      memory_usage: 0.8145685589832944
+- timestamp: '2025-05-23T18:46:56.691051'
+  event_type: timeout
+  description: 'Timeout: the queue'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: medium
+    duration: 34
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: the queue - operation
+      failed'
+    metrics:
+      error_rate: 0.05381144367606277
+      response_time_ms: 1956
+      cpu_usage: 0.573346446001864
+      memory_usage: 0.43984854349025926
+- timestamp: '2025-05-23T18:57:05.691051'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

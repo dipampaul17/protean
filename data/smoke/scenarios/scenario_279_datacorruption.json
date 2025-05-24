@@ -1,0 +1,132 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_184526",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 896,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.740099",
+    "phrase_templates_used": 36,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.739840",
+      "event_type": "trigger",
+      "description": "Initial failure detected: instance storage",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:55.739840",
+      "event_type": "timeout",
+      "description": "Timeout: to resolve",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 58,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: to resolve - operation failed",
+        "metrics": {
+          "error_rate": 0.1319037267100754,
+          "response_time_ms": 3656,
+          "cpu_usage": 0.9152620300396362,
+          "memory_usage": 0.8955798719341357
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:00.739840",
+      "event_type": "timeout",
+      "description": "Timeout: a cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 277,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: a cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.8358022951403833,
+          "response_time_ms": 9829,
+          "cpu_usage": 0.9643922970652414,
+          "memory_usage": 0.9680683051225842
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:05.739840",
+      "event_type": "timeout",
+      "description": "Timeout: new container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 70,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: new container - operation failed",
+        "metrics": {
+          "error_rate": 0.2538320619784218,
+          "response_time_ms": 2417,
+          "cpu_usage": 0.8640349004089896,
+          "memory_usage": 0.9893973915572225
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:28.739840",
+      "event_type": "recovery",
+      "description": "Recovery: the cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:46.739840",
+      "event_type": "timeout",
+      "description": "Timeout: the connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 60,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: the connection - operation failed",
+        "metrics": {
+          "error_rate": 0.3331069912918061,
+          "response_time_ms": 2591,
+          "cpu_usage": 0.8431742010899785,
+          "memory_usage": 0.8946872625731594
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:14.739840",
+      "event_type": "failure",
+      "description": "Failure: same node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 168,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: same node - operation failed",
+        "metrics": {
+          "error_rate": 0.8165820611818957,
+          "response_time_ms": 4308,
+          "cpu_usage": 0.7774414323123384,
+          "memory_usage": 0.8080502029617205
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:23.739840",
+      "event_type": "recovery",
+      "description": "Recovery: to resolve",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:00:22.739840",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

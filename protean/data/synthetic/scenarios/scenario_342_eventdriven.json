@@ -1,0 +1,93 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173011",
+  "description": "Message queue and event processing failures",
+  "duration": 814,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.405153",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.404983",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:35.404983",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:48.404983",
+      "event_type": "message_loss",
+      "description": "Message_Loss: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:48.404983",
+      "event_type": "message_loss",
+      "description": "Message_Loss: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:13.404983",
+      "event_type": "message_loss",
+      "description": "Message_Loss: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:23.404983",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:40.404983",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 187,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR batch-processing-queue: queue processing service unavailable",
+        "metrics": {
+          "error_rate": 0.6430644755883143,
+          "response_time_ms": 6500,
+          "cpu_usage": 0.9993987794100756,
+          "memory_usage": 0.823675537461585,
+          "queue_depth": 16753,
+          "message_processing_rate": 6.035054363157937,
+          "consumer_lag_ms": 169545
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:50.404983",
+      "event_type": "message_loss",
+      "description": "Message_Loss: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:52.404983",
+      "event_type": "message_loss",
+      "description": "Message_Loss: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:43:45.404983",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

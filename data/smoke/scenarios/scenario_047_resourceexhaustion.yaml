@@ -1,0 +1,82 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_184526
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 689
+metadata:
+  generated_at: '2025-05-23T18:45:26.568003'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.567299'
+  event_type: trigger
+  description: 'Initial failure detected: redis connection'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:40.567299'
+  event_type: recovery
+  description: 'Recovery: us log'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:42.567299'
+  event_type: failure
+  description: 'Failure: message queue'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: medium
+    duration: 70
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: message queue
+      - operation failed'
+    metrics:
+      error_rate: 0.054625920576878026
+      response_time_ms: 785
+      cpu_usage: 0.4532366141659107
+      memory_usage: 0.6092611654608878
+- timestamp: '2025-05-23T18:46:03.567299'
+  event_type: recovery
+  description: 'Recovery: urgent memory'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:18.567299'
+  event_type: timeout
+  description: 'Timeout: urgent memory'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 126
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: urgent memory - operation
+      failed'
+    metrics:
+      error_rate: 0.8006648142638911
+      response_time_ms: 4341
+      cpu_usage: 0.9327091216412475
+      memory_usage: 0.8809750819425424
+- timestamp: '2025-05-23T18:46:45.567299'
+  event_type: recovery
+  description: 'Recovery: free disk'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:48.567299'
+  event_type: recovery
+  description: 'Recovery: served memory'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:48.567299'
+  event_type: timeout
+  description: 'Timeout: main memory'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 56
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: main memory - operation
+      failed'
+    metrics:
+      error_rate: 0.3053113567578686
+      response_time_ms: 5626
+      cpu_usage: 0.9825582096848836
+      memory_usage: 0.8180124495351622
+- timestamp: '2025-05-23T18:56:55.567299'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

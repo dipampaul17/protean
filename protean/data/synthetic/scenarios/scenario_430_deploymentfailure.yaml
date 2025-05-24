@@ -1,0 +1,55 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173011
+description: Application deployment and rollback scenarios
+duration: 728
+metadata:
+  generated_at: '2025-05-23T17:30:11.429965'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.429829'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:24.429829'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 219
+    log_snippet: '[2025-05-23 17:30:11] ERROR api-backend: connection timeout in failure'
+    metrics:
+      error_rate: 0.6857486137567746
+      response_time_ms: 4761
+      cpu_usage: 0.8859040496831259
+      memory_usage: 0.8334037593742009
+- timestamp: '2025-05-23T17:30:43.429829'
+  event_type: deployment
+  description: 'Deployment: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:50.429829'
+  event_type: scaling
+  description: 'Scaling: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:26.429829'
+  event_type: scaling
+  description: 'Scaling: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:28.429829'
+  event_type: rollback
+  description: 'Rollback: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:10.429829'
+  event_type: deployment
+  description: 'Deployment: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:42:19.429829'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

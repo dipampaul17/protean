@@ -1,0 +1,86 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_172917
+description: Database connectivity and performance issues
+duration: 1581
+metadata:
+  generated_at: '2025-05-23T17:29:17.704562'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:29:17.704386'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:46.704386'
+  event_type: connection_loss
+  description: 'Connection_Loss: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:23.704386'
+  event_type: corruption
+  description: 'Corruption: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:32.704386'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 199
+    log_snippet: '[2025-05-23 17:29:17] ERROR redis-cache: queue overflow in timeout'
+    metrics:
+      error_rate: 0.8374836203169329
+      response_time_ms: 6582
+      cpu_usage: 0.7121484633377374
+      memory_usage: 0.9197472993819581
+      connection_pool_usage: 0.8396917124463474
+      query_time_ms: 14089
+      deadlocks_per_sec: 2
+- timestamp: '2025-05-23T17:31:21.704386'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:11.704386'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 165
+    log_snippet: '[2025-05-23 17:29:17] ERROR mongodb-shard: deployment failed in
+      timeout'
+    metrics:
+      error_rate: 0.42728826608718906
+      response_time_ms: 6518
+      cpu_usage: 0.7503130071424765
+      memory_usage: 0.8033873832246959
+      connection_pool_usage: 0.930996189255645
+      query_time_ms: 21360
+      deadlocks_per_sec: 7
+- timestamp: '2025-05-23T17:33:16.704386'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 183
+    log_snippet: '[2025-05-23 17:29:17] FATAL mysql-primary: database rate limit exceeded
+      detected'
+    metrics:
+      error_rate: 0.1774326103381011
+      response_time_ms: 3183
+      cpu_usage: 0.7102607804658957
+      memory_usage: 0.914166170001871
+      connection_pool_usage: 0.9772746248809733
+      query_time_ms: 25284
+      deadlocks_per_sec: 10
+- timestamp: '2025-05-23T17:55:38.704386'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

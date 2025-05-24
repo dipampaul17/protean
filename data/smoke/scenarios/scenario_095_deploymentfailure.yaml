@@ -1,0 +1,55 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_184526
+description: Application deployment and rollback scenarios
+duration: 1476
+metadata:
+  generated_at: '2025-05-23T18:45:26.648163'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T18:45:26.647965'
+  event_type: trigger
+  description: 'Initial failure detected: p error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:31.647965'
+  event_type: failure
+  description: 'Failure: the pod'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 54
+    log_snippet: '[2025-05-23 18:45:26] ERROR web-frontend: the pod in failure'
+    metrics:
+      error_rate: 0.7174924671187777
+      response_time_ms: 4359
+      cpu_usage: 0.9979844089039616
+      memory_usage: 0.8702581582692821
+- timestamp: '2025-05-23T18:47:15.647965'
+  event_type: deployment
+  description: 'Deployment: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:21.647965'
+  event_type: scaling
+  description: 'Scaling: code error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:21.647965'
+  event_type: scaling
+  description: 'Scaling: your container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:51.647965'
+  event_type: scaling
+  description: 'Scaling: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:50.647965'
+  event_type: rollback
+  description: 'Rollback: and deploy'
+  injection_spec: null
+- timestamp: '2025-05-23T19:10:02.647965'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

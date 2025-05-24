@@ -1,0 +1,81 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_184526
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 556
+metadata:
+  generated_at: '2025-05-23T18:45:26.739486'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.739313'
+  event_type: trigger
+  description: 'Initial failure detected: served memory'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:36.739313'
+  event_type: timeout
+  description: 'Timeout: the queue'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: medium
+    duration: 151
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: the queue - operation
+      failed'
+    metrics:
+      error_rate: 0.2197788493939846
+      response_time_ms: 1186
+      cpu_usage: 0.5413154303214487
+      memory_usage: 0.5570934672475734
+- timestamp: '2025-05-23T18:45:58.739313'
+  event_type: failure
+  description: 'Failure: double scale'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 188
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: double scale - operation
+      failed'
+    metrics:
+      error_rate: 0.8196822529525264
+      response_time_ms: 7279
+      cpu_usage: 0.8493333118123056
+      memory_usage: 0.875609175140101
+- timestamp: '2025-05-23T18:47:32.739313'
+  event_type: failure
+  description: 'Failure: high memory'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 128
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: high memory - operation
+      failed'
+    metrics:
+      error_rate: 0.49786423920731293
+      response_time_ms: 3154
+      cpu_usage: 0.8993333008543221
+      memory_usage: 0.8795549219980328
+- timestamp: '2025-05-23T18:47:41.739313'
+  event_type: timeout
+  description: 'Timeout: a connection'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 236
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: a connection -
+      operation failed'
+    metrics:
+      error_rate: 0.8736704314404495
+      response_time_ms: 2993
+      cpu_usage: 0.9429013794187522
+      memory_usage: 0.9135186261373368
+- timestamp: '2025-05-23T18:54:42.739313'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

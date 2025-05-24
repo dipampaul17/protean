@@ -1,0 +1,120 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_172917",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1026,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.543400",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.543238",
+      "event_type": "trigger",
+      "description": "Initial failure detected: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:47.543238",
+      "event_type": "degradation",
+      "description": "Degradation: rate limit exceeded",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 179,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.3263727002912458,
+          "response_time_ms": 4265,
+          "cpu_usage": 0.8813406645517479,
+          "memory_usage": 0.9286562751444245
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:47.543238",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 53,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR user-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.19860470140371325,
+          "response_time_ms": 1480,
+          "cpu_usage": 0.8921750372064401,
+          "memory_usage": 0.8109607714020652
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:49.543238",
+      "event_type": "degradation",
+      "description": "Degradation: disk space full",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "low",
+        "duration": 275,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.1848332959459575,
+          "response_time_ms": 1276,
+          "cpu_usage": 0.4244458429981569,
+          "memory_usage": 0.6236282991598777
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:51.543238",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 103,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.6307014064631271,
+          "response_time_ms": 4655,
+          "cpu_usage": 0.7396036072821441,
+          "memory_usage": 0.9652300717270161
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:30.543238",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 280,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR user-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.6761286343174644,
+          "response_time_ms": 8209,
+          "cpu_usage": 0.9695962637831282,
+          "memory_usage": 0.8251454475489827
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:23.543238",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

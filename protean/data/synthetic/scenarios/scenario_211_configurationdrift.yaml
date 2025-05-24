@@ -1,0 +1,70 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173011
+description: Configuration inconsistencies causing service degradation
+duration: 952
+metadata:
+  generated_at: '2025-05-23T17:30:11.368605'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:30:11.368490'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:41.368490'
+  event_type: config_change
+  description: 'Config_Change: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:59.368490'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 36
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.11860594076403164
+      response_time_ms: 6113
+      cpu_usage: 0.7856603116583774
+      memory_usage: 0.8659152472333131
+- timestamp: '2025-05-23T17:31:07.368490'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 248
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.3521459173718007
+      response_time_ms: 8516
+      cpu_usage: 0.7972298022739829
+      memory_usage: 0.8164297761982424
+- timestamp: '2025-05-23T17:32:40.368490'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 115
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.7224025865454212
+      response_time_ms: 8153
+      cpu_usage: 0.8785879876302136
+      memory_usage: 0.9725319139568923
+- timestamp: '2025-05-23T17:46:03.368490'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

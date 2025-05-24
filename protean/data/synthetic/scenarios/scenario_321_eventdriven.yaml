@@ -1,0 +1,81 @@
+category: EventDriven
+name: EventDriven_20250523_173011
+description: Message queue and event processing failures
+duration: 1007
+metadata:
+  generated_at: '2025-05-23T17:30:11.399848'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.398806'
+  event_type: trigger
+  description: 'Initial failure detected: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:29.398806'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:36.398806'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:52.398806'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 239
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-queue: queue processing database
+      connection lost'
+    metrics:
+      error_rate: 0.22096902747464978
+      response_time_ms: 2641
+      cpu_usage: 0.8223798477723444
+      memory_usage: 0.8985306348752305
+      queue_depth: 3231
+      message_processing_rate: 8.108685540583043
+      consumer_lag_ms: 274080
+- timestamp: '2025-05-23T17:31:14.398806'
+  event_type: message_loss
+  description: 'Message_Loss: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:45.398806'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:46.398806'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 263
+    log_snippet: '[2025-05-23 17:30:11] ERROR batch-processing-queue: queue processing
+      queue overflow'
+    metrics:
+      error_rate: 0.8000421006012799
+      response_time_ms: 5761
+      cpu_usage: 0.9301725147724473
+      memory_usage: 0.8733030639893213
+      queue_depth: 19392
+      message_processing_rate: 1.66102667834084
+      consumer_lag_ms: 110976
+- timestamp: '2025-05-23T17:31:47.398806'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:57.398806'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:58.398806'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

@@ -1,0 +1,108 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173011
+description: Database connectivity and performance issues
+duration: 1057
+metadata:
+  generated_at: '2025-05-23T17:30:11.323754'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:30:11.323553'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:29.323553'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 69
+    log_snippet: '[2025-05-23 17:30:11] ERROR redis-cache: rate limit exceeded in
+      timeout'
+    metrics:
+      error_rate: 0.5880994681435108
+      response_time_ms: 1906
+      cpu_usage: 0.7891442964184445
+      memory_usage: 0.8435148714031757
+      connection_pool_usage: 0.8076506002808381
+      query_time_ms: 26470
+      deadlocks_per_sec: 3
+- timestamp: '2025-05-23T17:30:41.323553'
+  event_type: connection_loss
+  description: 'Connection_Loss: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:00.323553'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 217
+    log_snippet: '[2025-05-23 17:30:11] ERROR redis-cache: connection timeout in timeout'
+    metrics:
+      error_rate: 0.35199403319429357
+      response_time_ms: 6188
+      cpu_usage: 0.9733053647148353
+      memory_usage: 0.8169817283296233
+      connection_pool_usage: 0.8122210385004497
+      query_time_ms: 12147
+      deadlocks_per_sec: 9
+- timestamp: '2025-05-23T17:31:22.323553'
+  event_type: connection_loss
+  description: 'Connection_Loss: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:29.323553'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 142
+    log_snippet: '[2025-05-23 17:30:11] FATAL postgres-replica: database container
+      crashed detected'
+    metrics:
+      error_rate: 0.21663160373119528
+      response_time_ms: 7789
+      cpu_usage: 0.9170198391437812
+      memory_usage: 0.8737023258658613
+      connection_pool_usage: 0.9371944637076326
+      query_time_ms: 18265
+      deadlocks_per_sec: 8
+- timestamp: '2025-05-23T17:31:46.323553'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 84
+    log_snippet: '[2025-05-23 17:30:11] FATAL mysql-primary: database deployment failed
+      detected'
+    metrics:
+      error_rate: 0.6398710670450496
+      response_time_ms: 9406
+      cpu_usage: 0.7969440559431611
+      memory_usage: 0.9101335210649741
+      connection_pool_usage: 0.9042134571831181
+      query_time_ms: 19516
+      deadlocks_per_sec: 6
+- timestamp: '2025-05-23T17:31:51.323553'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:03.323553'
+  event_type: corruption
+  description: 'Corruption: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:48.323553'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

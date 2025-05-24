@@ -1,0 +1,55 @@
+category: CloudNative
+name: CloudNative_20250523_173011
+description: Kubernetes pod and container orchestration issues
+duration: 1702
+metadata:
+  generated_at: '2025-05-23T17:30:11.363177'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.363083'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:59.363083'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 98
+    log_snippet: '[2025-05-23 17:30:11] ERROR nginx-proxy: service unavailable in
+      failure'
+    metrics:
+      error_rate: 0.37638874010504175
+      response_time_ms: 4651
+      cpu_usage: 0.7763936399670021
+      memory_usage: 0.8126249187138784
+- timestamp: '2025-05-23T17:32:05.363083'
+  event_type: pod_restart
+  description: 'Pod_Restart: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:58.363083'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 63
+    log_snippet: '[2025-05-23 17:30:11] ERROR web-frontend: rate limit exceeded in
+      failure'
+    metrics:
+      error_rate: 0.6637355234907986
+      response_time_ms: 5345
+      cpu_usage: 0.9501086037549245
+      memory_usage: 0.9737696346735016
+- timestamp: '2025-05-23T17:58:33.363083'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

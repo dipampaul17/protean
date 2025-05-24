@@ -1,0 +1,67 @@
+category: EventDriven
+name: EventDriven_20250523_173011
+description: Message queue and event processing failures
+duration: 1177
+metadata:
+  generated_at: '2025-05-23T17:30:11.411017'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.410843'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:34.410843'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:50.410843'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:51.410843'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:51.410843'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:04.410843'
+  event_type: message_loss
+  description: 'Message_Loss: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:35.410843'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 82
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-queue: queue processing rate
+      limit exceeded'
+    metrics:
+      error_rate: 0.2761657581071505
+      response_time_ms: 5509
+      cpu_usage: 0.8695515612931709
+      memory_usage: 0.884397175027075
+      queue_depth: 40022
+      message_processing_rate: 7.657398608649102
+      consumer_lag_ms: 59451
+- timestamp: '2025-05-23T17:32:08.410843'
+  event_type: message_loss
+  description: 'Message_Loss: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:15.410843'
+  event_type: message_loss
+  description: 'Message_Loss: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:48.410843'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

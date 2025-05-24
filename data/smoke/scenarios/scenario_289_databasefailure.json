@@ -1,0 +1,126 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_184526",
+  "description": "Database connectivity and performance issues",
+  "duration": 953,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.744477",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.744014",
+      "event_type": "trigger",
+      "description": "Initial failure detected: an error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:00.744014",
+      "event_type": "timeout",
+      "description": "Timeout: sudo service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 265,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR redis-cache: sudo service in timeout",
+        "metrics": {
+          "error_rate": 0.7675598822249003,
+          "response_time_ms": 3629,
+          "cpu_usage": 0.8798755730180484,
+          "memory_usage": 0.9909089972332064,
+          "connection_pool_usage": 0.8482702435208338,
+          "query_time_ms": 16777,
+          "deadlocks_per_sec": 7
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:11.744014",
+      "event_type": "recovery",
+      "description": "Recovery: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:36.744014",
+      "event_type": "timeout",
+      "description": "Timeout: following error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 254,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR redis-cache: following error in timeout",
+        "metrics": {
+          "error_rate": 0.6792932141040008,
+          "response_time_ms": 1009,
+          "cpu_usage": 0.9293454833709787,
+          "memory_usage": 0.929148647540545,
+          "connection_pool_usage": 0.8385303675378926,
+          "query_time_ms": 25697,
+          "deadlocks_per_sec": 10
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:14.744014",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: the connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:30.744014",
+      "event_type": "timeout",
+      "description": "Timeout: the cache",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 175,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR mongodb-shard: the cache in timeout",
+        "metrics": {
+          "error_rate": 0.8424362298181166,
+          "response_time_ms": 1690,
+          "cpu_usage": 0.8413512772215896,
+          "memory_usage": 0.9132240128898648,
+          "connection_pool_usage": 0.8611112413859889,
+          "query_time_ms": 28933,
+          "deadlocks_per_sec": 9
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:37.744014",
+      "event_type": "timeout",
+      "description": "Timeout: postgres database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 258,
+        "log_snippet": "[2025-05-23 18:45:26] FATAL mysql-primary: database postgres database detected",
+        "metrics": {
+          "error_rate": 0.2607947397309134,
+          "response_time_ms": 2609,
+          "cpu_usage": 0.942176256297946,
+          "memory_usage": 0.9368479252255165,
+          "connection_pool_usage": 0.955525571393029,
+          "query_time_ms": 18645,
+          "deadlocks_per_sec": 9
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:01:19.744014",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_184526",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 1204,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.578059",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.577332",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:41.577332",
+      "event_type": "recovery",
+      "description": "Recovery: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:53.577332",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 64,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.17321170485881998,
+          "response_time_ms": 1134,
+          "cpu_usage": 0.8864983815531953,
+          "memory_usage": 0.9905324897180938
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:04.577332",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 102,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.3979577739952983,
+          "response_time_ms": 5060,
+          "cpu_usage": 0.918621296038935,
+          "memory_usage": 0.9529672137502763
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:09.577332",
+      "event_type": "recovery",
+      "description": "Recovery: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:33.577332",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:26.577332",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 205,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.8523941091374283,
+          "response_time_ms": 5624,
+          "cpu_usage": 0.9852332275673727,
+          "memory_usage": 0.8203946192477529
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:47.577332",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 193,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.6446617187287046,
+          "response_time_ms": 6073,
+          "cpu_usage": 0.7538144522482797,
+          "memory_usage": 0.859239832221572
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:55.577332",
+      "event_type": "recovery",
+      "description": "Recovery: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:05:30.577332",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

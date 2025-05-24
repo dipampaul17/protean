@@ -1,0 +1,60 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_184526",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 950,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.808658",
+    "phrase_templates_used": 45,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.808541",
+      "event_type": "trigger",
+      "description": "Initial failure detected: var log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:04.808541",
+      "event_type": "recovery",
+      "description": "Recovery: get update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:19.808541",
+      "event_type": "timeout",
+      "description": "Timeout: the log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 190,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: the log - operation failed",
+        "metrics": {
+          "error_rate": 0.275407161727395,
+          "response_time_ms": 2475,
+          "cpu_usage": 0.9753453939079411,
+          "memory_usage": 0.8594768983725827
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:49:59.808541",
+      "event_type": "recovery",
+      "description": "Recovery: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:01:16.808541",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

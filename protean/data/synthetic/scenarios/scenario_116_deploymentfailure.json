@@ -1,0 +1,96 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_172917",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 343,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.575527",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.575365",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:28.575365",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 205,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR worker-consumer: queue overflow in failure",
+        "metrics": {
+          "error_rate": 0.1583639090883418,
+          "response_time_ms": 8034,
+          "cpu_usage": 0.8141728371588905,
+          "memory_usage": 0.8135619682505844
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:33.575365",
+      "event_type": "scaling",
+      "description": "Scaling: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:37.575365",
+      "event_type": "rollback",
+      "description": "Rollback: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:38.575365",
+      "event_type": "deployment",
+      "description": "Deployment: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:43.575365",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 192,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR api-backend: queue overflow in failure",
+        "metrics": {
+          "error_rate": 0.3870461909843447,
+          "response_time_ms": 3393,
+          "cpu_usage": 0.9687311898860307,
+          "memory_usage": 0.841424220623912
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:44.575365",
+      "event_type": "deployment",
+      "description": "Deployment: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:50.575365",
+      "event_type": "deployment",
+      "description": "Deployment: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:00.575365",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

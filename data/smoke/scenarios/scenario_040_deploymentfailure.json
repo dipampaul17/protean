@@ -1,0 +1,102 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_184526",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1210,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.563910",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.563643",
+      "event_type": "trigger",
+      "description": "Initial failure detected: code deployment",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:48.563643",
+      "event_type": "scaling",
+      "description": "Scaling: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:32.563643",
+      "event_type": "scaling",
+      "description": "Scaling: your deployment",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:08.563643",
+      "event_type": "rollback",
+      "description": "Rollback: code deployment",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:14.563643",
+      "event_type": "scaling",
+      "description": "Scaling: p error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:15.563643",
+      "event_type": "failure",
+      "description": "Failure: jenkins container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 114,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR web-frontend: jenkins container in failure",
+        "metrics": {
+          "error_rate": 0.32038041313391186,
+          "response_time_ms": 3418,
+          "cpu_usage": 0.9817489055438652,
+          "memory_usage": 0.8381955623726425
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:28.563643",
+      "event_type": "failure",
+      "description": "Failure: code deployment",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 78,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR nginx-proxy: code deployment in failure",
+        "metrics": {
+          "error_rate": 0.7971642263988467,
+          "response_time_ms": 7739,
+          "cpu_usage": 0.7345999568861271,
+          "memory_usage": 0.9072003739506173
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:30.563643",
+      "event_type": "rollback",
+      "description": "Rollback: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:37.563643",
+      "event_type": "rollback",
+      "description": "Rollback: jenkins container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:05:36.563643",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

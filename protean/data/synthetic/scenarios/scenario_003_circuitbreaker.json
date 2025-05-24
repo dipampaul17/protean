@@ -1,0 +1,108 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_172917",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 875,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.513131",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.512965",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:55.512965",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 227,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.6372883257933066,
+          "response_time_ms": 1032,
+          "cpu_usage": 0.7687566155917508,
+          "memory_usage": 0.8315535122402131
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:22.512965",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 174,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.1067676243680654,
+          "response_time_ms": 4452,
+          "cpu_usage": 0.9004131997186428,
+          "memory_usage": 0.824797009137655
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:23.512965",
+      "event_type": "degradation",
+      "description": "Degradation: connection timeout",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 283,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR user-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.14349053397166173,
+          "response_time_ms": 3997,
+          "cpu_usage": 0.7308967284556682,
+          "memory_usage": 0.9017962591052374
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:49.512965",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 32,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR user-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.2997766493626465,
+          "response_time_ms": 1658,
+          "cpu_usage": 0.9667968885913891,
+          "memory_usage": 0.9629233417536223
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:51.512965",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:43:52.512965",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

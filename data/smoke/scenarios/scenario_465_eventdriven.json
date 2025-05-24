@@ -1,0 +1,120 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_184526",
+  "description": "Message queue and event processing failures",
+  "duration": 660,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.816909",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.816695",
+      "event_type": "trigger",
+      "description": "Initial failure detected: config server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:54.816695",
+      "event_type": "timeout",
+      "description": "Timeout: the queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-queue",
+        "severity": "medium",
+        "duration": 90,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-queue: queue processing the queue",
+        "metrics": {
+          "error_rate": 0.14094182550519962,
+          "response_time_ms": 1490,
+          "cpu_usage": 0.5661420749247669,
+          "memory_usage": 0.5694689192724718,
+          "queue_depth": 48092,
+          "message_processing_rate": 5.849820963010177,
+          "consumer_lag_ms": 167140
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:05.816695",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: var connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:11.816695",
+      "event_type": "timeout",
+      "description": "Timeout: the cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-queue",
+        "severity": "high",
+        "duration": 84,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-queue: queue processing the cluster",
+        "metrics": {
+          "error_rate": 0.5690361657259032,
+          "response_time_ms": 8413,
+          "cpu_usage": 0.860262099149918,
+          "memory_usage": 0.9632965120297149,
+          "queue_depth": 12859,
+          "message_processing_rate": 4.129017077418635,
+          "consumer_lag_ms": 133687
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:25.816695",
+      "event_type": "timeout",
+      "description": "Timeout: tcp connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 258,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-queue: queue processing tcp connection",
+        "metrics": {
+          "error_rate": 0.6741474389204625,
+          "response_time_ms": 2048,
+          "cpu_usage": 0.8678489653158664,
+          "memory_usage": 0.992657503766112,
+          "queue_depth": 23208,
+          "message_processing_rate": 7.689759972927798,
+          "consumer_lag_ms": 177637
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:00.816695",
+      "event_type": "timeout",
+      "description": "Timeout: on node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 100,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR batch-processing-queue: queue processing on node",
+        "metrics": {
+          "error_rate": 0.138767270492463,
+          "response_time_ms": 5102,
+          "cpu_usage": 0.9631031332895819,
+          "memory_usage": 0.8472048765383758,
+          "queue_depth": 49050,
+          "message_processing_rate": 1.711250508690204,
+          "consumer_lag_ms": 110311
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:56:26.816695",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

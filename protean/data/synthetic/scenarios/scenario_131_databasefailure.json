@@ -1,0 +1,123 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_172917",
+  "description": "Database connectivity and performance issues",
+  "duration": 1638,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.580473",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.580177",
+      "event_type": "trigger",
+      "description": "Initial failure detected: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:29.580177",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "postgres-replica",
+        "severity": "high",
+        "duration": 264,
+        "log_snippet": "[2025-05-23 17:29:17] FATAL postgres-replica: database authentication failed detected",
+        "metrics": {
+          "error_rate": 0.7909008010269832,
+          "response_time_ms": 2358,
+          "cpu_usage": 0.9858112143135068,
+          "memory_usage": 0.826203572307428,
+          "connection_pool_usage": 0.8237853729946801,
+          "query_time_ms": 19374,
+          "deadlocks_per_sec": 1
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:31.580177",
+      "event_type": "recovery",
+      "description": "Recovery: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:48.580177",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:32.580177",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:51.580177",
+      "event_type": "corruption",
+      "description": "Corruption: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:42.580177",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "postgres-replica",
+        "severity": "high",
+        "duration": 273,
+        "log_snippet": "[2025-05-23 17:29:17] FATAL postgres-replica: database authentication failed detected",
+        "metrics": {
+          "error_rate": 0.6113566670106,
+          "response_time_ms": 9901,
+          "cpu_usage": 0.7864468588897557,
+          "memory_usage": 0.9858518354754062,
+          "connection_pool_usage": 0.9939341998442593,
+          "query_time_ms": 11882,
+          "deadlocks_per_sec": 8
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:30.580177",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 39,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR redis-cache: deployment failed in timeout",
+        "metrics": {
+          "error_rate": 0.7387527869169037,
+          "response_time_ms": 4698,
+          "cpu_usage": 0.8436514629822827,
+          "memory_usage": 0.9630843260491719,
+          "connection_pool_usage": 0.8225086693032645,
+          "query_time_ms": 6480,
+          "deadlocks_per_sec": 9
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:33.580177",
+      "event_type": "recovery",
+      "description": "Recovery: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:56:35.580177",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

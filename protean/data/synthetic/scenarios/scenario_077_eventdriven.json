@@ -1,0 +1,96 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173011",
+  "description": "Message queue and event processing failures",
+  "duration": 1205,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.332804",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.332652",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:38.332652",
+      "event_type": "message_loss",
+      "description": "Message_Loss: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:15.332652",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 126,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR batch-processing-queue: queue processing container crashed",
+        "metrics": {
+          "error_rate": 0.5134494618960422,
+          "response_time_ms": 5412,
+          "cpu_usage": 0.9438078858065924,
+          "memory_usage": 0.8933118258296915,
+          "queue_depth": 24920,
+          "message_processing_rate": 1.7823463085937092,
+          "consumer_lag_ms": 154344
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:34.332652",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 183,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR batch-processing-queue: queue processing queue overflow",
+        "metrics": {
+          "error_rate": 0.30868187061401653,
+          "response_time_ms": 2147,
+          "cpu_usage": 0.9195823745334085,
+          "memory_usage": 0.8217527505991234,
+          "queue_depth": 15758,
+          "message_processing_rate": 0.4611175396109717,
+          "consumer_lag_ms": 14311
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:15.332652",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:17.332652",
+      "event_type": "message_loss",
+      "description": "Message_Loss: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:28.332652",
+      "event_type": "message_loss",
+      "description": "Message_Loss: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:16.332652",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

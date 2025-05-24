@@ -1,0 +1,138 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173011",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 575,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.321439",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.320587",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:30.320587",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "vpc-main",
+        "severity": "high",
+        "duration": 238,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR vpc-main: network unreachable in timeout",
+        "metrics": {
+          "error_rate": 0.5166813694929042,
+          "response_time_ms": 4100,
+          "cpu_usage": 0.8469571517173439,
+          "memory_usage": 0.9096005584527517,
+          "requests_per_sec": 7443,
+          "backend_health_pct": 0.6871019392927413,
+          "connection_timeouts": 684
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:35.320587",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:40.320587",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 176,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR load-balancer: queue overflow in timeout",
+        "metrics": {
+          "error_rate": 0.21288994336045458,
+          "response_time_ms": 8122,
+          "cpu_usage": 0.843368013313909,
+          "memory_usage": 0.853139521900705,
+          "requests_per_sec": 4416,
+          "backend_health_pct": 0.7099649784169697,
+          "connection_timeouts": 691
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:41.320587",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:01.320587",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:03.320587",
+      "event_type": "scaling",
+      "description": "Scaling: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:07.320587",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 150,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR load-balancer: network unreachable in timeout",
+        "metrics": {
+          "error_rate": 0.30409092484668304,
+          "response_time_ms": 4108,
+          "cpu_usage": 0.7539582276859217,
+          "memory_usage": 0.9529577755425627,
+          "requests_per_sec": 3265,
+          "backend_health_pct": 0.41371074986619405,
+          "connection_timeouts": 448
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:20.320587",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 67,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR load-balancer: network unreachable in timeout",
+        "metrics": {
+          "error_rate": 0.8661917335818978,
+          "response_time_ms": 4916,
+          "cpu_usage": 0.7537058395019935,
+          "memory_usage": 0.9065342317833215,
+          "requests_per_sec": 5435,
+          "backend_health_pct": 0.7154138989755234,
+          "connection_timeouts": 119
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:46.320587",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

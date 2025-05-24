@@ -1,0 +1,126 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_172917",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1256,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.594359",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.594182",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:18.594182",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 216,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.4339951556360908,
+          "response_time_ms": 7364,
+          "cpu_usage": 0.9504655100556467,
+          "memory_usage": 0.9423486828276918
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:23.594182",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 42,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.1489477211036653,
+          "response_time_ms": 3277,
+          "cpu_usage": 0.8945325595160817,
+          "memory_usage": 0.9906502661892759
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:26.594182",
+      "event_type": "recovery",
+      "description": "Recovery: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:08.594182",
+      "event_type": "degradation",
+      "description": "Degradation: deployment failed",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 259,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.608942608089225,
+          "response_time_ms": 1810,
+          "cpu_usage": 0.7967645678706559,
+          "memory_usage": 0.9764139620727719
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:17.594182",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 236,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.4950172897281836,
+          "response_time_ms": 2825,
+          "cpu_usage": 0.7133750094075211,
+          "memory_usage": 0.9560532905760798
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:39.594182",
+      "event_type": "degradation",
+      "description": "Degradation: container crashed",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 281,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.6280029480410104,
+          "response_time_ms": 1675,
+          "cpu_usage": 0.8431192553378255,
+          "memory_usage": 0.9963140660077113
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:13.594182",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

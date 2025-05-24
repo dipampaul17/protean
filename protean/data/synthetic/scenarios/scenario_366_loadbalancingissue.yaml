@@ -1,0 +1,69 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_172917
+description: Load balancer and traffic distribution problems
+duration: 501
+metadata:
+  generated_at: '2025-05-23T17:29:17.704246'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.704114'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:40.704114'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: api-gateway
+    severity: high
+    duration: 276
+    log_snippet: '[2025-05-23 17:29:17] ERROR api-gateway: memory limit exceeded in
+      timeout'
+    metrics:
+      error_rate: 0.293639196127099
+      response_time_ms: 5024
+      cpu_usage: 0.9821038259257588
+      memory_usage: 0.9236953218114534
+      requests_per_sec: 8577
+      backend_health_pct: 0.6232722512632277
+      connection_timeouts: 575
+- timestamp: '2025-05-23T17:29:51.704114'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 217
+    log_snippet: '[2025-05-23 17:29:17] ERROR subnet-private: container crashed in
+      timeout'
+    metrics:
+      error_rate: 0.12955710688189115
+      response_time_ms: 6214
+      cpu_usage: 0.7909945381652852
+      memory_usage: 0.9151790734938248
+      requests_per_sec: 1266
+      backend_health_pct: 0.3599063087918748
+      connection_timeouts: 407
+- timestamp: '2025-05-23T17:29:59.704114'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:05.704114'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:43.704114'
+  event_type: backend_failure
+  description: 'Backend_Failure: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:38.704114'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

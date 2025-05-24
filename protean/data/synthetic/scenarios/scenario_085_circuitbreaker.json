@@ -1,0 +1,150 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_172917",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 606,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.547507",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.547050",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:40.547050",
+      "event_type": "recovery",
+      "description": "Recovery: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:43.547050",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 62,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.459474791872838,
+          "response_time_ms": 8199,
+          "cpu_usage": 0.7527770150572866,
+          "memory_usage": 0.996765214363843
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:03.547050",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 221,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.7767934189798412,
+          "response_time_ms": 2909,
+          "cpu_usage": 0.9408221387269515,
+          "memory_usage": 0.8752724384294219
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:03.547050",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 44,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.6220579533844939,
+          "response_time_ms": 2534,
+          "cpu_usage": 0.8649446650087749,
+          "memory_usage": 0.961156688791595
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:11.547050",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 155,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR user-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.7845619554974897,
+          "response_time_ms": 5007,
+          "cpu_usage": 0.9123332737241052,
+          "memory_usage": 0.9574714215276331
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:18.547050",
+      "event_type": "recovery",
+      "description": "Recovery: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:23.547050",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 82,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR user-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.28232215454468323,
+          "response_time_ms": 6035,
+          "cpu_usage": 0.8815633295460312,
+          "memory_usage": 0.9069870683993357
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:28.547050",
+      "event_type": "degradation",
+      "description": "Degradation: container crashed",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 98,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.418015203280413,
+          "response_time_ms": 8326,
+          "cpu_usage": 0.94264550715648,
+          "memory_usage": 0.8636303894270794
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:23.547050",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173011",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1287,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.397569",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.397439",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:55.397439",
+      "event_type": "degradation",
+      "description": "Degradation: memory limit exceeded",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 116,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.683553201791266,
+          "response_time_ms": 4792,
+          "cpu_usage": 0.765073237291947,
+          "memory_usage": 0.8726903139820477
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:42.397439",
+      "event_type": "timeout",
+      "description": "Timeout: disk space full",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 254,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.4137284102398583,
+          "response_time_ms": 3715,
+          "cpu_usage": 0.9229538982163022,
+          "memory_usage": 0.8145720422406796
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:48.397439",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 109,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.5822055853273831,
+          "response_time_ms": 3317,
+          "cpu_usage": 0.9271812416710352,
+          "memory_usage": 0.9618355354731349
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:14.397439",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 201,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR auth-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.6952202903335556,
+          "response_time_ms": 2799,
+          "cpu_usage": 0.8521291531672983,
+          "memory_usage": 0.8341681276743953
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:51:38.397439",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

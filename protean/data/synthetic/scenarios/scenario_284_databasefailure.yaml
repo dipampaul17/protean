@@ -1,0 +1,62 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173011
+description: Database connectivity and performance issues
+duration: 969
+metadata:
+  generated_at: '2025-05-23T17:30:11.390562'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.390404'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:40.390404'
+  event_type: connection_loss
+  description: 'Connection_Loss: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:27.390404'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 157
+    log_snippet: '[2025-05-23 17:30:11] ERROR redis-cache: connection timeout in timeout'
+    metrics:
+      error_rate: 0.7207686712604577
+      response_time_ms: 9613
+      cpu_usage: 0.9023751232615072
+      memory_usage: 0.9197309353580716
+      connection_pool_usage: 0.9295331848516921
+      query_time_ms: 27499
+      deadlocks_per_sec: 10
+- timestamp: '2025-05-23T17:31:29.390404'
+  event_type: connection_loss
+  description: 'Connection_Loss: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:38.390404'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:04.390404'
+  event_type: corruption
+  description: 'Corruption: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:07.390404'
+  event_type: connection_loss
+  description: 'Connection_Loss: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:13.390404'
+  event_type: connection_loss
+  description: 'Connection_Loss: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:20.390404'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

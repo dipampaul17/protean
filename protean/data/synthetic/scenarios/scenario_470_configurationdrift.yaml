@@ -1,0 +1,75 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_172917
+description: Configuration inconsistencies causing service degradation
+duration: 1315
+metadata:
+  generated_at: '2025-05-23T17:29:17.742380'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.742195'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:29.742195'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 271
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: container crashed
+      - operation failed'
+    metrics:
+      error_rate: 0.7107287072628087
+      response_time_ms: 4769
+      cpu_usage: 0.9621658576498002
+      memory_usage: 0.8437408084109896
+- timestamp: '2025-05-23T17:30:00.742195'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 176
+    log_snippet: '[2025-05-23 17:29:17] ERROR auth-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.25829562593495903
+      response_time_ms: 7879
+      cpu_usage: 0.8394062525912246
+      memory_usage: 0.8473178870580785
+- timestamp: '2025-05-23T17:30:38.742195'
+  event_type: restart
+  description: 'Restart: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:42.742195'
+  event_type: rollback
+  description: 'Rollback: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:07.742195'
+  event_type: rollback
+  description: 'Rollback: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:37.742195'
+  event_type: restart
+  description: 'Restart: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:41.742195'
+  event_type: restart
+  description: 'Restart: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:46.742195'
+  event_type: rollback
+  description: 'Rollback: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:51:12.742195'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

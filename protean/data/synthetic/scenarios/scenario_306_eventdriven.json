@@ -1,0 +1,96 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173011",
+  "description": "Message queue and event processing failures",
+  "duration": 1606,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.395680",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.395501",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:29.395501",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 93,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-queue: queue processing deployment failed",
+        "metrics": {
+          "error_rate": 0.28707644946308,
+          "response_time_ms": 2524,
+          "cpu_usage": 0.8289465135021792,
+          "memory_usage": 0.9062085097564164,
+          "queue_depth": 29061,
+          "message_processing_rate": 6.309608331612951,
+          "consumer_lag_ms": 274277
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:40.395501",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:40.395501",
+      "event_type": "recovery",
+      "description": "Recovery: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:01.395501",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:56.395501",
+      "event_type": "recovery",
+      "description": "Recovery: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:27.395501",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 180,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR batch-processing-queue: queue processing memory limit exceeded",
+        "metrics": {
+          "error_rate": 0.8892886610180007,
+          "response_time_ms": 8693,
+          "cpu_usage": 0.8390548772252172,
+          "memory_usage": 0.9303363104651302,
+          "queue_depth": 4785,
+          "message_processing_rate": 7.961691958898422,
+          "consumer_lag_ms": 283027
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:56:57.395501",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

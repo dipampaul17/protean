@@ -1,0 +1,65 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173011
+description: Database connectivity and performance issues
+duration: 1561
+metadata:
+  generated_at: '2025-05-23T17:30:11.357180'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.357071'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:40.357071'
+  event_type: corruption
+  description: 'Corruption: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:40.357071'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 150
+    log_snippet: '[2025-05-23 17:30:11] ERROR redis-cache: authentication failed in
+      timeout'
+    metrics:
+      error_rate: 0.22057146746443604
+      response_time_ms: 8264
+      cpu_usage: 0.7844838904775727
+      memory_usage: 0.9936180021895631
+      connection_pool_usage: 0.9368518626602231
+      query_time_ms: 28948
+      deadlocks_per_sec: 4
+- timestamp: '2025-05-23T17:34:45.357071'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 109
+    log_snippet: '[2025-05-23 17:30:11] ERROR redis-cache: rate limit exceeded in
+      timeout'
+    metrics:
+      error_rate: 0.1356056232073474
+      response_time_ms: 2709
+      cpu_usage: 0.8627648359735661
+      memory_usage: 0.9030450969822651
+      connection_pool_usage: 0.8950529156273729
+      query_time_ms: 26468
+      deadlocks_per_sec: 9
+- timestamp: '2025-05-23T17:35:09.357071'
+  event_type: corruption
+  description: 'Corruption: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:56:12.357071'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

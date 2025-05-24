@@ -1,0 +1,75 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173011",
+  "description": "Message queue and event processing failures",
+  "duration": 1726,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.352365",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.352245",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:00.352245",
+      "event_type": "recovery",
+      "description": "Recovery: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:12.352245",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 255,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR batch-processing-queue: queue processing deployment failed",
+        "metrics": {
+          "error_rate": 0.46591744808393143,
+          "response_time_ms": 1657,
+          "cpu_usage": 0.8075385596522773,
+          "memory_usage": 0.9171330249422861,
+          "queue_depth": 44840,
+          "message_processing_rate": 3.4237934948970987,
+          "consumer_lag_ms": 57560
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:25.352245",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:40.352245",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:39.352245",
+      "event_type": "message_loss",
+      "description": "Message_Loss: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:58:57.352245",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

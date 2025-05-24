@@ -1,0 +1,74 @@
+category: CloudNative
+name: CloudNative_20250523_173011
+description: Kubernetes pod and container orchestration issues
+duration: 999
+metadata:
+  generated_at: '2025-05-23T17:30:11.393561'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.392791'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:33.392791'
+  event_type: scaling
+  description: 'Scaling: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:38.392791'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 57
+    log_snippet: '[2025-05-23 17:30:11] ERROR api-backend: database connection lost
+      in failure'
+    metrics:
+      error_rate: 0.6393076714723017
+      response_time_ms: 4306
+      cpu_usage: 0.9291865954333552
+      memory_usage: 0.896120938783401
+- timestamp: '2025-05-23T17:30:50.392791'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 132
+    log_snippet: '[2025-05-23 17:30:11] ERROR nginx-proxy: deployment failed in failure'
+    metrics:
+      error_rate: 0.5133719337511568
+      response_time_ms: 5427
+      cpu_usage: 0.9135466193080121
+      memory_usage: 0.883685254707773
+- timestamp: '2025-05-23T17:31:22.392791'
+  event_type: pod_restart
+  description: 'Pod_Restart: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:32.392791'
+  event_type: deployment
+  description: 'Deployment: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:44.392791'
+  event_type: deployment
+  description: 'Deployment: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:48.392791'
+  event_type: scaling
+  description: 'Scaling: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:49.392791'
+  event_type: scaling
+  description: 'Scaling: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:50.392791'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

@@ -1,0 +1,85 @@
+category: Microservices
+name: Microservices_20250523_184526
+description: Infrastructure failure scenario for Microservices
+duration: 1412
+metadata:
+  generated_at: '2025-05-23T18:45:26.812330'
+  phrase_templates_used: 15
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.812123'
+  event_type: trigger
+  description: 'Initial failure detected: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:42.812123'
+  event_type: failure
+  description: 'Failure: the container'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 235
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: the container - operation
+      failed'
+    metrics:
+      error_rate: 0.18415574987910663
+      response_time_ms: 2308
+      cpu_usage: 0.9593318325280583
+      memory_usage: 0.9848375294150098
+- timestamp: '2025-05-23T18:46:27.812123'
+  event_type: failure
+  description: 'Failure: lt service'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 109
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: lt service - operation
+      failed'
+    metrics:
+      error_rate: 0.48618075751563505
+      response_time_ms: 2521
+      cpu_usage: 0.7370614927839061
+      memory_usage: 0.8210843329207177
+- timestamp: '2025-05-23T18:46:36.812123'
+  event_type: failure
+  description: 'Failure: following error'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 62
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: following error - operation
+      failed'
+    metrics:
+      error_rate: 0.3741025929085521
+      response_time_ms: 3952
+      cpu_usage: 0.8475899703356549
+      memory_usage: 0.8213576909126525
+- timestamp: '2025-05-23T18:47:08.812123'
+  event_type: failure
+  description: 'Failure: lt service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 107
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: lt service - operation
+      failed'
+    metrics:
+      error_rate: 0.1471965512703454
+      response_time_ms: 2974
+      cpu_usage: 0.9345782255397251
+      memory_usage: 0.8627759621693458
+- timestamp: '2025-05-23T18:49:45.812123'
+  event_type: recovery
+  description: 'Recovery: another container'
+  injection_spec: null
+- timestamp: '2025-05-23T19:08:58.812123'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,115 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_172917
+description: Circuit breaker activation due to cascading service failures
+duration: 401
+metadata:
+  generated_at: '2025-05-23T17:29:17.514716'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:29:17.514519'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:31.514519'
+  event_type: degradation
+  description: 'Degradation: container crashed'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: high
+    duration: 76
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: container crashed
+      - operation failed'
+    metrics:
+      error_rate: 0.8974775360472608
+      response_time_ms: 7955
+      cpu_usage: 0.9755279677046462
+      memory_usage: 0.931411110443799
+- timestamp: '2025-05-23T17:29:35.514519'
+  event_type: degradation
+  description: 'Degradation: authentication failed'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: high
+    duration: 37
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: authentication
+      failed - operation failed'
+    metrics:
+      error_rate: 0.810328338735124
+      response_time_ms: 4107
+      cpu_usage: 0.7694535261131176
+      memory_usage: 0.8644239821594986
+- timestamp: '2025-05-23T17:29:38.514519'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:48.514519'
+  event_type: degradation
+  description: 'Degradation: network unreachable'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: low
+    duration: 173
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.2786185633887635
+      response_time_ms: 908
+      cpu_usage: 0.3547971876353155
+      memory_usage: 0.5785402596699483
+- timestamp: '2025-05-23T17:29:54.514519'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 102
+    log_snippet: '[2025-05-23 17:29:17] ERROR auth-service: container crashed - operation
+      failed'
+    metrics:
+      error_rate: 0.5836192169253166
+      response_time_ms: 2443
+      cpu_usage: 0.8288143814004361
+      memory_usage: 0.8624788990487742
+- timestamp: '2025-05-23T17:30:01.514519'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 124
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: circuit breaker
+      triggered - operation failed'
+    metrics:
+      error_rate: 0.10762842681271262
+      response_time_ms: 6287
+      cpu_usage: 0.8917628389370303
+      memory_usage: 0.9476762038911049
+- timestamp: '2025-05-23T17:30:11.514519'
+  event_type: degradation
+  description: 'Degradation: authentication failed'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: high
+    duration: 121
+    log_snippet: '[2025-05-23 17:29:17] ERROR auth-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.70224424264577
+      response_time_ms: 1935
+      cpu_usage: 0.7414011428109605
+      memory_usage: 0.8041451477465572
+- timestamp: '2025-05-23T17:35:58.514519'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

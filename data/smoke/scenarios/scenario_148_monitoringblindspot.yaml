@@ -1,0 +1,93 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_184526
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1114
+metadata:
+  generated_at: '2025-05-23T18:45:26.682554'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.682172'
+  event_type: trigger
+  description: 'Initial failure detected: the cpu'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:39.682172'
+  event_type: failure
+  description: 'Failure: the pod'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 237
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: the pod - operation
+      failed'
+    metrics:
+      error_rate: 0.39653783067180104
+      response_time_ms: 3644
+      cpu_usage: 0.7881434406980524
+      memory_usage: 0.8338116858321429
+- timestamp: '2025-05-23T18:46:30.682172'
+  event_type: failure
+  description: 'Failure: an alert'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 183
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: an alert - operation
+      failed'
+    metrics:
+      error_rate: 0.45846989453216114
+      response_time_ms: 4003
+      cpu_usage: 0.9614196719502286
+      memory_usage: 0.9896827537412689
+- timestamp: '2025-05-23T18:46:30.682172'
+  event_type: failure
+  description: 'Failure: the alert'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 54
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: the alert - operation
+      failed'
+    metrics:
+      error_rate: 0.8564618478536552
+      response_time_ms: 5166
+      cpu_usage: 0.9942063662463396
+      memory_usage: 0.9789907367916101
+- timestamp: '2025-05-23T18:46:38.682172'
+  event_type: recovery
+  description: 'Recovery: and memory'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:17.682172'
+  event_type: failure
+  description: 'Failure: code container'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 196
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: code container - operation
+      failed'
+    metrics:
+      error_rate: 0.5492900428797495
+      response_time_ms: 4613
+      cpu_usage: 0.7112433834902455
+      memory_usage: 0.9361531654397914
+- timestamp: '2025-05-23T18:47:43.682172'
+  event_type: recovery
+  description: 'Recovery: docker container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:01.682172'
+  event_type: recovery
+  description: 'Recovery: nil log'
+  injection_spec: null
+- timestamp: '2025-05-23T19:04:00.682172'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

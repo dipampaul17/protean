@@ -1,0 +1,69 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_172917",
+  "description": "Database connectivity and performance issues",
+  "duration": 1226,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.515936",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.515831",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:00.515831",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 51,
+        "log_snippet": "[2025-05-23 17:29:17] FATAL mysql-primary: database memory limit exceeded detected",
+        "metrics": {
+          "error_rate": 0.21279178889296554,
+          "response_time_ms": 4735,
+          "cpu_usage": 0.9372500363376064,
+          "memory_usage": 0.9036250193671824,
+          "connection_pool_usage": 0.8139866646150088,
+          "query_time_ms": 29282,
+          "deadlocks_per_sec": 7
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:02.515831",
+      "event_type": "recovery",
+      "description": "Recovery: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:06.515831",
+      "event_type": "corruption",
+      "description": "Corruption: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:09.515831",
+      "event_type": "corruption",
+      "description": "Corruption: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:43.515831",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

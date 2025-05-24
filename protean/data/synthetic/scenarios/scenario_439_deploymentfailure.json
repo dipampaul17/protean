@@ -1,0 +1,96 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_172917",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1232,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.730654",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.730275",
+      "event_type": "trigger",
+      "description": "Initial failure detected: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:48.730275",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 270,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR web-frontend: queue overflow in failure",
+        "metrics": {
+          "error_rate": 0.4276132107398596,
+          "response_time_ms": 1791,
+          "cpu_usage": 0.8662749635733056,
+          "memory_usage": 0.8524692721802398
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:51.730275",
+      "event_type": "scaling",
+      "description": "Scaling: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:05.730275",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 227,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR worker-consumer: disk space full in failure",
+        "metrics": {
+          "error_rate": 0.4258683818456416,
+          "response_time_ms": 5104,
+          "cpu_usage": 0.8902703003109477,
+          "memory_usage": 0.8559243639863021
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:31.730275",
+      "event_type": "rollback",
+      "description": "Rollback: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:40.730275",
+      "event_type": "rollback",
+      "description": "Rollback: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:46.730275",
+      "event_type": "scaling",
+      "description": "Scaling: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:31.730275",
+      "event_type": "scaling",
+      "description": "Scaling: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:49.730275",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

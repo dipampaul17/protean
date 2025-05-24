@@ -1,0 +1,76 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_172917
+description: Load balancer and traffic distribution problems
+duration: 1405
+metadata:
+  generated_at: '2025-05-23T17:29:17.513338'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.513161'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:54.513161'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: load-balancer
+    severity: high
+    duration: 171
+    log_snippet: '[2025-05-23 17:29:17] ERROR load-balancer: connection timeout in
+      timeout'
+    metrics:
+      error_rate: 0.7797118458350594
+      response_time_ms: 5503
+      cpu_usage: 0.9680270463884432
+      memory_usage: 0.9811583279366066
+      requests_per_sec: 8986
+      backend_health_pct: 0.5563015925557586
+      connection_timeouts: 55
+- timestamp: '2025-05-23T17:29:55.513161'
+  event_type: scaling
+  description: 'Scaling: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:32.513161'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 189
+    log_snippet: '[2025-05-23 17:29:17] ERROR subnet-private: disk space full in timeout'
+    metrics:
+      error_rate: 0.1943229092014896
+      response_time_ms: 6514
+      cpu_usage: 0.8069060573861476
+      memory_usage: 0.9651465803854196
+      requests_per_sec: 8607
+      backend_health_pct: 0.41128877792630114
+      connection_timeouts: 525
+- timestamp: '2025-05-23T17:30:35.513161'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:02.513161'
+  event_type: scaling
+  description: 'Scaling: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:44.513161'
+  event_type: backend_failure
+  description: 'Backend_Failure: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:19.513161'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:52:42.513161'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

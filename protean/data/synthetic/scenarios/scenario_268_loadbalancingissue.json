@@ -1,0 +1,96 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173011",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 444,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.386018",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.385861",
+      "event_type": "trigger",
+      "description": "Initial failure detected: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:40.385861",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:42.385861",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:48.385861",
+      "event_type": "scaling",
+      "description": "Scaling: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:54.385861",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:01.385861",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "vpc-main",
+        "severity": "high",
+        "duration": 211,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR vpc-main: network unreachable in timeout",
+        "metrics": {
+          "error_rate": 0.2801022276361177,
+          "response_time_ms": 9242,
+          "cpu_usage": 0.9985154739255842,
+          "memory_usage": 0.880804910981596,
+          "requests_per_sec": 3353,
+          "backend_health_pct": 0.7336486369573961,
+          "connection_timeouts": 356
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:21.385861",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "subnet-private",
+        "severity": "high",
+        "duration": 259,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR subnet-private: database connection lost in timeout",
+        "metrics": {
+          "error_rate": 0.688279076691866,
+          "response_time_ms": 3961,
+          "cpu_usage": 0.748701924532639,
+          "memory_usage": 0.9232930067829681,
+          "requests_per_sec": 8316,
+          "backend_health_pct": 0.7788168952672312,
+          "connection_timeouts": 179
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:35.385861",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

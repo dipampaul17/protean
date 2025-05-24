@@ -1,0 +1,108 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173011",
+  "description": "Message queue and event processing failures",
+  "duration": 1449,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.440495",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.440297",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:34.440297",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 178,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR batch-processing-queue: queue processing deployment failed",
+        "metrics": {
+          "error_rate": 0.8520011835209971,
+          "response_time_ms": 1580,
+          "cpu_usage": 0.9098446136274775,
+          "memory_usage": 0.9796323782821328,
+          "queue_depth": 23097,
+          "message_processing_rate": 5.294165641788747,
+          "consumer_lag_ms": 103748
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:12.440297",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:30.440297",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 138,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR batch-processing-queue: queue processing memory limit exceeded",
+        "metrics": {
+          "error_rate": 0.789974164638036,
+          "response_time_ms": 6938,
+          "cpu_usage": 0.8351992711765441,
+          "memory_usage": 0.9478596599166269,
+          "queue_depth": 36409,
+          "message_processing_rate": 3.9789432403778906,
+          "consumer_lag_ms": 284027
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:31.440297",
+      "event_type": "recovery",
+      "description": "Recovery: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:33.440297",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:38.440297",
+      "event_type": "message_loss",
+      "description": "Message_Loss: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:42.440297",
+      "event_type": "message_loss",
+      "description": "Message_Loss: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:09.440297",
+      "event_type": "message_loss",
+      "description": "Message_Loss: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:54:20.440297",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

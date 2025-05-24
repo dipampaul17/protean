@@ -1,0 +1,90 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_184526",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 343,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.655086",
+    "phrase_templates_used": 36,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.654510",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to fix",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:57.654510",
+      "event_type": "recovery",
+      "description": "Recovery: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:25.654510",
+      "event_type": "timeout",
+      "description": "Timeout: transaction log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 64,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: transaction log - operation failed",
+        "metrics": {
+          "error_rate": 0.8798220040778597,
+          "response_time_ms": 2204,
+          "cpu_usage": 0.9239150585836176,
+          "memory_usage": 0.8359503439374514
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:31.654510",
+      "event_type": "timeout",
+      "description": "Timeout: only container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 263,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: only container - operation failed",
+        "metrics": {
+          "error_rate": 0.6497813842856928,
+          "response_time_ms": 7750,
+          "cpu_usage": 0.7534028922732137,
+          "memory_usage": 0.9313606138214079
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:49.654510",
+      "event_type": "failure",
+      "description": "Failure: strong update",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 187,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.843265350708326,
+          "response_time_ms": 2402,
+          "cpu_usage": 0.796176371275419,
+          "memory_usage": 0.8973939940296694
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:51:09.654510",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

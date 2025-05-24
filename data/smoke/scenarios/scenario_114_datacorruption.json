@@ -1,0 +1,90 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_184526",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 917,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.654476",
+    "phrase_templates_used": 36,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.654257",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to rollback",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:26.654257",
+      "event_type": "recovery",
+      "description": "Recovery: original container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:41.654257",
+      "event_type": "recovery",
+      "description": "Recovery: one server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:49.654257",
+      "event_type": "recovery",
+      "description": "Recovery: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:56.654257",
+      "event_type": "recovery",
+      "description": "Recovery: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:19.654257",
+      "event_type": "timeout",
+      "description": "Timeout: a database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 35,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: a database - operation failed",
+        "metrics": {
+          "error_rate": 0.23447396402008006,
+          "response_time_ms": 6251,
+          "cpu_usage": 0.7036499125949093,
+          "memory_usage": 0.9752086879965445
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:45.654257",
+      "event_type": "timeout",
+      "description": "Timeout: docker container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 222,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: docker container - operation failed",
+        "metrics": {
+          "error_rate": 0.6961736008415581,
+          "response_time_ms": 4521,
+          "cpu_usage": 0.7704626231118457,
+          "memory_usage": 0.970346478139615
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:00:43.654257",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

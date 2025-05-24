@@ -1,0 +1,67 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_172917
+description: Configuration inconsistencies causing service degradation
+duration: 520
+metadata:
+  generated_at: '2025-05-23T17:29:17.735466'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.734529'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:51.734529'
+  event_type: config_change
+  description: 'Config_Change: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:02.734529'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 293
+    log_snippet: '[2025-05-23 17:29:17] ERROR user-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.7813666443754892
+      response_time_ms: 3358
+      cpu_usage: 0.7932980773210764
+      memory_usage: 0.8749820771509742
+- timestamp: '2025-05-23T17:30:07.734529'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 125
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.17025503496783234
+      response_time_ms: 1241
+      cpu_usage: 0.7257859503676829
+      memory_usage: 0.8320900037590836
+- timestamp: '2025-05-23T17:30:15.734529'
+  event_type: rollback
+  description: 'Rollback: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:17.734529'
+  event_type: rollback
+  description: 'Rollback: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:40.734529'
+  event_type: rollback
+  description: 'Rollback: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:57.734529'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

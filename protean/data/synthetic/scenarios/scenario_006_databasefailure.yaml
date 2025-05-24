@@ -1,0 +1,68 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_172828
+description: Database connectivity and performance issues
+duration: 622
+metadata:
+  generated_at: '2025-05-23T17:28:28.459610'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:28:28.459474'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:32.459474'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 253
+    log_snippet: '[2025-05-23 17:28:28] ERROR redis-cache: queue overflow in timeout'
+    metrics:
+      error_rate: 0.2894909380332001
+      response_time_ms: 8609
+      cpu_usage: 0.7195202361084615
+      memory_usage: 0.8082877178808794
+      connection_pool_usage: 0.9529674426483798
+      query_time_ms: 9129
+      deadlocks_per_sec: 9
+- timestamp: '2025-05-23T17:29:50.459474'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 180
+    log_snippet: '[2025-05-23 17:28:28] ERROR redis-cache: circuit breaker triggered
+      in timeout'
+    metrics:
+      error_rate: 0.8969451099939836
+      response_time_ms: 9092
+      cpu_usage: 0.730808320350565
+      memory_usage: 0.8931222803759913
+      connection_pool_usage: 0.8779335377661048
+      query_time_ms: 19291
+      deadlocks_per_sec: 6
+- timestamp: '2025-05-23T17:29:51.459474'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:09.459474'
+  event_type: connection_loss
+  description: 'Connection_Loss: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:20.459474'
+  event_type: connection_loss
+  description: 'Connection_Loss: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:50.459474'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

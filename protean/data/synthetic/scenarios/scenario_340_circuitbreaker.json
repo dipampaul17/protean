@@ -1,0 +1,114 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_172917",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 496,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.696659",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.695754",
+      "event_type": "trigger",
+      "description": "Initial failure detected: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:33.695754",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 85,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.21740900181738443,
+          "response_time_ms": 3836,
+          "cpu_usage": 0.7220039768382985,
+          "memory_usage": 0.9960230607866316
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:34.695754",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:56.695754",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 142,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR user-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.44393305577408604,
+          "response_time_ms": 7173,
+          "cpu_usage": 0.739133206032291,
+          "memory_usage": 0.9659781362182895
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:03.695754",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 272,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.1726704108989372,
+          "response_time_ms": 9716,
+          "cpu_usage": 0.8144330059374574,
+          "memory_usage": 0.9033038934203117
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:04.695754",
+      "event_type": "recovery",
+      "description": "Recovery: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:36.695754",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 48,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR user-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.8818915618273513,
+          "response_time_ms": 1932,
+          "cpu_usage": 0.7189779554268133,
+          "memory_usage": 0.9821592869456988
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:33.695754",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

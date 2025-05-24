@@ -1,0 +1,150 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_172917",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1326,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.749939",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.749385",
+      "event_type": "trigger",
+      "description": "Initial failure detected: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:43.749385",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:44.749385",
+      "event_type": "degradation",
+      "description": "Degradation: service unavailable",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 201,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR user-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.2581592433979112,
+          "response_time_ms": 1412,
+          "cpu_usage": 0.7732900907600034,
+          "memory_usage": 0.8784048037287652
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:15.749385",
+      "event_type": "degradation",
+      "description": "Degradation: disk space full",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "low",
+        "duration": 49,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.25204061781632986,
+          "response_time_ms": 1845,
+          "cpu_usage": 0.6669756449833,
+          "memory_usage": 0.6923329858245713
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:21.749385",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 250,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.6020691546358605,
+          "response_time_ms": 9152,
+          "cpu_usage": 0.8907432857713365,
+          "memory_usage": 0.9425831723999736
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:43.749385",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:50.749385",
+      "event_type": "degradation",
+      "description": "Degradation: memory limit exceeded",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 140,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.5282894513240698,
+          "response_time_ms": 4264,
+          "cpu_usage": 0.8899793545643752,
+          "memory_usage": 0.855702703435848
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:14.749385",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 206,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.6339848306968376,
+          "response_time_ms": 1206,
+          "cpu_usage": 0.8166106453499189,
+          "memory_usage": 0.96452350850809
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:25.749385",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 195,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.7547790491220172,
+          "response_time_ms": 6772,
+          "cpu_usage": 0.9962837977320051,
+          "memory_usage": 0.8943470336931607
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:51:23.749385",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

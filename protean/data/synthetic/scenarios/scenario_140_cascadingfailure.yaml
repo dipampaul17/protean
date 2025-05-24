@@ -1,0 +1,33 @@
+category: CascadingFailure
+name: CascadingFailure_20250523_173011
+description: Multi-service failure propagation scenario
+duration: 1141
+metadata:
+  generated_at: '2025-05-23T17:30:11.351517'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:30:11.351444'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:28.351444'
+  event_type: initial_failure
+  description: 'Initial_Failure: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:10.351444'
+  event_type: propagation
+  description: 'Propagation: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:41.351444'
+  event_type: cascade
+  description: 'Cascade: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:12.351444'
+  event_type: recovery
+  description: 'System recovered: all services recovered'
+  injection_spec: null

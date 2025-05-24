@@ -1,0 +1,119 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_184526
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1265
+metadata:
+  generated_at: '2025-05-23T18:45:26.787188'
+  phrase_templates_used: 45
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 2
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.786481'
+  event_type: trigger
+  description: 'Initial failure detected: upstream server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:37.786481'
+  event_type: failure
+  description: 'Failure: connect service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 267
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: connect service
+      - operation failed'
+    metrics:
+      error_rate: 0.8583929406560269
+      response_time_ms: 2524
+      cpu_usage: 0.718580873505013
+      memory_usage: 0.8104603398024971
+- timestamp: '2025-05-23T18:45:47.786481'
+  event_type: timeout
+  description: 'Timeout: illuminate queue'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: medium
+    duration: 255
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: illuminate queue - operation
+      failed'
+    metrics:
+      error_rate: 0.2194264773925339
+      response_time_ms: 263
+      cpu_usage: 0.4987865728536246
+      memory_usage: 0.435197298318185
+- timestamp: '2025-05-23T18:46:30.786481'
+  event_type: failure
+  description: 'Failure: this error'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 153
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: this error - operation
+      failed'
+    metrics:
+      error_rate: 0.6662076130214423
+      response_time_ms: 9644
+      cpu_usage: 0.7343004917047867
+      memory_usage: 0.8152378328420281
+- timestamp: '2025-05-23T18:46:33.786481'
+  event_type: timeout
+  description: 'Timeout: illuminate queue'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: medium
+    duration: 64
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: illuminate queue
+      - operation failed'
+    metrics:
+      error_rate: 0.07384076109777546
+      response_time_ms: 932
+      cpu_usage: 0.6137819432249825
+      memory_usage: 0.49852880032895064
+- timestamp: '2025-05-23T18:47:15.786481'
+  event_type: recovery
+  description: 'Recovery: var log'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:30.786481'
+  event_type: timeout
+  description: 'Timeout: jenkins server'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 39
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: jenkins server - operation
+      failed'
+    metrics:
+      error_rate: 0.8616187377302372
+      response_time_ms: 4427
+      cpu_usage: 0.8035768049717238
+      memory_usage: 0.9629591773893807
+- timestamp: '2025-05-23T18:47:35.786481'
+  event_type: recovery
+  description: 'Recovery: failed to'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:39.786481'
+  event_type: failure
+  description: 'Failure: strong update'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 114
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: strong update - operation
+      failed'
+    metrics:
+      error_rate: 0.44006836622518297
+      response_time_ms: 2390
+      cpu_usage: 0.7974682436721126
+      memory_usage: 0.9575831337247697
+- timestamp: '2025-05-23T19:06:31.786481'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

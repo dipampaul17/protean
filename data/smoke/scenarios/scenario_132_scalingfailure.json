@@ -1,0 +1,120 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_184526",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 1759,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.660695",
+    "phrase_templates_used": 24,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.660468",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:57.660468",
+      "event_type": "timeout",
+      "description": "Timeout: a service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 135,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.6227821916254024,
+          "response_time_ms": 3182,
+          "cpu_usage": 0.8597589392994658,
+          "memory_usage": 0.8592708615360413
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:03.660468",
+      "event_type": "timeout",
+      "description": "Timeout: https connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 46,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: https connection - operation failed",
+        "metrics": {
+          "error_rate": 0.23436205875974406,
+          "response_time_ms": 1150,
+          "cpu_usage": 0.8883526856454502,
+          "memory_usage": 0.8910077150597476
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:47.660468",
+      "event_type": "failure",
+      "description": "Failure: aws application",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 105,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: aws application - operation failed",
+        "metrics": {
+          "error_rate": 0.2586953288064958,
+          "response_time_ms": 5234,
+          "cpu_usage": 0.9847607637827971,
+          "memory_usage": 0.9274072436417712
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:49:49.660468",
+      "event_type": "failure",
+      "description": "Failure: to fix",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 112,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: to fix - operation failed",
+        "metrics": {
+          "error_rate": 0.3431642965355944,
+          "response_time_ms": 7567,
+          "cpu_usage": 0.9807987189503538,
+          "memory_usage": 0.9855165833730828
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:50:48.660468",
+      "event_type": "failure",
+      "description": "Failure: load balancer",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 181,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: load balancer - operation failed",
+        "metrics": {
+          "error_rate": 0.5378146537696383,
+          "response_time_ms": 1045,
+          "cpu_usage": 0.7254308046027176,
+          "memory_usage": 0.9556360959709203
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:14:45.660468",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

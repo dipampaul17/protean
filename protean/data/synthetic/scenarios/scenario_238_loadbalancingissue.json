@@ -1,0 +1,102 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_172917",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 1782,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.610154",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.609978",
+      "event_type": "trigger",
+      "description": "Initial failure detected: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:09.609978",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:01.609978",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:17.609978",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:26.609978",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:47.609978",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:21.609978",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "subnet-private",
+        "severity": "high",
+        "duration": 83,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR subnet-private: queue overflow in timeout",
+        "metrics": {
+          "error_rate": 0.4573445311089306,
+          "response_time_ms": 8728,
+          "cpu_usage": 0.7369412734569823,
+          "memory_usage": 0.9389683196188415,
+          "requests_per_sec": 7825,
+          "backend_health_pct": 0.4447766216040267,
+          "connection_timeouts": 375
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:25.609978",
+      "event_type": "timeout",
+      "description": "Timeout: disk space full",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "vpc-main",
+        "severity": "high",
+        "duration": 92,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR vpc-main: disk space full in timeout",
+        "metrics": {
+          "error_rate": 0.5350288935519683,
+          "response_time_ms": 1387,
+          "cpu_usage": 0.996757160916215,
+          "memory_usage": 0.8855231317925498,
+          "requests_per_sec": 7390,
+          "backend_health_pct": 0.6898580193642,
+          "connection_timeouts": 773
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:58:59.609978",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

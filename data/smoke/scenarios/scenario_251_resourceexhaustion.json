@@ -1,0 +1,126 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_184526",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 1046,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.731391",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.730515",
+      "event_type": "trigger",
+      "description": "Initial failure detected: main memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:39.730515",
+      "event_type": "failure",
+      "description": "Failure: the cache",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 283,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: the cache - operation failed",
+        "metrics": {
+          "error_rate": 0.206265724266782,
+          "response_time_ms": 4993,
+          "cpu_usage": 0.9360108279504432,
+          "memory_usage": 0.9130885227359774
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:04.730515",
+      "event_type": "recovery",
+      "description": "Recovery: code cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:11.730515",
+      "event_type": "timeout",
+      "description": "Timeout: heap memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 92,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: heap memory - operation failed",
+        "metrics": {
+          "error_rate": 0.28199061340423964,
+          "response_time_ms": 4157,
+          "cpu_usage": 0.9551503416936228,
+          "memory_usage": 0.9294395307416732
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:15.730515",
+      "event_type": "recovery",
+      "description": "Recovery: urgent memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:44.730515",
+      "event_type": "recovery",
+      "description": "Recovery: code cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:45.730515",
+      "event_type": "failure",
+      "description": "Failure: a memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 55,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: a memory - operation failed",
+        "metrics": {
+          "error_rate": 0.44693197511653027,
+          "response_time_ms": 3933,
+          "cpu_usage": 0.809146784527216,
+          "memory_usage": 0.9440048084575318
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:54.730515",
+      "event_type": "recovery",
+      "description": "Recovery: in memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:11.730515",
+      "event_type": "timeout",
+      "description": "Timeout: to scale",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 98,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: to scale - operation failed",
+        "metrics": {
+          "error_rate": 0.6120144587447476,
+          "response_time_ms": 6266,
+          "cpu_usage": 0.8439953832385382,
+          "memory_usage": 0.9749000431142948
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:02:52.730515",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

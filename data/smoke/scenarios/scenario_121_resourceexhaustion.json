@@ -1,0 +1,132 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_184526",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 1299,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.657618",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.657314",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:45.657314",
+      "event_type": "timeout",
+      "description": "Timeout: the connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 217,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: the connection - operation failed",
+        "metrics": {
+          "error_rate": 0.8446042495008168,
+          "response_time_ms": 1879,
+          "cpu_usage": 0.8283496042261225,
+          "memory_usage": 0.8942238771358344
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:48.657314",
+      "event_type": "timeout",
+      "description": "Timeout: the container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 220,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.21879055953550663,
+          "response_time_ms": 9347,
+          "cpu_usage": 0.8169353543264255,
+          "memory_usage": 0.9807278889026642
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:04.657314",
+      "event_type": "failure",
+      "description": "Failure: the disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 128,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: the disk - operation failed",
+        "metrics": {
+          "error_rate": 0.5118299323316767,
+          "response_time_ms": 8352,
+          "cpu_usage": 0.8002579186840717,
+          "memory_usage": 0.9273527514292607
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:56.657314",
+      "event_type": "timeout",
+      "description": "Timeout: the pod",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 192,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: the pod - operation failed",
+        "metrics": {
+          "error_rate": 0.43099357831159213,
+          "response_time_ms": 5222,
+          "cpu_usage": 0.7261322629092709,
+          "memory_usage": 0.8652639535461678
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:59.657314",
+      "event_type": "failure",
+      "description": "Failure: the queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "medium",
+        "duration": 161,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.20670926316334226,
+          "response_time_ms": 1335,
+          "cpu_usage": 0.3157039139665852,
+          "memory_usage": 0.6149460063852782
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:44.657314",
+      "event_type": "recovery",
+      "description": "Recovery: http server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:09.657314",
+      "event_type": "recovery",
+      "description": "Recovery: the limit",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:07:05.657314",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

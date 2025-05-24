@@ -1,0 +1,47 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173011
+description: Application deployment and rollback scenarios
+duration: 1198
+metadata:
+  generated_at: '2025-05-23T17:30:11.357047'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.356947'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:51.356947'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 84
+    log_snippet: '[2025-05-23 17:30:11] ERROR web-frontend: deployment failed in failure'
+    metrics:
+      error_rate: 0.48152462193772516
+      response_time_ms: 3435
+      cpu_usage: 0.8178459496914793
+      memory_usage: 0.9844222679198915
+- timestamp: '2025-05-23T17:31:09.356947'
+  event_type: rollback
+  description: 'Rollback: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:48.356947'
+  event_type: deployment
+  description: 'Deployment: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:52.356947'
+  event_type: scaling
+  description: 'Scaling: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:09.356947'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

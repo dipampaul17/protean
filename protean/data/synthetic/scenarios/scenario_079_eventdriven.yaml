@@ -1,0 +1,51 @@
+category: EventDriven
+name: EventDriven_20250523_173011
+description: Message queue and event processing failures
+duration: 1693
+metadata:
+  generated_at: '2025-05-23T17:30:11.333150'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.333048'
+  event_type: trigger
+  description: 'Initial failure detected: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:21.333048'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:36.333048'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:47.333048'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 164
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-queue: queue processing memory
+      limit exceeded'
+    metrics:
+      error_rate: 0.456584420816494
+      response_time_ms: 9127
+      cpu_usage: 0.9762698954539253
+      memory_usage: 0.990452535304793
+      queue_depth: 1231
+      message_processing_rate: 0.19704521894559623
+      consumer_lag_ms: 45999
+- timestamp: '2025-05-23T17:35:54.333048'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:58:24.333048'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

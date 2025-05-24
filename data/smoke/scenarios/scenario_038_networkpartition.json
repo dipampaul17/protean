@@ -1,0 +1,96 @@
+{
+  "category": "NetworkPartition",
+  "name": "NetworkPartition_20250523_184526",
+  "description": "Infrastructure failure scenario for NetworkPartition",
+  "duration": 1211,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.563373",
+    "phrase_templates_used": 4,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.563180",
+      "event_type": "trigger",
+      "description": "Initial failure detected: of disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:37.563180",
+      "event_type": "recovery",
+      "description": "Recovery: and node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:31.563180",
+      "event_type": "failure",
+      "description": "Failure: each node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 294,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: each node - operation failed",
+        "metrics": {
+          "error_rate": 0.4727453956037425,
+          "response_time_ms": 8888,
+          "cpu_usage": 0.8478204107319167,
+          "memory_usage": 0.969155508619155
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:31.563180",
+      "event_type": "failure",
+      "description": "Failure: of disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 147,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: of disk - operation failed",
+        "metrics": {
+          "error_rate": 0.2421727742961302,
+          "response_time_ms": 1349,
+          "cpu_usage": 0.7457458608921385,
+          "memory_usage": 0.9674471903379425
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:47.563180",
+      "event_type": "recovery",
+      "description": "Recovery: and memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:49:02.563180",
+      "event_type": "timeout",
+      "description": "Timeout: of disk",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 272,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: of disk - operation failed",
+        "metrics": {
+          "error_rate": 0.495057110858831,
+          "response_time_ms": 6589,
+          "cpu_usage": 0.9856388962493658,
+          "memory_usage": 0.8213783933200585
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:05:37.563180",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

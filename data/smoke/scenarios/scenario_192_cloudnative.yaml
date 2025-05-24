@@ -1,0 +1,73 @@
+category: CloudNative
+name: CloudNative_20250523_184526
+description: Kubernetes pod and container orchestration issues
+duration: 737
+metadata:
+  generated_at: '2025-05-23T18:45:26.696490'
+  phrase_templates_used: 39
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.696228'
+  event_type: trigger
+  description: 'Initial failure detected: kubernetes pod'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:41.696228'
+  event_type: deployment
+  description: 'Deployment: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:54.696228'
+  event_type: scaling
+  description: 'Scaling: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:14.696228'
+  event_type: pod_restart
+  description: 'Pod_Restart: kind service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:17.696228'
+  event_type: pod_restart
+  description: 'Pod_Restart: the service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:18.696228'
+  event_type: pod_restart
+  description: 'Pod_Restart: your container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:20.696228'
+  event_type: failure
+  description: 'Failure: gt service'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 66
+    log_snippet: '[2025-05-23 18:45:26] ERROR web-frontend: gt service in failure'
+    metrics:
+      error_rate: 0.3132330930929997
+      response_time_ms: 1752
+      cpu_usage: 0.9121460891232731
+      memory_usage: 0.9653742712253478
+- timestamp: '2025-05-23T18:46:27.696228'
+  event_type: failure
+  description: 'Failure: the pod'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 150
+    log_snippet: '[2025-05-23 18:45:26] ERROR web-frontend: the pod in failure'
+    metrics:
+      error_rate: 0.7744860563847915
+      response_time_ms: 3110
+      cpu_usage: 0.9104505131233931
+      memory_usage: 0.8931891374295816
+- timestamp: '2025-05-23T18:46:50.696228'
+  event_type: scaling
+  description: 'Scaling: true server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:57:43.696228'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

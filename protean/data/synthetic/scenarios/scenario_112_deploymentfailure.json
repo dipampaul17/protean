@@ -1,0 +1,108 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_172917",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1328,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.574743",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.574549",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:43.574549",
+      "event_type": "rollback",
+      "description": "Rollback: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:46.574549",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 164,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR api-backend: queue overflow in failure",
+        "metrics": {
+          "error_rate": 0.4959530534071167,
+          "response_time_ms": 2935,
+          "cpu_usage": 0.8204037761486087,
+          "memory_usage": 0.9138416973989905
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:50.574549",
+      "event_type": "deployment",
+      "description": "Deployment: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:54.574549",
+      "event_type": "scaling",
+      "description": "Scaling: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:22.574549",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 262,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR web-frontend: connection timeout in failure",
+        "metrics": {
+          "error_rate": 0.6990660293030027,
+          "response_time_ms": 8500,
+          "cpu_usage": 0.8902010910872704,
+          "memory_usage": 0.8467154453522596
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:39.574549",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 226,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR web-frontend: disk space full in failure",
+        "metrics": {
+          "error_rate": 0.7985385205799654,
+          "response_time_ms": 1611,
+          "cpu_usage": 0.7920003062400032,
+          "memory_usage": 0.8761611764584113
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:15.574549",
+      "event_type": "rollback",
+      "description": "Rollback: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:51:25.574549",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

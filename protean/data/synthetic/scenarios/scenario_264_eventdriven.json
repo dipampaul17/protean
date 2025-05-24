@@ -1,0 +1,63 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173011",
+  "description": "Message queue and event processing failures",
+  "duration": 1700,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.385323",
+    "phrase_templates_used": 0,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.385240",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:56.385240",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:33.385240",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 159,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR batch-processing-queue: queue processing rate limit exceeded",
+        "metrics": {
+          "error_rate": 0.25866366619610154,
+          "response_time_ms": 5601,
+          "cpu_usage": 0.9489994815520507,
+          "memory_usage": 0.8573945371024052,
+          "queue_depth": 31975,
+          "message_processing_rate": 5.20358467352482,
+          "consumer_lag_ms": 212427
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:34.385240",
+      "event_type": "recovery",
+      "description": "Recovery: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:58:31.385240",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

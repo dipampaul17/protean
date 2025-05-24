@@ -1,0 +1,66 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173011
+description: Circuit breaker activation due to cascading service failures
+duration: 1754
+metadata:
+  generated_at: '2025-05-23T17:30:11.343787'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:30:11.343683'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:57.343683'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 165
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.8908734526995588
+      response_time_ms: 2410
+      cpu_usage: 0.9172171113235752
+      memory_usage: 0.9841590394548034
+- timestamp: '2025-05-23T17:38:44.343683'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 195
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.24309128241763478
+      response_time_ms: 6297
+      cpu_usage: 0.8537988254258793
+      memory_usage: 0.978663617591905
+- timestamp: '2025-05-23T17:39:50.343683'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 205
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.39110087910310365
+      response_time_ms: 8537
+      cpu_usage: 0.8161747337924468
+      memory_usage: 0.8585438693306104
+- timestamp: '2025-05-23T17:59:25.343683'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

@@ -1,0 +1,108 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_184526
+description: Infrastructure failure scenario for DataWarehouse
+duration: 322
+metadata:
+  generated_at: '2025-05-23T18:45:26.760598'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T18:45:26.760242'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:37.760242'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 260
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.23331883708698442
+      response_time_ms: 3566
+      cpu_usage: 0.813404633697412
+      memory_usage: 0.8337814659249368
+- timestamp: '2025-05-23T18:45:44.760242'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:48.760242'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:58.760242'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 283
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.39357309591977285
+      response_time_ms: 5471
+      cpu_usage: 0.8851733489836702
+      memory_usage: 0.9168906458978239
+- timestamp: '2025-05-23T18:45:59.760242'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 186
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.34839829453964966
+      response_time_ms: 7512
+      cpu_usage: 0.9288759581423554
+      memory_usage: 0.909902612004648
+- timestamp: '2025-05-23T18:46:02.760242'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 60
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.4940078509498418
+      response_time_ms: 5759
+      cpu_usage: 0.9317079612600223
+      memory_usage: 0.8215121284908637
+- timestamp: '2025-05-23T18:46:03.760242'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 101
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.4252554295840245
+      response_time_ms: 8005
+      cpu_usage: 0.932165418031
+      memory_usage: 0.8170590292486504
+- timestamp: '2025-05-23T18:46:04.760242'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T18:50:48.760242'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

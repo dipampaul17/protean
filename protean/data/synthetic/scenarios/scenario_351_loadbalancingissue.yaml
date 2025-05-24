@@ -1,0 +1,49 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_172917
+description: Load balancer and traffic distribution problems
+duration: 1071
+metadata:
+  generated_at: '2025-05-23T17:29:17.701723'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:29:17.701284'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:27.701284'
+  event_type: scaling
+  description: 'Scaling: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:02.701284'
+  event_type: backend_failure
+  description: 'Backend_Failure: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:32.701284'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:39.701284'
+  event_type: backend_failure
+  description: 'Backend_Failure: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:09.701284'
+  event_type: backend_failure
+  description: 'Backend_Failure: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:18.701284'
+  event_type: scaling
+  description: 'Scaling: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:45.701284'
+  event_type: scaling
+  description: 'Scaling: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:08.701284'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

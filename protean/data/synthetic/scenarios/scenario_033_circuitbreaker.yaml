@@ -1,0 +1,96 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_172917
+description: Circuit breaker activation due to cascading service failures
+duration: 1132
+metadata:
+  generated_at: '2025-05-23T17:29:17.529339'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 2
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:29:17.528963'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:40.528963'
+  event_type: degradation
+  description: 'Degradation: service unavailable'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: high
+    duration: 198
+    log_snippet: '[2025-05-23 17:29:17] ERROR user-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.5724704694526099
+      response_time_ms: 4191
+      cpu_usage: 0.8966109357212255
+      memory_usage: 0.9259265623852626
+- timestamp: '2025-05-23T17:29:42.528963'
+  event_type: degradation
+  description: 'Degradation: circuit breaker triggered'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: low
+    duration: 114
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.07557566572026786
+      response_time_ms: 187
+      cpu_usage: 0.5077379216202209
+      memory_usage: 0.5993715045965895
+- timestamp: '2025-05-23T17:30:59.528963'
+  event_type: degradation
+  description: 'Degradation: disk space full'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: low
+    duration: 41
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: disk space full
+      - operation failed'
+    metrics:
+      error_rate: 0.07602526698283721
+      response_time_ms: 427
+      cpu_usage: 0.7642777873383072
+      memory_usage: 0.6369776844791462
+- timestamp: '2025-05-23T17:32:05.528963'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 221
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: authentication
+      failed - operation failed'
+    metrics:
+      error_rate: 0.45337383089870553
+      response_time_ms: 6766
+      cpu_usage: 0.7292361745737898
+      memory_usage: 0.8500962493009931
+- timestamp: '2025-05-23T17:32:32.528963'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 74
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: authentication
+      failed - operation failed'
+    metrics:
+      error_rate: 0.8880448274234434
+      response_time_ms: 1173
+      cpu_usage: 0.941700271488496
+      memory_usage: 0.931350419109249
+- timestamp: '2025-05-23T17:48:09.528963'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

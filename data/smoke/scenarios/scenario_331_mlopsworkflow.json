@@ -1,0 +1,150 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_184526",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 1656,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.758870",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.758567",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:39.758567",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 271,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.4566155074661523,
+          "response_time_ms": 6492,
+          "cpu_usage": 0.7669523605029281,
+          "memory_usage": 0.9852554094368235
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:45.758567",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 120,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.4920973670000298,
+          "response_time_ms": 7982,
+          "cpu_usage": 0.8420355639891046,
+          "memory_usage": 0.9545881449935547
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:09.758567",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 82,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.57270410025643,
+          "response_time_ms": 7277,
+          "cpu_usage": 0.750248039936349,
+          "memory_usage": 0.9429398527473862
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:17.758567",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:47.758567",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 90,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.8135939352802566,
+          "response_time_ms": 9069,
+          "cpu_usage": 0.9106830811778277,
+          "memory_usage": 0.9164738447852462
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:50.758567",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:14.758567",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 159,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.8221654237489522,
+          "response_time_ms": 2567,
+          "cpu_usage": 0.9678204568289855,
+          "memory_usage": 0.907808803443245
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:21.758567",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 42,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.11091635555845461,
+          "response_time_ms": 3832,
+          "cpu_usage": 0.7680523083612999,
+          "memory_usage": 0.8385611182229985
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:13:02.758567",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

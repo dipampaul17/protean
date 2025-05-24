@@ -1,0 +1,74 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_184526
+description: Infrastructure failure scenario for ETLPipeline
+duration: 1706
+metadata:
+  generated_at: '2025-05-23T18:45:26.810630'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.810435'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:20.810435'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 140
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.6402569082938158
+      response_time_ms: 4010
+      cpu_usage: 0.9516892679165763
+      memory_usage: 0.987636881634402
+- timestamp: '2025-05-23T18:47:22.810435'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:36.810435'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 107
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.11194612806873075
+      response_time_ms: 2783
+      cpu_usage: 0.9832182066329269
+      memory_usage: 0.9047563001329496
+- timestamp: '2025-05-23T18:47:56.810435'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 240
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.13698591920482475
+      response_time_ms: 2421
+      cpu_usage: 0.9891313149220017
+      memory_usage: 0.867022773014116
+- timestamp: '2025-05-23T18:49:42.810435'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T19:13:52.810435'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

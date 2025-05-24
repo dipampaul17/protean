@@ -1,0 +1,119 @@
+category: DataCorruption
+name: DataCorruption_20250523_184526
+description: Infrastructure failure scenario for DataCorruption
+duration: 1482
+metadata:
+  generated_at: '2025-05-23T18:45:26.752561'
+  phrase_templates_used: 36
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 2
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.751710'
+  event_type: trigger
+  description: 'Initial failure detected: to rollback'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:09.751710'
+  event_type: failure
+  description: 'Failure: the database'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 171
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: the database - operation
+      failed'
+    metrics:
+      error_rate: 0.34846684584465804
+      response_time_ms: 8972
+      cpu_usage: 0.8124967049489217
+      memory_usage: 0.9944903916706328
+- timestamp: '2025-05-23T18:46:21.751710'
+  event_type: recovery
+  description: 'Recovery: to resolve'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:34.751710'
+  event_type: timeout
+  description: 'Timeout: one server'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 135
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: one server - operation
+      failed'
+    metrics:
+      error_rate: 0.7227368961988642
+      response_time_ms: 7804
+      cpu_usage: 0.9597212656335302
+      memory_usage: 0.9791490555356411
+- timestamp: '2025-05-23T18:47:26.751710'
+  event_type: recovery
+  description: 'Recovery: only container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:26.751710'
+  event_type: timeout
+  description: 'Timeout: head queue'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: medium
+    duration: 263
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: head queue - operation
+      failed'
+    metrics:
+      error_rate: 0.25094901535135905
+      response_time_ms: 1405
+      cpu_usage: 0.30137589360130024
+      memory_usage: 0.4339606616845876
+- timestamp: '2025-05-23T18:47:28.751710'
+  event_type: failure
+  description: 'Failure: the container'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 56
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: the container - operation
+      failed'
+    metrics:
+      error_rate: 0.6606859634049563
+      response_time_ms: 4432
+      cpu_usage: 0.9609271550593657
+      memory_usage: 0.9986495296215789
+- timestamp: '2025-05-23T18:47:39.751710'
+  event_type: failure
+  description: 'Failure: new container'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 138
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: new container - operation
+      failed'
+    metrics:
+      error_rate: 0.3034294144100914
+      response_time_ms: 5012
+      cpu_usage: 0.9527422411957316
+      memory_usage: 0.8025967747918731
+- timestamp: '2025-05-23T18:48:06.751710'
+  event_type: failure
+  description: 'Failure: code queue'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: medium
+    duration: 54
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: code queue - operation
+      failed'
+    metrics:
+      error_rate: 0.18619696257595747
+      response_time_ms: 506
+      cpu_usage: 0.3765561868060593
+      memory_usage: 0.4159014975378474
+- timestamp: '2025-05-23T19:10:08.751710'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

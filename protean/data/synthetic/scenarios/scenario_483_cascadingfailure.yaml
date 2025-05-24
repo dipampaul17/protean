@@ -1,0 +1,53 @@
+category: CascadingFailure
+name: CascadingFailure_20250523_173011
+description: Multi-service failure propagation scenario
+duration: 1619
+metadata:
+  generated_at: '2025-05-23T17:30:11.443380'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:30:11.443223'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:07.443223'
+  event_type: propagation
+  description: 'Propagation: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:14.443223'
+  event_type: propagation
+  description: 'Propagation: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:16.443223'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:31.443223'
+  event_type: initial_failure
+  description: 'Initial_Failure: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:42.443223'
+  event_type: initial_failure
+  description: 'Initial_Failure: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:53.443223'
+  event_type: initial_failure
+  description: 'Initial_Failure: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:22.443223'
+  event_type: cascade
+  description: 'Cascade: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:29.443223'
+  event_type: initial_failure
+  description: 'Initial_Failure: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:57:10.443223'
+  event_type: recovery
+  description: 'System recovered: all services recovered'
+  injection_spec: null

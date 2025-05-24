@@ -1,0 +1,108 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_184526",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 854,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.728367",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.728144",
+      "event_type": "trigger",
+      "description": "Initial failure detected: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:08.728144",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 101,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.8767091401434987,
+          "response_time_ms": 5148,
+          "cpu_usage": 0.7848492103948602,
+          "memory_usage": 0.8931234327330012
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:00.728144",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 299,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.3749579061005347,
+          "response_time_ms": 9459,
+          "cpu_usage": 0.703068082708368,
+          "memory_usage": 0.8018429195027366
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:58.728144",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 161,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.8520328539101173,
+          "response_time_ms": 9919,
+          "cpu_usage": 0.9048541605345226,
+          "memory_usage": 0.9670604590212781
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:01.728144",
+      "event_type": "recovery",
+      "description": "Recovery: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:08.728144",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 105,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.15183044768920678,
+          "response_time_ms": 5724,
+          "cpu_usage": 0.9371333578387913,
+          "memory_usage": 0.8422014258308308
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:59:40.728144",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

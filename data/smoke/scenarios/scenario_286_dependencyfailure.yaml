@@ -1,0 +1,44 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_184526
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1358
+metadata:
+  generated_at: '2025-05-23T18:45:26.743236'
+  phrase_templates_used: 45
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T18:45:26.743075'
+  event_type: trigger
+  description: 'Initial failure detected: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:54.743075'
+  event_type: recovery
+  description: 'Recovery: inventory service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:36.743075'
+  event_type: recovery
+  description: 'Recovery: code server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:52:29.743075'
+  event_type: failure
+  description: 'Failure: to network'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 164
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: to network - operation
+      failed'
+    metrics:
+      error_rate: 0.6772163700100183
+      response_time_ms: 2260
+      cpu_usage: 0.9623455756568382
+      memory_usage: 0.8917288330326704
+- timestamp: '2025-05-23T19:08:04.743075'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

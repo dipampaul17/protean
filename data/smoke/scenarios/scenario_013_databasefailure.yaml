@@ -1,0 +1,89 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_184526
+description: Database connectivity and performance issues
+duration: 592
+metadata:
+  generated_at: '2025-05-23T18:45:26.553411'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.552901'
+  event_type: trigger
+  description: 'Initial failure detected: mysql database'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:44.552901'
+  event_type: connection_loss
+  description: 'Connection_Loss: requires restart'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:08.552901'
+  event_type: timeout
+  description: 'Timeout: code server'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 99
+    log_snippet: '[2025-05-23 18:45:26] ERROR mongodb-shard: code server in timeout'
+    metrics:
+      error_rate: 0.6258621610047681
+      response_time_ms: 6712
+      cpu_usage: 0.9971718595821562
+      memory_usage: 0.9990629583932232
+      connection_pool_usage: 0.9050964546912916
+      query_time_ms: 12263
+      deadlocks_per_sec: 2
+- timestamp: '2025-05-23T18:46:15.552901'
+  event_type: recovery
+  description: 'Recovery: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:24.552901'
+  event_type: corruption
+  description: 'Corruption: relational database'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:25.552901'
+  event_type: timeout
+  description: 'Timeout: mysql database'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 178
+    log_snippet: '[2025-05-23 18:45:26] ERROR mongodb-shard: mysql database in timeout'
+    metrics:
+      error_rate: 0.7654779941674649
+      response_time_ms: 4756
+      cpu_usage: 0.7591742981042762
+      memory_usage: 0.9469744288508075
+      connection_pool_usage: 0.860606328173157
+      query_time_ms: 11704
+      deadlocks_per_sec: 9
+- timestamp: '2025-05-23T18:46:28.552901'
+  event_type: recovery
+  description: 'Recovery: mysql server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:39.552901'
+  event_type: timeout
+  description: 'Timeout: to scale'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 115
+    log_snippet: '[2025-05-23 18:45:26] FATAL postgres-replica: database to scale
+      detected'
+    metrics:
+      error_rate: 0.8010494772961378
+      response_time_ms: 8727
+      cpu_usage: 0.8357793485146323
+      memory_usage: 0.9599715687746817
+      connection_pool_usage: 0.8123344355061819
+      query_time_ms: 15169
+      deadlocks_per_sec: 6
+- timestamp: '2025-05-23T18:55:18.552901'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

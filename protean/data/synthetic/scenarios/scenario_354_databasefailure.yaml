@@ -1,0 +1,94 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173011
+description: Database connectivity and performance issues
+duration: 1757
+metadata:
+  generated_at: '2025-05-23T17:30:11.407314'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:30:11.407117'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:52.407117'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 113
+    log_snippet: '[2025-05-23 17:30:11] ERROR redis-cache: network unreachable in
+      timeout'
+    metrics:
+      error_rate: 0.4529578864464767
+      response_time_ms: 8919
+      cpu_usage: 0.975791044756037
+      memory_usage: 0.9956833660348068
+      connection_pool_usage: 0.8671944541692809
+      query_time_ms: 17471
+      deadlocks_per_sec: 6
+- timestamp: '2025-05-23T17:32:41.407117'
+  event_type: connection_loss
+  description: 'Connection_Loss: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:06.407117'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 105
+    log_snippet: '[2025-05-23 17:30:11] FATAL postgres-replica: database disk space
+      full detected'
+    metrics:
+      error_rate: 0.13613521339581933
+      response_time_ms: 1571
+      cpu_usage: 0.9302845901180266
+      memory_usage: 0.9639075292164504
+      connection_pool_usage: 0.9407325037637911
+      query_time_ms: 16346
+      deadlocks_per_sec: 6
+- timestamp: '2025-05-23T17:33:12.407117'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:24.407117'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 210
+    log_snippet: '[2025-05-23 17:30:11] ERROR redis-cache: disk space full in timeout'
+    metrics:
+      error_rate: 0.7816058213600598
+      response_time_ms: 6312
+      cpu_usage: 0.9877811597599588
+      memory_usage: 0.8514137475522074
+      connection_pool_usage: 0.9400549336739259
+      query_time_ms: 12673
+      deadlocks_per_sec: 1
+- timestamp: '2025-05-23T17:33:25.407117'
+  event_type: connection_loss
+  description: 'Connection_Loss: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:36.407117'
+  event_type: connection_loss
+  description: 'Connection_Loss: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:47.407117'
+  event_type: corruption
+  description: 'Corruption: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:59:28.407117'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

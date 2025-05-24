@@ -1,0 +1,71 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_172917
+description: Configuration inconsistencies causing service degradation
+duration: 1138
+metadata:
+  generated_at: '2025-05-23T17:29:17.595111'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.594952'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:29.594952'
+  event_type: rollback
+  description: 'Rollback: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:58.594952'
+  event_type: restart
+  description: 'Restart: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:15.594952'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 273
+    log_snippet: '[2025-05-23 17:29:17] ERROR auth-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.13145734217617636
+      response_time_ms: 6302
+      cpu_usage: 0.9692859210053473
+      memory_usage: 0.8951489731612745
+- timestamp: '2025-05-23T17:30:23.594952'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 198
+    log_snippet: '[2025-05-23 17:29:17] ERROR user-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.37950995658347964
+      response_time_ms: 5780
+      cpu_usage: 0.9582008052325293
+      memory_usage: 0.9871458658461886
+- timestamp: '2025-05-23T17:31:02.594952'
+  event_type: config_change
+  description: 'Config_Change: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:18.594952'
+  event_type: restart
+  description: 'Restart: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:43.594952'
+  event_type: rollback
+  description: 'Rollback: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:15.594952'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

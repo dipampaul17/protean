@@ -1,0 +1,96 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_172917",
+  "description": "Message queue and event processing failures",
+  "duration": 1614,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.568145",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.567780",
+      "event_type": "trigger",
+      "description": "Initial failure detected: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:40.567780",
+      "event_type": "message_loss",
+      "description": "Message_Loss: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:02.567780",
+      "event_type": "message_loss",
+      "description": "Message_Loss: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:41.567780",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:16.567780",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 258,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR batch-processing-queue: queue processing authentication failed",
+        "metrics": {
+          "error_rate": 0.19506045860783036,
+          "response_time_ms": 2271,
+          "cpu_usage": 0.8922329688864897,
+          "memory_usage": 0.888588012489687,
+          "queue_depth": 36102,
+          "message_processing_rate": 7.403683362404169,
+          "consumer_lag_ms": 250602
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:23.567780",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:45.567780",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 42,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR batch-processing-queue: queue processing memory limit exceeded",
+        "metrics": {
+          "error_rate": 0.2503119827723273,
+          "response_time_ms": 3205,
+          "cpu_usage": 0.9777886584084071,
+          "memory_usage": 0.847811178942199,
+          "queue_depth": 27056,
+          "message_processing_rate": 8.119556146597464,
+          "consumer_lag_ms": 117876
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:56:11.567780",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

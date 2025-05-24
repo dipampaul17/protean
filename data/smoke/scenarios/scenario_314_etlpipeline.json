@@ -1,0 +1,102 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_184526",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 1054,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.752774",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.752597",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:22.752597",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 205,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.5797652817338498,
+          "response_time_ms": 9087,
+          "cpu_usage": 0.7601657677696345,
+          "memory_usage": 0.8523247621840058
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:23.752597",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 288,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.6886691492331967,
+          "response_time_ms": 2525,
+          "cpu_usage": 0.8121010179114725,
+          "memory_usage": 0.8135486112231329
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:30.752597",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 278,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.6997188791784722,
+          "response_time_ms": 1605,
+          "cpu_usage": 0.754125123134328,
+          "memory_usage": 0.9842730115770737
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:57.752597",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 266,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.3325398414940878,
+          "response_time_ms": 1258,
+          "cpu_usage": 0.81621950998756,
+          "memory_usage": 0.8057518202743976
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:03:00.752597",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

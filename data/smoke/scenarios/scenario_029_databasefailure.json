@@ -1,0 +1,138 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_184526",
+  "description": "Database connectivity and performance issues",
+  "duration": 1426,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.559741",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.559448",
+      "event_type": "trigger",
+      "description": "Initial failure detected: an error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:39.559448",
+      "event_type": "timeout",
+      "description": "Timeout: the queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "medium",
+        "duration": 280,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR mongodb-shard: the queue in timeout",
+        "metrics": {
+          "error_rate": 0.25604547593925825,
+          "response_time_ms": 334,
+          "cpu_usage": 0.7468268590775408,
+          "memory_usage": 0.4437909906008711,
+          "connection_pool_usage": 0.9412090211466092,
+          "query_time_ms": 28365,
+          "deadlocks_per_sec": 6
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:52.559448",
+      "event_type": "timeout",
+      "description": "Timeout: mongodb database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 104,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR mongodb-shard: mongodb database in timeout",
+        "metrics": {
+          "error_rate": 0.20963949484828925,
+          "response_time_ms": 4708,
+          "cpu_usage": 0.8523289456839723,
+          "memory_usage": 0.8249863972989387,
+          "connection_pool_usage": 0.9528008136344752,
+          "query_time_ms": 5713,
+          "deadlocks_per_sec": 9
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:10.559448",
+      "event_type": "corruption",
+      "description": "Corruption: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:54.559448",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:18.559448",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: docker container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:29.559448",
+      "event_type": "corruption",
+      "description": "Corruption: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:34.559448",
+      "event_type": "timeout",
+      "description": "Timeout: postgres container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 188,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR redis-cache: postgres container in timeout",
+        "metrics": {
+          "error_rate": 0.38186295294529493,
+          "response_time_ms": 8451,
+          "cpu_usage": 0.9225657112141705,
+          "memory_usage": 0.9365133026904026,
+          "connection_pool_usage": 0.9443341848654672,
+          "query_time_ms": 26311,
+          "deadlocks_per_sec": 4
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:57.559448",
+      "event_type": "timeout",
+      "description": "Timeout: the database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 97,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR redis-cache: the database in timeout",
+        "metrics": {
+          "error_rate": 0.5827455109059231,
+          "response_time_ms": 1343,
+          "cpu_usage": 0.7838221210915373,
+          "memory_usage": 0.8991051501101701,
+          "connection_pool_usage": 0.8347402588739788,
+          "query_time_ms": 17821,
+          "deadlocks_per_sec": 1
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:09:12.559448",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

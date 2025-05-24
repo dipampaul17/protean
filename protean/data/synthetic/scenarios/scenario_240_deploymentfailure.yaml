@@ -1,0 +1,62 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173011
+description: Application deployment and rollback scenarios
+duration: 1442
+metadata:
+  generated_at: '2025-05-23T17:30:11.375750'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.374775'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:42.374775'
+  event_type: scaling
+  description: 'Scaling: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:08.374775'
+  event_type: deployment
+  description: 'Deployment: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:11.374775'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 153
+    log_snippet: '[2025-05-23 17:30:11] ERROR web-frontend: disk space full in failure'
+    metrics:
+      error_rate: 0.8960691865465693
+      response_time_ms: 6178
+      cpu_usage: 0.9134829203966375
+      memory_usage: 0.9437358676151751
+- timestamp: '2025-05-23T17:32:36.374775'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 262
+    log_snippet: '[2025-05-23 17:30:11] ERROR api-backend: service unavailable in
+      failure'
+    metrics:
+      error_rate: 0.2204900961044606
+      response_time_ms: 4194
+      cpu_usage: 0.975820147222387
+      memory_usage: 0.8334721404974641
+- timestamp: '2025-05-23T17:33:37.374775'
+  event_type: rollback
+  description: 'Rollback: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:54:13.374775'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

@@ -1,0 +1,60 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173011
+description: Configuration inconsistencies causing service degradation
+duration: 1499
+metadata:
+  generated_at: '2025-05-23T17:30:11.391867'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.391521'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:23.391521'
+  event_type: restart
+  description: 'Restart: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:27.391521'
+  event_type: restart
+  description: 'Restart: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:37.391521'
+  event_type: config_change
+  description: 'Config_Change: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:38.391521'
+  event_type: rollback
+  description: 'Rollback: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:59.391521'
+  event_type: rollback
+  description: 'Rollback: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:05.391521'
+  event_type: config_change
+  description: 'Config_Change: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:07.391521'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 127
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.6888203668801773
+      response_time_ms: 3884
+      cpu_usage: 0.7447864718231955
+      memory_usage: 0.8596109422568912
+- timestamp: '2025-05-23T17:55:10.391521'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

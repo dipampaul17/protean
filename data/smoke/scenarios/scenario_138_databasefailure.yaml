@@ -1,0 +1,45 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_184526
+description: Database connectivity and performance issues
+duration: 757
+metadata:
+  generated_at: '2025-05-23T18:45:26.662717'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T18:45:26.662539'
+  event_type: trigger
+  description: 'Initial failure detected: postgresql database'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:41.662539'
+  event_type: recovery
+  description: 'Recovery: on database'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:00.662539'
+  event_type: connection_loss
+  description: 'Connection_Loss: to fix'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:09.662539'
+  event_type: corruption
+  description: 'Corruption: the connection'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:16.662539'
+  event_type: recovery
+  description: 'Recovery: docker container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:53.662539'
+  event_type: recovery
+  description: 'Recovery: the database'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:03.662539'
+  event_type: connection_loss
+  description: 'Connection_Loss: message queue'
+  injection_spec: null
+- timestamp: '2025-05-23T18:58:03.662539'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

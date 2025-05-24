@@ -1,0 +1,102 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_184526",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 951,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.561619",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.560620",
+      "event_type": "trigger",
+      "description": "Initial failure detected: potential memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:46.560620",
+      "event_type": "failure",
+      "description": "Failure: the pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 92,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: the pod - operation failed",
+        "metrics": {
+          "error_rate": 0.8725907770658706,
+          "response_time_ms": 7822,
+          "cpu_usage": 0.8162046365322521,
+          "memory_usage": 0.9969271668432858
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:31.560620",
+      "event_type": "recovery",
+      "description": "Recovery: float scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:36.560620",
+      "event_type": "timeout",
+      "description": "Timeout: em connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 129,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: em connection - operation failed",
+        "metrics": {
+          "error_rate": 0.2657103891580237,
+          "response_time_ms": 8582,
+          "cpu_usage": 0.7512663736281607,
+          "memory_usage": 0.8322034845655765
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:07.560620",
+      "event_type": "recovery",
+      "description": "Recovery: a node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:20.560620",
+      "event_type": "timeout",
+      "description": "Timeout: the disk",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 33,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: the disk - operation failed",
+        "metrics": {
+          "error_rate": 0.823093573118386,
+          "response_time_ms": 2804,
+          "cpu_usage": 0.9335710577476164,
+          "memory_usage": 0.9300617615215349
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:31.560620",
+      "event_type": "recovery",
+      "description": "Recovery: associative cache",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:01:17.560620",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

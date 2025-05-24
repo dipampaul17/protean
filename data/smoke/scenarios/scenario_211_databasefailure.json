@@ -1,0 +1,96 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_184526",
+  "description": "Database connectivity and performance issues",
+  "duration": 1128,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.702483",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.702239",
+      "event_type": "trigger",
+      "description": "Initial failure detected: api server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:39.702239",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:02.702239",
+      "event_type": "timeout",
+      "description": "Timeout: sql server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 38,
+        "log_snippet": "[2025-05-23 18:45:26] FATAL mysql-primary: database sql server detected",
+        "metrics": {
+          "error_rate": 0.8758120663277074,
+          "response_time_ms": 1057,
+          "cpu_usage": 0.8571616107733085,
+          "memory_usage": 0.9726690211294206,
+          "connection_pool_usage": 0.9728011433296606,
+          "query_time_ms": 18420,
+          "deadlocks_per_sec": 5
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:26.702239",
+      "event_type": "recovery",
+      "description": "Recovery: relational database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:43.702239",
+      "event_type": "timeout",
+      "description": "Timeout: message queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "medium",
+        "duration": 62,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR redis-cache: message queue in timeout",
+        "metrics": {
+          "error_rate": 0.22939309487136655,
+          "response_time_ms": 1390,
+          "cpu_usage": 0.5493102766649192,
+          "memory_usage": 0.43203514411588423,
+          "connection_pool_usage": 0.8847185009926193,
+          "query_time_ms": 26565,
+          "deadlocks_per_sec": 4
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:54.702239",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: p error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:16.702239",
+      "event_type": "corruption",
+      "description": "Corruption: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:04:14.702239",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

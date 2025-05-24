@@ -1,0 +1,96 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_172917",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 310,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.601847",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.601702",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:34.601702",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 190,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.1566651530399935,
+          "response_time_ms": 9847,
+          "cpu_usage": 0.8892561452885798,
+          "memory_usage": 0.8416707732368865
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:55.601702",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:01.601702",
+      "event_type": "degradation",
+      "description": "Degradation: queue overflow",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 32,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR notification-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.25264904889332074,
+          "response_time_ms": 1800,
+          "cpu_usage": 0.8686716919791545,
+          "memory_usage": 0.8207879136679883
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:01.601702",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:13.601702",
+      "event_type": "degradation",
+      "description": "Degradation: container crashed",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 208,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR user-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.4235314932804758,
+          "response_time_ms": 1150,
+          "cpu_usage": 0.9127812850836274,
+          "memory_usage": 0.9676985848375232
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:27.601702",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

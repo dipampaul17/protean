@@ -1,0 +1,86 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_172917
+description: Configuration inconsistencies causing service degradation
+duration: 1460
+metadata:
+  generated_at: '2025-05-23T17:29:17.538572'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:29:17.538379'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:30.538379'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 280
+    log_snippet: '[2025-05-23 17:29:17] ERROR user-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.12648622991967226
+      response_time_ms: 1616
+      cpu_usage: 0.8625959754212398
+      memory_usage: 0.8324231349138126
+- timestamp: '2025-05-23T17:29:50.538379'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 277
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: circuit breaker
+      triggered - operation failed'
+    metrics:
+      error_rate: 0.40172867749196794
+      response_time_ms: 1271
+      cpu_usage: 0.9961618931262608
+      memory_usage: 0.8767878437747256
+- timestamp: '2025-05-23T17:30:44.538379'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 100
+    log_snippet: '[2025-05-23 17:29:17] ERROR user-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.49037169144094717
+      response_time_ms: 7973
+      cpu_usage: 0.7103649455125481
+      memory_usage: 0.8039347056094119
+- timestamp: '2025-05-23T17:30:45.538379'
+  event_type: rollback
+  description: 'Rollback: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:10.538379'
+  event_type: config_change
+  description: 'Config_Change: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:36.538379'
+  event_type: rollback
+  description: 'Rollback: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:00.538379'
+  event_type: restart
+  description: 'Restart: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:10.538379'
+  event_type: restart
+  description: 'Restart: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:53:37.538379'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

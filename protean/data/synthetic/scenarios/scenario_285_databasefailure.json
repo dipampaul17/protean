@@ -1,0 +1,90 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_172917",
+  "description": "Database connectivity and performance issues",
+  "duration": 1133,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.675540",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.669520",
+      "event_type": "trigger",
+      "description": "Initial failure detected: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:32.669520",
+      "event_type": "corruption",
+      "description": "Corruption: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:13.669520",
+      "event_type": "corruption",
+      "description": "Corruption: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:35.669520",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:54.669520",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 109,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR redis-cache: service unavailable in timeout",
+        "metrics": {
+          "error_rate": 0.5648941557551023,
+          "response_time_ms": 4808,
+          "cpu_usage": 0.8275898946352904,
+          "memory_usage": 0.935239064337507,
+          "connection_pool_usage": 0.8645824725224182,
+          "query_time_ms": 17778,
+          "deadlocks_per_sec": 9
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:22.669520",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 93,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR mongodb-shard: circuit breaker triggered in timeout",
+        "metrics": {
+          "error_rate": 0.7681578227172805,
+          "response_time_ms": 3071,
+          "cpu_usage": 0.990418977631407,
+          "memory_usage": 0.8650208133247295,
+          "connection_pool_usage": 0.9226631799354535,
+          "query_time_ms": 10761,
+          "deadlocks_per_sec": 6
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:10.669520",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

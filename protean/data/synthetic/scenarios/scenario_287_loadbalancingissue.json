@@ -1,0 +1,93 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_172917",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 648,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.676113",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.675865",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:36.675865",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:41.675865",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:00.675865",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:04.675865",
+      "event_type": "scaling",
+      "description": "Scaling: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:11.675865",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:17.675865",
+      "event_type": "scaling",
+      "description": "Scaling: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:31.675865",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:33.675865",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "vpc-main",
+        "severity": "high",
+        "duration": 116,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR vpc-main: network unreachable in timeout",
+        "metrics": {
+          "error_rate": 0.6631351457038096,
+          "response_time_ms": 7867,
+          "cpu_usage": 0.8294667798313394,
+          "memory_usage": 0.8570481257753225,
+          "requests_per_sec": 7988,
+          "backend_health_pct": 0.36594893971261483,
+          "connection_timeouts": 214
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:05.675865",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

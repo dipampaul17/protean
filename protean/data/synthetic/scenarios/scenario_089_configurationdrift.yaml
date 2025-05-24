@@ -1,0 +1,67 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173011
+description: Configuration inconsistencies causing service degradation
+duration: 1129
+metadata:
+  generated_at: '2025-05-23T17:30:11.336599'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.336453'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:34.336453'
+  event_type: rollback
+  description: 'Rollback: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:43.336453'
+  event_type: restart
+  description: 'Restart: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:51.336453'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 129
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.11909690634200727
+      response_time_ms: 8612
+      cpu_usage: 0.8729182999310033
+      memory_usage: 0.8014596950508873
+- timestamp: '2025-05-23T17:32:17.336453'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 268
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: disk space full
+      - operation failed'
+    metrics:
+      error_rate: 0.8174059109294501
+      response_time_ms: 1176
+      cpu_usage: 0.731725761423155
+      memory_usage: 0.8875714714905784
+- timestamp: '2025-05-23T17:32:41.336453'
+  event_type: config_change
+  description: 'Config_Change: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:05.336453'
+  event_type: config_change
+  description: 'Config_Change: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:00.336453'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

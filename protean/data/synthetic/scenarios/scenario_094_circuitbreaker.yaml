@@ -1,0 +1,104 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_172917
+description: Circuit breaker activation due to cascading service failures
+duration: 1786
+metadata:
+  generated_at: '2025-05-23T17:29:17.568938'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:29:17.568719'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:51.568719'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 293
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.14438773488053178
+      response_time_ms: 9347
+      cpu_usage: 0.7873482702753838
+      memory_usage: 0.9016932579287105
+- timestamp: '2025-05-23T17:30:23.568719'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 249
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-service: deployment failed -
+      operation failed'
+    metrics:
+      error_rate: 0.4611523014210017
+      response_time_ms: 9713
+      cpu_usage: 0.7804290483931652
+      memory_usage: 0.9650935294176818
+- timestamp: '2025-05-23T17:30:27.568719'
+  event_type: recovery
+  description: 'Recovery: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:02.568719'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 50
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.17288947468034827
+      response_time_ms: 7651
+      cpu_usage: 0.8961973764539237
+      memory_usage: 0.8707225070342922
+- timestamp: '2025-05-23T17:31:44.568719'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 219
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.1542317975626567
+      response_time_ms: 7313
+      cpu_usage: 0.965894912561775
+      memory_usage: 0.9697278407146981
+- timestamp: '2025-05-23T17:33:20.568719'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:27.568719'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 237
+    log_snippet: '[2025-05-23 17:29:17] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.33868234122061286
+      response_time_ms: 2045
+      cpu_usage: 0.95788108614357
+      memory_usage: 0.9651543611856467
+- timestamp: '2025-05-23T17:59:03.568719'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

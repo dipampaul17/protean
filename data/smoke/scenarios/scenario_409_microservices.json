@@ -1,0 +1,72 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_184526",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 1359,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.784890",
+    "phrase_templates_used": 15,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.784767",
+      "event_type": "trigger",
+      "description": "Initial failure detected: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:48.784767",
+      "event_type": "timeout",
+      "description": "Timeout: strong service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 138,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: strong service - operation failed",
+        "metrics": {
+          "error_rate": 0.5753403399429762,
+          "response_time_ms": 5034,
+          "cpu_usage": 0.9694618335250295,
+          "memory_usage": 0.994254332494597
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:52.784767",
+      "event_type": "timeout",
+      "description": "Timeout: lt service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 118,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: lt service - operation failed",
+        "metrics": {
+          "error_rate": 0.6320177486351758,
+          "response_time_ms": 3041,
+          "cpu_usage": 0.743487992187773,
+          "memory_usage": 0.9344640466039371
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:21.784767",
+      "event_type": "recovery",
+      "description": "Recovery: docker network",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:08:05.784767",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

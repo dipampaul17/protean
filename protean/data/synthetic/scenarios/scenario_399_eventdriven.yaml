@@ -1,0 +1,73 @@
+category: EventDriven
+name: EventDriven_20250523_173011
+description: Message queue and event processing failures
+duration: 581
+metadata:
+  generated_at: '2025-05-23T17:30:11.423089'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:30:11.422942'
+  event_type: trigger
+  description: 'Initial failure detected: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:33.422942'
+  event_type: message_loss
+  description: 'Message_Loss: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:41.422942'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 39
+    log_snippet: '[2025-05-23 17:30:11] ERROR batch-processing-queue: queue processing
+      database connection lost'
+    metrics:
+      error_rate: 0.19355806076188042
+      response_time_ms: 1870
+      cpu_usage: 0.9857555336061989
+      memory_usage: 0.8748805086842841
+      queue_depth: 43231
+      message_processing_rate: 7.7413557983290895
+      consumer_lag_ms: 33106
+- timestamp: '2025-05-23T17:30:47.422942'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 80
+    log_snippet: '[2025-05-23 17:30:11] ERROR batch-processing-queue: queue processing
+      memory limit exceeded'
+    metrics:
+      error_rate: 0.26703945751109115
+      response_time_ms: 3306
+      cpu_usage: 0.9759184486004235
+      memory_usage: 0.8056101812637664
+      queue_depth: 1512
+      message_processing_rate: 3.5878374719854236
+      consumer_lag_ms: 14827
+- timestamp: '2025-05-23T17:31:33.422942'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:33.422942'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:46.422942'
+  event_type: message_loss
+  description: 'Message_Loss: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:52.422942'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

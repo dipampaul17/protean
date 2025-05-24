@@ -1,0 +1,102 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_172917",
+  "description": "Message queue and event processing failures",
+  "duration": 538,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.533751",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.533376",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:29:39.533376",
+      "event_type": "timeout",
+      "description": "Timeout: disk space full",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 165,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-queue: queue processing disk space full",
+        "metrics": {
+          "error_rate": 0.28545109970199345,
+          "response_time_ms": 5930,
+          "cpu_usage": 0.775296655128382,
+          "memory_usage": 0.9729616521581912,
+          "queue_depth": 24422,
+          "message_processing_rate": 7.808833250578341,
+          "consumer_lag_ms": 132322
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:29:46.533376",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:04.533376",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:08.533376",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:16.533376",
+      "event_type": "message_loss",
+      "description": "Message_Loss: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:22.533376",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:23.533376",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 144,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR payment-queue: queue processing service unavailable",
+        "metrics": {
+          "error_rate": 0.8214236816807217,
+          "response_time_ms": 2375,
+          "cpu_usage": 0.8264657086524605,
+          "memory_usage": 0.8357637948207284,
+          "queue_depth": 48145,
+          "message_processing_rate": 6.265916119974631,
+          "consumer_lag_ms": 147383
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:15.533376",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

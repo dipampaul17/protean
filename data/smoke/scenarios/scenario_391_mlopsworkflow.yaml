@@ -1,0 +1,93 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_184526
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1651
+metadata:
+  generated_at: '2025-05-23T18:45:26.779212'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.778965'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:38.778965'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:47.778965'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 142
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.6034546024610111
+      response_time_ms: 6282
+      cpu_usage: 0.8978845541690083
+      memory_usage: 0.8912144613904452
+- timestamp: '2025-05-23T18:46:18.778965'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 118
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.2329022619531549
+      response_time_ms: 4627
+      cpu_usage: 0.9947804381483931
+      memory_usage: 0.8093459726298716
+- timestamp: '2025-05-23T18:47:02.778965'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 238
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.7319546447572526
+      response_time_ms: 2070
+      cpu_usage: 0.8933065391321175
+      memory_usage: 0.9298509006554456
+- timestamp: '2025-05-23T18:47:46.778965'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:53.778965'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:58.778965'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 151
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.47177093849740503
+      response_time_ms: 2275
+      cpu_usage: 0.9395207543096398
+      memory_usage: 0.9222143465672069
+- timestamp: '2025-05-23T19:12:57.778965'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

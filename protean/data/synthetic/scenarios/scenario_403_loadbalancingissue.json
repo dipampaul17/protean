@@ -1,0 +1,102 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173011",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 407,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.423772",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.423607",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:24.423607",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 55,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR load-balancer: container crashed in timeout",
+        "metrics": {
+          "error_rate": 0.1695730274899937,
+          "response_time_ms": 4511,
+          "cpu_usage": 0.9350939871818643,
+          "memory_usage": 0.8527798996395575,
+          "requests_per_sec": 1363,
+          "backend_health_pct": 0.696725411834864,
+          "connection_timeouts": 414
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:27.423607",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "vpc-main",
+        "severity": "high",
+        "duration": 120,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR vpc-main: deployment failed in timeout",
+        "metrics": {
+          "error_rate": 0.7773254900706711,
+          "response_time_ms": 1407,
+          "cpu_usage": 0.9019895495835005,
+          "memory_usage": 0.8260626578840077,
+          "requests_per_sec": 4170,
+          "backend_health_pct": 0.7363146977199369,
+          "connection_timeouts": 348
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:31.423607",
+      "event_type": "scaling",
+      "description": "Scaling: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:43.423607",
+      "event_type": "scaling",
+      "description": "Scaling: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:47.423607",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:56.423607",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:07.423607",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:58.423607",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173011
+description: Database connectivity and performance issues
+duration: 879
+metadata:
+  generated_at: '2025-05-23T17:30:11.343657'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:30:11.343433'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:33.343433'
+  event_type: connection_loss
+  description: 'Connection_Loss: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:45.343433'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:46.343433'
+  event_type: corruption
+  description: 'Corruption: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:47.343433'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 57
+    log_snippet: '[2025-05-23 17:30:11] FATAL mysql-primary: database rate limit exceeded
+      detected'
+    metrics:
+      error_rate: 0.3578316179271519
+      response_time_ms: 9846
+      cpu_usage: 0.7074043870092166
+      memory_usage: 0.9172235107152039
+      connection_pool_usage: 0.8943449990269902
+      query_time_ms: 15352
+      deadlocks_per_sec: 6
+- timestamp: '2025-05-23T17:30:55.343433'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 134
+    log_snippet: '[2025-05-23 17:30:11] FATAL postgres-replica: database deployment
+      failed detected'
+    metrics:
+      error_rate: 0.2885102895721291
+      response_time_ms: 3462
+      cpu_usage: 0.8035497722870996
+      memory_usage: 0.9284879290212333
+      connection_pool_usage: 0.823448606906686
+      query_time_ms: 28052
+      deadlocks_per_sec: 2
+- timestamp: '2025-05-23T17:30:55.343433'
+  event_type: corruption
+  description: 'Corruption: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:30.343433'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 105
+    log_snippet: '[2025-05-23 17:30:11] FATAL postgres-replica: database service unavailable
+      detected'
+    metrics:
+      error_rate: 0.6268987851476064
+      response_time_ms: 3990
+      cpu_usage: 0.9109411644134155
+      memory_usage: 0.9855349124272319
+      connection_pool_usage: 0.9171987791933657
+      query_time_ms: 16605
+      deadlocks_per_sec: 1
+- timestamp: '2025-05-23T17:31:39.343433'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 83
+    log_snippet: '[2025-05-23 17:30:11] FATAL mysql-primary: database connection timeout
+      detected'
+    metrics:
+      error_rate: 0.8186248635793779
+      response_time_ms: 1556
+      cpu_usage: 0.9116392781636448
+      memory_usage: 0.8200061177563849
+      connection_pool_usage: 0.8917877745953933
+      query_time_ms: 26274
+      deadlocks_per_sec: 2
+- timestamp: '2025-05-23T17:44:50.343433'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

@@ -1,0 +1,108 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173011",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1556,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.428850",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.428655",
+      "event_type": "trigger",
+      "description": "Initial failure detected: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:43.428655",
+      "event_type": "scaling",
+      "description": "Scaling: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:08.428655",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 210,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR worker-consumer: authentication failed in failure",
+        "metrics": {
+          "error_rate": 0.876732079785239,
+          "response_time_ms": 6943,
+          "cpu_usage": 0.7256014083505757,
+          "memory_usage": 0.9612280002910821
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:38.428655",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 255,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-backend: deployment failed in failure",
+        "metrics": {
+          "error_rate": 0.4573233789377299,
+          "response_time_ms": 2542,
+          "cpu_usage": 0.9740803430188445,
+          "memory_usage": 0.9499413843053037
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:41.428655",
+      "event_type": "scaling",
+      "description": "Scaling: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:22.428655",
+      "event_type": "deployment",
+      "description": "Deployment: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:32.428655",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 276,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR nginx-proxy: database connection lost in failure",
+        "metrics": {
+          "error_rate": 0.32788538828490743,
+          "response_time_ms": 8618,
+          "cpu_usage": 0.7830896481452684,
+          "memory_usage": 0.8775266672265405
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:56.428655",
+      "event_type": "deployment",
+      "description": "Deployment: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:56:07.428655",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

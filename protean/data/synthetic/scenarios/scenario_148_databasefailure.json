@@ -1,0 +1,117 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173011",
+  "description": "Database connectivity and performance issues",
+  "duration": 1741,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.352916",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.352736",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:21.352736",
+      "event_type": "corruption",
+      "description": "Corruption: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:05.352736",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:20.352736",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 180,
+        "log_snippet": "[2025-05-23 17:30:11] FATAL mysql-primary: database authentication failed detected",
+        "metrics": {
+          "error_rate": 0.29646737776833076,
+          "response_time_ms": 5144,
+          "cpu_usage": 0.8903257979375394,
+          "memory_usage": 0.8692270320840514,
+          "connection_pool_usage": 0.8200993373729316,
+          "query_time_ms": 21326,
+          "deadlocks_per_sec": 2
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:54.352736",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 46,
+        "log_snippet": "[2025-05-23 17:30:11] FATAL mysql-primary: database memory limit exceeded detected",
+        "metrics": {
+          "error_rate": 0.24872717986670728,
+          "response_time_ms": 2785,
+          "cpu_usage": 0.8186825107016333,
+          "memory_usage": 0.9133776705383693,
+          "connection_pool_usage": 0.8947758849170716,
+          "query_time_ms": 17420,
+          "deadlocks_per_sec": 5
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:56.352736",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 46,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR mongodb-shard: queue overflow in timeout",
+        "metrics": {
+          "error_rate": 0.7464177812877114,
+          "response_time_ms": 4376,
+          "cpu_usage": 0.7238092888811686,
+          "memory_usage": 0.9322064222732355,
+          "connection_pool_usage": 0.972754387996777,
+          "query_time_ms": 29379,
+          "deadlocks_per_sec": 8
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:29.352736",
+      "event_type": "corruption",
+      "description": "Corruption: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:51.352736",
+      "event_type": "recovery",
+      "description": "Recovery: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:59:12.352736",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

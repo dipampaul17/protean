@@ -1,0 +1,93 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_172917
+description: Load balancer and traffic distribution problems
+duration: 630
+metadata:
+  generated_at: '2025-05-23T17:29:17.591372'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:29:17.591151'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:27.591151'
+  event_type: backend_failure
+  description: 'Backend_Failure: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:41.591151'
+  event_type: backend_failure
+  description: 'Backend_Failure: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:49.591151'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: api-gateway
+    severity: high
+    duration: 272
+    log_snippet: '[2025-05-23 17:29:17] ERROR api-gateway: container crashed in timeout'
+    metrics:
+      error_rate: 0.873399589022866
+      response_time_ms: 1366
+      cpu_usage: 0.7296489724601148
+      memory_usage: 0.8021177971481958
+      requests_per_sec: 537
+      backend_health_pct: 0.5407365633196778
+      connection_timeouts: 414
+- timestamp: '2025-05-23T17:29:54.591151'
+  event_type: backend_failure
+  description: 'Backend_Failure: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:02.591151'
+  event_type: scaling
+  description: 'Scaling: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:17.591151'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: api-gateway
+    severity: high
+    duration: 38
+    log_snippet: '[2025-05-23 17:29:17] ERROR api-gateway: memory limit exceeded in
+      timeout'
+    metrics:
+      error_rate: 0.6740689797434467
+      response_time_ms: 2914
+      cpu_usage: 0.9419765944610368
+      memory_usage: 0.9606783852525883
+      requests_per_sec: 4385
+      backend_health_pct: 0.6141778114676637
+      connection_timeouts: 151
+- timestamp: '2025-05-23T17:30:22.591151'
+  event_type: backend_failure
+  description: 'Backend_Failure: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:35.591151'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: load-balancer
+    severity: high
+    duration: 126
+    log_snippet: '[2025-05-23 17:29:17] ERROR load-balancer: disk space full in timeout'
+    metrics:
+      error_rate: 0.22824540663421447
+      response_time_ms: 9111
+      cpu_usage: 0.7437950562966148
+      memory_usage: 0.8422886255039637
+      requests_per_sec: 415
+      backend_health_pct: 0.7497558841550198
+      connection_timeouts: 696
+- timestamp: '2025-05-23T17:39:47.591151'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

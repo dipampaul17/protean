@@ -1,0 +1,89 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_184526
+description: Infrastructure failure scenario for ScalingFailure
+duration: 1757
+metadata:
+  generated_at: '2025-05-23T18:45:26.824978'
+  phrase_templates_used: 24
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.824746'
+  event_type: trigger
+  description: 'Initial failure detected: https connection'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:18.824746'
+  event_type: failure
+  description: 'Failure: nodeport service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 49
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: nodeport service -
+      operation failed'
+    metrics:
+      error_rate: 0.5905598270130642
+      response_time_ms: 3110
+      cpu_usage: 0.8180602633827828
+      memory_usage: 0.8300155291761492
+- timestamp: '2025-05-23T18:47:13.824746'
+  event_type: timeout
+  description: 'Timeout: aws application'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 259
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: aws application - operation
+      failed'
+    metrics:
+      error_rate: 0.8635672609444681
+      response_time_ms: 3159
+      cpu_usage: 0.7911345834484113
+      memory_usage: 0.8254709611093285
+- timestamp: '2025-05-23T18:48:44.824746'
+  event_type: failure
+  description: 'Failure: web server'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 223
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: web server - operation
+      failed'
+    metrics:
+      error_rate: 0.26684908532141816
+      response_time_ms: 6143
+      cpu_usage: 0.7795537639937103
+      memory_usage: 0.80686704999481
+- timestamp: '2025-05-23T18:49:13.824746'
+  event_type: recovery
+  description: 'Recovery: scaling scale'
+  injection_spec: null
+- timestamp: '2025-05-23T18:49:16.824746'
+  event_type: recovery
+  description: 'Recovery: to scale'
+  injection_spec: null
+- timestamp: '2025-05-23T18:49:17.824746'
+  event_type: failure
+  description: 'Failure: clusterip service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 90
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: clusterip service -
+      operation failed'
+    metrics:
+      error_rate: 0.353608842129832
+      response_time_ms: 5045
+      cpu_usage: 0.9888426495095924
+      memory_usage: 0.8756665561736086
+- timestamp: '2025-05-23T19:14:43.824746'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

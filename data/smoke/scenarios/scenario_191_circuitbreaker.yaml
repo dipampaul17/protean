@@ -1,0 +1,48 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_184526
+description: Circuit breaker activation due to cascading service failures
+duration: 440
+metadata:
+  generated_at: '2025-05-23T18:45:26.696195'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T18:45:26.696049'
+  event_type: trigger
+  description: 'Initial failure detected: virtual memory'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:53.696049'
+  event_type: recovery
+  description: 'Recovery: us log'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:05.696049'
+  event_type: recovery
+  description: 'Recovery: uwsgi server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:12.696049'
+  event_type: recovery
+  description: 'Recovery: code error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:13.696049'
+  event_type: failure
+  description: 'Failure: virtual memory'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 105
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: virtual memory - operation
+      failed'
+    metrics:
+      error_rate: 0.4552305593428625
+      response_time_ms: 5395
+      cpu_usage: 0.7385086313081611
+      memory_usage: 0.9303944649832618
+- timestamp: '2025-05-23T18:52:46.696049'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

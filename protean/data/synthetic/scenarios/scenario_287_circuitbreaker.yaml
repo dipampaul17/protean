@@ -1,0 +1,44 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173011
+description: Circuit breaker activation due to cascading service failures
+duration: 653
+metadata:
+  generated_at: '2025-05-23T17:30:11.391016'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:30:11.390932'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:55.390932'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:48.390932'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:04.390932'
+  event_type: degradation
+  description: 'Degradation: circuit breaker triggered'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: low
+    duration: 105
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.04621402679259454
+      response_time_ms: 1577
+      cpu_usage: 0.5181110623366199
+      memory_usage: 0.5499484151166346
+- timestamp: '2025-05-23T17:41:04.390932'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

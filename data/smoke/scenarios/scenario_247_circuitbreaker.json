@@ -1,0 +1,114 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_184526",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 930,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.729850",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.729616",
+      "event_type": "trigger",
+      "description": "Initial failure detected: p update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:44.729616",
+      "event_type": "timeout",
+      "description": "Timeout: to restart",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 216,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: to restart - operation failed",
+        "metrics": {
+          "error_rate": 0.1628342367955365,
+          "response_time_ms": 2436,
+          "cpu_usage": 0.718377855140164,
+          "memory_usage": 0.949365711679082
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:57.729616",
+      "event_type": "failure",
+      "description": "Failure: the connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 49,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: the connection - operation failed",
+        "metrics": {
+          "error_rate": 0.4547606800221934,
+          "response_time_ms": 3817,
+          "cpu_usage": 0.9142992248010919,
+          "memory_usage": 0.8846239348650867
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:10.729616",
+      "event_type": "failure",
+      "description": "Failure: uwsgi server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 214,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: uwsgi server - operation failed",
+        "metrics": {
+          "error_rate": 0.27464493645830224,
+          "response_time_ms": 1592,
+          "cpu_usage": 0.9997915484169146,
+          "memory_usage": 0.9709095982776237
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:24.729616",
+      "event_type": "recovery",
+      "description": "Recovery: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:34.729616",
+      "event_type": "recovery",
+      "description": "Recovery: session timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:58.729616",
+      "event_type": "degradation",
+      "description": "Degradation: following error",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "low",
+        "duration": 113,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: following error - operation failed",
+        "metrics": {
+          "error_rate": 0.04725818739931983,
+          "response_time_ms": 995,
+          "cpu_usage": 0.5485753481852668,
+          "memory_usage": 0.693348570435178
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:00:56.729616",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

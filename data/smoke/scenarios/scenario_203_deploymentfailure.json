@@ -1,0 +1,78 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_184526",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 732,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.700081",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.699926",
+      "event_type": "trigger",
+      "description": "Initial failure detected: and deploy",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:17.699926",
+      "event_type": "failure",
+      "description": "Failure: an error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 38,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR web-frontend: an error in failure",
+        "metrics": {
+          "error_rate": 0.23860662587595113,
+          "response_time_ms": 2048,
+          "cpu_usage": 0.7424509890588756,
+          "memory_usage": 0.8188408950988709
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:20.699926",
+      "event_type": "failure",
+      "description": "Failure: during deployment",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 104,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR nginx-proxy: during deployment in failure",
+        "metrics": {
+          "error_rate": 0.8959885154577256,
+          "response_time_ms": 6156,
+          "cpu_usage": 0.7443851195266997,
+          "memory_usage": 0.9881110468852347
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:05.699926",
+      "event_type": "scaling",
+      "description": "Scaling: rolling update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:55.699926",
+      "event_type": "rollback",
+      "description": "Rollback: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:57:38.699926",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

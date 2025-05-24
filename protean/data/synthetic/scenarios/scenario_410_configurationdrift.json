@@ -1,0 +1,90 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173011",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1607,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.425074",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.424925",
+      "event_type": "trigger",
+      "description": "Initial failure detected: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:58.424925",
+      "event_type": "rollback",
+      "description": "Rollback: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:11.424925",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 145,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.3223815079776562,
+          "response_time_ms": 6976,
+          "cpu_usage": 0.7715878358375604,
+          "memory_usage": 0.9404174185367606
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:27.424925",
+      "event_type": "restart",
+      "description": "Restart: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:30.424925",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 93,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR auth-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.20273215420123414,
+          "response_time_ms": 4871,
+          "cpu_usage": 0.9943931614897373,
+          "memory_usage": 0.9862943666750734
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:51.424925",
+      "event_type": "restart",
+      "description": "Restart: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:43.424925",
+      "event_type": "config_change",
+      "description": "Config_Change: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:56:58.424925",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

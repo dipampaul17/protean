@@ -1,0 +1,72 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_184526",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 444,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.696016",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.695841",
+      "event_type": "trigger",
+      "description": "Initial failure detected: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:36.695841",
+      "event_type": "failure",
+      "description": "Failure: the cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 62,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR api-backend: the cluster in failure",
+        "metrics": {
+          "error_rate": 0.20427274945790527,
+          "response_time_ms": 1514,
+          "cpu_usage": 0.9025012539108568,
+          "memory_usage": 0.9590212425089333
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:49.695841",
+      "event_type": "rollback",
+      "description": "Rollback: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:25.695841",
+      "event_type": "rollback",
+      "description": "Rollback: an error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:32.695841",
+      "event_type": "scaling",
+      "description": "Scaling: jenkins container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:54.695841",
+      "event_type": "scaling",
+      "description": "Scaling: and deploy",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:52:50.695841",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

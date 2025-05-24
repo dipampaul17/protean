@@ -1,0 +1,77 @@
+category: DataCorruption
+name: DataCorruption_20250523_184526
+description: Infrastructure failure scenario for DataCorruption
+duration: 1457
+metadata:
+  generated_at: '2025-05-23T18:45:26.747789'
+  phrase_templates_used: 36
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.747570'
+  event_type: trigger
+  description: 'Initial failure detected: context cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:37.747570'
+  event_type: recovery
+  description: 'Recovery: duplicate update'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:55.747570'
+  event_type: timeout
+  description: 'Timeout: a queue'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: medium
+    duration: 246
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: a queue - operation failed'
+    metrics:
+      error_rate: 0.24358698566979456
+      response_time_ms: 1417
+      cpu_usage: 0.311437380768016
+      memory_usage: 0.682955261775551
+- timestamp: '2025-05-23T18:46:11.747570'
+  event_type: timeout
+  description: 'Timeout: to rollback'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 40
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: to rollback - operation
+      failed'
+    metrics:
+      error_rate: 0.47552913047484724
+      response_time_ms: 6344
+      cpu_usage: 0.867835638244192
+      memory_usage: 0.9611070861976764
+- timestamp: '2025-05-23T18:47:11.747570'
+  event_type: recovery
+  description: 'Recovery: code queue'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:57.747570'
+  event_type: recovery
+  description: 'Recovery: to fix'
+  injection_spec: null
+- timestamp: '2025-05-23T18:49:00.747570'
+  event_type: failure
+  description: 'Failure: docker container'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 225
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: docker container - operation
+      failed'
+    metrics:
+      error_rate: 0.3071690405840166
+      response_time_ms: 9613
+      cpu_usage: 0.9322766642972835
+      memory_usage: 0.9483057737936582
+- timestamp: '2025-05-23T19:09:43.747570'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

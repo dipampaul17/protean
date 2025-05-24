@@ -1,0 +1,90 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_172917",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1178,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.678799",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.678569",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:15.678569",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 153,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.23396009748136626,
+          "response_time_ms": 2684,
+          "cpu_usage": 0.9552576842651068,
+          "memory_usage": 0.9525945803879634
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:17.678569",
+      "event_type": "config_change",
+      "description": "Config_Change: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:49.678569",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 242,
+        "log_snippet": "[2025-05-23 17:29:17] ERROR auth-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.6000077393569516,
+          "response_time_ms": 4021,
+          "cpu_usage": 0.9528922586196115,
+          "memory_usage": 0.8066812494606647
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:08.678569",
+      "event_type": "config_change",
+      "description": "Config_Change: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:28.678569",
+      "event_type": "config_change",
+      "description": "Config_Change: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:29.678569",
+      "event_type": "config_change",
+      "description": "Config_Change: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:55.678569",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173011",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1020,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.328450",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.328240",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:37.328240",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 175,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR auth-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.8815892822030776,
+          "response_time_ms": 5821,
+          "cpu_usage": 0.8900918848881711,
+          "memory_usage": 0.9826060914575476
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:40.328240",
+      "event_type": "degradation",
+      "description": "Degradation: disk space full",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "low",
+        "duration": 95,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.2112734085483364,
+          "response_time_ms": 182,
+          "cpu_usage": 0.7244169005526884,
+          "memory_usage": 0.6614838195343625
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:03.328240",
+      "event_type": "degradation",
+      "description": "Degradation: connection timeout",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 174,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR user-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.6871288933484686,
+          "response_time_ms": 3240,
+          "cpu_usage": 0.7855712543224749,
+          "memory_usage": 0.8620783598459488
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:22.328240",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:11.328240",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 188,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR user-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.4801528334345989,
+          "response_time_ms": 1768,
+          "cpu_usage": 0.7650675926481766,
+          "memory_usage": 0.8297519199689652
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:11.328240",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

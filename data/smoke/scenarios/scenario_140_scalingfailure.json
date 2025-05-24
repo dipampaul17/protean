@@ -1,0 +1,72 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_184526",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 474,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.663156",
+    "phrase_templates_used": 24,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.663033",
+      "event_type": "trigger",
+      "description": "Initial failure detected: an error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:49.663033",
+      "event_type": "recovery",
+      "description": "Recovery: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:49.663033",
+      "event_type": "timeout",
+      "description": "Timeout: to fix",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 121,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: to fix - operation failed",
+        "metrics": {
+          "error_rate": 0.6181312531666159,
+          "response_time_ms": 7502,
+          "cpu_usage": 0.7573168952548177,
+          "memory_usage": 0.9957692793455094
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:51.663033",
+      "event_type": "timeout",
+      "description": "Timeout: to scale",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 74,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: to scale - operation failed",
+        "metrics": {
+          "error_rate": 0.17315929686472878,
+          "response_time_ms": 6848,
+          "cpu_usage": 0.7978293223868161,
+          "memory_usage": 0.803303499627308
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:53:20.663033",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+category: Microservices
+name: Microservices_20250523_184526
+description: Infrastructure failure scenario for Microservices
+duration: 1100
+metadata:
+  generated_at: '2025-05-23T18:45:26.775342'
+  phrase_templates_used: 15
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T18:45:26.775070'
+  event_type: trigger
+  description: 'Initial failure detected: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:31.775070'
+  event_type: timeout
+  description: 'Timeout: headless service'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 86
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: headless service - operation
+      failed'
+    metrics:
+      error_rate: 0.3171838425460838
+      response_time_ms: 1857
+      cpu_usage: 0.9077449992771331
+      memory_usage: 0.9163656582621035
+- timestamp: '2025-05-23T18:46:57.775070'
+  event_type: recovery
+  description: 'Recovery: docker network'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:58.775070'
+  event_type: failure
+  description: 'Failure: a service'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 53
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.5862136360897224
+      response_time_ms: 4974
+      cpu_usage: 0.7550592169723033
+      memory_usage: 0.8919032149552666
+- timestamp: '2025-05-23T18:47:31.775070'
+  event_type: timeout
+  description: 'Timeout: strong service'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 59
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: strong service - operation
+      failed'
+    metrics:
+      error_rate: 0.12588167796584557
+      response_time_ms: 2351
+      cpu_usage: 0.7012583747054106
+      memory_usage: 0.9301802415942839
+- timestamp: '2025-05-23T18:47:38.775070'
+  event_type: failure
+  description: 'Failure: a service'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 135
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.23016161098611632
+      response_time_ms: 2131
+      cpu_usage: 0.7997106742740103
+      memory_usage: 0.9644947867345486
+- timestamp: '2025-05-23T18:47:39.775070'
+  event_type: recovery
+  description: 'Recovery: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:41.775070'
+  event_type: timeout
+  description: 'Timeout: headless service'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 219
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: headless service - operation
+      failed'
+    metrics:
+      error_rate: 0.7180370145477765
+      response_time_ms: 8568
+      cpu_usage: 0.8644219701920778
+      memory_usage: 0.8017224288240175
+- timestamp: '2025-05-23T19:03:46.775070'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

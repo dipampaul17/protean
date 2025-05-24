@@ -1,0 +1,108 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_184526",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 562,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.682929",
+    "phrase_templates_used": 24,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.682637",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:39.682637",
+      "event_type": "timeout",
+      "description": "Timeout: which node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 138,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: which node - operation failed",
+        "metrics": {
+          "error_rate": 0.27841314741486234,
+          "response_time_ms": 4172,
+          "cpu_usage": 0.8694490929383121,
+          "memory_usage": 0.9080260097559885
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:08.682637",
+      "event_type": "recovery",
+      "description": "Recovery: to scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:08.682637",
+      "event_type": "timeout",
+      "description": "Timeout: clusterip service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 72,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: clusterip service - operation failed",
+        "metrics": {
+          "error_rate": 0.8102619799908216,
+          "response_time_ms": 2342,
+          "cpu_usage": 0.866381646582554,
+          "memory_usage": 0.928039742451885
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:09.682637",
+      "event_type": "recovery",
+      "description": "Recovery: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:19.682637",
+      "event_type": "recovery",
+      "description": "Recovery: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:33.682637",
+      "event_type": "failure",
+      "description": "Failure: clusterip service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 181,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: clusterip service - operation failed",
+        "metrics": {
+          "error_rate": 0.6680946267689466,
+          "response_time_ms": 9677,
+          "cpu_usage": 0.8777756521564397,
+          "memory_usage": 0.9027620146865001
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:46.682637",
+      "event_type": "recovery",
+      "description": "Recovery: https connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:54:48.682637",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

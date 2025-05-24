@@ -1,0 +1,115 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_184526
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 497
+metadata:
+  generated_at: '2025-05-23T18:45:26.823220'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T18:45:26.822857'
+  event_type: trigger
+  description: 'Initial failure detected: scaled service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:37.822857'
+  event_type: timeout
+  description: 'Timeout: the server'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 122
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.2843534608571817
+      response_time_ms: 8663
+      cpu_usage: 0.8568456679360892
+      memory_usage: 0.9651214421706665
+- timestamp: '2025-05-23T18:45:46.822857'
+  event_type: timeout
+  description: 'Timeout: most memory'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 109
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: most memory - operation
+      failed'
+    metrics:
+      error_rate: 0.29916982982711793
+      response_time_ms: 8897
+      cpu_usage: 0.9549899986707879
+      memory_usage: 0.8144858291598571
+- timestamp: '2025-05-23T18:45:50.822857'
+  event_type: recovery
+  description: 'Recovery: the disk'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:59.822857'
+  event_type: timeout
+  description: 'Timeout: reading database'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 170
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: reading database - operation
+      failed'
+    metrics:
+      error_rate: 0.7368701136276408
+      response_time_ms: 9253
+      cpu_usage: 0.8380414923435878
+      memory_usage: 0.9621331074294344
+- timestamp: '2025-05-23T18:46:21.822857'
+  event_type: timeout
+  description: 'Timeout: a connection'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 202
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: a connection - operation
+      failed'
+    metrics:
+      error_rate: 0.6293482796922353
+      response_time_ms: 4763
+      cpu_usage: 0.8635649598766084
+      memory_usage: 0.9559895488850755
+- timestamp: '2025-05-23T18:46:24.822857'
+  event_type: failure
+  description: 'Failure: causing outage'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 122
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: causing outage - operation
+      failed'
+    metrics:
+      error_rate: 0.23882203261672724
+      response_time_ms: 8294
+      cpu_usage: 0.7488851467423322
+      memory_usage: 0.939471514311634
+- timestamp: '2025-05-23T18:46:36.822857'
+  event_type: failure
+  description: 'Failure: accessed memory'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 275
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: accessed memory
+      - operation failed'
+    metrics:
+      error_rate: 0.4433453512976512
+      response_time_ms: 7352
+      cpu_usage: 0.7553074265767215
+      memory_usage: 0.8811823613509664
+- timestamp: '2025-05-23T18:53:43.822857'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

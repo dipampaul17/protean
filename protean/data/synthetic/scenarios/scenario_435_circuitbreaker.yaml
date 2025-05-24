@@ -1,0 +1,96 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_172917
+description: Circuit breaker activation due to cascading service failures
+duration: 1350
+metadata:
+  generated_at: '2025-05-23T17:29:17.729107'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:29:17.728783'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:28.728783'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 113
+    log_snippet: '[2025-05-23 17:29:17] ERROR auth-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.1383651328655204
+      response_time_ms: 2282
+      cpu_usage: 0.907423914492423
+      memory_usage: 0.9495019087115653
+- timestamp: '2025-05-23T17:30:05.728783'
+  event_type: degradation
+  description: 'Degradation: container crashed'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: high
+    duration: 104
+    log_snippet: '[2025-05-23 17:29:17] ERROR user-service: container crashed - operation
+      failed'
+    metrics:
+      error_rate: 0.43442653060450087
+      response_time_ms: 2327
+      cpu_usage: 0.9180593253510108
+      memory_usage: 0.9796939128136666
+- timestamp: '2025-05-23T17:30:09.728783'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 286
+    log_snippet: '[2025-05-23 17:29:17] ERROR user-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.4744635745787502
+      response_time_ms: 1123
+      cpu_usage: 0.7107428221591963
+      memory_usage: 0.924332414591989
+- timestamp: '2025-05-23T17:32:02.728783'
+  event_type: degradation
+  description: 'Degradation: container crashed'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: high
+    duration: 287
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-service: container crashed -
+      operation failed'
+    metrics:
+      error_rate: 0.3795812214382751
+      response_time_ms: 4437
+      cpu_usage: 0.7552619989581402
+      memory_usage: 0.9819332492895458
+- timestamp: '2025-05-23T17:33:04.728783'
+  event_type: degradation
+  description: 'Degradation: memory limit exceeded'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: high
+    duration: 153
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.16013719072922694
+      response_time_ms: 4721
+      cpu_usage: 0.9462584102483317
+      memory_usage: 0.9799453181900866
+- timestamp: '2025-05-23T17:51:47.728783'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

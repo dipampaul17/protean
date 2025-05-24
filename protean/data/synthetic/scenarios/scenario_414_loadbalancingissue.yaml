@@ -1,0 +1,60 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_172917
+description: Load balancer and traffic distribution problems
+duration: 1567
+metadata:
+  generated_at: '2025-05-23T17:29:17.720451'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.720311'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:56.720311'
+  event_type: backend_failure
+  description: 'Backend_Failure: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:39.720311'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 176
+    log_snippet: '[2025-05-23 17:29:17] ERROR vpc-main: connection timeout in timeout'
+    metrics:
+      error_rate: 0.6629937002886164
+      response_time_ms: 7360
+      cpu_usage: 0.8920741045220808
+      memory_usage: 0.8602152721486154
+      requests_per_sec: 9874
+      backend_health_pct: 0.5829055572521611
+      connection_timeouts: 884
+- timestamp: '2025-05-23T17:34:50.720311'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 94
+    log_snippet: '[2025-05-23 17:29:17] ERROR subnet-private: authentication failed
+      in timeout'
+    metrics:
+      error_rate: 0.17834564141182332
+      response_time_ms: 8686
+      cpu_usage: 0.9364203703887538
+      memory_usage: 0.810991250733817
+      requests_per_sec: 7624
+      backend_health_pct: 0.4932658830880667
+      connection_timeouts: 566
+- timestamp: '2025-05-23T17:55:24.720311'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

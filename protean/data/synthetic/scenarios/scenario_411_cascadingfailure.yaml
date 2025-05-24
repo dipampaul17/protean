@@ -1,0 +1,45 @@
+category: CascadingFailure
+name: CascadingFailure_20250523_172917
+description: Multi-service failure propagation scenario
+duration: 827
+metadata:
+  generated_at: '2025-05-23T17:29:17.719386'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:29:17.719139'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:54.719139'
+  event_type: propagation
+  description: 'Propagation: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:56.719139'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:06.719139'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:10.719139'
+  event_type: initial_failure
+  description: 'Initial_Failure: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:24.719139'
+  event_type: cascade
+  description: 'Cascade: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:28.719139'
+  event_type: propagation
+  description: 'Propagation: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:43:04.719139'
+  event_type: recovery
+  description: 'System recovered: all services recovered'
+  injection_spec: null

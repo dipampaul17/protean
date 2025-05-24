@@ -1,0 +1,48 @@
+category: CloudNative
+name: CloudNative_20250523_173011
+description: Kubernetes pod and container orchestration issues
+duration: 912
+metadata:
+  generated_at: '2025-05-23T17:30:11.311659'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.311557'
+  event_type: trigger
+  description: 'Initial failure detected: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:48.311557'
+  event_type: scaling
+  description: 'Scaling: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:03.311557'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 251
+    log_snippet: '[2025-05-23 17:30:11] ERROR worker-consumer: deployment failed in
+      failure'
+    metrics:
+      error_rate: 0.13231055414659043
+      response_time_ms: 5526
+      cpu_usage: 0.7304599613371373
+      memory_usage: 0.8745423617163297
+- timestamp: '2025-05-23T17:33:27.311557'
+  event_type: deployment
+  description: 'Deployment: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:46.311557'
+  event_type: pod_restart
+  description: 'Pod_Restart: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:45:23.311557'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

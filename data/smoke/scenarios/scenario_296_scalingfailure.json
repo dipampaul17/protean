@@ -1,0 +1,108 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_184526",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 1632,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.747198",
+    "phrase_templates_used": 24,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.746620",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to fix",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:07.746620",
+      "event_type": "timeout",
+      "description": "Timeout: a service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 114,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.7382652162185691,
+          "response_time_ms": 7952,
+          "cpu_usage": 0.865965592712397,
+          "memory_usage": 0.9831937466974331
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:54.746620",
+      "event_type": "timeout",
+      "description": "Timeout: aws application",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 210,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: aws application - operation failed",
+        "metrics": {
+          "error_rate": 0.8358101943983036,
+          "response_time_ms": 8730,
+          "cpu_usage": 0.8973539968442215,
+          "memory_usage": 0.8594068825901924
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:09.746620",
+      "event_type": "failure",
+      "description": "Failure: the pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 127,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: the pod - operation failed",
+        "metrics": {
+          "error_rate": 0.8887881047626472,
+          "response_time_ms": 5694,
+          "cpu_usage": 0.8864404134870028,
+          "memory_usage": 0.9844617245416539
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:37.746620",
+      "event_type": "timeout",
+      "description": "Timeout: an error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 151,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: an error - operation failed",
+        "metrics": {
+          "error_rate": 0.3547333023985335,
+          "response_time_ms": 8582,
+          "cpu_usage": 0.719564633978608,
+          "memory_usage": 0.8782220120600452
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:49:04.746620",
+      "event_type": "recovery",
+      "description": "Recovery: load balancer",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:12:38.746620",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_184526
+description: Infrastructure failure scenario for ETLPipeline
+duration: 832
+metadata:
+  generated_at: '2025-05-23T18:45:26.753118'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T18:45:26.752806'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:53.752806'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 275
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.4287898966820841
+      response_time_ms: 4876
+      cpu_usage: 0.8546083877476134
+      memory_usage: 0.9165117218268996
+- timestamp: '2025-05-23T18:46:00.752806'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:21.752806'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:34.752806'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 109
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.22926461768888284
+      response_time_ms: 4179
+      cpu_usage: 0.8578484541807281
+      memory_usage: 0.8861050557782327
+- timestamp: '2025-05-23T18:46:50.752806'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:51.752806'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 280
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.7501152480238708
+      response_time_ms: 4110
+      cpu_usage: 0.8050213478289613
+      memory_usage: 0.887355514612215
+- timestamp: '2025-05-23T18:46:54.752806'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 232
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.24876437370406368
+      response_time_ms: 9440
+      cpu_usage: 0.7013407180647875
+      memory_usage: 0.8283340033841482
+- timestamp: '2025-05-23T18:46:57.752806'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 83
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.4875470925671417
+      response_time_ms: 9123
+      cpu_usage: 0.9491979249610389
+      memory_usage: 0.9346779034116426
+- timestamp: '2025-05-23T18:59:18.752806'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

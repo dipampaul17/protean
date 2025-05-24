@@ -1,0 +1,70 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_184526
+description: Infrastructure failure scenario for ETLPipeline
+duration: 470
+metadata:
+  generated_at: '2025-05-23T18:45:26.754501'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T18:45:26.754184'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:01.754184'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 165
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.282711448294718
+      response_time_ms: 1073
+      cpu_usage: 0.8934376308583079
+      memory_usage: 0.9922526178320676
+- timestamp: '2025-05-23T18:46:13.754184'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:15.754184'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 53
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.20907910657341794
+      response_time_ms: 4777
+      cpu_usage: 0.7693557850898698
+      memory_usage: 0.8545043853757791
+- timestamp: '2025-05-23T18:46:38.754184'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 261
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.23288694587692796
+      response_time_ms: 6548
+      cpu_usage: 0.963333066766238
+      memory_usage: 0.8764697263733622
+- timestamp: '2025-05-23T18:53:16.754184'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

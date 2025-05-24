@@ -1,0 +1,138 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_184526",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 1144,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.821823",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.819676",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:45.819676",
+      "event_type": "recovery",
+      "description": "Recovery: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:10.819676",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:18.819676",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 221,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.4804878019644969,
+          "response_time_ms": 8988,
+          "cpu_usage": 0.7455259109659007,
+          "memory_usage": 0.8843555791094835
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:51.819676",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:14.819676",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 246,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.2937808555819843,
+          "response_time_ms": 3812,
+          "cpu_usage": 0.7227971576676505,
+          "memory_usage": 0.9209987473617441
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:19.819676",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 80,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.5361348505959915,
+          "response_time_ms": 9637,
+          "cpu_usage": 0.8126246323913786,
+          "memory_usage": 0.8157140055104163
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:39.819676",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 166,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.799314193588793,
+          "response_time_ms": 7242,
+          "cpu_usage": 0.7499006810544492,
+          "memory_usage": 0.9655419827250993
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:39.819676",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 184,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.5391003284914827,
+          "response_time_ms": 7919,
+          "cpu_usage": 0.9991346424276102,
+          "memory_usage": 0.8018453391274375
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:04:30.819676",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

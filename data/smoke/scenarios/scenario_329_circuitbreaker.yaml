@@ -1,0 +1,63 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_184526
+description: Circuit breaker activation due to cascading service failures
+duration: 1598
+metadata:
+  generated_at: '2025-05-23T18:45:26.758186'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T18:45:26.757786'
+  event_type: trigger
+  description: 'Initial failure detected: customer service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:10.757786'
+  event_type: degradation
+  description: 'Degradation: reduce alert'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: low
+    duration: 120
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: reduce alert -
+      operation failed'
+    metrics:
+      error_rate: 0.03253382533024189
+      response_time_ms: 768
+      cpu_usage: 0.7803898929027329
+      memory_usage: 0.4391075817326605
+- timestamp: '2025-05-23T18:48:28.757786'
+  event_type: recovery
+  description: 'Recovery: nginx error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:34.757786'
+  event_type: recovery
+  description: 'Recovery: a queue'
+  injection_spec: null
+- timestamp: '2025-05-23T18:50:14.757786'
+  event_type: recovery
+  description: 'Recovery: nginx log'
+  injection_spec: null
+- timestamp: '2025-05-23T18:50:45.757786'
+  event_type: failure
+  description: 'Failure: code error'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 197
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: code error - operation
+      failed'
+    metrics:
+      error_rate: 0.27570257356043265
+      response_time_ms: 9229
+      cpu_usage: 0.7272909240878701
+      memory_usage: 0.8750363992923672
+- timestamp: '2025-05-23T19:12:04.757786'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

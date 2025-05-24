@@ -1,0 +1,107 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173011
+description: Application deployment and rollback scenarios
+duration: 459
+metadata:
+  generated_at: '2025-05-23T17:30:11.324563'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:30:11.323778'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:40.323778'
+  event_type: deployment
+  description: 'Deployment: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:40.323778'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 213
+    log_snippet: '[2025-05-23 17:30:11] ERROR web-frontend: service unavailable in
+      failure'
+    metrics:
+      error_rate: 0.39351475335830544
+      response_time_ms: 2631
+      cpu_usage: 0.9015864512291478
+      memory_usage: 0.8661514875539988
+- timestamp: '2025-05-23T17:30:41.323778'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 84
+    log_snippet: '[2025-05-23 17:30:11] ERROR api-backend: database connection lost
+      in failure'
+    metrics:
+      error_rate: 0.23756319784405822
+      response_time_ms: 4460
+      cpu_usage: 0.7278693009561511
+      memory_usage: 0.9527656425696523
+- timestamp: '2025-05-23T17:30:46.323778'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 97
+    log_snippet: '[2025-05-23 17:30:11] ERROR worker-consumer: container crashed in
+      failure'
+    metrics:
+      error_rate: 0.3658405382720187
+      response_time_ms: 7111
+      cpu_usage: 0.7453796791261159
+      memory_usage: 0.9266314915402482
+- timestamp: '2025-05-23T17:30:48.323778'
+  event_type: deployment
+  description: 'Deployment: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:57.323778'
+  event_type: rollback
+  description: 'Rollback: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:03.323778'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 229
+    log_snippet: '[2025-05-23 17:30:11] ERROR api-backend: network unreachable in
+      failure'
+    metrics:
+      error_rate: 0.6027253592862789
+      response_time_ms: 6846
+      cpu_usage: 0.8653056931995231
+      memory_usage: 0.936614372650882
+- timestamp: '2025-05-23T17:31:05.323778'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 111
+    log_snippet: '[2025-05-23 17:30:11] ERROR nginx-proxy: connection timeout in failure'
+    metrics:
+      error_rate: 0.872045913949642
+      response_time_ms: 3527
+      cpu_usage: 0.8638916024769938
+      memory_usage: 0.8732042719276929
+- timestamp: '2025-05-23T17:37:50.323778'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

@@ -1,0 +1,114 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173011",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 554,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.367112",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.366896",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:25.366896",
+      "event_type": "failure",
+      "description": "Failure: memory limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 223,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR auth-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.8456106342319668,
+          "response_time_ms": 8743,
+          "cpu_usage": 0.9881543771581768,
+          "memory_usage": 0.9858141112468624
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:50.366896",
+      "event_type": "config_change",
+      "description": "Config_Change: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:54.366896",
+      "event_type": "rollback",
+      "description": "Rollback: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:03.366896",
+      "event_type": "rollback",
+      "description": "Rollback: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:04.366896",
+      "event_type": "rollback",
+      "description": "Rollback: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:06.366896",
+      "event_type": "rollback",
+      "description": "Rollback: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:13.366896",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 66,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.7064566094966312,
+          "response_time_ms": 8136,
+          "cpu_usage": 0.7970297100216343,
+          "memory_usage": 0.8180503491451488
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:14.366896",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 160,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR auth-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.34428185784030096,
+          "response_time_ms": 2807,
+          "cpu_usage": 0.8101202001889651,
+          "memory_usage": 0.9913203396572983
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:25.366896",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

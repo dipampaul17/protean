@@ -1,0 +1,96 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_172917",
+  "description": "Database connectivity and performance issues",
+  "duration": 1101,
+  "metadata": {
+    "generated_at": "2025-05-23T17:29:17.695380",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:29:17.695180",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:17.695180",
+      "event_type": "corruption",
+      "description": "Corruption: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:36.695180",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 62,
+        "log_snippet": "[2025-05-23 17:29:17] FATAL mysql-primary: database database connection lost detected",
+        "metrics": {
+          "error_rate": 0.37228304444561344,
+          "response_time_ms": 9646,
+          "cpu_usage": 0.8608002112589426,
+          "memory_usage": 0.8783355831134725,
+          "connection_pool_usage": 0.9837338145512423,
+          "query_time_ms": 12745,
+          "deadlocks_per_sec": 2
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:26.695180",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:33.695180",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:19.695180",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:19.695180",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 53,
+        "log_snippet": "[2025-05-23 17:29:17] FATAL mysql-primary: database queue overflow detected",
+        "metrics": {
+          "error_rate": 0.4205787590409671,
+          "response_time_ms": 1082,
+          "cpu_usage": 0.9424499704764027,
+          "memory_usage": 0.9453375655450467,
+          "connection_pool_usage": 0.9183432449172991,
+          "query_time_ms": 16347,
+          "deadlocks_per_sec": 6
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:38.695180",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

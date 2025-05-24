@@ -1,0 +1,90 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_172828",
+  "description": "Database connectivity and performance issues",
+  "duration": 1235,
+  "metadata": {
+    "generated_at": "2025-05-23T17:28:28.459765",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:28:28.459634",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:28:38.459634",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 175,
+        "log_snippet": "[2025-05-23 17:28:28] FATAL mysql-primary: database queue overflow detected",
+        "metrics": {
+          "error_rate": 0.48237734788113984,
+          "response_time_ms": 3488,
+          "cpu_usage": 0.906351423181377,
+          "memory_usage": 0.9009341668972692,
+          "connection_pool_usage": 0.8712899453639309,
+          "query_time_ms": 10354,
+          "deadlocks_per_sec": 7
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:04.459634",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:45.459634",
+      "event_type": "recovery",
+      "description": "Recovery: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:21.459634",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:30.459634",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "postgres-replica",
+        "severity": "high",
+        "duration": 58,
+        "log_snippet": "[2025-05-23 17:28:28] FATAL postgres-replica: database container crashed detected",
+        "metrics": {
+          "error_rate": 0.21519672131045048,
+          "response_time_ms": 1344,
+          "cpu_usage": 0.8773519303594214,
+          "memory_usage": 0.8960878068478666,
+          "connection_pool_usage": 0.8301574072883842,
+          "query_time_ms": 27770,
+          "deadlocks_per_sec": 1
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:03.459634",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

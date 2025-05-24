@@ -1,0 +1,67 @@
+category: DataCorruption
+name: DataCorruption_20250523_184526
+description: Infrastructure failure scenario for DataCorruption
+duration: 554
+metadata:
+  generated_at: '2025-05-23T18:45:26.759872'
+  phrase_templates_used: 36
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 1
+events:
+- timestamp: '2025-05-23T18:45:26.759345'
+  event_type: trigger
+  description: 'Initial failure detected: the connection'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:49.759345'
+  event_type: recovery
+  description: 'Recovery: head queue'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:49.759345'
+  event_type: failure
+  description: 'Failure: strong update'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 144
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: strong update
+      - operation failed'
+    metrics:
+      error_rate: 0.7035515075154786
+      response_time_ms: 3053
+      cpu_usage: 0.8499043445186735
+      memory_usage: 0.8145520348666667
+- timestamp: '2025-05-23T18:46:19.759345'
+  event_type: recovery
+  description: 'Recovery: the connection'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:26.759345'
+  event_type: recovery
+  description: 'Recovery: one server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:43.759345'
+  event_type: failure
+  description: 'Failure: the queue'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: medium
+    duration: 52
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: the queue - operation
+      failed'
+    metrics:
+      error_rate: 0.04035454342632505
+      response_time_ms: 1023
+      cpu_usage: 0.6607344641596614
+      memory_usage: 0.5180468594321805
+- timestamp: '2025-05-23T18:46:54.759345'
+  event_type: recovery
+  description: 'Recovery: only container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:54:40.759345'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

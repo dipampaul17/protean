@@ -1,0 +1,115 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_184526
+description: Infrastructure failure scenario for DataWarehouse
+duration: 1275
+metadata:
+  generated_at: '2025-05-23T18:45:26.788430'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T18:45:26.788104'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:01.788104'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 49
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.7410977872631727
+      response_time_ms: 4551
+      cpu_usage: 0.9970986951953773
+      memory_usage: 0.9220291130674957
+- timestamp: '2025-05-23T18:46:21.788104'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:48.788104'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 31
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: deployment failed
+      - operation failed'
+    metrics:
+      error_rate: 0.36307372418135997
+      response_time_ms: 9018
+      cpu_usage: 0.7250410462534241
+      memory_usage: 0.9155611385837518
+- timestamp: '2025-05-23T18:47:04.788104'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 194
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.7604999088658446
+      response_time_ms: 9660
+      cpu_usage: 0.9083315682671563
+      memory_usage: 0.9422698146639431
+- timestamp: '2025-05-23T18:47:09.788104'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 110
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: rate limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.616862054313163
+      response_time_ms: 5886
+      cpu_usage: 0.8794328058818895
+      memory_usage: 0.9246669375641524
+- timestamp: '2025-05-23T18:47:33.788104'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 216
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.40562766479874557
+      response_time_ms: 3830
+      cpu_usage: 0.9540315491116823
+      memory_usage: 0.9449157057201132
+- timestamp: '2025-05-23T18:48:26.788104'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 243
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.3067020643988222
+      response_time_ms: 8183
+      cpu_usage: 0.9324033712227211
+      memory_usage: 0.9494729314205085
+- timestamp: '2025-05-23T19:06:41.788104'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

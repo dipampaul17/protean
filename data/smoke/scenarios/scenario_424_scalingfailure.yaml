@@ -1,0 +1,114 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_184526
+description: Infrastructure failure scenario for ScalingFailure
+duration: 308
+metadata:
+  generated_at: '2025-05-23T18:45:26.789757'
+  phrase_templates_used: 24
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T18:45:26.789484'
+  event_type: trigger
+  description: 'Initial failure detected: of failure'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:37.789484'
+  event_type: timeout
+  description: 'Timeout: per server'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 246
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: per server - operation
+      failed'
+    metrics:
+      error_rate: 0.8593679190500142
+      response_time_ms: 2887
+      cpu_usage: 0.7881960226475098
+      memory_usage: 0.8627948725075445
+- timestamp: '2025-05-23T18:45:45.789484'
+  event_type: timeout
+  description: 'Timeout: this error'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 76
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: this error - operation
+      failed'
+    metrics:
+      error_rate: 0.586749691498867
+      response_time_ms: 1844
+      cpu_usage: 0.8083634852633317
+      memory_usage: 0.9133981187666125
+- timestamp: '2025-05-23T18:45:46.789484'
+  event_type: timeout
+  description: 'Timeout: aws application'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 285
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: aws application
+      - operation failed'
+    metrics:
+      error_rate: 0.8619806049268067
+      response_time_ms: 1106
+      cpu_usage: 0.7661390801553911
+      memory_usage: 0.9006930265492493
+- timestamp: '2025-05-23T18:45:50.789484'
+  event_type: failure
+  description: 'Failure: an error'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 59
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: an error - operation
+      failed'
+    metrics:
+      error_rate: 0.4827542413150815
+      response_time_ms: 2033
+      cpu_usage: 0.7380139502495907
+      memory_usage: 0.812797361064874
+- timestamp: '2025-05-23T18:45:53.789484'
+  event_type: failure
+  description: 'Failure: the pod'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 213
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: the pod - operation failed'
+    metrics:
+      error_rate: 0.19774671210542635
+      response_time_ms: 6439
+      cpu_usage: 0.9214723123548585
+      memory_usage: 0.8175190639480204
+- timestamp: '2025-05-23T18:46:04.789484'
+  event_type: recovery
+  description: 'Recovery: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:06.789484'
+  event_type: timeout
+  description: 'Timeout: load balancer'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 265
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: load balancer - operation
+      failed'
+    metrics:
+      error_rate: 0.4603082602171469
+      response_time_ms: 2853
+      cpu_usage: 0.8294490362177063
+      memory_usage: 0.9233412730472617
+- timestamp: '2025-05-23T18:50:34.789484'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

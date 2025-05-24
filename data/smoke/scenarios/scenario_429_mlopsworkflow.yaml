@@ -1,0 +1,55 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_184526
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 637
+metadata:
+  generated_at: '2025-05-23T18:45:26.805113'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.804860'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:47.804860'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:57.804860'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 85
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: rate limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.2050856227662199
+      response_time_ms: 6764
+      cpu_usage: 0.9154952651924906
+      memory_usage: 0.9602648740461536
+- timestamp: '2025-05-23T18:47:22.804860'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 285
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.8500888881464372
+      response_time_ms: 8630
+      cpu_usage: 0.710445224086942
+      memory_usage: 0.8285605100099546
+- timestamp: '2025-05-23T18:56:03.804860'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,81 @@
+category: CloudNative
+name: CloudNative_20250523_184526
+description: Kubernetes pod and container orchestration issues
+duration: 1586
+metadata:
+  generated_at: '2025-05-23T18:45:26.658442'
+  phrase_templates_used: 39
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.658202'
+  event_type: trigger
+  description: 'Initial failure detected: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:26.658202'
+  event_type: failure
+  description: 'Failure: the error'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 194
+    log_snippet: '[2025-05-23 18:45:26] ERROR nginx-proxy: the error in failure'
+    metrics:
+      error_rate: 0.8420097744621385
+      response_time_ms: 4383
+      cpu_usage: 0.9374472490740164
+      memory_usage: 0.9678276577594772
+- timestamp: '2025-05-23T18:46:30.658202'
+  event_type: failure
+  description: 'Failure: the server'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 258
+    log_snippet: '[2025-05-23 18:45:26] ERROR worker-consumer: the server in failure'
+    metrics:
+      error_rate: 0.20180257103938246
+      response_time_ms: 3024
+      cpu_usage: 0.9966606205779074
+      memory_usage: 0.9463214231642066
+- timestamp: '2025-05-23T18:47:41.658202'
+  event_type: failure
+  description: 'Failure: docker container'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 150
+    log_snippet: '[2025-05-23 18:45:26] ERROR web-frontend: docker container in failure'
+    metrics:
+      error_rate: 0.7092087462021802
+      response_time_ms: 8572
+      cpu_usage: 0.9041002293920569
+      memory_usage: 0.8098515835802976
+- timestamp: '2025-05-23T18:49:39.658202'
+  event_type: failure
+  description: 'Failure: a cluster'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 224
+    log_snippet: '[2025-05-23 18:45:26] ERROR api-backend: a cluster in failure'
+    metrics:
+      error_rate: 0.1637186328497501
+      response_time_ms: 1136
+      cpu_usage: 0.8426687546739307
+      memory_usage: 0.8408486041854837
+- timestamp: '2025-05-23T18:50:11.658202'
+  event_type: deployment
+  description: 'Deployment: the cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T19:11:52.658202'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

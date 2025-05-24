@@ -1,0 +1,138 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173011",
+  "description": "Database connectivity and performance issues",
+  "duration": 1100,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.386716",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.386502",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:23.386502",
+      "event_type": "recovery",
+      "description": "Recovery: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:28.386502",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:02.386502",
+      "event_type": "recovery",
+      "description": "Recovery: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:03.386502",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 55,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR mongodb-shard: rate limit exceeded in timeout",
+        "metrics": {
+          "error_rate": 0.5628329608510145,
+          "response_time_ms": 2976,
+          "cpu_usage": 0.8272477339229884,
+          "memory_usage": 0.9638374876183476,
+          "connection_pool_usage": 0.997409911535349,
+          "query_time_ms": 24907,
+          "deadlocks_per_sec": 5
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:00.386502",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "postgres-replica",
+        "severity": "high",
+        "duration": 62,
+        "log_snippet": "[2025-05-23 17:30:11] FATAL postgres-replica: database network unreachable detected",
+        "metrics": {
+          "error_rate": 0.6764366611249134,
+          "response_time_ms": 3213,
+          "cpu_usage": 0.7616607138802017,
+          "memory_usage": 0.9982704093638072,
+          "connection_pool_usage": 0.8111427454499331,
+          "query_time_ms": 20522,
+          "deadlocks_per_sec": 2
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:05.386502",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 275,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR redis-cache: circuit breaker triggered in timeout",
+        "metrics": {
+          "error_rate": 0.22876772066380965,
+          "response_time_ms": 7680,
+          "cpu_usage": 0.8868737042347932,
+          "memory_usage": 0.9302393048562193,
+          "connection_pool_usage": 0.8472117096721711,
+          "query_time_ms": 19722,
+          "deadlocks_per_sec": 10
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:23.386502",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "postgres-replica",
+        "severity": "high",
+        "duration": 264,
+        "log_snippet": "[2025-05-23 17:30:11] FATAL postgres-replica: database service unavailable detected",
+        "metrics": {
+          "error_rate": 0.6399392691599667,
+          "response_time_ms": 1010,
+          "cpu_usage": 0.7566803476655797,
+          "memory_usage": 0.8251482355670154,
+          "connection_pool_usage": 0.8302226808889015,
+          "query_time_ms": 26293,
+          "deadlocks_per_sec": 6
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:23.386502",
+      "event_type": "recovery",
+      "description": "Recovery: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:31.386502",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

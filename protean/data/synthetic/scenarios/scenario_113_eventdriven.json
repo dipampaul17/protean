@@ -1,0 +1,111 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173011",
+  "description": "Message queue and event processing failures",
+  "duration": 604,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.342889",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.342726",
+      "event_type": "trigger",
+      "description": "Initial failure detected: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:34.342726",
+      "event_type": "timeout",
+      "description": "Timeout: disk space full",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 190,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR batch-processing-queue: queue processing disk space full",
+        "metrics": {
+          "error_rate": 0.2572959888104165,
+          "response_time_ms": 2307,
+          "cpu_usage": 0.7663991720425648,
+          "memory_usage": 0.9419811384006966,
+          "queue_depth": 30873,
+          "message_processing_rate": 7.084560607283546,
+          "consumer_lag_ms": 239435
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:41.342726",
+      "event_type": "message_loss",
+      "description": "Message_Loss: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:45.342726",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 215,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-queue: queue processing service unavailable",
+        "metrics": {
+          "error_rate": 0.3936673767678034,
+          "response_time_ms": 4954,
+          "cpu_usage": 0.8288719315420978,
+          "memory_usage": 0.8027745874622249,
+          "queue_depth": 17347,
+          "message_processing_rate": 1.5317271372963286,
+          "consumer_lag_ms": 24406
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:51.342726",
+      "event_type": "recovery",
+      "description": "Recovery: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:11.342726",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:27.342726",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 167,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-queue: queue processing rate limit exceeded",
+        "metrics": {
+          "error_rate": 0.26370362949097503,
+          "response_time_ms": 7823,
+          "cpu_usage": 0.9527728703952746,
+          "memory_usage": 0.9005596039882754,
+          "queue_depth": 18496,
+          "message_processing_rate": 7.796782957185292,
+          "consumer_lag_ms": 166901
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:15.342726",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

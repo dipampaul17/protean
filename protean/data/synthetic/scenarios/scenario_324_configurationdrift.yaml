@@ -1,0 +1,86 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_172917
+description: Configuration inconsistencies causing service degradation
+duration: 750
+metadata:
+  generated_at: '2025-05-23T17:29:17.685745'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:29:17.685549'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:59.685549'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 283
+    log_snippet: '[2025-05-23 17:29:17] ERROR auth-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.582222835807728
+      response_time_ms: 3355
+      cpu_usage: 0.8209688256121745
+      memory_usage: 0.8099430480826114
+- timestamp: '2025-05-23T17:30:02.685549'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 218
+    log_snippet: '[2025-05-23 17:29:17] ERROR payment-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.2892216406511535
+      response_time_ms: 5031
+      cpu_usage: 0.8636985091735697
+      memory_usage: 0.9717685220341327
+- timestamp: '2025-05-23T17:30:03.685549'
+  event_type: rollback
+  description: 'Rollback: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:10.685549'
+  event_type: config_change
+  description: 'Config_Change: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:29.685549'
+  event_type: restart
+  description: 'Restart: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:30.685549'
+  event_type: config_change
+  description: 'Config_Change: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:34.685549'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 63
+    log_snippet: '[2025-05-23 17:29:17] ERROR notification-service: rate limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.1309064982030977
+      response_time_ms: 7360
+      cpu_usage: 0.9270284958492794
+      memory_usage: 0.9296839504105883
+- timestamp: '2025-05-23T17:30:44.685549'
+  event_type: rollback
+  description: 'Rollback: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:47.685549'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

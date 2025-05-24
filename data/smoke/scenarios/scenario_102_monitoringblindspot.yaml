@@ -1,0 +1,85 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_184526
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 763
+metadata:
+  generated_at: '2025-05-23T18:45:26.650219'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.649647'
+  event_type: trigger
+  description: 'Initial failure detected: the cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:52.649647'
+  event_type: timeout
+  description: 'Timeout: monitoring service'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 119
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: monitoring service - operation
+      failed'
+    metrics:
+      error_rate: 0.14401796935214436
+      response_time_ms: 3183
+      cpu_usage: 0.7117016204134408
+      memory_usage: 0.8864359196037879
+- timestamp: '2025-05-23T18:47:23.649647'
+  event_type: timeout
+  description: 'Timeout: a container'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 253
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: a container -
+      operation failed'
+    metrics:
+      error_rate: 0.12854409028402092
+      response_time_ms: 5203
+      cpu_usage: 0.8542579721463469
+      memory_usage: 0.8842268915009598
+- timestamp: '2025-05-23T18:47:23.649647'
+  event_type: timeout
+  description: 'Timeout: a node'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 185
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: a node - operation
+      failed'
+    metrics:
+      error_rate: 0.6455472576943218
+      response_time_ms: 5516
+      cpu_usage: 0.8554545582849858
+      memory_usage: 0.8554431442529077
+- timestamp: '2025-05-23T18:47:30.649647'
+  event_type: recovery
+  description: 'Recovery: the cpu'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:51.649647'
+  event_type: timeout
+  description: 'Timeout: an alert'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 191
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: an alert - operation
+      failed'
+    metrics:
+      error_rate: 0.16152514444376787
+      response_time_ms: 4241
+      cpu_usage: 0.7688224955153073
+      memory_usage: 0.9913219209801114
+- timestamp: '2025-05-23T18:58:09.649647'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

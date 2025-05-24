@@ -1,0 +1,59 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_172917
+description: Load balancer and traffic distribution problems
+duration: 718
+metadata:
+  generated_at: '2025-05-23T17:29:17.573935'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:29:17.573687'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:38.573687'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:49.573687'
+  event_type: scaling
+  description: 'Scaling: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:57.573687'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:14.573687'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 40
+    log_snippet: '[2025-05-23 17:29:17] ERROR subnet-private: network unreachable
+      in timeout'
+    metrics:
+      error_rate: 0.289168519594157
+      response_time_ms: 7581
+      cpu_usage: 0.7767571895483776
+      memory_usage: 0.9956232711704232
+      requests_per_sec: 1936
+      backend_health_pct: 0.5562120746862353
+      connection_timeouts: 559
+- timestamp: '2025-05-23T17:30:15.573687'
+  event_type: backend_failure
+  description: 'Backend_Failure: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:19.573687'
+  event_type: backend_failure
+  description: 'Backend_Failure: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:15.573687'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

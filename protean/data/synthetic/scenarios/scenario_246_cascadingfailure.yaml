@@ -1,0 +1,41 @@
+category: CascadingFailure
+name: CascadingFailure_20250523_173011
+description: Multi-service failure propagation scenario
+duration: 421
+metadata:
+  generated_at: '2025-05-23T17:30:11.377609'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:30:11.377503'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:30.377503'
+  event_type: initial_failure
+  description: 'Initial_Failure: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:38.377503'
+  event_type: initial_failure
+  description: 'Initial_Failure: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:43.377503'
+  event_type: initial_failure
+  description: 'Initial_Failure: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:02.377503'
+  event_type: propagation
+  description: 'Propagation: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:33.377503'
+  event_type: cascade
+  description: 'Cascade: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:12.377503'
+  event_type: recovery
+  description: 'System recovered: all services recovered'
+  injection_spec: null

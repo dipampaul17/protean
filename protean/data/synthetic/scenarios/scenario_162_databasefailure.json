@@ -1,0 +1,96 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173011",
+  "description": "Database connectivity and performance issues",
+  "duration": 996,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.356924",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.356774",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:55.356774",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 37,
+        "log_snippet": "[2025-05-23 17:30:11] FATAL mysql-primary: database authentication failed detected",
+        "metrics": {
+          "error_rate": 0.19412841300992723,
+          "response_time_ms": 3305,
+          "cpu_usage": 0.9270809997478953,
+          "memory_usage": 0.9900712571885242,
+          "connection_pool_usage": 0.9442424814216657,
+          "query_time_ms": 13354,
+          "deadlocks_per_sec": 4
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:22.356774",
+      "event_type": "recovery",
+      "description": "Recovery: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:23.356774",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 229,
+        "log_snippet": "[2025-05-23 17:30:11] FATAL mysql-primary: database circuit breaker triggered detected",
+        "metrics": {
+          "error_rate": 0.4298733886595415,
+          "response_time_ms": 1281,
+          "cpu_usage": 0.7819764085811272,
+          "memory_usage": 0.8899130234540278,
+          "connection_pool_usage": 0.8382664175115998,
+          "query_time_ms": 15951,
+          "deadlocks_per_sec": 3
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:45.356774",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:58.356774",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:21.356774",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:47.356774",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

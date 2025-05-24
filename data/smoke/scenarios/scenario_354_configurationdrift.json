@@ -1,0 +1,126 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_184526",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1772,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.767857",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.767614",
+      "event_type": "trigger",
+      "description": "Initial failure detected: your cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:46:06.767614",
+      "event_type": "failure",
+      "description": "Failure: the container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 73,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.7547676092444146,
+          "response_time_ms": 7878,
+          "cpu_usage": 0.8882752593563591,
+          "memory_usage": 0.8683089711386179
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:22.767614",
+      "event_type": "failure",
+      "description": "Failure: kafka log",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 215,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: kafka log - operation failed",
+        "metrics": {
+          "error_rate": 0.5499674472520389,
+          "response_time_ms": 9321,
+          "cpu_usage": 0.8727216107736185,
+          "memory_usage": 0.9370187115899695
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:47.767614",
+      "event_type": "failure",
+      "description": "Failure: the pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 70,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: the pod - operation failed",
+        "metrics": {
+          "error_rate": 0.4087886177535681,
+          "response_time_ms": 2155,
+          "cpu_usage": 0.9212704519011732,
+          "memory_usage": 0.8135294478178069
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:18.767614",
+      "event_type": "failure",
+      "description": "Failure: the service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 277,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: the service - operation failed",
+        "metrics": {
+          "error_rate": 0.34293589474828706,
+          "response_time_ms": 3028,
+          "cpu_usage": 0.8805794685399473,
+          "memory_usage": 0.9840867236826524
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:18.767614",
+      "event_type": "config_change",
+      "description": "Config_Change: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:49:23.767614",
+      "event_type": "failure",
+      "description": "Failure: the error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 252,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR auth-service: the error - operation failed",
+        "metrics": {
+          "error_rate": 0.7840154614665248,
+          "response_time_ms": 9870,
+          "cpu_usage": 0.8173773751764525,
+          "memory_usage": 0.9096651154457143
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:14:58.767614",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

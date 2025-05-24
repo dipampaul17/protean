@@ -1,0 +1,75 @@
+category: Microservices
+name: Microservices_20250523_184526
+description: Infrastructure failure scenario for Microservices
+duration: 1630
+metadata:
+  generated_at: '2025-05-23T18:45:26.706569'
+  phrase_templates_used: 15
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.706251'
+  event_type: trigger
+  description: 'Initial failure detected: headless service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:47.706251'
+  event_type: recovery
+  description: 'Recovery: lt service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:03.706251'
+  event_type: recovery
+  description: 'Recovery: another container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:11.706251'
+  event_type: recovery
+  description: 'Recovery: another container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:22.706251'
+  event_type: timeout
+  description: 'Timeout: http connection'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 143
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: http connection
+      - operation failed'
+    metrics:
+      error_rate: 0.15513830725038835
+      response_time_ms: 1427
+      cpu_usage: 0.855110620414005
+      memory_usage: 0.9112417125925952
+- timestamp: '2025-05-23T18:47:19.706251'
+  event_type: timeout
+  description: 'Timeout: from service'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 241
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: from service - operation
+      failed'
+    metrics:
+      error_rate: 0.16278786375354254
+      response_time_ms: 5354
+      cpu_usage: 0.7333272236451482
+      memory_usage: 0.9117138382692944
+- timestamp: '2025-05-23T18:48:33.706251'
+  event_type: recovery
+  description: 'Recovery: lt service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:41.706251'
+  event_type: recovery
+  description: 'Recovery: from service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:48:48.706251'
+  event_type: recovery
+  description: 'Recovery: another container'
+  injection_spec: null
+- timestamp: '2025-05-23T19:12:36.706251'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

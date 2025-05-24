@@ -1,0 +1,108 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_184526",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 384,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.663580",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.663344",
+      "event_type": "trigger",
+      "description": "Initial failure detected: quot pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:42.663344",
+      "event_type": "recovery",
+      "description": "Recovery: monitoring service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:43.663344",
+      "event_type": "timeout",
+      "description": "Timeout: the database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 295,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: the database - operation failed",
+        "metrics": {
+          "error_rate": 0.27630082111261933,
+          "response_time_ms": 7602,
+          "cpu_usage": 0.9379557817988258,
+          "memory_usage": 0.8417161720351705
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:45:47.663344",
+      "event_type": "recovery",
+      "description": "Recovery: i monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:48.663344",
+      "event_type": "recovery",
+      "description": "Recovery: connection refused",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:49.663344",
+      "event_type": "failure",
+      "description": "Failure: the pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 288,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: the pod - operation failed",
+        "metrics": {
+          "error_rate": 0.8394150740194244,
+          "response_time_ms": 5404,
+          "cpu_usage": 0.9092213816089808,
+          "memory_usage": 0.9584326458189946
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:16.663344",
+      "event_type": "timeout",
+      "description": "Timeout: the cpu",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 172,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: the cpu - operation failed",
+        "metrics": {
+          "error_rate": 0.26536953549588305,
+          "response_time_ms": 9832,
+          "cpu_usage": 0.9189412676105814,
+          "memory_usage": 0.987965371236076
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:18.663344",
+      "event_type": "recovery",
+      "description": "Recovery: kubernetes cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:51:50.663344",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

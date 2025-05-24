@@ -1,0 +1,47 @@
+category: EventDriven
+name: EventDriven_20250523_173011
+description: Message queue and event processing failures
+duration: 1450
+metadata:
+  generated_at: '2025-05-23T17:30:11.311282'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:30:11.311198'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:39.311198'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: high
+    duration: 292
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-queue: queue processing
+      service unavailable'
+    metrics:
+      error_rate: 0.38744213555715135
+      response_time_ms: 4109
+      cpu_usage: 0.7489123891263771
+      memory_usage: 0.8685417681525593
+      queue_depth: 14714
+      message_processing_rate: 7.493049176876327
+      consumer_lag_ms: 115879
+- timestamp: '2025-05-23T17:33:53.311198'
+  event_type: message_loss
+  description: 'Message_Loss: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:28.311198'
+  event_type: message_loss
+  description: 'Message_Loss: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:54:21.311198'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

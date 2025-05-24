@@ -1,0 +1,68 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_172917
+description: Database connectivity and performance issues
+duration: 1099
+metadata:
+  generated_at: '2025-05-23T17:29:17.707159'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:29:17.706931'
+  event_type: trigger
+  description: 'Initial failure detected: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:29.706931'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:29:48.706931'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 156
+    log_snippet: '[2025-05-23 17:29:17] ERROR redis-cache: service unavailable in
+      timeout'
+    metrics:
+      error_rate: 0.3088272556749183
+      response_time_ms: 4632
+      cpu_usage: 0.7411841459213621
+      memory_usage: 0.8726264139863005
+      connection_pool_usage: 0.9122597532638809
+      query_time_ms: 19525
+      deadlocks_per_sec: 6
+- timestamp: '2025-05-23T17:31:04.706931'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:21.706931'
+  event_type: connection_loss
+  description: 'Connection_Loss: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:16.706931'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 87
+    log_snippet: '[2025-05-23 17:29:17] ERROR redis-cache: deployment failed in timeout'
+    metrics:
+      error_rate: 0.8577689608156798
+      response_time_ms: 8571
+      cpu_usage: 0.7008490760981302
+      memory_usage: 0.9542856428242175
+      connection_pool_usage: 0.8255727715990996
+      query_time_ms: 27303
+      deadlocks_per_sec: 6
+- timestamp: '2025-05-23T17:47:36.706931'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

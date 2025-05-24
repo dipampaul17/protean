@@ -1,0 +1,132 @@
+{
+  "category": "NetworkPartition",
+  "name": "NetworkPartition_20250523_184526",
+  "description": "Infrastructure failure scenario for NetworkPartition",
+  "duration": 1585,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.828069",
+    "phrase_templates_used": 4,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.827795",
+      "event_type": "trigger",
+      "description": "Initial failure detected: and memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:36.827795",
+      "event_type": "timeout",
+      "description": "Timeout: of disk",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 129,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: of disk - operation failed",
+        "metrics": {
+          "error_rate": 0.7022212395523186,
+          "response_time_ms": 8834,
+          "cpu_usage": 0.890902414887589,
+          "memory_usage": 0.8459371386964153
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:46:11.827795",
+      "event_type": "recovery",
+      "description": "Recovery: and memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:00.827795",
+      "event_type": "failure",
+      "description": "Failure: each node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 213,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: each node - operation failed",
+        "metrics": {
+          "error_rate": 0.1302120077185215,
+          "response_time_ms": 5838,
+          "cpu_usage": 0.8300564529943288,
+          "memory_usage": 0.8068953002069494
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:04.827795",
+      "event_type": "failure",
+      "description": "Failure: and memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 72,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: and memory - operation failed",
+        "metrics": {
+          "error_rate": 0.14152655854186796,
+          "response_time_ms": 2929,
+          "cpu_usage": 0.7572657335848666,
+          "memory_usage": 0.9158535681065476
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:20.827795",
+      "event_type": "timeout",
+      "description": "Timeout: and node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 149,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: and node - operation failed",
+        "metrics": {
+          "error_rate": 0.4506588485559927,
+          "response_time_ms": 9343,
+          "cpu_usage": 0.9412594402185127,
+          "memory_usage": 0.9787016968602673
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:58.827795",
+      "event_type": "recovery",
+      "description": "Recovery: each node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:48:50.827795",
+      "event_type": "failure",
+      "description": "Failure: of disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 118,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR user-service: of disk - operation failed",
+        "metrics": {
+          "error_rate": 0.8682773187409797,
+          "response_time_ms": 3876,
+          "cpu_usage": 0.7263302969521723,
+          "memory_usage": 0.9030888346554266
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T19:11:51.827795",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

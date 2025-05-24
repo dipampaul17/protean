@@ -1,0 +1,72 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173011",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1566,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.335611",
+    "phrase_templates_used": 0,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.335519",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:48.335519",
+      "event_type": "recovery",
+      "description": "Recovery: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:15.335519",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 80,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR payment-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.7986197680068414,
+          "response_time_ms": 3599,
+          "cpu_usage": 0.9673234280159086,
+          "memory_usage": 0.8717194404178907
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:42.335519",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 203,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR auth-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.5027302698877238,
+          "response_time_ms": 3321,
+          "cpu_usage": 0.8996274579307444,
+          "memory_usage": 0.843674734527232
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:56:17.335519",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

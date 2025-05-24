@@ -1,0 +1,93 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173011
+description: Circuit breaker activation due to cascading service failures
+duration: 1031
+metadata:
+  generated_at: '2025-05-23T17:30:11.421562'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:30:11.420679'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:24.420679'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:29.420679'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 142
+    log_snippet: '[2025-05-23 17:30:11] ERROR user-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.3145798488799663
+      response_time_ms: 9965
+      cpu_usage: 0.7206433990746561
+      memory_usage: 0.9286425131504735
+- timestamp: '2025-05-23T17:30:34.420679'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:48.420679'
+  event_type: degradation
+  description: 'Degradation: disk space full'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: low
+    duration: 39
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: disk space full
+      - operation failed'
+    metrics:
+      error_rate: 0.03103767026187941
+      response_time_ms: 1241
+      cpu_usage: 0.6546656419010495
+      memory_usage: 0.5092810202047368
+- timestamp: '2025-05-23T17:31:02.420679'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 72
+    log_snippet: '[2025-05-23 17:30:11] ERROR auth-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.2923201673825953
+      response_time_ms: 4587
+      cpu_usage: 0.9645970084709973
+      memory_usage: 0.9942082336701137
+- timestamp: '2025-05-23T17:31:14.420679'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:10.420679'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 126
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-service: queue overflow
+      - operation failed'
+    metrics:
+      error_rate: 0.5382645475497868
+      response_time_ms: 4333
+      cpu_usage: 0.9822535874906341
+      memory_usage: 0.9450141864077017
+- timestamp: '2025-05-23T17:47:22.420679'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

@@ -1,0 +1,95 @@
+category: EventDriven
+name: EventDriven_20250523_173011
+description: Message queue and event processing failures
+duration: 1091
+metadata:
+  generated_at: '2025-05-23T17:30:11.425580'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:30:11.425382'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:21.425382'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 34
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-queue: queue processing service
+      unavailable'
+    metrics:
+      error_rate: 0.21051471337352315
+      response_time_ms: 4591
+      cpu_usage: 0.7831537382432855
+      memory_usage: 0.93228191084878
+      queue_depth: 33186
+      message_processing_rate: 3.43362290572531
+      consumer_lag_ms: 140922
+- timestamp: '2025-05-23T17:30:45.425382'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 178
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-queue: queue processing database
+      connection lost'
+    metrics:
+      error_rate: 0.2707601756468855
+      response_time_ms: 6104
+      cpu_usage: 0.9796478334816083
+      memory_usage: 0.8481409516286991
+      queue_depth: 23276
+      message_processing_rate: 1.6008154259013219
+      consumer_lag_ms: 106340
+- timestamp: '2025-05-23T17:30:48.425382'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:55.425382'
+  event_type: message_loss
+  description: 'Message_Loss: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:02.425382'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:50.425382'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: high
+    duration: 112
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-queue: queue processing
+      circuit breaker triggered'
+    metrics:
+      error_rate: 0.4257993833038075
+      response_time_ms: 3807
+      cpu_usage: 0.9404152232499225
+      memory_usage: 0.8807011875090427
+      queue_depth: 48964
+      message_processing_rate: 6.384057213302941
+      consumer_lag_ms: 200950
+- timestamp: '2025-05-23T17:32:19.425382'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:21.425382'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:22.425382'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

@@ -1,0 +1,114 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173011",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 788,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.420111",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.419927",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:39.419927",
+      "event_type": "failure",
+      "description": "Failure: memory limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 264,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR auth-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.2082628818935537,
+          "response_time_ms": 2503,
+          "cpu_usage": 0.7357537995769795,
+          "memory_usage": 0.9199010034302597
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:30:43.419927",
+      "event_type": "restart",
+      "description": "Restart: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:51.419927",
+      "event_type": "rollback",
+      "description": "Rollback: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:13.419927",
+      "event_type": "config_change",
+      "description": "Config_Change: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:28.419927",
+      "event_type": "failure",
+      "description": "Failure: memory limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 115,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR user-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.6630819946413816,
+          "response_time_ms": 9008,
+          "cpu_usage": 0.7544316339165267,
+          "memory_usage": 0.8027229969070929
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:37.419927",
+      "event_type": "rollback",
+      "description": "Rollback: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:37.419927",
+      "event_type": "config_change",
+      "description": "Config_Change: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:49.419927",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 85,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR notification-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.853776126202839,
+          "response_time_ms": 3173,
+          "cpu_usage": 0.8537727190892058,
+          "memory_usage": 0.9152028849242054
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:43:19.419927",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

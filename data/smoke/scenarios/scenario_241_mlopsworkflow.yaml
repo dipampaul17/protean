@@ -1,0 +1,67 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_184526
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 582
+metadata:
+  generated_at: '2025-05-23T18:45:26.728112'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.727896'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:48.727896'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:54.727896'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:05.727896'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 253
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.38991367029114654
+      response_time_ms: 9642
+      cpu_usage: 0.7585102128011565
+      memory_usage: 0.9541659949205256
+- timestamp: '2025-05-23T18:46:59.727896'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:02.727896'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T18:47:03.727896'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 233
+    log_snippet: '[2025-05-23 18:45:26] ERROR auth-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.24546875069229523
+      response_time_ms: 6844
+      cpu_usage: 0.7360553997087059
+      memory_usage: 0.997662022508175
+- timestamp: '2025-05-23T18:55:08.727896'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

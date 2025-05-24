@@ -1,0 +1,138 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173011",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 793,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.377479",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.377272",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:46.377272",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:46.377272",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 226,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-gateway: database connection lost in timeout",
+        "metrics": {
+          "error_rate": 0.47362779262328647,
+          "response_time_ms": 7091,
+          "cpu_usage": 0.9072532571021874,
+          "memory_usage": 0.9700931870423384,
+          "requests_per_sec": 9948,
+          "backend_health_pct": 0.601994892900499,
+          "connection_timeouts": 406
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:21.377272",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 250,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR load-balancer: queue overflow in timeout",
+        "metrics": {
+          "error_rate": 0.8114846994115306,
+          "response_time_ms": 2406,
+          "cpu_usage": 0.8778637540081284,
+          "memory_usage": 0.9946832143891944,
+          "requests_per_sec": 7696,
+          "backend_health_pct": 0.6889200319719748,
+          "connection_timeouts": 910
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:22.377272",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 285,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR load-balancer: network unreachable in timeout",
+        "metrics": {
+          "error_rate": 0.45515117025228036,
+          "response_time_ms": 5967,
+          "cpu_usage": 0.8385038516595995,
+          "memory_usage": 0.8953667886249131,
+          "requests_per_sec": 5499,
+          "backend_health_pct": 0.7506470155645011,
+          "connection_timeouts": 514
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:23.377272",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 74,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR load-balancer: network unreachable in timeout",
+        "metrics": {
+          "error_rate": 0.26300568071668984,
+          "response_time_ms": 2490,
+          "cpu_usage": 0.8652755401123473,
+          "memory_usage": 0.8812358771680809,
+          "requests_per_sec": 4146,
+          "backend_health_pct": 0.7996818254750742,
+          "connection_timeouts": 101
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:37.377272",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:40.377272",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:41.377272",
+      "event_type": "scaling",
+      "description": "Scaling: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:43:24.377272",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

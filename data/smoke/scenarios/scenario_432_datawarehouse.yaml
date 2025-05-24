@@ -1,0 +1,55 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_184526
+description: Infrastructure failure scenario for DataWarehouse
+duration: 1631
+metadata:
+  generated_at: '2025-05-23T18:45:26.806087'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T18:45:26.805908'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T18:45:59.805908'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T18:52:18.805908'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 166
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.5650447883276458
+      response_time_ms: 4613
+      cpu_usage: 0.7996443231847118
+      memory_usage: 0.9410815630171623
+- timestamp: '2025-05-23T18:53:02.805908'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 140
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.4897975308088577
+      response_time_ms: 7618
+      cpu_usage: 0.9191497945008874
+      memory_usage: 0.8207229830298055
+- timestamp: '2025-05-23T19:12:37.805908'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

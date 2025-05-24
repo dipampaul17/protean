@@ -1,0 +1,91 @@
+category: EventDriven
+name: EventDriven_20250523_173011
+description: Message queue and event processing failures
+duration: 817
+metadata:
+  generated_at: '2025-05-23T17:30:11.367359'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:30:11.367139'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:30:46.367139'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: high
+    duration: 199
+    log_snippet: '[2025-05-23 17:30:11] ERROR notification-queue: queue processing
+      disk space full'
+    metrics:
+      error_rate: 0.4568745335417551
+      response_time_ms: 7279
+      cpu_usage: 0.7207672566194459
+      memory_usage: 0.8573354557988988
+      queue_depth: 36463
+      message_processing_rate: 6.449844135345709
+      consumer_lag_ms: 54416
+- timestamp: '2025-05-23T17:31:23.367139'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 125
+    log_snippet: '[2025-05-23 17:30:11] ERROR batch-processing-queue: queue processing
+      disk space full'
+    metrics:
+      error_rate: 0.11961184847309446
+      response_time_ms: 5911
+      cpu_usage: 0.7811327177410449
+      memory_usage: 0.9348316823459658
+      queue_depth: 31475
+      message_processing_rate: 8.123117871121453
+      consumer_lag_ms: 113667
+- timestamp: '2025-05-23T17:31:24.367139'
+  event_type: message_loss
+  description: 'Message_Loss: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:43.367139'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 240
+    log_snippet: '[2025-05-23 17:30:11] ERROR payment-queue: queue processing deployment
+      failed'
+    metrics:
+      error_rate: 0.7787477171008236
+      response_time_ms: 8017
+      cpu_usage: 0.7615277164232171
+      memory_usage: 0.8066966300256846
+      queue_depth: 41124
+      message_processing_rate: 9.7247740305856
+      consumer_lag_ms: 187326
+- timestamp: '2025-05-23T17:31:44.367139'
+  event_type: recovery
+  description: 'Recovery: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:47.367139'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:02.367139'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:43:48.367139'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

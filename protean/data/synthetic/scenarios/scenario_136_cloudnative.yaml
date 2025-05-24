@@ -1,0 +1,81 @@
+category: CloudNative
+name: CloudNative_20250523_173011
+description: Kubernetes pod and container orchestration issues
+duration: 911
+metadata:
+  generated_at: '2025-05-23T17:30:11.350511'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:30:11.349732'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:00.349732'
+  event_type: pod_restart
+  description: 'Pod_Restart: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:19.349732'
+  event_type: pod_restart
+  description: 'Pod_Restart: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:21.349732'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 298
+    log_snippet: '[2025-05-23 17:30:11] ERROR web-frontend: memory limit exceeded
+      in failure'
+    metrics:
+      error_rate: 0.5227020478716632
+      response_time_ms: 6735
+      cpu_usage: 0.9486252438491699
+      memory_usage: 0.9668997579966695
+- timestamp: '2025-05-23T17:31:45.349732'
+  event_type: pod_restart
+  description: 'Pod_Restart: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:31:56.349732'
+  event_type: scaling
+  description: 'Scaling: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:07.349732'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 74
+    log_snippet: '[2025-05-23 17:30:11] ERROR api-backend: database connection lost
+      in failure'
+    metrics:
+      error_rate: 0.4616112904399734
+      response_time_ms: 3711
+      cpu_usage: 0.8581430139557573
+      memory_usage: 0.8678859496087641
+- timestamp: '2025-05-23T17:32:21.349732'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 62
+    log_snippet: '[2025-05-23 17:30:11] ERROR worker-consumer: queue overflow in failure'
+    metrics:
+      error_rate: 0.8534163584247402
+      response_time_ms: 1913
+      cpu_usage: 0.9756126843290291
+      memory_usage: 0.9424802164654071
+- timestamp: '2025-05-23T17:45:22.349732'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

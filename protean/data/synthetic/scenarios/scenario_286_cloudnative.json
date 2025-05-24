@@ -1,0 +1,90 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_173011",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 628,
+  "metadata": {
+    "generated_at": "2025-05-23T17:30:11.390907",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:30:11.390760",
+      "event_type": "trigger",
+      "description": "Initial failure detected: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:43.390760",
+      "event_type": "scaling",
+      "description": "Scaling: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:30:58.390760",
+      "event_type": "deployment",
+      "description": "Deployment: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:07.390760",
+      "event_type": "scaling",
+      "description": "Scaling: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:11.390760",
+      "event_type": "deployment",
+      "description": "Deployment: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:31:18.390760",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 288,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR web-frontend: disk space full in failure",
+        "metrics": {
+          "error_rate": 0.42956812389273913,
+          "response_time_ms": 3804,
+          "cpu_usage": 0.839459248647696,
+          "memory_usage": 0.9940463911392914
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:31:46.390760",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 188,
+        "log_snippet": "[2025-05-23 17:30:11] ERROR api-backend: authentication failed in failure",
+        "metrics": {
+          "error_rate": 0.6413763039900073,
+          "response_time_ms": 2453,
+          "cpu_usage": 0.7800600461044984,
+          "memory_usage": 0.8151736662437715
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:39.390760",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

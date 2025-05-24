@@ -1,0 +1,78 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_184526",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1247,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.819551",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.819354",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rolling update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:47:45.819354",
+      "event_type": "failure",
+      "description": "Failure: the container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 180,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR nginx-proxy: the container in failure",
+        "metrics": {
+          "error_rate": 0.3544481781185189,
+          "response_time_ms": 2345,
+          "cpu_usage": 0.8352532556253165,
+          "memory_usage": 0.9230735514518861
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:09.819354",
+      "event_type": "failure",
+      "description": "Failure: my deployment",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 200,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR worker-consumer: my deployment in failure",
+        "metrics": {
+          "error_rate": 0.21006852774097481,
+          "response_time_ms": 7611,
+          "cpu_usage": 0.7015448669818879,
+          "memory_usage": 0.9408335976457459
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:30.819354",
+      "event_type": "scaling",
+      "description": "Scaling: during deployment",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:49:16.819354",
+      "event_type": "scaling",
+      "description": "Scaling: kubectl scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:06:13.819354",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

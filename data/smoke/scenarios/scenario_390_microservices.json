@@ -1,0 +1,90 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_184526",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 952,
+  "metadata": {
+    "generated_at": "2025-05-23T18:45:26.778932",
+    "phrase_templates_used": 15,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T18:45:26.778752",
+      "event_type": "trigger",
+      "description": "Initial failure detected: another container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:45:38.778752",
+      "event_type": "failure",
+      "description": "Failure: strong service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 232,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: strong service - operation failed",
+        "metrics": {
+          "error_rate": 0.23328401818240252,
+          "response_time_ms": 7571,
+          "cpu_usage": 0.9805164329208009,
+          "memory_usage": 0.9579799687351255
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:26.778752",
+      "event_type": "timeout",
+      "description": "Timeout: the container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 111,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR payment-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.875519086402026,
+          "response_time_ms": 3585,
+          "cpu_usage": 0.9879232797788564,
+          "memory_usage": 0.9457446734987878
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:47:55.778752",
+      "event_type": "timeout",
+      "description": "Timeout: a container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 123,
+        "log_snippet": "[2025-05-23 18:45:26] ERROR notification-service: a container - operation failed",
+        "metrics": {
+          "error_rate": 0.12389695970251405,
+          "response_time_ms": 6970,
+          "cpu_usage": 0.8486956709510828,
+          "memory_usage": 0.9007742464774802
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:48:01.778752",
+      "event_type": "recovery",
+      "description": "Recovery: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T19:01:18.778752",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_184526
+description: Infrastructure failure scenario for DependencyFailure
+duration: 986
+metadata:
+  generated_at: '2025-05-23T18:45:26.648706'
+  phrase_templates_used: 45
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T18:45:26.648389'
+  event_type: trigger
+  description: 'Initial failure detected: illuminate queue'
+  injection_spec: null
+- timestamp: '2025-05-23T18:46:06.648389'
+  event_type: failure
+  description: 'Failure: inventory service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 113
+    log_snippet: '[2025-05-23 18:45:26] ERROR payment-service: inventory service -
+      operation failed'
+    metrics:
+      error_rate: 0.8565424707866482
+      response_time_ms: 8032
+      cpu_usage: 0.9603207865861894
+      memory_usage: 0.9882563922027516
+- timestamp: '2025-05-23T18:46:07.648389'
+  event_type: timeout
+  description: 'Timeout: to update'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 288
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: to update - operation
+      failed'
+    metrics:
+      error_rate: 0.6636485237433093
+      response_time_ms: 9820
+      cpu_usage: 0.7677873736393055
+      memory_usage: 0.8895251986478215
+- timestamp: '2025-05-23T18:47:05.648389'
+  event_type: timeout
+  description: 'Timeout: the error'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 75
+    log_snippet: '[2025-05-23 18:45:26] ERROR notification-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.10454015146019469
+      response_time_ms: 1688
+      cpu_usage: 0.7650278487922597
+      memory_usage: 0.9702224532637369
+- timestamp: '2025-05-23T18:47:50.648389'
+  event_type: timeout
+  description: 'Timeout: existing connection'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 75
+    log_snippet: '[2025-05-23 18:45:26] ERROR user-service: existing connection -
+      operation failed'
+    metrics:
+      error_rate: 0.5952914839562605
+      response_time_ms: 3920
+      cpu_usage: 0.8585772568437731
+      memory_usage: 0.8145739013803907
+- timestamp: '2025-05-23T19:01:52.648389'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null
