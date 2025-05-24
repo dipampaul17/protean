@@ -1,0 +1,102 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173708",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 604,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.014182",
+    "phrase_templates_used": 45,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.014029",
+      "event_type": "trigger",
+      "description": "Initial failure detected: following error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:29.014029",
+      "event_type": "recovery",
+      "description": "Recovery: coirq error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:30.014029",
+      "event_type": "failure",
+      "description": "Failure: strong update",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 274,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.8876850833063364,
+          "response_time_ms": 8811,
+          "cpu_usage": 0.9142345731914804,
+          "memory_usage": 0.8825144176466727
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:51.014029",
+      "event_type": "failure",
+      "description": "Failure: illuminate container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 221,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: illuminate container - operation failed",
+        "metrics": {
+          "error_rate": 0.8969888200343671,
+          "response_time_ms": 7617,
+          "cpu_usage": 0.8304644780961388,
+          "memory_usage": 0.9417918093121065
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:57.014029",
+      "event_type": "timeout",
+      "description": "Timeout: connect service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 123,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: connect service - operation failed",
+        "metrics": {
+          "error_rate": 0.8811055813984966,
+          "response_time_ms": 5671,
+          "cpu_usage": 0.718543488600129,
+          "memory_usage": 0.9972089918010317
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:14.014029",
+      "event_type": "recovery",
+      "description": "Recovery: web server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:34.014029",
+      "event_type": "recovery",
+      "description": "Recovery: inventory service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:12.014029",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

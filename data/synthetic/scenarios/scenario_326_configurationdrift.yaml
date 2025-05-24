@@ -1,0 +1,70 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173245
+description: Configuration inconsistencies causing service degradation
+duration: 1040
+metadata:
+  generated_at: '2025-05-23T17:32:45.753901'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:32:45.753783'
+  event_type: trigger
+  description: 'Initial failure detected: nginx restart'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:02.753783'
+  event_type: failure
+  description: 'Failure: nginx error'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 102
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: nginx error - operation
+      failed'
+    metrics:
+      error_rate: 0.3245054072273815
+      response_time_ms: 6908
+      cpu_usage: 0.8087394830181263
+      memory_usage: 0.8202952745240049
+- timestamp: '2025-05-23T17:35:21.753783'
+  event_type: config_change
+  description: 'Config_Change: kubernetes service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:32.753783'
+  event_type: failure
+  description: 'Failure: api server'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 176
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: api server - operation
+      failed'
+    metrics:
+      error_rate: 0.2507981363256875
+      response_time_ms: 5581
+      cpu_usage: 0.8202755392405429
+      memory_usage: 0.8203937202170136
+- timestamp: '2025-05-23T17:36:37.753783'
+  event_type: failure
+  description: 'Failure: the container'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 161
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: the container - operation
+      failed'
+    metrics:
+      error_rate: 0.8128814809586213
+      response_time_ms: 7546
+      cpu_usage: 0.7739755855831729
+      memory_usage: 0.9811854622063321
+- timestamp: '2025-05-23T17:50:05.753783'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

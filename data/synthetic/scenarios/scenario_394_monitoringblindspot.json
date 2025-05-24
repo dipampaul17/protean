@@ -1,0 +1,132 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173245",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1243,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.772075",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.771881",
+      "event_type": "trigger",
+      "description": "Initial failure detected: an alert",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:58.771881",
+      "event_type": "recovery",
+      "description": "Recovery: the alert",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:07.771881",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 143,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.2744773572603645,
+          "response_time_ms": 9017,
+          "cpu_usage": 0.9199738469988965,
+          "memory_usage": 0.8531793020068135
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:11.771881",
+      "event_type": "failure",
+      "description": "Failure: to monitor",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 144,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: to monitor - operation failed",
+        "metrics": {
+          "error_rate": 0.4587177981099234,
+          "response_time_ms": 9542,
+          "cpu_usage": 0.9947354467548419,
+          "memory_usage": 0.8503318010268069
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:12.771881",
+      "event_type": "timeout",
+      "description": "Timeout: a service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 160,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.30982963219141557,
+          "response_time_ms": 1397,
+          "cpu_usage": 0.8434197215198695,
+          "memory_usage": 0.9509566866024955
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:01.771881",
+      "event_type": "recovery",
+      "description": "Recovery: of cpu",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:21.771881",
+      "event_type": "timeout",
+      "description": "Timeout: prometheus server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 298,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: prometheus server - operation failed",
+        "metrics": {
+          "error_rate": 0.6207002370180315,
+          "response_time_ms": 2203,
+          "cpu_usage": 0.7505045739535062,
+          "memory_usage": 0.9558273089227247
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:39.771881",
+      "event_type": "timeout",
+      "description": "Timeout: quot pod",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 279,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: quot pod - operation failed",
+        "metrics": {
+          "error_rate": 0.7856797946585528,
+          "response_time_ms": 8830,
+          "cpu_usage": 0.9985254989691872,
+          "memory_usage": 0.8987769690777718
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:53:28.771881",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

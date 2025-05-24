@@ -1,0 +1,63 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_174628
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1549
+metadata:
+  generated_at: '2025-05-23T17:46:28.920266'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:28.920125'
+  event_type: trigger
+  description: 'Initial failure detected: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:21.920125'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:37.920125'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:23.920125'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 228
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.4460021930271384
+      response_time_ms: 9811
+      cpu_usage: 0.9256576365255753
+      memory_usage: 0.8651838178023223
+- timestamp: '2025-05-23T17:50:13.920125'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:59.920125'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 268
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.8467438748949875
+      response_time_ms: 7808
+      cpu_usage: 0.7539824404624181
+      memory_usage: 0.826132392730861
+- timestamp: '2025-05-23T18:12:17.920125'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

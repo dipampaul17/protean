@@ -1,0 +1,102 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_174628",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 598,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.977205",
+    "phrase_templates_used": 45,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.977044",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connect service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:40.977044",
+      "event_type": "recovery",
+      "description": "Recovery: quot network",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:49.977044",
+      "event_type": "timeout",
+      "description": "Timeout: external service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 153,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: external service - operation failed",
+        "metrics": {
+          "error_rate": 0.7624680583465223,
+          "response_time_ms": 8071,
+          "cpu_usage": 0.9280997068154831,
+          "memory_usage": 0.995700009092198
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:00.977044",
+      "event_type": "recovery",
+      "description": "Recovery: to update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:30.977044",
+      "event_type": "recovery",
+      "description": "Recovery: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:34.977044",
+      "event_type": "timeout",
+      "description": "Timeout: the service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 231,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: the service - operation failed",
+        "metrics": {
+          "error_rate": 0.18911469738356096,
+          "response_time_ms": 1493,
+          "cpu_usage": 0.7702538217577231,
+          "memory_usage": 0.8660832449665616
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:43.977044",
+      "event_type": "timeout",
+      "description": "Timeout: the server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 194,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.8372384259849512,
+          "response_time_ms": 8366,
+          "cpu_usage": 0.8467035307384412,
+          "memory_usage": 0.9713379439401288
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:56:26.977044",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

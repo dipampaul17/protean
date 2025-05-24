@@ -1,0 +1,126 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_173453",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 1153,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.277370",
+    "phrase_templates_used": 15,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.227833",
+      "event_type": "trigger",
+      "description": "Initial failure detected: ui service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:17.227833",
+      "event_type": "recovery",
+      "description": "Recovery: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:49.227833",
+      "event_type": "recovery",
+      "description": "Recovery: lt service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:06.227833",
+      "event_type": "timeout",
+      "description": "Timeout: a service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 220,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.8373643960476693,
+          "response_time_ms": 8222,
+          "cpu_usage": 0.8773407561850106,
+          "memory_usage": 0.9512645216460456
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:13.227833",
+      "event_type": "failure",
+      "description": "Failure: from service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 59,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: from service - operation failed",
+        "metrics": {
+          "error_rate": 0.48681399503390566,
+          "response_time_ms": 4000,
+          "cpu_usage": 0.8400503034508473,
+          "memory_usage": 0.849046592183124
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:35.227833",
+      "event_type": "failure",
+      "description": "Failure: following error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 67,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: following error - operation failed",
+        "metrics": {
+          "error_rate": 0.5403227205067705,
+          "response_time_ms": 7040,
+          "cpu_usage": 0.9370696475831625,
+          "memory_usage": 0.8020538677528368
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:42.227833",
+      "event_type": "recovery",
+      "description": "Recovery: docker network",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:56.227833",
+      "event_type": "recovery",
+      "description": "Recovery: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:16.227833",
+      "event_type": "timeout",
+      "description": "Timeout: a service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 273,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.12107505767455812,
+          "response_time_ms": 9089,
+          "cpu_usage": 0.9964676263183123,
+          "memory_usage": 0.8820850039373099
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:54:06.227833",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

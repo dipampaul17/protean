@@ -1,0 +1,66 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173453",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 1513,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.291150",
+    "phrase_templates_used": 36,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.291049",
+      "event_type": "trigger",
+      "description": "Initial failure detected: code queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:06.291049",
+      "event_type": "recovery",
+      "description": "Recovery: new container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:29.291049",
+      "event_type": "recovery",
+      "description": "Recovery: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:19.291049",
+      "event_type": "recovery",
+      "description": "Recovery: second node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:41:11.291049",
+      "event_type": "timeout",
+      "description": "Timeout: transaction log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 279,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: transaction log - operation failed",
+        "metrics": {
+          "error_rate": 0.5072657058415136,
+          "response_time_ms": 4180,
+          "cpu_usage": 0.7931221942805671,
+          "memory_usage": 0.9911802573301567
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:00:06.291049",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

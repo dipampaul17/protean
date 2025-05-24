@@ -1,0 +1,102 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_174628",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 622,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.974794",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.974636",
+      "event_type": "trigger",
+      "description": "Initial failure detected: prometheus server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:38.974636",
+      "event_type": "recovery",
+      "description": "Recovery: the cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:56.974636",
+      "event_type": "recovery",
+      "description": "Recovery: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:58.974636",
+      "event_type": "failure",
+      "description": "Failure: kubernetes cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 291,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: kubernetes cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.7909575240999787,
+          "response_time_ms": 6531,
+          "cpu_usage": 0.9395711889502012,
+          "memory_usage": 0.849905227458812
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:16.974636",
+      "event_type": "timeout",
+      "description": "Timeout: docker container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 274,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: docker container - operation failed",
+        "metrics": {
+          "error_rate": 0.5865336510256849,
+          "response_time_ms": 7037,
+          "cpu_usage": 0.7140077984067712,
+          "memory_usage": 0.8854008141641455
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:55.974636",
+      "event_type": "recovery",
+      "description": "Recovery: code alert",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:08.974636",
+      "event_type": "timeout",
+      "description": "Timeout: to fix",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 155,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: to fix - operation failed",
+        "metrics": {
+          "error_rate": 0.318502807357189,
+          "response_time_ms": 2005,
+          "cpu_usage": 0.7072028105879413,
+          "memory_usage": 0.861495643224516
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:56:50.974636",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

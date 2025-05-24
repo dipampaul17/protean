@@ -1,0 +1,64 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173708
+description: Database connectivity and performance issues
+duration: 530
+metadata:
+  generated_at: '2025-05-23T17:37:08.079051'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:08.078933'
+  event_type: trigger
+  description: 'Initial failure detected: clustered index'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:45.078933'
+  event_type: timeout
+  description: 'Timeout: sql server'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 127
+    log_snippet: '[2025-05-23 17:37:08] ERROR mongodb-shard: sql server in timeout'
+    metrics:
+      error_rate: 0.22815178344547926
+      response_time_ms: 6913
+      cpu_usage: 0.9146643524523447
+      memory_usage: 0.8062926387687779
+      connection_pool_usage: 0.9423866937176544
+      query_time_ms: 25287
+      deadlocks_per_sec: 1
+- timestamp: '2025-05-23T17:38:16.078933'
+  event_type: timeout
+  description: 'Timeout: my database'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 170
+    log_snippet: '[2025-05-23 17:37:08] FATAL postgres-replica: database my database
+      detected'
+    metrics:
+      error_rate: 0.8190120581994765
+      response_time_ms: 2098
+      cpu_usage: 0.7463960423658764
+      memory_usage: 0.975779912485676
+      connection_pool_usage: 0.8932136608016064
+      query_time_ms: 16605
+      deadlocks_per_sec: 10
+- timestamp: '2025-05-23T17:38:19.078933'
+  event_type: connection_loss
+  description: 'Connection_Loss: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:52.078933'
+  event_type: corruption
+  description: 'Corruption: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:45:58.078933'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

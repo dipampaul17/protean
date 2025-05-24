@@ -1,0 +1,126 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_173708",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 558,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.084683",
+    "phrase_templates_used": 39,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.084483",
+      "event_type": "trigger",
+      "description": "Initial failure detected: kubernetes error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:27.084483",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: code service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:31.084483",
+      "event_type": "failure",
+      "description": "Failure: the error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 131,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR worker-consumer: the error in failure",
+        "metrics": {
+          "error_rate": 0.8245938848257247,
+          "response_time_ms": 4226,
+          "cpu_usage": 0.8803052749036382,
+          "memory_usage": 0.9605387156170404
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:34.084483",
+      "event_type": "failure",
+      "description": "Failure: true server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 47,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR web-frontend: true server in failure",
+        "metrics": {
+          "error_rate": 0.6928628492325881,
+          "response_time_ms": 2176,
+          "cpu_usage": 0.9048694388012859,
+          "memory_usage": 0.8130744697920113
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:37.084483",
+      "event_type": "failure",
+      "description": "Failure: your container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 227,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR api-backend: your container in failure",
+        "metrics": {
+          "error_rate": 0.34149132755317846,
+          "response_time_ms": 1244,
+          "cpu_usage": 0.8116049509472656,
+          "memory_usage": 0.9260369172277063
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:04.084483",
+      "event_type": "failure",
+      "description": "Failure: a container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 242,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR nginx-proxy: a container in failure",
+        "metrics": {
+          "error_rate": 0.8358167346013435,
+          "response_time_ms": 2751,
+          "cpu_usage": 0.7133588406648782,
+          "memory_usage": 0.9469325890824664
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:07.084483",
+      "event_type": "deployment",
+      "description": "Deployment: eks cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:07.084483",
+      "event_type": "deployment",
+      "description": "Deployment: your service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:12.084483",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: your cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:26.084483",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

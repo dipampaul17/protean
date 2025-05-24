@@ -1,0 +1,83 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_174628
+description: Application deployment and rollback scenarios
+duration: 1033
+metadata:
+  generated_at: '2025-05-23T17:46:28.984820'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:28.984548'
+  event_type: trigger
+  description: 'Initial failure detected: kind service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:59.984548'
+  event_type: deployment
+  description: 'Deployment: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:00.984548'
+  event_type: failure
+  description: 'Failure: the cluster'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 151
+    log_snippet: '[2025-05-23 17:46:28] ERROR nginx-proxy: the cluster in failure'
+    metrics:
+      error_rate: 0.4422913754077541
+      response_time_ms: 1909
+      cpu_usage: 0.8763816874120924
+      memory_usage: 0.9698925290283885
+- timestamp: '2025-05-23T17:47:13.984548'
+  event_type: deployment
+  description: 'Deployment: apache server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:29.984548'
+  event_type: failure
+  description: 'Failure: failed to'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 242
+    log_snippet: '[2025-05-23 17:46:28] ERROR api-backend: failed to in failure'
+    metrics:
+      error_rate: 0.4935740799072682
+      response_time_ms: 2265
+      cpu_usage: 0.9512948080281165
+      memory_usage: 0.9688826251856533
+- timestamp: '2025-05-23T17:47:31.984548'
+  event_type: rollback
+  description: 'Rollback: headless service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:21.984548'
+  event_type: rollback
+  description: 'Rollback: to update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:34.984548'
+  event_type: failure
+  description: 'Failure: the pod'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 131
+    log_snippet: '[2025-05-23 17:46:28] ERROR worker-consumer: the pod in failure'
+    metrics:
+      error_rate: 0.5258974287225352
+      response_time_ms: 4688
+      cpu_usage: 0.7440144654572183
+      memory_usage: 0.8898494718054881
+- timestamp: '2025-05-23T17:48:37.984548'
+  event_type: rollback
+  description: 'Rollback: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:03:41.984548'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

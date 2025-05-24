@@ -1,0 +1,77 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_174628
+description: Database connectivity and performance issues
+duration: 729
+metadata:
+  generated_at: '2025-05-23T17:46:28.960205'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:28.960073'
+  event_type: trigger
+  description: 'Initial failure detected: the database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:51.960073'
+  event_type: recovery
+  description: 'Recovery: the connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:57.960073'
+  event_type: timeout
+  description: 'Timeout: metadatacreateindexservice node'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 34
+    log_snippet: '[2025-05-23 17:46:28] ERROR mongodb-shard: metadatacreateindexservice
+      node in timeout'
+    metrics:
+      error_rate: 0.37324053107884936
+      response_time_ms: 4052
+      cpu_usage: 0.8345109728180153
+      memory_usage: 0.9591337229965929
+      connection_pool_usage: 0.9365924639400891
+      query_time_ms: 9411
+      deadlocks_per_sec: 10
+- timestamp: '2025-05-23T17:49:05.960073'
+  event_type: timeout
+  description: 'Timeout: sudo service'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 171
+    log_snippet: '[2025-05-23 17:46:28] ERROR mongodb-shard: sudo service in timeout'
+    metrics:
+      error_rate: 0.2515692119573399
+      response_time_ms: 7280
+      cpu_usage: 0.7119849936503526
+      memory_usage: 0.8751094156704567
+      connection_pool_usage: 0.9870600868648178
+      query_time_ms: 10439
+      deadlocks_per_sec: 4
+- timestamp: '2025-05-23T17:49:16.960073'
+  event_type: timeout
+  description: 'Timeout: a service'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 241
+    log_snippet: '[2025-05-23 17:46:28] ERROR mongodb-shard: a service in timeout'
+    metrics:
+      error_rate: 0.3449254070947193
+      response_time_ms: 4988
+      cpu_usage: 0.9397243501654235
+      memory_usage: 0.9942037358762341
+      connection_pool_usage: 0.9585582968740178
+      query_time_ms: 18413
+      deadlocks_per_sec: 2
+- timestamp: '2025-05-23T17:58:37.960073'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

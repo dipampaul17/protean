@@ -1,0 +1,88 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_174629
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 1185
+metadata:
+  generated_at: '2025-05-23T17:46:29.144345'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:46:29.144156'
+  event_type: trigger
+  description: 'Initial failure detected: the container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:40.144156'
+  event_type: failure
+  description: 'Failure: customer service'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 237
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: customer service - operation
+      failed'
+    metrics:
+      error_rate: 0.15472365729042217
+      response_time_ms: 2583
+      cpu_usage: 0.9767869457801263
+      memory_usage: 0.9229794211532325
+- timestamp: '2025-05-23T17:46:59.144156'
+  event_type: failure
+  description: 'Failure: to scale'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 274
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: to scale - operation failed'
+    metrics:
+      error_rate: 0.4455971709493235
+      response_time_ms: 7200
+      cpu_usage: 0.8334873788365824
+      memory_usage: 0.9570849594157479
+- timestamp: '2025-05-23T17:48:35.144156'
+  event_type: recovery
+  description: 'Recovery: the disk'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:41.144156'
+  event_type: timeout
+  description: 'Timeout: a node'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 288
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: a node - operation
+      failed'
+    metrics:
+      error_rate: 0.7311919321934695
+      response_time_ms: 6801
+      cpu_usage: 0.8139656930427999
+      memory_usage: 0.8711557849371829
+- timestamp: '2025-05-23T17:48:45.144156'
+  event_type: recovery
+  description: 'Recovery: a connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:17.144156'
+  event_type: failure
+  description: 'Failure: served memory'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 101
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: served memory - operation
+      failed'
+    metrics:
+      error_rate: 0.12240004220934271
+      response_time_ms: 4800
+      cpu_usage: 0.9935911528654002
+      memory_usage: 0.9431041128903158
+- timestamp: '2025-05-23T18:06:14.144156'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

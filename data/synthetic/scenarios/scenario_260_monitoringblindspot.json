@@ -1,0 +1,150 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173245",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 894,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.736946",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.736727",
+      "event_type": "trigger",
+      "description": "Initial failure detected: code container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:11.736727",
+      "event_type": "failure",
+      "description": "Failure: the cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 86,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: the cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.7306511681311215,
+          "response_time_ms": 1788,
+          "cpu_usage": 0.842175124453535,
+          "memory_usage": 0.9473299704359787
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:35.736727",
+      "event_type": "timeout",
+      "description": "Timeout: kubernetes pod",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 269,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: kubernetes pod - operation failed",
+        "metrics": {
+          "error_rate": 0.4428348928930431,
+          "response_time_ms": 2088,
+          "cpu_usage": 0.8895993596049995,
+          "memory_usage": 0.9560462586293547
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:45.736727",
+      "event_type": "failure",
+      "description": "Failure: i monitor",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 71,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: i monitor - operation failed",
+        "metrics": {
+          "error_rate": 0.7310671747531555,
+          "response_time_ms": 4757,
+          "cpu_usage": 0.7643928181087112,
+          "memory_usage": 0.8629469749191955
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:48.736727",
+      "event_type": "failure",
+      "description": "Failure: the memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 213,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: the memory - operation failed",
+        "metrics": {
+          "error_rate": 0.789058007307319,
+          "response_time_ms": 1185,
+          "cpu_usage": 0.7545688201357696,
+          "memory_usage": 0.985853678045237
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:04.736727",
+      "event_type": "recovery",
+      "description": "Recovery: the cpu",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:06.736727",
+      "event_type": "recovery",
+      "description": "Recovery: monitoring memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:12.736727",
+      "event_type": "timeout",
+      "description": "Timeout: a container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 107,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: a container - operation failed",
+        "metrics": {
+          "error_rate": 0.6527585877472144,
+          "response_time_ms": 6190,
+          "cpu_usage": 0.7357162884667127,
+          "memory_usage": 0.9530981700804096
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:29.736727",
+      "event_type": "failure",
+      "description": "Failure: payment service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 66,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: payment service - operation failed",
+        "metrics": {
+          "error_rate": 0.639555238771581,
+          "response_time_ms": 6120,
+          "cpu_usage": 0.9715030556393904,
+          "memory_usage": 0.8156505824433349
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:39.736727",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

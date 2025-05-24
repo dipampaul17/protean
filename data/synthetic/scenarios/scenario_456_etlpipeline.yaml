@@ -1,0 +1,104 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173453
+description: Infrastructure failure scenario for ETLPipeline
+duration: 1436
+metadata:
+  generated_at: '2025-05-23T17:34:53.352088'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:34:53.351896'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:10.351896'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:27.351896'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 223
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.4641733359948489
+      response_time_ms: 9545
+      cpu_usage: 0.9512572884324486
+      memory_usage: 0.9574304098850596
+- timestamp: '2025-05-23T17:35:36.351896'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 171
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: disk space full
+      - operation failed'
+    metrics:
+      error_rate: 0.6377439797379033
+      response_time_ms: 1797
+      cpu_usage: 0.8690625229345741
+      memory_usage: 0.8614821816576724
+- timestamp: '2025-05-23T17:37:05.351896'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 94
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.6259699455078963
+      response_time_ms: 8168
+      cpu_usage: 0.972887426697122
+      memory_usage: 0.9531529162425805
+- timestamp: '2025-05-23T17:37:10.351896'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 196
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.5553542564389817
+      response_time_ms: 7186
+      cpu_usage: 0.8221742942297878
+      memory_usage: 0.8849880692340061
+- timestamp: '2025-05-23T17:37:32.351896'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 246
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.2158303754492181
+      response_time_ms: 3533
+      cpu_usage: 0.8559756210672158
+      memory_usage: 0.9765864058815337
+- timestamp: '2025-05-23T17:37:52.351896'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:58:49.351896'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

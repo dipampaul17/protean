@@ -1,0 +1,90 @@
+{
+  "category": "NetworkPartition",
+  "name": "NetworkPartition_20250523_174629",
+  "description": "Infrastructure failure scenario for NetworkPartition",
+  "duration": 317,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.137611",
+    "phrase_templates_used": 4,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.137480",
+      "event_type": "trigger",
+      "description": "Initial failure detected: and memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:09.137480",
+      "event_type": "recovery",
+      "description": "Recovery: and memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:11.137480",
+      "event_type": "failure",
+      "description": "Failure: of disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 296,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: of disk - operation failed",
+        "metrics": {
+          "error_rate": 0.674562287123274,
+          "response_time_ms": 8092,
+          "cpu_usage": 0.9296640050704744,
+          "memory_usage": 0.9264786128400363
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:35.137480",
+      "event_type": "timeout",
+      "description": "Timeout: and memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 36,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: and memory - operation failed",
+        "metrics": {
+          "error_rate": 0.8353327427409276,
+          "response_time_ms": 8285,
+          "cpu_usage": 0.9191866888330273,
+          "memory_usage": 0.8129961188124986
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:45.137480",
+      "event_type": "failure",
+      "description": "Failure: and node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 164,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: and node - operation failed",
+        "metrics": {
+          "error_rate": 0.21625967499124255,
+          "response_time_ms": 6232,
+          "cpu_usage": 0.9003646483865086,
+          "memory_usage": 0.886336110441932
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:51:46.137480",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

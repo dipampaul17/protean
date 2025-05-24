@@ -1,0 +1,78 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173453",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1642,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.125956",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 0
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.125734",
+      "event_type": "trigger",
+      "description": "Initial failure detected: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:21.125734",
+      "event_type": "failure",
+      "description": "Failure: the queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "medium",
+        "duration": 147,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR worker-consumer: the queue in failure",
+        "metrics": {
+          "error_rate": 0.22133239106282396,
+          "response_time_ms": 1576,
+          "cpu_usage": 0.3183919487696688,
+          "memory_usage": 0.5615521875177119
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:26.125734",
+      "event_type": "scaling",
+      "description": "Scaling: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:08.125734",
+      "event_type": "deployment",
+      "description": "Deployment: p error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:07.125734",
+      "event_type": "deployment",
+      "description": "Deployment: failed to",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:11.125734",
+      "event_type": "rollback",
+      "description": "Rollback: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:22.125734",
+      "event_type": "deployment",
+      "description": "Deployment: the deployment",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:02:15.125734",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

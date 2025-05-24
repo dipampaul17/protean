@@ -1,0 +1,85 @@
+category: Microservices
+name: Microservices_20250523_173708
+description: Infrastructure failure scenario for Microservices
+duration: 443
+metadata:
+  generated_at: '2025-05-23T17:37:08.020971'
+  phrase_templates_used: 15
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:08.020645'
+  event_type: trigger
+  description: 'Initial failure detected: lt service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:34.020645'
+  event_type: failure
+  description: 'Failure: strong service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 118
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: strong service - operation
+      failed'
+    metrics:
+      error_rate: 0.5720079940557475
+      response_time_ms: 7914
+      cpu_usage: 0.8188260284873372
+      memory_usage: 0.8249525285511626
+- timestamp: '2025-05-23T17:37:38.020645'
+  event_type: failure
+  description: 'Failure: from service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 95
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: from service -
+      operation failed'
+    metrics:
+      error_rate: 0.4845485602792827
+      response_time_ms: 2310
+      cpu_usage: 0.7352121713193016
+      memory_usage: 0.8038040284027892
+- timestamp: '2025-05-23T17:38:12.020645'
+  event_type: failure
+  description: 'Failure: a container'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 97
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: a container -
+      operation failed'
+    metrics:
+      error_rate: 0.529397167047669
+      response_time_ms: 9563
+      cpu_usage: 0.7571767527352808
+      memory_usage: 0.9456645942628409
+- timestamp: '2025-05-23T17:38:14.020645'
+  event_type: failure
+  description: 'Failure: the queue'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: medium
+    duration: 262
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: the queue - operation
+      failed'
+    metrics:
+      error_rate: 0.07462171320868209
+      response_time_ms: 1219
+      cpu_usage: 0.7048271139287091
+      memory_usage: 0.43731797037166953
+- timestamp: '2025-05-23T17:38:35.020645'
+  event_type: recovery
+  description: 'Recovery: headless service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:44:31.020645'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

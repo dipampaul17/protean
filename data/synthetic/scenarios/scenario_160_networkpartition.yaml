@@ -1,0 +1,66 @@
+category: NetworkPartition
+name: NetworkPartition_20250523_173453
+description: Infrastructure failure scenario for NetworkPartition
+duration: 1050
+metadata:
+  generated_at: '2025-05-23T17:34:53.097851'
+  phrase_templates_used: 4
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.097001'
+  event_type: trigger
+  description: 'Initial failure detected: of disk'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:20.097001'
+  event_type: timeout
+  description: 'Timeout: and node'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 138
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: and node - operation
+      failed'
+    metrics:
+      error_rate: 0.7179777963414956
+      response_time_ms: 1052
+      cpu_usage: 0.7074045290764471
+      memory_usage: 0.8077619462628769
+- timestamp: '2025-05-23T17:38:35.097001'
+  event_type: failure
+  description: 'Failure: each node'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 112
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: each node - operation
+      failed'
+    metrics:
+      error_rate: 0.33365788963392873
+      response_time_ms: 3826
+      cpu_usage: 0.8563892167563927
+      memory_usage: 0.9058725321792462
+- timestamp: '2025-05-23T17:39:29.097001'
+  event_type: timeout
+  description: 'Timeout: and node'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 240
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: and node - operation
+      failed'
+    metrics:
+      error_rate: 0.8430242707367017
+      response_time_ms: 5120
+      cpu_usage: 0.9466756955641872
+      memory_usage: 0.9934065494546485
+- timestamp: '2025-05-23T17:52:23.097001'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

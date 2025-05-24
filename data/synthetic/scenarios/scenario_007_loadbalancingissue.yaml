@@ -1,0 +1,59 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_174628
+description: Load balancer and traffic distribution problems
+duration: 577
+metadata:
+  generated_at: '2025-05-23T17:46:28.906714'
+  phrase_templates_used: 13
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:28.906612'
+  event_type: trigger
+  description: 'Initial failure detected: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:28.906612'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: your cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:10.906612'
+  event_type: timeout
+  description: 'Timeout: web server'
+  injection_spec:
+    type: timeout
+    target: load-balancer
+    severity: high
+    duration: 284
+    log_snippet: '[2025-05-23 17:46:28] ERROR load-balancer: web server in timeout'
+    metrics:
+      error_rate: 0.7320074200544239
+      response_time_ms: 3940
+      cpu_usage: 0.9125785908421451
+      memory_usage: 0.9876642340315251
+      requests_per_sec: 383
+      backend_health_pct: 0.44908323029937985
+      connection_timeouts: 564
+- timestamp: '2025-05-23T17:48:54.906612'
+  event_type: timeout
+  description: 'Timeout: that node'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 110
+    log_snippet: '[2025-05-23 17:46:28] ERROR subnet-private: that node in timeout'
+    metrics:
+      error_rate: 0.6161461563810374
+      response_time_ms: 8354
+      cpu_usage: 0.9428466003639028
+      memory_usage: 0.860120490299857
+      requests_per_sec: 762
+      backend_health_pct: 0.6606115956064349
+      connection_timeouts: 206
+- timestamp: '2025-05-23T17:56:05.906612'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

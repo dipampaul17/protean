@@ -1,0 +1,108 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_173453",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 1539,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.286433",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.286291",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:00.286291",
+      "event_type": "recovery",
+      "description": "Recovery: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:42.286291",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 256,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.2994056127645986,
+          "response_time_ms": 5981,
+          "cpu_usage": 0.9834663879426362,
+          "memory_usage": 0.8979357163377232
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:05.286291",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 232,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.3360104680265553,
+          "response_time_ms": 2699,
+          "cpu_usage": 0.7680804940122375,
+          "memory_usage": 0.9166611290002328
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:10.286291",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 96,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.444834393388421,
+          "response_time_ms": 1880,
+          "cpu_usage": 0.7547425735035829,
+          "memory_usage": 0.9742955316271147
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:35.286291",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 255,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.11614318888080702,
+          "response_time_ms": 9483,
+          "cpu_usage": 0.7340844170166736,
+          "memory_usage": 0.8362306337049994
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:00:32.286291",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

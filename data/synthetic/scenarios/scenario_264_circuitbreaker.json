@@ -1,0 +1,84 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173453",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1462,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.200929",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 2,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.200742",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:47.200742",
+      "event_type": "failure",
+      "description": "Failure: to pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 242,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: to pod - operation failed",
+        "metrics": {
+          "error_rate": 0.21519633592522275,
+          "response_time_ms": 1926,
+          "cpu_usage": 0.9477601514019124,
+          "memory_usage": 0.9944772827585122
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:29.200742",
+      "event_type": "degradation",
+      "description": "Degradation: nginx log",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "low",
+        "duration": 258,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: nginx log - operation failed",
+        "metrics": {
+          "error_rate": 0.0964340996509634,
+          "response_time_ms": 1920,
+          "cpu_usage": 0.4484133234609465,
+          "memory_usage": 0.6090291671454875
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:56.200742",
+      "event_type": "degradation",
+      "description": "Degradation: the connection",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "low",
+        "duration": 95,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: the connection - operation failed",
+        "metrics": {
+          "error_rate": 0.23447917400561247,
+          "response_time_ms": 1034,
+          "cpu_usage": 0.30627539457044894,
+          "memory_usage": 0.5723246202243147
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:59:15.200742",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

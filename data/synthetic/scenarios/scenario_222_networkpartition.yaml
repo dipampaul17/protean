@@ -1,0 +1,71 @@
+category: NetworkPartition
+name: NetworkPartition_20250523_174628
+description: Infrastructure failure scenario for NetworkPartition
+duration: 940
+metadata:
+  generated_at: '2025-05-23T17:46:28.989334'
+  phrase_templates_used: 4
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:28.989165'
+  event_type: trigger
+  description: 'Initial failure detected: of disk'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:42.989165'
+  event_type: recovery
+  description: 'Recovery: each node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:45.989165'
+  event_type: timeout
+  description: 'Timeout: each node'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 221
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: each node - operation
+      failed'
+    metrics:
+      error_rate: 0.4357528714542228
+      response_time_ms: 4448
+      cpu_usage: 0.8419788950886646
+      memory_usage: 0.890274893039863
+- timestamp: '2025-05-23T17:46:53.989165'
+  event_type: timeout
+  description: 'Timeout: each node'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 108
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: each node - operation
+      failed'
+    metrics:
+      error_rate: 0.3312910826231782
+      response_time_ms: 4455
+      cpu_usage: 0.7043498551985558
+      memory_usage: 0.9293297015154747
+- timestamp: '2025-05-23T17:47:35.989165'
+  event_type: recovery
+  description: 'Recovery: and memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:00.989165'
+  event_type: recovery
+  description: 'Recovery: each node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:23.989165'
+  event_type: recovery
+  description: 'Recovery: of disk'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:42.989165'
+  event_type: recovery
+  description: 'Recovery: and memory'
+  injection_spec: null
+- timestamp: '2025-05-23T18:02:08.989165'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

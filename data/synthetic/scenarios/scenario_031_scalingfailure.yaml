@@ -1,0 +1,63 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_173245
+description: Infrastructure failure scenario for ScalingFailure
+duration: 432
+metadata:
+  generated_at: '2025-05-23T17:32:45.662683'
+  phrase_templates_used: 24
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:32:45.662579'
+  event_type: trigger
+  description: 'Initial failure detected: of failure'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:24.662579'
+  event_type: failure
+  description: 'Failure: a node'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 153
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: a node - operation failed'
+    metrics:
+      error_rate: 0.8735744327496949
+      response_time_ms: 5611
+      cpu_usage: 0.889529000100625
+      memory_usage: 0.81724928661683
+- timestamp: '2025-05-23T17:33:52.662579'
+  event_type: failure
+  description: 'Failure: a server'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 60
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: a server - operation failed'
+    metrics:
+      error_rate: 0.6068672595590431
+      response_time_ms: 2033
+      cpu_usage: 0.8696788065191754
+      memory_usage: 0.8755894223886336
+- timestamp: '2025-05-23T17:34:24.662579'
+  event_type: failure
+  description: 'Failure: to scale'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 296
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: to scale - operation failed'
+    metrics:
+      error_rate: 0.47864103061165664
+      response_time_ms: 2950
+      cpu_usage: 0.8535380131939602
+      memory_usage: 0.9886417886364834
+- timestamp: '2025-05-23T17:39:57.662579'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

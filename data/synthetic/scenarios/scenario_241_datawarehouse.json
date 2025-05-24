@@ -1,0 +1,90 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_173245",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 1265,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.731307",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.731069",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:18.731069",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 234,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.6222378132834836,
+          "response_time_ms": 7232,
+          "cpu_usage": 0.7312644447090173,
+          "memory_usage": 0.8324030200276461
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:57.731069",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:09.731069",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 121,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.34115273328016366,
+          "response_time_ms": 5719,
+          "cpu_usage": 0.9785840985672164,
+          "memory_usage": 0.8202512141262249
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:23.731069",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 30,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.8154034478540816,
+          "response_time_ms": 7650,
+          "cpu_usage": 0.7887996628021651,
+          "memory_usage": 0.9577015045507409
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:53:50.731069",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

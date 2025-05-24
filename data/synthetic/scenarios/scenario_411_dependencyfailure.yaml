@@ -1,0 +1,89 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_174629
+description: Infrastructure failure scenario for DependencyFailure
+duration: 339
+metadata:
+  generated_at: '2025-05-23T17:46:29.128022'
+  phrase_templates_used: 45
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:46:29.127835'
+  event_type: trigger
+  description: 'Initial failure detected: nginx service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:56.127835'
+  event_type: recovery
+  description: 'Recovery: code server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:57.127835'
+  event_type: timeout
+  description: 'Timeout: exist error'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 219
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: exist error - operation
+      failed'
+    metrics:
+      error_rate: 0.376678096519673
+      response_time_ms: 8439
+      cpu_usage: 0.745383051835106
+      memory_usage: 0.8585023587263778
+- timestamp: '2025-05-23T17:47:13.127835'
+  event_type: timeout
+  description: 'Timeout: nginx error'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 225
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: nginx error - operation
+      failed'
+    metrics:
+      error_rate: 0.8872972965548745
+      response_time_ms: 8651
+      cpu_usage: 0.9461975762594952
+      memory_usage: 0.8259703584978638
+- timestamp: '2025-05-23T17:47:20.127835'
+  event_type: recovery
+  description: 'Recovery: proxy server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:22.127835'
+  event_type: failure
+  description: 'Failure: get update'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 266
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: get update - operation
+      failed'
+    metrics:
+      error_rate: 0.15024884418857445
+      response_time_ms: 7439
+      cpu_usage: 0.7748613609580663
+      memory_usage: 0.8456424105096922
+- timestamp: '2025-05-23T17:47:23.127835'
+  event_type: failure
+  description: 'Failure: strong update'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 234
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: strong update - operation
+      failed'
+    metrics:
+      error_rate: 0.11827915099204392
+      response_time_ms: 8818
+      cpu_usage: 0.8637520842495081
+      memory_usage: 0.8820659085162713
+- timestamp: '2025-05-23T17:52:08.127835'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

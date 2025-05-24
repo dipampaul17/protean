@@ -1,0 +1,102 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173453",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 1250,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.354814",
+    "phrase_templates_used": 13,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.354638",
+      "event_type": "trigger",
+      "description": "Initial failure detected: in connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:13.354638",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: load balancer",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:21.354638",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:50.354638",
+      "event_type": "timeout",
+      "description": "Timeout: in connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "vpc-main",
+        "severity": "high",
+        "duration": 140,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR vpc-main: in connection in timeout",
+        "metrics": {
+          "error_rate": 0.34706996547969204,
+          "response_time_ms": 4298,
+          "cpu_usage": 0.9685857522586807,
+          "memory_usage": 0.8237325095224991,
+          "requests_per_sec": 6298,
+          "backend_health_pct": 0.6641099540815496,
+          "connection_timeouts": 586
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:03.354638",
+      "event_type": "timeout",
+      "description": "Timeout: a server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 196,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR load-balancer: a server in timeout",
+        "metrics": {
+          "error_rate": 0.8026634782598151,
+          "response_time_ms": 9119,
+          "cpu_usage": 0.9211901408726348,
+          "memory_usage": 0.8763133409582362,
+          "requests_per_sec": 9741,
+          "backend_health_pct": 0.6870529796327645,
+          "connection_timeouts": 44
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:47.354638",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:11.354638",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: web server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:38.354638",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: that node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:55:43.354638",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

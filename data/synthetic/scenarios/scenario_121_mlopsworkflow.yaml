@@ -1,0 +1,104 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_173452
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1069
+metadata:
+  generated_at: '2025-05-23T17:34:52.992242'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:34:52.992045'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:30.992045'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 78
+    log_snippet: '[2025-05-23 17:34:52] ERROR payment-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.2921207236217963
+      response_time_ms: 1594
+      cpu_usage: 0.9160602117644554
+      memory_usage: 0.8906757786417073
+- timestamp: '2025-05-23T17:35:58.992045'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 151
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: container crashed - operation
+      failed'
+    metrics:
+      error_rate: 0.5877264015766669
+      response_time_ms: 7274
+      cpu_usage: 0.7231694779058152
+      memory_usage: 0.9585808067249579
+- timestamp: '2025-05-23T17:36:23.992045'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 216
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.7927309578029466
+      response_time_ms: 8817
+      cpu_usage: 0.866152180832805
+      memory_usage: 0.8503069716798141
+- timestamp: '2025-05-23T17:36:46.992045'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:59.992045'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 296
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.11339591246737504
+      response_time_ms: 8086
+      cpu_usage: 0.7981146166939659
+      memory_usage: 0.9096046597730206
+- timestamp: '2025-05-23T17:37:08.992045'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:19.992045'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 276
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.6273407087671182
+      response_time_ms: 4568
+      cpu_usage: 0.7598041022013777
+      memory_usage: 0.9486148499957183
+- timestamp: '2025-05-23T17:52:41.992045'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

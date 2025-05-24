@@ -1,0 +1,107 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173452
+description: Circuit breaker activation due to cascading service failures
+duration: 357
+metadata:
+  generated_at: '2025-05-23T17:34:52.905018'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 3
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:34:52.904812'
+  event_type: trigger
+  description: 'Initial failure detected: nginx error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:09.904812'
+  event_type: timeout
+  description: 'Timeout: the timeout'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 260
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: the timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.6396210398696323
+      response_time_ms: 1926
+      cpu_usage: 0.833018137517704
+      memory_usage: 0.8820313333991584
+- timestamp: '2025-05-23T17:35:24.904812'
+  event_type: failure
+  description: 'Failure: an error'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 167
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: an error - operation failed'
+    metrics:
+      error_rate: 0.8202425422962069
+      response_time_ms: 8517
+      cpu_usage: 0.8080194523406139
+      memory_usage: 0.9079436191418235
+- timestamp: '2025-05-23T17:35:26.904812'
+  event_type: recovery
+  description: 'Recovery: a queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:29.904812'
+  event_type: degradation
+  description: 'Degradation: us log'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: low
+    duration: 44
+    log_snippet: '[2025-05-23 17:34:52] ERROR payment-service: us log - operation
+      failed'
+    metrics:
+      error_rate: 0.16866852529149548
+      response_time_ms: 929
+      cpu_usage: 0.7706295098803202
+      memory_usage: 0.5826100725844121
+- timestamp: '2025-05-23T17:35:31.904812'
+  event_type: recovery
+  description: 'Recovery: to log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:33.904812'
+  event_type: recovery
+  description: 'Recovery: value memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:33.904812'
+  event_type: degradation
+  description: 'Degradation: following error'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: low
+    duration: 187
+    log_snippet: '[2025-05-23 17:34:52] ERROR payment-service: following error - operation
+      failed'
+    metrics:
+      error_rate: 0.059955098445199285
+      response_time_ms: 1037
+      cpu_usage: 0.6883288584128778
+      memory_usage: 0.5284316570256492
+- timestamp: '2025-05-23T17:35:34.904812'
+  event_type: degradation
+  description: 'Degradation: the container'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: low
+    duration: 85
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: the container
+      - operation failed'
+    metrics:
+      error_rate: 0.2889563328943
+      response_time_ms: 1515
+      cpu_usage: 0.5975938434564609
+      memory_usage: 0.5088464299894303
+- timestamp: '2025-05-23T17:40:49.904812'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

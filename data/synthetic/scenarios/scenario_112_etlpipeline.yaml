@@ -1,0 +1,55 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173245
+description: Infrastructure failure scenario for ETLPipeline
+duration: 1460
+metadata:
+  generated_at: '2025-05-23T17:32:45.683994'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.683898'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:11.683898'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:47.683898'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 215
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.6874440252995214
+      response_time_ms: 9156
+      cpu_usage: 0.7374702875374421
+      memory_usage: 0.8225759454350753
+- timestamp: '2025-05-23T17:39:13.683898'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 58
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.5914052391537128
+      response_time_ms: 2119
+      cpu_usage: 0.7589640164805651
+      memory_usage: 0.9525261945970558
+- timestamp: '2025-05-23T17:57:05.683898'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

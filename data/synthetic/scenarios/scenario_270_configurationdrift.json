@@ -1,0 +1,72 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_174629",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 795,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.032086",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.022701",
+      "event_type": "trigger",
+      "description": "Initial failure detected: nginx restart",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:52.022701",
+      "event_type": "rollback",
+      "description": "Rollback: kubernetes service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:13.022701",
+      "event_type": "restart",
+      "description": "Restart: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:22.022701",
+      "event_type": "failure",
+      "description": "Failure: p error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 69,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: p error - operation failed",
+        "metrics": {
+          "error_rate": 0.4658127203837473,
+          "response_time_ms": 1471,
+          "cpu_usage": 0.7328388128104415,
+          "memory_usage": 0.8912829644039114
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:36.022701",
+      "event_type": "restart",
+      "description": "Restart: xxxxxxx cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:53.022701",
+      "event_type": "restart",
+      "description": "Restart: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:59:44.022701",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

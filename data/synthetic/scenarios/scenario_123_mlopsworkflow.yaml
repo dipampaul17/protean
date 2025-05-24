@@ -1,0 +1,119 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_173452
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1278
+metadata:
+  generated_at: '2025-05-23T17:34:52.992684'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:34:52.992474'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:40.992474'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:44.992474'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 263
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: deployment failed
+      - operation failed'
+    metrics:
+      error_rate: 0.3798399868310377
+      response_time_ms: 2523
+      cpu_usage: 0.9025189743081556
+      memory_usage: 0.8081817289492982
+- timestamp: '2025-05-23T17:36:05.992474'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 152
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.21706560401524166
+      response_time_ms: 2625
+      cpu_usage: 0.708354384633347
+      memory_usage: 0.8168987541225524
+- timestamp: '2025-05-23T17:36:09.992474'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:33.992474'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 64
+    log_snippet: '[2025-05-23 17:34:52] ERROR payment-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.7469198571132373
+      response_time_ms: 5631
+      cpu_usage: 0.9246528863423564
+      memory_usage: 0.8504856259338751
+- timestamp: '2025-05-23T17:36:54.992474'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 66
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.7399774873851996
+      response_time_ms: 4430
+      cpu_usage: 0.8896940784279364
+      memory_usage: 0.8497519142239652
+- timestamp: '2025-05-23T17:37:17.992474'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 96
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.49115192413870956
+      response_time_ms: 9811
+      cpu_usage: 0.9087520004861661
+      memory_usage: 0.9609388552318203
+- timestamp: '2025-05-23T17:37:23.992474'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 263
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: rate limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.7647261653163089
+      response_time_ms: 7119
+      cpu_usage: 0.7638285659871249
+      memory_usage: 0.9946860729399332
+- timestamp: '2025-05-23T17:56:10.992474'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

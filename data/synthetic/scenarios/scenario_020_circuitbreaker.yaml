@@ -1,0 +1,99 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_174628
+description: Circuit breaker activation due to cascading service failures
+duration: 490
+metadata:
+  generated_at: '2025-05-23T17:46:28.909244'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:46:28.908921'
+  event_type: trigger
+  description: 'Initial failure detected: to log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:43.908921'
+  event_type: timeout
+  description: 'Timeout: uwsgi server'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 222
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: uwsgi server - operation
+      failed'
+    metrics:
+      error_rate: 0.22779537152049054
+      response_time_ms: 6262
+      cpu_usage: 0.7831345527249877
+      memory_usage: 0.801925545000369
+- timestamp: '2025-05-23T17:46:47.908921'
+  event_type: degradation
+  description: 'Degradation: strong update'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: low
+    duration: 163
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: strong update - operation
+      failed'
+    metrics:
+      error_rate: 0.11356244252954892
+      response_time_ms: 285
+      cpu_usage: 0.33073055402200224
+      memory_usage: 0.4508164766793834
+- timestamp: '2025-05-23T17:47:02.908921'
+  event_type: failure
+  description: 'Failure: to pod'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 148
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: to pod - operation failed'
+    metrics:
+      error_rate: 0.5768184898634375
+      response_time_ms: 5790
+      cpu_usage: 0.8322002669683305
+      memory_usage: 0.8237528613791474
+- timestamp: '2025-05-23T17:47:27.908921'
+  event_type: failure
+  description: 'Failure: a service'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 115
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.3940583537625386
+      response_time_ms: 7867
+      cpu_usage: 0.7005137662944481
+      memory_usage: 0.9828403461261117
+- timestamp: '2025-05-23T17:47:37.908921'
+  event_type: degradation
+  description: 'Degradation: the timeout'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: high
+    duration: 245
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: the timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.7013920686734191
+      response_time_ms: 3378
+      cpu_usage: 0.724401404582803
+      memory_usage: 0.8287601840733404
+- timestamp: '2025-05-23T17:47:48.908921'
+  event_type: recovery
+  description: 'Recovery: true error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:54:38.908921'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

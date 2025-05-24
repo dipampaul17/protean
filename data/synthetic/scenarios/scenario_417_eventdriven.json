@@ -1,0 +1,81 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173708",
+  "description": "Message queue and event processing failures",
+  "duration": 360,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.060762",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 0
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.060623",
+      "event_type": "trigger",
+      "description": "Initial failure detected: kafka server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:19.060623",
+      "event_type": "message_loss",
+      "description": "Message_Loss: badmatch error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:28.060623",
+      "event_type": "message_loss",
+      "description": "Message_Loss: the connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:44.060623",
+      "event_type": "timeout",
+      "description": "Timeout: new queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "medium",
+        "duration": 290,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-queue: queue processing new queue",
+        "metrics": {
+          "error_rate": 0.2871293298528361,
+          "response_time_ms": 1692,
+          "cpu_usage": 0.7767507967242057,
+          "memory_usage": 0.5748686126709237,
+          "queue_depth": 6166,
+          "message_processing_rate": 8.62891959971052,
+          "consumer_lag_ms": 231192
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:51.060623",
+      "event_type": "recovery",
+      "description": "Recovery: main queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:53.060623",
+      "event_type": "message_loss",
+      "description": "Message_Loss: to restart",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:04.060623",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:43:08.060623",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173708",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 305,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.052038",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 2,
+      "medium": 1,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.051112",
+      "event_type": "trigger",
+      "description": "Initial failure detected: docker container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:28.051112",
+      "event_type": "degradation",
+      "description": "Degradation: to fix",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "low",
+        "duration": 270,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: to fix - operation failed",
+        "metrics": {
+          "error_rate": 0.14803347219038435,
+          "response_time_ms": 325,
+          "cpu_usage": 0.5349576988415109,
+          "memory_usage": 0.6650940799573906
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:32.051112",
+      "event_type": "failure",
+      "description": "Failure: customer service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 120,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: customer service - operation failed",
+        "metrics": {
+          "error_rate": 0.7864308167034948,
+          "response_time_ms": 1113,
+          "cpu_usage": 0.7820298345433825,
+          "memory_usage": 0.9738356259110377
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:36.051112",
+      "event_type": "degradation",
+      "description": "Degradation: a queue",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "medium",
+        "duration": 186,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: a queue - operation failed",
+        "metrics": {
+          "error_rate": 0.24262528282122386,
+          "response_time_ms": 995,
+          "cpu_usage": 0.6938818730967053,
+          "memory_usage": 0.4752358769772514
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:40.051112",
+      "event_type": "failure",
+      "description": "Failure: code error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 272,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: code error - operation failed",
+        "metrics": {
+          "error_rate": 0.22061769756425306,
+          "response_time_ms": 7163,
+          "cpu_usage": 0.7508855088748605,
+          "memory_usage": 0.9799653527468294
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:48.051112",
+      "event_type": "failure",
+      "description": "Failure: code server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 104,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: code server - operation failed",
+        "metrics": {
+          "error_rate": 0.3067351947797504,
+          "response_time_ms": 5379,
+          "cpu_usage": 0.8546390983479294,
+          "memory_usage": 0.948304516707335
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:58.051112",
+      "event_type": "degradation",
+      "description": "Degradation: client error",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "low",
+        "duration": 240,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: client error - operation failed",
+        "metrics": {
+          "error_rate": 0.022120075646272462,
+          "response_time_ms": 867,
+          "cpu_usage": 0.3210400073190908,
+          "memory_usage": 0.4573760262481731
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:42:13.051112",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

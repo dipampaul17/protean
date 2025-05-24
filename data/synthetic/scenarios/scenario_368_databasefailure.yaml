@@ -1,0 +1,55 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173453
+description: Database connectivity and performance issues
+duration: 789
+metadata:
+  generated_at: '2025-05-23T17:34:53.285132'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:34:53.285003'
+  event_type: trigger
+  description: 'Initial failure detected: code update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:36.285003'
+  event_type: timeout
+  description: 'Timeout: postgres database'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 237
+    log_snippet: '[2025-05-23 17:34:53] FATAL mysql-primary: database postgres database
+      detected'
+    metrics:
+      error_rate: 0.7796429595117335
+      response_time_ms: 5271
+      cpu_usage: 0.7605800418933792
+      memory_usage: 0.9246682381236342
+      connection_pool_usage: 0.9479907882683926
+      query_time_ms: 18649
+      deadlocks_per_sec: 6
+- timestamp: '2025-05-23T17:36:55.285003'
+  event_type: recovery
+  description: 'Recovery: p error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:04.285003'
+  event_type: connection_loss
+  description: 'Connection_Loss: using docker'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:05.285003'
+  event_type: recovery
+  description: 'Recovery: postgresql database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:11.285003'
+  event_type: recovery
+  description: 'Recovery: code server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:02.285003'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

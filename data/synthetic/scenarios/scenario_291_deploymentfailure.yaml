@@ -1,0 +1,55 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173708
+description: Application deployment and rollback scenarios
+duration: 1218
+metadata:
+  generated_at: '2025-05-23T17:37:08.029419'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:37:08.029281'
+  event_type: trigger
+  description: 'Initial failure detected: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:14.029281'
+  event_type: deployment
+  description: 'Deployment: the pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:30.029281'
+  event_type: rollback
+  description: 'Rollback: reviewing error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:36.029281'
+  event_type: deployment
+  description: 'Deployment: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:54.029281'
+  event_type: deployment
+  description: 'Deployment: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:17.029281'
+  event_type: scaling
+  description: 'Scaling: kubernetes pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:17.029281'
+  event_type: failure
+  description: 'Failure: this error'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 170
+    log_snippet: '[2025-05-23 17:37:08] ERROR nginx-proxy: this error in failure'
+    metrics:
+      error_rate: 0.6560228079909033
+      response_time_ms: 4424
+      cpu_usage: 0.7488229463157412
+      memory_usage: 0.9742874995938029
+- timestamp: '2025-05-23T17:57:26.029281'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

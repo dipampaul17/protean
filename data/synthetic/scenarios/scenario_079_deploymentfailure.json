@@ -1,0 +1,78 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173707",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1342,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.949171",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.949031",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:04.949031",
+      "event_type": "deployment",
+      "description": "Deployment: kubernetes error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:59.949031",
+      "event_type": "failure",
+      "description": "Failure: temporary failure",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 186,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR api-backend: temporary failure in failure",
+        "metrics": {
+          "error_rate": 0.527155418167457,
+          "response_time_ms": 2853,
+          "cpu_usage": 0.8889008835215073,
+          "memory_usage": 0.9318878165318343
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:52.949031",
+      "event_type": "rollback",
+      "description": "Rollback: docker container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:53.949031",
+      "event_type": "scaling",
+      "description": "Scaling: the deployment",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:26.949031",
+      "event_type": "rollback",
+      "description": "Rollback: kubernetes cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:50.949031",
+      "event_type": "rollback",
+      "description": "Rollback: a pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:59:29.949031",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

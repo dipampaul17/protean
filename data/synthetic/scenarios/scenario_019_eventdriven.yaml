@@ -1,0 +1,68 @@
+category: EventDriven
+name: EventDriven_20250523_173245
+description: Message queue and event processing failures
+duration: 437
+metadata:
+  generated_at: '2025-05-23T17:32:45.658624'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.658491'
+  event_type: trigger
+  description: 'Initial failure detected: a queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:08.658491'
+  event_type: message_loss
+  description: 'Message_Loss: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:17.658491'
+  event_type: timeout
+  description: 'Timeout: a cluster'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 199
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-queue: queue processing a cluster'
+    metrics:
+      error_rate: 0.19065774952939965
+      response_time_ms: 7601
+      cpu_usage: 0.9917552561344463
+      memory_usage: 0.9066046480582151
+      queue_depth: 34128
+      message_processing_rate: 3.458732972571948
+      consumer_lag_ms: 214978
+- timestamp: '2025-05-23T17:33:32.658491'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:53.658491'
+  event_type: timeout
+  description: 'Timeout: channel connection'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 274
+    log_snippet: '[2025-05-23 17:32:45] ERROR batch-processing-queue: queue processing
+      channel connection'
+    metrics:
+      error_rate: 0.46452890726591645
+      response_time_ms: 7720
+      cpu_usage: 0.9044315800270791
+      memory_usage: 0.982139261451707
+      queue_depth: 19257
+      message_processing_rate: 6.975717454955186
+      consumer_lag_ms: 88129
+- timestamp: '2025-05-23T17:34:07.658491'
+  event_type: recovery
+  description: 'Recovery: the memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:02.658491'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

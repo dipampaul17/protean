@@ -1,0 +1,126 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_174628",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 1423,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.984517",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.984179",
+      "event_type": "trigger",
+      "description": "Initial failure detected: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:52.984179",
+      "event_type": "timeout",
+      "description": "Timeout: disk space full",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 188,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.8428099093653633,
+          "response_time_ms": 9203,
+          "cpu_usage": 0.7640024641504496,
+          "memory_usage": 0.974044899087358
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:23.984179",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 209,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.3665597214993268,
+          "response_time_ms": 2389,
+          "cpu_usage": 0.9553311903736837,
+          "memory_usage": 0.9645257828159162
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:46.984179",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:54.984179",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 211,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.13825673254026363,
+          "response_time_ms": 1253,
+          "cpu_usage": 0.7857019933428062,
+          "memory_usage": 0.864614216276294
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:01.984179",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:24.984179",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:13.984179",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 81,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.33809896458259514,
+          "response_time_ms": 9393,
+          "cpu_usage": 0.9552658705684842,
+          "memory_usage": 0.873131670539116
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:17.984179",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:10:11.984179",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_174628",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 1220,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.995825",
+    "phrase_templates_used": 24,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.995647",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:56.995647",
+      "event_type": "recovery",
+      "description": "Recovery: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:07.995647",
+      "event_type": "recovery",
+      "description": "Recovery: the cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:13.995647",
+      "event_type": "failure",
+      "description": "Failure: a cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 73,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: a cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.38133924297243893,
+          "response_time_ms": 7390,
+          "cpu_usage": 0.9852495589631937,
+          "memory_usage": 0.9498759037992237
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:56.995647",
+      "event_type": "recovery",
+      "description": "Recovery: of failure",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:04.995647",
+      "event_type": "recovery",
+      "description": "Recovery: clusterip service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:20.995647",
+      "event_type": "timeout",
+      "description": "Timeout: this error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 279,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: this error - operation failed",
+        "metrics": {
+          "error_rate": 0.7829625914920724,
+          "response_time_ms": 5869,
+          "cpu_usage": 0.9953350984426717,
+          "memory_usage": 0.9014096578985282
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:19.995647",
+      "event_type": "failure",
+      "description": "Failure: of failure",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 206,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: of failure - operation failed",
+        "metrics": {
+          "error_rate": 0.4894593007455511,
+          "response_time_ms": 4308,
+          "cpu_usage": 0.9400334312205421,
+          "memory_usage": 0.8743081000809297
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:06:48.995647",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

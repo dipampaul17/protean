@@ -1,0 +1,114 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173708",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 310,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.003156",
+    "phrase_templates_used": 45,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.002987",
+      "event_type": "trigger",
+      "description": "Initial failure detected: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:23.002987",
+      "event_type": "failure",
+      "description": "Failure: the server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 249,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.2647357571618608,
+          "response_time_ms": 3763,
+          "cpu_usage": 0.8690256987369365,
+          "memory_usage": 0.9092970945011244
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:28.002987",
+      "event_type": "timeout",
+      "description": "Timeout: destination node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 271,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: destination node - operation failed",
+        "metrics": {
+          "error_rate": 0.8791487258467254,
+          "response_time_ms": 3820,
+          "cpu_usage": 0.8530672927815472,
+          "memory_usage": 0.9847354572758628
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:35.002987",
+      "event_type": "failure",
+      "description": "Failure: external service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 85,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: external service - operation failed",
+        "metrics": {
+          "error_rate": 0.5537280232068431,
+          "response_time_ms": 6961,
+          "cpu_usage": 0.8788098889851474,
+          "memory_usage": 0.9647974159738699
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:37.002987",
+      "event_type": "failure",
+      "description": "Failure: code error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 182,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: code error - operation failed",
+        "metrics": {
+          "error_rate": 0.37860318529239867,
+          "response_time_ms": 8477,
+          "cpu_usage": 0.7959915696032133,
+          "memory_usage": 0.9442095325728201
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:45.002987",
+      "event_type": "recovery",
+      "description": "Recovery: inventory service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:49.002987",
+      "event_type": "recovery",
+      "description": "Recovery: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:42:18.002987",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

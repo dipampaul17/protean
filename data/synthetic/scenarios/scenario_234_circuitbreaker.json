@@ -1,0 +1,72 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173245",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 962,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.728357",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.728264",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to restart",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:57.728264",
+      "event_type": "recovery",
+      "description": "Recovery: a queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:39.728264",
+      "event_type": "failure",
+      "description": "Failure: to log",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 79,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: to log - operation failed",
+        "metrics": {
+          "error_rate": 0.4512988185598278,
+          "response_time_ms": 7319,
+          "cpu_usage": 0.8322514637169522,
+          "memory_usage": 0.8835456239684853
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:40.728264",
+      "event_type": "degradation",
+      "description": "Degradation: the queue",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "medium",
+        "duration": 299,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.14888062703827312,
+          "response_time_ms": 761,
+          "cpu_usage": 0.7125864286787222,
+          "memory_usage": 0.5361445372271818
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:47.728264",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

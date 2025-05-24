@@ -1,0 +1,84 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_174628",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1349,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.973552",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 1,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.973446",
+      "event_type": "trigger",
+      "description": "Initial failure detected: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:19.973446",
+      "event_type": "timeout",
+      "description": "Timeout: the timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 173,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: the timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.4110575799359395,
+          "response_time_ms": 3235,
+          "cpu_usage": 0.8005256607630272,
+          "memory_usage": 0.9223658854044099
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:50.973446",
+      "event_type": "timeout",
+      "description": "Timeout: letter queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "medium",
+        "duration": 105,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: letter queue - operation failed",
+        "metrics": {
+          "error_rate": 0.2791972844584242,
+          "response_time_ms": 1547,
+          "cpu_usage": 0.4196612534986856,
+          "memory_usage": 0.4889664690435146
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:40.973446",
+      "event_type": "degradation",
+      "description": "Degradation: customer service",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "low",
+        "duration": 269,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: customer service - operation failed",
+        "metrics": {
+          "error_rate": 0.1951751857732076,
+          "response_time_ms": 1695,
+          "cpu_usage": 0.39820484870713335,
+          "memory_usage": 0.5490339542215907
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:08:57.973446",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

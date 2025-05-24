@@ -1,0 +1,86 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173453
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1719
+metadata:
+  generated_at: '2025-05-23T17:34:53.137071'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.136586'
+  event_type: trigger
+  description: 'Initial failure detected: prometheus server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:51.136586'
+  event_type: recovery
+  description: 'Recovery: parse error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:23.136586'
+  event_type: recovery
+  description: 'Recovery: monitoring service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:28.136586'
+  event_type: failure
+  description: 'Failure: kubernetes pod'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 38
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: kubernetes pod
+      - operation failed'
+    metrics:
+      error_rate: 0.49886798937973165
+      response_time_ms: 5486
+      cpu_usage: 0.9420094391625051
+      memory_usage: 0.8216734703974881
+- timestamp: '2025-05-23T17:36:57.136586'
+  event_type: timeout
+  description: 'Timeout: strong update'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 185
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: strong update
+      - operation failed'
+    metrics:
+      error_rate: 0.3041372626774588
+      response_time_ms: 6516
+      cpu_usage: 0.9579519971687264
+      memory_usage: 0.8922895097970784
+- timestamp: '2025-05-23T17:37:27.136586'
+  event_type: recovery
+  description: 'Recovery: the log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:12.136586'
+  event_type: recovery
+  description: 'Recovery: reduce alert'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:13.136586'
+  event_type: failure
+  description: 'Failure: the node'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 87
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: the node - operation
+      failed'
+    metrics:
+      error_rate: 0.6718221130729736
+      response_time_ms: 6858
+      cpu_usage: 0.8035788140460557
+      memory_usage: 0.8380204168957546
+- timestamp: '2025-05-23T17:38:26.136586'
+  event_type: recovery
+  description: 'Recovery: payment service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:03:32.136586'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,144 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_173453",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 1261,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.355044",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.354841",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:03.354841",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 102,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.40614791012827245,
+          "response_time_ms": 5356,
+          "cpu_usage": 0.8563682951922131,
+          "memory_usage": 0.8600078971829215
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:52.354841",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 134,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.6724179747629013,
+          "response_time_ms": 4054,
+          "cpu_usage": 0.8865250991901816,
+          "memory_usage": 0.8168596957421103
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:45.354841",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 174,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.2694178155697078,
+          "response_time_ms": 1794,
+          "cpu_usage": 0.7637915047257751,
+          "memory_usage": 0.844821531742099
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:53.354841",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 76,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.32031049665871203,
+          "response_time_ms": 7112,
+          "cpu_usage": 0.864361443369564,
+          "memory_usage": 0.8535333753351149
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:04.354841",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 120,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.18638953839113448,
+          "response_time_ms": 4399,
+          "cpu_usage": 0.810315275430604,
+          "memory_usage": 0.9679696907620723
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:27.354841",
+      "event_type": "recovery",
+      "description": "Recovery: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:28.354841",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 44,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.8080490364751062,
+          "response_time_ms": 1278,
+          "cpu_usage": 0.7325414003736491,
+          "memory_usage": 0.8819791805200031
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:55:54.354841",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

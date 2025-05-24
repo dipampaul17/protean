@@ -1,0 +1,96 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_174628
+description: Infrastructure failure scenario for ScalingFailure
+duration: 1632
+metadata:
+  generated_at: '2025-05-23T17:46:28.994897'
+  phrase_templates_used: 24
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:46:28.994731'
+  event_type: trigger
+  description: 'Initial failure detected: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:58.994731'
+  event_type: timeout
+  description: 'Timeout: to fix'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 33
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: to fix - operation
+      failed'
+    metrics:
+      error_rate: 0.4467541264508652
+      response_time_ms: 6489
+      cpu_usage: 0.7387939995415147
+      memory_usage: 0.9738102337886144
+- timestamp: '2025-05-23T17:49:14.994731'
+  event_type: timeout
+  description: 'Timeout: which node'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 248
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: which node - operation
+      failed'
+    metrics:
+      error_rate: 0.613176382099759
+      response_time_ms: 8717
+      cpu_usage: 0.7965654323720082
+      memory_usage: 0.8432189432739222
+- timestamp: '2025-05-23T17:49:37.994731'
+  event_type: timeout
+  description: 'Timeout: of failure'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 168
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: of failure - operation
+      failed'
+    metrics:
+      error_rate: 0.20087359292168588
+      response_time_ms: 1327
+      cpu_usage: 0.734913502115558
+      memory_usage: 0.9173115751789649
+- timestamp: '2025-05-23T17:49:50.994731'
+  event_type: failure
+  description: 'Failure: a service'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 204
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.6671805391837542
+      response_time_ms: 1918
+      cpu_usage: 0.7067558038320969
+      memory_usage: 0.9665168223502459
+- timestamp: '2025-05-23T17:50:13.994731'
+  event_type: failure
+  description: 'Failure: the cluster'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 127
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: the cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.25090306845087484
+      response_time_ms: 9813
+      cpu_usage: 0.8106483354273881
+      memory_usage: 0.902641024553064
+- timestamp: '2025-05-23T18:13:40.994731'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

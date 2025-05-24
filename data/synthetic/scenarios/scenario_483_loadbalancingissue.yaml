@@ -1,0 +1,67 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173453
+description: Load balancer and traffic distribution problems
+duration: 620
+metadata:
+  generated_at: '2025-05-23T17:34:53.380038'
+  phrase_templates_used: 13
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:34:53.379904'
+  event_type: trigger
+  description: 'Initial failure detected: loadbalancer service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:19.379904'
+  event_type: scaling
+  description: 'Scaling: that node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:24.379904'
+  event_type: timeout
+  description: 'Timeout: kafka pod'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 219
+    log_snippet: '[2025-05-23 17:34:53] ERROR vpc-main: kafka pod in timeout'
+    metrics:
+      error_rate: 0.6595064954540697
+      response_time_ms: 7516
+      cpu_usage: 0.7479734145703344
+      memory_usage: 0.8521217512079475
+      requests_per_sec: 9776
+      backend_health_pct: 0.4232819537170787
+      connection_timeouts: 874
+- timestamp: '2025-05-23T17:36:14.379904'
+  event_type: timeout
+  description: 'Timeout: a pod'
+  injection_spec:
+    type: timeout
+    target: load-balancer
+    severity: high
+    duration: 173
+    log_snippet: '[2025-05-23 17:34:53] ERROR load-balancer: a pod in timeout'
+    metrics:
+      error_rate: 0.4845548064763462
+      response_time_ms: 8177
+      cpu_usage: 0.7506092352112194
+      memory_usage: 0.9075168937555782
+      requests_per_sec: 5187
+      backend_health_pct: 0.46153126396889776
+      connection_timeouts: 829
+- timestamp: '2025-05-23T17:36:27.379904'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: load balancer'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:55.379904'
+  event_type: backend_failure
+  description: 'Backend_Failure: loadbalancer service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:45:13.379904'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

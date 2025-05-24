@@ -1,0 +1,132 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_173245",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 475,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.768961",
+    "phrase_templates_used": 24,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.768768",
+      "event_type": "trigger",
+      "description": "Initial failure detected: scaling scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:09.768768",
+      "event_type": "recovery",
+      "description": "Recovery: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:10.768768",
+      "event_type": "recovery",
+      "description": "Recovery: scaling scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:10.768768",
+      "event_type": "timeout",
+      "description": "Timeout: a node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 33,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: a node - operation failed",
+        "metrics": {
+          "error_rate": 0.4681549327383342,
+          "response_time_ms": 2173,
+          "cpu_usage": 0.8321122078863382,
+          "memory_usage": 0.9600879663731131
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:17.768768",
+      "event_type": "timeout",
+      "description": "Timeout: load balancer",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 297,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: load balancer - operation failed",
+        "metrics": {
+          "error_rate": 0.842008577554668,
+          "response_time_ms": 4302,
+          "cpu_usage": 0.7905383498163571,
+          "memory_usage": 0.9664482862713699
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:21.768768",
+      "event_type": "timeout",
+      "description": "Timeout: an error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 189,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: an error - operation failed",
+        "metrics": {
+          "error_rate": 0.4399163317366508,
+          "response_time_ms": 4177,
+          "cpu_usage": 0.7073494429632434,
+          "memory_usage": 0.9106098249991165
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:27.768768",
+      "event_type": "failure",
+      "description": "Failure: a server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 90,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: a server - operation failed",
+        "metrics": {
+          "error_rate": 0.5410799113872299,
+          "response_time_ms": 1951,
+          "cpu_usage": 0.91993837313606,
+          "memory_usage": 0.9433568837917742
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:39.768768",
+      "event_type": "timeout",
+      "description": "Timeout: the service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 157,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: the service - operation failed",
+        "metrics": {
+          "error_rate": 0.20000069002532284,
+          "response_time_ms": 2416,
+          "cpu_usage": 0.7905777736439016,
+          "memory_usage": 0.8008847518160302
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:40.768768",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

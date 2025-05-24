@@ -1,0 +1,99 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_173245
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1323
+metadata:
+  generated_at: '2025-05-23T17:32:45.664062'
+  phrase_templates_used: 45
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:32:45.663888'
+  event_type: trigger
+  description: 'Initial failure detected: code error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:17.663888'
+  event_type: timeout
+  description: 'Timeout: code server'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 259
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: code server -
+      operation failed'
+    metrics:
+      error_rate: 0.3807931039817338
+      response_time_ms: 5431
+      cpu_usage: 0.8844623419012351
+      memory_usage: 0.8624929297190398
+- timestamp: '2025-05-23T17:34:35.663888'
+  event_type: failure
+  description: 'Failure: the connection'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 67
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: the connection
+      - operation failed'
+    metrics:
+      error_rate: 0.8184249653109329
+      response_time_ms: 5345
+      cpu_usage: 0.9255689123570225
+      memory_usage: 0.8430502106697864
+- timestamp: '2025-05-23T17:36:08.663888'
+  event_type: recovery
+  description: 'Recovery: the connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:09.663888'
+  event_type: failure
+  description: 'Failure: to network'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 115
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: to network - operation
+      failed'
+    metrics:
+      error_rate: 0.1351404107221483
+      response_time_ms: 9444
+      cpu_usage: 0.7869350808949741
+      memory_usage: 0.9904476453332147
+- timestamp: '2025-05-23T17:36:17.663888'
+  event_type: timeout
+  description: 'Timeout: headless service'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 287
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: headless service - operation
+      failed'
+    metrics:
+      error_rate: 0.5047583763050686
+      response_time_ms: 4279
+      cpu_usage: 0.7185357058852664
+      memory_usage: 0.9812219911242682
+- timestamp: '2025-05-23T17:36:21.663888'
+  event_type: timeout
+  description: 'Timeout: var log'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 160
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: var log - operation failed'
+    metrics:
+      error_rate: 0.8688724995681909
+      response_time_ms: 5935
+      cpu_usage: 0.7231936849110859
+      memory_usage: 0.812409561551671
+- timestamp: '2025-05-23T17:54:48.663888'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,41 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_174629
+description: Application deployment and rollback scenarios
+duration: 691
+metadata:
+  generated_at: '2025-05-23T17:46:29.092016'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:46:29.091827'
+  event_type: trigger
+  description: 'Initial failure detected: an error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:53.091827'
+  event_type: deployment
+  description: 'Deployment: the deploy'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:36.091827'
+  event_type: deployment
+  description: 'Deployment: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:44.091827'
+  event_type: rollback
+  description: 'Rollback: kubernetes cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:50.091827'
+  event_type: deployment
+  description: 'Deployment: headless service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:54.091827'
+  event_type: rollback
+  description: 'Rollback: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:58:00.091827'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

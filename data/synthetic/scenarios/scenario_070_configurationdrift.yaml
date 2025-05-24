@@ -1,0 +1,70 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173452
+description: Configuration inconsistencies causing service degradation
+duration: 767
+metadata:
+  generated_at: '2025-05-23T17:34:52.977399'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:52.977276'
+  event_type: trigger
+  description: 'Initial failure detected: xxxxxxx cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:03.977276'
+  event_type: failure
+  description: 'Failure: kubernetes pod'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 78
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: kubernetes pod - operation
+      failed'
+    metrics:
+      error_rate: 0.6046168914253128
+      response_time_ms: 2812
+      cpu_usage: 0.7508535729950175
+      memory_usage: 0.8180687890715301
+- timestamp: '2025-05-23T17:36:20.977276'
+  event_type: failure
+  description: 'Failure: string update'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 259
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: string update - operation
+      failed'
+    metrics:
+      error_rate: 0.37470732114452543
+      response_time_ms: 8783
+      cpu_usage: 0.7415945945737951
+      memory_usage: 0.8699483098087775
+- timestamp: '2025-05-23T17:37:01.977276'
+  event_type: failure
+  description: 'Failure: string update'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 93
+    log_snippet: '[2025-05-23 17:34:52] ERROR payment-service: string update - operation
+      failed'
+    metrics:
+      error_rate: 0.804536508913042
+      response_time_ms: 8372
+      cpu_usage: 0.9818283346995582
+      memory_usage: 0.9368353031426837
+- timestamp: '2025-05-23T17:37:19.977276'
+  event_type: restart
+  description: 'Restart: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:39.977276'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

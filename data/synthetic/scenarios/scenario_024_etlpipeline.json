@@ -1,0 +1,126 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173245",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 1729,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.661492",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.660290",
+      "event_type": "trigger",
+      "description": "Initial failure detected: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:32.660290",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 151,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.696414581302881,
+          "response_time_ms": 4678,
+          "cpu_usage": 0.8955294408526401,
+          "memory_usage": 0.9469490037928783
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:56.660290",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:57.660290",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 154,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.548116302141448,
+          "response_time_ms": 6676,
+          "cpu_usage": 0.9094367139358357,
+          "memory_usage": 0.8149388250218301
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:59.660290",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 253,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.3570043571531275,
+          "response_time_ms": 1300,
+          "cpu_usage": 0.7523939543041449,
+          "memory_usage": 0.9931444264493425
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:15.660290",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 253,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.5687364722940093,
+          "response_time_ms": 3608,
+          "cpu_usage": 0.9617998546291187,
+          "memory_usage": 0.9950393517994224
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:16.660290",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 104,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.1422254723644028,
+          "response_time_ms": 6562,
+          "cpu_usage": 0.9252233107281768,
+          "memory_usage": 0.9814926009313625
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:01:34.660290",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

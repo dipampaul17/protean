@@ -1,0 +1,102 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173245",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1419,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.677264",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.677105",
+      "event_type": "trigger",
+      "description": "Initial failure detected: code error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:06.677105",
+      "event_type": "rollback",
+      "description": "Rollback: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:21.677105",
+      "event_type": "rollback",
+      "description": "Rollback: kafka monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:48.677105",
+      "event_type": "failure",
+      "description": "Failure: kubectl scale",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 264,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR web-frontend: kubectl scale in failure",
+        "metrics": {
+          "error_rate": 0.8034290648403157,
+          "response_time_ms": 4999,
+          "cpu_usage": 0.8825791734512541,
+          "memory_usage": 0.8748764054930873
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:44.677105",
+      "event_type": "failure",
+      "description": "Failure: code deployment",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 206,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR worker-consumer: code deployment in failure",
+        "metrics": {
+          "error_rate": 0.7995551088827318,
+          "response_time_ms": 4738,
+          "cpu_usage": 0.9941987368358134,
+          "memory_usage": 0.868074833437072
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:40.677105",
+      "event_type": "scaling",
+      "description": "Scaling: the deploy",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:35.677105",
+      "event_type": "failure",
+      "description": "Failure: docker service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 237,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR api-backend: docker service in failure",
+        "metrics": {
+          "error_rate": 0.3134760930038808,
+          "response_time_ms": 5863,
+          "cpu_usage": 0.7736742456051874,
+          "memory_usage": 0.8004911659211429
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:56:24.677105",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

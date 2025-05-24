@@ -1,0 +1,88 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173708
+description: Load balancer and traffic distribution problems
+duration: 1087
+metadata:
+  generated_at: '2025-05-23T17:37:08.044427'
+  phrase_templates_used: 13
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:08.044247'
+  event_type: trigger
+  description: 'Initial failure detected: that node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:23.044247'
+  event_type: backend_failure
+  description: 'Backend_Failure: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:24.044247'
+  event_type: backend_failure
+  description: 'Backend_Failure: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:25.044247'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: your cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:00.044247'
+  event_type: timeout
+  description: 'Timeout: your cluster'
+  injection_spec:
+    type: timeout
+    target: load-balancer
+    severity: high
+    duration: 94
+    log_snippet: '[2025-05-23 17:37:08] ERROR load-balancer: your cluster in timeout'
+    metrics:
+      error_rate: 0.2786617286510838
+      response_time_ms: 9947
+      cpu_usage: 0.7326174613887034
+      memory_usage: 0.8903254858108874
+      requests_per_sec: 7655
+      backend_health_pct: 0.7342069199984123
+      connection_timeouts: 885
+- timestamp: '2025-05-23T17:38:06.044247'
+  event_type: scaling
+  description: 'Scaling: a server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:03.044247'
+  event_type: timeout
+  description: 'Timeout: web server'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 252
+    log_snippet: '[2025-05-23 17:37:08] ERROR subnet-private: web server in timeout'
+    metrics:
+      error_rate: 0.7305138523999773
+      response_time_ms: 3749
+      cpu_usage: 0.8739843261828499
+      memory_usage: 0.9853555349302756
+      requests_per_sec: 2504
+      backend_health_pct: 0.30331300457275495
+      connection_timeouts: 204
+- timestamp: '2025-05-23T17:39:18.044247'
+  event_type: timeout
+  description: 'Timeout: in connection'
+  injection_spec:
+    type: timeout
+    target: load-balancer
+    severity: high
+    duration: 136
+    log_snippet: '[2025-05-23 17:37:08] ERROR load-balancer: in connection in timeout'
+    metrics:
+      error_rate: 0.13569644853885
+      response_time_ms: 7957
+      cpu_usage: 0.9101769437661636
+      memory_usage: 0.9419468400741344
+      requests_per_sec: 407
+      backend_health_pct: 0.7585227065032741
+      connection_timeouts: 167
+- timestamp: '2025-05-23T17:55:15.044247'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

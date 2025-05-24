@@ -1,0 +1,104 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_173707
+description: Infrastructure failure scenario for ScalingFailure
+duration: 342
+metadata:
+  generated_at: '2025-05-23T17:37:07.794735'
+  phrase_templates_used: 24
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:37:07.794128'
+  event_type: trigger
+  description: 'Initial failure detected: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:18.794128'
+  event_type: failure
+  description: 'Failure: scaling scale'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 213
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: scaling scale - operation
+      failed'
+    metrics:
+      error_rate: 0.1952966305529258
+      response_time_ms: 1014
+      cpu_usage: 0.9488388944388532
+      memory_usage: 0.811568926365517
+- timestamp: '2025-05-23T17:37:24.794128'
+  event_type: recovery
+  description: 'Recovery: nodeport service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:32.794128'
+  event_type: failure
+  description: 'Failure: scaling scale'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 237
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: scaling scale - operation
+      failed'
+    metrics:
+      error_rate: 0.5183968839671931
+      response_time_ms: 2661
+      cpu_usage: 0.7853373010959113
+      memory_usage: 0.8246185806591133
+- timestamp: '2025-05-23T17:37:35.794128'
+  event_type: failure
+  description: 'Failure: the server'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 175
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.4502017850449218
+      response_time_ms: 3417
+      cpu_usage: 0.9127764849390223
+      memory_usage: 0.8381391759587488
+- timestamp: '2025-05-23T17:37:36.794128'
+  event_type: failure
+  description: 'Failure: the service'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 219
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: the service - operation
+      failed'
+    metrics:
+      error_rate: 0.5851614750958658
+      response_time_ms: 2520
+      cpu_usage: 0.7582872658850746
+      memory_usage: 0.9010026789353087
+- timestamp: '2025-05-23T17:37:36.794128'
+  event_type: timeout
+  description: 'Timeout: nodeport service'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 230
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: nodeport service - operation
+      failed'
+    metrics:
+      error_rate: 0.6358636068263788
+      response_time_ms: 5564
+      cpu_usage: 0.7388233667243373
+      memory_usage: 0.9493970846303776
+- timestamp: '2025-05-23T17:37:46.794128'
+  event_type: recovery
+  description: 'Recovery: clusterip service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:42:49.794128'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

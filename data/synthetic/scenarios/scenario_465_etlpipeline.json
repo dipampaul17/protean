@@ -1,0 +1,114 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173453",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 727,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.355235",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.355070",
+      "event_type": "trigger",
+      "description": "Initial failure detected: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:08.355070",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 125,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.504815476469725,
+          "response_time_ms": 3785,
+          "cpu_usage": 0.9611501109855544,
+          "memory_usage": 0.876022443253278
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:19.355070",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:00.355070",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 107,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.2610216208822359,
+          "response_time_ms": 6820,
+          "cpu_usage": 0.7423387363890915,
+          "memory_usage": 0.8180477124722719
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:18.355070",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 230,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.8483005860821533,
+          "response_time_ms": 7141,
+          "cpu_usage": 0.8375019862855176,
+          "memory_usage": 0.8474782288488866
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:38.355070",
+      "event_type": "recovery",
+      "description": "Recovery: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:54.355070",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 269,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.11289227171962511,
+          "response_time_ms": 7601,
+          "cpu_usage": 0.9249633375526884,
+          "memory_usage": 0.8847474412499038
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:00.355070",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

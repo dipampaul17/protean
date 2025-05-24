@@ -1,0 +1,132 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173708",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 1485,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.068086",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.067890",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:18.067890",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 237,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.6713135065352431,
+          "response_time_ms": 9426,
+          "cpu_usage": 0.955908117066202,
+          "memory_usage": 0.8515622407996579
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:20.067890",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 170,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.31204837418506903,
+          "response_time_ms": 8458,
+          "cpu_usage": 0.7549490411963189,
+          "memory_usage": 0.9989519320985442
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:57.067890",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:59.067890",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 177,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.18395444629717758,
+          "response_time_ms": 6581,
+          "cpu_usage": 0.7078360782473803,
+          "memory_usage": 0.8805056823544135
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:07.067890",
+      "event_type": "recovery",
+      "description": "Recovery: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:43.067890",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 199,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.19988758412053081,
+          "response_time_ms": 6112,
+          "cpu_usage": 0.8941757761445328,
+          "memory_usage": 0.8825130374440622
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:16.067890",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 215,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.7726207620600684,
+          "response_time_ms": 5808,
+          "cpu_usage": 0.9979617872133613,
+          "memory_usage": 0.8646934282409369
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:01:53.067890",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173707",
+  "description": "Database connectivity and performance issues",
+  "duration": 1589,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.796908",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 0
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.796820",
+      "event_type": "trigger",
+      "description": "Initial failure detected: your database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:45.796820",
+      "event_type": "corruption",
+      "description": "Corruption: to scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:45:29.796820",
+      "event_type": "timeout",
+      "description": "Timeout: message queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "medium",
+        "duration": 142,
+        "log_snippet": "[2025-05-23 17:37:07] FATAL mysql-primary: database message queue detected",
+        "metrics": {
+          "error_rate": 0.13043077250723853,
+          "response_time_ms": 228,
+          "cpu_usage": 0.7450055047049556,
+          "memory_usage": 0.5167680701100286,
+          "connection_pool_usage": 0.9827545113459019,
+          "query_time_ms": 23984,
+          "deadlocks_per_sec": 8
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:45:29.796820",
+      "event_type": "corruption",
+      "description": "Corruption: relational database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:03:36.796820",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_174628",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 358,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.972138",
+    "phrase_templates_used": 45,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.971836",
+      "event_type": "trigger",
+      "description": "Initial failure detected: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:38.971836",
+      "event_type": "timeout",
+      "description": "Timeout: and update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 83,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: and update - operation failed",
+        "metrics": {
+          "error_rate": 0.7628352825362358,
+          "response_time_ms": 7462,
+          "cpu_usage": 0.7573812050961686,
+          "memory_usage": 0.9604822021535413
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:12.971836",
+      "event_type": "failure",
+      "description": "Failure: to monitor",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 109,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: to monitor - operation failed",
+        "metrics": {
+          "error_rate": 0.6709684415571597,
+          "response_time_ms": 7701,
+          "cpu_usage": 0.9249198632523772,
+          "memory_usage": 0.9157056617433164
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:16.971836",
+      "event_type": "recovery",
+      "description": "Recovery: proxy server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:18.971836",
+      "event_type": "recovery",
+      "description": "Recovery: code server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:22.971836",
+      "event_type": "recovery",
+      "description": "Recovery: vpn connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:22.971836",
+      "event_type": "failure",
+      "description": "Failure: jenkins server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 36,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: jenkins server - operation failed",
+        "metrics": {
+          "error_rate": 0.8187611275358863,
+          "response_time_ms": 4013,
+          "cpu_usage": 0.8038689658494007,
+          "memory_usage": 0.9760572168211041
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:52:26.971836",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

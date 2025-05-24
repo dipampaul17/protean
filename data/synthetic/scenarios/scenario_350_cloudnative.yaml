@@ -1,0 +1,55 @@
+category: CloudNative
+name: CloudNative_20250523_173453
+description: Kubernetes pod and container orchestration issues
+duration: 1717
+metadata:
+  generated_at: '2025-05-23T17:34:53.279446'
+  phrase_templates_used: 39
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:34:53.279310'
+  event_type: trigger
+  description: 'Initial failure detected: your cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:20.279310'
+  event_type: pod_restart
+  description: 'Pod_Restart: failed container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:28.279310'
+  event_type: deployment
+  description: 'Deployment: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:00.279310'
+  event_type: deployment
+  description: 'Deployment: any log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:36.279310'
+  event_type: pod_restart
+  description: 'Pod_Restart: failed container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:26.279310'
+  event_type: failure
+  description: 'Failure: kind pod'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 269
+    log_snippet: '[2025-05-23 17:34:53] ERROR nginx-proxy: kind pod in failure'
+    metrics:
+      error_rate: 0.8767518752037524
+      response_time_ms: 3158
+      cpu_usage: 0.7943160375332636
+      memory_usage: 0.8666095283442221
+- timestamp: '2025-05-23T17:39:32.279310'
+  event_type: deployment
+  description: 'Deployment: true server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:03:30.279310'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

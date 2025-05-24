@@ -1,0 +1,85 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_173245
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 824
+metadata:
+  generated_at: '2025-05-23T17:32:45.787434'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:32:45.787291'
+  event_type: trigger
+  description: 'Initial failure detected: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:46.787291'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 103
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.807921879764044
+      response_time_ms: 4886
+      cpu_usage: 0.7866041778590148
+      memory_usage: 0.8185729886516077
+- timestamp: '2025-05-23T17:34:04.787291'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 225
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.10289421886303521
+      response_time_ms: 6515
+      cpu_usage: 0.8684649524667688
+      memory_usage: 0.8401788664779806
+- timestamp: '2025-05-23T17:34:18.787291'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:51.787291'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 265
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: container crashed - operation
+      failed'
+    metrics:
+      error_rate: 0.3362314500563629
+      response_time_ms: 6968
+      cpu_usage: 0.9614091604247476
+      memory_usage: 0.864654990818599
+- timestamp: '2025-05-23T17:35:21.787291'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 167
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: container crashed - operation
+      failed'
+    metrics:
+      error_rate: 0.2519947783211645
+      response_time_ms: 4600
+      cpu_usage: 0.7566483963827072
+      memory_usage: 0.9521030544312994
+- timestamp: '2025-05-23T17:46:29.787291'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

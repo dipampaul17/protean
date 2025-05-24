@@ -1,0 +1,114 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173707",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1301,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.980011",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.979849",
+      "event_type": "trigger",
+      "description": "Initial failure detected: parse error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:13.979849",
+      "event_type": "timeout",
+      "description": "Timeout: the database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 260,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: the database - operation failed",
+        "metrics": {
+          "error_rate": 0.38995719442889165,
+          "response_time_ms": 8660,
+          "cpu_usage": 0.871902278795709,
+          "memory_usage": 0.9019550116503109
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:30.979849",
+      "event_type": "timeout",
+      "description": "Timeout: to monitor",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 210,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: to monitor - operation failed",
+        "metrics": {
+          "error_rate": 0.7827196172855182,
+          "response_time_ms": 4471,
+          "cpu_usage": 0.7270452290620705,
+          "memory_usage": 0.9731573927035825
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:33.979849",
+      "event_type": "recovery",
+      "description": "Recovery: the memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:44.979849",
+      "event_type": "recovery",
+      "description": "Recovery: scaled service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:00.979849",
+      "event_type": "timeout",
+      "description": "Timeout: strong update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 101,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.8254812316342403,
+          "response_time_ms": 6272,
+          "cpu_usage": 0.8256795541870959,
+          "memory_usage": 0.8304054664160864
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:40.979849",
+      "event_type": "timeout",
+      "description": "Timeout: a server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 283,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: a server - operation failed",
+        "metrics": {
+          "error_rate": 0.4539509161350178,
+          "response_time_ms": 6104,
+          "cpu_usage": 0.9814775720647675,
+          "memory_usage": 0.9804683018593633
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:58:48.979849",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

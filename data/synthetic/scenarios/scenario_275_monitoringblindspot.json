@@ -1,0 +1,72 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173708",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1535,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.025449",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.025346",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:28.025346",
+      "event_type": "timeout",
+      "description": "Timeout: used cpu",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 225,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: used cpu - operation failed",
+        "metrics": {
+          "error_rate": 0.5167199974944727,
+          "response_time_ms": 2267,
+          "cpu_usage": 0.729306983652462,
+          "memory_usage": 0.9244159849272149
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:43:40.025346",
+      "event_type": "recovery",
+      "description": "Recovery: us log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:43:54.025346",
+      "event_type": "timeout",
+      "description": "Timeout: the server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 42,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.5363496363795004,
+          "response_time_ms": 3915,
+          "cpu_usage": 0.8385797194074103,
+          "memory_usage": 0.9487799708563701
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:02:43.025346",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

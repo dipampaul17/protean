@@ -1,0 +1,90 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173453",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 394,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.345964",
+    "phrase_templates_used": 45,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.345846",
+      "event_type": "trigger",
+      "description": "Initial failure detected: following error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:41.345846",
+      "event_type": "failure",
+      "description": "Failure: upstream queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "medium",
+        "duration": 92,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: upstream queue - operation failed",
+        "metrics": {
+          "error_rate": 0.15251423660761812,
+          "response_time_ms": 520,
+          "cpu_usage": 0.3977407890233135,
+          "memory_usage": 0.6464096099255232
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:46.345846",
+      "event_type": "timeout",
+      "description": "Timeout: destination node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 299,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: destination node - operation failed",
+        "metrics": {
+          "error_rate": 0.6146001241257709,
+          "response_time_ms": 8522,
+          "cpu_usage": 0.8378525563495597,
+          "memory_usage": 0.8405209638511021
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:15.345846",
+      "event_type": "recovery",
+      "description": "Recovery: federated queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:25.345846",
+      "event_type": "failure",
+      "description": "Failure: following error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 184,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: following error - operation failed",
+        "metrics": {
+          "error_rate": 0.5962565814581086,
+          "response_time_ms": 7037,
+          "cpu_usage": 0.9233774925647427,
+          "memory_usage": 0.9426035756365307
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:27.345846",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

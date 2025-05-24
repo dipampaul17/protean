@@ -1,0 +1,55 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_173453
+description: Infrastructure failure scenario for ScalingFailure
+duration: 1788
+metadata:
+  generated_at: '2025-05-23T17:34:53.067525'
+  phrase_templates_used: 24
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:34:53.067394'
+  event_type: trigger
+  description: 'Initial failure detected: of failure'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:03.067394'
+  event_type: recovery
+  description: 'Recovery: to fix'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:55.067394'
+  event_type: timeout
+  description: 'Timeout: the service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 248
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: the service -
+      operation failed'
+    metrics:
+      error_rate: 0.7518994832794417
+      response_time_ms: 6188
+      cpu_usage: 0.9556315383154192
+      memory_usage: 0.8640724839281257
+- timestamp: '2025-05-23T17:39:58.067394'
+  event_type: timeout
+  description: 'Timeout: the service'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 173
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: the service - operation
+      failed'
+    metrics:
+      error_rate: 0.5202140909647299
+      response_time_ms: 7310
+      cpu_usage: 0.7058462991464728
+      memory_usage: 0.9728192743415388
+- timestamp: '2025-05-23T18:04:41.067394'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

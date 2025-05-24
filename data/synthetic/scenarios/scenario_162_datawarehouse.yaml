@@ -1,0 +1,74 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173245
+description: Infrastructure failure scenario for DataWarehouse
+duration: 1055
+metadata:
+  generated_at: '2025-05-23T17:32:45.711338'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:32:45.711198'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:09.711198'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 174
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: circuit breaker
+      triggered - operation failed'
+    metrics:
+      error_rate: 0.8081181436420721
+      response_time_ms: 7677
+      cpu_usage: 0.9663480731631926
+      memory_usage: 0.9401168712845966
+- timestamp: '2025-05-23T17:33:21.711198'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:56.711198'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 291
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.6417735483966073
+      response_time_ms: 6223
+      cpu_usage: 0.8869149957959995
+      memory_usage: 0.8948708920090646
+- timestamp: '2025-05-23T17:36:04.711198'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 132
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.2903706414996897
+      response_time_ms: 2058
+      cpu_usage: 0.8253276052984307
+      memory_usage: 0.9282939495725768
+- timestamp: '2025-05-23T17:36:08.711198'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:20.711198'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

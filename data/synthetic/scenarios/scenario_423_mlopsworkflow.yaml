@@ -1,0 +1,89 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_174629
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1017
+metadata:
+  generated_at: '2025-05-23T17:46:29.131164'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:46:29.130971'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:12.130971'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:19.130971'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 128
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.8816068021456595
+      response_time_ms: 6840
+      cpu_usage: 0.7074135794526933
+      memory_usage: 0.99901063166336
+- timestamp: '2025-05-23T17:47:28.130971'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 42
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.33870416444405943
+      response_time_ms: 6521
+      cpu_usage: 0.9980787367174674
+      memory_usage: 0.8709261447222714
+- timestamp: '2025-05-23T17:48:27.130971'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:28.130971'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 206
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.7202874763067637
+      response_time_ms: 5963
+      cpu_usage: 0.8697661633574476
+      memory_usage: 0.8981912081858447
+- timestamp: '2025-05-23T17:49:02.130971'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 247
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: circuit breaker
+      triggered - operation failed'
+    metrics:
+      error_rate: 0.5465730929018789
+      response_time_ms: 8653
+      cpu_usage: 0.8245669965789809
+      memory_usage: 0.9992904793250301
+- timestamp: '2025-05-23T18:03:26.130971'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

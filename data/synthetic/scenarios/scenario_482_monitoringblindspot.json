@@ -1,0 +1,102 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_174629",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 646,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.163795",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.163606",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:58.163606",
+      "event_type": "recovery",
+      "description": "Recovery: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:01.163606",
+      "event_type": "recovery",
+      "description": "Recovery: monitoring system",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:36.163606",
+      "event_type": "recovery",
+      "description": "Recovery: the alert",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:37.163606",
+      "event_type": "failure",
+      "description": "Failure: each node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 88,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: each node - operation failed",
+        "metrics": {
+          "error_rate": 0.6377804710433377,
+          "response_time_ms": 8235,
+          "cpu_usage": 0.8817151782201273,
+          "memory_usage": 0.886569194985276
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:41.163606",
+      "event_type": "timeout",
+      "description": "Timeout: the cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 298,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: the cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.2474968360103664,
+          "response_time_ms": 8776,
+          "cpu_usage": 0.7873779836538662,
+          "memory_usage": 0.835985867087161
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:16.163606",
+      "event_type": "failure",
+      "description": "Failure: code error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 115,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: code error - operation failed",
+        "metrics": {
+          "error_rate": 0.7540654845721128,
+          "response_time_ms": 3597,
+          "cpu_usage": 0.737360821163929,
+          "memory_usage": 0.8347760724993218
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:57:15.163606",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

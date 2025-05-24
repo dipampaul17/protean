@@ -1,0 +1,59 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_174628
+description: Infrastructure failure scenario for ETLPipeline
+duration: 1686
+metadata:
+  generated_at: '2025-05-23T17:46:28.963692'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:28.963578'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:21.963578'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 68
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.3573380616603663
+      response_time_ms: 7604
+      cpu_usage: 0.7939124433294749
+      memory_usage: 0.9562591432905947
+- timestamp: '2025-05-23T17:48:49.963578'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 299
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: container crashed -
+      operation failed'
+    metrics:
+      error_rate: 0.8415916658795822
+      response_time_ms: 3456
+      cpu_usage: 0.9270787859500761
+      memory_usage: 0.9649787156876584
+- timestamp: '2025-05-23T17:50:01.963578'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:52:23.963578'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T18:14:34.963578'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

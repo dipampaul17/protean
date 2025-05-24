@@ -1,0 +1,74 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_174628
+description: Infrastructure failure scenario for DataWarehouse
+duration: 910
+metadata:
+  generated_at: '2025-05-23T17:46:28.954809'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:28.954670'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:39.954670'
+  event_type: recovery
+  description: 'Recovery: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:11.954670'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 134
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.1613750897706659
+      response_time_ms: 1619
+      cpu_usage: 0.7675268063476517
+      memory_usage: 0.8031124897159018
+- timestamp: '2025-05-23T17:48:07.954670'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:19.954670'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 174
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.4089093111035552
+      response_time_ms: 4137
+      cpu_usage: 0.7773946831028146
+      memory_usage: 0.9513691709867029
+- timestamp: '2025-05-23T17:48:57.954670'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 275
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.38969396614103446
+      response_time_ms: 5553
+      cpu_usage: 0.8278917789410141
+      memory_usage: 0.9078330219164383
+- timestamp: '2025-05-23T18:01:38.954670'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

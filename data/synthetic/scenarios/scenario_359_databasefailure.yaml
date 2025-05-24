@@ -1,0 +1,80 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_174629
+description: Database connectivity and performance issues
+duration: 1118
+metadata:
+  generated_at: '2025-05-23T17:46:29.093403'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:29.093191'
+  event_type: trigger
+  description: 'Initial failure detected: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:58.093191'
+  event_type: corruption
+  description: 'Corruption: sql server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:10.093191'
+  event_type: recovery
+  description: 'Recovery: mysql error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:24.093191'
+  event_type: timeout
+  description: 'Timeout: the service'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 200
+    log_snippet: '[2025-05-23 17:46:29] FATAL mysql-primary: database the service
+      detected'
+    metrics:
+      error_rate: 0.3814443810436746
+      response_time_ms: 4693
+      cpu_usage: 0.9702847885790222
+      memory_usage: 0.8924074999147603
+      connection_pool_usage: 0.8161105787457894
+      query_time_ms: 20892
+      deadlocks_per_sec: 5
+- timestamp: '2025-05-23T17:47:41.093191'
+  event_type: connection_loss
+  description: 'Connection_Loss: clustered index'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:42.093191'
+  event_type: timeout
+  description: 'Timeout: a database'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 259
+    log_snippet: '[2025-05-23 17:46:29] ERROR mongodb-shard: a database in timeout'
+    metrics:
+      error_rate: 0.21432793877759382
+      response_time_ms: 7419
+      cpu_usage: 0.8221238834679222
+      memory_usage: 0.9663602007542426
+      connection_pool_usage: 0.945604832913919
+      query_time_ms: 23287
+      deadlocks_per_sec: 3
+- timestamp: '2025-05-23T17:48:10.093191'
+  event_type: recovery
+  description: 'Recovery: the container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:36.093191'
+  event_type: corruption
+  description: 'Corruption: to fix'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:40.093191'
+  event_type: recovery
+  description: 'Recovery: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T18:05:07.093191'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

@@ -1,0 +1,120 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_174629",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 497,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.064688",
+    "phrase_templates_used": 45,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.064503",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:46.064503",
+      "event_type": "timeout",
+      "description": "Timeout: var log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 146,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: var log - operation failed",
+        "metrics": {
+          "error_rate": 0.36852785396638055,
+          "response_time_ms": 2357,
+          "cpu_usage": 0.871764937119581,
+          "memory_usage": 0.95944585209042
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:48.064503",
+      "event_type": "timeout",
+      "description": "Timeout: the container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 252,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.10325187260051978,
+          "response_time_ms": 8137,
+          "cpu_usage": 0.7736864191965142,
+          "memory_usage": 0.8590810480557316
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:09.064503",
+      "event_type": "recovery",
+      "description": "Recovery: coirq error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:13.064503",
+      "event_type": "failure",
+      "description": "Failure: get update",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 284,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: get update - operation failed",
+        "metrics": {
+          "error_rate": 0.42351869613488136,
+          "response_time_ms": 1632,
+          "cpu_usage": 0.9119815318566928,
+          "memory_usage": 0.9749170762455013
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:14.064503",
+      "event_type": "recovery",
+      "description": "Recovery: illuminate container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:18.064503",
+      "event_type": "recovery",
+      "description": "Recovery: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:38.064503",
+      "event_type": "failure",
+      "description": "Failure: strong update",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 153,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.7097207737678721,
+          "response_time_ms": 7833,
+          "cpu_usage": 0.916911185455796,
+          "memory_usage": 0.872511314379812
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:54:46.064503",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

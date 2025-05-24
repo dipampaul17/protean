@@ -1,0 +1,103 @@
+category: DataCorruption
+name: DataCorruption_20250523_173708
+description: Infrastructure failure scenario for DataCorruption
+duration: 1016
+metadata:
+  generated_at: '2025-05-23T17:37:08.040052'
+  phrase_templates_used: 36
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 4
+events:
+- timestamp: '2025-05-23T17:37:08.039698'
+  event_type: trigger
+  description: 'Initial failure detected: transaction log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:01.039698'
+  event_type: recovery
+  description: 'Recovery: only container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:32.039698'
+  event_type: failure
+  description: 'Failure: code queue'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: medium
+    duration: 231
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: code queue - operation
+      failed'
+    metrics:
+      error_rate: 0.0101981356658693
+      response_time_ms: 1025
+      cpu_usage: 0.5341701462512789
+      memory_usage: 0.47224092590894784
+- timestamp: '2025-05-23T17:38:36.039698'
+  event_type: failure
+  description: 'Failure: ebs storage'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 106
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: ebs storage - operation
+      failed'
+    metrics:
+      error_rate: 0.6152205619299199
+      response_time_ms: 7496
+      cpu_usage: 0.9610668020681034
+      memory_usage: 0.9698646846033889
+- timestamp: '2025-05-23T17:38:50.039698'
+  event_type: timeout
+  description: 'Timeout: to rollback'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 274
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: to rollback -
+      operation failed'
+    metrics:
+      error_rate: 0.8260123365508995
+      response_time_ms: 2263
+      cpu_usage: 0.8583441849603812
+      memory_usage: 0.858117582647977
+- timestamp: '2025-05-23T17:39:17.039698'
+  event_type: timeout
+  description: 'Timeout: to disk'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 37
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: to disk - operation failed'
+    metrics:
+      error_rate: 0.31773354932678616
+      response_time_ms: 9951
+      cpu_usage: 0.7077114814197712
+      memory_usage: 0.8080302285168495
+- timestamp: '2025-05-23T17:39:17.039698'
+  event_type: timeout
+  description: 'Timeout: to fix'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 290
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: to fix - operation
+      failed'
+    metrics:
+      error_rate: 0.39905502609675336
+      response_time_ms: 5494
+      cpu_usage: 0.87630975347408
+      memory_usage: 0.8521431922901569
+- timestamp: '2025-05-23T17:39:22.039698'
+  event_type: recovery
+  description: 'Recovery: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:54:04.039698'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

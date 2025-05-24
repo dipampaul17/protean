@@ -1,0 +1,67 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_174628
+description: Database connectivity and performance issues
+duration: 552
+metadata:
+  generated_at: '2025-05-23T17:46:28.925045'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:28.924887'
+  event_type: trigger
+  description: 'Initial failure detected: postgresql database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:44.924887'
+  event_type: timeout
+  description: 'Timeout: this error'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 110
+    log_snippet: '[2025-05-23 17:46:28] ERROR redis-cache: this error in timeout'
+    metrics:
+      error_rate: 0.8192632626330919
+      response_time_ms: 2219
+      cpu_usage: 0.8157322998414187
+      memory_usage: 0.8825900005042483
+      connection_pool_usage: 0.9808058068574331
+      query_time_ms: 26431
+      deadlocks_per_sec: 5
+- timestamp: '2025-05-23T17:47:17.924887'
+  event_type: timeout
+  description: 'Timeout: this error'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 238
+    log_snippet: '[2025-05-23 17:46:28] ERROR redis-cache: this error in timeout'
+    metrics:
+      error_rate: 0.7196445459793834
+      response_time_ms: 3189
+      cpu_usage: 0.965389975639904
+      memory_usage: 0.829688866410591
+      connection_pool_usage: 0.917521654970267
+      query_time_ms: 17119
+      deadlocks_per_sec: 8
+- timestamp: '2025-05-23T17:47:43.924887'
+  event_type: corruption
+  description: 'Corruption: in memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:09.924887'
+  event_type: connection_loss
+  description: 'Connection_Loss: to scale'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:16.924887'
+  event_type: recovery
+  description: 'Recovery: the connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:55:40.924887'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

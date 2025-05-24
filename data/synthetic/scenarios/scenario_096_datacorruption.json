@@ -1,0 +1,132 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173452",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 556,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.985345",
+    "phrase_templates_used": 36,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.985147",
+      "event_type": "trigger",
+      "description": "Initial failure detected: instance storage",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:12.985147",
+      "event_type": "timeout",
+      "description": "Timeout: a cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 206,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR auth-service: a cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.5416533617707451,
+          "response_time_ms": 6657,
+          "cpu_usage": 0.7087532510411995,
+          "memory_usage": 0.8242744614813535
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:16.985147",
+      "event_type": "timeout",
+      "description": "Timeout: closed connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 56,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: closed connection - operation failed",
+        "metrics": {
+          "error_rate": 0.173953913600357,
+          "response_time_ms": 7405,
+          "cpu_usage": 0.7655623206412019,
+          "memory_usage": 0.8563817921738894
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:28.985147",
+      "event_type": "failure",
+      "description": "Failure: a queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "medium",
+        "duration": 122,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: a queue - operation failed",
+        "metrics": {
+          "error_rate": 0.21074781325827474,
+          "response_time_ms": 960,
+          "cpu_usage": 0.7780146480177335,
+          "memory_usage": 0.6551229911916425
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:31.985147",
+      "event_type": "timeout",
+      "description": "Timeout: context cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 226,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR auth-service: context cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.5988057756979578,
+          "response_time_ms": 8795,
+          "cpu_usage": 0.7033742551403416,
+          "memory_usage": 0.909480151885421
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:35.985147",
+      "event_type": "recovery",
+      "description": "Recovery: head queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:38.985147",
+      "event_type": "recovery",
+      "description": "Recovery: original container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:06.985147",
+      "event_type": "timeout",
+      "description": "Timeout: context cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 77,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: context cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.13346400302000527,
+          "response_time_ms": 9647,
+          "cpu_usage": 0.88135097808596,
+          "memory_usage": 0.8326482436465403
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:44:08.985147",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

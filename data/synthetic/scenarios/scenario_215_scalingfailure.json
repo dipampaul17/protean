@@ -1,0 +1,60 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_173453",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 1622,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.152362",
+    "phrase_templates_used": 24,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.152191",
+      "event_type": "trigger",
+      "description": "Initial failure detected: https connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:42.152191",
+      "event_type": "recovery",
+      "description": "Recovery: to scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:01.152191",
+      "event_type": "recovery",
+      "description": "Recovery: a node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:30.152191",
+      "event_type": "failure",
+      "description": "Failure: a server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 217,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: a server - operation failed",
+        "metrics": {
+          "error_rate": 0.858582073718756,
+          "response_time_ms": 5138,
+          "cpu_usage": 0.9310237207310891,
+          "memory_usage": 0.8476586383340063
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:01:55.152191",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

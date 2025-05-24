@@ -1,0 +1,138 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173453",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1242,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.217840",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.217626",
+      "event_type": "trigger",
+      "description": "Initial failure detected: using docker",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:23.217626",
+      "event_type": "failure",
+      "description": "Failure: docker network",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 75,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: docker network - operation failed",
+        "metrics": {
+          "error_rate": 0.7520337369336588,
+          "response_time_ms": 8399,
+          "cpu_usage": 0.7732194407139985,
+          "memory_usage": 0.8912877136306491
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:27.217626",
+      "event_type": "failure",
+      "description": "Failure: nginx restart",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 147,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: nginx restart - operation failed",
+        "metrics": {
+          "error_rate": 0.21269542164101518,
+          "response_time_ms": 9510,
+          "cpu_usage": 0.8449692505025423,
+          "memory_usage": 0.8779555095032716
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:37.217626",
+      "event_type": "failure",
+      "description": "Failure: elasticsearch cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 97,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: elasticsearch cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.38414352006208397,
+          "response_time_ms": 6730,
+          "cpu_usage": 0.8364060756293777,
+          "memory_usage": 0.9444016889166572
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:13.217626",
+      "event_type": "restart",
+      "description": "Restart: stopped container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:36.217626",
+      "event_type": "rollback",
+      "description": "Rollback: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:44.217626",
+      "event_type": "failure",
+      "description": "Failure: docker network",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 33,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: docker network - operation failed",
+        "metrics": {
+          "error_rate": 0.35859858141378653,
+          "response_time_ms": 8178,
+          "cpu_usage": 0.8019578778302948,
+          "memory_usage": 0.8772156474398933
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:51.217626",
+      "event_type": "rollback",
+      "description": "Rollback: your cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:01.217626",
+      "event_type": "failure",
+      "description": "Failure: the deployment",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 242,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: the deployment - operation failed",
+        "metrics": {
+          "error_rate": 0.2832397743272701,
+          "response_time_ms": 8271,
+          "cpu_usage": 0.9057190431986158,
+          "memory_usage": 0.8357143557144546
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:55:35.217626",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

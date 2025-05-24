@@ -1,0 +1,63 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173245",
+  "description": "Database connectivity and performance issues",
+  "duration": 756,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.721602",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.721511",
+      "event_type": "trigger",
+      "description": "Initial failure detected: mysql error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:07.721511",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: a database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:30.721511",
+      "event_type": "timeout",
+      "description": "Timeout: api server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 144,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR mongodb-shard: api server in timeout",
+        "metrics": {
+          "error_rate": 0.8052150424748539,
+          "response_time_ms": 2259,
+          "cpu_usage": 0.9690872503757256,
+          "memory_usage": 0.889478979219242,
+          "connection_pool_usage": 0.9813996492877645,
+          "query_time_ms": 18829,
+          "deadlocks_per_sec": 2
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:22.721511",
+      "event_type": "corruption",
+      "description": "Corruption: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:45:21.721511",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

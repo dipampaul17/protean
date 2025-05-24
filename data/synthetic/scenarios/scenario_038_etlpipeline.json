@@ -1,0 +1,156 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173245",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 1661,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.663864",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 7
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.663660",
+      "event_type": "trigger",
+      "description": "Initial failure detected: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:27.663660",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 129,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.4206389514036524,
+          "response_time_ms": 6439,
+          "cpu_usage": 0.9541281988747043,
+          "memory_usage": 0.9910536753275876
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:12.663660",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 235,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.4066901956222083,
+          "response_time_ms": 2268,
+          "cpu_usage": 0.9314527906930389,
+          "memory_usage": 0.8393319684148932
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:13.663660",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 237,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.12843933419289782,
+          "response_time_ms": 4658,
+          "cpu_usage": 0.8033491463133586,
+          "memory_usage": 0.93208146399393
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:03.663660",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 149,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.3664796394719527,
+          "response_time_ms": 7772,
+          "cpu_usage": 0.7657881866814348,
+          "memory_usage": 0.983189573192761
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:48.663660",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 67,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.2863184069945984,
+          "response_time_ms": 2036,
+          "cpu_usage": 0.8167445765734351,
+          "memory_usage": 0.990865524249618
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:11.663660",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 217,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.4604753100758249,
+          "response_time_ms": 9522,
+          "cpu_usage": 0.9430843946664849,
+          "memory_usage": 0.9589180605132556
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:35.663660",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 107,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.5734468924460318,
+          "response_time_ms": 9187,
+          "cpu_usage": 0.7786824291676269,
+          "memory_usage": 0.8129980257820855
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:00:26.663660",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

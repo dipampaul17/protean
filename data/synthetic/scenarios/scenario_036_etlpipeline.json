@@ -1,0 +1,72 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173245",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 737,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.663495",
+    "phrase_templates_used": 0,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.663405",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:15.663405",
+      "event_type": "recovery",
+      "description": "Recovery: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:23.663405",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 119,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.642198442618166,
+          "response_time_ms": 9855,
+          "cpu_usage": 0.7968377002870789,
+          "memory_usage": 0.9083402094752625
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:29.663405",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 80,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.11912171327491539,
+          "response_time_ms": 9016,
+          "cpu_usage": 0.92048701219603,
+          "memory_usage": 0.9970690115853347
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:45:02.663405",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_174628
+description: Circuit breaker activation due to cascading service failures
+duration: 1018
+metadata:
+  generated_at: '2025-05-23T17:46:28.971033'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 3
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:28.970856'
+  event_type: trigger
+  description: 'Initial failure detected: the timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:54.970856'
+  event_type: degradation
+  description: 'Degradation: the server'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: low
+    duration: 248
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.07928743005421299
+      response_time_ms: 967
+      cpu_usage: 0.4419967478028974
+      memory_usage: 0.48153485683727404
+- timestamp: '2025-05-23T17:47:19.970856'
+  event_type: failure
+  description: 'Failure: the server'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 35
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.4422499981979938
+      response_time_ms: 1007
+      cpu_usage: 0.9061803535945554
+      memory_usage: 0.9036579231955041
+- timestamp: '2025-05-23T17:48:30.970856'
+  event_type: degradation
+  description: 'Degradation: code error'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: low
+    duration: 100
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: code error - operation
+      failed'
+    metrics:
+      error_rate: 0.13051930191025238
+      response_time_ms: 1890
+      cpu_usage: 0.4435542611240749
+      memory_usage: 0.678314191709052
+- timestamp: '2025-05-23T17:48:32.970856'
+  event_type: recovery
+  description: 'Recovery: nginx log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:35.970856'
+  event_type: degradation
+  description: 'Degradation: ssh connection'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: low
+    duration: 297
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: ssh connection - operation
+      failed'
+    metrics:
+      error_rate: 0.1829939014329587
+      response_time_ms: 1608
+      cpu_usage: 0.4544643656568367
+      memory_usage: 0.467524410582689
+- timestamp: '2025-05-23T17:49:11.970856'
+  event_type: failure
+  description: 'Failure: the connection'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 253
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: the connection - operation
+      failed'
+    metrics:
+      error_rate: 0.5994510524438988
+      response_time_ms: 9774
+      cpu_usage: 0.8688010194245113
+      memory_usage: 0.9553759593841541
+- timestamp: '2025-05-23T18:03:26.970856'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

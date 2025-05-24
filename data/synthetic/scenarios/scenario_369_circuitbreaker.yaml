@@ -1,0 +1,117 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173453
+description: Circuit breaker activation due to cascading service failures
+duration: 982
+metadata:
+  generated_at: '2025-05-23T17:34:53.285387'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 1
+    medium: 1
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:53.285156'
+  event_type: trigger
+  description: 'Initial failure detected: info node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:23.285156'
+  event_type: recovery
+  description: 'Recovery: code server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:43.285156'
+  event_type: failure
+  description: 'Failure: to resolve'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 112
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: to resolve - operation
+      failed'
+    metrics:
+      error_rate: 0.8529744691585208
+      response_time_ms: 4087
+      cpu_usage: 0.7043480133044638
+      memory_usage: 0.9660121313944625
+- timestamp: '2025-05-23T17:35:50.285156'
+  event_type: degradation
+  description: 'Degradation: var log'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: low
+    duration: 274
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: var log - operation
+      failed'
+    metrics:
+      error_rate: 0.026443775960237566
+      response_time_ms: 474
+      cpu_usage: 0.5619534423302049
+      memory_usage: 0.40403302689650294
+- timestamp: '2025-05-23T17:36:02.285156'
+  event_type: timeout
+  description: 'Timeout: us log'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 110
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: us log - operation failed'
+    metrics:
+      error_rate: 0.6141983666353144
+      response_time_ms: 7319
+      cpu_usage: 0.9774239927996848
+      memory_usage: 0.9378445728568681
+- timestamp: '2025-05-23T17:36:11.285156'
+  event_type: failure
+  description: 'Failure: message queue'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: medium
+    duration: 283
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: message queue - operation
+      failed'
+    metrics:
+      error_rate: 0.24724006724330155
+      response_time_ms: 1097
+      cpu_usage: 0.7605410348977375
+      memory_usage: 0.6496394308021795
+- timestamp: '2025-05-23T17:36:22.285156'
+  event_type: timeout
+  description: 'Timeout: nginx error'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 64
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: nginx error - operation
+      failed'
+    metrics:
+      error_rate: 0.4912423790054875
+      response_time_ms: 4319
+      cpu_usage: 0.9734155197472821
+      memory_usage: 0.8403354010861045
+- timestamp: '2025-05-23T17:36:34.285156'
+  event_type: recovery
+  description: 'Recovery: code server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:47.285156'
+  event_type: failure
+  description: 'Failure: p update'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 100
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: p update - operation failed'
+    metrics:
+      error_rate: 0.1200163596099718
+      response_time_ms: 3796
+      cpu_usage: 0.7679222188531606
+      memory_usage: 0.9792420495962294
+- timestamp: '2025-05-23T17:51:15.285156'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

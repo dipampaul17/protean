@@ -1,0 +1,138 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_174629",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 339,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.086814",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.086632",
+      "event_type": "trigger",
+      "description": "Initial failure detected: heap memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:43.086632",
+      "event_type": "failure",
+      "description": "Failure: the limit",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "medium",
+        "duration": 87,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: the limit - operation failed",
+        "metrics": {
+          "error_rate": 0.2899959968409447,
+          "response_time_ms": 1299,
+          "cpu_usage": 0.7786349476666059,
+          "memory_usage": 0.47841810075292346
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:49.086632",
+      "event_type": "failure",
+      "description": "Failure: to scale",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 84,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: to scale - operation failed",
+        "metrics": {
+          "error_rate": 0.6663152427805146,
+          "response_time_ms": 4300,
+          "cpu_usage": 0.8056259332232409,
+          "memory_usage": 0.9120575138150783
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:57.086632",
+      "event_type": "timeout",
+      "description": "Timeout: low disk",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 210,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: low disk - operation failed",
+        "metrics": {
+          "error_rate": 0.8237405646770957,
+          "response_time_ms": 8781,
+          "cpu_usage": 0.8782797268757092,
+          "memory_usage": 0.8880290025367407
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:00.086632",
+      "event_type": "timeout",
+      "description": "Timeout: most memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 192,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: most memory - operation failed",
+        "metrics": {
+          "error_rate": 0.2992446624259458,
+          "response_time_ms": 4599,
+          "cpu_usage": 0.9377083165861769,
+          "memory_usage": 0.99297445103267
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:02.086632",
+      "event_type": "timeout",
+      "description": "Timeout: accessed memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 282,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: accessed memory - operation failed",
+        "metrics": {
+          "error_rate": 0.546666750727685,
+          "response_time_ms": 3563,
+          "cpu_usage": 0.8946423569281976,
+          "memory_usage": 0.810865171191062
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:03.086632",
+      "event_type": "timeout",
+      "description": "Timeout: the server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 274,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.7464355864090941,
+          "response_time_ms": 5729,
+          "cpu_usage": 0.7223431330962082,
+          "memory_usage": 0.9701253115977381
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:52:08.086632",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

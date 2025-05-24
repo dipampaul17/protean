@@ -1,0 +1,58 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173708
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 1158
+metadata:
+  generated_at: '2025-05-23T17:37:08.070155'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:08.070035'
+  event_type: trigger
+  description: 'Initial failure detected: of disk'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:01.070035'
+  event_type: recovery
+  description: 'Recovery: the pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:52.070035'
+  event_type: failure
+  description: 'Failure: low disk'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 164
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: low disk - operation failed'
+    metrics:
+      error_rate: 0.6241548053177003
+      response_time_ms: 5722
+      cpu_usage: 0.8447684367135081
+      memory_usage: 0.8385903372773719
+- timestamp: '2025-05-23T17:39:35.070035'
+  event_type: recovery
+  description: 'Recovery: the cache'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:58.070035'
+  event_type: timeout
+  description: 'Timeout: free disk'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 192
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: free disk - operation
+      failed'
+    metrics:
+      error_rate: 0.7618271759749534
+      response_time_ms: 5602
+      cpu_usage: 0.7314221702810326
+      memory_usage: 0.9022581805225349
+- timestamp: '2025-05-23T17:56:26.070035'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

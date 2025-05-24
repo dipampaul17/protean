@@ -1,0 +1,120 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173708",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1080,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.060227",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.060042",
+      "event_type": "trigger",
+      "description": "Initial failure detected: letter queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:46.060042",
+      "event_type": "degradation",
+      "description": "Degradation: info node",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "low",
+        "duration": 59,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: info node - operation failed",
+        "metrics": {
+          "error_rate": 0.1786001157076039,
+          "response_time_ms": 859,
+          "cpu_usage": 0.7406695829084681,
+          "memory_usage": 0.6086440836416143
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:57.060042",
+      "event_type": "recovery",
+      "description": "Recovery: p update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:11.060042",
+      "event_type": "recovery",
+      "description": "Recovery: session timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:13.060042",
+      "event_type": "timeout",
+      "description": "Timeout: kubernetes cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 103,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: kubernetes cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.1508070048728084,
+          "response_time_ms": 5799,
+          "cpu_usage": 0.9805778037802062,
+          "memory_usage": 0.8322849436063452
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:18.060042",
+      "event_type": "recovery",
+      "description": "Recovery: code server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:56.060042",
+      "event_type": "timeout",
+      "description": "Timeout: strong update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 61,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.21018426309143134,
+          "response_time_ms": 6446,
+          "cpu_usage": 0.7115011650669271,
+          "memory_usage": 0.8210767391979129
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:05.060042",
+      "event_type": "failure",
+      "description": "Failure: the log",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 37,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: the log - operation failed",
+        "metrics": {
+          "error_rate": 0.696427274045949,
+          "response_time_ms": 1613,
+          "cpu_usage": 0.7054643196223234,
+          "memory_usage": 0.9973911980291083
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:55:08.060042",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

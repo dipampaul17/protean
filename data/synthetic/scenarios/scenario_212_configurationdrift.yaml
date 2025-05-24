@@ -1,0 +1,56 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173708
+description: Configuration inconsistencies causing service degradation
+duration: 1587
+metadata:
+  generated_at: '2025-05-23T17:37:08.008796'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:37:08.008469'
+  event_type: trigger
+  description: 'Initial failure detected: redis container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:19.008469'
+  event_type: failure
+  description: 'Failure: to deploy'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 225
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: to deploy - operation
+      failed'
+    metrics:
+      error_rate: 0.2122807961288384
+      response_time_ms: 4722
+      cpu_usage: 0.7450129191249298
+      memory_usage: 0.9811808471232598
+- timestamp: '2025-05-23T17:37:20.008469'
+  event_type: rollback
+  description: 'Rollback: kubernetes cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:11.008469'
+  event_type: restart
+  description: 'Restart: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:14.008469'
+  event_type: restart
+  description: 'Restart: code error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:00.008469'
+  event_type: restart
+  description: 'Restart: rabbitmq connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:12.008469'
+  event_type: config_change
+  description: 'Config_Change: kubernetes cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T18:03:35.008469'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

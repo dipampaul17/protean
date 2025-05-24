@@ -1,0 +1,78 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_173453",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 520,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.027756",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.027352",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:06.027352",
+      "event_type": "failure",
+      "description": "Failure: memory limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 293,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.40835355463970124,
+          "response_time_ms": 6825,
+          "cpu_usage": 0.7894952231185036,
+          "memory_usage": 0.9205886368926777
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:11.027352",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:51.027352",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 246,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.43982167165407127,
+          "response_time_ms": 3531,
+          "cpu_usage": 0.9456499953311138,
+          "memory_usage": 0.9309268459792195
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:35.027352",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:43:33.027352",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

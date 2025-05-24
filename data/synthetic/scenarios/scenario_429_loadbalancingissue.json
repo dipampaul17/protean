@@ -1,0 +1,75 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173245",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 1763,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.781170",
+    "phrase_templates_used": 13,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.780321",
+      "event_type": "trigger",
+      "description": "Initial failure detected: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:09.780321",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: in connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:12.780321",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: kafka pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:15.780321",
+      "event_type": "timeout",
+      "description": "Timeout: a service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 135,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR api-gateway: a service in timeout",
+        "metrics": {
+          "error_rate": 0.4149535124256185,
+          "response_time_ms": 4801,
+          "cpu_usage": 0.8468686656815307,
+          "memory_usage": 0.8692556941724845,
+          "requests_per_sec": 8778,
+          "backend_health_pct": 0.6190129799005202,
+          "connection_timeouts": 77
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:38.780321",
+      "event_type": "scaling",
+      "description": "Scaling: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:13.780321",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:02:08.780321",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

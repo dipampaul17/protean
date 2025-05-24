@@ -1,0 +1,59 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_174629
+description: Circuit breaker activation due to cascading service failures
+duration: 1489
+metadata:
+  generated_at: '2025-05-23T17:46:29.122757'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 1
+events:
+- timestamp: '2025-05-23T17:46:29.122625'
+  event_type: trigger
+  description: 'Initial failure detected: an error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:51.122625'
+  event_type: failure
+  description: 'Failure: a queue'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: medium
+    duration: 286
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: a queue - operation
+      failed'
+    metrics:
+      error_rate: 0.26193091993249645
+      response_time_ms: 243
+      cpu_usage: 0.7059598640489864
+      memory_usage: 0.6992438605317951
+- timestamp: '2025-05-23T17:48:57.122625'
+  event_type: recovery
+  description: 'Recovery: gateway timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:19.122625'
+  event_type: recovery
+  description: 'Recovery: virtual memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:52:09.122625'
+  event_type: timeout
+  description: 'Timeout: connection refused'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 186
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: connection refused - operation
+      failed'
+    metrics:
+      error_rate: 0.7200384006571704
+      response_time_ms: 2482
+      cpu_usage: 0.8319611177656667
+      memory_usage: 0.8833457066710043
+- timestamp: '2025-05-23T18:11:18.122625'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

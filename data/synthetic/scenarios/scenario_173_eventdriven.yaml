@@ -1,0 +1,95 @@
+category: EventDriven
+name: EventDriven_20250523_173707
+description: Message queue and event processing failures
+duration: 1636
+metadata:
+  generated_at: '2025-05-23T17:37:07.993295'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:07.992850'
+  event_type: trigger
+  description: 'Initial failure detected: p error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:42.992850'
+  event_type: timeout
+  description: 'Timeout: main queue'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: medium
+    duration: 76
+    log_snippet: '[2025-05-23 17:37:07] ERROR batch-processing-queue: queue processing
+      main queue'
+    metrics:
+      error_rate: 0.22094823334591687
+      response_time_ms: 1993
+      cpu_usage: 0.36892662953044203
+      memory_usage: 0.5212862501400327
+      queue_depth: 17315
+      message_processing_rate: 8.619624116542411
+      consumer_lag_ms: 202629
+- timestamp: '2025-05-23T17:37:56.992850'
+  event_type: message_loss
+  description: 'Message_Loss: config server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:57.992850'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: using rabbitmq'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:12.992850'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: var log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:35.992850'
+  event_type: timeout
+  description: 'Timeout: the connection'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 225
+    log_snippet: '[2025-05-23 17:37:07] ERROR batch-processing-queue: queue processing
+      the connection'
+    metrics:
+      error_rate: 0.7274329798397927
+      response_time_ms: 3263
+      cpu_usage: 0.8418951168125
+      memory_usage: 0.9760739473237943
+      queue_depth: 22167
+      message_processing_rate: 7.768140331180645
+      consumer_lag_ms: 267840
+- timestamp: '2025-05-23T17:40:04.992850'
+  event_type: message_loss
+  description: 'Message_Loss: that queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:10.992850'
+  event_type: timeout
+  description: 'Timeout: the cluster'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: high
+    duration: 293
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-queue: queue processing
+      the cluster'
+    metrics:
+      error_rate: 0.31347646162352727
+      response_time_ms: 5576
+      cpu_usage: 0.8820748832832506
+      memory_usage: 0.9126628831286414
+      queue_depth: 47154
+      message_processing_rate: 5.002140211780139
+      consumer_lag_ms: 251879
+- timestamp: '2025-05-23T17:40:25.992850'
+  event_type: message_loss
+  description: 'Message_Loss: to restart'
+  injection_spec: null
+- timestamp: '2025-05-23T18:04:23.992850'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

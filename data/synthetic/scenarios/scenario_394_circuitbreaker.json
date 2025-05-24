@@ -1,0 +1,90 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173453",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1080,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.290908",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.290789",
+      "event_type": "trigger",
+      "description": "Initial failure detected: exceeded timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:11.290789",
+      "event_type": "failure",
+      "description": "Failure: uwsgi server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 259,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: uwsgi server - operation failed",
+        "metrics": {
+          "error_rate": 0.7173886125236993,
+          "response_time_ms": 5342,
+          "cpu_usage": 0.9741289600204521,
+          "memory_usage": 0.9766686954525232
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:19.290789",
+      "event_type": "recovery",
+      "description": "Recovery: ssh connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:00.290789",
+      "event_type": "timeout",
+      "description": "Timeout: the error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 188,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: the error - operation failed",
+        "metrics": {
+          "error_rate": 0.7033847496312399,
+          "response_time_ms": 4663,
+          "cpu_usage": 0.9009060778325038,
+          "memory_usage": 0.947921927462591
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:17.290789",
+      "event_type": "timeout",
+      "description": "Timeout: message queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "medium",
+        "duration": 70,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: message queue - operation failed",
+        "metrics": {
+          "error_rate": 0.29104343205968597,
+          "response_time_ms": 490,
+          "cpu_usage": 0.7338178226439752,
+          "memory_usage": 0.4607190173967711
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:52:53.290789",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+category: EventDriven
+name: EventDriven_20250523_173245
+description: Message queue and event processing failures
+duration: 516
+metadata:
+  generated_at: '2025-05-23T17:32:45.776839'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 0
+events:
+- timestamp: '2025-05-23T17:32:45.776710'
+  event_type: trigger
+  description: 'Initial failure detected: a queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:22.776710'
+  event_type: timeout
+  description: 'Timeout: message queue'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: medium
+    duration: 224
+    log_snippet: '[2025-05-23 17:32:45] ERROR batch-processing-queue: queue processing
+      message queue'
+    metrics:
+      error_rate: 0.14655615716364098
+      response_time_ms: 1553
+      cpu_usage: 0.6065197148583273
+      memory_usage: 0.5376413607755954
+      queue_depth: 1291
+      message_processing_rate: 2.5448459174132494
+      consumer_lag_ms: 234993
+- timestamp: '2025-05-23T17:33:50.776710'
+  event_type: recovery
+  description: 'Recovery: the connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:06.776710'
+  event_type: recovery
+  description: 'Recovery: new queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:06.776710'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: failed to'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:07.776710'
+  event_type: recovery
+  description: 'Recovery: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:21.776710'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

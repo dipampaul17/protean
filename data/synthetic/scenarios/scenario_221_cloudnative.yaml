@@ -1,0 +1,57 @@
+category: CloudNative
+name: CloudNative_20250523_174628
+description: Kubernetes pod and container orchestration issues
+duration: 1217
+metadata:
+  generated_at: '2025-05-23T17:46:28.989139'
+  phrase_templates_used: 39
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:28.989021'
+  event_type: trigger
+  description: 'Initial failure detected: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:19.989021'
+  event_type: deployment
+  description: 'Deployment: to restart'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:32.989021'
+  event_type: failure
+  description: 'Failure: your container'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 140
+    log_snippet: '[2025-05-23 17:46:28] ERROR web-frontend: your container in failure'
+    metrics:
+      error_rate: 0.6960739119304525
+      response_time_ms: 4387
+      cpu_usage: 0.8182426709744659
+      memory_usage: 0.999153192852841
+- timestamp: '2025-05-23T17:49:57.989021'
+  event_type: scaling
+  description: 'Scaling: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:19.989021'
+  event_type: failure
+  description: 'Failure: failed container'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 62
+    log_snippet: '[2025-05-23 17:46:28] ERROR web-frontend: failed container in failure'
+    metrics:
+      error_rate: 0.4309174563019782
+      response_time_ms: 5029
+      cpu_usage: 0.9616589314231938
+      memory_usage: 0.940062794940835
+- timestamp: '2025-05-23T18:06:45.989021'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

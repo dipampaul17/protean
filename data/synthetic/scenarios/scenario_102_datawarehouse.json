@@ -1,0 +1,96 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_173245",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 604,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.681756",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.681589",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:01.681589",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 241,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.4087624197917358,
+          "response_time_ms": 5560,
+          "cpu_usage": 0.9568691637494131,
+          "memory_usage": 0.9361426109348702
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:26.681589",
+      "event_type": "recovery",
+      "description": "Recovery: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:33.681589",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 261,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.3407529347538205,
+          "response_time_ms": 3759,
+          "cpu_usage": 0.8157392475404381,
+          "memory_usage": 0.8096688718927244
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:36.681589",
+      "event_type": "recovery",
+      "description": "Recovery: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:42.681589",
+      "event_type": "recovery",
+      "description": "Recovery: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:50.681589",
+      "event_type": "recovery",
+      "description": "Recovery: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:05.681589",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:42:49.681589",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

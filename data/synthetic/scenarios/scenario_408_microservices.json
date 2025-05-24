@@ -1,0 +1,144 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_173708",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 1281,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.059210",
+    "phrase_templates_used": 15,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.059004",
+      "event_type": "trigger",
+      "description": "Initial failure detected: lt service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:24.059004",
+      "event_type": "recovery",
+      "description": "Recovery: ui service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:35.059004",
+      "event_type": "timeout",
+      "description": "Timeout: ui service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 144,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: ui service - operation failed",
+        "metrics": {
+          "error_rate": 0.34961810338814897,
+          "response_time_ms": 3403,
+          "cpu_usage": 0.8664848529298698,
+          "memory_usage": 0.9477976095802234
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:33.059004",
+      "event_type": "failure",
+      "description": "Failure: a cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 203,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: a cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.3225770636600787,
+          "response_time_ms": 6660,
+          "cpu_usage": 0.9021024465222733,
+          "memory_usage": 0.840149672387634
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:09.059004",
+      "event_type": "timeout",
+      "description": "Timeout: a service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 124,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.31307503107326023,
+          "response_time_ms": 2218,
+          "cpu_usage": 0.7084199275021058,
+          "memory_usage": 0.9105561271984414
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:26.059004",
+      "event_type": "timeout",
+      "description": "Timeout: lt service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 136,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: lt service - operation failed",
+        "metrics": {
+          "error_rate": 0.3057736813794911,
+          "response_time_ms": 4071,
+          "cpu_usage": 0.718328338817776,
+          "memory_usage": 0.9117189884395276
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:35.059004",
+      "event_type": "failure",
+      "description": "Failure: headless service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 60,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: headless service - operation failed",
+        "metrics": {
+          "error_rate": 0.3928974948724745,
+          "response_time_ms": 7959,
+          "cpu_usage": 0.9998378629958753,
+          "memory_usage": 0.8711178210305508
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:03.059004",
+      "event_type": "failure",
+      "description": "Failure: http connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 259,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: http connection - operation failed",
+        "metrics": {
+          "error_rate": 0.5621064896086586,
+          "response_time_ms": 1066,
+          "cpu_usage": 0.9244333880708933,
+          "memory_usage": 0.9910497143289633
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:58:29.059004",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

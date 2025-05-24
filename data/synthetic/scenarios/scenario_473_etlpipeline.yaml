@@ -1,0 +1,55 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_174629
+description: Infrastructure failure scenario for ETLPipeline
+duration: 678
+metadata:
+  generated_at: '2025-05-23T17:46:29.146120'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:29.145997'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:49.145997'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 120
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.40077053958198905
+      response_time_ms: 9486
+      cpu_usage: 0.9529341772805247
+      memory_usage: 0.8703189096306037
+- timestamp: '2025-05-23T17:48:26.145997'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 122
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.8124204851531182
+      response_time_ms: 4759
+      cpu_usage: 0.8555933758172765
+      memory_usage: 0.8918995535586262
+- timestamp: '2025-05-23T17:48:32.145997'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:57:47.145997'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

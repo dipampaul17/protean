@@ -1,0 +1,102 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_174628",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 397,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.995086",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.994924",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:39.994924",
+      "event_type": "recovery",
+      "description": "Recovery: and memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:43.994924",
+      "event_type": "recovery",
+      "description": "Recovery: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:43.994924",
+      "event_type": "failure",
+      "description": "Failure: customer service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 154,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: customer service - operation failed",
+        "metrics": {
+          "error_rate": 0.8613165263984204,
+          "response_time_ms": 7620,
+          "cpu_usage": 0.7481207474513502,
+          "memory_usage": 0.8134113710562464
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:59.994924",
+      "event_type": "timeout",
+      "description": "Timeout: each node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 227,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: each node - operation failed",
+        "metrics": {
+          "error_rate": 0.33494167236244843,
+          "response_time_ms": 7744,
+          "cpu_usage": 0.7393431510942436,
+          "memory_usage": 0.8014676864565646
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:59.994924",
+      "event_type": "recovery",
+      "description": "Recovery: customer service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:34.994924",
+      "event_type": "failure",
+      "description": "Failure: each node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 116,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: each node - operation failed",
+        "metrics": {
+          "error_rate": 0.5245121447162701,
+          "response_time_ms": 6859,
+          "cpu_usage": 0.7534869234091578,
+          "memory_usage": 0.9481135886274643
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:53:05.994924",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

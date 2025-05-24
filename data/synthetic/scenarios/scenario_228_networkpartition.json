@@ -1,0 +1,72 @@
+{
+  "category": "NetworkPartition",
+  "name": "NetworkPartition_20250523_173245",
+  "description": "Infrastructure failure scenario for NetworkPartition",
+  "duration": 1360,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.727427",
+    "phrase_templates_used": 4,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.727309",
+      "event_type": "trigger",
+      "description": "Initial failure detected: of disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:19.727309",
+      "event_type": "recovery",
+      "description": "Recovery: each node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:32.727309",
+      "event_type": "recovery",
+      "description": "Recovery: and memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:28.727309",
+      "event_type": "timeout",
+      "description": "Timeout: of disk",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 84,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: of disk - operation failed",
+        "metrics": {
+          "error_rate": 0.7977807711843689,
+          "response_time_ms": 2589,
+          "cpu_usage": 0.7111247711813335,
+          "memory_usage": 0.9494969818968135
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:15.727309",
+      "event_type": "recovery",
+      "description": "Recovery: and memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:32.727309",
+      "event_type": "recovery",
+      "description": "Recovery: each node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:55:25.727309",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

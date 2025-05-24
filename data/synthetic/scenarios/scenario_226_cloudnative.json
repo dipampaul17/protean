@@ -1,0 +1,90 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_174628",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 1429,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.990253",
+    "phrase_templates_used": 39,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.989906",
+      "event_type": "trigger",
+      "description": "Initial failure detected: your service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:12.989906",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: a pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:58.989906",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: any log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:34.989906",
+      "event_type": "failure",
+      "description": "Failure: gt service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 221,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR api-backend: gt service in failure",
+        "metrics": {
+          "error_rate": 0.23893224034468183,
+          "response_time_ms": 4117,
+          "cpu_usage": 0.7388291812187638,
+          "memory_usage": 0.817266119710838
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:55.989906",
+      "event_type": "deployment",
+      "description": "Deployment: gt service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:56.989906",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: your service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:21.989906",
+      "event_type": "failure",
+      "description": "Failure: name debug",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 288,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR api-backend: name debug in failure",
+        "metrics": {
+          "error_rate": 0.8996520056924077,
+          "response_time_ms": 4607,
+          "cpu_usage": 0.9057938963674482,
+          "memory_usage": 0.8959701705627912
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:10:17.989906",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

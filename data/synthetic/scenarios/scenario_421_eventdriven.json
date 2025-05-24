@@ -1,0 +1,69 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173453",
+  "description": "Message queue and event processing failures",
+  "duration": 1199,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.342575",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.342468",
+      "event_type": "trigger",
+      "description": "Initial failure detected: warn error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:35.342468",
+      "event_type": "timeout",
+      "description": "Timeout: a cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 236,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-queue: queue processing a cluster",
+        "metrics": {
+          "error_rate": 0.7466596036562448,
+          "response_time_ms": 3373,
+          "cpu_usage": 0.8292346154604449,
+          "memory_usage": 0.9023337001728879,
+          "queue_depth": 6055,
+          "message_processing_rate": 1.8135931311387066,
+          "consumer_lag_ms": 295804
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:33.342468",
+      "event_type": "recovery",
+      "description": "Recovery: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:25.342468",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: a queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:50.342468",
+      "event_type": "recovery",
+      "description": "Recovery: rabbitmq queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:54:52.342468",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

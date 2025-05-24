@@ -1,0 +1,79 @@
+category: EventDriven
+name: EventDriven_20250523_173245
+description: Message queue and event processing failures
+duration: 676
+metadata:
+  generated_at: '2025-05-23T17:32:45.746415'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.746274'
+  event_type: trigger
+  description: 'Initial failure detected: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:28.746274'
+  event_type: timeout
+  description: 'Timeout: warn error'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: high
+    duration: 220
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-queue: queue processing
+      warn error'
+    metrics:
+      error_rate: 0.23615585462830505
+      response_time_ms: 2272
+      cpu_usage: 0.8954637049046184
+      memory_usage: 0.9262930270542451
+      queue_depth: 7828
+      message_processing_rate: 6.9775631912144505
+      consumer_lag_ms: 51403
+- timestamp: '2025-05-23T17:33:57.746274'
+  event_type: timeout
+  description: 'Timeout: to update'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 111
+    log_snippet: '[2025-05-23 17:32:45] ERROR batch-processing-queue: queue processing
+      to update'
+    metrics:
+      error_rate: 0.5131418079642523
+      response_time_ms: 7231
+      cpu_usage: 0.7528410082566568
+      memory_usage: 0.8478497480877472
+      queue_depth: 30004
+      message_processing_rate: 1.6928802519429544
+      consumer_lag_ms: 122562
+- timestamp: '2025-05-23T17:34:05.746274'
+  event_type: timeout
+  description: 'Timeout: resource limit'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: medium
+    duration: 240
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-queue: queue processing resource
+      limit'
+    metrics:
+      error_rate: 0.04568709454192314
+      response_time_ms: 1435
+      cpu_usage: 0.6395631793856085
+      memory_usage: 0.4820168092882566
+      queue_depth: 8958
+      message_processing_rate: 3.5838023525215195
+      consumer_lag_ms: 291793
+- timestamp: '2025-05-23T17:34:18.746274'
+  event_type: message_loss
+  description: 'Message_Loss: a network'
+  injection_spec: null
+- timestamp: '2025-05-23T17:44:01.746274'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

@@ -1,0 +1,97 @@
+category: DataCorruption
+name: DataCorruption_20250523_173453
+description: Infrastructure failure scenario for DataCorruption
+duration: 1577
+metadata:
+  generated_at: '2025-05-23T17:34:53.343581'
+  phrase_templates_used: 36
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.342747'
+  event_type: trigger
+  description: 'Initial failure detected: ebs storage'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:07.342747'
+  event_type: recovery
+  description: 'Recovery: ebs storage'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:30.342747'
+  event_type: failure
+  description: 'Failure: same node'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 295
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: same node - operation
+      failed'
+    metrics:
+      error_rate: 0.4706423931854097
+      response_time_ms: 8539
+      cpu_usage: 0.8586373767885865
+      memory_usage: 0.8686454879821058
+- timestamp: '2025-05-23T17:35:46.342747'
+  event_type: recovery
+  description: 'Recovery: the container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:36.342747'
+  event_type: timeout
+  description: 'Timeout: the error'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 249
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.3588396212099172
+      response_time_ms: 5030
+      cpu_usage: 0.9641143610194927
+      memory_usage: 0.8492113633114873
+- timestamp: '2025-05-23T17:36:47.342747'
+  event_type: recovery
+  description: 'Recovery: the cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:59.342747'
+  event_type: failure
+  description: 'Failure: partitioned queue'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: medium
+    duration: 282
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: partitioned queue - operation
+      failed'
+    metrics:
+      error_rate: 0.15681138950976325
+      response_time_ms: 1926
+      cpu_usage: 0.5037591609194636
+      memory_usage: 0.5051975386556669
+- timestamp: '2025-05-23T17:37:38.342747'
+  event_type: timeout
+  description: 'Timeout: data container'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 282
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: data container - operation
+      failed'
+    metrics:
+      error_rate: 0.4203322597893452
+      response_time_ms: 8494
+      cpu_usage: 0.7587950892548336
+      memory_usage: 0.8727669675062976
+- timestamp: '2025-05-23T17:37:41.342747'
+  event_type: recovery
+  description: 'Recovery: to disk'
+  injection_spec: null
+- timestamp: '2025-05-23T18:01:10.342747'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

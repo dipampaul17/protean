@@ -1,0 +1,71 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173707
+description: Configuration inconsistencies causing service degradation
+duration: 1459
+metadata:
+  generated_at: '2025-05-23T17:37:07.774059'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:07.773891'
+  event_type: trigger
+  description: 'Initial failure detected: following error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:30.773891'
+  event_type: restart
+  description: 'Restart: var log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:02.773891'
+  event_type: failure
+  description: 'Failure: the error'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 225
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.8010646859264259
+      response_time_ms: 8119
+      cpu_usage: 0.9372179664058051
+      memory_usage: 0.8237909567769831
+- timestamp: '2025-05-23T17:38:42.773891'
+  event_type: config_change
+  description: 'Config_Change: api server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:48.773891'
+  event_type: rollback
+  description: 'Rollback: rabbitmq connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:04.773891'
+  event_type: restart
+  description: 'Restart: to deploy'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:41.773891'
+  event_type: rollback
+  description: 'Rollback: proxy server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:02.773891'
+  event_type: failure
+  description: 'Failure: redis node'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 147
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: redis node - operation
+      failed'
+    metrics:
+      error_rate: 0.5864702581972503
+      response_time_ms: 1667
+      cpu_usage: 0.9895345467966496
+      memory_usage: 0.8989544244473552
+- timestamp: '2025-05-23T18:01:26.773891'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

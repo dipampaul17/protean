@@ -1,0 +1,72 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173452",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 758,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.902080",
+    "phrase_templates_used": 45,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.901979",
+      "event_type": "trigger",
+      "description": "Initial failure detected: per pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:13.901979",
+      "event_type": "timeout",
+      "description": "Timeout: illuminate queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "medium",
+        "duration": 164,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: illuminate queue - operation failed",
+        "metrics": {
+          "error_rate": 0.03266495669146921,
+          "response_time_ms": 1247,
+          "cpu_usage": 0.3734576851377569,
+          "memory_usage": 0.5201633528130071
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:04.901979",
+      "event_type": "timeout",
+      "description": "Timeout: lt connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 67,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: lt connection - operation failed",
+        "metrics": {
+          "error_rate": 0.48658906538090885,
+          "response_time_ms": 5207,
+          "cpu_usage": 0.8053862068600863,
+          "memory_usage": 0.9624645568525957
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:29.901979",
+      "event_type": "recovery",
+      "description": "Recovery: var log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:30.901979",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

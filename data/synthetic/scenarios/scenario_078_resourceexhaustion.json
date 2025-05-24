@@ -1,0 +1,108 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_173452",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 1480,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.980131",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.979978",
+      "event_type": "trigger",
+      "description": "Initial failure detected: of memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:20.979978",
+      "event_type": "timeout",
+      "description": "Timeout: info node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 96,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: info node - operation failed",
+        "metrics": {
+          "error_rate": 0.8483536719746,
+          "response_time_ms": 9487,
+          "cpu_usage": 0.8055988213340777,
+          "memory_usage": 0.8557622210648912
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:24.979978",
+      "event_type": "timeout",
+      "description": "Timeout: most memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 237,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: most memory - operation failed",
+        "metrics": {
+          "error_rate": 0.5386693563151831,
+          "response_time_ms": 6558,
+          "cpu_usage": 0.9036494416898483,
+          "memory_usage": 0.8223980655683565
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:13.979978",
+      "event_type": "timeout",
+      "description": "Timeout: urgent memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 137,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: urgent memory - operation failed",
+        "metrics": {
+          "error_rate": 0.2737458861304557,
+          "response_time_ms": 6325,
+          "cpu_usage": 0.7834899016140875,
+          "memory_usage": 0.8100066338703502
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:44.979978",
+      "event_type": "recovery",
+      "description": "Recovery: and fix",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:35.979978",
+      "event_type": "timeout",
+      "description": "Timeout: accessed memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 111,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: accessed memory - operation failed",
+        "metrics": {
+          "error_rate": 0.7695525566199297,
+          "response_time_ms": 9375,
+          "cpu_usage": 0.7826264810874836,
+          "memory_usage": 0.8235432890545846
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:59:32.979978",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

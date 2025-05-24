@@ -1,0 +1,78 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173708",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 1300,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.034895",
+    "phrase_templates_used": 36,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.034785",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:11.034785",
+      "event_type": "recovery",
+      "description": "Recovery: one server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:34.034785",
+      "event_type": "failure",
+      "description": "Failure: closed connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 89,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: closed connection - operation failed",
+        "metrics": {
+          "error_rate": 0.7616822232826275,
+          "response_time_ms": 3604,
+          "cpu_usage": 0.9645461267627713,
+          "memory_usage": 0.8012308706163894
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:44.034785",
+      "event_type": "timeout",
+      "description": "Timeout: strong update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 185,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.4122505853647688,
+          "response_time_ms": 4009,
+          "cpu_usage": 0.795226940315239,
+          "memory_usage": 0.900172744373994
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:52.034785",
+      "event_type": "recovery",
+      "description": "Recovery: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:58:48.034785",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

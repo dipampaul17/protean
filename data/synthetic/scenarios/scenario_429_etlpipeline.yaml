@@ -1,0 +1,115 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173708
+description: Infrastructure failure scenario for ETLPipeline
+duration: 906
+metadata:
+  generated_at: '2025-05-23T17:37:08.065435'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:37:08.065231'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:19.065231'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 53
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.7481885452172835
+      response_time_ms: 5459
+      cpu_usage: 0.7514353941882291
+      memory_usage: 0.8763548614331478
+- timestamp: '2025-05-23T17:37:46.065231'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 113
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.24245743087062996
+      response_time_ms: 4944
+      cpu_usage: 0.8021290656016558
+      memory_usage: 0.8423397353698587
+- timestamp: '2025-05-23T17:38:11.065231'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 147
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: authentication
+      failed - operation failed'
+    metrics:
+      error_rate: 0.49432381699072936
+      response_time_ms: 6087
+      cpu_usage: 0.7503950499536214
+      memory_usage: 0.9973403911904369
+- timestamp: '2025-05-23T17:38:27.065231'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 56
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.7762938474041
+      response_time_ms: 7827
+      cpu_usage: 0.806445472074528
+      memory_usage: 0.911715894496355
+- timestamp: '2025-05-23T17:38:33.065231'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 61
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.7886392883649658
+      response_time_ms: 2235
+      cpu_usage: 0.8936225891977059
+      memory_usage: 0.9344450271584949
+- timestamp: '2025-05-23T17:38:58.065231'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 120
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.25038574842855477
+      response_time_ms: 4218
+      cpu_usage: 0.996155980415646
+      memory_usage: 0.9963130433397305
+- timestamp: '2025-05-23T17:39:17.065231'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:52:14.065231'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

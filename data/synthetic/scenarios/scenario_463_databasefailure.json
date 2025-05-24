@@ -1,0 +1,93 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173708",
+  "description": "Database connectivity and performance issues",
+  "duration": 1596,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.077628",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 0
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.077047",
+      "event_type": "trigger",
+      "description": "Initial failure detected: your database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:00.077047",
+      "event_type": "recovery",
+      "description": "Recovery: docker container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:02.077047",
+      "event_type": "corruption",
+      "description": "Corruption: an error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:30.077047",
+      "event_type": "recovery",
+      "description": "Recovery: a database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:55.077047",
+      "event_type": "recovery",
+      "description": "Recovery: code server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:22.077047",
+      "event_type": "timeout",
+      "description": "Timeout: message queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "medium",
+        "duration": 201,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR mongodb-shard: message queue in timeout",
+        "metrics": {
+          "error_rate": 0.26060850340816977,
+          "response_time_ms": 1656,
+          "cpu_usage": 0.3614396121850301,
+          "memory_usage": 0.5439797174528389,
+          "connection_pool_usage": 0.9737378855618254,
+          "query_time_ms": 16544,
+          "deadlocks_per_sec": 8
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:27.077047",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: get update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:52.077047",
+      "event_type": "corruption",
+      "description": "Corruption: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:18.077047",
+      "event_type": "corruption",
+      "description": "Corruption: var log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:03:44.077047",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

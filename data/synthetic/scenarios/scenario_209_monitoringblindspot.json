@@ -1,0 +1,150 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_174628",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 492,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.985223",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.984848",
+      "event_type": "trigger",
+      "description": "Initial failure detected: prometheus server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:46.984848",
+      "event_type": "failure",
+      "description": "Failure: an alert",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 282,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: an alert - operation failed",
+        "metrics": {
+          "error_rate": 0.5845686496335132,
+          "response_time_ms": 3275,
+          "cpu_usage": 0.7507414469176992,
+          "memory_usage": 0.825178298921264
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:58.984848",
+      "event_type": "timeout",
+      "description": "Timeout: the node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 149,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: the node - operation failed",
+        "metrics": {
+          "error_rate": 0.6384686867499882,
+          "response_time_ms": 8005,
+          "cpu_usage": 0.8511313617728251,
+          "memory_usage": 0.98321822474017
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:59.984848",
+      "event_type": "failure",
+      "description": "Failure: the server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 278,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.43428386629049776,
+          "response_time_ms": 5422,
+          "cpu_usage": 0.8031346205476276,
+          "memory_usage": 0.9018015064730036
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:05.984848",
+      "event_type": "failure",
+      "description": "Failure: the log",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 90,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: the log - operation failed",
+        "metrics": {
+          "error_rate": 0.6499526623262107,
+          "response_time_ms": 4964,
+          "cpu_usage": 0.7799251559773218,
+          "memory_usage": 0.8494779322565531
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:09.984848",
+      "event_type": "recovery",
+      "description": "Recovery: connection refused",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:19.984848",
+      "event_type": "timeout",
+      "description": "Timeout: a server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 256,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: a server - operation failed",
+        "metrics": {
+          "error_rate": 0.806698493711483,
+          "response_time_ms": 3595,
+          "cpu_usage": 0.8137644167964544,
+          "memory_usage": 0.8599388657270577
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:20.984848",
+      "event_type": "timeout",
+      "description": "Timeout: strong update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 184,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.5661809779881497,
+          "response_time_ms": 1502,
+          "cpu_usage": 0.7822590846809944,
+          "memory_usage": 0.8651297685955532
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:20.984848",
+      "event_type": "recovery",
+      "description": "Recovery: quot server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:54:40.984848",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

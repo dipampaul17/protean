@@ -1,0 +1,54 @@
+category: NetworkPartition
+name: NetworkPartition_20250523_174629
+description: Infrastructure failure scenario for NetworkPartition
+duration: 1508
+metadata:
+  generated_at: '2025-05-23T17:46:29.125205'
+  phrase_templates_used: 4
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:29.125098'
+  event_type: trigger
+  description: 'Initial failure detected: each node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:36.125098'
+  event_type: timeout
+  description: 'Timeout: of disk'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 278
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: of disk - operation failed'
+    metrics:
+      error_rate: 0.3762051667876465
+      response_time_ms: 7393
+      cpu_usage: 0.7048399993714279
+      memory_usage: 0.8767830639650659
+- timestamp: '2025-05-23T17:48:54.125098'
+  event_type: recovery
+  description: 'Recovery: and memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:51.125098'
+  event_type: failure
+  description: 'Failure: each node'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 282
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: each node - operation
+      failed'
+    metrics:
+      error_rate: 0.3089607461639772
+      response_time_ms: 4085
+      cpu_usage: 0.9302526879114383
+      memory_usage: 0.8419360120667986
+- timestamp: '2025-05-23T18:11:37.125098'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,67 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173245
+description: Configuration inconsistencies causing service degradation
+duration: 1079
+metadata:
+  generated_at: '2025-05-23T17:32:45.765196'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.765041'
+  event_type: trigger
+  description: 'Initial failure detected: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:31.765041'
+  event_type: rollback
+  description: 'Rollback: string container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:53.765041'
+  event_type: restart
+  description: 'Restart: nginx error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:14.765041'
+  event_type: restart
+  description: 'Restart: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:35.765041'
+  event_type: failure
+  description: 'Failure: the deployment'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 116
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: the deployment - operation
+      failed'
+    metrics:
+      error_rate: 0.4211673228672942
+      response_time_ms: 9949
+      cpu_usage: 0.7255259725853903
+      memory_usage: 0.8772651012527788
+- timestamp: '2025-05-23T17:34:37.765041'
+  event_type: config_change
+  description: 'Config_Change: nginx container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:17.765041'
+  event_type: failure
+  description: 'Failure: nginx container'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 66
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: nginx container - operation
+      failed'
+    metrics:
+      error_rate: 0.1796311839116804
+      response_time_ms: 7787
+      cpu_usage: 0.8434365712357099
+      memory_usage: 0.9851609441003178
+- timestamp: '2025-05-23T17:50:44.765041'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

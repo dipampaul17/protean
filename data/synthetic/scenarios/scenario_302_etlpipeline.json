@@ -1,0 +1,90 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173453",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 1080,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.217449",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.217330",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:28.217330",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 239,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.1689234750252706,
+          "response_time_ms": 9078,
+          "cpu_usage": 0.9935326740100987,
+          "memory_usage": 0.9643178185175588
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:06.217330",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 235,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.3405999864783428,
+          "response_time_ms": 8707,
+          "cpu_usage": 0.8215386241637332,
+          "memory_usage": 0.8290603387878396
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:31.217330",
+      "event_type": "recovery",
+      "description": "Recovery: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:49.217330",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 45,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.4346000200328566,
+          "response_time_ms": 5076,
+          "cpu_usage": 0.7818673066646167,
+          "memory_usage": 0.9737220759879829
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:52:53.217330",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

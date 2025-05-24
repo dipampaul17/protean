@@ -1,0 +1,84 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_174629",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 928,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.065027",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.064920",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to resolve",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:51.064920",
+      "event_type": "failure",
+      "description": "Failure: labels service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 74,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: labels service - operation failed",
+        "metrics": {
+          "error_rate": 0.7899640730325634,
+          "response_time_ms": 4198,
+          "cpu_usage": 0.7419164739811465,
+          "memory_usage": 0.9638478673807241
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:41.064920",
+      "event_type": "failure",
+      "description": "Failure: scaled service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 203,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: scaled service - operation failed",
+        "metrics": {
+          "error_rate": 0.2705714569021761,
+          "response_time_ms": 6796,
+          "cpu_usage": 0.8018461411972562,
+          "memory_usage": 0.9504765145096981
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:14.064920",
+      "event_type": "failure",
+      "description": "Failure: to monitor",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 84,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: to monitor - operation failed",
+        "metrics": {
+          "error_rate": 0.5492716388148161,
+          "response_time_ms": 8935,
+          "cpu_usage": 0.8490200576701754,
+          "memory_usage": 0.9053547885599665
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:01:57.064920",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

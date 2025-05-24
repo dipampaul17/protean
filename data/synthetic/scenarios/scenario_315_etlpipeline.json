@@ -1,0 +1,108 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173453",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 1387,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.221444",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.221294",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:09.221294",
+      "event_type": "recovery",
+      "description": "Recovery: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:10.221294",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 56,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.7398247976350998,
+          "response_time_ms": 4972,
+          "cpu_usage": 0.9076349768703278,
+          "memory_usage": 0.845817035589541
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:18.221294",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 174,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.6138632216951543,
+          "response_time_ms": 3634,
+          "cpu_usage": 0.9677311721161952,
+          "memory_usage": 0.9051866242853367
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:04.221294",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 81,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.7168845959562357,
+          "response_time_ms": 7573,
+          "cpu_usage": 0.8982129882559786,
+          "memory_usage": 0.9415536620094583
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:06.221294",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 182,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.8789050426865556,
+          "response_time_ms": 1274,
+          "cpu_usage": 0.7204409895380564,
+          "memory_usage": 0.8601695867381866
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:58:00.221294",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173707
+description: Application deployment and rollback scenarios
+duration: 1767
+metadata:
+  generated_at: '2025-05-23T17:37:07.949522'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:07.949409'
+  event_type: trigger
+  description: 'Initial failure detected: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:17.949409'
+  event_type: failure
+  description: 'Failure: your deployment'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 68
+    log_snippet: '[2025-05-23 17:37:07] ERROR api-backend: your deployment in failure'
+    metrics:
+      error_rate: 0.6222594703722917
+      response_time_ms: 7503
+      cpu_usage: 0.8753936415083411
+      memory_usage: 0.8123240205306357
+- timestamp: '2025-05-23T17:41:26.949409'
+  event_type: failure
+  description: 'Failure: container pod'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 188
+    log_snippet: '[2025-05-23 17:37:07] ERROR web-frontend: container pod in failure'
+    metrics:
+      error_rate: 0.6153545319520979
+      response_time_ms: 6546
+      cpu_usage: 0.8950075912201755
+      memory_usage: 0.978870558073004
+- timestamp: '2025-05-23T17:42:17.949409'
+  event_type: rollback
+  description: 'Rollback: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:44:00.949409'
+  event_type: deployment
+  description: 'Deployment: code container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:06:34.949409'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

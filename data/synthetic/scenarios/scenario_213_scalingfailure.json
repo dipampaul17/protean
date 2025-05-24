@@ -1,0 +1,102 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_173453",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 758,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.151826",
+    "phrase_templates_used": 24,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.151225",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:05.151225",
+      "event_type": "recovery",
+      "description": "Recovery: which node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:09.151225",
+      "event_type": "timeout",
+      "description": "Timeout: a cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 254,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: a cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.2963511049115729,
+          "response_time_ms": 3673,
+          "cpu_usage": 0.8745438882327278,
+          "memory_usage": 0.9822924120629841
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:16.151225",
+      "event_type": "recovery",
+      "description": "Recovery: the cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:19.151225",
+      "event_type": "recovery",
+      "description": "Recovery: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:49.151225",
+      "event_type": "recovery",
+      "description": "Recovery: the cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:11.151225",
+      "event_type": "failure",
+      "description": "Failure: a cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 86,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: a cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.1624863119458956,
+          "response_time_ms": 2779,
+          "cpu_usage": 0.8673861864010555,
+          "memory_usage": 0.9548983878899435
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:17.151225",
+      "event_type": "recovery",
+      "description": "Recovery: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:18.151225",
+      "event_type": "recovery",
+      "description": "Recovery: a node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:31.151225",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

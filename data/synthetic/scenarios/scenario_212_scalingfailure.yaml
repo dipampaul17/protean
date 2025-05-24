@@ -1,0 +1,67 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_174628
+description: Infrastructure failure scenario for ScalingFailure
+duration: 479
+metadata:
+  generated_at: '2025-05-23T17:46:28.985972'
+  phrase_templates_used: 24
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:28.985727'
+  event_type: trigger
+  description: 'Initial failure detected: nodeport service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:44.985727'
+  event_type: timeout
+  description: 'Timeout: an error'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 235
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: an error - operation
+      failed'
+    metrics:
+      error_rate: 0.23415588559816386
+      response_time_ms: 1048
+      cpu_usage: 0.9874893141257215
+      memory_usage: 0.820614872633474
+- timestamp: '2025-05-23T17:47:06.985727'
+  event_type: recovery
+  description: 'Recovery: a server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:15.985727'
+  event_type: failure
+  description: 'Failure: the service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 130
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: the service - operation
+      failed'
+    metrics:
+      error_rate: 0.3633986406587282
+      response_time_ms: 2536
+      cpu_usage: 0.7835912949104502
+      memory_usage: 0.924012677206171
+- timestamp: '2025-05-23T17:47:37.985727'
+  event_type: recovery
+  description: 'Recovery: of failure'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:41.985727'
+  event_type: recovery
+  description: 'Recovery: a server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:44.985727'
+  event_type: recovery
+  description: 'Recovery: to scale'
+  injection_spec: null
+- timestamp: '2025-05-23T17:54:27.985727'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,84 @@
+category: NetworkPartition
+name: NetworkPartition_20250523_173245
+description: Infrastructure failure scenario for NetworkPartition
+duration: 1618
+metadata:
+  generated_at: '2025-05-23T17:32:45.754262'
+  phrase_templates_used: 4
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:32:45.754093'
+  event_type: trigger
+  description: 'Initial failure detected: and node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:57.754093'
+  event_type: timeout
+  description: 'Timeout: and memory'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 79
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: and memory - operation
+      failed'
+    metrics:
+      error_rate: 0.1887456371744035
+      response_time_ms: 5140
+      cpu_usage: 0.8601381055639589
+      memory_usage: 0.8813382291689572
+- timestamp: '2025-05-23T17:35:22.754093'
+  event_type: recovery
+  description: 'Recovery: each node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:24.754093'
+  event_type: timeout
+  description: 'Timeout: of disk'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 146
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: of disk - operation
+      failed'
+    metrics:
+      error_rate: 0.4235413546948814
+      response_time_ms: 9858
+      cpu_usage: 0.7769337741432872
+      memory_usage: 0.8293875082088639
+- timestamp: '2025-05-23T17:36:57.754093'
+  event_type: failure
+  description: 'Failure: of disk'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 193
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: of disk - operation failed'
+    metrics:
+      error_rate: 0.7690547716380176
+      response_time_ms: 3583
+      cpu_usage: 0.8732501973231421
+      memory_usage: 0.810876117846425
+- timestamp: '2025-05-23T17:36:58.754093'
+  event_type: timeout
+  description: 'Timeout: each node'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 170
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: each node - operation
+      failed'
+    metrics:
+      error_rate: 0.28894951680794023
+      response_time_ms: 3992
+      cpu_usage: 0.8962742046332417
+      memory_usage: 0.8978260203264404
+- timestamp: '2025-05-23T17:59:43.754093'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

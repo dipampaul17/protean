@@ -1,0 +1,67 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_174629
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 1381
+metadata:
+  generated_at: '2025-05-23T17:46:29.068508'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:29.068281'
+  event_type: trigger
+  description: 'Initial failure detected: to monitor'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:47.068281'
+  event_type: recovery
+  description: 'Recovery: redis connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:22.068281'
+  event_type: timeout
+  description: 'Timeout: the server'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 110
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.8879618831613313
+      response_time_ms: 3681
+      cpu_usage: 0.95263063787459
+      memory_usage: 0.8298416988348682
+- timestamp: '2025-05-23T17:49:41.068281'
+  event_type: recovery
+  description: 'Recovery: causing outage'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:54.068281'
+  event_type: recovery
+  description: 'Recovery: most memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:54.068281'
+  event_type: failure
+  description: 'Failure: a memory'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 262
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: a memory - operation
+      failed'
+    metrics:
+      error_rate: 0.5672592825875803
+      response_time_ms: 9167
+      cpu_usage: 0.8444779542848214
+      memory_usage: 0.9690230323885982
+- timestamp: '2025-05-23T17:50:11.068281'
+  event_type: recovery
+  description: 'Recovery: float scale'
+  injection_spec: null
+- timestamp: '2025-05-23T18:09:30.068281'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

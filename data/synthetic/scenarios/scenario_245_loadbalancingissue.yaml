@@ -1,0 +1,92 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173708
+description: Load balancer and traffic distribution problems
+duration: 1052
+metadata:
+  generated_at: '2025-05-23T17:37:08.016238'
+  phrase_templates_used: 13
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:08.016038'
+  event_type: trigger
+  description: 'Initial failure detected: kafka pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:18.016038'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: load balancer'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:39.016038'
+  event_type: timeout
+  description: 'Timeout: a pod'
+  injection_spec:
+    type: timeout
+    target: api-gateway
+    severity: high
+    duration: 299
+    log_snippet: '[2025-05-23 17:37:08] ERROR api-gateway: a pod in timeout'
+    metrics:
+      error_rate: 0.617989815504341
+      response_time_ms: 8216
+      cpu_usage: 0.8350820337838193
+      memory_usage: 0.9794362666427627
+      requests_per_sec: 568
+      backend_health_pct: 0.4672049715171447
+      connection_timeouts: 802
+- timestamp: '2025-05-23T17:37:57.016038'
+  event_type: timeout
+  description: 'Timeout: load balancer'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 32
+    log_snippet: '[2025-05-23 17:37:08] ERROR subnet-private: load balancer in timeout'
+    metrics:
+      error_rate: 0.14178196957465491
+      response_time_ms: 7100
+      cpu_usage: 0.7035698595630158
+      memory_usage: 0.9034334269884139
+      requests_per_sec: 5100
+      backend_health_pct: 0.603853780135144
+      connection_timeouts: 87
+- timestamp: '2025-05-23T17:38:54.016038'
+  event_type: backend_failure
+  description: 'Backend_Failure: your cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:07.016038'
+  event_type: timeout
+  description: 'Timeout: in connection'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 185
+    log_snippet: '[2025-05-23 17:37:08] ERROR subnet-private: in connection in timeout'
+    metrics:
+      error_rate: 0.5595834632378143
+      response_time_ms: 5723
+      cpu_usage: 0.7218169278619421
+      memory_usage: 0.9673989933505751
+      requests_per_sec: 2382
+      backend_health_pct: 0.6271191806975824
+      connection_timeouts: 900
+- timestamp: '2025-05-23T17:39:09.016038'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:13.016038'
+  event_type: backend_failure
+  description: 'Backend_Failure: a server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:17.016038'
+  event_type: backend_failure
+  description: 'Backend_Failure: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:54:40.016038'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

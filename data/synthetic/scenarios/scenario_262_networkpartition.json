@@ -1,0 +1,144 @@
+{
+  "category": "NetworkPartition",
+  "name": "NetworkPartition_20250523_173453",
+  "description": "Infrastructure failure scenario for NetworkPartition",
+  "duration": 1709,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.200091",
+    "phrase_templates_used": 4,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.199259",
+      "event_type": "trigger",
+      "description": "Initial failure detected: of disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:08.199259",
+      "event_type": "failure",
+      "description": "Failure: of disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 64,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: of disk - operation failed",
+        "metrics": {
+          "error_rate": 0.8593121467260018,
+          "response_time_ms": 5969,
+          "cpu_usage": 0.9923249863122465,
+          "memory_usage": 0.8622729120806026
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:34.199259",
+      "event_type": "recovery",
+      "description": "Recovery: of disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:52.199259",
+      "event_type": "timeout",
+      "description": "Timeout: each node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 295,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: each node - operation failed",
+        "metrics": {
+          "error_rate": 0.5619354328352485,
+          "response_time_ms": 9525,
+          "cpu_usage": 0.9099259948791816,
+          "memory_usage": 0.9475248079234302
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:15.199259",
+      "event_type": "timeout",
+      "description": "Timeout: and node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 69,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: and node - operation failed",
+        "metrics": {
+          "error_rate": 0.7994132728638278,
+          "response_time_ms": 9409,
+          "cpu_usage": 0.7901982278752956,
+          "memory_usage": 0.9700965765704929
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:05.199259",
+      "event_type": "timeout",
+      "description": "Timeout: of disk",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 62,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: of disk - operation failed",
+        "metrics": {
+          "error_rate": 0.5618988778471836,
+          "response_time_ms": 2776,
+          "cpu_usage": 0.84460319460206,
+          "memory_usage": 0.9121455633489703
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:21.199259",
+      "event_type": "failure",
+      "description": "Failure: and node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 198,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: and node - operation failed",
+        "metrics": {
+          "error_rate": 0.8983938467092444,
+          "response_time_ms": 6820,
+          "cpu_usage": 0.7429394504967385,
+          "memory_usage": 0.9796907660372987
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:26.199259",
+      "event_type": "failure",
+      "description": "Failure: of disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 78,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: of disk - operation failed",
+        "metrics": {
+          "error_rate": 0.5451657499590701,
+          "response_time_ms": 2673,
+          "cpu_usage": 0.8143223101024668,
+          "memory_usage": 0.9365677881098465
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:03:22.199259",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

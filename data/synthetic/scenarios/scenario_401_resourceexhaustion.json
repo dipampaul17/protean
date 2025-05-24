@@ -1,0 +1,114 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_174629",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 1062,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.124241",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.124051",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:04.124051",
+      "event_type": "recovery",
+      "description": "Recovery: to fix",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:17.124051",
+      "event_type": "failure",
+      "description": "Failure: http server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 234,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: http server - operation failed",
+        "metrics": {
+          "error_rate": 0.2968421836140457,
+          "response_time_ms": 8874,
+          "cpu_usage": 0.9348438503201602,
+          "memory_usage": 0.8966953063236178
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:27.124051",
+      "event_type": "timeout",
+      "description": "Timeout: em connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 222,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: em connection - operation failed",
+        "metrics": {
+          "error_rate": 0.8271183692574323,
+          "response_time_ms": 5813,
+          "cpu_usage": 0.9044157117876239,
+          "memory_usage": 0.9676081295297935
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:29.124051",
+      "event_type": "recovery",
+      "description": "Recovery: redis connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:37.124051",
+      "event_type": "timeout",
+      "description": "Timeout: a node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 288,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: a node - operation failed",
+        "metrics": {
+          "error_rate": 0.7419859796136395,
+          "response_time_ms": 2832,
+          "cpu_usage": 0.9399319078900275,
+          "memory_usage": 0.9216412081830513
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:47.124051",
+      "event_type": "failure",
+      "description": "Failure: of memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 216,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: of memory - operation failed",
+        "metrics": {
+          "error_rate": 0.4995376251579827,
+          "response_time_ms": 6949,
+          "cpu_usage": 0.8554097031249159,
+          "memory_usage": 0.8048757094869857
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:04:11.124051",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

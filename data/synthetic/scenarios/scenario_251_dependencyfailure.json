@@ -1,0 +1,114 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173453",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 1127,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.195368",
+    "phrase_templates_used": 45,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.194916",
+      "event_type": "trigger",
+      "description": "Initial failure detected: nginx error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:34.194916",
+      "event_type": "recovery",
+      "description": "Recovery: upstream server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:44.194916",
+      "event_type": "recovery",
+      "description": "Recovery: per pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:44.194916",
+      "event_type": "recovery",
+      "description": "Recovery: coirq error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:50.194916",
+      "event_type": "failure",
+      "description": "Failure: to monitor",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 163,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: to monitor - operation failed",
+        "metrics": {
+          "error_rate": 0.3075308902466073,
+          "response_time_ms": 9889,
+          "cpu_usage": 0.9712060167382255,
+          "memory_usage": 0.8414586439933556
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:53.194916",
+      "event_type": "timeout",
+      "description": "Timeout: work log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 273,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: work log - operation failed",
+        "metrics": {
+          "error_rate": 0.7478868907708132,
+          "response_time_ms": 5284,
+          "cpu_usage": 0.9288813193307268,
+          "memory_usage": 0.9928441397107473
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:16.194916",
+      "event_type": "recovery",
+      "description": "Recovery: nginx service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:28.194916",
+      "event_type": "failure",
+      "description": "Failure: upstream queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "medium",
+        "duration": 175,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: upstream queue - operation failed",
+        "metrics": {
+          "error_rate": 0.09722961015642315,
+          "response_time_ms": 927,
+          "cpu_usage": 0.36729199199341184,
+          "memory_usage": 0.5144492627599944
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:40.194916",
+      "event_type": "recovery",
+      "description": "Recovery: proxy server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:53:40.194916",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

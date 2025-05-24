@@ -1,0 +1,60 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_174629",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 585,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.070441",
+    "phrase_templates_used": 24,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.070361",
+      "event_type": "trigger",
+      "description": "Initial failure detected: of failure",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:54.070361",
+      "event_type": "recovery",
+      "description": "Recovery: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:02.070361",
+      "event_type": "failure",
+      "description": "Failure: this error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 229,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: this error - operation failed",
+        "metrics": {
+          "error_rate": 0.6366508196465321,
+          "response_time_ms": 5184,
+          "cpu_usage": 0.7780696408213914,
+          "memory_usage": 0.9271862658971946
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:38.070361",
+      "event_type": "recovery",
+      "description": "Recovery: aws application",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:56:14.070361",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

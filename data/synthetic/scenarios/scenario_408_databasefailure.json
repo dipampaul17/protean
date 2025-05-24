@@ -1,0 +1,69 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173245",
+  "description": "Database connectivity and performance issues",
+  "duration": 1114,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.775150",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.775042",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:43.775042",
+      "event_type": "corruption",
+      "description": "Corruption: on database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:39.775042",
+      "event_type": "timeout",
+      "description": "Timeout: code error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 95,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR redis-cache: code error in timeout",
+        "metrics": {
+          "error_rate": 0.21962734107540244,
+          "response_time_ms": 3702,
+          "cpu_usage": 0.973841014841148,
+          "memory_usage": 0.8357128408595981,
+          "connection_pool_usage": 0.9980859849127728,
+          "query_time_ms": 11218,
+          "deadlocks_per_sec": 1
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:08.775042",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:55.775042",
+      "event_type": "corruption",
+      "description": "Corruption: api server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:51:19.775042",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

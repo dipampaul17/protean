@@ -1,0 +1,65 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173453
+description: Application deployment and rollback scenarios
+duration: 1684
+metadata:
+  generated_at: '2025-05-23T17:34:53.217179'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:34:53.217026'
+  event_type: trigger
+  description: 'Initial failure detected: during deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:26.217026'
+  event_type: failure
+  description: 'Failure: a service'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 57
+    log_snippet: '[2025-05-23 17:34:53] ERROR api-backend: a service in failure'
+    metrics:
+      error_rate: 0.4476857208343801
+      response_time_ms: 3322
+      cpu_usage: 0.8698731731679306
+      memory_usage: 0.8015115159351761
+- timestamp: '2025-05-23T17:36:01.217026'
+  event_type: failure
+  description: 'Failure: p error'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 57
+    log_snippet: '[2025-05-23 17:34:53] ERROR nginx-proxy: p error in failure'
+    metrics:
+      error_rate: 0.7747876673488449
+      response_time_ms: 8316
+      cpu_usage: 0.9047972922812006
+      memory_usage: 0.9016990146222538
+- timestamp: '2025-05-23T17:36:58.217026'
+  event_type: rollback
+  description: 'Rollback: reviewing error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:23.217026'
+  event_type: rollback
+  description: 'Rollback: my deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:15.217026'
+  event_type: scaling
+  description: 'Scaling: kubernetes cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:25.217026'
+  event_type: scaling
+  description: 'Scaling: rolling update'
+  injection_spec: null
+- timestamp: '2025-05-23T18:02:57.217026'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

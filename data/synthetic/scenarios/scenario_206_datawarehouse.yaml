@@ -1,0 +1,104 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173453
+description: Infrastructure failure scenario for DataWarehouse
+duration: 1132
+metadata:
+  generated_at: '2025-05-23T17:34:53.146989'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:34:53.146602'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:16.146602'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:34.146602'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 149
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.14095824504151847
+      response_time_ms: 1896
+      cpu_usage: 0.7266897059640305
+      memory_usage: 0.9646504013358528
+- timestamp: '2025-05-23T17:35:52.146602'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 142
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.7822619318212839
+      response_time_ms: 6339
+      cpu_usage: 0.7860086934253363
+      memory_usage: 0.9238428356966762
+- timestamp: '2025-05-23T17:35:54.146602'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 296
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: deployment failed -
+      operation failed'
+    metrics:
+      error_rate: 0.5456394869033928
+      response_time_ms: 3265
+      cpu_usage: 0.7938215759064179
+      memory_usage: 0.9975731585352561
+- timestamp: '2025-05-23T17:35:56.146602'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 65
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.1701942904735505
+      response_time_ms: 6610
+      cpu_usage: 0.8964470602079819
+      memory_usage: 0.8112738140801438
+- timestamp: '2025-05-23T17:36:10.146602'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:43.146602'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 65
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: disk space full
+      - operation failed'
+    metrics:
+      error_rate: 0.7017494151645008
+      response_time_ms: 6452
+      cpu_usage: 0.7157789023073869
+      memory_usage: 0.878662720776753
+- timestamp: '2025-05-23T17:53:45.146602'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,108 @@
+category: DataCorruption
+name: DataCorruption_20250523_174629
+description: Infrastructure failure scenario for DataCorruption
+duration: 511
+metadata:
+  generated_at: '2025-05-23T17:46:29.062165'
+  phrase_templates_used: 36
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 4
+events:
+- timestamp: '2025-05-23T17:46:29.061658'
+  event_type: trigger
+  description: 'Initial failure detected: data container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:40.061658'
+  event_type: failure
+  description: 'Failure: to node'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 147
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: to node - operation
+      failed'
+    metrics:
+      error_rate: 0.8168044261575912
+      response_time_ms: 9631
+      cpu_usage: 0.9025876045374526
+      memory_usage: 0.8513407314799148
+- timestamp: '2025-05-23T17:46:41.061658'
+  event_type: timeout
+  description: 'Timeout: only container'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 116
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: only container
+      - operation failed'
+    metrics:
+      error_rate: 0.7443374661268783
+      response_time_ms: 2670
+      cpu_usage: 0.999515042244913
+      memory_usage: 0.9203179072041896
+- timestamp: '2025-05-23T17:46:57.061658'
+  event_type: recovery
+  description: 'Recovery: the node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:01.061658'
+  event_type: failure
+  description: 'Failure: closed connection'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 90
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: closed connection - operation
+      failed'
+    metrics:
+      error_rate: 0.48509448474559225
+      response_time_ms: 3676
+      cpu_usage: 0.9781200941517553
+      memory_usage: 0.9900278454121038
+- timestamp: '2025-05-23T17:47:01.061658'
+  event_type: recovery
+  description: 'Recovery: the connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:03.061658'
+  event_type: recovery
+  description: 'Recovery: the connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:16.061658'
+  event_type: failure
+  description: 'Failure: to fix'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 67
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: to fix - operation
+      failed'
+    metrics:
+      error_rate: 0.5040502719448201
+      response_time_ms: 9173
+      cpu_usage: 0.7966803014607455
+      memory_usage: 0.9318641597980615
+- timestamp: '2025-05-23T17:47:22.061658'
+  event_type: timeout
+  description: 'Timeout: a queue'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: medium
+    duration: 98
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: a queue - operation
+      failed'
+    metrics:
+      error_rate: 0.10330569778081337
+      response_time_ms: 1174
+      cpu_usage: 0.7759415887949002
+      memory_usage: 0.45514959214590933
+- timestamp: '2025-05-23T17:55:00.061658'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

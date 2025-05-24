@@ -1,0 +1,108 @@
+category: DataCorruption
+name: DataCorruption_20250523_174629
+description: Infrastructure failure scenario for DataCorruption
+duration: 1626
+metadata:
+  generated_at: '2025-05-23T17:46:29.165666'
+  phrase_templates_used: 36
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:46:29.165429'
+  event_type: trigger
+  description: 'Initial failure detected: partitioned queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:05.165429'
+  event_type: recovery
+  description: 'Recovery: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:45.165429'
+  event_type: failure
+  description: 'Failure: to resolve'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 223
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: to resolve - operation
+      failed'
+    metrics:
+      error_rate: 0.14189060696460354
+      response_time_ms: 8419
+      cpu_usage: 0.9721676548819502
+      memory_usage: 0.8959103993708354
+- timestamp: '2025-05-23T17:48:04.165429'
+  event_type: recovery
+  description: 'Recovery: same node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:17.165429'
+  event_type: failure
+  description: 'Failure: docker container'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 230
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: docker container - operation
+      failed'
+    metrics:
+      error_rate: 0.2170724802549839
+      response_time_ms: 1163
+      cpu_usage: 0.8424455552419221
+      memory_usage: 0.8400406562415756
+- timestamp: '2025-05-23T17:48:31.165429'
+  event_type: failure
+  description: 'Failure: to resolve'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 155
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: to resolve - operation
+      failed'
+    metrics:
+      error_rate: 0.6543622749285352
+      response_time_ms: 5264
+      cpu_usage: 0.9844397109845202
+      memory_usage: 0.8374858087866226
+- timestamp: '2025-05-23T17:48:36.165429'
+  event_type: failure
+  description: 'Failure: data container'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 173
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: data container - operation
+      failed'
+    metrics:
+      error_rate: 0.6022154402116919
+      response_time_ms: 9260
+      cpu_usage: 0.8067584053950637
+      memory_usage: 0.8042298321090633
+- timestamp: '2025-05-23T17:49:18.165429'
+  event_type: failure
+  description: 'Failure: new container'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 211
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: new container - operation
+      failed'
+    metrics:
+      error_rate: 0.42413089509846924
+      response_time_ms: 8640
+      cpu_usage: 0.8083552267057145
+      memory_usage: 0.8888287225563968
+- timestamp: '2025-05-23T17:49:42.165429'
+  event_type: recovery
+  description: 'Recovery: ebs storage'
+  injection_spec: null
+- timestamp: '2025-05-23T18:13:35.165429'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

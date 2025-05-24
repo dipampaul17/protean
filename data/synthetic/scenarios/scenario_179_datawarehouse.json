@@ -1,0 +1,108 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_173707",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 1592,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.995397",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.995200",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:27.995200",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:44.995200",
+      "event_type": "recovery",
+      "description": "Recovery: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:45.995200",
+      "event_type": "failure",
+      "description": "Failure: memory limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 207,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.2586161292969076,
+          "response_time_ms": 8663,
+          "cpu_usage": 0.819480214511228,
+          "memory_usage": 0.9054595124919257
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:07.995200",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:29.995200",
+      "event_type": "recovery",
+      "description": "Recovery: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:48.995200",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 285,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.7008174936503513,
+          "response_time_ms": 6971,
+          "cpu_usage": 0.7034675698121943,
+          "memory_usage": 0.8088520835865931
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:49.995200",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 288,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.1566965919994223,
+          "response_time_ms": 8744,
+          "cpu_usage": 0.7927409508543525,
+          "memory_usage": 0.8507171982714408
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:03:39.995200",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

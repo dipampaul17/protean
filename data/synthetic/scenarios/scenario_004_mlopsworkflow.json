@@ -1,0 +1,84 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_173245",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 716,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.655422",
+    "phrase_templates_used": 0,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.655311",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:00.655311",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 161,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.18128456908465945,
+          "response_time_ms": 4207,
+          "cpu_usage": 0.7927510284859473,
+          "memory_usage": 0.8032563539771745
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:13.655311",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 210,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.8805150171875699,
+          "response_time_ms": 3040,
+          "cpu_usage": 0.9767083083054957,
+          "memory_usage": 0.973180283207864
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:47.655311",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 61,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.6615057891450025,
+          "response_time_ms": 9317,
+          "cpu_usage": 0.8416875233333725,
+          "memory_usage": 0.8327934580309996
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:44:41.655311",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

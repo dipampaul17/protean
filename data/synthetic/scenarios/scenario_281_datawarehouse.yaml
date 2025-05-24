@@ -1,0 +1,130 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173245
+description: Infrastructure failure scenario for DataWarehouse
+duration: 364
+metadata:
+  generated_at: '2025-05-23T17:32:45.742201'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 7
+events:
+- timestamp: '2025-05-23T17:32:45.741906'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:57.741906'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 61
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.23969090791092898
+      response_time_ms: 9448
+      cpu_usage: 0.9098463943660164
+      memory_usage: 0.816219331257147
+- timestamp: '2025-05-23T17:32:59.741906'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:03.741906'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 80
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.6331725563397365
+      response_time_ms: 3397
+      cpu_usage: 0.7785418576820342
+      memory_usage: 0.8665117097381618
+- timestamp: '2025-05-23T17:33:07.741906'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 66
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.498427753085527
+      response_time_ms: 2526
+      cpu_usage: 0.7446985097590423
+      memory_usage: 0.97849695770995
+- timestamp: '2025-05-23T17:33:18.741906'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 233
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.1836912308614207
+      response_time_ms: 4537
+      cpu_usage: 0.9185818148242592
+      memory_usage: 0.9934866135674643
+- timestamp: '2025-05-23T17:33:18.741906'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 168
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.26691535756667434
+      response_time_ms: 6317
+      cpu_usage: 0.7705004345436174
+      memory_usage: 0.8886363935347369
+- timestamp: '2025-05-23T17:33:23.741906'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 185
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: authentication
+      failed - operation failed'
+    metrics:
+      error_rate: 0.5829536281865344
+      response_time_ms: 9456
+      cpu_usage: 0.9792593164660445
+      memory_usage: 0.8129337358027041
+- timestamp: '2025-05-23T17:33:28.741906'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 92
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: deployment failed -
+      operation failed'
+    metrics:
+      error_rate: 0.7305271567876551
+      response_time_ms: 7269
+      cpu_usage: 0.8421652255263207
+      memory_usage: 0.8313521379489586
+- timestamp: '2025-05-23T17:38:49.741906'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,102 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173707",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 715,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.795893",
+    "phrase_templates_used": 36,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.795712",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:29.795712",
+      "event_type": "failure",
+      "description": "Failure: partitioned queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "medium",
+        "duration": 36,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: partitioned queue - operation failed",
+        "metrics": {
+          "error_rate": 0.17285188452244477,
+          "response_time_ms": 1838,
+          "cpu_usage": 0.30043553169173665,
+          "memory_usage": 0.6083788139560092
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:33.795712",
+      "event_type": "recovery",
+      "description": "Recovery: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:54.795712",
+      "event_type": "failure",
+      "description": "Failure: closed connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 114,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: closed connection - operation failed",
+        "metrics": {
+          "error_rate": 0.38286664255395664,
+          "response_time_ms": 9363,
+          "cpu_usage": 0.8789359010251617,
+          "memory_usage": 0.8120108190635399
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:54.795712",
+      "event_type": "recovery",
+      "description": "Recovery: the connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:20.795712",
+      "event_type": "recovery",
+      "description": "Recovery: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:51.795712",
+      "event_type": "failure",
+      "description": "Failure: to node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 166,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: to node - operation failed",
+        "metrics": {
+          "error_rate": 0.10294345726901799,
+          "response_time_ms": 8268,
+          "cpu_usage": 0.9198748648804413,
+          "memory_usage": 0.822810217998801
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:02.795712",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_173708",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 1771,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.018817",
+    "phrase_templates_used": 15,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.018658",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:05.018658",
+      "event_type": "failure",
+      "description": "Failure: another container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 277,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: another container - operation failed",
+        "metrics": {
+          "error_rate": 0.11668779325408396,
+          "response_time_ms": 9156,
+          "cpu_usage": 0.8513216408066012,
+          "memory_usage": 0.9203037148091737
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:36.018658",
+      "event_type": "recovery",
+      "description": "Recovery: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:51.018658",
+      "event_type": "recovery",
+      "description": "Recovery: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:20.018658",
+      "event_type": "recovery",
+      "description": "Recovery: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:38.018658",
+      "event_type": "recovery",
+      "description": "Recovery: following error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:53.018658",
+      "event_type": "recovery",
+      "description": "Recovery: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:41:08.018658",
+      "event_type": "failure",
+      "description": "Failure: headless service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 47,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: headless service - operation failed",
+        "metrics": {
+          "error_rate": 0.6217556356594038,
+          "response_time_ms": 8912,
+          "cpu_usage": 0.7855480381537552,
+          "memory_usage": 0.9187043085184041
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:06:39.018658",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

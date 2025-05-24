@@ -1,0 +1,89 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_173453
+description: Infrastructure failure scenario for ScalingFailure
+duration: 883
+metadata:
+  generated_at: '2025-05-23T17:34:53.223880'
+  phrase_templates_used: 24
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:53.223384'
+  event_type: trigger
+  description: 'Initial failure detected: of failure'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:33.223384'
+  event_type: failure
+  description: 'Failure: this service'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 85
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: this service - operation
+      failed'
+    metrics:
+      error_rate: 0.3037345654092828
+      response_time_ms: 1312
+      cpu_usage: 0.8481588381667653
+      memory_usage: 0.8501850944111379
+- timestamp: '2025-05-23T17:35:54.223384'
+  event_type: recovery
+  description: 'Recovery: nodeport service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:59.223384'
+  event_type: timeout
+  description: 'Timeout: clusterip service'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 252
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: clusterip service -
+      operation failed'
+    metrics:
+      error_rate: 0.8397138590914424
+      response_time_ms: 2833
+      cpu_usage: 0.8144763707662297
+      memory_usage: 0.8429897545015119
+- timestamp: '2025-05-23T17:36:23.223384'
+  event_type: recovery
+  description: 'Recovery: the cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:38.223384'
+  event_type: failure
+  description: 'Failure: the service'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 102
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: the service - operation
+      failed'
+    metrics:
+      error_rate: 0.5518143134793587
+      response_time_ms: 2955
+      cpu_usage: 0.8286863944905003
+      memory_usage: 0.8434746485564203
+- timestamp: '2025-05-23T17:37:15.223384'
+  event_type: timeout
+  description: 'Timeout: scaling scale'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 108
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: scaling scale - operation
+      failed'
+    metrics:
+      error_rate: 0.37479728133535783
+      response_time_ms: 4842
+      cpu_usage: 0.976883754107549
+      memory_usage: 0.9896049677370121
+- timestamp: '2025-05-23T17:49:36.223384'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

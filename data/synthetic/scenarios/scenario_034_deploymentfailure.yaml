@@ -1,0 +1,55 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173245
+description: Application deployment and rollback scenarios
+duration: 1354
+metadata:
+  generated_at: '2025-05-23T17:32:45.663184'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:32:45.663047'
+  event_type: trigger
+  description: 'Initial failure detected: the pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:52.663047'
+  event_type: rollback
+  description: 'Rollback: kubectl scale'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:22.663047'
+  event_type: scaling
+  description: 'Scaling: a deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:41.663047'
+  event_type: scaling
+  description: 'Scaling: the deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:30.663047'
+  event_type: failure
+  description: 'Failure: docker service'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 31
+    log_snippet: '[2025-05-23 17:32:45] ERROR api-backend: docker service in failure'
+    metrics:
+      error_rate: 0.765864871448047
+      response_time_ms: 3388
+      cpu_usage: 0.815630454553531
+      memory_usage: 0.9710379545368548
+- timestamp: '2025-05-23T17:36:15.663047'
+  event_type: rollback
+  description: 'Rollback: code error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:23.663047'
+  event_type: deployment
+  description: 'Deployment: the deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T17:55:19.663047'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

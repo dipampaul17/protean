@@ -1,0 +1,108 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173453",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 1657,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.210804",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.210581",
+      "event_type": "trigger",
+      "description": "Initial failure detected: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:27.210581",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 66,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.5257546668782361,
+          "response_time_ms": 2216,
+          "cpu_usage": 0.9483435809819464,
+          "memory_usage": 0.8228984749371023
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:00.210581",
+      "event_type": "timeout",
+      "description": "Timeout: disk space full",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 163,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.25947693738970345,
+          "response_time_ms": 9039,
+          "cpu_usage": 0.8681120834154035,
+          "memory_usage": 0.9125432642383143
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:34.210581",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 53,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.5959159196577976,
+          "response_time_ms": 8366,
+          "cpu_usage": 0.7063340678769966,
+          "memory_usage": 0.8994193862558066
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:07.210581",
+      "event_type": "recovery",
+      "description": "Recovery: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:40.210581",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 249,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.17414830837505182,
+          "response_time_ms": 8030,
+          "cpu_usage": 0.8885293631914745,
+          "memory_usage": 0.8290915669045713
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:02:30.210581",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

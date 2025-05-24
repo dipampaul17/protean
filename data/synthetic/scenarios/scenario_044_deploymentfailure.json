@@ -1,0 +1,90 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173707",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1060,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.794075",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.793533",
+      "event_type": "trigger",
+      "description": "Initial failure detected: my deployment",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:34.793533",
+      "event_type": "rollback",
+      "description": "Rollback: my deployment",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:41.793533",
+      "event_type": "rollback",
+      "description": "Rollback: a pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:48.793533",
+      "event_type": "deployment",
+      "description": "Deployment: following error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:08.793533",
+      "event_type": "rollback",
+      "description": "Rollback: the cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:15.793533",
+      "event_type": "scaling",
+      "description": "Scaling: kafka monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:47.793533",
+      "event_type": "scaling",
+      "description": "Scaling: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:53.793533",
+      "event_type": "deployment",
+      "description": "Deployment: code container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:14.793533",
+      "event_type": "failure",
+      "description": "Failure: apache server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 209,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR web-frontend: apache server in failure",
+        "metrics": {
+          "error_rate": 0.23072917450752348,
+          "response_time_ms": 9338,
+          "cpu_usage": 0.8859931741503442,
+          "memory_usage": 0.8743922869755721
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:54:47.793533",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

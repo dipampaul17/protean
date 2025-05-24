@@ -1,0 +1,114 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_174629",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 1071,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.132875",
+    "phrase_templates_used": 36,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.132681",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:46.132681",
+      "event_type": "failure",
+      "description": "Failure: to resolve",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 34,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: to resolve - operation failed",
+        "metrics": {
+          "error_rate": 0.8090446098090096,
+          "response_time_ms": 4402,
+          "cpu_usage": 0.7065403935936195,
+          "memory_usage": 0.8750202925763572
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:26.132681",
+      "event_type": "recovery",
+      "description": "Recovery: same node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:56.132681",
+      "event_type": "timeout",
+      "description": "Timeout: docker container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 136,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: docker container - operation failed",
+        "metrics": {
+          "error_rate": 0.767930468982397,
+          "response_time_ms": 8135,
+          "cpu_usage": 0.9775058487180909,
+          "memory_usage": 0.9361264575492115
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:34.132681",
+      "event_type": "recovery",
+      "description": "Recovery: partitioned queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:39.132681",
+      "event_type": "failure",
+      "description": "Failure: to resolve",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 212,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: to resolve - operation failed",
+        "metrics": {
+          "error_rate": 0.6629165724503889,
+          "response_time_ms": 9764,
+          "cpu_usage": 0.7865952147123659,
+          "memory_usage": 0.9748958504306318
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:42.132681",
+      "event_type": "failure",
+      "description": "Failure: the server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 181,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.821491611045762,
+          "response_time_ms": 2362,
+          "cpu_usage": 0.8154612197418477,
+          "memory_usage": 0.9979527463987156
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:04:20.132681",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

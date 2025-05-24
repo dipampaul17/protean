@@ -1,0 +1,97 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_174629
+description: Infrastructure failure scenario for ETLPipeline
+duration: 575
+metadata:
+  generated_at: '2025-05-23T17:46:29.128714'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:46:29.128488'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:41.128488'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:51.128488'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:52.128488'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 226
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.12346060423993165
+      response_time_ms: 5237
+      cpu_usage: 0.703775969658312
+      memory_usage: 0.9666863051555807
+- timestamp: '2025-05-23T17:47:15.128488'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:17.128488'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 146
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.654877396895708
+      response_time_ms: 3517
+      cpu_usage: 0.8670752902570089
+      memory_usage: 0.9301191899243237
+- timestamp: '2025-05-23T17:47:24.128488'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 36
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.415008367898389
+      response_time_ms: 3726
+      cpu_usage: 0.8740769759770931
+      memory_usage: 0.9440571737978858
+- timestamp: '2025-05-23T17:47:25.128488'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:29.128488'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 298
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.4515091370591956
+      response_time_ms: 7739
+      cpu_usage: 0.8255572104912104
+      memory_usage: 0.9594823239108128
+- timestamp: '2025-05-23T17:56:04.128488'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

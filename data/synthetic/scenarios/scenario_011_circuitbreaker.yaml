@@ -1,0 +1,95 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173707
+description: Circuit breaker activation due to cascading service failures
+duration: 353
+metadata:
+  generated_at: '2025-05-23T17:37:07.774367'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 3
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:07.774203'
+  event_type: trigger
+  description: 'Initial failure detected: the timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:17.774203'
+  event_type: timeout
+  description: 'Timeout: to monitor'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 68
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: to monitor - operation
+      failed'
+    metrics:
+      error_rate: 0.4301880965804701
+      response_time_ms: 6103
+      cpu_usage: 0.8125072349843421
+      memory_usage: 0.9330999244454838
+- timestamp: '2025-05-23T17:37:19.774203'
+  event_type: degradation
+  description: 'Degradation: code server'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: low
+    duration: 156
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: code server - operation
+      failed'
+    metrics:
+      error_rate: 0.2593644713527483
+      response_time_ms: 430
+      cpu_usage: 0.42062859747178155
+      memory_usage: 0.6344532363281026
+- timestamp: '2025-05-23T17:37:40.774203'
+  event_type: degradation
+  description: 'Degradation: info node'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: low
+    duration: 173
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: info node - operation
+      failed'
+    metrics:
+      error_rate: 0.2719956686554784
+      response_time_ms: 626
+      cpu_usage: 0.7144193183988217
+      memory_usage: 0.4219782281970935
+- timestamp: '2025-05-23T17:37:44.774203'
+  event_type: failure
+  description: 'Failure: us log'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 234
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: us log - operation failed'
+    metrics:
+      error_rate: 0.44989912925747644
+      response_time_ms: 4402
+      cpu_usage: 0.9521860236667977
+      memory_usage: 0.8706376386760841
+- timestamp: '2025-05-23T17:38:14.774203'
+  event_type: degradation
+  description: 'Degradation: us log'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: low
+    duration: 58
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: us log - operation
+      failed'
+    metrics:
+      error_rate: 0.20257754043662926
+      response_time_ms: 436
+      cpu_usage: 0.7587293193911794
+      memory_usage: 0.4341378743584774
+- timestamp: '2025-05-23T17:43:00.774203'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

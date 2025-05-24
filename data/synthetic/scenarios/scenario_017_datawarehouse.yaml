@@ -1,0 +1,130 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173452
+description: Infrastructure failure scenario for DataWarehouse
+duration: 343
+metadata:
+  generated_at: '2025-05-23T17:34:52.904787'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 7
+events:
+- timestamp: '2025-05-23T17:34:52.904558'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:02.904558'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 289
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.15082289283750178
+      response_time_ms: 4429
+      cpu_usage: 0.7438596734936161
+      memory_usage: 0.9729230465963831
+- timestamp: '2025-05-23T17:35:06.904558'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 243
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: authentication
+      failed - operation failed'
+    metrics:
+      error_rate: 0.49921034256147345
+      response_time_ms: 1532
+      cpu_usage: 0.9489808913965186
+      memory_usage: 0.8864669149362996
+- timestamp: '2025-05-23T17:35:10.904558'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 142
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.6754702865582218
+      response_time_ms: 7839
+      cpu_usage: 0.7230758985465349
+      memory_usage: 0.8091328105900157
+- timestamp: '2025-05-23T17:35:17.904558'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 79
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.2688226422259115
+      response_time_ms: 7682
+      cpu_usage: 0.787908314709212
+      memory_usage: 0.8309220131346172
+- timestamp: '2025-05-23T17:35:22.904558'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 171
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.24280634410458043
+      response_time_ms: 1929
+      cpu_usage: 0.9387004523039746
+      memory_usage: 0.8668560103816143
+- timestamp: '2025-05-23T17:35:23.904558'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:30.904558'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 151
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.342995610635261
+      response_time_ms: 4050
+      cpu_usage: 0.7131185281362433
+      memory_usage: 0.9932669065227541
+- timestamp: '2025-05-23T17:35:32.904558'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 293
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.445006560816111
+      response_time_ms: 7121
+      cpu_usage: 0.7408876536219176
+      memory_usage: 0.8642168075968321
+- timestamp: '2025-05-23T17:40:35.904558'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

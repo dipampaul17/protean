@@ -1,0 +1,84 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173707",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 1330,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.773291",
+    "phrase_templates_used": 36,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.773185",
+      "event_type": "trigger",
+      "description": "Initial failure detected: using rabbitmq",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:44.773185",
+      "event_type": "failure",
+      "description": "Failure: a cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 77,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: a cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.30659061867371384,
+          "response_time_ms": 2071,
+          "cpu_usage": 0.9208790190440861,
+          "memory_usage": 0.8467872768661802
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:57.773185",
+      "event_type": "failure",
+      "description": "Failure: data container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 122,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: data container - operation failed",
+        "metrics": {
+          "error_rate": 0.7426244432106102,
+          "response_time_ms": 8493,
+          "cpu_usage": 0.9996860981250417,
+          "memory_usage": 0.9997971109693662
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:42.773185",
+      "event_type": "timeout",
+      "description": "Timeout: the connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 118,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: the connection - operation failed",
+        "metrics": {
+          "error_rate": 0.20641295108458177,
+          "response_time_ms": 2467,
+          "cpu_usage": 0.8690809157322893,
+          "memory_usage": 0.9849042996710042
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:59:17.773185",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

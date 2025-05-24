@@ -1,0 +1,75 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_174629
+description: Configuration inconsistencies causing service degradation
+duration: 1392
+metadata:
+  generated_at: '2025-05-23T17:46:29.137302'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:29.137094'
+  event_type: trigger
+  description: 'Initial failure detected: jenkins server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:42.137094'
+  event_type: config_change
+  description: 'Config_Change: kubernetes pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:06.137094'
+  event_type: rollback
+  description: 'Rollback: kafka cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:47.137094'
+  event_type: failure
+  description: 'Failure: a cluster'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 156
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: a cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.6470977783601735
+      response_time_ms: 7876
+      cpu_usage: 0.970732086322571
+      memory_usage: 0.9724275214874528
+- timestamp: '2025-05-23T17:48:15.137094'
+  event_type: restart
+  description: 'Restart: rabbitmq server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:31.137094'
+  event_type: restart
+  description: 'Restart: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:58.137094'
+  event_type: config_change
+  description: 'Config_Change: the deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:09.137094'
+  event_type: config_change
+  description: 'Config_Change: the service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:23.137094'
+  event_type: failure
+  description: 'Failure: stopped container'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 74
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: stopped container -
+      operation failed'
+    metrics:
+      error_rate: 0.43157126497325105
+      response_time_ms: 2917
+      cpu_usage: 0.8961392223982041
+      memory_usage: 0.8098960498180477
+- timestamp: '2025-05-23T18:09:41.137094'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

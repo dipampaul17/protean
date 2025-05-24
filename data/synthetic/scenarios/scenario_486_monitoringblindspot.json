@@ -1,0 +1,174 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173245",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 407,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.794303",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 8
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.794060",
+      "event_type": "trigger",
+      "description": "Initial failure detected: quot server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:04.794060",
+      "event_type": "failure",
+      "description": "Failure: a node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 74,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: a node - operation failed",
+        "metrics": {
+          "error_rate": 0.4984981342020698,
+          "response_time_ms": 4279,
+          "cpu_usage": 0.7364989257977824,
+          "memory_usage": 0.9353924693805525
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:09.794060",
+      "event_type": "failure",
+      "description": "Failure: the container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 150,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.47244494217396393,
+          "response_time_ms": 5082,
+          "cpu_usage": 0.7794450875081033,
+          "memory_usage": 0.9670355182547826
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:10.794060",
+      "event_type": "failure",
+      "description": "Failure: the node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 252,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: the node - operation failed",
+        "metrics": {
+          "error_rate": 0.7445792730602262,
+          "response_time_ms": 3780,
+          "cpu_usage": 0.7765442297714333,
+          "memory_usage": 0.8500038815988777
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:11.794060",
+      "event_type": "failure",
+      "description": "Failure: the pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 195,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: the pod - operation failed",
+        "metrics": {
+          "error_rate": 0.3428633465192321,
+          "response_time_ms": 4785,
+          "cpu_usage": 0.7885954446410335,
+          "memory_usage": 0.9503909266221847
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:19.794060",
+      "event_type": "failure",
+      "description": "Failure: the cpu",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 291,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: the cpu - operation failed",
+        "metrics": {
+          "error_rate": 0.14334288495117395,
+          "response_time_ms": 1068,
+          "cpu_usage": 0.8102332054634173,
+          "memory_usage": 0.9128073473017825
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:22.794060",
+      "event_type": "failure",
+      "description": "Failure: web server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 74,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: web server - operation failed",
+        "metrics": {
+          "error_rate": 0.19704601346235417,
+          "response_time_ms": 2530,
+          "cpu_usage": 0.7697058981668339,
+          "memory_usage": 0.8226272184138709
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:23.794060",
+      "event_type": "timeout",
+      "description": "Timeout: code container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 153,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: code container - operation failed",
+        "metrics": {
+          "error_rate": 0.6445732330839142,
+          "response_time_ms": 7439,
+          "cpu_usage": 0.7480309529362259,
+          "memory_usage": 0.9976788438165144
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:30.794060",
+      "event_type": "failure",
+      "description": "Failure: parse error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 115,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: parse error - operation failed",
+        "metrics": {
+          "error_rate": 0.7955489863910489,
+          "response_time_ms": 9592,
+          "cpu_usage": 0.7433479636619069,
+          "memory_usage": 0.8053959356359558
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:32.794060",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

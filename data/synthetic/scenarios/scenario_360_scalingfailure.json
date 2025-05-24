@@ -1,0 +1,114 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_173245",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 492,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.763146",
+    "phrase_templates_used": 24,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.762981",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:02.762981",
+      "event_type": "failure",
+      "description": "Failure: a service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 86,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.5052527983315491,
+          "response_time_ms": 8407,
+          "cpu_usage": 0.8290921896366388,
+          "memory_usage": 0.8579681237471579
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:27.762981",
+      "event_type": "failure",
+      "description": "Failure: a service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 141,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.3135643893086939,
+          "response_time_ms": 8098,
+          "cpu_usage": 0.7758301040860829,
+          "memory_usage": 0.8658010664516047
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:53.762981",
+      "event_type": "timeout",
+      "description": "Timeout: the server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 241,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.25893704578762905,
+          "response_time_ms": 9285,
+          "cpu_usage": 0.9160884383987526,
+          "memory_usage": 0.9327507511344192
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:55.762981",
+      "event_type": "timeout",
+      "description": "Timeout: a node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 38,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: a node - operation failed",
+        "metrics": {
+          "error_rate": 0.8970237067077622,
+          "response_time_ms": 5146,
+          "cpu_usage": 0.7946004919903173,
+          "memory_usage": 0.8672821476131876
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:56.762981",
+      "event_type": "recovery",
+      "description": "Recovery: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:03.762981",
+      "event_type": "recovery",
+      "description": "Recovery: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:57.762981",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

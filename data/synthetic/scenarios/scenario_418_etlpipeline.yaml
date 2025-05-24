@@ -1,0 +1,100 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173245
+description: Infrastructure failure scenario for ETLPipeline
+duration: 963
+metadata:
+  generated_at: '2025-05-23T17:32:45.777607'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:32:45.777433'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:06.777433'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 69
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.5078181074780301
+      response_time_ms: 9702
+      cpu_usage: 0.8113313203883898
+      memory_usage: 0.8585567893246261
+- timestamp: '2025-05-23T17:33:08.777433'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 141
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.7433629634808838
+      response_time_ms: 7058
+      cpu_usage: 0.7114056669480671
+      memory_usage: 0.8734820832936467
+- timestamp: '2025-05-23T17:33:18.777433'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 138
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.8703867855741307
+      response_time_ms: 6494
+      cpu_usage: 0.8591044719481866
+      memory_usage: 0.9567807820190066
+- timestamp: '2025-05-23T17:33:22.777433'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 249
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.5952401103312382
+      response_time_ms: 3161
+      cpu_usage: 0.9569984494417512
+      memory_usage: 0.9123890419910717
+- timestamp: '2025-05-23T17:34:46.777433'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 152
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.23433734420515284
+      response_time_ms: 4290
+      cpu_usage: 0.8431105522485736
+      memory_usage: 0.9351184000919235
+- timestamp: '2025-05-23T17:35:05.777433'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:48.777433'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

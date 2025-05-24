@@ -1,0 +1,120 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173245",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 887,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.787071",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 2,
+      "medium": 1,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.786920",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:16.786920",
+      "event_type": "timeout",
+      "description": "Timeout: a timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 278,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: a timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.8469580011321292,
+          "response_time_ms": 8907,
+          "cpu_usage": 0.8953188845584215,
+          "memory_usage": 0.9497791183478782
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:19.786920",
+      "event_type": "degradation",
+      "description": "Degradation: a queue",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "medium",
+        "duration": 93,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: a queue - operation failed",
+        "metrics": {
+          "error_rate": 0.06170880718534347,
+          "response_time_ms": 896,
+          "cpu_usage": 0.751289945379634,
+          "memory_usage": 0.5708415063412321
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:54.786920",
+      "event_type": "degradation",
+      "description": "Degradation: code server",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "low",
+        "duration": 183,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: code server - operation failed",
+        "metrics": {
+          "error_rate": 0.010836521431010803,
+          "response_time_ms": 1664,
+          "cpu_usage": 0.5338180049051557,
+          "memory_usage": 0.6560679020682878
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:55.786920",
+      "event_type": "failure",
+      "description": "Failure: to pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 214,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: to pod - operation failed",
+        "metrics": {
+          "error_rate": 0.16941407193249092,
+          "response_time_ms": 6344,
+          "cpu_usage": 0.8801114426383388,
+          "memory_usage": 0.8227595344555914
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:57.786920",
+      "event_type": "degradation",
+      "description": "Degradation: the server",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "low",
+        "duration": 218,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.04544814693955845,
+          "response_time_ms": 1643,
+          "cpu_usage": 0.7061140845686091,
+          "memory_usage": 0.6072823557509139
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:32.786920",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_173245
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 712
+metadata:
+  generated_at: '2025-05-23T17:32:45.774244'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:32:45.773918'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:56.773918'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:05.773918'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 83
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.7919027248681935
+      response_time_ms: 1984
+      cpu_usage: 0.7569465359826613
+      memory_usage: 0.9547183178411107
+- timestamp: '2025-05-23T17:33:22.773918'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 75
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.5761901911948252
+      response_time_ms: 5704
+      cpu_usage: 0.9572024024516084
+      memory_usage: 0.9889426239225714
+- timestamp: '2025-05-23T17:33:32.773918'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:54.773918'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:02.773918'
+  event_type: recovery
+  description: 'Recovery: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:03.773918'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 298
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.30638712625268616
+      response_time_ms: 1956
+      cpu_usage: 0.913308925971168
+      memory_usage: 0.862718769612862
+- timestamp: '2025-05-23T17:34:05.773918'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:44:37.773918'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

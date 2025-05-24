@@ -1,0 +1,84 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173708",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1629,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.061106",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.060979",
+      "event_type": "trigger",
+      "description": "Initial failure detected: customer service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:15.060979",
+      "event_type": "recovery",
+      "description": "Recovery: ssh connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:04.060979",
+      "event_type": "recovery",
+      "description": "Recovery: client error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:41:15.060979",
+      "event_type": "degradation",
+      "description": "Degradation: to fix",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "low",
+        "duration": 190,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: to fix - operation failed",
+        "metrics": {
+          "error_rate": 0.2433659923152156,
+          "response_time_ms": 803,
+          "cpu_usage": 0.34140906555252803,
+          "memory_usage": 0.5679565545637959
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:21.060979",
+      "event_type": "recovery",
+      "description": "Recovery: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:41:52.060979",
+      "event_type": "failure",
+      "description": "Failure: virtual memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 243,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: virtual memory - operation failed",
+        "metrics": {
+          "error_rate": 0.8131256861737606,
+          "response_time_ms": 2806,
+          "cpu_usage": 0.8639007591744852,
+          "memory_usage": 0.93060871313768
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:04:17.060979",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

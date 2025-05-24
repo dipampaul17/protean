@@ -1,0 +1,78 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_173707
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 515
+metadata:
+  generated_at: '2025-05-23T17:37:07.980189'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:07.980035'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:26.980035'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 232
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: deployment failed -
+      operation failed'
+    metrics:
+      error_rate: 0.6319371699039522
+      response_time_ms: 5963
+      cpu_usage: 0.9477965439933504
+      memory_usage: 0.9153905355982465
+- timestamp: '2025-05-23T17:37:28.980035'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:46.980035'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 69
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.22561787972129724
+      response_time_ms: 8808
+      cpu_usage: 0.7252470705668365
+      memory_usage: 0.978410325961453
+- timestamp: '2025-05-23T17:38:07.980035'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 207
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: container crashed - operation
+      failed'
+    metrics:
+      error_rate: 0.601703291704656
+      response_time_ms: 4371
+      cpu_usage: 0.903591946879188
+      memory_usage: 0.880802261418537
+- timestamp: '2025-05-23T17:38:12.980035'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:12.980035'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:45:42.980035'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

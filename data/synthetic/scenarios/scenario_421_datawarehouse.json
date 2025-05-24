@@ -1,0 +1,114 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_173245",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 1489,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.778109",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.777946",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:13.777946",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 87,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.2708721817681292,
+          "response_time_ms": 8958,
+          "cpu_usage": 0.8213970789597637,
+          "memory_usage": 0.8636507253770941
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:32.777946",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:41.777946",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 289,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.7738426094192292,
+          "response_time_ms": 1744,
+          "cpu_usage": 0.7739843586550258,
+          "memory_usage": 0.8075289067488404
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:08.777946",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 144,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.6595275833548946,
+          "response_time_ms": 4230,
+          "cpu_usage": 0.8457664571406268,
+          "memory_usage": 0.9687131474235431
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:54.777946",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:08.777946",
+      "event_type": "failure",
+      "description": "Failure: memory limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 275,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.10782104891551177,
+          "response_time_ms": 2808,
+          "cpu_usage": 0.8102084065344066,
+          "memory_usage": 0.8102377031519513
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:57:34.777946",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

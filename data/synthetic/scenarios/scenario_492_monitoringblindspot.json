@@ -1,0 +1,96 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173453",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1315,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.382255",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.382056",
+      "event_type": "trigger",
+      "description": "Initial failure detected: code error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:27.382056",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 297,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.548678947252215,
+          "response_time_ms": 4259,
+          "cpu_usage": 0.8895278308275587,
+          "memory_usage": 0.8025015117310208
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:50.382056",
+      "event_type": "recovery",
+      "description": "Recovery: a pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:42.382056",
+      "event_type": "timeout",
+      "description": "Timeout: the pod",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 175,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: the pod - operation failed",
+        "metrics": {
+          "error_rate": 0.1448058336956212,
+          "response_time_ms": 3803,
+          "cpu_usage": 0.7460868537844879,
+          "memory_usage": 0.868543429815209
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:48.382056",
+      "event_type": "recovery",
+      "description": "Recovery: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:00.382056",
+      "event_type": "timeout",
+      "description": "Timeout: to monitor",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 86,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: to monitor - operation failed",
+        "metrics": {
+          "error_rate": 0.4007899824060214,
+          "response_time_ms": 2244,
+          "cpu_usage": 0.7633874050439325,
+          "memory_usage": 0.8466460905485703
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:56:48.382056",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

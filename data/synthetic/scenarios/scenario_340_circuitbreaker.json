@@ -1,0 +1,90 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173245",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 868,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.757876",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.757755",
+      "event_type": "trigger",
+      "description": "Initial failure detected: nginx log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:17.757755",
+      "event_type": "timeout",
+      "description": "Timeout: an error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 299,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: an error - operation failed",
+        "metrics": {
+          "error_rate": 0.12128156177357613,
+          "response_time_ms": 8285,
+          "cpu_usage": 0.798067393848513,
+          "memory_usage": 0.9482545787243133
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:26.757755",
+      "event_type": "timeout",
+      "description": "Timeout: my server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 114,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: my server - operation failed",
+        "metrics": {
+          "error_rate": 0.32607868883965385,
+          "response_time_ms": 4770,
+          "cpu_usage": 0.8787374530602269,
+          "memory_usage": 0.984535130872169
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:48.757755",
+      "event_type": "degradation",
+      "description": "Degradation: quot error",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "low",
+        "duration": 229,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: quot error - operation failed",
+        "metrics": {
+          "error_rate": 0.2697793684972246,
+          "response_time_ms": 751,
+          "cpu_usage": 0.40704286125969147,
+          "memory_usage": 0.48050168224937867
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:10.757755",
+      "event_type": "recovery",
+      "description": "Recovery: scaled service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:13.757755",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

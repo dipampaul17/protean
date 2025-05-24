@@ -1,0 +1,72 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_173708",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 1072,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.020166",
+    "phrase_templates_used": 0,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.019946",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:24.019946",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 103,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.1708033085931807,
+          "response_time_ms": 7624,
+          "cpu_usage": 0.9536618598151736,
+          "memory_usage": 0.9399091882320533
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:27.019946",
+      "event_type": "recovery",
+      "description": "Recovery: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:49.019946",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 73,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.4695325268382641,
+          "response_time_ms": 5098,
+          "cpu_usage": 0.7442534378180465,
+          "memory_usage": 0.8167628212277426
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:55:00.019946",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

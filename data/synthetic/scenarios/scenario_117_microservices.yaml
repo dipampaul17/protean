@@ -1,0 +1,100 @@
+category: Microservices
+name: Microservices_20250523_173452
+description: Infrastructure failure scenario for Microservices
+duration: 790
+metadata:
+  generated_at: '2025-05-23T17:34:52.991359'
+  phrase_templates_used: 15
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:34:52.991183'
+  event_type: trigger
+  description: 'Initial failure detected: ui service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:08.991183'
+  event_type: failure
+  description: 'Failure: lt service'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 184
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: lt service - operation
+      failed'
+    metrics:
+      error_rate: 0.5597828503200836
+      response_time_ms: 2615
+      cpu_usage: 0.857509908829222
+      memory_usage: 0.8314989494925651
+- timestamp: '2025-05-23T17:36:11.991183'
+  event_type: failure
+  description: 'Failure: the container'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 36
+    log_snippet: '[2025-05-23 17:34:52] ERROR payment-service: the container - operation
+      failed'
+    metrics:
+      error_rate: 0.10560467909509193
+      response_time_ms: 8269
+      cpu_usage: 0.9953048883564476
+      memory_usage: 0.827136494475362
+- timestamp: '2025-05-23T17:36:30.991183'
+  event_type: failure
+  description: 'Failure: strong service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 278
+    log_snippet: '[2025-05-23 17:34:52] ERROR payment-service: strong service - operation
+      failed'
+    metrics:
+      error_rate: 0.1386714475684201
+      response_time_ms: 4452
+      cpu_usage: 0.7570840993993118
+      memory_usage: 0.8021279760387197
+- timestamp: '2025-05-23T17:36:33.991183'
+  event_type: recovery
+  description: 'Recovery: lt service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:41.991183'
+  event_type: timeout
+  description: 'Timeout: headless service'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 100
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: headless service - operation
+      failed'
+    metrics:
+      error_rate: 0.8058977183984185
+      response_time_ms: 5888
+      cpu_usage: 0.9912385790001416
+      memory_usage: 0.9431572067665152
+- timestamp: '2025-05-23T17:36:46.991183'
+  event_type: timeout
+  description: 'Timeout: another container'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 156
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: another container
+      - operation failed'
+    metrics:
+      error_rate: 0.25886935789999194
+      response_time_ms: 6891
+      cpu_usage: 0.9945164280679133
+      memory_usage: 0.8912453415970607
+- timestamp: '2025-05-23T17:48:02.991183'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

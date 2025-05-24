@@ -1,0 +1,74 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173707
+description: Infrastructure failure scenario for DataWarehouse
+duration: 1043
+metadata:
+  generated_at: '2025-05-23T17:37:07.985025'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:07.984659'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:24.984659'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:52.984659'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 113
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.10917061180081325
+      response_time_ms: 9758
+      cpu_usage: 0.7784378194388499
+      memory_usage: 0.967122886353354
+- timestamp: '2025-05-23T17:39:01.984659'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 116
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.6058727195065734
+      response_time_ms: 6271
+      cpu_usage: 0.7435691920843562
+      memory_usage: 0.8539940173196898
+- timestamp: '2025-05-23T17:39:26.984659'
+  event_type: recovery
+  description: 'Recovery: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:49.984659'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 46
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.8152905030154985
+      response_time_ms: 5961
+      cpu_usage: 0.8007428768600351
+      memory_usage: 0.8665337780174671
+- timestamp: '2025-05-23T17:54:30.984659'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,114 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_173707",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 1089,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.773030",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.772847",
+      "event_type": "trigger",
+      "description": "Initial failure detected: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:49.772847",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 298,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.6326162744139541,
+          "response_time_ms": 8138,
+          "cpu_usage": 0.8522733595489689,
+          "memory_usage": 0.8947980757337085
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:00.772847",
+      "event_type": "recovery",
+      "description": "Recovery: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:10.772847",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 266,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.4695163870675749,
+          "response_time_ms": 8377,
+          "cpu_usage": 0.9130643824696743,
+          "memory_usage": 0.8986217388765627
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:25.772847",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 65,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.6763069895865927,
+          "response_time_ms": 4374,
+          "cpu_usage": 0.7466983335015034,
+          "memory_usage": 0.8225888232547605
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:35.772847",
+      "event_type": "recovery",
+      "description": "Recovery: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:48.772847",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 151,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.8287126556032964,
+          "response_time_ms": 6883,
+          "cpu_usage": 0.8432030963960386,
+          "memory_usage": 0.97144712705954
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:55:16.772847",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

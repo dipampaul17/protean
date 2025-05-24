@@ -1,0 +1,71 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173707
+description: Load balancer and traffic distribution problems
+duration: 1480
+metadata:
+  generated_at: '2025-05-23T17:37:07.957077'
+  phrase_templates_used: 13
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:07.956902'
+  event_type: trigger
+  description: 'Initial failure detected: kafka pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:24.956902'
+  event_type: backend_failure
+  description: 'Backend_Failure: web server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:58.956902'
+  event_type: timeout
+  description: 'Timeout: load balancer'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 187
+    log_snippet: '[2025-05-23 17:37:07] ERROR vpc-main: load balancer in timeout'
+    metrics:
+      error_rate: 0.4379146772618978
+      response_time_ms: 3920
+      cpu_usage: 0.7761325313706461
+      memory_usage: 0.9075908941310767
+      requests_per_sec: 1377
+      backend_health_pct: 0.36498565955247975
+      connection_timeouts: 503
+- timestamp: '2025-05-23T17:39:31.956902'
+  event_type: scaling
+  description: 'Scaling: loadbalancer service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:17.956902'
+  event_type: timeout
+  description: 'Timeout: a server'
+  injection_spec:
+    type: timeout
+    target: load-balancer
+    severity: high
+    duration: 58
+    log_snippet: '[2025-05-23 17:37:07] ERROR load-balancer: a server in timeout'
+    metrics:
+      error_rate: 0.10768122171806996
+      response_time_ms: 6997
+      cpu_usage: 0.907638512342573
+      memory_usage: 0.8317247330307748
+      requests_per_sec: 7611
+      backend_health_pct: 0.7803784336740467
+      connection_timeouts: 17
+- timestamp: '2025-05-23T17:40:25.956902'
+  event_type: scaling
+  description: 'Scaling: a server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:03.956902'
+  event_type: scaling
+  description: 'Scaling: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:01:47.956902'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

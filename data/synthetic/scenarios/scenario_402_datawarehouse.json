@@ -1,0 +1,102 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_173245",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 497,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.773509",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.773348",
+      "event_type": "trigger",
+      "description": "Initial failure detected: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:11.773348",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:14.773348",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 200,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.2754485300393973,
+          "response_time_ms": 3510,
+          "cpu_usage": 0.9589089999650497,
+          "memory_usage": 0.9092220582070247
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:24.773348",
+      "event_type": "recovery",
+      "description": "Recovery: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:48.773348",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 52,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.7451471394720269,
+          "response_time_ms": 2505,
+          "cpu_usage": 0.7082738907786714,
+          "memory_usage": 0.9994751311524808
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:57.773348",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:58.773348",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 258,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.7267677971703586,
+          "response_time_ms": 3440,
+          "cpu_usage": 0.9298792911058511,
+          "memory_usage": 0.8208070627061763
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:02.773348",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

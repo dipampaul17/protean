@@ -1,0 +1,120 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_174628",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 434,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.990882",
+    "phrase_templates_used": 15,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.990722",
+      "event_type": "trigger",
+      "description": "Initial failure detected: from service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:00.990722",
+      "event_type": "timeout",
+      "description": "Timeout: headless service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 191,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: headless service - operation failed",
+        "metrics": {
+          "error_rate": 0.47010448181292086,
+          "response_time_ms": 6602,
+          "cpu_usage": 0.7879333506977932,
+          "memory_usage": 0.8608046623800585
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:10.990722",
+      "event_type": "timeout",
+      "description": "Timeout: a cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 152,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: a cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.7508648063729787,
+          "response_time_ms": 4079,
+          "cpu_usage": 0.7545337025444195,
+          "memory_usage": 0.9192820277010193
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:33.990722",
+      "event_type": "timeout",
+      "description": "Timeout: strong service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 257,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: strong service - operation failed",
+        "metrics": {
+          "error_rate": 0.26373711637395003,
+          "response_time_ms": 9840,
+          "cpu_usage": 0.8744995126307946,
+          "memory_usage": 0.890525425581641
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:37.990722",
+      "event_type": "timeout",
+      "description": "Timeout: another container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 196,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: another container - operation failed",
+        "metrics": {
+          "error_rate": 0.4118112861311549,
+          "response_time_ms": 1778,
+          "cpu_usage": 0.8286044191946265,
+          "memory_usage": 0.8957329106026428
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:39.990722",
+      "event_type": "failure",
+      "description": "Failure: strong service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 235,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: strong service - operation failed",
+        "metrics": {
+          "error_rate": 0.6950924766483517,
+          "response_time_ms": 3703,
+          "cpu_usage": 0.8115778754965813,
+          "memory_usage": 0.8204457017594613
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:53:42.990722",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

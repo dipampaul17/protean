@@ -1,0 +1,120 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173453",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 1367,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.342193",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.342002",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:11.342002",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:31.342002",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:11.342002",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 34,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.3903426030263146,
+          "response_time_ms": 7822,
+          "cpu_usage": 0.9557765269975185,
+          "memory_usage": 0.8685714334220794
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:35.342002",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 86,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.4252258899462674,
+          "response_time_ms": 4382,
+          "cpu_usage": 0.7836883628506186,
+          "memory_usage": 0.9957183129780179
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:37.342002",
+      "event_type": "timeout",
+      "description": "Timeout: disk space full",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 138,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.8118635360349132,
+          "response_time_ms": 9589,
+          "cpu_usage": 0.7341737610621829,
+          "memory_usage": 0.8618799837328194
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:40.342002",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 111,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.24611503268934706,
+          "response_time_ms": 9443,
+          "cpu_usage": 0.9780586785960457,
+          "memory_usage": 0.9585597470326357
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:17.342002",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:57:40.342002",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

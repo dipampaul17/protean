@@ -1,0 +1,58 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_173708
+description: Infrastructure failure scenario for ScalingFailure
+duration: 670
+metadata:
+  generated_at: '2025-05-23T17:37:08.080071'
+  phrase_templates_used: 24
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:08.079960'
+  event_type: trigger
+  description: 'Initial failure detected: scaling scale'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:51.079960'
+  event_type: recovery
+  description: 'Recovery: https connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:53.079960'
+  event_type: recovery
+  description: 'Recovery: per server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:13.079960'
+  event_type: failure
+  description: 'Failure: a service'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 226
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.7353097487499521
+      response_time_ms: 9060
+      cpu_usage: 0.9999004850222826
+      memory_usage: 0.8099096340718392
+- timestamp: '2025-05-23T17:39:26.079960'
+  event_type: timeout
+  description: 'Timeout: the node'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 188
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: the node - operation failed'
+    metrics:
+      error_rate: 0.3456785184865708
+      response_time_ms: 4216
+      cpu_usage: 0.7376416632879988
+      memory_usage: 0.9147806279719267
+- timestamp: '2025-05-23T17:48:18.079960'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

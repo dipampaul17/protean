@@ -1,0 +1,126 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_173245",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 908,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.757560",
+    "phrase_templates_used": 15,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.757380",
+      "event_type": "trigger",
+      "description": "Initial failure detected: ui service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:09.757380",
+      "event_type": "timeout",
+      "description": "Timeout: following error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 272,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: following error - operation failed",
+        "metrics": {
+          "error_rate": 0.17690602142568546,
+          "response_time_ms": 4179,
+          "cpu_usage": 0.8176989124273322,
+          "memory_usage": 0.9242719300779981
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:27.757380",
+      "event_type": "timeout",
+      "description": "Timeout: headless service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 140,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: headless service - operation failed",
+        "metrics": {
+          "error_rate": 0.6702428617707858,
+          "response_time_ms": 1947,
+          "cpu_usage": 0.9786238537731351,
+          "memory_usage": 0.8565564470656191
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:14.757380",
+      "event_type": "recovery",
+      "description": "Recovery: another container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:33.757380",
+      "event_type": "failure",
+      "description": "Failure: to service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 120,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: to service - operation failed",
+        "metrics": {
+          "error_rate": 0.7226648384625479,
+          "response_time_ms": 7075,
+          "cpu_usage": 0.7338528882060371,
+          "memory_usage": 0.8383168926418263
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:55.757380",
+      "event_type": "timeout",
+      "description": "Timeout: strong service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 257,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: strong service - operation failed",
+        "metrics": {
+          "error_rate": 0.7066935033765287,
+          "response_time_ms": 5439,
+          "cpu_usage": 0.7977454586337778,
+          "memory_usage": 0.8616320558862609
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:59.757380",
+      "event_type": "failure",
+      "description": "Failure: the container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 180,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.7038709736811981,
+          "response_time_ms": 8619,
+          "cpu_usage": 0.7051003856010309,
+          "memory_usage": 0.8706021590090175
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:53.757380",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

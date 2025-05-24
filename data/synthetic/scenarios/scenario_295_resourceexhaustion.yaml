@@ -1,0 +1,63 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_174629
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 696
+metadata:
+  generated_at: '2025-05-23T17:46:29.067485'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:29.066195'
+  event_type: trigger
+  description: 'Initial failure detected: potential memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:02.066195'
+  event_type: recovery
+  description: 'Recovery: the container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:13.066195'
+  event_type: timeout
+  description: 'Timeout: the database'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 46
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: the database - operation
+      failed'
+    metrics:
+      error_rate: 0.6108528370213038
+      response_time_ms: 6009
+      cpu_usage: 0.7631755794426524
+      memory_usage: 0.8245386405573852
+- timestamp: '2025-05-23T17:47:26.066195'
+  event_type: recovery
+  description: 'Recovery: of memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:31.066195'
+  event_type: recovery
+  description: 'Recovery: the cache'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:53.066195'
+  event_type: timeout
+  description: 'Timeout: to monitor'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 265
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: to monitor - operation
+      failed'
+    metrics:
+      error_rate: 0.6751762883397306
+      response_time_ms: 1848
+      cpu_usage: 0.7816182283900509
+      memory_usage: 0.8984527410577673
+- timestamp: '2025-05-23T17:58:05.066195'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

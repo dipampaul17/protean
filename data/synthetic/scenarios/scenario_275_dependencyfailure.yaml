@@ -1,0 +1,77 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_173245
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1347
+metadata:
+  generated_at: '2025-05-23T17:32:45.740235'
+  phrase_templates_used: 45
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:32:45.740078'
+  event_type: trigger
+  description: 'Initial failure detected: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:05.740078'
+  event_type: failure
+  description: 'Failure: exist error'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 67
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: exist error - operation
+      failed'
+    metrics:
+      error_rate: 0.2918777016822488
+      response_time_ms: 3816
+      cpu_usage: 0.9970399786367015
+      memory_usage: 0.9272334113184347
+- timestamp: '2025-05-23T17:34:14.740078'
+  event_type: timeout
+  description: 'Timeout: the node'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 289
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: the node - operation failed'
+    metrics:
+      error_rate: 0.8129712128701815
+      response_time_ms: 1898
+      cpu_usage: 0.7830035003477206
+      memory_usage: 0.9812509283343511
+- timestamp: '2025-05-23T17:34:44.740078'
+  event_type: timeout
+  description: 'Timeout: the service'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 197
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: the service - operation
+      failed'
+    metrics:
+      error_rate: 0.16995314290752264
+      response_time_ms: 1918
+      cpu_usage: 0.7789819308328888
+      memory_usage: 0.820534685755279
+- timestamp: '2025-05-23T17:35:11.740078'
+  event_type: recovery
+  description: 'Recovery: inventory service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:35.740078'
+  event_type: recovery
+  description: 'Recovery: illuminate queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:47.740078'
+  event_type: recovery
+  description: 'Recovery: proxy server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:55:12.740078'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

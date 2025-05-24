@@ -1,0 +1,150 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173245",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 690,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.683314",
+    "phrase_templates_used": 45,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.683103",
+      "event_type": "trigger",
+      "description": "Initial failure detected: web server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:57.683103",
+      "event_type": "failure",
+      "description": "Failure: strong update",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 295,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.4483337142576662,
+          "response_time_ms": 5013,
+          "cpu_usage": 0.7945713096457079,
+          "memory_usage": 0.8998187379082005
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:11.683103",
+      "event_type": "recovery",
+      "description": "Recovery: existing connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:21.683103",
+      "event_type": "recovery",
+      "description": "Recovery: upstream queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:25.683103",
+      "event_type": "failure",
+      "description": "Failure: vpn connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 107,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: vpn connection - operation failed",
+        "metrics": {
+          "error_rate": 0.35708997205030957,
+          "response_time_ms": 1000,
+          "cpu_usage": 0.8648448520948981,
+          "memory_usage": 0.9256500753476304
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:36.683103",
+      "event_type": "timeout",
+      "description": "Timeout: destination node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 55,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: destination node - operation failed",
+        "metrics": {
+          "error_rate": 0.6550306334748474,
+          "response_time_ms": 3329,
+          "cpu_usage": 0.9155345173630499,
+          "memory_usage": 0.9945954998520269
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:48.683103",
+      "event_type": "failure",
+      "description": "Failure: proxy server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 123,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: proxy server - operation failed",
+        "metrics": {
+          "error_rate": 0.7558529754340222,
+          "response_time_ms": 8272,
+          "cpu_usage": 0.9718395745501868,
+          "memory_usage": 0.9827919247751659
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:51.683103",
+      "event_type": "timeout",
+      "description": "Timeout: the error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 296,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: the error - operation failed",
+        "metrics": {
+          "error_rate": 0.8059831321890863,
+          "response_time_ms": 1848,
+          "cpu_usage": 0.9832262347810592,
+          "memory_usage": 0.8228498473880185
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:01.683103",
+      "event_type": "timeout",
+      "description": "Timeout: the node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 117,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: the node - operation failed",
+        "metrics": {
+          "error_rate": 0.2433670526865666,
+          "response_time_ms": 4344,
+          "cpu_usage": 0.8719592905515747,
+          "memory_usage": 0.9726430801378277
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:44:15.683103",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

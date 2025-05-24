@@ -1,0 +1,104 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173707
+description: Infrastructure failure scenario for ETLPipeline
+duration: 1068
+metadata:
+  generated_at: '2025-05-23T17:37:07.978943'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:37:07.978753'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:22.978753'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 186
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.5508548507911669
+      response_time_ms: 3968
+      cpu_usage: 0.8972068672389741
+      memory_usage: 0.8067908354643711
+- timestamp: '2025-05-23T17:37:46.978753'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 163
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.3975727620633114
+      response_time_ms: 3771
+      cpu_usage: 0.7917774581414596
+      memory_usage: 0.921641885927772
+- timestamp: '2025-05-23T17:38:02.978753'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:27.978753'
+  event_type: recovery
+  description: 'Recovery: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:47.978753'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 193
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.2773753876420213
+      response_time_ms: 7500
+      cpu_usage: 0.7366978167305032
+      memory_usage: 0.9551877332643808
+- timestamp: '2025-05-23T17:38:50.978753'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 57
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.6478096019683938
+      response_time_ms: 6176
+      cpu_usage: 0.9335032967491858
+      memory_usage: 0.9614635156860435
+- timestamp: '2025-05-23T17:39:33.978753'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 156
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.12291197935827497
+      response_time_ms: 1122
+      cpu_usage: 0.9430741368562279
+      memory_usage: 0.9118701040665904
+- timestamp: '2025-05-23T17:54:55.978753'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

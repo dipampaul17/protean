@@ -1,0 +1,59 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173708
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 544
+metadata:
+  generated_at: '2025-05-23T17:37:08.011159'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:08.011046'
+  event_type: trigger
+  description: 'Initial failure detected: code cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:36.011046'
+  event_type: failure
+  description: 'Failure: the pod'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 182
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: the pod - operation
+      failed'
+    metrics:
+      error_rate: 0.6809362981537971
+      response_time_ms: 3355
+      cpu_usage: 0.8906641686496267
+      memory_usage: 0.8652896791422809
+- timestamp: '2025-05-23T17:37:54.011046'
+  event_type: recovery
+  description: 'Recovery: by container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:17.011046'
+  event_type: failure
+  description: 'Failure: free disk'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 30
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: free disk - operation
+      failed'
+    metrics:
+      error_rate: 0.53170372649988
+      response_time_ms: 1115
+      cpu_usage: 0.9156174111513252
+      memory_usage: 0.8585270544026906
+- timestamp: '2025-05-23T17:38:35.011046'
+  event_type: recovery
+  description: 'Recovery: us log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:12.011046'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

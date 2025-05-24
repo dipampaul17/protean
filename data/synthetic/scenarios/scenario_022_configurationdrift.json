@@ -1,0 +1,90 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173707",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1301,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.783726",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.783545",
+      "event_type": "trigger",
+      "description": "Initial failure detected: nginx server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:25.783545",
+      "event_type": "rollback",
+      "description": "Rollback: docker service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:31.783545",
+      "event_type": "config_change",
+      "description": "Config_Change: the pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:35.783545",
+      "event_type": "rollback",
+      "description": "Rollback: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:05.783545",
+      "event_type": "config_change",
+      "description": "Config_Change: nginx server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:09.783545",
+      "event_type": "failure",
+      "description": "Failure: xxxxxxx cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 219,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: xxxxxxx cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.47074879274858283,
+          "response_time_ms": 3277,
+          "cpu_usage": 0.9148745863499028,
+          "memory_usage": 0.8544746845837814
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:39.783545",
+      "event_type": "restart",
+      "description": "Restart: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:41.783545",
+      "event_type": "rollback",
+      "description": "Rollback: nginx error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:51.783545",
+      "event_type": "config_change",
+      "description": "Config_Change: redis server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:58:48.783545",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

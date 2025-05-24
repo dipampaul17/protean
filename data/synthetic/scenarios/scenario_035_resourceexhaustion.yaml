@@ -1,0 +1,104 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_174628
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 755
+metadata:
+  generated_at: '2025-05-23T17:46:28.914247'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:46:28.914052'
+  event_type: trigger
+  description: 'Initial failure detected: lt container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:53.914052'
+  event_type: timeout
+  description: 'Timeout: a node'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 69
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: a node - operation
+      failed'
+    metrics:
+      error_rate: 0.31795009805136
+      response_time_ms: 9887
+      cpu_usage: 0.9619841459644682
+      memory_usage: 0.9673879664052099
+- timestamp: '2025-05-23T17:47:26.914052'
+  event_type: timeout
+  description: 'Timeout: urgent memory'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 163
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: urgent memory - operation
+      failed'
+    metrics:
+      error_rate: 0.4346269759386202
+      response_time_ms: 9037
+      cpu_usage: 0.958932930835138
+      memory_usage: 0.9567015900058357
+- timestamp: '2025-05-23T17:47:53.914052'
+  event_type: recovery
+  description: 'Recovery: served memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:56.914052'
+  event_type: timeout
+  description: 'Timeout: high memory'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 185
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: high memory -
+      operation failed'
+    metrics:
+      error_rate: 0.22013458541567907
+      response_time_ms: 6099
+      cpu_usage: 0.9927833160788013
+      memory_usage: 0.8288545464763842
+- timestamp: '2025-05-23T17:48:02.914052'
+  event_type: failure
+  description: 'Failure: lt container'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 271
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: lt container - operation
+      failed'
+    metrics:
+      error_rate: 0.8819133463434489
+      response_time_ms: 3506
+      cpu_usage: 0.7553342073390743
+      memory_usage: 0.8907018906548005
+- timestamp: '2025-05-23T17:48:07.914052'
+  event_type: recovery
+  description: 'Recovery: float scale'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:14.914052'
+  event_type: timeout
+  description: 'Timeout: accessed memory'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 156
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: accessed memory - operation
+      failed'
+    metrics:
+      error_rate: 0.498872259273496
+      response_time_ms: 1530
+      cpu_usage: 0.844826229530174
+      memory_usage: 0.9183816324769944
+- timestamp: '2025-05-23T17:59:03.914052'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

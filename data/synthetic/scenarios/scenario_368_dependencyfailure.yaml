@@ -1,0 +1,81 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_174629
+description: Infrastructure failure scenario for DependencyFailure
+duration: 940
+metadata:
+  generated_at: '2025-05-23T17:46:29.098350'
+  phrase_templates_used: 45
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:46:29.098150'
+  event_type: trigger
+  description: 'Initial failure detected: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:01.098150'
+  event_type: timeout
+  description: 'Timeout: the error'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 45
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.8902155307451974
+      response_time_ms: 5630
+      cpu_usage: 0.7695902108107912
+      memory_usage: 0.9592321826564996
+- timestamp: '2025-05-23T17:47:29.098150'
+  event_type: failure
+  description: 'Failure: existing connection'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 236
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: existing connection
+      - operation failed'
+    metrics:
+      error_rate: 0.7989560590076396
+      response_time_ms: 2644
+      cpu_usage: 0.7378384701739789
+      memory_usage: 0.8189263579329508
+- timestamp: '2025-05-23T17:48:31.098150'
+  event_type: timeout
+  description: 'Timeout: and update'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 236
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: and update - operation
+      failed'
+    metrics:
+      error_rate: 0.36036764139830746
+      response_time_ms: 3390
+      cpu_usage: 0.9651647582022738
+      memory_usage: 0.9955987091576852
+- timestamp: '2025-05-23T17:50:00.098150'
+  event_type: failure
+  description: 'Failure: get update'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 48
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: get update - operation
+      failed'
+    metrics:
+      error_rate: 0.6078492014398924
+      response_time_ms: 6159
+      cpu_usage: 0.9187246429338811
+      memory_usage: 0.9485418757031682
+- timestamp: '2025-05-23T18:02:09.098150'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

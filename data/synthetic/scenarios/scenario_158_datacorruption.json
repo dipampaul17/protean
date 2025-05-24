@@ -1,0 +1,102 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173453",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 879,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.096769",
+    "phrase_templates_used": 36,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.085122",
+      "event_type": "trigger",
+      "description": "Initial failure detected: message queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:58.085122",
+      "event_type": "recovery",
+      "description": "Recovery: the cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:00.085122",
+      "event_type": "recovery",
+      "description": "Recovery: to disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:11.085122",
+      "event_type": "failure",
+      "description": "Failure: the container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 212,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.6104461070179932,
+          "response_time_ms": 8288,
+          "cpu_usage": 0.8979177952108974,
+          "memory_usage": 0.9227493608912253
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:20.085122",
+      "event_type": "timeout",
+      "description": "Timeout: second node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 263,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: second node - operation failed",
+        "metrics": {
+          "error_rate": 0.44744391926890736,
+          "response_time_ms": 6771,
+          "cpu_usage": 0.9907963083271012,
+          "memory_usage": 0.8448186830550624
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:45.085122",
+      "event_type": "recovery",
+      "description": "Recovery: to disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:00.085122",
+      "event_type": "failure",
+      "description": "Failure: context cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 40,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: context cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.8401932958374586,
+          "response_time_ms": 3150,
+          "cpu_usage": 0.7342616416045671,
+          "memory_usage": 0.9161594704052622
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:32.085122",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

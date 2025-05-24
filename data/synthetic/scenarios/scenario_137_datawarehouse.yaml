@@ -1,0 +1,59 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173453
+description: Infrastructure failure scenario for DataWarehouse
+duration: 871
+metadata:
+  generated_at: '2025-05-23T17:34:53.049928'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:34:53.049259'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:49.049259'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 83
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: deployment failed
+      - operation failed'
+    metrics:
+      error_rate: 0.155183099621138
+      response_time_ms: 5169
+      cpu_usage: 0.8136351145308353
+      memory_usage: 0.8721833350288053
+- timestamp: '2025-05-23T17:35:59.049259'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:51.049259'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 280
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.43088304330528293
+      response_time_ms: 7469
+      cpu_usage: 0.7324381986439541
+      memory_usage: 0.9950771031154777
+- timestamp: '2025-05-23T17:37:58.049259'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:24.049259'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

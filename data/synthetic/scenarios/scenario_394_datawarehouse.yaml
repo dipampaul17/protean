@@ -1,0 +1,119 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173708
+description: Infrastructure failure scenario for DataWarehouse
+duration: 1510
+metadata:
+  generated_at: '2025-05-23T17:37:08.055492'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:37:08.055275'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:22.055275'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 151
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.6440132467193704
+      response_time_ms: 8232
+      cpu_usage: 0.8844169173351877
+      memory_usage: 0.981455261458099
+- timestamp: '2025-05-23T17:37:27.055275'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:02.055275'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:24.055275'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 189
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.26196696637713546
+      response_time_ms: 2940
+      cpu_usage: 0.8312627253914893
+      memory_usage: 0.8412064543606895
+- timestamp: '2025-05-23T17:38:38.055275'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 103
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.3259889462801945
+      response_time_ms: 7016
+      cpu_usage: 0.893091888050212
+      memory_usage: 0.9239272917107143
+- timestamp: '2025-05-23T17:38:45.055275'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 93
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.45473269761057655
+      response_time_ms: 4764
+      cpu_usage: 0.8565080656726729
+      memory_usage: 0.8076850978329574
+- timestamp: '2025-05-23T17:39:23.055275'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 165
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: container crashed - operation
+      failed'
+    metrics:
+      error_rate: 0.20274870965283728
+      response_time_ms: 9630
+      cpu_usage: 0.8423837442185895
+      memory_usage: 0.9752350456471035
+- timestamp: '2025-05-23T17:40:06.055275'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 259
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.15615287750500803
+      response_time_ms: 9406
+      cpu_usage: 0.9839502867409834
+      memory_usage: 0.960364016914514
+- timestamp: '2025-05-23T18:02:18.055275'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

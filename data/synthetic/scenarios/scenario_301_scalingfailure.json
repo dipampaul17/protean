@@ -1,0 +1,120 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_173245",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 557,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.747554",
+    "phrase_templates_used": 24,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.747374",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to fix",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:07.747374",
+      "event_type": "timeout",
+      "description": "Timeout: per server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 128,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: per server - operation failed",
+        "metrics": {
+          "error_rate": 0.3331856895884233,
+          "response_time_ms": 3907,
+          "cpu_usage": 0.9415068870989542,
+          "memory_usage": 0.9170586399817532
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:14.747374",
+      "event_type": "failure",
+      "description": "Failure: https connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 234,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: https connection - operation failed",
+        "metrics": {
+          "error_rate": 0.6309581384096837,
+          "response_time_ms": 8151,
+          "cpu_usage": 0.8340370174517022,
+          "memory_usage": 0.8520019842988733
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:21.747374",
+      "event_type": "recovery",
+      "description": "Recovery: to fix",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:26.747374",
+      "event_type": "failure",
+      "description": "Failure: clusterip service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 181,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: clusterip service - operation failed",
+        "metrics": {
+          "error_rate": 0.2861741342273225,
+          "response_time_ms": 9309,
+          "cpu_usage": 0.7688500856769422,
+          "memory_usage": 0.8861339179206188
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:46.747374",
+      "event_type": "recovery",
+      "description": "Recovery: aws application",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:50.747374",
+      "event_type": "recovery",
+      "description": "Recovery: of failure",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:54.747374",
+      "event_type": "failure",
+      "description": "Failure: scaling scale",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 299,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: scaling scale - operation failed",
+        "metrics": {
+          "error_rate": 0.3847850042771227,
+          "response_time_ms": 5349,
+          "cpu_usage": 0.950618333380459,
+          "memory_usage": 0.825672246801858
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:42:02.747374",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

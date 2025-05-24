@@ -1,0 +1,100 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_173245
+description: Infrastructure failure scenario for DependencyFailure
+duration: 938
+metadata:
+  generated_at: '2025-05-23T17:32:45.782328'
+  phrase_templates_used: 45
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:32:45.782131'
+  event_type: trigger
+  description: 'Initial failure detected: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:06.782131'
+  event_type: failure
+  description: 'Failure: illuminate container'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 176
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: illuminate container -
+      operation failed'
+    metrics:
+      error_rate: 0.34652335986774263
+      response_time_ms: 3591
+      cpu_usage: 0.9938877497763305
+      memory_usage: 0.891604191364926
+- timestamp: '2025-05-23T17:33:36.782131'
+  event_type: timeout
+  description: 'Timeout: var log'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 108
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: var log - operation
+      failed'
+    metrics:
+      error_rate: 0.8091763277944655
+      response_time_ms: 3582
+      cpu_usage: 0.9769620786343751
+      memory_usage: 0.9732021819336738
+- timestamp: '2025-05-23T17:34:08.782131'
+  event_type: failure
+  description: 'Failure: api server'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 143
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: api server - operation
+      failed'
+    metrics:
+      error_rate: 0.7098275782559746
+      response_time_ms: 4474
+      cpu_usage: 0.9449129249381374
+      memory_usage: 0.824114640464325
+- timestamp: '2025-05-23T17:34:19.782131'
+  event_type: recovery
+  description: 'Recovery: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:38.782131'
+  event_type: timeout
+  description: 'Timeout: nginx error'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 81
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: nginx error -
+      operation failed'
+    metrics:
+      error_rate: 0.7935600996326412
+      response_time_ms: 8463
+      cpu_usage: 0.8903622184131043
+      memory_usage: 0.9705943729666556
+- timestamp: '2025-05-23T17:35:04.782131'
+  event_type: timeout
+  description: 'Timeout: vpn connection'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 100
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: vpn connection - operation
+      failed'
+    metrics:
+      error_rate: 0.22694269954654178
+      response_time_ms: 3022
+      cpu_usage: 0.9828609493397193
+      memory_usage: 0.8601259651350688
+- timestamp: '2025-05-23T17:48:23.782131'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

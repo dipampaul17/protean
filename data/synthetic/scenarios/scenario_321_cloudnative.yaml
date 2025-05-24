@@ -1,0 +1,47 @@
+category: CloudNative
+name: CloudNative_20250523_173708
+description: Kubernetes pod and container orchestration issues
+duration: 440
+metadata:
+  generated_at: '2025-05-23T17:37:08.036118'
+  phrase_templates_used: 39
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:37:08.036015'
+  event_type: trigger
+  description: 'Initial failure detected: kubernetes cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:27.036015'
+  event_type: scaling
+  description: 'Scaling: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:31.036015'
+  event_type: scaling
+  description: 'Scaling: dns server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:42.036015'
+  event_type: scaling
+  description: 'Scaling: code pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:49.036015'
+  event_type: failure
+  description: 'Failure: dns server'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 73
+    log_snippet: '[2025-05-23 17:37:08] ERROR nginx-proxy: dns server in failure'
+    metrics:
+      error_rate: 0.5050713094484951
+      response_time_ms: 1266
+      cpu_usage: 0.9850817227592297
+      memory_usage: 0.8388128164783334
+- timestamp: '2025-05-23T17:44:28.036015'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

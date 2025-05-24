@@ -1,0 +1,59 @@
+category: NetworkPartition
+name: NetworkPartition_20250523_173245
+description: Infrastructure failure scenario for NetworkPartition
+duration: 1664
+metadata:
+  generated_at: '2025-05-23T17:32:45.757235'
+  phrase_templates_used: 4
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.757116'
+  event_type: trigger
+  description: 'Initial failure detected: and memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:20.757116'
+  event_type: recovery
+  description: 'Recovery: and memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:39.757116'
+  event_type: recovery
+  description: 'Recovery: and node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:58.757116'
+  event_type: timeout
+  description: 'Timeout: of disk'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 49
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: of disk - operation
+      failed'
+    metrics:
+      error_rate: 0.25500182996630755
+      response_time_ms: 2140
+      cpu_usage: 0.9649600247897155
+      memory_usage: 0.8710742379211125
+- timestamp: '2025-05-23T17:34:59.757116'
+  event_type: failure
+  description: 'Failure: and node'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 189
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: and node - operation
+      failed'
+    metrics:
+      error_rate: 0.20388993700570313
+      response_time_ms: 5205
+      cpu_usage: 0.8199430575363529
+      memory_usage: 0.8361141714007614
+- timestamp: '2025-05-23T18:00:29.757116'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

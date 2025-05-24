@@ -1,0 +1,90 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_173708",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 762,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.013493",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.013368",
+      "event_type": "trigger",
+      "description": "Initial failure detected: in memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:48.013368",
+      "event_type": "timeout",
+      "description": "Timeout: the pod",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 285,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: the pod - operation failed",
+        "metrics": {
+          "error_rate": 0.35386911559073886,
+          "response_time_ms": 7430,
+          "cpu_usage": 0.9187201277460133,
+          "memory_usage": 0.9572380379879438
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:10.013368",
+      "event_type": "failure",
+      "description": "Failure: the connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 217,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: the connection - operation failed",
+        "metrics": {
+          "error_rate": 0.27883827826067364,
+          "response_time_ms": 8596,
+          "cpu_usage": 0.9307993551802127,
+          "memory_usage": 0.9933544098362683
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:10.013368",
+      "event_type": "failure",
+      "description": "Failure: served memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 266,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: served memory - operation failed",
+        "metrics": {
+          "error_rate": 0.20873255680679606,
+          "response_time_ms": 9663,
+          "cpu_usage": 0.7051241448221387,
+          "memory_usage": 0.8983909914156715
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:16.013368",
+      "event_type": "recovery",
+      "description": "Recovery: to monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:50.013368",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

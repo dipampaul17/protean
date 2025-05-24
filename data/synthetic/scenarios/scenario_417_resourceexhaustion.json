@@ -1,0 +1,90 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_174629",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 709,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.129338",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.129204",
+      "event_type": "trigger",
+      "description": "Initial failure detected: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:08.129204",
+      "event_type": "failure",
+      "description": "Failure: message queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "medium",
+        "duration": 176,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: message queue - operation failed",
+        "metrics": {
+          "error_rate": 0.15005416878646777,
+          "response_time_ms": 1967,
+          "cpu_usage": 0.7493626471930128,
+          "memory_usage": 0.43069469309796066
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:23.129204",
+      "event_type": "timeout",
+      "description": "Timeout: in memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 74,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: in memory - operation failed",
+        "metrics": {
+          "error_rate": 0.4188564252872883,
+          "response_time_ms": 8305,
+          "cpu_usage": 0.8407880285022749,
+          "memory_usage": 0.9302495472715294
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:28.129204",
+      "event_type": "failure",
+      "description": "Failure: redis connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 222,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: redis connection - operation failed",
+        "metrics": {
+          "error_rate": 0.20504864963215105,
+          "response_time_ms": 7076,
+          "cpu_usage": 0.9856746923348931,
+          "memory_usage": 0.8446461716999056
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:05.129204",
+      "event_type": "recovery",
+      "description": "Recovery: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:58:18.129204",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

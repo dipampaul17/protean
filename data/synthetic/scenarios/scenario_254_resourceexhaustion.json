@@ -1,0 +1,72 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_173245",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 1253,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.735813",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.735304",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:11.735304",
+      "event_type": "failure",
+      "description": "Failure: and fix",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 289,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: and fix - operation failed",
+        "metrics": {
+          "error_rate": 0.3112344405466268,
+          "response_time_ms": 3398,
+          "cpu_usage": 0.786380742156032,
+          "memory_usage": 0.9756490050159892
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:42.735304",
+      "event_type": "failure",
+      "description": "Failure: double scale",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 93,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: double scale - operation failed",
+        "metrics": {
+          "error_rate": 0.46285320954223974,
+          "response_time_ms": 9791,
+          "cpu_usage": 0.8886023314936623,
+          "memory_usage": 0.9808875096636753
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:11.735304",
+      "event_type": "recovery",
+      "description": "Recovery: info node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:53:38.735304",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

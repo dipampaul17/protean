@@ -1,0 +1,174 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173452",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1728,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.975798",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 2,
+      "medium": 1,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.975450",
+      "event_type": "trigger",
+      "description": "Initial failure detected: reduce alert",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:14.975450",
+      "event_type": "failure",
+      "description": "Failure: a queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "medium",
+        "duration": 106,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR user-service: a queue - operation failed",
+        "metrics": {
+          "error_rate": 0.2620454959060747,
+          "response_time_ms": 1832,
+          "cpu_usage": 0.3326065762657817,
+          "memory_usage": 0.530659575712764
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:31.975450",
+      "event_type": "failure",
+      "description": "Failure: connection refused",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 270,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: connection refused - operation failed",
+        "metrics": {
+          "error_rate": 0.8219047078417512,
+          "response_time_ms": 3792,
+          "cpu_usage": 0.7345171537753912,
+          "memory_usage": 0.9602600927448748
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:54.975450",
+      "event_type": "failure",
+      "description": "Failure: my server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 43,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: my server - operation failed",
+        "metrics": {
+          "error_rate": 0.7245641750161996,
+          "response_time_ms": 9236,
+          "cpu_usage": 0.8523784717893289,
+          "memory_usage": 0.8336188748485462
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:32.975450",
+      "event_type": "failure",
+      "description": "Failure: nginx log",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 286,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: nginx log - operation failed",
+        "metrics": {
+          "error_rate": 0.13953447217552153,
+          "response_time_ms": 1564,
+          "cpu_usage": 0.952714145246049,
+          "memory_usage": 0.8334521866894878
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:34.975450",
+      "event_type": "degradation",
+      "description": "Degradation: us log",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "low",
+        "duration": 53,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR user-service: us log - operation failed",
+        "metrics": {
+          "error_rate": 0.029866472557537646,
+          "response_time_ms": 134,
+          "cpu_usage": 0.5638473168066609,
+          "memory_usage": 0.5301965170858682
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:36.975450",
+      "event_type": "timeout",
+      "description": "Timeout: an error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 188,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR user-service: an error - operation failed",
+        "metrics": {
+          "error_rate": 0.4971187682338457,
+          "response_time_ms": 8722,
+          "cpu_usage": 0.875788018192496,
+          "memory_usage": 0.8752356405561693
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:05.975450",
+      "event_type": "degradation",
+      "description": "Degradation: gateway timeout",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 232,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: gateway timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.5388970124847531,
+          "response_time_ms": 5312,
+          "cpu_usage": 0.8048803067246506,
+          "memory_usage": 0.8579387328074918
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:08.975450",
+      "event_type": "degradation",
+      "description": "Degradation: to restart",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "low",
+        "duration": 40,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: to restart - operation failed",
+        "metrics": {
+          "error_rate": 0.27186978285530256,
+          "response_time_ms": 382,
+          "cpu_usage": 0.5463519265327597,
+          "memory_usage": 0.464968615945217
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:03:40.975450",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_174628
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1137
+metadata:
+  generated_at: '2025-05-23T17:46:28.915256'
+  phrase_templates_used: 45
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 4
+events:
+- timestamp: '2025-05-23T17:46:28.915064'
+  event_type: trigger
+  description: 'Initial failure detected: existing connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:50.915064'
+  event_type: timeout
+  description: 'Timeout: code error'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 92
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: code error - operation
+      failed'
+    metrics:
+      error_rate: 0.21765853382617886
+      response_time_ms: 7105
+      cpu_usage: 0.897400023051966
+      memory_usage: 0.8337093940111825
+- timestamp: '2025-05-23T17:47:16.915064'
+  event_type: recovery
+  description: 'Recovery: failed to'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:18.915064'
+  event_type: recovery
+  description: 'Recovery: to monitor'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:22.915064'
+  event_type: timeout
+  description: 'Timeout: external service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 47
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: external service
+      - operation failed'
+    metrics:
+      error_rate: 0.7350127034892644
+      response_time_ms: 9276
+      cpu_usage: 0.9889619803221477
+      memory_usage: 0.8483030813736708
+- timestamp: '2025-05-23T17:47:51.915064'
+  event_type: timeout
+  description: 'Timeout: work log'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 202
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: work log - operation failed'
+    metrics:
+      error_rate: 0.4429451408731936
+      response_time_ms: 7563
+      cpu_usage: 0.9762661090246123
+      memory_usage: 0.8680618211243653
+- timestamp: '2025-05-23T17:47:59.915064'
+  event_type: timeout
+  description: 'Timeout: illuminate queue'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: medium
+    duration: 146
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: illuminate queue - operation
+      failed'
+    metrics:
+      error_rate: 0.29200219737648664
+      response_time_ms: 621
+      cpu_usage: 0.7349927480451008
+      memory_usage: 0.46636931528079567
+- timestamp: '2025-05-23T17:49:01.915064'
+  event_type: timeout
+  description: 'Timeout: api server'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 140
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: api server - operation
+      failed'
+    metrics:
+      error_rate: 0.25606497023577246
+      response_time_ms: 5430
+      cpu_usage: 0.711430599661268
+      memory_usage: 0.8737413121536236
+- timestamp: '2025-05-23T18:05:25.915064'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

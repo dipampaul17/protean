@@ -1,0 +1,96 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_173245",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 480,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.796333",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.796193",
+      "event_type": "trigger",
+      "description": "Initial failure detected: high memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:10.796193",
+      "event_type": "timeout",
+      "description": "Timeout: a connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 168,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: a connection - operation failed",
+        "metrics": {
+          "error_rate": 0.8110794507769579,
+          "response_time_ms": 5623,
+          "cpu_usage": 0.7643205368240041,
+          "memory_usage": 0.8294893490835956
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:33.796193",
+      "event_type": "timeout",
+      "description": "Timeout: the container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 265,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.1278843752615024,
+          "response_time_ms": 2041,
+          "cpu_usage": 0.7495867650513143,
+          "memory_usage": 0.859602542765972
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:39.796193",
+      "event_type": "recovery",
+      "description": "Recovery: most memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:11.796193",
+      "event_type": "recovery",
+      "description": "Recovery: potential memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:14.796193",
+      "event_type": "failure",
+      "description": "Failure: heap memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 52,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: heap memory - operation failed",
+        "metrics": {
+          "error_rate": 0.8757975243843513,
+          "response_time_ms": 3579,
+          "cpu_usage": 0.8303942047081417,
+          "memory_usage": 0.9035526611722896
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:45.796193",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+category: Microservices
+name: Microservices_20250523_174629
+description: Infrastructure failure scenario for Microservices
+duration: 1260
+metadata:
+  generated_at: '2025-05-23T17:46:29.089326'
+  phrase_templates_used: 15
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:46:29.088081'
+  event_type: trigger
+  description: 'Initial failure detected: headless service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:19.088081'
+  event_type: recovery
+  description: 'Recovery: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:23.088081'
+  event_type: timeout
+  description: 'Timeout: a service'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 51
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.4316652926257656
+      response_time_ms: 1056
+      cpu_usage: 0.971396584052225
+      memory_usage: 0.9855093075724283
+- timestamp: '2025-05-23T17:47:32.088081'
+  event_type: failure
+  description: 'Failure: ui service'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 119
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: ui service - operation
+      failed'
+    metrics:
+      error_rate: 0.16138468115538754
+      response_time_ms: 1322
+      cpu_usage: 0.966875535702188
+      memory_usage: 0.8250648867259026
+- timestamp: '2025-05-23T17:48:13.088081'
+  event_type: failure
+  description: 'Failure: a cluster'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 167
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: a cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.2768980242836759
+      response_time_ms: 1086
+      cpu_usage: 0.8859249852606349
+      memory_usage: 0.8117110917694308
+- timestamp: '2025-05-23T17:48:16.088081'
+  event_type: timeout
+  description: 'Timeout: a service'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 123
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.6227853921776345
+      response_time_ms: 9632
+      cpu_usage: 0.832564621899354
+      memory_usage: 0.8480433436909776
+- timestamp: '2025-05-23T17:48:27.088081'
+  event_type: timeout
+  description: 'Timeout: following error'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 219
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: following error
+      - operation failed'
+    metrics:
+      error_rate: 0.15691759859932786
+      response_time_ms: 6453
+      cpu_usage: 0.9995805124500362
+      memory_usage: 0.9582971358531357
+- timestamp: '2025-05-23T17:48:37.088081'
+  event_type: recovery
+  description: 'Recovery: another container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:52.088081'
+  event_type: recovery
+  description: 'Recovery: lt service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:07:29.088081'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

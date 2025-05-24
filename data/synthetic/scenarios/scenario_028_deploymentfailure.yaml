@@ -1,0 +1,51 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173707
+description: Application deployment and rollback scenarios
+duration: 1252
+metadata:
+  generated_at: '2025-05-23T17:37:07.785014'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:37:07.784715'
+  event_type: trigger
+  description: 'Initial failure detected: an error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:43.784715'
+  event_type: scaling
+  description: 'Scaling: your container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:10.784715'
+  event_type: failure
+  description: 'Failure: apache server'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 260
+    log_snippet: '[2025-05-23 17:37:07] ERROR worker-consumer: apache server in failure'
+    metrics:
+      error_rate: 0.48140821783405763
+      response_time_ms: 5807
+      cpu_usage: 0.9704210969336504
+      memory_usage: 0.9882706321807244
+- timestamp: '2025-05-23T17:38:56.784715'
+  event_type: deployment
+  description: 'Deployment: docker service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:38.784715'
+  event_type: scaling
+  description: 'Scaling: kubectl scale'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:40.784715'
+  event_type: deployment
+  description: 'Deployment: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:57:59.784715'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

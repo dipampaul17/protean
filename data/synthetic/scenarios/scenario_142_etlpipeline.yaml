@@ -1,0 +1,85 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_174628
+description: Infrastructure failure scenario for ETLPipeline
+duration: 821
+metadata:
+  generated_at: '2025-05-23T17:46:28.965993'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:46:28.965839'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:47.965839'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 96
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.2592097764875224
+      response_time_ms: 7778
+      cpu_usage: 0.9426649518194286
+      memory_usage: 0.8538668821122505
+- timestamp: '2025-05-23T17:46:54.965839'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 234
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.39255531087286266
+      response_time_ms: 7532
+      cpu_usage: 0.9022642794012404
+      memory_usage: 0.8031151382194409
+- timestamp: '2025-05-23T17:48:33.965839'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 53
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: deployment failed
+      - operation failed'
+    metrics:
+      error_rate: 0.3155285061697174
+      response_time_ms: 3033
+      cpu_usage: 0.7964717909953335
+      memory_usage: 0.8085017242213008
+- timestamp: '2025-05-23T17:48:59.965839'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 242
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.3205192699063719
+      response_time_ms: 3433
+      cpu_usage: 0.728497090513033
+      memory_usage: 0.9256139311232083
+- timestamp: '2025-05-23T17:49:01.965839'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T18:00:09.965839'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

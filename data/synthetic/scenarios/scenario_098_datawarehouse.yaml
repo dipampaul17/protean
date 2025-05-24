@@ -1,0 +1,82 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_174628
+description: Infrastructure failure scenario for DataWarehouse
+duration: 1501
+metadata:
+  generated_at: '2025-05-23T17:46:28.955166'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:28.954988'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:09.954988'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:26.954988'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 94
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.4252668796661103
+      response_time_ms: 5060
+      cpu_usage: 0.7394312820981994
+      memory_usage: 0.9842486650806712
+- timestamp: '2025-05-23T17:47:37.954988'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 198
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.3939422348310341
+      response_time_ms: 7680
+      cpu_usage: 0.8058158477888823
+      memory_usage: 0.9912885666198508
+- timestamp: '2025-05-23T17:47:51.954988'
+  event_type: recovery
+  description: 'Recovery: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:55.954988'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:59.954988'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 145
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: disk space full
+      - operation failed'
+    metrics:
+      error_rate: 0.630162406404284
+      response_time_ms: 2984
+      cpu_usage: 0.7092274063142406
+      memory_usage: 0.822366487317206
+- timestamp: '2025-05-23T17:49:44.954988'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T18:11:29.954988'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

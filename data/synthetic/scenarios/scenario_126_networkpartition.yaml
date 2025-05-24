@@ -1,0 +1,66 @@
+category: NetworkPartition
+name: NetworkPartition_20250523_173245
+description: Infrastructure failure scenario for NetworkPartition
+duration: 1069
+metadata:
+  generated_at: '2025-05-23T17:32:45.688263'
+  phrase_templates_used: 4
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:32:45.688154'
+  event_type: trigger
+  description: 'Initial failure detected: and node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:39.688154'
+  event_type: timeout
+  description: 'Timeout: each node'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 204
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: each node - operation
+      failed'
+    metrics:
+      error_rate: 0.29275176939439085
+      response_time_ms: 2901
+      cpu_usage: 0.7689865457848948
+      memory_usage: 0.935512308644195
+- timestamp: '2025-05-23T17:37:02.688154'
+  event_type: timeout
+  description: 'Timeout: each node'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 83
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: each node - operation
+      failed'
+    metrics:
+      error_rate: 0.8567359919190402
+      response_time_ms: 5099
+      cpu_usage: 0.7319239352042319
+      memory_usage: 0.9434672480590894
+- timestamp: '2025-05-23T17:38:18.688154'
+  event_type: timeout
+  description: 'Timeout: each node'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 38
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: each node - operation
+      failed'
+    metrics:
+      error_rate: 0.8618327899158351
+      response_time_ms: 5448
+      cpu_usage: 0.83132143921119
+      memory_usage: 0.8879731625953089
+- timestamp: '2025-05-23T17:50:34.688154'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

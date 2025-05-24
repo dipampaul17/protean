@@ -1,0 +1,78 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_173245",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 562,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.668776",
+    "phrase_templates_used": 39,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.668660",
+      "event_type": "trigger",
+      "description": "Initial failure detected: docker container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:40.668660",
+      "event_type": "deployment",
+      "description": "Deployment: deleted pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:21.668660",
+      "event_type": "failure",
+      "description": "Failure: getting error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 277,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR worker-consumer: getting error in failure",
+        "metrics": {
+          "error_rate": 0.2543501427769185,
+          "response_time_ms": 1936,
+          "cpu_usage": 0.9360816217757255,
+          "memory_usage": 0.8531446856497156
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:33.668660",
+      "event_type": "failure",
+      "description": "Failure: kind service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 204,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR web-frontend: kind service in failure",
+        "metrics": {
+          "error_rate": 0.6057511421659348,
+          "response_time_ms": 6360,
+          "cpu_usage": 0.7735388838511484,
+          "memory_usage": 0.9461281149044067
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:38.668660",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: dns server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:42:07.668660",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

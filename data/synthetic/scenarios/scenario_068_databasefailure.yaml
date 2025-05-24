@@ -1,0 +1,72 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173707
+description: Database connectivity and performance issues
+duration: 687
+metadata:
+  generated_at: '2025-05-23T17:37:07.946625'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:07.946375'
+  event_type: trigger
+  description: 'Initial failure detected: api server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:24.946375'
+  event_type: connection_loss
+  description: 'Connection_Loss: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:32.946375'
+  event_type: timeout
+  description: 'Timeout: sudo service'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 113
+    log_snippet: '[2025-05-23 17:37:07] FATAL mysql-primary: database sudo service
+      detected'
+    metrics:
+      error_rate: 0.14059493124094002
+      response_time_ms: 5407
+      cpu_usage: 0.8870850085358095
+      memory_usage: 0.9247342196340066
+      connection_pool_usage: 0.968263195605536
+      query_time_ms: 25401
+      deadlocks_per_sec: 7
+- timestamp: '2025-05-23T17:38:30.946375'
+  event_type: corruption
+  description: 'Corruption: redis server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:42.946375'
+  event_type: recovery
+  description: 'Recovery: a database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:56.946375'
+  event_type: recovery
+  description: 'Recovery: in memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:56.946375'
+  event_type: timeout
+  description: 'Timeout: var log'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 295
+    log_snippet: '[2025-05-23 17:37:07] ERROR mongodb-shard: var log in timeout'
+    metrics:
+      error_rate: 0.5319372361286677
+      response_time_ms: 5044
+      cpu_usage: 0.7558013364009081
+      memory_usage: 0.9647433860115626
+      connection_pool_usage: 0.9687190241014859
+      query_time_ms: 10010
+      deadlocks_per_sec: 2
+- timestamp: '2025-05-23T17:48:34.946375'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

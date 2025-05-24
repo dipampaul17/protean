@@ -1,0 +1,96 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_174629",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 777,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.103514",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.103355",
+      "event_type": "trigger",
+      "description": "Initial failure detected: accessed memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:20.103355",
+      "event_type": "recovery",
+      "description": "Recovery: redis connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:56.103355",
+      "event_type": "recovery",
+      "description": "Recovery: the pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:25.103355",
+      "event_type": "failure",
+      "description": "Failure: strong update",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 242,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.6096811995277153,
+          "response_time_ms": 3180,
+          "cpu_usage": 0.7581529409198162,
+          "memory_usage": 0.8656956413077459
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:34.103355",
+      "event_type": "failure",
+      "description": "Failure: in memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 159,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: in memory - operation failed",
+        "metrics": {
+          "error_rate": 0.8988199675250372,
+          "response_time_ms": 7935,
+          "cpu_usage": 0.9726795310695163,
+          "memory_usage": 0.9264273614862084
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:03.103355",
+      "event_type": "timeout",
+      "description": "Timeout: lt container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 139,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: lt container - operation failed",
+        "metrics": {
+          "error_rate": 0.5656161314506384,
+          "response_time_ms": 3301,
+          "cpu_usage": 0.85756765174521,
+          "memory_usage": 0.8725057620384422
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:59:26.103355",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

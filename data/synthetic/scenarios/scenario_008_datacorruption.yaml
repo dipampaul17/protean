@@ -1,0 +1,130 @@
+category: DataCorruption
+name: DataCorruption_20250523_173452
+description: Infrastructure failure scenario for DataCorruption
+duration: 1171
+metadata:
+  generated_at: '2025-05-23T17:34:52.903081'
+  phrase_templates_used: 36
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 6
+events:
+- timestamp: '2025-05-23T17:34:52.902850'
+  event_type: trigger
+  description: 'Initial failure detected: context cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:07.902850'
+  event_type: recovery
+  description: 'Recovery: new container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:08.902850'
+  event_type: failure
+  description: 'Failure: using rabbitmq'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 182
+    log_snippet: '[2025-05-23 17:34:52] ERROR payment-service: using rabbitmq - operation
+      failed'
+    metrics:
+      error_rate: 0.5433425866965937
+      response_time_ms: 6213
+      cpu_usage: 0.8287124934398855
+      memory_usage: 0.9262439134583478
+- timestamp: '2025-05-23T17:35:27.902850'
+  event_type: timeout
+  description: 'Timeout: using rabbitmq'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 88
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: using rabbitmq - operation
+      failed'
+    metrics:
+      error_rate: 0.890705568751347
+      response_time_ms: 4741
+      cpu_usage: 0.8581399060218174
+      memory_usage: 0.8933898131675914
+- timestamp: '2025-05-23T17:36:17.902850'
+  event_type: timeout
+  description: 'Timeout: to rollback'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 190
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: to rollback - operation
+      failed'
+    metrics:
+      error_rate: 0.1927033598670141
+      response_time_ms: 1059
+      cpu_usage: 0.7051156795846386
+      memory_usage: 0.8284473740267265
+- timestamp: '2025-05-23T17:36:18.902850'
+  event_type: timeout
+  description: 'Timeout: duplicate update'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 77
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: duplicate update
+      - operation failed'
+    metrics:
+      error_rate: 0.3269049269011052
+      response_time_ms: 2410
+      cpu_usage: 0.8763606670619861
+      memory_usage: 0.8353037303843234
+- timestamp: '2025-05-23T17:36:20.902850'
+  event_type: failure
+  description: 'Failure: the database'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 120
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: the database - operation
+      failed'
+    metrics:
+      error_rate: 0.49798620010467365
+      response_time_ms: 2102
+      cpu_usage: 0.9799486965730146
+      memory_usage: 0.8257857827913984
+- timestamp: '2025-05-23T17:36:20.902850'
+  event_type: timeout
+  description: 'Timeout: partitioned queue'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: medium
+    duration: 56
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: partitioned queue
+      - operation failed'
+    metrics:
+      error_rate: 0.10705557523722695
+      response_time_ms: 507
+      cpu_usage: 0.6844371247003003
+      memory_usage: 0.42320964029737074
+- timestamp: '2025-05-23T17:36:56.902850'
+  event_type: failure
+  description: 'Failure: one server'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 95
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: one server - operation
+      failed'
+    metrics:
+      error_rate: 0.19804791941751612
+      response_time_ms: 9502
+      cpu_usage: 0.8966680067843809
+      memory_usage: 0.9394550307331666
+- timestamp: '2025-05-23T17:54:23.902850'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

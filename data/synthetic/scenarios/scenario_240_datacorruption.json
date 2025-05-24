@@ -1,0 +1,84 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_174628",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 863,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.994704",
+    "phrase_templates_used": 36,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.994595",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:52.994595",
+      "event_type": "timeout",
+      "description": "Timeout: the server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 163,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.8628235013796178,
+          "response_time_ms": 8287,
+          "cpu_usage": 0.8041528566316783,
+          "memory_usage": 0.8237780531411155
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:13.994595",
+      "event_type": "timeout",
+      "description": "Timeout: instance storage",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 205,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: instance storage - operation failed",
+        "metrics": {
+          "error_rate": 0.5973655798325547,
+          "response_time_ms": 5992,
+          "cpu_usage": 0.972255658482887,
+          "memory_usage": 0.8261745163222496
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:32.994595",
+      "event_type": "failure",
+      "description": "Failure: the container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 157,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.15123217474547596,
+          "response_time_ms": 5974,
+          "cpu_usage": 0.9870005315875097,
+          "memory_usage": 0.9197944937308704
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:00:51.994595",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

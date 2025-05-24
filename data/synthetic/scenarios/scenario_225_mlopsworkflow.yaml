@@ -1,0 +1,59 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_173245
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 467
+metadata:
+  generated_at: '2025-05-23T17:32:45.726919'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.726809'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:11.726809'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:22.726809'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 209
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.7177264190689845
+      response_time_ms: 9587
+      cpu_usage: 0.7967199074997405
+      memory_usage: 0.9189706035425704
+- timestamp: '2025-05-23T17:33:45.726809'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 51
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.6720180915011487
+      response_time_ms: 7593
+      cpu_usage: 0.8824124994214737
+      memory_usage: 0.9840298815845441
+- timestamp: '2025-05-23T17:33:59.726809'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:32.726809'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

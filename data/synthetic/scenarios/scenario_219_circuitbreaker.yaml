@@ -1,0 +1,55 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173453
+description: Circuit breaker activation due to cascading service failures
+duration: 1029
+metadata:
+  generated_at: '2025-05-23T17:34:53.155311'
+  phrase_templates_used: 50
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 1
+events:
+- timestamp: '2025-05-23T17:34:53.154959'
+  event_type: trigger
+  description: 'Initial failure detected: to fix'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:21.154959'
+  event_type: degradation
+  description: 'Degradation: a timeout'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: high
+    duration: 54
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: a timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.15283323716482677
+      response_time_ms: 2391
+      cpu_usage: 0.8782603945802149
+      memory_usage: 0.9121158894738371
+- timestamp: '2025-05-23T17:39:28.154959'
+  event_type: degradation
+  description: 'Degradation: message queue'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: medium
+    duration: 88
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: message queue
+      - operation failed'
+    metrics:
+      error_rate: 0.26314450340378237
+      response_time_ms: 325
+      cpu_usage: 0.791918875227386
+      memory_usage: 0.5733311346136468
+- timestamp: '2025-05-23T17:39:30.154959'
+  event_type: recovery
+  description: 'Recovery: to resolve'
+  injection_spec: null
+- timestamp: '2025-05-23T17:52:02.154959'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

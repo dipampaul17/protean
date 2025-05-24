@@ -1,0 +1,102 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173245",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1630,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.758062",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.757900",
+      "event_type": "trigger",
+      "description": "Initial failure detected: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:52.757900",
+      "event_type": "failure",
+      "description": "Failure: elasticsearch cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 49,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: elasticsearch cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.7311058784871753,
+          "response_time_ms": 9729,
+          "cpu_usage": 0.9449212220088108,
+          "memory_usage": 0.8948202464277435
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:57.757900",
+      "event_type": "failure",
+      "description": "Failure: the deployment",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 52,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: the deployment - operation failed",
+        "metrics": {
+          "error_rate": 0.5499723311554789,
+          "response_time_ms": 4713,
+          "cpu_usage": 0.8592880671639969,
+          "memory_usage": 0.8614629320249014
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:19.757900",
+      "event_type": "failure",
+      "description": "Failure: your cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 161,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: your cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.6464934321742656,
+          "response_time_ms": 4395,
+          "cpu_usage": 0.9596282980420452,
+          "memory_usage": 0.9975445137316937
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:26.757900",
+      "event_type": "config_change",
+      "description": "Config_Change: string update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:56.757900",
+      "event_type": "restart",
+      "description": "Restart: kubernetes pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:31.757900",
+      "event_type": "restart",
+      "description": "Restart: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:59:55.757900",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

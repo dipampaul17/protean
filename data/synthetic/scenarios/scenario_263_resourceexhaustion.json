@@ -1,0 +1,96 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_173453",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 445,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.200651",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.200236",
+      "event_type": "trigger",
+      "description": "Initial failure detected: float scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:27.200236",
+      "event_type": "failure",
+      "description": "Failure: the connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 36,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: the connection - operation failed",
+        "metrics": {
+          "error_rate": 0.11842207841130135,
+          "response_time_ms": 6321,
+          "cpu_usage": 0.8045246015303887,
+          "memory_usage": 0.9340036903744632
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:36.200236",
+      "event_type": "recovery",
+      "description": "Recovery: redis connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:43.200236",
+      "event_type": "failure",
+      "description": "Failure: to fix",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 270,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: to fix - operation failed",
+        "metrics": {
+          "error_rate": 0.5917428395851166,
+          "response_time_ms": 9095,
+          "cpu_usage": 0.7748878782765795,
+          "memory_usage": 0.9971955908930534
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:05.200236",
+      "event_type": "recovery",
+      "description": "Recovery: message queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:07.200236",
+      "event_type": "timeout",
+      "description": "Timeout: heap memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 107,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: heap memory - operation failed",
+        "metrics": {
+          "error_rate": 0.5845679040209505,
+          "response_time_ms": 2924,
+          "cpu_usage": 0.8758625176071245,
+          "memory_usage": 0.8058491179950295
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:42:18.200236",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

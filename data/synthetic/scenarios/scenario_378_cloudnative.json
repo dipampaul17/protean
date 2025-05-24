@@ -1,0 +1,66 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_173245",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 1511,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.767827",
+    "phrase_templates_used": 39,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.767727",
+      "event_type": "trigger",
+      "description": "Initial failure detected: any log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:55.767727",
+      "event_type": "scaling",
+      "description": "Scaling: code pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:03.767727",
+      "event_type": "deployment",
+      "description": "Deployment: delete pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:27.767727",
+      "event_type": "failure",
+      "description": "Failure: the server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 293,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR worker-consumer: the server in failure",
+        "metrics": {
+          "error_rate": 0.13913313740428102,
+          "response_time_ms": 9008,
+          "cpu_usage": 0.7881702980216557,
+          "memory_usage": 0.8439668451877921
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:56.767727",
+      "event_type": "deployment",
+      "description": "Deployment: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:57:56.767727",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173245
+description: Database connectivity and performance issues
+duration: 820
+metadata:
+  generated_at: '2025-05-23T17:32:45.758760'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 1
+events:
+- timestamp: '2025-05-23T17:32:45.758641'
+  event_type: trigger
+  description: 'Initial failure detected: the connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:40.758641'
+  event_type: connection_loss
+  description: 'Connection_Loss: create database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:05.758641'
+  event_type: recovery
+  description: 'Recovery: metadatacreateindexservice node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:35.758641'
+  event_type: timeout
+  description: 'Timeout: the queue'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: medium
+    duration: 140
+    log_snippet: '[2025-05-23 17:32:45] ERROR redis-cache: the queue in timeout'
+    metrics:
+      error_rate: 0.10978372989938534
+      response_time_ms: 1140
+      cpu_usage: 0.39488829352326277
+      memory_usage: 0.6213189139346306
+      connection_pool_usage: 0.8056084960537999
+      query_time_ms: 18199
+      deadlocks_per_sec: 4
+- timestamp: '2025-05-23T17:35:36.758641'
+  event_type: timeout
+  description: 'Timeout: mysql database'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 269
+    log_snippet: '[2025-05-23 17:32:45] FATAL mysql-primary: database mysql database
+      detected'
+    metrics:
+      error_rate: 0.35058153432303285
+      response_time_ms: 9815
+      cpu_usage: 0.914219300190085
+      memory_usage: 0.9849035678525982
+      connection_pool_usage: 0.9300940493826961
+      query_time_ms: 24596
+      deadlocks_per_sec: 1
+- timestamp: '2025-05-23T17:46:25.758641'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

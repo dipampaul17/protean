@@ -1,0 +1,86 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_173245
+description: Infrastructure failure scenario for DependencyFailure
+duration: 333
+metadata:
+  generated_at: '2025-05-23T17:32:45.761070'
+  phrase_templates_used: 45
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:32:45.760254'
+  event_type: trigger
+  description: 'Initial failure detected: to network'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:04.760254'
+  event_type: failure
+  description: 'Failure: the error'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 114
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.2157516143338831
+      response_time_ms: 3493
+      cpu_usage: 0.7327747939222695
+      memory_usage: 0.8206403202823862
+- timestamp: '2025-05-23T17:33:04.760254'
+  event_type: recovery
+  description: 'Recovery: closed connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:06.760254'
+  event_type: recovery
+  description: 'Recovery: illuminate container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:06.760254'
+  event_type: recovery
+  description: 'Recovery: closed connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:10.760254'
+  event_type: recovery
+  description: 'Recovery: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:19.760254'
+  event_type: recovery
+  description: 'Recovery: web server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:21.760254'
+  event_type: timeout
+  description: 'Timeout: the error'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 153
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.47031842258565415
+      response_time_ms: 1507
+      cpu_usage: 0.732212908572963
+      memory_usage: 0.8290599978304639
+- timestamp: '2025-05-23T17:33:23.760254'
+  event_type: timeout
+  description: 'Timeout: and update'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 49
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: and update - operation
+      failed'
+    metrics:
+      error_rate: 0.3365472174208276
+      response_time_ms: 6975
+      cpu_usage: 0.952778541224186
+      memory_usage: 0.9733495043738164
+- timestamp: '2025-05-23T17:38:18.760254'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

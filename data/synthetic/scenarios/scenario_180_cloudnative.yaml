@@ -1,0 +1,65 @@
+category: CloudNative
+name: CloudNative_20250523_173707
+description: Kubernetes pod and container orchestration issues
+duration: 906
+metadata:
+  generated_at: '2025-05-23T17:37:07.995803'
+  phrase_templates_used: 39
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:07.995424'
+  event_type: trigger
+  description: 'Initial failure detected: deleted pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:36.995424'
+  event_type: failure
+  description: 'Failure: name debug'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 58
+    log_snippet: '[2025-05-23 17:37:07] ERROR web-frontend: name debug in failure'
+    metrics:
+      error_rate: 0.659086375090243
+      response_time_ms: 2613
+      cpu_usage: 0.8418674657540693
+      memory_usage: 0.9842131819753752
+- timestamp: '2025-05-23T17:37:36.995424'
+  event_type: pod_restart
+  description: 'Pod_Restart: context cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:57.995424'
+  event_type: deployment
+  description: 'Deployment: kind pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:07.995424'
+  event_type: failure
+  description: 'Failure: kubernetes error'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 127
+    log_snippet: '[2025-05-23 17:37:07] ERROR web-frontend: kubernetes error in failure'
+    metrics:
+      error_rate: 0.38758490683736146
+      response_time_ms: 2336
+      cpu_usage: 0.9683307696140404
+      memory_usage: 0.8421503399008892
+- timestamp: '2025-05-23T17:38:20.995424'
+  event_type: deployment
+  description: 'Deployment: kubernetes error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:05.995424'
+  event_type: scaling
+  description: 'Scaling: an error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:52:13.995424'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

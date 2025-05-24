@@ -1,0 +1,54 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_174628
+description: Load balancer and traffic distribution problems
+duration: 1062
+metadata:
+  generated_at: '2025-05-23T17:46:28.975992'
+  phrase_templates_used: 13
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:46:28.975874'
+  event_type: trigger
+  description: 'Initial failure detected: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:41.975874'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:55.975874'
+  event_type: scaling
+  description: 'Scaling: load balancer'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:44.975874'
+  event_type: timeout
+  description: 'Timeout: a container'
+  injection_spec:
+    type: timeout
+    target: api-gateway
+    severity: high
+    duration: 205
+    log_snippet: '[2025-05-23 17:46:28] ERROR api-gateway: a container in timeout'
+    metrics:
+      error_rate: 0.6324893989577852
+      response_time_ms: 3100
+      cpu_usage: 0.9714907729361633
+      memory_usage: 0.8041517863971736
+      requests_per_sec: 6408
+      backend_health_pct: 0.6516232851028411
+      connection_timeouts: 243
+- timestamp: '2025-05-23T17:47:58.975874'
+  event_type: scaling
+  description: 'Scaling: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:50.975874'
+  event_type: backend_failure
+  description: 'Backend_Failure: kafka pod'
+  injection_spec: null
+- timestamp: '2025-05-23T18:04:10.975874'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

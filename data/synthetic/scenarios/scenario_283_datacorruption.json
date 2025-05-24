@@ -1,0 +1,114 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173708",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 1556,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.027251",
+    "phrase_templates_used": 36,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.027087",
+      "event_type": "trigger",
+      "description": "Initial failure detected: head queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:55.027087",
+      "event_type": "failure",
+      "description": "Failure: only container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 170,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: only container - operation failed",
+        "metrics": {
+          "error_rate": 0.17320539743459823,
+          "response_time_ms": 9202,
+          "cpu_usage": 0.7079901814191534,
+          "memory_usage": 0.8677579634949741
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:01.027087",
+      "event_type": "failure",
+      "description": "Failure: docker container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 223,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: docker container - operation failed",
+        "metrics": {
+          "error_rate": 0.797290934529923,
+          "response_time_ms": 9006,
+          "cpu_usage": 0.7969449528743526,
+          "memory_usage": 0.8710283253221494
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:59.027087",
+      "event_type": "failure",
+      "description": "Failure: strong update",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 213,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.4314225417586939,
+          "response_time_ms": 6034,
+          "cpu_usage": 0.9287504607715851,
+          "memory_usage": 0.8104656094566134
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:06.027087",
+      "event_type": "recovery",
+      "description": "Recovery: a database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:29.027087",
+      "event_type": "recovery",
+      "description": "Recovery: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:41:25.027087",
+      "event_type": "failure",
+      "description": "Failure: same node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 141,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: same node - operation failed",
+        "metrics": {
+          "error_rate": 0.33810376185958146,
+          "response_time_ms": 9402,
+          "cpu_usage": 0.8959710389516218,
+          "memory_usage": 0.8429020188074247
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:03:04.027087",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

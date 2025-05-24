@@ -1,0 +1,66 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173708",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1185,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.045236",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.045135",
+      "event_type": "trigger",
+      "description": "Initial failure detected: code deployment",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:55.045135",
+      "event_type": "rollback",
+      "description": "Rollback: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:57.045135",
+      "event_type": "failure",
+      "description": "Failure: reviewing error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 233,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR worker-consumer: reviewing error in failure",
+        "metrics": {
+          "error_rate": 0.6848054615890222,
+          "response_time_ms": 3110,
+          "cpu_usage": 0.8843664673643821,
+          "memory_usage": 0.9281899461343764
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:35.045135",
+      "event_type": "scaling",
+      "description": "Scaling: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:23.045135",
+      "event_type": "scaling",
+      "description": "Scaling: apache server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:56:53.045135",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

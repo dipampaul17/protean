@@ -1,0 +1,72 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_174628
+description: Infrastructure failure scenario for ScalingFailure
+duration: 1139
+metadata:
+  generated_at: '2025-05-23T17:46:28.923234'
+  phrase_templates_used: 24
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:28.923009'
+  event_type: trigger
+  description: 'Initial failure detected: this service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:13.923009'
+  event_type: failure
+  description: 'Failure: to scale'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 96
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: to scale - operation failed'
+    metrics:
+      error_rate: 0.3647292694062577
+      response_time_ms: 3115
+      cpu_usage: 0.89602504864215
+      memory_usage: 0.8385978587770131
+- timestamp: '2025-05-23T17:48:13.923009'
+  event_type: recovery
+  description: 'Recovery: this service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:03.923009'
+  event_type: timeout
+  description: 'Timeout: an error'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 119
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: an error - operation failed'
+    metrics:
+      error_rate: 0.2821155852557518
+      response_time_ms: 9142
+      cpu_usage: 0.7318641265240579
+      memory_usage: 0.9950495759038829
+- timestamp: '2025-05-23T17:50:02.923009'
+  event_type: timeout
+  description: 'Timeout: aws application'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 294
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: aws application - operation
+      failed'
+    metrics:
+      error_rate: 0.3186188851345967
+      response_time_ms: 8215
+      cpu_usage: 0.991467931801409
+      memory_usage: 0.9786734048688094
+- timestamp: '2025-05-23T17:50:05.923009'
+  event_type: recovery
+  description: 'Recovery: to fix'
+  injection_spec: null
+- timestamp: '2025-05-23T18:05:27.923009'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

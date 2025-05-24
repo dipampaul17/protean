@@ -1,0 +1,75 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_174628
+description: Load balancer and traffic distribution problems
+duration: 304
+metadata:
+  generated_at: '2025-05-23T17:46:28.907457'
+  phrase_templates_used: 13
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:28.907289'
+  event_type: trigger
+  description: 'Initial failure detected: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:40.907289'
+  event_type: timeout
+  description: 'Timeout: load balancer'
+  injection_spec:
+    type: timeout
+    target: api-gateway
+    severity: high
+    duration: 241
+    log_snippet: '[2025-05-23 17:46:28] ERROR api-gateway: load balancer in timeout'
+    metrics:
+      error_rate: 0.4967260951917297
+      response_time_ms: 8289
+      cpu_usage: 0.9011063495698614
+      memory_usage: 0.9162485307473837
+      requests_per_sec: 6702
+      backend_health_pct: 0.5745940316073754
+      connection_timeouts: 387
+- timestamp: '2025-05-23T17:46:41.907289'
+  event_type: backend_failure
+  description: 'Backend_Failure: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:42.907289'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: loadbalancer service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:52.907289'
+  event_type: scaling
+  description: 'Scaling: loadbalancer service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:53.907289'
+  event_type: backend_failure
+  description: 'Backend_Failure: kafka pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:58.907289'
+  event_type: timeout
+  description: 'Timeout: kafka pod'
+  injection_spec:
+    type: timeout
+    target: load-balancer
+    severity: high
+    duration: 105
+    log_snippet: '[2025-05-23 17:46:28] ERROR load-balancer: kafka pod in timeout'
+    metrics:
+      error_rate: 0.8399859775376232
+      response_time_ms: 7209
+      cpu_usage: 0.9114160588223572
+      memory_usage: 0.8133191713816582
+      requests_per_sec: 3445
+      backend_health_pct: 0.5312590747416317
+      connection_timeouts: 561
+- timestamp: '2025-05-23T17:47:05.907289'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: loadbalancer service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:51:32.907289'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

@@ -1,0 +1,120 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_174628",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 1508,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.914456",
+    "phrase_templates_used": 36,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.914274",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:14.914274",
+      "event_type": "timeout",
+      "description": "Timeout: strong update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 149,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.1981328486156227,
+          "response_time_ms": 9197,
+          "cpu_usage": 0.7395489396555056,
+          "memory_usage": 0.8329284204012725
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:05.914274",
+      "event_type": "recovery",
+      "description": "Recovery: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:09.914274",
+      "event_type": "recovery",
+      "description": "Recovery: ebs storage",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:24.914274",
+      "event_type": "recovery",
+      "description": "Recovery: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:48.914274",
+      "event_type": "timeout",
+      "description": "Timeout: a queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "medium",
+        "duration": 192,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: a queue - operation failed",
+        "metrics": {
+          "error_rate": 0.14045334536637838,
+          "response_time_ms": 1338,
+          "cpu_usage": 0.5171628464891296,
+          "memory_usage": 0.41449413353208076
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:55.914274",
+      "event_type": "timeout",
+      "description": "Timeout: the error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 294,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: the error - operation failed",
+        "metrics": {
+          "error_rate": 0.37495141554267475,
+          "response_time_ms": 3419,
+          "cpu_usage": 0.7872413649632278,
+          "memory_usage": 0.9076262726890696
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:00.914274",
+      "event_type": "failure",
+      "description": "Failure: closed connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 48,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: closed connection - operation failed",
+        "metrics": {
+          "error_rate": 0.5412254295662439,
+          "response_time_ms": 5576,
+          "cpu_usage": 0.8005850857001094,
+          "memory_usage": 0.8511695923755481
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:11:36.914274",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

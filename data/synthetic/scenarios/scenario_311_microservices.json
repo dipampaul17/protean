@@ -1,0 +1,60 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_174629",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 619,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.073915",
+    "phrase_templates_used": 15,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.073219",
+      "event_type": "trigger",
+      "description": "Initial failure detected: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:16.073219",
+      "event_type": "recovery",
+      "description": "Recovery: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:34.073219",
+      "event_type": "timeout",
+      "description": "Timeout: docker network",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 66,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: docker network - operation failed",
+        "metrics": {
+          "error_rate": 0.34877901178460596,
+          "response_time_ms": 2582,
+          "cpu_usage": 0.9734186980440691,
+          "memory_usage": 0.8719828790846113
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:37.073219",
+      "event_type": "recovery",
+      "description": "Recovery: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:56:48.073219",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

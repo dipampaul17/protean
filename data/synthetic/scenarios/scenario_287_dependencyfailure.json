@@ -1,0 +1,90 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_174629",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 1216,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.065174",
+    "phrase_templates_used": 45,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.065054",
+      "event_type": "trigger",
+      "description": "Initial failure detected: exist error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:07.065054",
+      "event_type": "recovery",
+      "description": "Recovery: vpn connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:12.065054",
+      "event_type": "failure",
+      "description": "Failure: headless service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 108,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: headless service - operation failed",
+        "metrics": {
+          "error_rate": 0.8467355924373563,
+          "response_time_ms": 9813,
+          "cpu_usage": 0.8935828771624463,
+          "memory_usage": 0.8796607858650541
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:04.065054",
+      "event_type": "timeout",
+      "description": "Timeout: the service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 189,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: the service - operation failed",
+        "metrics": {
+          "error_rate": 0.3420114200601675,
+          "response_time_ms": 5098,
+          "cpu_usage": 0.8940236303287966,
+          "memory_usage": 0.9356625817074565
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:06.065054",
+      "event_type": "timeout",
+      "description": "Timeout: lt connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 114,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: lt connection - operation failed",
+        "metrics": {
+          "error_rate": 0.6874499580178558,
+          "response_time_ms": 1285,
+          "cpu_usage": 0.7160757031688049,
+          "memory_usage": 0.8509077484254054
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:06:45.065054",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

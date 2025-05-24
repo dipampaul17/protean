@@ -1,0 +1,70 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_174629
+description: Infrastructure failure scenario for DataWarehouse
+duration: 867
+metadata:
+  generated_at: '2025-05-23T17:46:29.136833'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:29.136688'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:27.136688'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 79
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.6936103467909287
+      response_time_ms: 3362
+      cpu_usage: 0.9674285740636156
+      memory_usage: 0.981834262721522
+- timestamp: '2025-05-23T17:48:48.136688'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:54.136688'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 203
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.25773335193796776
+      response_time_ms: 6877
+      cpu_usage: 0.7903852115951142
+      memory_usage: 0.8092595072529831
+- timestamp: '2025-05-23T17:49:56.136688'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 269
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.1486533392353546
+      response_time_ms: 9219
+      cpu_usage: 0.9397854822023961
+      memory_usage: 0.8224467118358927
+- timestamp: '2025-05-23T18:00:56.136688'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

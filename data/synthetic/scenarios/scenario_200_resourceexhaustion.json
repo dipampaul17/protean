@@ -1,0 +1,78 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_173708",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 517,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.003672",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.003523",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to fix",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:24.003523",
+      "event_type": "recovery",
+      "description": "Recovery: served memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:40.003523",
+      "event_type": "recovery",
+      "description": "Recovery: potential memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:59.003523",
+      "event_type": "recovery",
+      "description": "Recovery: reading database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:15.003523",
+      "event_type": "timeout",
+      "description": "Timeout: the database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 152,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: the database - operation failed",
+        "metrics": {
+          "error_rate": 0.5065874814126561,
+          "response_time_ms": 5289,
+          "cpu_usage": 0.7191384354496303,
+          "memory_usage": 0.9974309942839319
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:22.003523",
+      "event_type": "recovery",
+      "description": "Recovery: info node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:34.003523",
+      "event_type": "recovery",
+      "description": "Recovery: in memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:45:45.003523",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

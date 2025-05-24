@@ -1,0 +1,114 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_174628",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 656,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.988611",
+    "phrase_templates_used": 45,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.988391",
+      "event_type": "trigger",
+      "description": "Initial failure detected: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:44.988391",
+      "event_type": "timeout",
+      "description": "Timeout: nginx error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 277,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: nginx error - operation failed",
+        "metrics": {
+          "error_rate": 0.29794488157099674,
+          "response_time_ms": 5182,
+          "cpu_usage": 0.7044377666243278,
+          "memory_usage": 0.9649618854974977
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:47.988391",
+      "event_type": "failure",
+      "description": "Failure: illuminate queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "medium",
+        "duration": 231,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: illuminate queue - operation failed",
+        "metrics": {
+          "error_rate": 0.2453600693937184,
+          "response_time_ms": 289,
+          "cpu_usage": 0.4870773524338578,
+          "memory_usage": 0.4420477632505264
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:48.988391",
+      "event_type": "recovery",
+      "description": "Recovery: destination node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:49.988391",
+      "event_type": "failure",
+      "description": "Failure: work log",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 161,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: work log - operation failed",
+        "metrics": {
+          "error_rate": 0.47424290305280925,
+          "response_time_ms": 8300,
+          "cpu_usage": 0.7485341137270483,
+          "memory_usage": 0.9571694100380139
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:57.988391",
+      "event_type": "failure",
+      "description": "Failure: jenkins server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 36,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: jenkins server - operation failed",
+        "metrics": {
+          "error_rate": 0.4340747702933151,
+          "response_time_ms": 1528,
+          "cpu_usage": 0.9635279680770337,
+          "memory_usage": 0.9145630378452686
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:16.988391",
+      "event_type": "recovery",
+      "description": "Recovery: quot network",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:57:24.988391",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

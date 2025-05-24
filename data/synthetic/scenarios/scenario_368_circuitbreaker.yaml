@@ -1,0 +1,55 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173708
+description: Circuit breaker activation due to cascading service failures
+duration: 387
+metadata:
+  generated_at: '2025-05-23T17:37:08.048629'
+  phrase_templates_used: 50
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:08.048535'
+  event_type: trigger
+  description: 'Initial failure detected: reduce alert'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:18.048535'
+  event_type: failure
+  description: 'Failure: uwsgi server'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 150
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: uwsgi server -
+      operation failed'
+    metrics:
+      error_rate: 0.26343251871435314
+      response_time_ms: 6272
+      cpu_usage: 0.9209913228480513
+      memory_usage: 0.8854862557790951
+- timestamp: '2025-05-23T17:38:39.048535'
+  event_type: failure
+  description: 'Failure: following error'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 254
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: following error - operation
+      failed'
+    metrics:
+      error_rate: 0.2714443446618152
+      response_time_ms: 5317
+      cpu_usage: 0.9889194249417206
+      memory_usage: 0.8515108859574535
+- timestamp: '2025-05-23T17:38:57.048535'
+  event_type: recovery
+  description: 'Recovery: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:43:35.048535'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

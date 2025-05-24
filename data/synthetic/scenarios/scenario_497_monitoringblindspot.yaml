@@ -1,0 +1,87 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173453
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 547
+metadata:
+  generated_at: '2025-05-23T17:34:53.383176'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:53.383009'
+  event_type: trigger
+  description: 'Initial failure detected: used cpu'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:11.383009'
+  event_type: recovery
+  description: 'Recovery: quot server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:27.383009'
+  event_type: failure
+  description: 'Failure: the pod'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 248
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: the pod - operation failed'
+    metrics:
+      error_rate: 0.5793563233858123
+      response_time_ms: 1753
+      cpu_usage: 0.7923306525719873
+      memory_usage: 0.8396786325634538
+- timestamp: '2025-05-23T17:35:40.383009'
+  event_type: failure
+  description: 'Failure: the log'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 246
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: the log - operation failed'
+    metrics:
+      error_rate: 0.16160806437772024
+      response_time_ms: 7381
+      cpu_usage: 0.7988508723588595
+      memory_usage: 0.9256189124059232
+- timestamp: '2025-05-23T17:35:55.383009'
+  event_type: timeout
+  description: 'Timeout: a service'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 269
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.2699301697070109
+      response_time_ms: 5077
+      cpu_usage: 0.7958188571071061
+      memory_usage: 0.9629415698941799
+- timestamp: '2025-05-23T17:35:59.383009'
+  event_type: recovery
+  description: 'Recovery: scaled service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:10.383009'
+  event_type: failure
+  description: 'Failure: kubernetes pod'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 209
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: kubernetes pod - operation
+      failed'
+    metrics:
+      error_rate: 0.4881238926647439
+      response_time_ms: 6065
+      cpu_usage: 0.7551347287129438
+      memory_usage: 0.9319413797999101
+- timestamp: '2025-05-23T17:44:00.383009'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

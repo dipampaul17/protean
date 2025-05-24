@@ -1,0 +1,150 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173707",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 430,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.985547",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.985088",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:23.985088",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 174,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.7744213497825624,
+          "response_time_ms": 1811,
+          "cpu_usage": 0.7939703846164439,
+          "memory_usage": 0.9809637594757041
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:28.985088",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 229,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.2001942456695888,
+          "response_time_ms": 4421,
+          "cpu_usage": 0.9157974049077411,
+          "memory_usage": 0.879881922988415
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:34.985088",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 88,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.36099941005579905,
+          "response_time_ms": 3410,
+          "cpu_usage": 0.7850243939407567,
+          "memory_usage": 0.8182712783578854
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:37.985088",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 145,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.7326154029058368,
+          "response_time_ms": 5958,
+          "cpu_usage": 0.7272377588144828,
+          "memory_usage": 0.9961604110313741
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:49.985088",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 282,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.651255647754461,
+          "response_time_ms": 3492,
+          "cpu_usage": 0.9891078688900266,
+          "memory_usage": 0.8943522335870505
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:53.985088",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 50,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.7674128163889077,
+          "response_time_ms": 5241,
+          "cpu_usage": 0.8955662533572726,
+          "memory_usage": 0.8368821948764389
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:55.985088",
+      "event_type": "recovery",
+      "description": "Recovery: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:00.985088",
+      "event_type": "recovery",
+      "description": "Recovery: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:44:17.985088",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

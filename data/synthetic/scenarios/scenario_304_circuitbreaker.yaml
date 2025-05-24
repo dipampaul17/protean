@@ -1,0 +1,130 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173708
+description: Circuit breaker activation due to cascading service failures
+duration: 857
+metadata:
+  generated_at: '2025-05-23T17:37:08.033491'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:37:08.033262'
+  event_type: trigger
+  description: 'Initial failure detected: nginx log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:25.033262'
+  event_type: failure
+  description: 'Failure: exceeded timeout'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 100
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: exceeded timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.440018671083209
+      response_time_ms: 4294
+      cpu_usage: 0.7152539414970275
+      memory_usage: 0.8509337586861593
+- timestamp: '2025-05-23T17:37:53.033262'
+  event_type: degradation
+  description: 'Degradation: the container'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: low
+    duration: 236
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: the container - operation
+      failed'
+    metrics:
+      error_rate: 0.15837199266860127
+      response_time_ms: 436
+      cpu_usage: 0.7880254094189926
+      memory_usage: 0.6851809362869824
+- timestamp: '2025-05-23T17:38:12.033262'
+  event_type: recovery
+  description: 'Recovery: var log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:13.033262'
+  event_type: failure
+  description: 'Failure: code server'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 107
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: code server -
+      operation failed'
+    metrics:
+      error_rate: 0.8240507860249515
+      response_time_ms: 7819
+      cpu_usage: 0.9165287982182424
+      memory_usage: 0.9177259162669162
+- timestamp: '2025-05-23T17:38:24.033262'
+  event_type: degradation
+  description: 'Degradation: session timeout'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: high
+    duration: 41
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: session timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.15640593004092926
+      response_time_ms: 8788
+      cpu_usage: 0.8644346555487861
+      memory_usage: 0.9335057561530461
+- timestamp: '2025-05-23T17:38:34.033262'
+  event_type: failure
+  description: 'Failure: exceeded timeout'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 230
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: exceeded timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.5183200802368313
+      response_time_ms: 6747
+      cpu_usage: 0.7804986280211085
+      memory_usage: 0.9020543434005891
+- timestamp: '2025-05-23T17:38:38.033262'
+  event_type: failure
+  description: 'Failure: nginx log'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 81
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: nginx log - operation
+      failed'
+    metrics:
+      error_rate: 0.28790696291597484
+      response_time_ms: 2343
+      cpu_usage: 0.7975158850746419
+      memory_usage: 0.9594206213079359
+- timestamp: '2025-05-23T17:38:55.033262'
+  event_type: failure
+  description: 'Failure: following error'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 166
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: following error
+      - operation failed'
+    metrics:
+      error_rate: 0.1736885864361663
+      response_time_ms: 8094
+      cpu_usage: 0.9904136965008989
+      memory_usage: 0.9314507769458636
+- timestamp: '2025-05-23T17:51:25.033262'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

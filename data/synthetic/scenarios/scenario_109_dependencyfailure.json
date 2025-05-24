@@ -1,0 +1,96 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173245",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 1775,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.683476",
+    "phrase_templates_used": 45,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.683339",
+      "event_type": "trigger",
+      "description": "Initial failure detected: work log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:52.683339",
+      "event_type": "failure",
+      "description": "Failure: external service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 82,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: external service - operation failed",
+        "metrics": {
+          "error_rate": 0.5726201905635265,
+          "response_time_ms": 2701,
+          "cpu_usage": 0.703022752087428,
+          "memory_usage": 0.9695074273364708
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:59.683339",
+      "event_type": "recovery",
+      "description": "Recovery: api server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:40.683339",
+      "event_type": "recovery",
+      "description": "Recovery: upstream server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:59.683339",
+      "event_type": "failure",
+      "description": "Failure: the queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "medium",
+        "duration": 159,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.17335005587761176,
+          "response_time_ms": 1516,
+          "cpu_usage": 0.3015340593890326,
+          "memory_usage": 0.5492282038593052
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:11.683339",
+      "event_type": "failure",
+      "description": "Failure: to network",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 150,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: to network - operation failed",
+        "metrics": {
+          "error_rate": 0.6407866023009098,
+          "response_time_ms": 6674,
+          "cpu_usage": 0.8219191344151153,
+          "memory_usage": 0.8650884031269136
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:02:20.683339",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173707",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 874,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.785560",
+    "phrase_templates_used": 45,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.785165",
+      "event_type": "trigger",
+      "description": "Initial failure detected: destination node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:31.785165",
+      "event_type": "failure",
+      "description": "Failure: var log",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 274,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: var log - operation failed",
+        "metrics": {
+          "error_rate": 0.3861677284273446,
+          "response_time_ms": 9098,
+          "cpu_usage": 0.9947219871951352,
+          "memory_usage": 0.9578898916546633
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:18.785165",
+      "event_type": "timeout",
+      "description": "Timeout: failed to",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 133,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: failed to - operation failed",
+        "metrics": {
+          "error_rate": 0.26944279684535327,
+          "response_time_ms": 7376,
+          "cpu_usage": 0.8912516427750898,
+          "memory_usage": 0.9345976720668665
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:46.785165",
+      "event_type": "failure",
+      "description": "Failure: to monitor",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 181,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: to monitor - operation failed",
+        "metrics": {
+          "error_rate": 0.2663019936962548,
+          "response_time_ms": 4476,
+          "cpu_usage": 0.8481915458653939,
+          "memory_usage": 0.8869248068992373
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:50.785165",
+      "event_type": "recovery",
+      "description": "Recovery: the connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:54.785165",
+      "event_type": "failure",
+      "description": "Failure: code server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 129,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: code server - operation failed",
+        "metrics": {
+          "error_rate": 0.6917111204426105,
+          "response_time_ms": 9560,
+          "cpu_usage": 0.8939351376895013,
+          "memory_usage": 0.8822313205706606
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:51:41.785165",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

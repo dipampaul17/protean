@@ -1,0 +1,108 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_173245",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 1428,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.680148",
+    "phrase_templates_used": 24,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.679946",
+      "event_type": "trigger",
+      "description": "Initial failure detected: web server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:44.679946",
+      "event_type": "recovery",
+      "description": "Recovery: this service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:23.679946",
+      "event_type": "recovery",
+      "description": "Recovery: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:35.679946",
+      "event_type": "recovery",
+      "description": "Recovery: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:00.679946",
+      "event_type": "timeout",
+      "description": "Timeout: to fix",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 147,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: to fix - operation failed",
+        "metrics": {
+          "error_rate": 0.8020075558164014,
+          "response_time_ms": 3609,
+          "cpu_usage": 0.8416481302089052,
+          "memory_usage": 0.9856149532864631
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:27.679946",
+      "event_type": "recovery",
+      "description": "Recovery: per server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:27.679946",
+      "event_type": "timeout",
+      "description": "Timeout: a service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 165,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.2766541507121346,
+          "response_time_ms": 5762,
+          "cpu_usage": 0.8452329167859005,
+          "memory_usage": 0.8865306413589602
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:43.679946",
+      "event_type": "timeout",
+      "description": "Timeout: this error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 245,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: this error - operation failed",
+        "metrics": {
+          "error_rate": 0.8733698185521471,
+          "response_time_ms": 9519,
+          "cpu_usage": 0.8145979858607892,
+          "memory_usage": 0.9150477006746024
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:56:33.679946",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

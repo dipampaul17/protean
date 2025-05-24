@@ -1,0 +1,48 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_174628
+description: Infrastructure failure scenario for DependencyFailure
+duration: 808
+metadata:
+  generated_at: '2025-05-23T17:46:28.983308'
+  phrase_templates_used: 45
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:46:28.983207'
+  event_type: trigger
+  description: 'Initial failure detected: federated queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:11.983207'
+  event_type: timeout
+  description: 'Timeout: quot network'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 265
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: quot network -
+      operation failed'
+    metrics:
+      error_rate: 0.34635882177463523
+      response_time_ms: 3149
+      cpu_usage: 0.7331196330989806
+      memory_usage: 0.9630461359762266
+- timestamp: '2025-05-23T17:48:12.983207'
+  event_type: recovery
+  description: 'Recovery: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:22.983207'
+  event_type: recovery
+  description: 'Recovery: to network'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:08.983207'
+  event_type: recovery
+  description: 'Recovery: to network'
+  injection_spec: null
+- timestamp: '2025-05-23T17:59:56.983207'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,93 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173708",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 1506,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.042176",
+    "phrase_templates_used": 13,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.042066",
+      "event_type": "trigger",
+      "description": "Initial failure detected: that node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:41:03.042066",
+      "event_type": "timeout",
+      "description": "Timeout: your cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "subnet-private",
+        "severity": "high",
+        "duration": 181,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR subnet-private: your cluster in timeout",
+        "metrics": {
+          "error_rate": 0.5715588846905668,
+          "response_time_ms": 1194,
+          "cpu_usage": 0.7858231106616286,
+          "memory_usage": 0.990978013149235,
+          "requests_per_sec": 2132,
+          "backend_health_pct": 0.7578344326846282,
+          "connection_timeouts": 841
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:06.042066",
+      "event_type": "timeout",
+      "description": "Timeout: the server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 71,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR api-gateway: the server in timeout",
+        "metrics": {
+          "error_rate": 0.8652763561908209,
+          "response_time_ms": 4515,
+          "cpu_usage": 0.7385798965217913,
+          "memory_usage": 0.846335124046569,
+          "requests_per_sec": 1225,
+          "backend_health_pct": 0.6513090434766386,
+          "connection_timeouts": 781
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:44:18.042066",
+      "event_type": "timeout",
+      "description": "Timeout: strong update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "vpc-main",
+        "severity": "high",
+        "duration": 117,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR vpc-main: strong update in timeout",
+        "metrics": {
+          "error_rate": 0.8885574703026687,
+          "response_time_ms": 3552,
+          "cpu_usage": 0.996670478545611,
+          "memory_usage": 0.9367584330172971,
+          "requests_per_sec": 9762,
+          "backend_health_pct": 0.332326839317048,
+          "connection_timeouts": 824
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:02:14.042066",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

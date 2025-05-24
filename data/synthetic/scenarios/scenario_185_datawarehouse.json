@@ -1,0 +1,84 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_173453",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 1438,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.135520",
+    "phrase_templates_used": 0,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.135412",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:28.135412",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 130,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.33354959145456764,
+          "response_time_ms": 2015,
+          "cpu_usage": 0.7329628010839283,
+          "memory_usage": 0.9646344076674296
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:29.135412",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 245,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.6864630094205928,
+          "response_time_ms": 4468,
+          "cpu_usage": 0.9792844681234287,
+          "memory_usage": 0.8649778730067342
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:42:39.135412",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 160,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.7965533430880963,
+          "response_time_ms": 6057,
+          "cpu_usage": 0.8321135546964449,
+          "memory_usage": 0.9353104267737397
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:58:51.135412",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

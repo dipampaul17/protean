@@ -1,0 +1,66 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_173245",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 426,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.751996",
+    "phrase_templates_used": 39,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.751893",
+      "event_type": "trigger",
+      "description": "Initial failure detected: gt service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:17.751893",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: api server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:30.751893",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: an error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:56.751893",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: code pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:00.751893",
+      "event_type": "failure",
+      "description": "Failure: true server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 173,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR nginx-proxy: true server in failure",
+        "metrics": {
+          "error_rate": 0.16434660924663413,
+          "response_time_ms": 9421,
+          "cpu_usage": 0.9537051436724304,
+          "memory_usage": 0.8298866990083025
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:51.751893",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

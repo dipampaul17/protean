@@ -1,0 +1,72 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_173453",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 932,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.286766",
+    "phrase_templates_used": 0,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.286676",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:09.286676",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 240,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.3877607623010312,
+          "response_time_ms": 1889,
+          "cpu_usage": 0.8063214703277771,
+          "memory_usage": 0.8715198965353859
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:23.286676",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 94,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.6830436760481029,
+          "response_time_ms": 4772,
+          "cpu_usage": 0.7117998489862332,
+          "memory_usage": 0.8874223378838211
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:31.286676",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:25.286676",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

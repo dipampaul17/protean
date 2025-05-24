@@ -1,0 +1,81 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173245
+description: Configuration inconsistencies causing service degradation
+duration: 1079
+metadata:
+  generated_at: '2025-05-23T17:32:45.741220'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:32:45.740260'
+  event_type: trigger
+  description: 'Initial failure detected: kafka log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:02.740260'
+  event_type: restart
+  description: 'Restart: docker network'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:14.740260'
+  event_type: config_change
+  description: 'Config_Change: kafka log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:18.740260'
+  event_type: failure
+  description: 'Failure: the log'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 69
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: the log - operation failed'
+    metrics:
+      error_rate: 0.547307799367148
+      response_time_ms: 5492
+      cpu_usage: 0.77739838723334
+      memory_usage: 0.8772561600125185
+- timestamp: '2025-05-23T17:33:38.740260'
+  event_type: failure
+  description: 'Failure: the pod'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 59
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: the pod - operation
+      failed'
+    metrics:
+      error_rate: 0.3158505254459658
+      response_time_ms: 8967
+      cpu_usage: 0.7801992233474484
+      memory_usage: 0.9296879417612072
+- timestamp: '2025-05-23T17:33:43.740260'
+  event_type: restart
+  description: 'Restart: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:14.740260'
+  event_type: failure
+  description: 'Failure: kubernetes cluster'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 177
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: kubernetes cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.10465463631476198
+      response_time_ms: 9571
+      cpu_usage: 0.7014186386097365
+      memory_usage: 0.9513021878088601
+- timestamp: '2025-05-23T17:34:46.740260'
+  event_type: restart
+  description: 'Restart: stopped container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:44.740260'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

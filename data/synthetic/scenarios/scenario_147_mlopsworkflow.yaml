@@ -1,0 +1,108 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_173453
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1164
+metadata:
+  generated_at: '2025-05-23T17:34:53.065141'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:34:53.060930'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:44.060930'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 189
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.8075094618381978
+      response_time_ms: 2455
+      cpu_usage: 0.7174617069749256
+      memory_usage: 0.9068653519201877
+- timestamp: '2025-05-23T17:35:46.060930'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:09.060930'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:27.060930'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 214
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: container crashed - operation
+      failed'
+    metrics:
+      error_rate: 0.8824334369180339
+      response_time_ms: 7978
+      cpu_usage: 0.7739064809970171
+      memory_usage: 0.9580952718304676
+- timestamp: '2025-05-23T17:36:31.060930'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:50.060930'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 49
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.826352706814053
+      response_time_ms: 8386
+      cpu_usage: 0.9228796936222118
+      memory_usage: 0.8639224623111086
+- timestamp: '2025-05-23T17:36:51.060930'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 144
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: authentication
+      failed - operation failed'
+    metrics:
+      error_rate: 0.3099787587031725
+      response_time_ms: 1046
+      cpu_usage: 0.7179828507214067
+      memory_usage: 0.8079350206112023
+- timestamp: '2025-05-23T17:37:13.060930'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 128
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.6221517755720056
+      response_time_ms: 8221
+      cpu_usage: 0.9895041510156927
+      memory_usage: 0.9118536522890791
+- timestamp: '2025-05-23T17:54:17.060930'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

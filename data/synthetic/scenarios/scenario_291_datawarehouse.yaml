@@ -1,0 +1,108 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173245
+description: Infrastructure failure scenario for DataWarehouse
+duration: 354
+metadata:
+  generated_at: '2025-05-23T17:32:45.744018'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:32:45.743817'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:55.743817'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 63
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.5838547787188951
+      response_time_ms: 8242
+      cpu_usage: 0.9848997638774115
+      memory_usage: 0.9082687386948878
+- timestamp: '2025-05-23T17:32:59.743817'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 275
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.6053313845119849
+      response_time_ms: 3965
+      cpu_usage: 0.9636147393714252
+      memory_usage: 0.9683423247638214
+- timestamp: '2025-05-23T17:32:59.743817'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 113
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: container crashed
+      - operation failed'
+    metrics:
+      error_rate: 0.6262493356259874
+      response_time_ms: 7515
+      cpu_usage: 0.9131302017221876
+      memory_usage: 0.9548753047787888
+- timestamp: '2025-05-23T17:33:13.743817'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 72
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.2132633049397552
+      response_time_ms: 8580
+      cpu_usage: 0.9625798639057681
+      memory_usage: 0.8053939500671772
+- timestamp: '2025-05-23T17:33:14.743817'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:18.743817'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:23.743817'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 248
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.6563509648123171
+      response_time_ms: 4778
+      cpu_usage: 0.8182325710275412
+      memory_usage: 0.8511681517256696
+- timestamp: '2025-05-23T17:33:26.743817'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:39.743817'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

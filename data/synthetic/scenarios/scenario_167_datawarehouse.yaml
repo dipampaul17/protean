@@ -1,0 +1,71 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_174628
+description: Infrastructure failure scenario for DataWarehouse
+duration: 1223
+metadata:
+  generated_at: '2025-05-23T17:46:28.973983'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:28.973819'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:43.973819'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:18.973819'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 65
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.47036486474319306
+      response_time_ms: 4610
+      cpu_usage: 0.9889126304037987
+      memory_usage: 0.9967030962535119
+- timestamp: '2025-05-23T17:47:47.973819'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 154
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.6081018741897005
+      response_time_ms: 6712
+      cpu_usage: 0.7107198661126343
+      memory_usage: 0.9578525382341843
+- timestamp: '2025-05-23T17:47:57.973819'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:57.973819'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:41.973819'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:42.973819'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T18:06:51.973819'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

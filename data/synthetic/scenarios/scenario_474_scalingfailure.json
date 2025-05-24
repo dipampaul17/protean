@@ -1,0 +1,138 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_174629",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 1451,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.147458",
+    "phrase_templates_used": 24,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.146153",
+      "event_type": "trigger",
+      "description": "Initial failure detected: scaling scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:51.146153",
+      "event_type": "timeout",
+      "description": "Timeout: https connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 90,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: https connection - operation failed",
+        "metrics": {
+          "error_rate": 0.6108770890759005,
+          "response_time_ms": 3289,
+          "cpu_usage": 0.7612227019149207,
+          "memory_usage": 0.9436712498138965
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:19.146153",
+      "event_type": "timeout",
+      "description": "Timeout: to scale",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 192,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: to scale - operation failed",
+        "metrics": {
+          "error_rate": 0.7034430916262128,
+          "response_time_ms": 9733,
+          "cpu_usage": 0.747391464655918,
+          "memory_usage": 0.9911129927269082
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:37.146153",
+      "event_type": "timeout",
+      "description": "Timeout: a cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 94,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: a cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.7238089750457246,
+          "response_time_ms": 4022,
+          "cpu_usage": 0.9409442806698644,
+          "memory_usage": 0.8241967071360526
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:24.146153",
+      "event_type": "failure",
+      "description": "Failure: the node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 126,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: the node - operation failed",
+        "metrics": {
+          "error_rate": 0.1666479301579729,
+          "response_time_ms": 1692,
+          "cpu_usage": 0.7056072417861027,
+          "memory_usage": 0.9563651060709042
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:27.146153",
+      "event_type": "recovery",
+      "description": "Recovery: which node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:04.146153",
+      "event_type": "recovery",
+      "description": "Recovery: of failure",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:07.146153",
+      "event_type": "timeout",
+      "description": "Timeout: the cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 168,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: the cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.8987250355863576,
+          "response_time_ms": 7089,
+          "cpu_usage": 0.845531561624839,
+          "memory_usage": 0.887355268043025
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:12.146153",
+      "event_type": "recovery",
+      "description": "Recovery: to scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:10:40.146153",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

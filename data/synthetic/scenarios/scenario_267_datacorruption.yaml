@@ -1,0 +1,104 @@
+category: DataCorruption
+name: DataCorruption_20250523_174629
+description: Infrastructure failure scenario for DataCorruption
+duration: 902
+metadata:
+  generated_at: '2025-05-23T17:46:29.020534'
+  phrase_templates_used: 36
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:46:29.020302'
+  event_type: trigger
+  description: 'Initial failure detected: to fix'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:02.020302'
+  event_type: timeout
+  description: 'Timeout: transaction log'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 35
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: transaction log
+      - operation failed'
+    metrics:
+      error_rate: 0.7266075249552956
+      response_time_ms: 4922
+      cpu_usage: 0.8185310628188183
+      memory_usage: 0.8455312913279545
+- timestamp: '2025-05-23T17:47:10.020302'
+  event_type: recovery
+  description: 'Recovery: to resolve'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:21.020302'
+  event_type: recovery
+  description: 'Recovery: second node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:57.020302'
+  event_type: failure
+  description: 'Failure: the cluster'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 190
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: the cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.6587895913614441
+      response_time_ms: 9310
+      cpu_usage: 0.8394390481604925
+      memory_usage: 0.8903463813548929
+- timestamp: '2025-05-23T17:48:09.020302'
+  event_type: failure
+  description: 'Failure: second node'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 133
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: second node - operation
+      failed'
+    metrics:
+      error_rate: 0.4297819638343885
+      response_time_ms: 1097
+      cpu_usage: 0.7730569868490609
+      memory_usage: 0.9880762817116651
+- timestamp: '2025-05-23T17:48:09.020302'
+  event_type: timeout
+  description: 'Timeout: a database'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 145
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: a database - operation
+      failed'
+    metrics:
+      error_rate: 0.8820852444316586
+      response_time_ms: 4378
+      cpu_usage: 0.8019485923710247
+      memory_usage: 0.8452145613910514
+- timestamp: '2025-05-23T17:48:34.020302'
+  event_type: failure
+  description: 'Failure: context cluster'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 266
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: context cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.6945580091703834
+      response_time_ms: 6380
+      cpu_usage: 0.9808425169172711
+      memory_usage: 0.8181665324012382
+- timestamp: '2025-05-23T18:01:31.020302'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

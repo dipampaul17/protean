@@ -1,0 +1,78 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_173452",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 1435,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.994777",
+    "phrase_templates_used": 39,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.994650",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:05.994650",
+      "event_type": "failure",
+      "description": "Failure: eks cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 295,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR nginx-proxy: eks cluster in failure",
+        "metrics": {
+          "error_rate": 0.6612385410118464,
+          "response_time_ms": 3725,
+          "cpu_usage": 0.7028793636888645,
+          "memory_usage": 0.8739246814944003
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:26.994650",
+      "event_type": "scaling",
+      "description": "Scaling: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:23.994650",
+      "event_type": "scaling",
+      "description": "Scaling: kubernetes error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:55.994650",
+      "event_type": "failure",
+      "description": "Failure: your pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 47,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR worker-consumer: your pod in failure",
+        "metrics": {
+          "error_rate": 0.8074017573389203,
+          "response_time_ms": 4053,
+          "cpu_usage": 0.8157466985029422,
+          "memory_usage": 0.854188519436279
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:58:47.994650",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

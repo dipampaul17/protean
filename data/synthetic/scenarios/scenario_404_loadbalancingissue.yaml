@@ -1,0 +1,79 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173708
+description: Load balancer and traffic distribution problems
+duration: 1080
+metadata:
+  generated_at: '2025-05-23T17:37:08.058220'
+  phrase_templates_used: 13
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:08.058039'
+  event_type: trigger
+  description: 'Initial failure detected: in connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:21.058039'
+  event_type: scaling
+  description: 'Scaling: web server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:27.058039'
+  event_type: backend_failure
+  description: 'Backend_Failure: a pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:16.058039'
+  event_type: backend_failure
+  description: 'Backend_Failure: a server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:29.058039'
+  event_type: timeout
+  description: 'Timeout: a pod'
+  injection_spec:
+    type: timeout
+    target: load-balancer
+    severity: high
+    duration: 88
+    log_snippet: '[2025-05-23 17:37:08] ERROR load-balancer: a pod in timeout'
+    metrics:
+      error_rate: 0.7481382699116005
+      response_time_ms: 1168
+      cpu_usage: 0.9516841112515564
+      memory_usage: 0.916916075952822
+      requests_per_sec: 8337
+      backend_health_pct: 0.4377942311302737
+      connection_timeouts: 775
+- timestamp: '2025-05-23T17:38:32.058039'
+  event_type: backend_failure
+  description: 'Backend_Failure: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:08.058039'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: that node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:17.058039'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: a server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:23.058039'
+  event_type: timeout
+  description: 'Timeout: a service'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 44
+    log_snippet: '[2025-05-23 17:37:08] ERROR subnet-private: a service in timeout'
+    metrics:
+      error_rate: 0.4060247540880403
+      response_time_ms: 1017
+      cpu_usage: 0.999554693927473
+      memory_usage: 0.8389950434970141
+      requests_per_sec: 6307
+      backend_health_pct: 0.4629396136942216
+      connection_timeouts: 216
+- timestamp: '2025-05-23T17:55:08.058039'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

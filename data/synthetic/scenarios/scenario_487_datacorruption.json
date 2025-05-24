@@ -1,0 +1,84 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173245",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 702,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.795181",
+    "phrase_templates_used": 36,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.794327",
+      "event_type": "trigger",
+      "description": "Initial failure detected: head queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:03.794327",
+      "event_type": "timeout",
+      "description": "Timeout: context cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 76,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: context cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.5812486897441899,
+          "response_time_ms": 6782,
+          "cpu_usage": 0.7807806905248097,
+          "memory_usage": 0.9667128377351231
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:42.794327",
+      "event_type": "timeout",
+      "description": "Timeout: a queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "medium",
+        "duration": 84,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: a queue - operation failed",
+        "metrics": {
+          "error_rate": 0.021771749061267984,
+          "response_time_ms": 643,
+          "cpu_usage": 0.45423673810755233,
+          "memory_usage": 0.5170403195760633
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:49.794327",
+      "event_type": "timeout",
+      "description": "Timeout: strong update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 31,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.4946524143296027,
+          "response_time_ms": 6173,
+          "cpu_usage": 0.7441582198379283,
+          "memory_usage": 0.9480757136084949
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:44:27.794327",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

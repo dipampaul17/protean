@@ -1,0 +1,78 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_174628
+description: Infrastructure failure scenario for ScalingFailure
+duration: 1276
+metadata:
+  generated_at: '2025-05-23T17:46:28.907637'
+  phrase_templates_used: 24
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:28.907482'
+  event_type: trigger
+  description: 'Initial failure detected: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:43.907482'
+  event_type: recovery
+  description: 'Recovery: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:00.907482'
+  event_type: failure
+  description: 'Failure: this service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 216
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: this service -
+      operation failed'
+    metrics:
+      error_rate: 0.2914185817125759
+      response_time_ms: 3803
+      cpu_usage: 0.9033567941490939
+      memory_usage: 0.9374105687712968
+- timestamp: '2025-05-23T17:48:02.907482'
+  event_type: recovery
+  description: 'Recovery: aws application'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:10.907482'
+  event_type: failure
+  description: 'Failure: per server'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 119
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: per server - operation
+      failed'
+    metrics:
+      error_rate: 0.8252808790540042
+      response_time_ms: 3577
+      cpu_usage: 0.8826210078067687
+      memory_usage: 0.9205309594017101
+- timestamp: '2025-05-23T17:49:02.907482'
+  event_type: failure
+  description: 'Failure: per server'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 122
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: per server - operation
+      failed'
+    metrics:
+      error_rate: 0.6824186398459332
+      response_time_ms: 7250
+      cpu_usage: 0.8459607873066123
+      memory_usage: 0.8241823773303554
+- timestamp: '2025-05-23T17:49:36.907482'
+  event_type: recovery
+  description: 'Recovery: to scale'
+  injection_spec: null
+- timestamp: '2025-05-23T18:07:44.907482'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

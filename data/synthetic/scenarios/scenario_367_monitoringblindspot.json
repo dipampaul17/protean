@@ -1,0 +1,66 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173708",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1151,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.048510",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.048409",
+      "event_type": "trigger",
+      "description": "Initial failure detected: kubernetes cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:44.048409",
+      "event_type": "recovery",
+      "description": "Recovery: to fix",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:06.048409",
+      "event_type": "recovery",
+      "description": "Recovery: to monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:13.048409",
+      "event_type": "failure",
+      "description": "Failure: monitoring system",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 193,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: monitoring system - operation failed",
+        "metrics": {
+          "error_rate": 0.683218434436583,
+          "response_time_ms": 1389,
+          "cpu_usage": 0.9637643672758336,
+          "memory_usage": 0.8509662132077567
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:45.048409",
+      "event_type": "recovery",
+      "description": "Recovery: reduce alert",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:56:19.048409",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

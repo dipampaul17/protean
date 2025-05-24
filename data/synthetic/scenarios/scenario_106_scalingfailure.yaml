@@ -1,0 +1,44 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_173707
+description: Infrastructure failure scenario for ScalingFailure
+duration: 1102
+metadata:
+  generated_at: '2025-05-23T17:37:07.956349'
+  phrase_templates_used: 24
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:37:07.956263'
+  event_type: trigger
+  description: 'Initial failure detected: nodeport service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:08.956263'
+  event_type: recovery
+  description: 'Recovery: this service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:51.956263'
+  event_type: failure
+  description: 'Failure: per server'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 116
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: per server - operation
+      failed'
+    metrics:
+      error_rate: 0.4996960888719867
+      response_time_ms: 1596
+      cpu_usage: 0.958576176366518
+      memory_usage: 0.8185511347554413
+- timestamp: '2025-05-23T17:42:04.956263'
+  event_type: recovery
+  description: 'Recovery: aws application'
+  injection_spec: null
+- timestamp: '2025-05-23T17:55:29.956263'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

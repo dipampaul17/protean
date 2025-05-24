@@ -1,0 +1,63 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173708
+description: Load balancer and traffic distribution problems
+duration: 1799
+metadata:
+  generated_at: '2025-05-23T17:37:08.043796'
+  phrase_templates_used: 13
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:08.043686'
+  event_type: trigger
+  description: 'Initial failure detected: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:25.043686'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: loadbalancer service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:43.043686'
+  event_type: timeout
+  description: 'Timeout: kafka pod'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 119
+    log_snippet: '[2025-05-23 17:37:08] ERROR subnet-private: kafka pod in timeout'
+    metrics:
+      error_rate: 0.3183694335824645
+      response_time_ms: 4333
+      cpu_usage: 0.9271427552369191
+      memory_usage: 0.8160101034602738
+      requests_per_sec: 2678
+      backend_health_pct: 0.7377682877434246
+      connection_timeouts: 958
+- timestamp: '2025-05-23T17:44:25.043686'
+  event_type: backend_failure
+  description: 'Backend_Failure: kafka pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:44:27.043686'
+  event_type: timeout
+  description: 'Timeout: web server'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 212
+    log_snippet: '[2025-05-23 17:37:08] ERROR vpc-main: web server in timeout'
+    metrics:
+      error_rate: 0.7596219748465804
+      response_time_ms: 7081
+      cpu_usage: 0.7864118322309578
+      memory_usage: 0.815550942703638
+      requests_per_sec: 7999
+      backend_health_pct: 0.667469688961439
+      connection_timeouts: 664
+- timestamp: '2025-05-23T18:07:07.043686'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

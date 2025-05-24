@@ -1,0 +1,81 @@
+category: Microservices
+name: Microservices_20250523_173707
+description: Infrastructure failure scenario for Microservices
+duration: 1493
+metadata:
+  generated_at: '2025-05-23T17:37:07.949679'
+  phrase_templates_used: 15
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:37:07.949547'
+  event_type: trigger
+  description: 'Initial failure detected: the container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:23.949547'
+  event_type: failure
+  description: 'Failure: to service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 90
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: to service - operation
+      failed'
+    metrics:
+      error_rate: 0.33029452561411565
+      response_time_ms: 5745
+      cpu_usage: 0.7283989730313185
+      memory_usage: 0.9633128433979724
+- timestamp: '2025-05-23T17:39:19.949547'
+  event_type: failure
+  description: 'Failure: headless service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 298
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: headless service -
+      operation failed'
+    metrics:
+      error_rate: 0.5853445333570049
+      response_time_ms: 8960
+      cpu_usage: 0.9060973044627343
+      memory_usage: 0.9686968443826233
+- timestamp: '2025-05-23T17:39:39.949547'
+  event_type: failure
+  description: 'Failure: headless service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 86
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: headless service
+      - operation failed'
+    metrics:
+      error_rate: 0.16544005614322765
+      response_time_ms: 2694
+      cpu_usage: 0.9032136437217296
+      memory_usage: 0.9053543094252303
+- timestamp: '2025-05-23T17:42:10.949547'
+  event_type: timeout
+  description: 'Timeout: from service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 70
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: from service -
+      operation failed'
+    metrics:
+      error_rate: 0.8579460046516724
+      response_time_ms: 8944
+      cpu_usage: 0.9369155790402446
+      memory_usage: 0.8854200900404767
+- timestamp: '2025-05-23T18:02:00.949547'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,99 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_174628
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 710
+metadata:
+  generated_at: '2025-05-23T17:46:28.921012'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:46:28.920465'
+  event_type: trigger
+  description: 'Initial failure detected: an alert'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:40.920465'
+  event_type: failure
+  description: 'Failure: a service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 71
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.6819646429606386
+      response_time_ms: 2363
+      cpu_usage: 0.8055848995809879
+      memory_usage: 0.9545169392726642
+- timestamp: '2025-05-23T17:46:43.920465'
+  event_type: timeout
+  description: 'Timeout: the database'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 190
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: the database - operation
+      failed'
+    metrics:
+      error_rate: 0.24375790736708938
+      response_time_ms: 7295
+      cpu_usage: 0.9163723840452898
+      memory_usage: 0.825653730313148
+- timestamp: '2025-05-23T17:48:13.920465'
+  event_type: failure
+  description: 'Failure: i monitor'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 285
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: i monitor - operation
+      failed'
+    metrics:
+      error_rate: 0.35579510261039216
+      response_time_ms: 3478
+      cpu_usage: 0.8616197204878656
+      memory_usage: 0.9572713036763963
+- timestamp: '2025-05-23T17:48:17.920465'
+  event_type: timeout
+  description: 'Timeout: the cpu'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 39
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: the cpu - operation failed'
+    metrics:
+      error_rate: 0.2959703348426291
+      response_time_ms: 3459
+      cpu_usage: 0.7554079404522666
+      memory_usage: 0.8542579135958721
+- timestamp: '2025-05-23T17:48:19.920465'
+  event_type: failure
+  description: 'Failure: the memory'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 144
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: the memory - operation
+      failed'
+    metrics:
+      error_rate: 0.10120896663474027
+      response_time_ms: 7089
+      cpu_usage: 0.9966179611699031
+      memory_usage: 0.9693502568048071
+- timestamp: '2025-05-23T17:48:20.920465'
+  event_type: recovery
+  description: 'Recovery: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:58:18.920465'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,72 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_174628",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 567,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.965815",
+    "phrase_templates_used": 36,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.965720",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to fix",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:05.965720",
+      "event_type": "recovery",
+      "description": "Recovery: head queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:30.965720",
+      "event_type": "failure",
+      "description": "Failure: the queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "medium",
+        "duration": 207,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.06918480351437511,
+          "response_time_ms": 937,
+          "cpu_usage": 0.7705140649865209,
+          "memory_usage": 0.6676651957423821
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:35.965720",
+      "event_type": "failure",
+      "description": "Failure: same node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 238,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: same node - operation failed",
+        "metrics": {
+          "error_rate": 0.8496793462165525,
+          "response_time_ms": 4470,
+          "cpu_usage": 0.7938234617567068,
+          "memory_usage": 0.8497350254670704
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:55:55.965720",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

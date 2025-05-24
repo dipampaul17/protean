@@ -1,0 +1,90 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173708",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 340,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.073279",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.071284",
+      "event_type": "trigger",
+      "description": "Initial failure detected: using docker",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:18.071284",
+      "event_type": "rollback",
+      "description": "Rollback: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:19.071284",
+      "event_type": "restart",
+      "description": "Restart: elasticsearch cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:29.071284",
+      "event_type": "rollback",
+      "description": "Rollback: jenkins server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:34.071284",
+      "event_type": "failure",
+      "description": "Failure: redis container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 221,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: redis container - operation failed",
+        "metrics": {
+          "error_rate": 0.17008232629341757,
+          "response_time_ms": 4801,
+          "cpu_usage": 0.8989678471611428,
+          "memory_usage": 0.9224074278384841
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:51.071284",
+      "event_type": "failure",
+      "description": "Failure: docker container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 165,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: docker container - operation failed",
+        "metrics": {
+          "error_rate": 0.30948256210042385,
+          "response_time_ms": 9074,
+          "cpu_usage": 0.8898956171908479,
+          "memory_usage": 0.8682545741870988
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:56.071284",
+      "event_type": "rollback",
+      "description": "Rollback: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:42:48.071284",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

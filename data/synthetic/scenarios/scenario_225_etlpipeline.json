@@ -1,0 +1,162 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_174628",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 1579,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.989833",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 7
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.989602",
+      "event_type": "trigger",
+      "description": "Initial failure detected: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:42.989602",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 160,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.1418721257674588,
+          "response_time_ms": 7154,
+          "cpu_usage": 0.717507958357337,
+          "memory_usage": 0.9017378287106432
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:52.989602",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 278,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.6764324838633275,
+          "response_time_ms": 4642,
+          "cpu_usage": 0.862659230347657,
+          "memory_usage": 0.8605918273912703
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:11.989602",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 166,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.16832942661607256,
+          "response_time_ms": 3691,
+          "cpu_usage": 0.98784424014675,
+          "memory_usage": 0.9908804782037588
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:48.989602",
+      "event_type": "failure",
+      "description": "Failure: memory limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 100,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.19171107967346748,
+          "response_time_ms": 2198,
+          "cpu_usage": 0.8508578171670218,
+          "memory_usage": 0.8039305036235936
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:14.989602",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 41,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.3406211281390766,
+          "response_time_ms": 9792,
+          "cpu_usage": 0.7215388013802497,
+          "memory_usage": 0.9843475932031542
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:41.989602",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 293,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.3398425245347776,
+          "response_time_ms": 5040,
+          "cpu_usage": 0.7483620670827141,
+          "memory_usage": 0.9585823993801427
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:51.989602",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 244,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.2629984788193118,
+          "response_time_ms": 5051,
+          "cpu_usage": 0.7240110972693603,
+          "memory_usage": 0.8105893119512665
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:29.989602",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:12:47.989602",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_174628
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1230
+metadata:
+  generated_at: '2025-05-23T17:46:28.973793'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:46:28.973578'
+  event_type: trigger
+  description: 'Initial failure detected: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:09.973578'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 174
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.7299886854593983
+      response_time_ms: 8303
+      cpu_usage: 0.73532900100957
+      memory_usage: 0.8767311247075251
+- timestamp: '2025-05-23T17:47:21.973578'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:38.973578'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 92
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: container crashed - operation
+      failed'
+    metrics:
+      error_rate: 0.7706787539481407
+      response_time_ms: 5652
+      cpu_usage: 0.9036131663071058
+      memory_usage: 0.9655988063455629
+- timestamp: '2025-05-23T17:47:55.973578'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 254
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.7245164941880499
+      response_time_ms: 1760
+      cpu_usage: 0.9091368784333138
+      memory_usage: 0.8873385499589704
+- timestamp: '2025-05-23T17:47:57.973578'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 98
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.3043007368042173
+      response_time_ms: 3129
+      cpu_usage: 0.7306637413163233
+      memory_usage: 0.961381588108081
+- timestamp: '2025-05-23T17:48:09.973578'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 213
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.6209241845031395
+      response_time_ms: 2358
+      cpu_usage: 0.8209286257429045
+      memory_usage: 0.9987139185025793
+- timestamp: '2025-05-23T17:48:10.973578'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:36.973578'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T18:06:58.973578'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

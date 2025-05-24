@@ -1,0 +1,132 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_174629",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 613,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.093626",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.093432",
+      "event_type": "trigger",
+      "description": "Initial failure detected: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:51.093432",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 133,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.10662604821034707,
+          "response_time_ms": 8241,
+          "cpu_usage": 0.8701904764577276,
+          "memory_usage": 0.8155648100129674
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:00.093432",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 49,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.6419502687054714,
+          "response_time_ms": 9510,
+          "cpu_usage": 0.7262056047621637,
+          "memory_usage": 0.8286141940015312
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:15.093432",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:21.093432",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 234,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.14929889492204904,
+          "response_time_ms": 4535,
+          "cpu_usage": 0.9028372216915614,
+          "memory_usage": 0.9150681243597296
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:44.093432",
+      "event_type": "failure",
+      "description": "Failure: memory limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 198,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.11401598327882434,
+          "response_time_ms": 8909,
+          "cpu_usage": 0.7305978305479451,
+          "memory_usage": 0.8259862840047475
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:46.093432",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 169,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.505564641332568,
+          "response_time_ms": 1630,
+          "cpu_usage": 0.8208760918489076,
+          "memory_usage": 0.8306969900656089
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:50.093432",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:56:42.093432",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

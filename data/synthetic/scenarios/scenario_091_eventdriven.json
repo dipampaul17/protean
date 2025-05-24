@@ -1,0 +1,81 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173452",
+  "description": "Message queue and event processing failures",
+  "duration": 578,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.984455",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.983754",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:32.983754",
+      "event_type": "message_loss",
+      "description": "Message_Loss: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:46.983754",
+      "event_type": "timeout",
+      "description": "Timeout: this error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 99,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR batch-processing-queue: queue processing this error",
+        "metrics": {
+          "error_rate": 0.1482680952350692,
+          "response_time_ms": 5810,
+          "cpu_usage": 0.9915943392069075,
+          "memory_usage": 0.8032372428916899,
+          "queue_depth": 27993,
+          "message_processing_rate": 8.276430612757988,
+          "consumer_lag_ms": 291823
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:01.983754",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: var log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:05.983754",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: kafka cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:14.983754",
+      "event_type": "recovery",
+      "description": "Recovery: resource limit",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:28.983754",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: in memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:44:30.983754",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173708",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 881,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.079537",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 1,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.079372",
+      "event_type": "trigger",
+      "description": "Initial failure detected: client error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:28.079372",
+      "event_type": "failure",
+      "description": "Failure: docker container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 178,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: docker container - operation failed",
+        "metrics": {
+          "error_rate": 0.7140057680934428,
+          "response_time_ms": 7940,
+          "cpu_usage": 0.9203040683923004,
+          "memory_usage": 0.9256039191070075
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:04.079372",
+      "event_type": "degradation",
+      "description": "Degradation: session timeout",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 288,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: session timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.7551690242188824,
+          "response_time_ms": 3239,
+          "cpu_usage": 0.8527731147209243,
+          "memory_usage": 0.9969637315949542
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:06.079372",
+      "event_type": "degradation",
+      "description": "Degradation: ssh connection",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "low",
+        "duration": 59,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: ssh connection - operation failed",
+        "metrics": {
+          "error_rate": 0.24931339078338433,
+          "response_time_ms": 1613,
+          "cpu_usage": 0.3654748833152201,
+          "memory_usage": 0.49264979068759607
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:24.079372",
+      "event_type": "degradation",
+      "description": "Degradation: message queue",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "medium",
+        "duration": 98,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: message queue - operation failed",
+        "metrics": {
+          "error_rate": 0.06483297031693502,
+          "response_time_ms": 1497,
+          "cpu_usage": 0.6601920295031495,
+          "memory_usage": 0.4664451997109695
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:28.079372",
+      "event_type": "recovery",
+      "description": "Recovery: kubernetes cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:50.079372",
+      "event_type": "recovery",
+      "description": "Recovery: value memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:51:49.079372",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

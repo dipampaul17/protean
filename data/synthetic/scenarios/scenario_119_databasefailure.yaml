@@ -1,0 +1,68 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173707
+description: Database connectivity and performance issues
+duration: 1651
+metadata:
+  generated_at: '2025-05-23T17:37:07.960636'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:07.960323'
+  event_type: trigger
+  description: 'Initial failure detected: following error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:39.960323'
+  event_type: timeout
+  description: 'Timeout: mysql database'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 42
+    log_snippet: '[2025-05-23 17:37:07] ERROR mongodb-shard: mysql database in timeout'
+    metrics:
+      error_rate: 0.17708426063493177
+      response_time_ms: 7515
+      cpu_usage: 0.9747716640086436
+      memory_usage: 0.8406518877116189
+      connection_pool_usage: 0.9603139441645567
+      query_time_ms: 28427
+      deadlocks_per_sec: 4
+- timestamp: '2025-05-23T17:39:14.960323'
+  event_type: corruption
+  description: 'Corruption: code server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:32.960323'
+  event_type: recovery
+  description: 'Recovery: in memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:57.960323'
+  event_type: timeout
+  description: 'Timeout: your database'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 278
+    log_snippet: '[2025-05-23 17:37:07] FATAL postgres-replica: database your database
+      detected'
+    metrics:
+      error_rate: 0.11092441662840696
+      response_time_ms: 4097
+      cpu_usage: 0.996711050358188
+      memory_usage: 0.8144766678788705
+      connection_pool_usage: 0.9258293501305876
+      query_time_ms: 29225
+      deadlocks_per_sec: 9
+- timestamp: '2025-05-23T17:41:11.960323'
+  event_type: corruption
+  description: 'Corruption: metadatacreateindexservice node'
+  injection_spec: null
+- timestamp: '2025-05-23T18:04:38.960323'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

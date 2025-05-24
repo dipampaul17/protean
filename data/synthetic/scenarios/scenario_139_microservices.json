@@ -1,0 +1,144 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_173453",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 749,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.051352",
+    "phrase_templates_used": 15,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.051072",
+      "event_type": "trigger",
+      "description": "Initial failure detected: http connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:07.051072",
+      "event_type": "failure",
+      "description": "Failure: strong service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 218,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: strong service - operation failed",
+        "metrics": {
+          "error_rate": 0.5570623139550143,
+          "response_time_ms": 5276,
+          "cpu_usage": 0.834127087094938,
+          "memory_usage": 0.9687512445260784
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:18.051072",
+      "event_type": "failure",
+      "description": "Failure: following error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 132,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: following error - operation failed",
+        "metrics": {
+          "error_rate": 0.17569387167560377,
+          "response_time_ms": 2716,
+          "cpu_usage": 0.959288666853473,
+          "memory_usage": 0.8789952773571503
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:26.051072",
+      "event_type": "timeout",
+      "description": "Timeout: the queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "medium",
+        "duration": 153,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.11772154608823367,
+          "response_time_ms": 1477,
+          "cpu_usage": 0.7739370925853489,
+          "memory_usage": 0.5694246093522979
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:18.051072",
+      "event_type": "timeout",
+      "description": "Timeout: lt service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 153,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: lt service - operation failed",
+        "metrics": {
+          "error_rate": 0.21712293265843244,
+          "response_time_ms": 3993,
+          "cpu_usage": 0.9088816098111343,
+          "memory_usage": 0.9058377829802027
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:20.051072",
+      "event_type": "failure",
+      "description": "Failure: strong service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 124,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: strong service - operation failed",
+        "metrics": {
+          "error_rate": 0.6127888677992457,
+          "response_time_ms": 9411,
+          "cpu_usage": 0.9773365572784987,
+          "memory_usage": 0.9556047731158521
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:32.051072",
+      "event_type": "recovery",
+      "description": "Recovery: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:39.051072",
+      "event_type": "timeout",
+      "description": "Timeout: ui service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 87,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: ui service - operation failed",
+        "metrics": {
+          "error_rate": 0.8494552626842783,
+          "response_time_ms": 2661,
+          "cpu_usage": 0.8868493397048323,
+          "memory_usage": 0.9522719046227965
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:22.051072",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173453
+description: Circuit breaker activation due to cascading service failures
+duration: 1601
+metadata:
+  generated_at: '2025-05-23T17:34:53.221943'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:53.221804'
+  event_type: trigger
+  description: 'Initial failure detected: an error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:05.221804'
+  event_type: timeout
+  description: 'Timeout: client error'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 245
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: client error -
+      operation failed'
+    metrics:
+      error_rate: 0.17057870936741726
+      response_time_ms: 7839
+      cpu_usage: 0.8896939499463077
+      memory_usage: 0.893656302965777
+- timestamp: '2025-05-23T17:38:33.221804'
+  event_type: timeout
+  description: 'Timeout: to log'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 104
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: to log - operation failed'
+    metrics:
+      error_rate: 0.1008539814118885
+      response_time_ms: 4468
+      cpu_usage: 0.7522109417461527
+      memory_usage: 0.9399221853807572
+- timestamp: '2025-05-23T17:40:01.221804'
+  event_type: failure
+  description: 'Failure: nginx error'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 189
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: nginx error - operation
+      failed'
+    metrics:
+      error_rate: 0.6296162849992352
+      response_time_ms: 5005
+      cpu_usage: 0.7891164165676899
+      memory_usage: 0.8638620969033891
+- timestamp: '2025-05-23T17:41:24.221804'
+  event_type: failure
+  description: 'Failure: the server'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 180
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.15609680721209493
+      response_time_ms: 5648
+      cpu_usage: 0.723336004538721
+      memory_usage: 0.8762444511485475
+- timestamp: '2025-05-23T18:01:34.221804'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

@@ -1,0 +1,81 @@
+category: Microservices
+name: Microservices_20250523_173708
+description: Infrastructure failure scenario for Microservices
+duration: 309
+metadata:
+  generated_at: '2025-05-23T17:37:08.081683'
+  phrase_templates_used: 15
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:37:08.081554'
+  event_type: trigger
+  description: 'Initial failure detected: following error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:42.081554'
+  event_type: failure
+  description: 'Failure: to service'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 230
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: to service - operation
+      failed'
+    metrics:
+      error_rate: 0.6186220152326343
+      response_time_ms: 5709
+      cpu_usage: 0.7959787229981686
+      memory_usage: 0.8096500655973148
+- timestamp: '2025-05-23T17:37:48.081554'
+  event_type: failure
+  description: 'Failure: a cluster'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 156
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: a cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.2015235450892745
+      response_time_ms: 5088
+      cpu_usage: 0.8220153282697024
+      memory_usage: 0.8701817776669686
+- timestamp: '2025-05-23T17:38:02.081554'
+  event_type: timeout
+  description: 'Timeout: lt service'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 39
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: lt service - operation
+      failed'
+    metrics:
+      error_rate: 0.2932263578962925
+      response_time_ms: 3488
+      cpu_usage: 0.77650685823983
+      memory_usage: 0.9029704793941705
+- timestamp: '2025-05-23T17:38:16.081554'
+  event_type: failure
+  description: 'Failure: headless service'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 175
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: headless service - operation
+      failed'
+    metrics:
+      error_rate: 0.7204817580488021
+      response_time_ms: 1984
+      cpu_usage: 0.7240891389013889
+      memory_usage: 0.9116094669532435
+- timestamp: '2025-05-23T17:42:17.081554'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

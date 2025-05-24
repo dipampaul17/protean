@@ -1,0 +1,44 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_174629
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1183
+metadata:
+  generated_at: '2025-05-23T17:46:29.149371'
+  phrase_templates_used: 50
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:46:29.149253'
+  event_type: trigger
+  description: 'Initial failure detected: the cpu'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:45.149253'
+  event_type: recovery
+  description: 'Recovery: the log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:38.149253'
+  event_type: recovery
+  description: 'Recovery: customer service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:51:43.149253'
+  event_type: failure
+  description: 'Failure: scaled service'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 299
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: scaled service - operation
+      failed'
+    metrics:
+      error_rate: 0.6876893219894711
+      response_time_ms: 6995
+      cpu_usage: 0.73263974867666
+      memory_usage: 0.9120640995995368
+- timestamp: '2025-05-23T18:06:12.149253'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

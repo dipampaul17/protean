@@ -1,0 +1,71 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173245
+description: Application deployment and rollback scenarios
+duration: 761
+metadata:
+  generated_at: '2025-05-23T17:32:45.772973'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:32:45.772835'
+  event_type: trigger
+  description: 'Initial failure detected: failed to'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:19.772835'
+  event_type: deployment
+  description: 'Deployment: during deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:44.772835'
+  event_type: failure
+  description: 'Failure: to update'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 275
+    log_snippet: '[2025-05-23 17:32:45] ERROR nginx-proxy: to update in failure'
+    metrics:
+      error_rate: 0.5995996566538148
+      response_time_ms: 9948
+      cpu_usage: 0.7415060572417418
+      memory_usage: 0.8076945192259614
+- timestamp: '2025-05-23T17:33:47.772835'
+  event_type: failure
+  description: 'Failure: code deployment'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 67
+    log_snippet: '[2025-05-23 17:32:45] ERROR web-frontend: code deployment in failure'
+    metrics:
+      error_rate: 0.5882809380643028
+      response_time_ms: 3942
+      cpu_usage: 0.9313137583772421
+      memory_usage: 0.8986166543850286
+- timestamp: '2025-05-23T17:34:48.772835'
+  event_type: failure
+  description: 'Failure: a container'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 117
+    log_snippet: '[2025-05-23 17:32:45] ERROR web-frontend: a container in failure'
+    metrics:
+      error_rate: 0.8343813890896922
+      response_time_ms: 7497
+      cpu_usage: 0.9045193603947979
+      memory_usage: 0.8337379956000871
+- timestamp: '2025-05-23T17:34:54.772835'
+  event_type: deployment
+  description: 'Deployment: the deploy'
+  injection_spec: null
+- timestamp: '2025-05-23T17:45:26.772835'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

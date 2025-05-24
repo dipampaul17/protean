@@ -1,0 +1,81 @@
+category: DataCorruption
+name: DataCorruption_20250523_174629
+description: Infrastructure failure scenario for DataCorruption
+duration: 1157
+metadata:
+  generated_at: '2025-05-23T17:46:29.070593'
+  phrase_templates_used: 36
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:29.070464'
+  event_type: trigger
+  description: 'Initial failure detected: transaction log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:56.070464'
+  event_type: timeout
+  description: 'Timeout: code queue'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: medium
+    duration: 37
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: code queue - operation
+      failed'
+    metrics:
+      error_rate: 0.2784215992282959
+      response_time_ms: 621
+      cpu_usage: 0.3188641633619028
+      memory_usage: 0.5650195296274803
+- timestamp: '2025-05-23T17:50:02.070464'
+  event_type: timeout
+  description: 'Timeout: the database'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 282
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: the database - operation
+      failed'
+    metrics:
+      error_rate: 0.5078148520163641
+      response_time_ms: 3144
+      cpu_usage: 0.7596248775044517
+      memory_usage: 0.922681488347596
+- timestamp: '2025-05-23T17:50:17.070464'
+  event_type: failure
+  description: 'Failure: the connection'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 37
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: the connection - operation
+      failed'
+    metrics:
+      error_rate: 0.12303056380991279
+      response_time_ms: 6529
+      cpu_usage: 0.9883763654159121
+      memory_usage: 0.9635874689903398
+- timestamp: '2025-05-23T17:50:36.070464'
+  event_type: timeout
+  description: 'Timeout: data container'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 243
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: data container - operation
+      failed'
+    metrics:
+      error_rate: 0.8887201961266552
+      response_time_ms: 9416
+      cpu_usage: 0.9559756445860197
+      memory_usage: 0.8745099167910099
+- timestamp: '2025-05-23T18:05:46.070464'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

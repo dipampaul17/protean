@@ -1,0 +1,44 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173245
+description: Configuration inconsistencies causing service degradation
+duration: 1421
+metadata:
+  generated_at: '2025-05-23T17:32:45.673870'
+  phrase_templates_used: 50
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:32:45.673787'
+  event_type: trigger
+  description: 'Initial failure detected: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:00.673787'
+  event_type: failure
+  description: 'Failure: to deploy'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 257
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: to deploy - operation
+      failed'
+    metrics:
+      error_rate: 0.225340479342323
+      response_time_ms: 3478
+      cpu_usage: 0.919879007187802
+      memory_usage: 0.8275869612289615
+- timestamp: '2025-05-23T17:36:32.673787'
+  event_type: config_change
+  description: 'Config_Change: the container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:05.673787'
+  event_type: rollback
+  description: 'Rollback: api server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:56:26.673787'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

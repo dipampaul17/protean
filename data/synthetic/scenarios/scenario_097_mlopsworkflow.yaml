@@ -1,0 +1,74 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_173452
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 723
+metadata:
+  generated_at: '2025-05-23T17:34:52.985517'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:52.985370'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:05.985370'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 227
+    log_snippet: '[2025-05-23 17:34:52] ERROR payment-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.29968083205739254
+      response_time_ms: 2103
+      cpu_usage: 0.9822448320604644
+      memory_usage: 0.8536141840447873
+- timestamp: '2025-05-23T17:35:20.985370'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 210
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: queue overflow
+      - operation failed'
+    metrics:
+      error_rate: 0.8006551866775483
+      response_time_ms: 3390
+      cpu_usage: 0.9564221933495256
+      memory_usage: 0.9959569241653652
+- timestamp: '2025-05-23T17:35:42.985370'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:18.985370'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 283
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.5086854286406991
+      response_time_ms: 1164
+      cpu_usage: 0.9621209930606668
+      memory_usage: 0.9212514776550473
+- timestamp: '2025-05-23T17:36:51.985370'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:55.985370'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

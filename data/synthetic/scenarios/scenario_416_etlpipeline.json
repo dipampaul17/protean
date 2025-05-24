@@ -1,0 +1,108 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173245",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 581,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.777307",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.777156",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:37.777156",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 32,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.24337832347534888,
+          "response_time_ms": 5673,
+          "cpu_usage": 0.7860067997043304,
+          "memory_usage": 0.8114951846543252
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:50.777156",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:52.777156",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 278,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.1201643140267799,
+          "response_time_ms": 5710,
+          "cpu_usage": 0.7638454777026306,
+          "memory_usage": 0.9471172506603719
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:00.777156",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 218,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.12103845727967917,
+          "response_time_ms": 8611,
+          "cpu_usage": 0.9998912924245811,
+          "memory_usage": 0.8240886169382731
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:20.777156",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 299,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.44562613986180943,
+          "response_time_ms": 7740,
+          "cpu_usage": 0.7254046266631761,
+          "memory_usage": 0.9071230545826695
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:42:26.777156",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

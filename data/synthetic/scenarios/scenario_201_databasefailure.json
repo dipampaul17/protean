@@ -1,0 +1,90 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173453",
+  "description": "Database connectivity and performance issues",
+  "duration": 1163,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.145060",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.144698",
+      "event_type": "trigger",
+      "description": "Initial failure detected: mongodb database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:10.144698",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:29.144698",
+      "event_type": "corruption",
+      "description": "Corruption: sql server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:31.144698",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: my database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:15.144698",
+      "event_type": "timeout",
+      "description": "Timeout: mongodb database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "postgres-replica",
+        "severity": "high",
+        "duration": 173,
+        "log_snippet": "[2025-05-23 17:34:53] FATAL postgres-replica: database mongodb database detected",
+        "metrics": {
+          "error_rate": 0.8761933845846984,
+          "response_time_ms": 6475,
+          "cpu_usage": 0.9672296539601479,
+          "memory_usage": 0.8459652642950035,
+          "connection_pool_usage": 0.9101736146189333,
+          "query_time_ms": 25556,
+          "deadlocks_per_sec": 10
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:40.144698",
+      "event_type": "timeout",
+      "description": "Timeout: my database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 250,
+        "log_snippet": "[2025-05-23 17:34:53] FATAL mysql-primary: database my database detected",
+        "metrics": {
+          "error_rate": 0.7743328994242533,
+          "response_time_ms": 6072,
+          "cpu_usage": 0.9543654244207728,
+          "memory_usage": 0.9210124776449905,
+          "connection_pool_usage": 0.8561390771661049,
+          "query_time_ms": 19598,
+          "deadlocks_per_sec": 6
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:54:16.144698",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

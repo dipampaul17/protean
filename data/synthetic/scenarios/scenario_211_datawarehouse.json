@@ -1,0 +1,78 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_173245",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 317,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.723100",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.722983",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:31.722983",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:34.722983",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 277,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.562705136829006,
+          "response_time_ms": 5666,
+          "cpu_usage": 0.9331686685967642,
+          "memory_usage": 0.923851648801939
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:59.722983",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:00.722983",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 168,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.5831710669937737,
+          "response_time_ms": 6738,
+          "cpu_usage": 0.8360258548416278,
+          "memory_usage": 0.9995532108666847
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:02.722983",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

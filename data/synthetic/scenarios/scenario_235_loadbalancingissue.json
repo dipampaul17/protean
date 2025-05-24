@@ -1,0 +1,84 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173245",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 1421,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.728495",
+    "phrase_templates_used": 13,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.728380",
+      "event_type": "trigger",
+      "description": "Initial failure detected: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:14.728380",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:15.728380",
+      "event_type": "timeout",
+      "description": "Timeout: in connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "vpc-main",
+        "severity": "high",
+        "duration": 68,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR vpc-main: in connection in timeout",
+        "metrics": {
+          "error_rate": 0.4589709339995921,
+          "response_time_ms": 2713,
+          "cpu_usage": 0.9170834052844226,
+          "memory_usage": 0.9819240445409712,
+          "requests_per_sec": 4931,
+          "backend_health_pct": 0.6826891038694476,
+          "connection_timeouts": 610
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:22.728380",
+      "event_type": "timeout",
+      "description": "Timeout: loadbalancer service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "vpc-main",
+        "severity": "high",
+        "duration": 107,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR vpc-main: loadbalancer service in timeout",
+        "metrics": {
+          "error_rate": 0.7314817984086804,
+          "response_time_ms": 8145,
+          "cpu_usage": 0.8044555322229556,
+          "memory_usage": 0.8820068923835971,
+          "requests_per_sec": 2444,
+          "backend_health_pct": 0.47970429578132606,
+          "connection_timeouts": 911
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:45.728380",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: a server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:56:26.728380",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

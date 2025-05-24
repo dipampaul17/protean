@@ -1,0 +1,120 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_174628",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 831,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.924329",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.923262",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:38.923262",
+      "event_type": "recovery",
+      "description": "Recovery: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:49.923262",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 276,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.20345409986019272,
+          "response_time_ms": 1170,
+          "cpu_usage": 0.9920653832440971,
+          "memory_usage": 0.913871995751369
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:08.923262",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 208,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.5891908694199788,
+          "response_time_ms": 6655,
+          "cpu_usage": 0.9430185253295014,
+          "memory_usage": 0.8642026676671217
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:31.923262",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 72,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.4736213451924245,
+          "response_time_ms": 2111,
+          "cpu_usage": 0.7446952136331683,
+          "memory_usage": 0.8274171366758784
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:34.923262",
+      "event_type": "recovery",
+      "description": "Recovery: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:39.923262",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 149,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.6027061092075432,
+          "response_time_ms": 5782,
+          "cpu_usage": 0.9633864028318619,
+          "memory_usage": 0.9940987416643217
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:21.923262",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:00:19.923262",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

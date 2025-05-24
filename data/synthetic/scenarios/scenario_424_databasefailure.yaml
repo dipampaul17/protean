@@ -1,0 +1,60 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173245
+description: Database connectivity and performance issues
+duration: 1335
+metadata:
+  generated_at: '2025-05-23T17:32:45.778680'
+  phrase_templates_used: 50
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 1
+events:
+- timestamp: '2025-05-23T17:32:45.778581'
+  event_type: trigger
+  description: 'Initial failure detected: in memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:19.778581'
+  event_type: timeout
+  description: 'Timeout: the queue'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: medium
+    duration: 232
+    log_snippet: '[2025-05-23 17:32:45] ERROR redis-cache: the queue in timeout'
+    metrics:
+      error_rate: 0.05748166012060138
+      response_time_ms: 104
+      cpu_usage: 0.6817589534731098
+      memory_usage: 0.5298561196751628
+      connection_pool_usage: 0.9109139464752137
+      query_time_ms: 16671
+      deadlocks_per_sec: 9
+- timestamp: '2025-05-23T17:37:47.778581'
+  event_type: corruption
+  description: 'Corruption: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:50.778581'
+  event_type: timeout
+  description: 'Timeout: using docker'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 234
+    log_snippet: '[2025-05-23 17:32:45] FATAL mysql-primary: database using docker
+      detected'
+    metrics:
+      error_rate: 0.1318603736930095
+      response_time_ms: 9451
+      cpu_usage: 0.9866893206478917
+      memory_usage: 0.8817132307524632
+      connection_pool_usage: 0.8084306537742469
+      query_time_ms: 27513
+      deadlocks_per_sec: 10
+- timestamp: '2025-05-23T17:55:00.778581'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

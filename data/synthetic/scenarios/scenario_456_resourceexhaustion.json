@@ -1,0 +1,72 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_174629",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 1340,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.142426",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.142318",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:02.142318",
+      "event_type": "recovery",
+      "description": "Recovery: info node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:20.142318",
+      "event_type": "timeout",
+      "description": "Timeout: strong update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 229,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.7983144023961908,
+          "response_time_ms": 1079,
+          "cpu_usage": 0.8060830317335931,
+          "memory_usage": 0.8666838785806064
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:44.142318",
+      "event_type": "failure",
+      "description": "Failure: reading database",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 64,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: reading database - operation failed",
+        "metrics": {
+          "error_rate": 0.6403011627883539,
+          "response_time_ms": 7752,
+          "cpu_usage": 0.7780200139325528,
+          "memory_usage": 0.9589559851355904
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:08:49.142318",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

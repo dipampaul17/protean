@@ -1,0 +1,67 @@
+category: NetworkPartition
+name: NetworkPartition_20250523_173245
+description: Infrastructure failure scenario for NetworkPartition
+duration: 1706
+metadata:
+  generated_at: '2025-05-23T17:32:45.672466'
+  phrase_templates_used: 4
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.672318'
+  event_type: trigger
+  description: 'Initial failure detected: and node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:28.672318'
+  event_type: recovery
+  description: 'Recovery: of disk'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:55.672318'
+  event_type: recovery
+  description: 'Recovery: and node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:10.672318'
+  event_type: recovery
+  description: 'Recovery: each node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:23.672318'
+  event_type: failure
+  description: 'Failure: and memory'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 195
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: and memory - operation
+      failed'
+    metrics:
+      error_rate: 0.7780876234629799
+      response_time_ms: 2813
+      cpu_usage: 0.7377981428675079
+      memory_usage: 0.8197524299617277
+- timestamp: '2025-05-23T17:34:59.672318'
+  event_type: recovery
+  description: 'Recovery: and memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:28.672318'
+  event_type: failure
+  description: 'Failure: each node'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 70
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: each node - operation
+      failed'
+    metrics:
+      error_rate: 0.430857613190608
+      response_time_ms: 1819
+      cpu_usage: 0.8947168558936356
+      memory_usage: 0.9221566287199767
+- timestamp: '2025-05-23T18:01:11.672318'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

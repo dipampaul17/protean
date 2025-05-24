@@ -1,0 +1,93 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173708
+description: Infrastructure failure scenario for ETLPipeline
+duration: 942
+metadata:
+  generated_at: '2025-05-23T17:37:08.009279'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:37:08.008840'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:19.008840'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 288
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.8166294109553414
+      response_time_ms: 9286
+      cpu_usage: 0.9912692530981126
+      memory_usage: 0.923613014174075
+- timestamp: '2025-05-23T17:37:20.008840'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:36.008840'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:48.008840'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 221
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.619668297821912
+      response_time_ms: 4491
+      cpu_usage: 0.9790198991503198
+      memory_usage: 0.8692854358692149
+- timestamp: '2025-05-23T17:38:13.008840'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 267
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.8644839388526698
+      response_time_ms: 2649
+      cpu_usage: 0.8236157726261644
+      memory_usage: 0.9953924701008703
+- timestamp: '2025-05-23T17:38:33.008840'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:46.008840'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 280
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: circuit breaker
+      triggered - operation failed'
+    metrics:
+      error_rate: 0.4515389438510641
+      response_time_ms: 8824
+      cpu_usage: 0.7259124072521479
+      memory_usage: 0.8716940487091599
+- timestamp: '2025-05-23T17:52:50.008840'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,72 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_174629",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1475,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.102736",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.102427",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rabbitmq connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:11.102427",
+      "event_type": "restart",
+      "description": "Restart: using docker",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:55.102427",
+      "event_type": "config_change",
+      "description": "Config_Change: kubernetes pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:16.102427",
+      "event_type": "config_change",
+      "description": "Config_Change: code server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:39.102427",
+      "event_type": "failure",
+      "description": "Failure: string container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 235,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: string container - operation failed",
+        "metrics": {
+          "error_rate": 0.2166302705449593,
+          "response_time_ms": 4639,
+          "cpu_usage": 0.773725573790967,
+          "memory_usage": 0.8002128096186296
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:41.102427",
+      "event_type": "rollback",
+      "description": "Rollback: string container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:11:04.102427",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

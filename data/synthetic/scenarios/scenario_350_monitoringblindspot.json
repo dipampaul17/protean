@@ -1,0 +1,66 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173708",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 978,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.044224",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.043991",
+      "event_type": "trigger",
+      "description": "Initial failure detected: code container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:29.043991",
+      "event_type": "timeout",
+      "description": "Timeout: docker container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 71,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: docker container - operation failed",
+        "metrics": {
+          "error_rate": 0.7723544974144522,
+          "response_time_ms": 5204,
+          "cpu_usage": 0.8161599547582031,
+          "memory_usage": 0.9118971202450022
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:08.043991",
+      "event_type": "recovery",
+      "description": "Recovery: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:08.043991",
+      "event_type": "recovery",
+      "description": "Recovery: docker container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:59.043991",
+      "event_type": "recovery",
+      "description": "Recovery: quot server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:53:26.043991",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

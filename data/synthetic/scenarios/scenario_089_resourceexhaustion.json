@@ -1,0 +1,90 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_173452",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 1692,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.983597",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.982649",
+      "event_type": "trigger",
+      "description": "Initial failure detected: info node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:33.982649",
+      "event_type": "recovery",
+      "description": "Recovery: and fix",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:36.982649",
+      "event_type": "recovery",
+      "description": "Recovery: urgent memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:03.982649",
+      "event_type": "timeout",
+      "description": "Timeout: info node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 202,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR user-service: info node - operation failed",
+        "metrics": {
+          "error_rate": 0.46543221945694124,
+          "response_time_ms": 3152,
+          "cpu_usage": 0.8952328558074447,
+          "memory_usage": 0.9852370580483433
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:30.982649",
+      "event_type": "recovery",
+      "description": "Recovery: the database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:32.982649",
+      "event_type": "timeout",
+      "description": "Timeout: the database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 135,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: the database - operation failed",
+        "metrics": {
+          "error_rate": 0.5018252294460462,
+          "response_time_ms": 9908,
+          "cpu_usage": 0.8197538321761489,
+          "memory_usage": 0.9969478655894412
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:06.982649",
+      "event_type": "recovery",
+      "description": "Recovery: accessed memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:03:04.982649",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

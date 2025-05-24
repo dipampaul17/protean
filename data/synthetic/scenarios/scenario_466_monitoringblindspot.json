@@ -1,0 +1,84 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173708",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1449,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.078211",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.078109",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:40.078109",
+      "event_type": "timeout",
+      "description": "Timeout: customer service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 249,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: customer service - operation failed",
+        "metrics": {
+          "error_rate": 0.7716804282967711,
+          "response_time_ms": 4574,
+          "cpu_usage": 0.785007386689447,
+          "memory_usage": 0.8019443452911129
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:45.078109",
+      "event_type": "timeout",
+      "description": "Timeout: used cpu",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 165,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: used cpu - operation failed",
+        "metrics": {
+          "error_rate": 0.897336266520341,
+          "response_time_ms": 6476,
+          "cpu_usage": 0.8147473078459627,
+          "memory_usage": 0.9311451639416594
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:44:54.078109",
+      "event_type": "failure",
+      "description": "Failure: used cpu",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 156,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: used cpu - operation failed",
+        "metrics": {
+          "error_rate": 0.3286166497736871,
+          "response_time_ms": 2632,
+          "cpu_usage": 0.9309312662349174,
+          "memory_usage": 0.8076537081563993
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:01:17.078109",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173707",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 354,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.994028",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.993719",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:39.993719",
+      "event_type": "failure",
+      "description": "Failure: a service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 63,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.34781829980374346,
+          "response_time_ms": 9157,
+          "cpu_usage": 0.7587430776876385,
+          "memory_usage": 0.9315581490344096
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:49.993719",
+      "event_type": "failure",
+      "description": "Failure: a node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 119,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: a node - operation failed",
+        "metrics": {
+          "error_rate": 0.6908041182090474,
+          "response_time_ms": 1337,
+          "cpu_usage": 0.8347186261896302,
+          "memory_usage": 0.9589693291689453
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:11.993719",
+      "event_type": "failure",
+      "description": "Failure: of cpu",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 81,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: of cpu - operation failed",
+        "metrics": {
+          "error_rate": 0.7719017103350074,
+          "response_time_ms": 3376,
+          "cpu_usage": 0.7056123854296876,
+          "memory_usage": 0.9135119177297035
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:22.993719",
+      "event_type": "recovery",
+      "description": "Recovery: an alert",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:43:01.993719",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

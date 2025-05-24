@@ -1,0 +1,110 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173708
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1792
+metadata:
+  generated_at: '2025-05-23T17:37:08.048375'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:37:08.047998'
+  event_type: trigger
+  description: 'Initial failure detected: code container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:47.047998'
+  event_type: failure
+  description: 'Failure: the cluster'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 232
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: the cluster -
+      operation failed'
+    metrics:
+      error_rate: 0.6226624467901574
+      response_time_ms: 5247
+      cpu_usage: 0.9080244781854081
+      memory_usage: 0.9565026517478725
+- timestamp: '2025-05-23T17:38:03.047998'
+  event_type: timeout
+  description: 'Timeout: a pod'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 178
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: a pod - operation failed'
+    metrics:
+      error_rate: 0.7479463217059572
+      response_time_ms: 7036
+      cpu_usage: 0.8452830979893362
+      memory_usage: 0.9317929276552528
+- timestamp: '2025-05-23T17:38:52.047998'
+  event_type: timeout
+  description: 'Timeout: connection refused'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 219
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: connection refused - operation
+      failed'
+    metrics:
+      error_rate: 0.19343784289459498
+      response_time_ms: 5265
+      cpu_usage: 0.9804963337060287
+      memory_usage: 0.8196977156272877
+- timestamp: '2025-05-23T17:38:54.047998'
+  event_type: timeout
+  description: 'Timeout: used cpu'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 185
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: used cpu - operation
+      failed'
+    metrics:
+      error_rate: 0.6406011462861897
+      response_time_ms: 7401
+      cpu_usage: 0.8174416151376855
+      memory_usage: 0.8673815494882997
+- timestamp: '2025-05-23T17:39:11.047998'
+  event_type: timeout
+  description: 'Timeout: monitoring memory'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 146
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: monitoring memory - operation
+      failed'
+    metrics:
+      error_rate: 0.4652381544796954
+      response_time_ms: 6627
+      cpu_usage: 0.8277135148121506
+      memory_usage: 0.947505367283898
+- timestamp: '2025-05-23T17:40:58.047998'
+  event_type: failure
+  description: 'Failure: strong update'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 268
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: strong update - operation
+      failed'
+    metrics:
+      error_rate: 0.6796411492587144
+      response_time_ms: 5562
+      cpu_usage: 0.9055476646582183
+      memory_usage: 0.9604121442513529
+- timestamp: '2025-05-23T18:07:00.047998'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

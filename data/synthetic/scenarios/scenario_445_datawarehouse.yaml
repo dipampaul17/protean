@@ -1,0 +1,115 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173708
+description: Infrastructure failure scenario for DataWarehouse
+duration: 714
+metadata:
+  generated_at: '2025-05-23T17:37:08.069209'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:37:08.068922'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:30.068922'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 149
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.20251497686461273
+      response_time_ms: 3686
+      cpu_usage: 0.9529965737456618
+      memory_usage: 0.8838949098637479
+- timestamp: '2025-05-23T17:37:47.068922'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 97
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.11752587975077465
+      response_time_ms: 4482
+      cpu_usage: 0.9213485506244421
+      memory_usage: 0.9124885849410903
+- timestamp: '2025-05-23T17:38:16.068922'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 213
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.6552754478633613
+      response_time_ms: 5701
+      cpu_usage: 0.8138236059301357
+      memory_usage: 0.8844559835686037
+- timestamp: '2025-05-23T17:38:28.068922'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 275
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.6410406880554602
+      response_time_ms: 6103
+      cpu_usage: 0.841776780379234
+      memory_usage: 0.8391984738278739
+- timestamp: '2025-05-23T17:38:40.068922'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 219
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.28363156615558804
+      response_time_ms: 5917
+      cpu_usage: 0.7609756218287004
+      memory_usage: 0.9222433096536176
+- timestamp: '2025-05-23T17:38:43.068922'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 196
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.5114618229344077
+      response_time_ms: 8082
+      cpu_usage: 0.8364209185905535
+      memory_usage: 0.8669381206356769
+- timestamp: '2025-05-23T17:38:48.068922'
+  event_type: recovery
+  description: 'Recovery: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:02.068922'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

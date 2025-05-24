@@ -1,0 +1,48 @@
+category: Microservices
+name: Microservices_20250523_173453
+description: Infrastructure failure scenario for Microservices
+duration: 789
+metadata:
+  generated_at: '2025-05-23T17:34:53.357293'
+  phrase_templates_used: 15
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:34:53.357190'
+  event_type: trigger
+  description: 'Initial failure detected: http connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:10.357190'
+  event_type: recovery
+  description: 'Recovery: to service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:16.357190'
+  event_type: timeout
+  description: 'Timeout: docker network'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 148
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: docker network - operation
+      failed'
+    metrics:
+      error_rate: 0.1133078881305612
+      response_time_ms: 3745
+      cpu_usage: 0.8784358416438635
+      memory_usage: 0.9528341918114864
+- timestamp: '2025-05-23T17:36:15.357190'
+  event_type: recovery
+  description: 'Recovery: following error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:54.357190'
+  event_type: recovery
+  description: 'Recovery: to service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:02.357190'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

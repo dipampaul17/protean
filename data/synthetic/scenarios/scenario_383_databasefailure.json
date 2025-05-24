@@ -1,0 +1,81 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_174629",
+  "description": "Database connectivity and performance issues",
+  "duration": 429,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.120896",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.103541",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:49.103541",
+      "event_type": "recovery",
+      "description": "Recovery: create database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:22.103541",
+      "event_type": "corruption",
+      "description": "Corruption: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:32.103541",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: mongodb database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:35.103541",
+      "event_type": "corruption",
+      "description": "Corruption: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:38.103541",
+      "event_type": "timeout",
+      "description": "Timeout: the update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "postgres-replica",
+        "severity": "high",
+        "duration": 33,
+        "log_snippet": "[2025-05-23 17:46:29] FATAL postgres-replica: database the update detected",
+        "metrics": {
+          "error_rate": 0.3570338697197364,
+          "response_time_ms": 8024,
+          "cpu_usage": 0.7064954471151438,
+          "memory_usage": 0.8646036233188472,
+          "connection_pool_usage": 0.9823360112868471,
+          "query_time_ms": 12823,
+          "deadlocks_per_sec": 7
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:39.103541",
+      "event_type": "recovery",
+      "description": "Recovery: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:53:38.103541",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

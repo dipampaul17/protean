@@ -1,0 +1,66 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173245",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1002,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.776966",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.776864",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:33.776864",
+      "event_type": "scaling",
+      "description": "Scaling: failed to",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:32.776864",
+      "event_type": "rollback",
+      "description": "Rollback: the deploy",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:06.776864",
+      "event_type": "failure",
+      "description": "Failure: code error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 34,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR nginx-proxy: code error in failure",
+        "metrics": {
+          "error_rate": 0.3149072789002626,
+          "response_time_ms": 5253,
+          "cpu_usage": 0.7500122345081351,
+          "memory_usage": 0.9471185845782294
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:14.776864",
+      "event_type": "rollback",
+      "description": "Rollback: code container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:27.776864",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

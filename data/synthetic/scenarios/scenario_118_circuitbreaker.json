@@ -1,0 +1,72 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173245",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1520,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.686752",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.686590",
+      "event_type": "trigger",
+      "description": "Initial failure detected: us log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:16.686590",
+      "event_type": "recovery",
+      "description": "Recovery: us log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:36.686590",
+      "event_type": "timeout",
+      "description": "Timeout: code error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 36,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: code error - operation failed",
+        "metrics": {
+          "error_rate": 0.11738456926715513,
+          "response_time_ms": 5480,
+          "cpu_usage": 0.7828484993844772,
+          "memory_usage": 0.8878863539259149
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:42.686590",
+      "event_type": "failure",
+      "description": "Failure: nginx log",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 186,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: nginx log - operation failed",
+        "metrics": {
+          "error_rate": 0.115694139028827,
+          "response_time_ms": 2733,
+          "cpu_usage": 0.8302670127987586,
+          "memory_usage": 0.8782485024505522
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:58:05.686590",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

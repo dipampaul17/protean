@@ -1,0 +1,96 @@
+category: DataCorruption
+name: DataCorruption_20250523_173245
+description: Infrastructure failure scenario for DataCorruption
+duration: 316
+metadata:
+  generated_at: '2025-05-23T17:32:45.723734'
+  phrase_templates_used: 36
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 4
+events:
+- timestamp: '2025-05-23T17:32:45.723572'
+  event_type: trigger
+  description: 'Initial failure detected: transaction log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:00.723572'
+  event_type: timeout
+  description: 'Timeout: the queue'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: medium
+    duration: 133
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: the queue - operation
+      failed'
+    metrics:
+      error_rate: 0.29376880955965046
+      response_time_ms: 1734
+      cpu_usage: 0.35361440294150265
+      memory_usage: 0.47626842010036785
+- timestamp: '2025-05-23T17:33:03.723572'
+  event_type: failure
+  description: 'Failure: docker container'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 127
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: docker container -
+      operation failed'
+    metrics:
+      error_rate: 0.8903518592840702
+      response_time_ms: 9122
+      cpu_usage: 0.880070266200982
+      memory_usage: 0.9731897230722417
+- timestamp: '2025-05-23T17:33:22.723572'
+  event_type: timeout
+  description: 'Timeout: strong update'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 270
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: strong update - operation
+      failed'
+    metrics:
+      error_rate: 0.6786900241588931
+      response_time_ms: 1270
+      cpu_usage: 0.8908934720724853
+      memory_usage: 0.9997478000446482
+- timestamp: '2025-05-23T17:33:29.723572'
+  event_type: timeout
+  description: 'Timeout: ebs storage'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 135
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: ebs storage - operation
+      failed'
+    metrics:
+      error_rate: 0.22438291505212613
+      response_time_ms: 7759
+      cpu_usage: 0.9946359518833459
+      memory_usage: 0.8334660170466904
+- timestamp: '2025-05-23T17:33:30.723572'
+  event_type: failure
+  description: 'Failure: only container'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 183
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: only container
+      - operation failed'
+    metrics:
+      error_rate: 0.6480576650384343
+      response_time_ms: 3501
+      cpu_usage: 0.9656327202683653
+      memory_usage: 0.966594852478373
+- timestamp: '2025-05-23T17:38:01.723572'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,138 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_174629",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 519,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.140479",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.140064",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:49.140064",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 214,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.4243015005005155,
+          "response_time_ms": 6264,
+          "cpu_usage": 0.8313047463025348,
+          "memory_usage": 0.908922798774372
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:15.140064",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 100,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.8501641816545374,
+          "response_time_ms": 8044,
+          "cpu_usage": 0.8526737634162697,
+          "memory_usage": 0.8559415846480196
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:19.140064",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 203,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.12316337930181619,
+          "response_time_ms": 4272,
+          "cpu_usage": 0.9792279024546802,
+          "memory_usage": 0.822704083946617
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:26.140064",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 84,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.6717881329956736,
+          "response_time_ms": 7756,
+          "cpu_usage": 0.7006580898472002,
+          "memory_usage": 0.9075650818377764
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:35.140064",
+      "event_type": "timeout",
+      "description": "Timeout: disk space full",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 67,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.12464370783916837,
+          "response_time_ms": 1721,
+          "cpu_usage": 0.8535960674246069,
+          "memory_usage": 0.9762790423612066
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:36.140064",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 32,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.5459373870881329,
+          "response_time_ms": 7401,
+          "cpu_usage": 0.8739705494476958,
+          "memory_usage": 0.8239332901864959
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:55:08.140064",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

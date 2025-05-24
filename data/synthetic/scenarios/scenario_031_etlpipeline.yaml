@@ -1,0 +1,66 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_174628
+description: Infrastructure failure scenario for ETLPipeline
+duration: 1310
+metadata:
+  generated_at: '2025-05-23T17:46:28.913487'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:28.913385'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:25.913385'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 196
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: rate limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.26454283217491414
+      response_time_ms: 7323
+      cpu_usage: 0.8800586340891873
+      memory_usage: 0.9464279874226922
+- timestamp: '2025-05-23T17:49:18.913385'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 220
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.35832489418041324
+      response_time_ms: 3507
+      cpu_usage: 0.9993148557392029
+      memory_usage: 0.8679897576669166
+- timestamp: '2025-05-23T17:52:43.913385'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 178
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.8479914804307892
+      response_time_ms: 3451
+      cpu_usage: 0.7435855188609514
+      memory_usage: 0.9558763577869556
+- timestamp: '2025-05-23T18:08:18.913385'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

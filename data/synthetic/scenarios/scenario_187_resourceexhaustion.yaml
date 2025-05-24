@@ -1,0 +1,89 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173453
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 723
+metadata:
+  generated_at: '2025-05-23T17:34:53.136025'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:53.135674'
+  event_type: trigger
+  description: 'Initial failure detected: em connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:07.135674'
+  event_type: recovery
+  description: 'Recovery: free disk'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:00.135674'
+  event_type: timeout
+  description: 'Timeout: urgent memory'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 162
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: urgent memory - operation
+      failed'
+    metrics:
+      error_rate: 0.4841052462860841
+      response_time_ms: 1859
+      cpu_usage: 0.9702749671616211
+      memory_usage: 0.9593474728966078
+- timestamp: '2025-05-23T17:36:17.135674'
+  event_type: recovery
+  description: 'Recovery: lt container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:21.135674'
+  event_type: failure
+  description: 'Failure: a connection'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 236
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: a connection - operation
+      failed'
+    metrics:
+      error_rate: 0.2394171916003537
+      response_time_ms: 4426
+      cpu_usage: 0.7341492934364182
+      memory_usage: 0.8227179344724138
+- timestamp: '2025-05-23T17:36:24.135674'
+  event_type: timeout
+  description: 'Timeout: heap memory'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 120
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: heap memory -
+      operation failed'
+    metrics:
+      error_rate: 0.3778264697970649
+      response_time_ms: 2412
+      cpu_usage: 0.9318432162645891
+      memory_usage: 0.850835380141146
+- timestamp: '2025-05-23T17:36:48.135674'
+  event_type: timeout
+  description: 'Timeout: and fix'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 133
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: and fix - operation
+      failed'
+    metrics:
+      error_rate: 0.21967103209801195
+      response_time_ms: 2272
+      cpu_usage: 0.8357940943053876
+      memory_usage: 0.8728181768318779
+- timestamp: '2025-05-23T17:46:56.135674'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

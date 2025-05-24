@@ -1,0 +1,63 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_173245
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1434
+metadata:
+  generated_at: '2025-05-23T17:32:45.716977'
+  phrase_templates_used: 45
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 1
+events:
+- timestamp: '2025-05-23T17:32:45.716851'
+  event_type: trigger
+  description: 'Initial failure detected: following error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:35.716851'
+  event_type: failure
+  description: 'Failure: federated queue'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: medium
+    duration: 249
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: federated queue - operation
+      failed'
+    metrics:
+      error_rate: 0.037882730086092595
+      response_time_ms: 1492
+      cpu_usage: 0.35553695283514747
+      memory_usage: 0.48599366374970676
+- timestamp: '2025-05-23T17:34:47.716851'
+  event_type: recovery
+  description: 'Recovery: proxy server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:48.716851'
+  event_type: recovery
+  description: 'Recovery: exist error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:23.716851'
+  event_type: recovery
+  description: 'Recovery: existing connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:31.716851'
+  event_type: timeout
+  description: 'Timeout: and update'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 129
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: and update - operation
+      failed'
+    metrics:
+      error_rate: 0.6886148181081524
+      response_time_ms: 4156
+      cpu_usage: 0.7616981358244386
+      memory_usage: 0.8875361071775871
+- timestamp: '2025-05-23T17:56:39.716851'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

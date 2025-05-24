@@ -1,0 +1,84 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173453",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 1245,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.226481",
+    "phrase_templates_used": 36,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 0
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.226328",
+      "event_type": "trigger",
+      "description": "Initial failure detected: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:26.226328",
+      "event_type": "recovery",
+      "description": "Recovery: one server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:34.226328",
+      "event_type": "recovery",
+      "description": "Recovery: code queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:10.226328",
+      "event_type": "failure",
+      "description": "Failure: code queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "medium",
+        "duration": 107,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: code queue - operation failed",
+        "metrics": {
+          "error_rate": 0.029031170249180546,
+          "response_time_ms": 1212,
+          "cpu_usage": 0.3482655970696931,
+          "memory_usage": 0.6612205693581327
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:45.226328",
+      "event_type": "recovery",
+      "description": "Recovery: using rabbitmq",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:54.226328",
+      "event_type": "recovery",
+      "description": "Recovery: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:30.226328",
+      "event_type": "recovery",
+      "description": "Recovery: instance storage",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:50.226328",
+      "event_type": "recovery",
+      "description": "Recovery: ebs storage",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:55:38.226328",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

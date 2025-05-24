@@ -1,0 +1,114 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_173708
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1456
+metadata:
+  generated_at: '2025-05-23T17:37:08.061976'
+  phrase_templates_used: 45
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:37:08.061130'
+  event_type: trigger
+  description: 'Initial failure detected: failed to'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:45.061130'
+  event_type: failure
+  description: 'Failure: upstream server'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 41
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: upstream server - operation
+      failed'
+    metrics:
+      error_rate: 0.698949545419009
+      response_time_ms: 2377
+      cpu_usage: 0.7093662082006323
+      memory_usage: 0.900257614907411
+- timestamp: '2025-05-23T17:37:54.061130'
+  event_type: timeout
+  description: 'Timeout: illuminate container'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 51
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: illuminate container -
+      operation failed'
+    metrics:
+      error_rate: 0.41774688926344516
+      response_time_ms: 8478
+      cpu_usage: 0.98914891816546
+      memory_usage: 0.8058752916515493
+- timestamp: '2025-05-23T17:38:11.061130'
+  event_type: failure
+  description: 'Failure: to network'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 272
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: to network - operation
+      failed'
+    metrics:
+      error_rate: 0.8656397765682803
+      response_time_ms: 7809
+      cpu_usage: 0.841122858645807
+      memory_usage: 0.9982954772468589
+- timestamp: '2025-05-23T17:38:42.061130'
+  event_type: failure
+  description: 'Failure: the node'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 133
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: the node - operation failed'
+    metrics:
+      error_rate: 0.8584862764217135
+      response_time_ms: 9102
+      cpu_usage: 0.7467063316874198
+      memory_usage: 0.8839672801408544
+- timestamp: '2025-05-23T17:38:52.061130'
+  event_type: recovery
+  description: 'Recovery: headless service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:18.061130'
+  event_type: timeout
+  description: 'Timeout: destination node'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 144
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: destination node -
+      operation failed'
+    metrics:
+      error_rate: 0.3811743641122648
+      response_time_ms: 8892
+      cpu_usage: 0.9265194727635963
+      memory_usage: 0.92770958258436
+- timestamp: '2025-05-23T17:39:54.061130'
+  event_type: timeout
+  description: 'Timeout: headless service'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 258
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: headless service - operation
+      failed'
+    metrics:
+      error_rate: 0.265251913946436
+      response_time_ms: 5646
+      cpu_usage: 0.906265125392938
+      memory_usage: 0.8009665136487916
+- timestamp: '2025-05-23T18:01:24.061130'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,150 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173453",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 900,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.342442",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.342224",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:09.342224",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:16.342224",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 194,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.6804933130185982,
+          "response_time_ms": 2193,
+          "cpu_usage": 0.8389995710197824,
+          "memory_usage": 0.8618810636761927
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:33.342224",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 271,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.10641272254110819,
+          "response_time_ms": 4725,
+          "cpu_usage": 0.8407114094610268,
+          "memory_usage": 0.8712183406426204
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:41.342224",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 248,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.49176470853218646,
+          "response_time_ms": 5985,
+          "cpu_usage": 0.8931698020897969,
+          "memory_usage": 0.8174153294224726
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:41.342224",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 216,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.2719604875670071,
+          "response_time_ms": 5120,
+          "cpu_usage": 0.9688716369101953,
+          "memory_usage": 0.8088646598911299
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:45.342224",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 75,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.7664902320197159,
+          "response_time_ms": 9098,
+          "cpu_usage": 0.7452061172566727,
+          "memory_usage": 0.9615704168588424
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:53.342224",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 133,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.8258172947411427,
+          "response_time_ms": 1379,
+          "cpu_usage": 0.7766684688492412,
+          "memory_usage": 0.8271516409293839
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:35.342224",
+      "event_type": "recovery",
+      "description": "Recovery: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:53.342224",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

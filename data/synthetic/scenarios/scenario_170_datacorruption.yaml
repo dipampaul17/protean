@@ -1,0 +1,66 @@
+category: DataCorruption
+name: DataCorruption_20250523_173453
+description: Infrastructure failure scenario for DataCorruption
+duration: 1193
+metadata:
+  generated_at: '2025-05-23T17:34:53.115360'
+  phrase_templates_used: 36
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.108745'
+  event_type: trigger
+  description: 'Initial failure detected: a queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:43.108745'
+  event_type: failure
+  description: 'Failure: only container'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 278
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: only container - operation
+      failed'
+    metrics:
+      error_rate: 0.5760137521187892
+      response_time_ms: 8640
+      cpu_usage: 0.8581214288935793
+      memory_usage: 0.8555349560945722
+- timestamp: '2025-05-23T17:40:43.108745'
+  event_type: failure
+  description: 'Failure: duplicate update'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 279
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: duplicate update - operation
+      failed'
+    metrics:
+      error_rate: 0.7548429258019164
+      response_time_ms: 8596
+      cpu_usage: 0.7896905270195592
+      memory_usage: 0.8564866238230471
+- timestamp: '2025-05-23T17:40:44.108745'
+  event_type: timeout
+  description: 'Timeout: docker container'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 208
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: docker container - operation
+      failed'
+    metrics:
+      error_rate: 0.7771455677381294
+      response_time_ms: 8017
+      cpu_usage: 0.7056508829646496
+      memory_usage: 0.8446768174290049
+- timestamp: '2025-05-23T17:54:46.108745'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

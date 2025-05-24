@@ -1,0 +1,78 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_174629
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1605
+metadata:
+  generated_at: '2025-05-23T17:46:29.015385'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:29.013002'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:05.013002'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:06.013002'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 282
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.8842353297347917
+      response_time_ms: 7472
+      cpu_usage: 0.7897979655081482
+      memory_usage: 0.9676313097940205
+- timestamp: '2025-05-23T17:49:25.013002'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:37.013002'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:59.013002'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 186
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.8532115274362434
+      response_time_ms: 5641
+      cpu_usage: 0.8604529863049044
+      memory_usage: 0.9788873914431355
+- timestamp: '2025-05-23T17:50:48.013002'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 146
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.2811201628372129
+      response_time_ms: 4974
+      cpu_usage: 0.9096364801143862
+      memory_usage: 0.9335933141471708
+- timestamp: '2025-05-23T18:13:14.013002'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

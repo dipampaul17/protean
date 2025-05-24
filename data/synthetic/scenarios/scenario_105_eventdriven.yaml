@@ -1,0 +1,59 @@
+category: EventDriven
+name: EventDriven_20250523_174628
+description: Message queue and event processing failures
+duration: 1783
+metadata:
+  generated_at: '2025-05-23T17:46:28.957073'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:46:28.956146'
+  event_type: trigger
+  description: 'Initial failure detected: config server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:32.956146'
+  event_type: message_loss
+  description: 'Message_Loss: on node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:52.956146'
+  event_type: message_loss
+  description: 'Message_Loss: kafka server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:03.956146'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: badmatch error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:39.956146'
+  event_type: message_loss
+  description: 'Message_Loss: ephemeral node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:11.956146'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: var log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:37.956146'
+  event_type: timeout
+  description: 'Timeout: var log'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 206
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-queue: queue processing var
+      log'
+    metrics:
+      error_rate: 0.38939222704708176
+      response_time_ms: 7516
+      cpu_usage: 0.8290699539778457
+      memory_usage: 0.9704354168556762
+      queue_depth: 23864
+      message_processing_rate: 4.641242131878895
+      consumer_lag_ms: 113344
+- timestamp: '2025-05-23T18:16:11.956146'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

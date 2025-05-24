@@ -1,0 +1,59 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173245
+description: Infrastructure failure scenario for ETLPipeline
+duration: 1580
+metadata:
+  generated_at: '2025-05-23T17:32:45.727762'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.727654'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:22.727654'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:58.727654'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 254
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.7780046059827784
+      response_time_ms: 8988
+      cpu_usage: 0.9337290885326439
+      memory_usage: 0.8528340154181233
+- timestamp: '2025-05-23T17:37:36.727654'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:14.727654'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 221
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: container crashed -
+      operation failed'
+    metrics:
+      error_rate: 0.2790509136358835
+      response_time_ms: 2217
+      cpu_usage: 0.8254784595315792
+      memory_usage: 0.9490016235999995
+- timestamp: '2025-05-23T17:59:05.727654'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

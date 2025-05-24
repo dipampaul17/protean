@@ -1,0 +1,102 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_174628",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 777,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.909464",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.909284",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:51.909284",
+      "event_type": "recovery",
+      "description": "Recovery: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:04.909284",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:45.909284",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 249,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.343838119709311,
+          "response_time_ms": 9835,
+          "cpu_usage": 0.9860320230336229,
+          "memory_usage": 0.8474749111563771
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:55.909284",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:59.909284",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 129,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.18974393076233442,
+          "response_time_ms": 3620,
+          "cpu_usage": 0.8462971078505619,
+          "memory_usage": 0.8538346488500068
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:35.909284",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 145,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.6348612873152547,
+          "response_time_ms": 8464,
+          "cpu_usage": 0.8626102808610081,
+          "memory_usage": 0.9051603017196515
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:59:25.909284",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

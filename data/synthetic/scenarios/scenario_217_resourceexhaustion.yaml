@@ -1,0 +1,107 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173708
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 1601
+metadata:
+  generated_at: '2025-05-23T17:37:08.010405'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:37:08.010186'
+  event_type: trigger
+  description: 'Initial failure detected: associative cache'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:19.010186'
+  event_type: failure
+  description: 'Failure: the error'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 47
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.3445986153909453
+      response_time_ms: 1760
+      cpu_usage: 0.9547937067418437
+      memory_usage: 0.840981838931383
+- timestamp: '2025-05-23T17:37:36.010186'
+  event_type: failure
+  description: 'Failure: main memory'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 297
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: main memory - operation
+      failed'
+    metrics:
+      error_rate: 0.3196193685960662
+      response_time_ms: 7466
+      cpu_usage: 0.7782962995084844
+      memory_usage: 0.9114156493009522
+- timestamp: '2025-05-23T17:37:56.010186'
+  event_type: failure
+  description: 'Failure: a memory'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 189
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: a memory - operation failed'
+    metrics:
+      error_rate: 0.654364870120254
+      response_time_ms: 4869
+      cpu_usage: 0.7058653437119499
+      memory_usage: 0.911446213273314
+- timestamp: '2025-05-23T17:38:29.010186'
+  event_type: failure
+  description: 'Failure: the disk'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 156
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: the disk - operation
+      failed'
+    metrics:
+      error_rate: 0.6417712422989055
+      response_time_ms: 5288
+      cpu_usage: 0.9482585536198778
+      memory_usage: 0.8216257535176034
+- timestamp: '2025-05-23T17:39:00.010186'
+  event_type: recovery
+  description: 'Recovery: a memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:25.010186'
+  event_type: timeout
+  description: 'Timeout: the connection'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 96
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: the connection
+      - operation failed'
+    metrics:
+      error_rate: 0.43210665531235604
+      response_time_ms: 4625
+      cpu_usage: 0.9053505771410518
+      memory_usage: 0.91518653345924
+- timestamp: '2025-05-23T17:39:57.010186'
+  event_type: recovery
+  description: 'Recovery: of disk'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:12.010186'
+  event_type: recovery
+  description: 'Recovery: a connection'
+  injection_spec: null
+- timestamp: '2025-05-23T18:03:49.010186'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

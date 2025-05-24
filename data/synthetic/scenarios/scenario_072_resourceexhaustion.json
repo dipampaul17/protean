@@ -1,0 +1,60 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_174628",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 1693,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.925821",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.925737",
+      "event_type": "trigger",
+      "description": "Initial failure detected: lt container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:13.925737",
+      "event_type": "recovery",
+      "description": "Recovery: info node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:51:33.925737",
+      "event_type": "recovery",
+      "description": "Recovery: the database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:54:27.925737",
+      "event_type": "timeout",
+      "description": "Timeout: of memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 136,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: of memory - operation failed",
+        "metrics": {
+          "error_rate": 0.56641454732162,
+          "response_time_ms": 4272,
+          "cpu_usage": 0.8582272734312195,
+          "memory_usage": 0.8887661679201586
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:14:41.925737",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

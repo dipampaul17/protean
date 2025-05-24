@@ -1,0 +1,54 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173707
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 962
+metadata:
+  generated_at: '2025-05-23T17:37:07.778220'
+  phrase_templates_used: 50
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:07.777256'
+  event_type: trigger
+  description: 'Initial failure detected: of disk'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:30.777256'
+  event_type: timeout
+  description: 'Timeout: to scale'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 294
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: to scale - operation failed'
+    metrics:
+      error_rate: 0.5997184726208643
+      response_time_ms: 1470
+      cpu_usage: 0.9137162363997176
+      memory_usage: 0.94367605113789
+- timestamp: '2025-05-23T17:39:36.777256'
+  event_type: recovery
+  description: 'Recovery: urgent memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:45.777256'
+  event_type: timeout
+  description: 'Timeout: the memory'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 293
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: the memory - operation
+      failed'
+    metrics:
+      error_rate: 0.3907442204986802
+      response_time_ms: 5218
+      cpu_usage: 0.8489785063134985
+      memory_usage: 0.9534961033164472
+- timestamp: '2025-05-23T17:53:09.777256'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

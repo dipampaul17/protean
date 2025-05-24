@@ -1,0 +1,44 @@
+category: Microservices
+name: Microservices_20250523_173708
+description: Infrastructure failure scenario for Microservices
+duration: 1064
+metadata:
+  generated_at: '2025-05-23T17:37:08.069650'
+  phrase_templates_used: 15
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:37:08.069567'
+  event_type: trigger
+  description: 'Initial failure detected: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:25.069567'
+  event_type: recovery
+  description: 'Recovery: another container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:49.069567'
+  event_type: recovery
+  description: 'Recovery: http connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:42:02.069567'
+  event_type: failure
+  description: 'Failure: a cluster'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 54
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: a cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.5953329140978235
+      response_time_ms: 8900
+      cpu_usage: 0.805000197982273
+      memory_usage: 0.8631635234353484
+- timestamp: '2025-05-23T17:54:52.069567'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

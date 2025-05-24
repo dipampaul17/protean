@@ -1,0 +1,89 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173707
+description: Infrastructure failure scenario for DataWarehouse
+duration: 652
+metadata:
+  generated_at: '2025-05-23T17:37:07.786952'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:37:07.786787'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:26.786787'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 231
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.23743037893789998
+      response_time_ms: 7187
+      cpu_usage: 0.8800984026803634
+      memory_usage: 0.8243999324472693
+- timestamp: '2025-05-23T17:37:29.786787'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 107
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.6865184067544936
+      response_time_ms: 4517
+      cpu_usage: 0.9351483630511616
+      memory_usage: 0.9703307773869919
+- timestamp: '2025-05-23T17:37:40.786787'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:21.786787'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 42
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.8586748329024754
+      response_time_ms: 4504
+      cpu_usage: 0.9755939336316144
+      memory_usage: 0.9366479336922193
+- timestamp: '2025-05-23T17:38:50.786787'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 165
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.6546519773468557
+      response_time_ms: 2818
+      cpu_usage: 0.7637557184585867
+      memory_usage: 0.8679508149489092
+- timestamp: '2025-05-23T17:38:51.786787'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:59.786787'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

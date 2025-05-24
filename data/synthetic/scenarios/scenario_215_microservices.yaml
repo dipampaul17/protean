@@ -1,0 +1,59 @@
+category: Microservices
+name: Microservices_20250523_174628
+description: Infrastructure failure scenario for Microservices
+duration: 307
+metadata:
+  generated_at: '2025-05-23T17:46:28.987132'
+  phrase_templates_used: 15
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 1
+events:
+- timestamp: '2025-05-23T17:46:28.987020'
+  event_type: trigger
+  description: 'Initial failure detected: ui service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:54.987020'
+  event_type: failure
+  description: 'Failure: the queue'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: medium
+    duration: 167
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: the queue - operation
+      failed'
+    metrics:
+      error_rate: 0.22876676981382543
+      response_time_ms: 607
+      cpu_usage: 0.48858030002915137
+      memory_usage: 0.5949513243861357
+- timestamp: '2025-05-23T17:47:06.987020'
+  event_type: recovery
+  description: 'Recovery: strong service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:14.987020'
+  event_type: recovery
+  description: 'Recovery: following error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:40.987020'
+  event_type: failure
+  description: 'Failure: another container'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 35
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: another container - operation
+      failed'
+    metrics:
+      error_rate: 0.8729471962091713
+      response_time_ms: 4971
+      cpu_usage: 0.7473496004209971
+      memory_usage: 0.9095793695671249
+- timestamp: '2025-05-23T17:51:35.987020'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

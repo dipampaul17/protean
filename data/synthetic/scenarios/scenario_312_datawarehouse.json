@@ -1,0 +1,102 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_173708",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 342,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.034760",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.034631",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:22.034631",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 277,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.7731870190512398,
+          "response_time_ms": 9504,
+          "cpu_usage": 0.7215337167350451,
+          "memory_usage": 0.9063078897558655
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:39.034631",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 259,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.8186667489175237,
+          "response_time_ms": 4665,
+          "cpu_usage": 0.8143310250358865,
+          "memory_usage": 0.8629471683350138
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:04.034631",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 273,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.3471176134837287,
+          "response_time_ms": 3717,
+          "cpu_usage": 0.7960683196420567,
+          "memory_usage": 0.8307258299391688
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:15.034631",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 213,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.4590983531930626,
+          "response_time_ms": 4739,
+          "cpu_usage": 0.9002748551324875,
+          "memory_usage": 0.9413803438660044
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:42:50.034631",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

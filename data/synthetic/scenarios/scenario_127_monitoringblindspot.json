@@ -1,0 +1,72 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173707",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1727,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.962089",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.961997",
+      "event_type": "trigger",
+      "description": "Initial failure detected: monitoring system",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:59.961997",
+      "event_type": "recovery",
+      "description": "Recovery: monitoring memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:05.961997",
+      "event_type": "timeout",
+      "description": "Timeout: used cpu",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 266,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: used cpu - operation failed",
+        "metrics": {
+          "error_rate": 0.35874208009674613,
+          "response_time_ms": 5264,
+          "cpu_usage": 0.8625033200893315,
+          "memory_usage": 0.8094822110135492
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:02.961997",
+      "event_type": "timeout",
+      "description": "Timeout: or cpu",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 162,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: or cpu - operation failed",
+        "metrics": {
+          "error_rate": 0.596133810315019,
+          "response_time_ms": 5966,
+          "cpu_usage": 0.738876833950092,
+          "memory_usage": 0.9935178471628103
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:05:54.961997",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+category: CascadingFailure
+name: CascadingFailure_20250523_173708
+description: Multi-service failure propagation scenario
+duration: 1415
+metadata:
+  generated_at: '2025-05-23T17:37:08.050497'
+  phrase_templates_used: 2
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:37:08.050233'
+  event_type: trigger
+  description: 'Initial failure detected: demographics monitor'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:17.050233'
+  event_type: recovery
+  description: 'Recovery: demographics monitor'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:34.050233'
+  event_type: cascade
+  description: 'Cascade: demographics monitor'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:54.050233'
+  event_type: initial_failure
+  description: 'Initial_Failure: cascading failure'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:27.050233'
+  event_type: cascade
+  description: 'Cascade: cascading failure'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:28.050233'
+  event_type: recovery
+  description: 'Recovery: cascading failure'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:36.050233'
+  event_type: propagation
+  description: 'Propagation: demographics monitor'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:36.050233'
+  event_type: propagation
+  description: 'Propagation: demographics monitor'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:51.050233'
+  event_type: propagation
+  description: 'Propagation: demographics monitor'
+  injection_spec: null
+- timestamp: '2025-05-23T18:00:43.050233'
+  event_type: recovery
+  description: 'System recovered: all services recovered'
+  injection_spec: null

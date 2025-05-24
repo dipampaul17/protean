@@ -1,0 +1,144 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173452",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 583,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.978671",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.978452",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:07.978452",
+      "event_type": "failure",
+      "description": "Failure: code error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 114,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR auth-service: code error - operation failed",
+        "metrics": {
+          "error_rate": 0.2837829489320941,
+          "response_time_ms": 5028,
+          "cpu_usage": 0.9410180452440398,
+          "memory_usage": 0.8645493972679761
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:48.978452",
+      "event_type": "timeout",
+      "description": "Timeout: code error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 143,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: code error - operation failed",
+        "metrics": {
+          "error_rate": 0.6063431800537297,
+          "response_time_ms": 8986,
+          "cpu_usage": 0.7250713414685702,
+          "memory_usage": 0.9421291099723582
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:54.978452",
+      "event_type": "failure",
+      "description": "Failure: a container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 44,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR auth-service: a container - operation failed",
+        "metrics": {
+          "error_rate": 0.5148197922547838,
+          "response_time_ms": 7760,
+          "cpu_usage": 0.981260943283123,
+          "memory_usage": 0.9082236379198574
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:01.978452",
+      "event_type": "recovery",
+      "description": "Recovery: payment service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:01.978452",
+      "event_type": "timeout",
+      "description": "Timeout: the memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 77,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR auth-service: the memory - operation failed",
+        "metrics": {
+          "error_rate": 0.30277162893516474,
+          "response_time_ms": 9646,
+          "cpu_usage": 0.8162497946931593,
+          "memory_usage": 0.9883622936506208
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:05.978452",
+      "event_type": "failure",
+      "description": "Failure: connection refused",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 256,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: connection refused - operation failed",
+        "metrics": {
+          "error_rate": 0.4405863534831995,
+          "response_time_ms": 9276,
+          "cpu_usage": 0.9137674855613416,
+          "memory_usage": 0.8216702275324155
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:10.978452",
+      "event_type": "failure",
+      "description": "Failure: an alert",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 262,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR auth-service: an alert - operation failed",
+        "metrics": {
+          "error_rate": 0.6378501571738207,
+          "response_time_ms": 2042,
+          "cpu_usage": 0.7984425029450612,
+          "memory_usage": 0.9257351701466487
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:44:35.978452",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

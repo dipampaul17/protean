@@ -1,0 +1,70 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_174628
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1490
+metadata:
+  generated_at: '2025-05-23T17:46:28.927266'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:28.927100'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:14.927100'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 249
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: container crashed - operation
+      failed'
+    metrics:
+      error_rate: 0.8114423338314934
+      response_time_ms: 3111
+      cpu_usage: 0.9289454220523113
+      memory_usage: 0.9543030421306892
+- timestamp: '2025-05-23T17:48:02.927100'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 278
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.1356374125183952
+      response_time_ms: 8965
+      cpu_usage: 0.9724549565461401
+      memory_usage: 0.9003967819666426
+- timestamp: '2025-05-23T17:50:07.927100'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 52
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.4445216309845489
+      response_time_ms: 7189
+      cpu_usage: 0.7009249907981236
+      memory_usage: 0.8199207660965168
+- timestamp: '2025-05-23T17:50:33.927100'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T18:11:18.927100'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

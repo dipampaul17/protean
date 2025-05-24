@@ -1,0 +1,54 @@
+category: NetworkPartition
+name: NetworkPartition_20250523_173245
+description: Infrastructure failure scenario for NetworkPartition
+duration: 1518
+metadata:
+  generated_at: '2025-05-23T17:32:45.771284'
+  phrase_templates_used: 4
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.771190'
+  event_type: trigger
+  description: 'Initial failure detected: and memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:44.771190'
+  event_type: recovery
+  description: 'Recovery: and memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:57.771190'
+  event_type: failure
+  description: 'Failure: and memory'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 287
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: and memory - operation
+      failed'
+    metrics:
+      error_rate: 0.8064610728771867
+      response_time_ms: 2622
+      cpu_usage: 0.8647384503381266
+      memory_usage: 0.8841778407154924
+- timestamp: '2025-05-23T17:40:01.771190'
+  event_type: failure
+  description: 'Failure: and node'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 104
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: and node - operation failed'
+    metrics:
+      error_rate: 0.7717218914447781
+      response_time_ms: 2701
+      cpu_usage: 0.8950113806235491
+      memory_usage: 0.9011133385782655
+- timestamp: '2025-05-23T17:58:03.771190'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,92 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_173452
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1385
+metadata:
+  generated_at: '2025-05-23T17:34:52.902726'
+  phrase_templates_used: 45
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:52.902546'
+  event_type: trigger
+  description: 'Initial failure detected: api server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:25.902546'
+  event_type: timeout
+  description: 'Timeout: destination node'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 203
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: destination node
+      - operation failed'
+    metrics:
+      error_rate: 0.13106924555633281
+      response_time_ms: 8836
+      cpu_usage: 0.984267387267459
+      memory_usage: 0.9449694764389558
+- timestamp: '2025-05-23T17:35:36.902546'
+  event_type: timeout
+  description: 'Timeout: nginx service'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 233
+    log_snippet: '[2025-05-23 17:34:52] ERROR payment-service: nginx service - operation
+      failed'
+    metrics:
+      error_rate: 0.5844128631180635
+      response_time_ms: 2143
+      cpu_usage: 0.8680446276151657
+      memory_usage: 0.9241020222960569
+- timestamp: '2025-05-23T17:36:07.902546'
+  event_type: timeout
+  description: 'Timeout: the log'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 155
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: the log - operation failed'
+    metrics:
+      error_rate: 0.7389140356608657
+      response_time_ms: 3552
+      cpu_usage: 0.7952633017989761
+      memory_usage: 0.9605938326505323
+- timestamp: '2025-05-23T17:36:56.902546'
+  event_type: timeout
+  description: 'Timeout: destination node'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 298
+    log_snippet: '[2025-05-23 17:34:52] ERROR payment-service: destination node -
+      operation failed'
+    metrics:
+      error_rate: 0.30976480775051507
+      response_time_ms: 6967
+      cpu_usage: 0.7460804382881735
+      memory_usage: 0.8061091030575027
+- timestamp: '2025-05-23T17:36:59.902546'
+  event_type: recovery
+  description: 'Recovery: federated queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:05.902546'
+  event_type: recovery
+  description: 'Recovery: the log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:45.902546'
+  event_type: recovery
+  description: 'Recovery: upstream queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:57:57.902546'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

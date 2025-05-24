@@ -1,0 +1,96 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173708",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 986,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.067117",
+    "phrase_templates_used": 13,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.066960",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:26.066960",
+      "event_type": "scaling",
+      "description": "Scaling: web server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:46.066960",
+      "event_type": "timeout",
+      "description": "Timeout: a service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 281,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR api-gateway: a service in timeout",
+        "metrics": {
+          "error_rate": 0.400235841724061,
+          "response_time_ms": 1250,
+          "cpu_usage": 0.9212891534737983,
+          "memory_usage": 0.8003238626817559,
+          "requests_per_sec": 9943,
+          "backend_health_pct": 0.6546639857879781,
+          "connection_timeouts": 288
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:03.066960",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:09.066960",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:43.066960",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:43.066960",
+      "event_type": "timeout",
+      "description": "Timeout: that node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 89,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR api-gateway: that node in timeout",
+        "metrics": {
+          "error_rate": 0.5814569897436814,
+          "response_time_ms": 3454,
+          "cpu_usage": 0.963311126714905,
+          "memory_usage": 0.8949875203923444,
+          "requests_per_sec": 8924,
+          "backend_health_pct": 0.5940616884576021,
+          "connection_timeouts": 63
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:53:34.066960",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

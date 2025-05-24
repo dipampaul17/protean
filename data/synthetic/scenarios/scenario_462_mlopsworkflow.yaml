@@ -1,0 +1,78 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_173453
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 464
+metadata:
+  generated_at: '2025-05-23T17:34:53.354609'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.353735'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:27.353735'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:30.353735'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:31.353735'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 88
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.2821127693307009
+      response_time_ms: 1465
+      cpu_usage: 0.8107799950120911
+      memory_usage: 0.9357545758325376
+- timestamp: '2025-05-23T17:35:37.353735'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 215
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: container crashed
+      - operation failed'
+    metrics:
+      error_rate: 0.8073912373650979
+      response_time_ms: 8490
+      cpu_usage: 0.9339557424030331
+      memory_usage: 0.8810229111966927
+- timestamp: '2025-05-23T17:36:02.353735'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 154
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.3797268615269005
+      response_time_ms: 1391
+      cpu_usage: 0.7806157513575179
+      memory_usage: 0.8277261410934496
+- timestamp: '2025-05-23T17:36:02.353735'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:42:37.353735'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

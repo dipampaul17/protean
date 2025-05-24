@@ -1,0 +1,108 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173453",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 850,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.134761",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.128512",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:09.128512",
+      "event_type": "failure",
+      "description": "Failure: quot pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 90,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: quot pod - operation failed",
+        "metrics": {
+          "error_rate": 0.48077909779956607,
+          "response_time_ms": 3606,
+          "cpu_usage": 0.9168783328471921,
+          "memory_usage": 0.9436346662720448
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:43.128512",
+      "event_type": "timeout",
+      "description": "Timeout: the log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 235,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: the log - operation failed",
+        "metrics": {
+          "error_rate": 0.89215359920445,
+          "response_time_ms": 3012,
+          "cpu_usage": 0.7651116188130144,
+          "memory_usage": 0.976915746272141
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:04.128512",
+      "event_type": "failure",
+      "description": "Failure: monitoring service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 140,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: monitoring service - operation failed",
+        "metrics": {
+          "error_rate": 0.6868068919416015,
+          "response_time_ms": 1566,
+          "cpu_usage": 0.7267665851266201,
+          "memory_usage": 0.8342419646370179
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:19.128512",
+      "event_type": "timeout",
+      "description": "Timeout: quot server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 203,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: quot server - operation failed",
+        "metrics": {
+          "error_rate": 0.5576003294693201,
+          "response_time_ms": 3886,
+          "cpu_usage": 0.7114237535924622,
+          "memory_usage": 0.9779719906769768
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:33.128512",
+      "event_type": "recovery",
+      "description": "Recovery: reduce alert",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:03.128512",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

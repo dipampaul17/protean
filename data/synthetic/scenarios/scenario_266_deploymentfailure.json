@@ -1,0 +1,90 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_174629",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 362,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.020275",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.020107",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:58.020107",
+      "event_type": "deployment",
+      "description": "Deployment: failed to",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:07.020107",
+      "event_type": "failure",
+      "description": "Failure: kind service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 277,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR worker-consumer: kind service in failure",
+        "metrics": {
+          "error_rate": 0.8866272189307937,
+          "response_time_ms": 4547,
+          "cpu_usage": 0.7749807354394883,
+          "memory_usage": 0.9896465683290111
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:28.020107",
+      "event_type": "failure",
+      "description": "Failure: the server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 173,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR nginx-proxy: the server in failure",
+        "metrics": {
+          "error_rate": 0.15599819128892084,
+          "response_time_ms": 7841,
+          "cpu_usage": 0.8718956074342716,
+          "memory_usage": 0.808740603367644
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:44.020107",
+      "event_type": "failure",
+      "description": "Failure: the pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 78,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR worker-consumer: the pod in failure",
+        "metrics": {
+          "error_rate": 0.566172884908694,
+          "response_time_ms": 7233,
+          "cpu_usage": 0.7532346506946918,
+          "memory_usage": 0.9139973901085124
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:52:31.020107",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173245
+description: Load balancer and traffic distribution problems
+duration: 1078
+metadata:
+  generated_at: '2025-05-23T17:32:45.752321'
+  phrase_templates_used: 13
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:32:45.752199'
+  event_type: trigger
+  description: 'Initial failure detected: loadbalancer service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:32.752199'
+  event_type: scaling
+  description: 'Scaling: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:56.752199'
+  event_type: backend_failure
+  description: 'Backend_Failure: loadbalancer service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:56.752199'
+  event_type: timeout
+  description: 'Timeout: a pod'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 237
+    log_snippet: '[2025-05-23 17:32:45] ERROR subnet-private: a pod in timeout'
+    metrics:
+      error_rate: 0.8279322445117698
+      response_time_ms: 3910
+      cpu_usage: 0.8881195850980551
+      memory_usage: 0.873117654946191
+      requests_per_sec: 2980
+      backend_health_pct: 0.4279624439799507
+      connection_timeouts: 23
+- timestamp: '2025-05-23T17:33:59.752199'
+  event_type: scaling
+  description: 'Scaling: load balancer'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:07.752199'
+  event_type: scaling
+  description: 'Scaling: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:43.752199'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

@@ -1,0 +1,66 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_173708",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 951,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.075928",
+    "phrase_templates_used": 39,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.075784",
+      "event_type": "trigger",
+      "description": "Initial failure detected: eks cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:37.075784",
+      "event_type": "deployment",
+      "description": "Deployment: eks cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:05.075784",
+      "event_type": "deployment",
+      "description": "Deployment: your pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:11.075784",
+      "event_type": "scaling",
+      "description": "Scaling: failed container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:44.075784",
+      "event_type": "failure",
+      "description": "Failure: your cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 173,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR api-backend: your cluster in failure",
+        "metrics": {
+          "error_rate": 0.7329880675008529,
+          "response_time_ms": 3309,
+          "cpu_usage": 0.8178176746129681,
+          "memory_usage": 0.8820894518713076
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:52:59.075784",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

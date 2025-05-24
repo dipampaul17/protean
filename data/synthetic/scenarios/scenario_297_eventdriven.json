@@ -1,0 +1,78 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173708",
+  "description": "Message queue and event processing failures",
+  "duration": 445,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.030523",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.030416",
+      "event_type": "trigger",
+      "description": "Initial failure detected: var connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:21.030416",
+      "event_type": "recovery",
+      "description": "Recovery: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:49.030416",
+      "event_type": "timeout",
+      "description": "Timeout: this error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 276,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR batch-processing-queue: queue processing this error",
+        "metrics": {
+          "error_rate": 0.5046982604196061,
+          "response_time_ms": 2087,
+          "cpu_usage": 0.9885017826961122,
+          "memory_usage": 0.8883342245231232,
+          "queue_depth": 17607,
+          "message_processing_rate": 9.959181746230428,
+          "consumer_lag_ms": 216122
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:40.030416",
+      "event_type": "timeout",
+      "description": "Timeout: rabbitmq connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-queue",
+        "severity": "high",
+        "duration": 36,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-queue: queue processing rabbitmq connection",
+        "metrics": {
+          "error_rate": 0.2628970819261889,
+          "response_time_ms": 2448,
+          "cpu_usage": 0.8407754519285724,
+          "memory_usage": 0.8257600281188295,
+          "queue_depth": 31899,
+          "message_processing_rate": 2.9061744868308144,
+          "consumer_lag_ms": 84999
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:44:33.030416",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

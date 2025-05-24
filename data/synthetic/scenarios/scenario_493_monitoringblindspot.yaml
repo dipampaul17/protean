@@ -1,0 +1,100 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_174629
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1340
+metadata:
+  generated_at: '2025-05-23T17:46:29.165886'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:46:29.165693'
+  event_type: trigger
+  description: 'Initial failure detected: the database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:48.165693'
+  event_type: timeout
+  description: 'Timeout: kubernetes cluster'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 265
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: kubernetes cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.23698673933722417
+      response_time_ms: 9179
+      cpu_usage: 0.9987558225166948
+      memory_usage: 0.9601688344736548
+- timestamp: '2025-05-23T17:47:37.165693'
+  event_type: failure
+  description: 'Failure: the server'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 253
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.5041818665373703
+      response_time_ms: 7514
+      cpu_usage: 0.9605558855553611
+      memory_usage: 0.9478248950157999
+- timestamp: '2025-05-23T17:47:56.165693'
+  event_type: timeout
+  description: 'Timeout: nil log'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 130
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: nil log - operation
+      failed'
+    metrics:
+      error_rate: 0.8782289687218664
+      response_time_ms: 8676
+      cpu_usage: 0.9471471572727376
+      memory_usage: 0.8970701996709302
+- timestamp: '2025-05-23T17:48:50.165693'
+  event_type: failure
+  description: 'Failure: the error'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 255
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.3230125788218324
+      response_time_ms: 3685
+      cpu_usage: 0.981764651474013
+      memory_usage: 0.9958854255079933
+- timestamp: '2025-05-23T17:49:05.165693'
+  event_type: recovery
+  description: 'Recovery: to monitor'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:40.165693'
+  event_type: timeout
+  description: 'Timeout: a service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 273
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.36683917691710577
+      response_time_ms: 7991
+      cpu_usage: 0.9902736026023681
+      memory_usage: 0.9685746586744534
+- timestamp: '2025-05-23T18:08:49.165693'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,90 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_174628",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 875,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.919976",
+    "phrase_templates_used": 36,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.919840",
+      "event_type": "trigger",
+      "description": "Initial failure detected: instance storage",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:20.919840",
+      "event_type": "timeout",
+      "description": "Timeout: one server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 291,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: one server - operation failed",
+        "metrics": {
+          "error_rate": 0.39641729570188367,
+          "response_time_ms": 4094,
+          "cpu_usage": 0.8212624009780694,
+          "memory_usage": 0.9474839888765485
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:29.919840",
+      "event_type": "timeout",
+      "description": "Timeout: docker container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 153,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: docker container - operation failed",
+        "metrics": {
+          "error_rate": 0.6132570281457351,
+          "response_time_ms": 3199,
+          "cpu_usage": 0.9207221940817031,
+          "memory_usage": 0.8909728356243541
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:13.919840",
+      "event_type": "recovery",
+      "description": "Recovery: only container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:00.919840",
+      "event_type": "timeout",
+      "description": "Timeout: transaction log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 237,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: transaction log - operation failed",
+        "metrics": {
+          "error_rate": 0.844495380979754,
+          "response_time_ms": 5794,
+          "cpu_usage": 0.7211728491101809,
+          "memory_usage": 0.9750683817066602
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:01:03.919840",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

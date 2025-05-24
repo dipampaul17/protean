@@ -1,0 +1,120 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173245",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 397,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.733171",
+    "phrase_templates_used": 36,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.732809",
+      "event_type": "trigger",
+      "description": "Initial failure detected: partitioned queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:57.732809",
+      "event_type": "timeout",
+      "description": "Timeout: second node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 151,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: second node - operation failed",
+        "metrics": {
+          "error_rate": 0.17281578634842135,
+          "response_time_ms": 1597,
+          "cpu_usage": 0.832901968369745,
+          "memory_usage": 0.9587892283452221
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:32:59.732809",
+      "event_type": "recovery",
+      "description": "Recovery: ebs storage",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:10.732809",
+      "event_type": "timeout",
+      "description": "Timeout: the database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 199,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: the database - operation failed",
+        "metrics": {
+          "error_rate": 0.6421856894597735,
+          "response_time_ms": 4657,
+          "cpu_usage": 0.9550523479718784,
+          "memory_usage": 0.8972396876075536
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:16.732809",
+      "event_type": "failure",
+      "description": "Failure: one server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 194,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: one server - operation failed",
+        "metrics": {
+          "error_rate": 0.266829016364105,
+          "response_time_ms": 6046,
+          "cpu_usage": 0.8978023493010042,
+          "memory_usage": 0.8258849584164969
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:23.732809",
+      "event_type": "timeout",
+      "description": "Timeout: the container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 192,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.891366928153824,
+          "response_time_ms": 7401,
+          "cpu_usage": 0.9674868241326482,
+          "memory_usage": 0.8483620296840442
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:24.732809",
+      "event_type": "recovery",
+      "description": "Recovery: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:28.732809",
+      "event_type": "recovery",
+      "description": "Recovery: instance storage",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:22.732809",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

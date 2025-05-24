@@ -1,0 +1,90 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_173452",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 1007,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.911509",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.911388",
+      "event_type": "trigger",
+      "description": "Initial failure detected: of memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:04.911388",
+      "event_type": "failure",
+      "description": "Failure: the pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 260,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR user-service: the pod - operation failed",
+        "metrics": {
+          "error_rate": 0.17477039192517846,
+          "response_time_ms": 4610,
+          "cpu_usage": 0.9423970747425865,
+          "memory_usage": 0.9122671366327983
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:20.911388",
+      "event_type": "failure",
+      "description": "Failure: served memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 298,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: served memory - operation failed",
+        "metrics": {
+          "error_rate": 0.6785146526754814,
+          "response_time_ms": 3775,
+          "cpu_usage": 0.7804815017186223,
+          "memory_usage": 0.9434805336422155
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:42.911388",
+      "event_type": "recovery",
+      "description": "Recovery: redis connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:31.911388",
+      "event_type": "timeout",
+      "description": "Timeout: by container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 205,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: by container - operation failed",
+        "metrics": {
+          "error_rate": 0.8932213881859251,
+          "response_time_ms": 4991,
+          "cpu_usage": 0.8759157773145726,
+          "memory_usage": 0.9714735745256722
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:51:39.911388",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

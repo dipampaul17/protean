@@ -1,0 +1,126 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173708",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1791,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.075321",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.074719",
+      "event_type": "trigger",
+      "description": "Initial failure detected: ssh connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:57.074719",
+      "event_type": "failure",
+      "description": "Failure: a timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 209,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: a timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.46331949656594695,
+          "response_time_ms": 5470,
+          "cpu_usage": 0.706317828830556,
+          "memory_usage": 0.9390609347273523
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:15.074719",
+      "event_type": "failure",
+      "description": "Failure: true error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 260,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: true error - operation failed",
+        "metrics": {
+          "error_rate": 0.6564462264173146,
+          "response_time_ms": 6220,
+          "cpu_usage": 0.9788429672595846,
+          "memory_usage": 0.9693015472589716
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:50.074719",
+      "event_type": "degradation",
+      "description": "Degradation: a queue",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "medium",
+        "duration": 264,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: a queue - operation failed",
+        "metrics": {
+          "error_rate": 0.16916396803626216,
+          "response_time_ms": 550,
+          "cpu_usage": 0.4074708060596141,
+          "memory_usage": 0.4522829271016273
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:54.074719",
+      "event_type": "failure",
+      "description": "Failure: true error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 130,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: true error - operation failed",
+        "metrics": {
+          "error_rate": 0.45951389996823355,
+          "response_time_ms": 7590,
+          "cpu_usage": 0.9193897223240912,
+          "memory_usage": 0.8095059360234691
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:28.074719",
+      "event_type": "recovery",
+      "description": "Recovery: exceeded timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:41:16.074719",
+      "event_type": "timeout",
+      "description": "Timeout: labels service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 141,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: labels service - operation failed",
+        "metrics": {
+          "error_rate": 0.3962039816922507,
+          "response_time_ms": 1333,
+          "cpu_usage": 0.9074852071279846,
+          "memory_usage": 0.9405947234399099
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:06:59.074719",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

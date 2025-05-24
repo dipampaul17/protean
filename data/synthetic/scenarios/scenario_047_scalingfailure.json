@@ -1,0 +1,60 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_173707",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 1410,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.795060",
+    "phrase_templates_used": 24,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.794975",
+      "event_type": "trigger",
+      "description": "Initial failure detected: of failure",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:31.794975",
+      "event_type": "recovery",
+      "description": "Recovery: of failure",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:41:33.794975",
+      "event_type": "failure",
+      "description": "Failure: https connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 176,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: https connection - operation failed",
+        "metrics": {
+          "error_rate": 0.8295042784911856,
+          "response_time_ms": 8505,
+          "cpu_usage": 0.7688838787364989,
+          "memory_usage": 0.9643524812375541
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:43:42.794975",
+      "event_type": "recovery",
+      "description": "Recovery: load balancer",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:00:37.794975",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_173453",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 797,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.226798",
+    "phrase_templates_used": 15,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.226656",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:42.226656",
+      "event_type": "recovery",
+      "description": "Recovery: another container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:45.226656",
+      "event_type": "recovery",
+      "description": "Recovery: http connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:04.226656",
+      "event_type": "recovery",
+      "description": "Recovery: http connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:08.226656",
+      "event_type": "recovery",
+      "description": "Recovery: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:19.226656",
+      "event_type": "timeout",
+      "description": "Timeout: ui service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 82,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: ui service - operation failed",
+        "metrics": {
+          "error_rate": 0.7492108355719992,
+          "response_time_ms": 1852,
+          "cpu_usage": 0.9231202867066244,
+          "memory_usage": 0.8195296618132272
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:44.226656",
+      "event_type": "timeout",
+      "description": "Timeout: the queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "medium",
+        "duration": 34,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.11986163145330601,
+          "response_time_ms": 537,
+          "cpu_usage": 0.3366186502471339,
+          "memory_usage": 0.45430102616705825
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:10.226656",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

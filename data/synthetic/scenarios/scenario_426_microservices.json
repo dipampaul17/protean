@@ -1,0 +1,78 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_173453",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 504,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.344782",
+    "phrase_templates_used": 15,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.344675",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:26.344675",
+      "event_type": "recovery",
+      "description": "Recovery: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:26.344675",
+      "event_type": "timeout",
+      "description": "Timeout: http connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 260,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: http connection - operation failed",
+        "metrics": {
+          "error_rate": 0.5689591456607631,
+          "response_time_ms": 9218,
+          "cpu_usage": 0.8565856984319894,
+          "memory_usage": 0.8937267764099696
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:52.344675",
+      "event_type": "recovery",
+      "description": "Recovery: strong service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:52.344675",
+      "event_type": "timeout",
+      "description": "Timeout: following error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 84,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: following error - operation failed",
+        "metrics": {
+          "error_rate": 0.24749282665012526,
+          "response_time_ms": 3865,
+          "cpu_usage": 0.7841186879694337,
+          "memory_usage": 0.944798191456246
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:43:17.344675",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

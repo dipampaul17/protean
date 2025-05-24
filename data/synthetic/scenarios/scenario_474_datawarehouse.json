@@ -1,0 +1,126 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_173245",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 363,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.792196",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.792017",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:55.792017",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:07.792017",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 142,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.4987704213024058,
+          "response_time_ms": 4021,
+          "cpu_usage": 0.875658761156143,
+          "memory_usage": 0.8405464398486836
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:13.792017",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 128,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.7907985739688707,
+          "response_time_ms": 7950,
+          "cpu_usage": 0.7417078527573603,
+          "memory_usage": 0.8215631567473195
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:21.792017",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 84,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.19155267582772295,
+          "response_time_ms": 8033,
+          "cpu_usage": 0.9132698378440982,
+          "memory_usage": 0.9734999428414002
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:28.792017",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 238,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.16247183255897646,
+          "response_time_ms": 2083,
+          "cpu_usage": 0.8462456548089946,
+          "memory_usage": 0.8780464050611578
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:43.792017",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 136,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.18807729453006036,
+          "response_time_ms": 8422,
+          "cpu_usage": 0.7871268733374651,
+          "memory_usage": 0.8612906349337206
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:48.792017",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

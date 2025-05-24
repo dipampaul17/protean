@@ -1,0 +1,100 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_173453
+description: Infrastructure failure scenario for ScalingFailure
+duration: 408
+metadata:
+  generated_at: '2025-05-23T17:34:53.351400'
+  phrase_templates_used: 24
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:34:53.351228'
+  event_type: trigger
+  description: 'Initial failure detected: which node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:04.351228'
+  event_type: timeout
+  description: 'Timeout: a cluster'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 152
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: a cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.4039196279085261
+      response_time_ms: 3927
+      cpu_usage: 0.8586118202394846
+      memory_usage: 0.9529088201521776
+- timestamp: '2025-05-23T17:35:18.351228'
+  event_type: failure
+  description: 'Failure: a node'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 165
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: a node - operation
+      failed'
+    metrics:
+      error_rate: 0.8277964987134937
+      response_time_ms: 7755
+      cpu_usage: 0.7926923327743441
+      memory_usage: 0.9862675796695453
+- timestamp: '2025-05-23T17:35:24.351228'
+  event_type: timeout
+  description: 'Timeout: nodeport service'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 264
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: nodeport service - operation
+      failed'
+    metrics:
+      error_rate: 0.7752532722242094
+      response_time_ms: 4046
+      cpu_usage: 0.9195981294057196
+      memory_usage: 0.9806677586471454
+- timestamp: '2025-05-23T17:35:25.351228'
+  event_type: timeout
+  description: 'Timeout: aws application'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 93
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: aws application - operation
+      failed'
+    metrics:
+      error_rate: 0.7674344205342284
+      response_time_ms: 9248
+      cpu_usage: 0.8595551356823408
+      memory_usage: 0.9966052968818095
+- timestamp: '2025-05-23T17:35:27.351228'
+  event_type: recovery
+  description: 'Recovery: web server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:32.351228'
+  event_type: failure
+  description: 'Failure: this error'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 272
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: this error - operation
+      failed'
+    metrics:
+      error_rate: 0.23340381903428922
+      response_time_ms: 7635
+      cpu_usage: 0.8742484432193054
+      memory_usage: 0.9002686194355511
+- timestamp: '2025-05-23T17:41:41.351228'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

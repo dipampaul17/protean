@@ -1,0 +1,67 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173245
+description: Load balancer and traffic distribution problems
+duration: 605
+metadata:
+  generated_at: '2025-05-23T17:32:45.765015'
+  phrase_templates_used: 13
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.764304'
+  event_type: trigger
+  description: 'Initial failure detected: a pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:17.764304'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: your cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:23.764304'
+  event_type: timeout
+  description: 'Timeout: a container'
+  injection_spec:
+    type: timeout
+    target: api-gateway
+    severity: high
+    duration: 261
+    log_snippet: '[2025-05-23 17:32:45] ERROR api-gateway: a container in timeout'
+    metrics:
+      error_rate: 0.7839133659991102
+      response_time_ms: 3679
+      cpu_usage: 0.8996099023023786
+      memory_usage: 0.8725019947355055
+      requests_per_sec: 3004
+      backend_health_pct: 0.4819326283927461
+      connection_timeouts: 824
+- timestamp: '2025-05-23T17:33:29.764304'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: web server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:04.764304'
+  event_type: timeout
+  description: 'Timeout: a container'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 104
+    log_snippet: '[2025-05-23 17:32:45] ERROR vpc-main: a container in timeout'
+    metrics:
+      error_rate: 0.8519348378412234
+      response_time_ms: 6997
+      cpu_usage: 0.9114765916235074
+      memory_usage: 0.8137267883443805
+      requests_per_sec: 7947
+      backend_health_pct: 0.724486600056755
+      connection_timeouts: 791
+- timestamp: '2025-05-23T17:34:37.764304'
+  event_type: scaling
+  description: 'Scaling: loadbalancer service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:42:50.764304'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

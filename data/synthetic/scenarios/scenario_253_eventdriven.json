@@ -1,0 +1,84 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173453",
+  "description": "Message queue and event processing failures",
+  "duration": 496,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.196092",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.195828",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:18.195828",
+      "event_type": "recovery",
+      "description": "Recovery: var connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:19.195828",
+      "event_type": "timeout",
+      "description": "Timeout: to restart",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 199,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-queue: queue processing to restart",
+        "metrics": {
+          "error_rate": 0.24055989579665527,
+          "response_time_ms": 9954,
+          "cpu_usage": 0.8308637510734016,
+          "memory_usage": 0.8292926370723436,
+          "queue_depth": 39460,
+          "message_processing_rate": 3.3970154488692157,
+          "consumer_lag_ms": 198395
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:29.195828",
+      "event_type": "message_loss",
+      "description": "Message_Loss: warn error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:30.195828",
+      "event_type": "timeout",
+      "description": "Timeout: ephemeral node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 231,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR batch-processing-queue: queue processing ephemeral node",
+        "metrics": {
+          "error_rate": 0.6055802368160237,
+          "response_time_ms": 1033,
+          "cpu_usage": 0.9211700869732933,
+          "memory_usage": 0.8140360171801387,
+          "queue_depth": 3354,
+          "message_processing_rate": 7.595494295318535,
+          "consumer_lag_ms": 173643
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:43:09.195828",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

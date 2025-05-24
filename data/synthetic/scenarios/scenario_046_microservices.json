@@ -1,0 +1,126 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_173245",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 791,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.668138",
+    "phrase_templates_used": 15,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.667928",
+      "event_type": "trigger",
+      "description": "Initial failure detected: from service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:02.667928",
+      "event_type": "recovery",
+      "description": "Recovery: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:29.667928",
+      "event_type": "recovery",
+      "description": "Recovery: strong service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:32.667928",
+      "event_type": "recovery",
+      "description": "Recovery: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:37.667928",
+      "event_type": "failure",
+      "description": "Failure: another container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 80,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: another container - operation failed",
+        "metrics": {
+          "error_rate": 0.36089103329067374,
+          "response_time_ms": 5736,
+          "cpu_usage": 0.869646669817605,
+          "memory_usage": 0.8293105669031796
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:38.667928",
+      "event_type": "failure",
+      "description": "Failure: a cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 145,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: a cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.6077617629281373,
+          "response_time_ms": 6959,
+          "cpu_usage": 0.9738852758720109,
+          "memory_usage": 0.9575033026782442
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:42.667928",
+      "event_type": "failure",
+      "description": "Failure: strong service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 48,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: strong service - operation failed",
+        "metrics": {
+          "error_rate": 0.11855123848485967,
+          "response_time_ms": 7656,
+          "cpu_usage": 0.9643299807544854,
+          "memory_usage": 0.9015394948262221
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:05.667928",
+      "event_type": "recovery",
+      "description": "Recovery: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:19.667928",
+      "event_type": "timeout",
+      "description": "Timeout: the container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 277,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.6158602771148695,
+          "response_time_ms": 5617,
+          "cpu_usage": 0.9427585518303313,
+          "memory_usage": 0.9539203789364125
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:45:56.667928",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

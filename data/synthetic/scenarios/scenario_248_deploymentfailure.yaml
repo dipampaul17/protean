@@ -1,0 +1,57 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173245
+description: Application deployment and rollback scenarios
+duration: 996
+metadata:
+  generated_at: '2025-05-23T17:32:45.733402'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.733247'
+  event_type: trigger
+  description: 'Initial failure detected: to deploy'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:33.733247'
+  event_type: deployment
+  description: 'Deployment: to update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:11.733247'
+  event_type: failure
+  description: 'Failure: code container'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 279
+    log_snippet: '[2025-05-23 17:32:45] ERROR web-frontend: code container in failure'
+    metrics:
+      error_rate: 0.783575265014716
+      response_time_ms: 2355
+      cpu_usage: 0.7123992660672452
+      memory_usage: 0.8449803315205654
+- timestamp: '2025-05-23T17:35:29.733247'
+  event_type: deployment
+  description: 'Deployment: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:20.733247'
+  event_type: failure
+  description: 'Failure: the container'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 224
+    log_snippet: '[2025-05-23 17:32:45] ERROR nginx-proxy: the container in failure'
+    metrics:
+      error_rate: 0.7571385266624268
+      response_time_ms: 5998
+      cpu_usage: 0.7317289473499613
+      memory_usage: 0.9042322207739446
+- timestamp: '2025-05-23T17:49:21.733247'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

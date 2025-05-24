@@ -1,0 +1,78 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_174629",
+  "description": "Message queue and event processing failures",
+  "duration": 1624,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.091777",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.091544",
+      "event_type": "trigger",
+      "description": "Initial failure detected: tcp connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:25.091544",
+      "event_type": "timeout",
+      "description": "Timeout: message queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "medium",
+        "duration": 300,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-queue: queue processing message queue",
+        "metrics": {
+          "error_rate": 0.01944870876715579,
+          "response_time_ms": 306,
+          "cpu_usage": 0.5162369293726465,
+          "memory_usage": 0.4871982049794524,
+          "queue_depth": 43182,
+          "message_processing_rate": 5.28786239782291,
+          "consumer_lag_ms": 73324
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:52:49.091544",
+      "event_type": "timeout",
+      "description": "Timeout: this error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-queue",
+        "severity": "high",
+        "duration": 150,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-queue: queue processing this error",
+        "metrics": {
+          "error_rate": 0.14787224461242962,
+          "response_time_ms": 2177,
+          "cpu_usage": 0.7086903069920839,
+          "memory_usage": 0.8603172011230499,
+          "queue_depth": 44036,
+          "message_processing_rate": 5.572550393903614,
+          "consumer_lag_ms": 88257
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:55:23.091544",
+      "event_type": "recovery",
+      "description": "Recovery: to node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:13:33.091544",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

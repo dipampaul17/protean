@@ -1,0 +1,138 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173245",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1028,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.739048",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.738843",
+      "event_type": "trigger",
+      "description": "Initial failure detected: kubernetes pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:03.738843",
+      "event_type": "failure",
+      "description": "Failure: the pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 135,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: the pod - operation failed",
+        "metrics": {
+          "error_rate": 0.1606041171644794,
+          "response_time_ms": 8217,
+          "cpu_usage": 0.8833505161585693,
+          "memory_usage": 0.8487468297995131
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:06.738843",
+      "event_type": "failure",
+      "description": "Failure: used cpu",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 64,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: used cpu - operation failed",
+        "metrics": {
+          "error_rate": 0.18346176687618831,
+          "response_time_ms": 3082,
+          "cpu_usage": 0.9872395043734122,
+          "memory_usage": 0.9279179782789295
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:24.738843",
+      "event_type": "timeout",
+      "description": "Timeout: docker container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 118,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: docker container - operation failed",
+        "metrics": {
+          "error_rate": 0.28758806102902446,
+          "response_time_ms": 2869,
+          "cpu_usage": 0.9862206188175,
+          "memory_usage": 0.9820050418406718
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:30.738843",
+      "event_type": "recovery",
+      "description": "Recovery: monitoring system",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:46.738843",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 221,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.846634014363063,
+          "response_time_ms": 7839,
+          "cpu_usage": 0.7802040335552958,
+          "memory_usage": 0.928764538756698
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:47.738843",
+      "event_type": "recovery",
+      "description": "Recovery: or cpu",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:59.738843",
+      "event_type": "recovery",
+      "description": "Recovery: the pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:13.738843",
+      "event_type": "timeout",
+      "description": "Timeout: to fix",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 113,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: to fix - operation failed",
+        "metrics": {
+          "error_rate": 0.75216534000116,
+          "response_time_ms": 5387,
+          "cpu_usage": 0.9553783587232605,
+          "memory_usage": 0.9599913171268903
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:53.738843",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

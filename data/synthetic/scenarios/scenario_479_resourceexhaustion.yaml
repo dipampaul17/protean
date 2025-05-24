@@ -1,0 +1,108 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173453
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 563
+metadata:
+  generated_at: '2025-05-23T17:34:53.379404'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 2
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.379178'
+  event_type: trigger
+  description: 'Initial failure detected: of memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:08.379178'
+  event_type: timeout
+  description: 'Timeout: lt container'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 285
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: lt container - operation
+      failed'
+    metrics:
+      error_rate: 0.5070436498671181
+      response_time_ms: 3856
+      cpu_usage: 0.8432148533690056
+      memory_usage: 0.9953743353094098
+- timestamp: '2025-05-23T17:35:08.379178'
+  event_type: recovery
+  description: 'Recovery: the disk'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:09.379178'
+  event_type: failure
+  description: 'Failure: the server'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 243
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.756240735529456
+      response_time_ms: 1013
+      cpu_usage: 0.8432872517793923
+      memory_usage: 0.9286437257436453
+- timestamp: '2025-05-23T17:35:12.379178'
+  event_type: recovery
+  description: 'Recovery: most memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:30.379178'
+  event_type: failure
+  description: 'Failure: message queue'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: medium
+    duration: 210
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: message queue - operation
+      failed'
+    metrics:
+      error_rate: 0.21419646302528392
+      response_time_ms: 318
+      cpu_usage: 0.3912179663086102
+      memory_usage: 0.5272014928630375
+- timestamp: '2025-05-23T17:35:36.379178'
+  event_type: timeout
+  description: 'Timeout: the queue'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: medium
+    duration: 184
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: the queue - operation
+      failed'
+    metrics:
+      error_rate: 0.0832318809743752
+      response_time_ms: 1192
+      cpu_usage: 0.6021503260820322
+      memory_usage: 0.631981811003841
+- timestamp: '2025-05-23T17:35:37.379178'
+  event_type: recovery
+  description: 'Recovery: causing outage'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:56.379178'
+  event_type: failure
+  description: 'Failure: main memory'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 193
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: main memory -
+      operation failed'
+    metrics:
+      error_rate: 0.18028045917655622
+      response_time_ms: 8152
+      cpu_usage: 0.7765053057777426
+      memory_usage: 0.9623221190963716
+- timestamp: '2025-05-23T17:44:16.379178'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

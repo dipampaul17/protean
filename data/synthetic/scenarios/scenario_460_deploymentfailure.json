@@ -1,0 +1,78 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173453",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1700,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.353581",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.352720",
+      "event_type": "trigger",
+      "description": "Initial failure detected: following error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:22.352720",
+      "event_type": "scaling",
+      "description": "Scaling: using jenkins",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:57.352720",
+      "event_type": "deployment",
+      "description": "Deployment: temporary failure",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:45.352720",
+      "event_type": "failure",
+      "description": "Failure: a service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 226,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR worker-consumer: a service in failure",
+        "metrics": {
+          "error_rate": 0.6663140190517194,
+          "response_time_ms": 1326,
+          "cpu_usage": 0.8993769141308886,
+          "memory_usage": 0.8911082873666176
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:23.352720",
+      "event_type": "rollback",
+      "description": "Rollback: your container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:27.352720",
+      "event_type": "rollback",
+      "description": "Rollback: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:03.352720",
+      "event_type": "rollback",
+      "description": "Rollback: my deployment",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:03:13.352720",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

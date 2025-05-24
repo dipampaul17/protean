@@ -1,0 +1,76 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173245
+description: Database connectivity and performance issues
+duration: 1692
+metadata:
+  generated_at: '2025-05-23T17:32:45.729047'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.728732'
+  event_type: trigger
+  description: 'Initial failure detected: var log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:48.728732'
+  event_type: corruption
+  description: 'Corruption: get update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:58.728732'
+  event_type: connection_loss
+  description: 'Connection_Loss: a database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:01.728732'
+  event_type: recovery
+  description: 'Recovery: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:02.728732'
+  event_type: recovery
+  description: 'Recovery: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:07.728732'
+  event_type: timeout
+  description: 'Timeout: code error'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 188
+    log_snippet: '[2025-05-23 17:32:45] FATAL mysql-primary: database code error detected'
+    metrics:
+      error_rate: 0.4700218174448271
+      response_time_ms: 3956
+      cpu_usage: 0.7886028860404295
+      memory_usage: 0.8924163030297932
+      connection_pool_usage: 0.9142362406074964
+      query_time_ms: 23813
+      deadlocks_per_sec: 6
+- timestamp: '2025-05-23T17:36:16.728732'
+  event_type: timeout
+  description: 'Timeout: your database'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 282
+    log_snippet: '[2025-05-23 17:32:45] FATAL mysql-primary: database your database
+      detected'
+    metrics:
+      error_rate: 0.7884420485144797
+      response_time_ms: 8756
+      cpu_usage: 0.7362597685722774
+      memory_usage: 0.8876807585156911
+      connection_pool_usage: 0.8310992812882771
+      query_time_ms: 19720
+      deadlocks_per_sec: 9
+- timestamp: '2025-05-23T17:36:24.728732'
+  event_type: recovery
+  description: 'Recovery: a database'
+  injection_spec: null
+- timestamp: '2025-05-23T18:00:57.728732'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

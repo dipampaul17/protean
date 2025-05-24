@@ -1,0 +1,111 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_174628",
+  "description": "Message queue and event processing failures",
+  "duration": 597,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.927016",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.926770",
+      "event_type": "trigger",
+      "description": "Initial failure detected: ephemeral node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:50.926770",
+      "event_type": "timeout",
+      "description": "Timeout: using kafka",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-queue",
+        "severity": "high",
+        "duration": 283,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-queue: queue processing using kafka",
+        "metrics": {
+          "error_rate": 0.896172466882775,
+          "response_time_ms": 6008,
+          "cpu_usage": 0.8293491304788569,
+          "memory_usage": 0.8292871880917168,
+          "queue_depth": 33886,
+          "message_processing_rate": 8.703022511389383,
+          "consumer_lag_ms": 22515
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:52.926770",
+      "event_type": "timeout",
+      "description": "Timeout: badmatch error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-queue",
+        "severity": "high",
+        "duration": 219,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-queue: queue processing badmatch error",
+        "metrics": {
+          "error_rate": 0.1716568615335038,
+          "response_time_ms": 3059,
+          "cpu_usage": 0.755377217656573,
+          "memory_usage": 0.9377134104532611,
+          "queue_depth": 6574,
+          "message_processing_rate": 9.73822342813984,
+          "consumer_lag_ms": 146795
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:59.926770",
+      "event_type": "timeout",
+      "description": "Timeout: following error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-queue",
+        "severity": "high",
+        "duration": 48,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-queue: queue processing following error",
+        "metrics": {
+          "error_rate": 0.3835137659396999,
+          "response_time_ms": 3759,
+          "cpu_usage": 0.8079833861899304,
+          "memory_usage": 0.8242546141305238,
+          "queue_depth": 19655,
+          "message_processing_rate": 2.621660940828493,
+          "consumer_lag_ms": 240668
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:00.926770",
+      "event_type": "message_loss",
+      "description": "Message_Loss: task queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:01.926770",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: tcp connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:43.926770",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: resource limit",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:56:25.926770",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173245",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 969,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.793532",
+    "phrase_templates_used": 36,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.793448",
+      "event_type": "trigger",
+      "description": "Initial failure detected: second node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:12.793448",
+      "event_type": "recovery",
+      "description": "Recovery: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:40.793448",
+      "event_type": "recovery",
+      "description": "Recovery: to fix",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:45.793448",
+      "event_type": "failure",
+      "description": "Failure: ebs storage",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 101,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: ebs storage - operation failed",
+        "metrics": {
+          "error_rate": 0.8303171502467677,
+          "response_time_ms": 9114,
+          "cpu_usage": 0.8605046541700355,
+          "memory_usage": 0.8237720911787155
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:54.793448",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173707",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 485,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.786069",
+    "phrase_templates_used": 13,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.785887",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:20.785887",
+      "event_type": "timeout",
+      "description": "Timeout: loadbalancer service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "vpc-main",
+        "severity": "high",
+        "duration": 56,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR vpc-main: loadbalancer service in timeout",
+        "metrics": {
+          "error_rate": 0.7218884718169217,
+          "response_time_ms": 2942,
+          "cpu_usage": 0.9115857394014467,
+          "memory_usage": 0.825842488198192,
+          "requests_per_sec": 431,
+          "backend_health_pct": 0.5405050803908164,
+          "connection_timeouts": 482
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:22.785887",
+      "event_type": "timeout",
+      "description": "Timeout: web server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "vpc-main",
+        "severity": "high",
+        "duration": 259,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR vpc-main: web server in timeout",
+        "metrics": {
+          "error_rate": 0.36383877468150205,
+          "response_time_ms": 9043,
+          "cpu_usage": 0.7942916274646163,
+          "memory_usage": 0.9094813670306232,
+          "requests_per_sec": 8939,
+          "backend_health_pct": 0.5787869042515761,
+          "connection_timeouts": 849
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:30.785887",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:40.785887",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:44.785887",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: loadbalancer service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:14.785887",
+      "event_type": "scaling",
+      "description": "Scaling: kafka pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:14.785887",
+      "event_type": "scaling",
+      "description": "Scaling: a server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:45:12.785887",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

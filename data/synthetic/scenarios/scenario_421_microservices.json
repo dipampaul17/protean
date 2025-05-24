@@ -1,0 +1,144 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_173708",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 366,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.062210",
+    "phrase_templates_used": 15,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.062003",
+      "event_type": "trigger",
+      "description": "Initial failure detected: ui service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:18.062003",
+      "event_type": "failure",
+      "description": "Failure: ui service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 172,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: ui service - operation failed",
+        "metrics": {
+          "error_rate": 0.45759636688825345,
+          "response_time_ms": 6715,
+          "cpu_usage": 0.7478550604332201,
+          "memory_usage": 0.8707957404779283
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:18.062003",
+      "event_type": "recovery",
+      "description": "Recovery: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:24.062003",
+      "event_type": "timeout",
+      "description": "Timeout: a container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 59,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: a container - operation failed",
+        "metrics": {
+          "error_rate": 0.5894151143047588,
+          "response_time_ms": 3683,
+          "cpu_usage": 0.878871111766614,
+          "memory_usage": 0.9516092024851865
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:27.062003",
+      "event_type": "failure",
+      "description": "Failure: the queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "medium",
+        "duration": 206,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.03034085122055953,
+          "response_time_ms": 1772,
+          "cpu_usage": 0.7055443823520391,
+          "memory_usage": 0.4078740086159167
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:31.062003",
+      "event_type": "timeout",
+      "description": "Timeout: to service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 223,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: to service - operation failed",
+        "metrics": {
+          "error_rate": 0.3583827859004963,
+          "response_time_ms": 4399,
+          "cpu_usage": 0.8169363376606165,
+          "memory_usage": 0.8202154740926361
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:45.062003",
+      "event_type": "failure",
+      "description": "Failure: another container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 70,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: another container - operation failed",
+        "metrics": {
+          "error_rate": 0.8025880197243259,
+          "response_time_ms": 5164,
+          "cpu_usage": 0.8755359275974457,
+          "memory_usage": 0.8408847926700415
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:56.062003",
+      "event_type": "timeout",
+      "description": "Timeout: another container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 171,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: another container - operation failed",
+        "metrics": {
+          "error_rate": 0.6592695235971041,
+          "response_time_ms": 7352,
+          "cpu_usage": 0.914549127108538,
+          "memory_usage": 0.8562040247087788
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:43:14.062003",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

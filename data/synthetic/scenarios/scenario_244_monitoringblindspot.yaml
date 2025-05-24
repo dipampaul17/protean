@@ -1,0 +1,69 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173708
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1187
+metadata:
+  generated_at: '2025-05-23T17:37:08.016013'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:08.015891'
+  event_type: trigger
+  description: 'Initial failure detected: monitoring system'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:14.015891'
+  event_type: timeout
+  description: 'Timeout: an alert'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 280
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: an alert - operation failed'
+    metrics:
+      error_rate: 0.7221223200854476
+      response_time_ms: 8281
+      cpu_usage: 0.8087839498293434
+      memory_usage: 0.9766699763997426
+- timestamp: '2025-05-23T17:38:15.015891'
+  event_type: failure
+  description: 'Failure: the container'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 283
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: the container - operation
+      failed'
+    metrics:
+      error_rate: 0.7489805105581184
+      response_time_ms: 7918
+      cpu_usage: 0.8912568423528846
+      memory_usage: 0.9040286532013728
+- timestamp: '2025-05-23T17:40:19.015891'
+  event_type: recovery
+  description: 'Recovery: of cpu'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:24.015891'
+  event_type: timeout
+  description: 'Timeout: the node'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 195
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: the node - operation
+      failed'
+    metrics:
+      error_rate: 0.13402639379731937
+      response_time_ms: 3498
+      cpu_usage: 0.9986386594852306
+      memory_usage: 0.9899871401993432
+- timestamp: '2025-05-23T17:56:55.015891'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

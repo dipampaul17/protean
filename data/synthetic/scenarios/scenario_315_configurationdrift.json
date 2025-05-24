@@ -1,0 +1,114 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_174629",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 932,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.079083",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.075880",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:50.075880",
+      "event_type": "rollback",
+      "description": "Rollback: kafka log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:54.075880",
+      "event_type": "rollback",
+      "description": "Rollback: api server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:57.075880",
+      "event_type": "rollback",
+      "description": "Rollback: nginx error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:04.075880",
+      "event_type": "failure",
+      "description": "Failure: a cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 47,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: a cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.5359580113640815,
+          "response_time_ms": 6419,
+          "cpu_usage": 0.7373061026076996,
+          "memory_usage": 0.8652320830212442
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:37.075880",
+      "event_type": "config_change",
+      "description": "Config_Change: code server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:58.075880",
+      "event_type": "failure",
+      "description": "Failure: jenkins server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 170,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: jenkins server - operation failed",
+        "metrics": {
+          "error_rate": 0.4338454951192404,
+          "response_time_ms": 2892,
+          "cpu_usage": 0.9809765411596885,
+          "memory_usage": 0.9333309571035856
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:58.075880",
+      "event_type": "rollback",
+      "description": "Rollback: docker container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:19.075880",
+      "event_type": "failure",
+      "description": "Failure: nginx server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 78,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: nginx server - operation failed",
+        "metrics": {
+          "error_rate": 0.884296722765964,
+          "response_time_ms": 9873,
+          "cpu_usage": 0.9973374919235227,
+          "memory_usage": 0.9280478471125251
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:02:01.075880",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

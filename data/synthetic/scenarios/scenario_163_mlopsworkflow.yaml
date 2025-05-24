@@ -1,0 +1,55 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_173707
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1523
+metadata:
+  generated_at: '2025-05-23T17:37:07.988675'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:07.988488'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:42.988488'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 88
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.8731455756933509
+      response_time_ms: 1316
+      cpu_usage: 0.7474409361586464
+      memory_usage: 0.9483186180944442
+- timestamp: '2025-05-23T17:39:42.988488'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 271
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.8400927981763923
+      response_time_ms: 9520
+      cpu_usage: 0.8064396171965511
+      memory_usage: 0.8845753648495174
+- timestamp: '2025-05-23T17:45:02.988488'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T18:02:30.988488'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

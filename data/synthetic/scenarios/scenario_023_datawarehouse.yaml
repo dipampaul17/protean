@@ -1,0 +1,59 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173245
+description: Infrastructure failure scenario for DataWarehouse
+duration: 1677
+metadata:
+  generated_at: '2025-05-23T17:32:45.660194'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.659227'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:33.659227'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:15.659227'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 214
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.5204489374268166
+      response_time_ms: 4196
+      cpu_usage: 0.9047225742250247
+      memory_usage: 0.8280576280625537
+- timestamp: '2025-05-23T17:36:19.659227'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 272
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.7607054752042783
+      response_time_ms: 1697
+      cpu_usage: 0.8456630589435891
+      memory_usage: 0.9479689133958269
+- timestamp: '2025-05-23T17:37:29.659227'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T18:00:42.659227'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

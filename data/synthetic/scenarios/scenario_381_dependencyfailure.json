@@ -1,0 +1,126 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_174629",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 407,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.103324",
+    "phrase_templates_used": 45,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.103108",
+      "event_type": "trigger",
+      "description": "Initial failure detected: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:01.103108",
+      "event_type": "timeout",
+      "description": "Timeout: nginx service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 137,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: nginx service - operation failed",
+        "metrics": {
+          "error_rate": 0.893807155784126,
+          "response_time_ms": 1498,
+          "cpu_usage": 0.8277680425431617,
+          "memory_usage": 0.9068082872592815
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:02.103108",
+      "event_type": "failure",
+      "description": "Failure: proxy server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 151,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: proxy server - operation failed",
+        "metrics": {
+          "error_rate": 0.30171248609707835,
+          "response_time_ms": 7245,
+          "cpu_usage": 0.9878631651665554,
+          "memory_usage": 0.9703915313631429
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:06.103108",
+      "event_type": "timeout",
+      "description": "Timeout: the error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 204,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: the error - operation failed",
+        "metrics": {
+          "error_rate": 0.28572385081400076,
+          "response_time_ms": 7026,
+          "cpu_usage": 0.8933348525536324,
+          "memory_usage": 0.9880998094696505
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:06.103108",
+      "event_type": "recovery",
+      "description": "Recovery: illuminate queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:11.103108",
+      "event_type": "timeout",
+      "description": "Timeout: the server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 138,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.39283684563938026,
+          "response_time_ms": 3653,
+          "cpu_usage": 0.9858360157662287,
+          "memory_usage": 0.8003735844582265
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:14.103108",
+      "event_type": "timeout",
+      "description": "Timeout: headless service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 214,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: headless service - operation failed",
+        "metrics": {
+          "error_rate": 0.6961549848910205,
+          "response_time_ms": 1359,
+          "cpu_usage": 0.8728620329440531,
+          "memory_usage": 0.8349915956267826
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:53:16.103108",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

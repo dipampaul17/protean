@@ -1,0 +1,100 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_173708
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1286
+metadata:
+  generated_at: '2025-05-23T17:37:08.059411'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:37:08.059237'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:46.059237'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:06.059237'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 158
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: authentication
+      failed - operation failed'
+    metrics:
+      error_rate: 0.2858755857629307
+      response_time_ms: 3889
+      cpu_usage: 0.909428125868124
+      memory_usage: 0.8448405408469093
+- timestamp: '2025-05-23T17:38:25.059237'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 174
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: queue overflow
+      - operation failed'
+    metrics:
+      error_rate: 0.25357685525636714
+      response_time_ms: 8307
+      cpu_usage: 0.8114624588447883
+      memory_usage: 0.9626443301901351
+- timestamp: '2025-05-23T17:38:37.059237'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 190
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.1410250803650219
+      response_time_ms: 7255
+      cpu_usage: 0.8520111869149907
+      memory_usage: 0.8003826705113906
+- timestamp: '2025-05-23T17:39:38.059237'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 47
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.4570629666189103
+      response_time_ms: 6748
+      cpu_usage: 0.8845382088973702
+      memory_usage: 0.9515439806340606
+- timestamp: '2025-05-23T17:40:22.059237'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 100
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.1659429471871432
+      response_time_ms: 2997
+      cpu_usage: 0.8710810846152373
+      memory_usage: 0.8085559595495424
+- timestamp: '2025-05-23T17:58:34.059237'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

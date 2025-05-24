@@ -1,0 +1,90 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173245",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 396,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.707827",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.707667",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:02.707667",
+      "event_type": "failure",
+      "description": "Failure: customer service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 55,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: customer service - operation failed",
+        "metrics": {
+          "error_rate": 0.44758825482936015,
+          "response_time_ms": 7771,
+          "cpu_usage": 0.8869501927887778,
+          "memory_usage": 0.975759909965396
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:02.707667",
+      "event_type": "failure",
+      "description": "Failure: the node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 235,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: the node - operation failed",
+        "metrics": {
+          "error_rate": 0.6141151126335955,
+          "response_time_ms": 3268,
+          "cpu_usage": 0.8138654053098577,
+          "memory_usage": 0.9070495585126579
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:08.707667",
+      "event_type": "recovery",
+      "description": "Recovery: of cpu",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:17.707667",
+      "event_type": "recovery",
+      "description": "Recovery: of cpu",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:28.707667",
+      "event_type": "recovery",
+      "description": "Recovery: quot server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:41.707667",
+      "event_type": "recovery",
+      "description": "Recovery: web server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:21.707667",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

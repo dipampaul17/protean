@@ -1,0 +1,55 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_174629
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1674
+metadata:
+  generated_at: '2025-05-23T17:46:29.123432'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:29.123325'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:53:33.123325'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:53:50.123325'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 198
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.6692140230715514
+      response_time_ms: 2453
+      cpu_usage: 0.8022022727810961
+      memory_usage: 0.8902111085292386
+- timestamp: '2025-05-23T17:53:57.123325'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 183
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.22392000401851836
+      response_time_ms: 9006
+      cpu_usage: 0.8062783573348034
+      memory_usage: 0.9863644387919542
+- timestamp: '2025-05-23T18:14:23.123325'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

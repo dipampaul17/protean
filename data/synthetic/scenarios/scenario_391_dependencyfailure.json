@@ -1,0 +1,102 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173708",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 1765,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.054951",
+    "phrase_templates_used": 45,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.054676",
+      "event_type": "trigger",
+      "description": "Initial failure detected: coirq error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:21.054676",
+      "event_type": "recovery",
+      "description": "Recovery: per pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:30.054676",
+      "event_type": "timeout",
+      "description": "Timeout: external service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 117,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: external service - operation failed",
+        "metrics": {
+          "error_rate": 0.2614011462819602,
+          "response_time_ms": 3611,
+          "cpu_usage": 0.8927410943692365,
+          "memory_usage": 0.954046104144168
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:38.054676",
+      "event_type": "recovery",
+      "description": "Recovery: web server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:41:41.054676",
+      "event_type": "timeout",
+      "description": "Timeout: the container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 76,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.8472864283679282,
+          "response_time_ms": 5809,
+          "cpu_usage": 0.8341032624022819,
+          "memory_usage": 0.8677104982698123
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:45.054676",
+      "event_type": "timeout",
+      "description": "Timeout: the connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 174,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: the connection - operation failed",
+        "metrics": {
+          "error_rate": 0.5594807436745151,
+          "response_time_ms": 2400,
+          "cpu_usage": 0.8157855175714906,
+          "memory_usage": 0.8168456961147205
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:57.054676",
+      "event_type": "recovery",
+      "description": "Recovery: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:06:33.054676",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

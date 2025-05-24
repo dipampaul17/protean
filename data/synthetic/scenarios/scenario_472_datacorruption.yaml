@@ -1,0 +1,89 @@
+category: DataCorruption
+name: DataCorruption_20250523_173453
+description: Infrastructure failure scenario for DataCorruption
+duration: 816
+metadata:
+  generated_at: '2025-05-23T17:34:53.356506'
+  phrase_templates_used: 36
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.356338'
+  event_type: trigger
+  description: 'Initial failure detected: message queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:04.356338'
+  event_type: failure
+  description: 'Failure: using rabbitmq'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 268
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: using rabbitmq
+      - operation failed'
+    metrics:
+      error_rate: 0.6751928686174152
+      response_time_ms: 5994
+      cpu_usage: 0.7003845410809425
+      memory_usage: 0.8327461826084356
+- timestamp: '2025-05-23T17:35:16.356338'
+  event_type: failure
+  description: 'Failure: only container'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 242
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: only container - operation
+      failed'
+    metrics:
+      error_rate: 0.6179434969479242
+      response_time_ms: 7825
+      cpu_usage: 0.7153203037303845
+      memory_usage: 0.9316294855181713
+- timestamp: '2025-05-23T17:35:29.356338'
+  event_type: recovery
+  description: 'Recovery: to resolve'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:13.356338'
+  event_type: timeout
+  description: 'Timeout: second node'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 208
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: second node - operation
+      failed'
+    metrics:
+      error_rate: 0.6990991819683066
+      response_time_ms: 3991
+      cpu_usage: 0.8303319633861447
+      memory_usage: 0.8405477570831117
+- timestamp: '2025-05-23T17:36:15.356338'
+  event_type: timeout
+  description: 'Timeout: code queue'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: medium
+    duration: 179
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: code queue - operation
+      failed'
+    metrics:
+      error_rate: 0.10562602864009152
+      response_time_ms: 528
+      cpu_usage: 0.54340560275982
+      memory_usage: 0.5986750565304797
+- timestamp: '2025-05-23T17:36:36.356338'
+  event_type: recovery
+  description: 'Recovery: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:29.356338'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

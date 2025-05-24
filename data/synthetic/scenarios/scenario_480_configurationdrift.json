@@ -1,0 +1,66 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173453",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1440,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.379532",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.379431",
+      "event_type": "trigger",
+      "description": "Initial failure detected: kafka cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:37.379431",
+      "event_type": "rollback",
+      "description": "Rollback: an error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:37.379431",
+      "event_type": "restart",
+      "description": "Restart: jenkins server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:46.379431",
+      "event_type": "failure",
+      "description": "Failure: using docker",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 74,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: using docker - operation failed",
+        "metrics": {
+          "error_rate": 0.7257596719044654,
+          "response_time_ms": 2842,
+          "cpu_usage": 0.7603265231686478,
+          "memory_usage": 0.9128395408619133
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:45.379431",
+      "event_type": "restart",
+      "description": "Restart: kubernetes pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:58:53.379431",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173245
+description: Infrastructure failure scenario for DataWarehouse
+duration: 678
+metadata:
+  generated_at: '2025-05-23T17:32:45.723218'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.723124'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:29.723124'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:06.723124'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 289
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.3070202694271471
+      response_time_ms: 4295
+      cpu_usage: 0.7593681924759732
+      memory_usage: 0.9105457154111807
+- timestamp: '2025-05-23T17:36:24.723124'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 31
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: disk space full
+      - operation failed'
+    metrics:
+      error_rate: 0.43255317389346737
+      response_time_ms: 2471
+      cpu_usage: 0.9670864108751378
+      memory_usage: 0.9337298910144393
+- timestamp: '2025-05-23T17:44:03.723124'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

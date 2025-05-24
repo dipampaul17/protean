@@ -1,0 +1,144 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173453",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 878,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.192298",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.190935",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:23.190935",
+      "event_type": "failure",
+      "description": "Failure: i monitor",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 222,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: i monitor - operation failed",
+        "metrics": {
+          "error_rate": 0.11896934613250992,
+          "response_time_ms": 7463,
+          "cpu_usage": 0.9171206049750602,
+          "memory_usage": 0.8284821863565215
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:24.190935",
+      "event_type": "timeout",
+      "description": "Timeout: code error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 248,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: code error - operation failed",
+        "metrics": {
+          "error_rate": 0.8032573260370501,
+          "response_time_ms": 8393,
+          "cpu_usage": 0.8206110397155605,
+          "memory_usage": 0.8821378465815805
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:53.190935",
+      "event_type": "failure",
+      "description": "Failure: quot pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 299,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: quot pod - operation failed",
+        "metrics": {
+          "error_rate": 0.32293477157860817,
+          "response_time_ms": 5467,
+          "cpu_usage": 0.8691034826152122,
+          "memory_usage": 0.8713821346424618
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:21.190935",
+      "event_type": "failure",
+      "description": "Failure: strong update",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 113,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.3540139657190188,
+          "response_time_ms": 6750,
+          "cpu_usage": 0.7275268441767256,
+          "memory_usage": 0.8977338158668045
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:25.190935",
+      "event_type": "recovery",
+      "description": "Recovery: a server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:42.190935",
+      "event_type": "failure",
+      "description": "Failure: a container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 109,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: a container - operation failed",
+        "metrics": {
+          "error_rate": 0.45899054708413967,
+          "response_time_ms": 6798,
+          "cpu_usage": 0.8527649694102806,
+          "memory_usage": 0.8071989746451931
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:53.190935",
+      "event_type": "failure",
+      "description": "Failure: a node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 260,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: a node - operation failed",
+        "metrics": {
+          "error_rate": 0.5085297857668898,
+          "response_time_ms": 2629,
+          "cpu_usage": 0.9675530642563095,
+          "memory_usage": 0.8130930169716024
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:31.190935",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

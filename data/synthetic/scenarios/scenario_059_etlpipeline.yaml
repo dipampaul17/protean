@@ -1,0 +1,86 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_174628
+description: Infrastructure failure scenario for ETLPipeline
+duration: 1758
+metadata:
+  generated_at: '2025-05-23T17:46:28.921890'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:28.921696'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:58.921696'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:44.921696'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 106
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.5662005231777697
+      response_time_ms: 3050
+      cpu_usage: 0.7894436508124864
+      memory_usage: 0.8821041228798379
+- timestamp: '2025-05-23T17:47:48.921696'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 68
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: container crashed -
+      operation failed'
+    metrics:
+      error_rate: 0.34328679751454294
+      response_time_ms: 1542
+      cpu_usage: 0.7891693373055424
+      memory_usage: 0.9331007377859333
+- timestamp: '2025-05-23T17:47:51.921696'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:07.921696'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 162
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.23205468790847208
+      response_time_ms: 6454
+      cpu_usage: 0.8662798514624375
+      memory_usage: 0.9521652913227492
+- timestamp: '2025-05-23T17:48:15.921696'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:47.921696'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:32.921696'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T18:15:46.921696'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

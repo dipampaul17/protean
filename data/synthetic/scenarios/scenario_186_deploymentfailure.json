@@ -1,0 +1,138 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173707",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1615,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.999112",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.998823",
+      "event_type": "trigger",
+      "description": "Initial failure detected: kubectl scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:28.998823",
+      "event_type": "failure",
+      "description": "Failure: this error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 94,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR api-backend: this error in failure",
+        "metrics": {
+          "error_rate": 0.10974003057311386,
+          "response_time_ms": 8961,
+          "cpu_usage": 0.8320611352840248,
+          "memory_usage": 0.872574652821755
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:55.998823",
+      "event_type": "deployment",
+      "description": "Deployment: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:24.998823",
+      "event_type": "failure",
+      "description": "Failure: the error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 223,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR nginx-proxy: the error in failure",
+        "metrics": {
+          "error_rate": 0.2978831727689609,
+          "response_time_ms": 7705,
+          "cpu_usage": 0.8050847132245997,
+          "memory_usage": 0.999715923694394
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:26.998823",
+      "event_type": "rollback",
+      "description": "Rollback: kubernetes error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:44.998823",
+      "event_type": "deployment",
+      "description": "Deployment: your container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:59.998823",
+      "event_type": "failure",
+      "description": "Failure: the error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 235,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR api-backend: the error in failure",
+        "metrics": {
+          "error_rate": 0.6329971589662121,
+          "response_time_ms": 9175,
+          "cpu_usage": 0.7001293199575256,
+          "memory_usage": 0.8437707368632619
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:08.998823",
+      "event_type": "failure",
+      "description": "Failure: my deployment",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 100,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR worker-consumer: my deployment in failure",
+        "metrics": {
+          "error_rate": 0.7148289267662256,
+          "response_time_ms": 7204,
+          "cpu_usage": 0.9040283158304728,
+          "memory_usage": 0.9938932778059233
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:13.998823",
+      "event_type": "failure",
+      "description": "Failure: docker container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 278,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR web-frontend: docker container in failure",
+        "metrics": {
+          "error_rate": 0.3160176905535903,
+          "response_time_ms": 2001,
+          "cpu_usage": 0.7561372629292485,
+          "memory_usage": 0.9742838183721223
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:04:02.998823",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

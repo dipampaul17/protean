@@ -1,0 +1,132 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_173245",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 566,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.743662",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.743475",
+      "event_type": "trigger",
+      "description": "Initial failure detected: served memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:13.743475",
+      "event_type": "recovery",
+      "description": "Recovery: high memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:14.743475",
+      "event_type": "timeout",
+      "description": "Timeout: most memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 81,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: most memory - operation failed",
+        "metrics": {
+          "error_rate": 0.759240488892205,
+          "response_time_ms": 2167,
+          "cpu_usage": 0.9558457520685972,
+          "memory_usage": 0.9695297234740026
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:31.743475",
+      "event_type": "failure",
+      "description": "Failure: associative cache",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 104,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: associative cache - operation failed",
+        "metrics": {
+          "error_rate": 0.8281396949000903,
+          "response_time_ms": 2832,
+          "cpu_usage": 0.7532987512287046,
+          "memory_usage": 0.979960122696223
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:35.743475",
+      "event_type": "timeout",
+      "description": "Timeout: to scale",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 33,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: to scale - operation failed",
+        "metrics": {
+          "error_rate": 0.3403451368131128,
+          "response_time_ms": 5499,
+          "cpu_usage": 0.7891604476582784,
+          "memory_usage": 0.9268509266518407
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:37.743475",
+      "event_type": "recovery",
+      "description": "Recovery: the connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:50.743475",
+      "event_type": "failure",
+      "description": "Failure: scaled service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 33,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: scaled service - operation failed",
+        "metrics": {
+          "error_rate": 0.34831272783699757,
+          "response_time_ms": 5960,
+          "cpu_usage": 0.7465691589253705,
+          "memory_usage": 0.9340039731038943
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:50.743475",
+      "event_type": "failure",
+      "description": "Failure: the disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 121,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: the disk - operation failed",
+        "metrics": {
+          "error_rate": 0.14242222687717324,
+          "response_time_ms": 2286,
+          "cpu_usage": 0.9846629361952156,
+          "memory_usage": 0.9162369426280823
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:42:11.743475",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

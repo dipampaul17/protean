@@ -1,0 +1,96 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173452
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 434
+metadata:
+  generated_at: '2025-05-23T17:34:52.903846'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:34:52.903685'
+  event_type: trigger
+  description: 'Initial failure detected: and fix'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:27.903685'
+  event_type: timeout
+  description: 'Timeout: reading database'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 170
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: reading database - operation
+      failed'
+    metrics:
+      error_rate: 0.2126892602433914
+      response_time_ms: 2149
+      cpu_usage: 0.9927108811653682
+      memory_usage: 0.8076544439846385
+- timestamp: '2025-05-23T17:35:37.903685'
+  event_type: failure
+  description: 'Failure: accessed memory'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 89
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: accessed memory - operation
+      failed'
+    metrics:
+      error_rate: 0.4912288259464046
+      response_time_ms: 3868
+      cpu_usage: 0.9610132602657726
+      memory_usage: 0.9300929109462963
+- timestamp: '2025-05-23T17:35:47.903685'
+  event_type: timeout
+  description: 'Timeout: associative cache'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 58
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: associative cache
+      - operation failed'
+    metrics:
+      error_rate: 0.8044852521018079
+      response_time_ms: 9520
+      cpu_usage: 0.8761128953340848
+      memory_usage: 0.8855149479459832
+- timestamp: '2025-05-23T17:35:55.903685'
+  event_type: failure
+  description: 'Failure: in memory'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 89
+    log_snippet: '[2025-05-23 17:34:52] ERROR payment-service: in memory - operation
+      failed'
+    metrics:
+      error_rate: 0.3217943501760619
+      response_time_ms: 9676
+      cpu_usage: 0.8255874212402554
+      memory_usage: 0.9705144781706396
+- timestamp: '2025-05-23T17:36:11.903685'
+  event_type: timeout
+  description: 'Timeout: the server'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 247
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.3658971477660654
+      response_time_ms: 5708
+      cpu_usage: 0.8378791948771813
+      memory_usage: 0.8643035325063999
+- timestamp: '2025-05-23T17:42:06.903685'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

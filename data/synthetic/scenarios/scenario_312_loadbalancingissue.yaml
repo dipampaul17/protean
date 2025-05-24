@@ -1,0 +1,75 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_174629
+description: Load balancer and traffic distribution problems
+duration: 675
+metadata:
+  generated_at: '2025-05-23T17:46:29.074188'
+  phrase_templates_used: 13
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:29.073943'
+  event_type: trigger
+  description: 'Initial failure detected: a server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:49.073943'
+  event_type: timeout
+  description: 'Timeout: that node'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 136
+    log_snippet: '[2025-05-23 17:46:29] ERROR subnet-private: that node in timeout'
+    metrics:
+      error_rate: 0.7873654640772956
+      response_time_ms: 3990
+      cpu_usage: 0.828859799481805
+      memory_usage: 0.8532299232612008
+      requests_per_sec: 9839
+      backend_health_pct: 0.35630899090338275
+      connection_timeouts: 647
+- timestamp: '2025-05-23T17:47:02.073943'
+  event_type: scaling
+  description: 'Scaling: a server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:18.073943'
+  event_type: scaling
+  description: 'Scaling: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:21.073943'
+  event_type: timeout
+  description: 'Timeout: the server'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 56
+    log_snippet: '[2025-05-23 17:46:29] ERROR subnet-private: the server in timeout'
+    metrics:
+      error_rate: 0.35990240310217525
+      response_time_ms: 6542
+      cpu_usage: 0.7911305155361948
+      memory_usage: 0.8134293161267176
+      requests_per_sec: 1569
+      backend_health_pct: 0.5409990330641172
+      connection_timeouts: 465
+- timestamp: '2025-05-23T17:47:31.073943'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:43.073943'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: a server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:02.073943'
+  event_type: backend_failure
+  description: 'Backend_Failure: loadbalancer service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:57:44.073943'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

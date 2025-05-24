@@ -1,0 +1,48 @@
+{
+  "category": "CascadingFailure",
+  "name": "CascadingFailure_20250523_173708",
+  "description": "Multi-service failure propagation scenario",
+  "duration": 1209,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.005351",
+    "phrase_templates_used": 2,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.005231",
+      "event_type": "trigger",
+      "description": "Initial failure detected: demographics monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:49.005231",
+      "event_type": "cascade",
+      "description": "Cascade: demographics monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:42.005231",
+      "event_type": "cascade",
+      "description": "Cascade: demographics monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:41:29.005231",
+      "event_type": "cascade",
+      "description": "Cascade: cascading failure",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:57:17.005231",
+      "event_type": "recovery",
+      "description": "System recovered: all services recovered",
+      "injection_spec": null
+    }
+  ]
+}

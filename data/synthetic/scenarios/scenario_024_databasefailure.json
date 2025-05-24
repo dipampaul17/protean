@@ -1,0 +1,93 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173452",
+  "description": "Database connectivity and performance issues",
+  "duration": 420,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.908406",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.908229",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:14.908229",
+      "event_type": "timeout",
+      "description": "Timeout: a container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 59,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR redis-cache: a container in timeout",
+        "metrics": {
+          "error_rate": 0.46623731253247713,
+          "response_time_ms": 1960,
+          "cpu_usage": 0.7446471810054048,
+          "memory_usage": 0.9606515365979835,
+          "connection_pool_usage": 0.9306553988853146,
+          "query_time_ms": 6619,
+          "deadlocks_per_sec": 10
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:17.908229",
+      "event_type": "recovery",
+      "description": "Recovery: create database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:27.908229",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: mongodb database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:27.908229",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:29.908229",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:33.908229",
+      "event_type": "recovery",
+      "description": "Recovery: api server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:41.908229",
+      "event_type": "corruption",
+      "description": "Corruption: to update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:41.908229",
+      "event_type": "corruption",
+      "description": "Corruption: the update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:41:52.908229",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

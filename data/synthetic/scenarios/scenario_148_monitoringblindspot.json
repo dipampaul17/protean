@@ -1,0 +1,138 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173453",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1576,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.065714",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.065182",
+      "event_type": "trigger",
+      "description": "Initial failure detected: each node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:14.065182",
+      "event_type": "timeout",
+      "description": "Timeout: the log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 101,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: the log - operation failed",
+        "metrics": {
+          "error_rate": 0.5580606207101129,
+          "response_time_ms": 9338,
+          "cpu_usage": 0.9705218420631117,
+          "memory_usage": 0.9183601702879048
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:43.065182",
+      "event_type": "timeout",
+      "description": "Timeout: the node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 273,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: the node - operation failed",
+        "metrics": {
+          "error_rate": 0.4014875707121144,
+          "response_time_ms": 5731,
+          "cpu_usage": 0.7413342714965061,
+          "memory_usage": 0.9802867533621156
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:08.065182",
+      "event_type": "recovery",
+      "description": "Recovery: web server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:21.065182",
+      "event_type": "failure",
+      "description": "Failure: scaled service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 271,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: scaled service - operation failed",
+        "metrics": {
+          "error_rate": 0.4099910797107258,
+          "response_time_ms": 9259,
+          "cpu_usage": 0.9720302967592767,
+          "memory_usage": 0.8403264599255453
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:44.065182",
+      "event_type": "failure",
+      "description": "Failure: the database",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 131,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: the database - operation failed",
+        "metrics": {
+          "error_rate": 0.4968800824639489,
+          "response_time_ms": 8778,
+          "cpu_usage": 0.7530863633763288,
+          "memory_usage": 0.958264921117684
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:23.065182",
+      "event_type": "recovery",
+      "description": "Recovery: nil log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:25.065182",
+      "event_type": "failure",
+      "description": "Failure: docker container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 209,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: docker container - operation failed",
+        "metrics": {
+          "error_rate": 0.40513152875862246,
+          "response_time_ms": 8961,
+          "cpu_usage": 0.7908819804039008,
+          "memory_usage": 0.9351218387704644
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:38.065182",
+      "event_type": "recovery",
+      "description": "Recovery: an alert",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:01:09.065182",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

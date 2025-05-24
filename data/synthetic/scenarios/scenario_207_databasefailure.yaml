@@ -1,0 +1,69 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173453
+description: Database connectivity and performance issues
+duration: 800
+metadata:
+  generated_at: '2025-05-23T17:34:53.147264'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:34:53.147073'
+  event_type: trigger
+  description: 'Initial failure detected: mongodb database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:03.147073'
+  event_type: connection_loss
+  description: 'Connection_Loss: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:16.147073'
+  event_type: timeout
+  description: 'Timeout: docker container'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 85
+    log_snippet: '[2025-05-23 17:34:53] FATAL postgres-replica: database docker container
+      detected'
+    metrics:
+      error_rate: 0.2591760147379609
+      response_time_ms: 7492
+      cpu_usage: 0.7530543477860491
+      memory_usage: 0.959615478888699
+      connection_pool_usage: 0.9820813540909609
+      query_time_ms: 16658
+      deadlocks_per_sec: 2
+- timestamp: '2025-05-23T17:35:23.147073'
+  event_type: recovery
+  description: 'Recovery: metadatacreateindexservice node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:13.147073'
+  event_type: connection_loss
+  description: 'Connection_Loss: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:22.147073'
+  event_type: timeout
+  description: 'Timeout: mysql error'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 122
+    log_snippet: '[2025-05-23 17:34:53] FATAL postgres-replica: database mysql error
+      detected'
+    metrics:
+      error_rate: 0.12376489651469279
+      response_time_ms: 7630
+      cpu_usage: 0.9914422544213422
+      memory_usage: 0.9475661421808421
+      connection_pool_usage: 0.9589028396312852
+      query_time_ms: 26262
+      deadlocks_per_sec: 6
+- timestamp: '2025-05-23T17:48:13.147073'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

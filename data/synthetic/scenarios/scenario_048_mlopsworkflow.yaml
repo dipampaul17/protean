@@ -1,0 +1,67 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_173707
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1700
+metadata:
+  generated_at: '2025-05-23T17:37:07.795321'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:07.795085'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:29.795085'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 226
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.4539061785567655
+      response_time_ms: 4028
+      cpu_usage: 0.832746425682373
+      memory_usage: 0.8073216210691062
+- timestamp: '2025-05-23T17:37:47.795085'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 95
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.3798626683278872
+      response_time_ms: 4431
+      cpu_usage: 0.7408191436738785
+      memory_usage: 0.8145724157373706
+- timestamp: '2025-05-23T17:38:11.795085'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:31.795085'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:52.795085'
+  event_type: recovery
+  description: 'Recovery: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:24.795085'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T18:05:27.795085'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

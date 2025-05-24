@@ -1,0 +1,78 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_174628
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1492
+metadata:
+  generated_at: '2025-05-23T17:46:28.988128'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:28.987210'
+  event_type: trigger
+  description: 'Initial failure detected: prometheus server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:49.987210'
+  event_type: failure
+  description: 'Failure: customer service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 143
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: customer service
+      - operation failed'
+    metrics:
+      error_rate: 0.1350775125882552
+      response_time_ms: 2932
+      cpu_usage: 0.9546838554511693
+      memory_usage: 0.9927118702874721
+- timestamp: '2025-05-23T17:47:02.987210'
+  event_type: failure
+  description: 'Failure: the database'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 185
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: the database -
+      operation failed'
+    metrics:
+      error_rate: 0.8733471134411944
+      response_time_ms: 7620
+      cpu_usage: 0.7923008670976908
+      memory_usage: 0.8967550770860988
+- timestamp: '2025-05-23T17:47:38.987210'
+  event_type: recovery
+  description: 'Recovery: and memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:58.987210'
+  event_type: recovery
+  description: 'Recovery: a node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:33.987210'
+  event_type: recovery
+  description: 'Recovery: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:45.987210'
+  event_type: timeout
+  description: 'Timeout: the service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 122
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: the service -
+      operation failed'
+    metrics:
+      error_rate: 0.7089976187602092
+      response_time_ms: 2874
+      cpu_usage: 0.8709249436364072
+      memory_usage: 0.9338841545377639
+- timestamp: '2025-05-23T18:11:20.987210'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

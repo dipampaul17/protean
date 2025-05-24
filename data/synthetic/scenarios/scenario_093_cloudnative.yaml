@@ -1,0 +1,55 @@
+category: CloudNative
+name: CloudNative_20250523_173245
+description: Kubernetes pod and container orchestration issues
+duration: 989
+metadata:
+  generated_at: '2025-05-23T17:32:45.678751'
+  phrase_templates_used: 39
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:32:45.678617'
+  event_type: trigger
+  description: 'Initial failure detected: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:01.678617'
+  event_type: deployment
+  description: 'Deployment: kubernetes pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:09.678617'
+  event_type: failure
+  description: 'Failure: code pod'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 165
+    log_snippet: '[2025-05-23 17:32:45] ERROR worker-consumer: code pod in failure'
+    metrics:
+      error_rate: 0.285630463432246
+      response_time_ms: 4726
+      cpu_usage: 0.7971047741178905
+      memory_usage: 0.8054058522550177
+- timestamp: '2025-05-23T17:33:36.678617'
+  event_type: deployment
+  description: 'Deployment: kubernetes cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:41.678617'
+  event_type: scaling
+  description: 'Scaling: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:58.678617'
+  event_type: scaling
+  description: 'Scaling: failed container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:12.678617'
+  event_type: deployment
+  description: 'Deployment: your cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:14.678617'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

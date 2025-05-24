@@ -1,0 +1,71 @@
+category: DataCorruption
+name: DataCorruption_20250523_173707
+description: Infrastructure failure scenario for DataCorruption
+duration: 760
+metadata:
+  generated_at: '2025-05-23T17:37:07.912295'
+  phrase_templates_used: 36
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 1
+events:
+- timestamp: '2025-05-23T17:37:07.903522'
+  event_type: trigger
+  description: 'Initial failure detected: new container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:20.903522'
+  event_type: recovery
+  description: 'Recovery: a queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:52.903522'
+  event_type: recovery
+  description: 'Recovery: data container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:03.903522'
+  event_type: recovery
+  description: 'Recovery: head queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:33.903522'
+  event_type: failure
+  description: 'Failure: context cluster'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 50
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: context cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.28986517102677245
+      response_time_ms: 2313
+      cpu_usage: 0.8865711230956752
+      memory_usage: 0.9728521909422964
+- timestamp: '2025-05-23T17:38:44.903522'
+  event_type: recovery
+  description: 'Recovery: the container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:46.903522'
+  event_type: recovery
+  description: 'Recovery: the cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:54.903522'
+  event_type: timeout
+  description: 'Timeout: code queue'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: medium
+    duration: 200
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: code queue - operation
+      failed'
+    metrics:
+      error_rate: 0.01764816804024212
+      response_time_ms: 1931
+      cpu_usage: 0.5423898221743
+      memory_usage: 0.600053279358845
+- timestamp: '2025-05-23T17:49:47.903522'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

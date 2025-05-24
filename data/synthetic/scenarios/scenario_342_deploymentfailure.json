@@ -1,0 +1,66 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173453",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1748,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.277856",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.277740",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:37.277740",
+      "event_type": "failure",
+      "description": "Failure: using cache",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 69,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR api-backend: using cache in failure",
+        "metrics": {
+          "error_rate": 0.7816391449033047,
+          "response_time_ms": 6163,
+          "cpu_usage": 0.8332145371039125,
+          "memory_usage": 0.855190534529767
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:58.277740",
+      "event_type": "deployment",
+      "description": "Deployment: kafka monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:29.277740",
+      "event_type": "scaling",
+      "description": "Scaling: kind deployment",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:41:48.277740",
+      "event_type": "rollback",
+      "description": "Rollback: and deploy",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:04:01.277740",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

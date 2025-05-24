@@ -1,0 +1,59 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173708
+description: Infrastructure failure scenario for ETLPipeline
+duration: 1205
+metadata:
+  generated_at: '2025-05-23T17:37:08.028023'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:08.027900'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:45.027900'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 263
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: container crashed - operation
+      failed'
+    metrics:
+      error_rate: 0.29937640555903294
+      response_time_ms: 7615
+      cpu_usage: 0.7766413730312756
+      memory_usage: 0.8614912460925139
+- timestamp: '2025-05-23T17:40:40.027900'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:46.027900'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 202
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.8584045727925051
+      response_time_ms: 5298
+      cpu_usage: 0.8609562929536674
+      memory_usage: 0.8943224041256369
+- timestamp: '2025-05-23T17:41:55.027900'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:57:13.027900'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

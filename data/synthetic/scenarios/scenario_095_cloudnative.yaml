@@ -1,0 +1,71 @@
+category: CloudNative
+name: CloudNative_20250523_173707
+description: Kubernetes pod and container orchestration issues
+duration: 1545
+metadata:
+  generated_at: '2025-05-23T17:37:07.954063'
+  phrase_templates_used: 39
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:07.953906'
+  event_type: trigger
+  description: 'Initial failure detected: kubernetes service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:13.953906'
+  event_type: scaling
+  description: 'Scaling: kind service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:58.953906'
+  event_type: failure
+  description: 'Failure: true server'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 145
+    log_snippet: '[2025-05-23 17:37:07] ERROR worker-consumer: true server in failure'
+    metrics:
+      error_rate: 0.25997357958428047
+      response_time_ms: 5534
+      cpu_usage: 0.7367270484081219
+      memory_usage: 0.910577739585539
+- timestamp: '2025-05-23T17:40:36.953906'
+  event_type: failure
+  description: 'Failure: code pod'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 235
+    log_snippet: '[2025-05-23 17:37:07] ERROR worker-consumer: code pod in failure'
+    metrics:
+      error_rate: 0.42357501378790374
+      response_time_ms: 3130
+      cpu_usage: 0.7309682186638399
+      memory_usage: 0.91808662481276
+- timestamp: '2025-05-23T17:40:42.953906'
+  event_type: failure
+  description: 'Failure: a node'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 48
+    log_snippet: '[2025-05-23 17:37:07] ERROR nginx-proxy: a node in failure'
+    metrics:
+      error_rate: 0.8722538951760802
+      response_time_ms: 8037
+      cpu_usage: 0.8755865723955887
+      memory_usage: 0.8815981692305063
+- timestamp: '2025-05-23T17:41:23.953906'
+  event_type: scaling
+  description: 'Scaling: docker container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:02:52.953906'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

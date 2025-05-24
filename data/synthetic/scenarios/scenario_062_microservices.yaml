@@ -1,0 +1,70 @@
+category: Microservices
+name: Microservices_20250523_173707
+description: Infrastructure failure scenario for Microservices
+duration: 1181
+metadata:
+  generated_at: '2025-05-23T17:37:07.902332'
+  phrase_templates_used: 15
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:07.890908'
+  event_type: trigger
+  description: 'Initial failure detected: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:34.890908'
+  event_type: failure
+  description: 'Failure: to service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 155
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: to service - operation
+      failed'
+    metrics:
+      error_rate: 0.22214181344995493
+      response_time_ms: 6578
+      cpu_usage: 0.9843466237721212
+      memory_usage: 0.8837634253102882
+- timestamp: '2025-05-23T17:39:27.890908'
+  event_type: recovery
+  description: 'Recovery: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:52.890908'
+  event_type: timeout
+  description: 'Timeout: a service'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 77
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.38383433296332403
+      response_time_ms: 9658
+      cpu_usage: 0.7682454630992503
+      memory_usage: 0.9270503685407949
+- timestamp: '2025-05-23T17:42:01.890908'
+  event_type: failure
+  description: 'Failure: lt service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 133
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: lt service - operation
+      failed'
+    metrics:
+      error_rate: 0.8658508070749984
+      response_time_ms: 4420
+      cpu_usage: 0.9128738219887435
+      memory_usage: 0.8685353703088264
+- timestamp: '2025-05-23T17:56:48.890908'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

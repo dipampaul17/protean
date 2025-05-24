@@ -1,0 +1,81 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173245",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 566,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.783134",
+    "phrase_templates_used": 13,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.782991",
+      "event_type": "trigger",
+      "description": "Initial failure detected: loadbalancer service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:56.782991",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: web server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:14.782991",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: a pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:28.782991",
+      "event_type": "scaling",
+      "description": "Scaling: loadbalancer service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:46.782991",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:03.782991",
+      "event_type": "timeout",
+      "description": "Timeout: in connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 204,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR load-balancer: in connection in timeout",
+        "metrics": {
+          "error_rate": 0.261060798848476,
+          "response_time_ms": 4931,
+          "cpu_usage": 0.7866221635051155,
+          "memory_usage": 0.808961028861764,
+          "requests_per_sec": 4188,
+          "backend_health_pct": 0.6976269321654051,
+          "connection_timeouts": 603
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:18.782991",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:42:11.782991",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

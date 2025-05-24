@@ -1,0 +1,128 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173245
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1703
+metadata:
+  generated_at: '2025-05-23T17:32:45.738213'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 7
+events:
+- timestamp: '2025-05-23T17:32:45.737985'
+  event_type: trigger
+  description: 'Initial failure detected: to monitor'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:25.737985'
+  event_type: timeout
+  description: 'Timeout: code error'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 218
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: code error - operation
+      failed'
+    metrics:
+      error_rate: 0.8774733215302143
+      response_time_ms: 6386
+      cpu_usage: 0.9078253234754927
+      memory_usage: 0.921396467888946
+- timestamp: '2025-05-23T17:33:34.737985'
+  event_type: failure
+  description: 'Failure: monitoring memory'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 251
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: monitoring memory - operation
+      failed'
+    metrics:
+      error_rate: 0.821976330835311
+      response_time_ms: 6464
+      cpu_usage: 0.8137673087932717
+      memory_usage: 0.963270337273783
+- timestamp: '2025-05-23T17:34:38.737985'
+  event_type: timeout
+  description: 'Timeout: a node'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 171
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: a node - operation failed'
+    metrics:
+      error_rate: 0.5946107354607088
+      response_time_ms: 1000
+      cpu_usage: 0.8563106677247995
+      memory_usage: 0.936198394562299
+- timestamp: '2025-05-23T17:34:44.737985'
+  event_type: failure
+  description: 'Failure: the error'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 103
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.8055092740486146
+      response_time_ms: 2855
+      cpu_usage: 0.8384045251953767
+      memory_usage: 0.9550861089524703
+- timestamp: '2025-05-23T17:35:16.737985'
+  event_type: timeout
+  description: 'Timeout: the pod'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 169
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: the pod - operation
+      failed'
+    metrics:
+      error_rate: 0.8703666860311746
+      response_time_ms: 1849
+      cpu_usage: 0.8876838207525373
+      memory_usage: 0.8767995015713621
+- timestamp: '2025-05-23T17:35:48.737985'
+  event_type: timeout
+  description: 'Timeout: quot pod'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 143
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: quot pod - operation failed'
+    metrics:
+      error_rate: 0.2501485301330274
+      response_time_ms: 9153
+      cpu_usage: 0.7447749239093574
+      memory_usage: 0.8159075300696684
+- timestamp: '2025-05-23T17:36:06.737985'
+  event_type: timeout
+  description: 'Timeout: quot server'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 215
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: quot server - operation
+      failed'
+    metrics:
+      error_rate: 0.8212599942462795
+      response_time_ms: 1082
+      cpu_usage: 0.8713811960745899
+      memory_usage: 0.9074648019294234
+- timestamp: '2025-05-23T17:36:15.737985'
+  event_type: recovery
+  description: 'Recovery: scaled service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:01:08.737985'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

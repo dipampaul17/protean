@@ -1,0 +1,55 @@
+category: DataCorruption
+name: DataCorruption_20250523_173707
+description: Infrastructure failure scenario for DataCorruption
+duration: 1077
+metadata:
+  generated_at: '2025-05-23T17:37:07.792414'
+  phrase_templates_used: 36
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:07.792173'
+  event_type: trigger
+  description: 'Initial failure detected: message queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:28.792173'
+  event_type: recovery
+  description: 'Recovery: to rollback'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:37.792173'
+  event_type: failure
+  description: 'Failure: to fix'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 100
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: to fix - operation
+      failed'
+    metrics:
+      error_rate: 0.4800436084759909
+      response_time_ms: 1516
+      cpu_usage: 0.9415397944559265
+      memory_usage: 0.8351541356596198
+- timestamp: '2025-05-23T17:42:53.792173'
+  event_type: timeout
+  description: 'Timeout: transaction log'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 254
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: transaction log - operation
+      failed'
+    metrics:
+      error_rate: 0.6671526714892762
+      response_time_ms: 4472
+      cpu_usage: 0.951806699934031
+      memory_usage: 0.9529937181149373
+- timestamp: '2025-05-23T17:55:04.792173'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

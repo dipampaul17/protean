@@ -1,0 +1,108 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_174628",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 1345,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.925382",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.925205",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:55.925205",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 84,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.5816502289128697,
+          "response_time_ms": 2877,
+          "cpu_usage": 0.8936967683512945,
+          "memory_usage": 0.8407830381039907
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:11.925205",
+      "event_type": "recovery",
+      "description": "Recovery: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:29.925205",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 299,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.3005246528934675,
+          "response_time_ms": 5443,
+          "cpu_usage": 0.9739963365146773,
+          "memory_usage": 0.9669850620769128
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:30.925205",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:16.925205",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:52.925205",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:32.925205",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 201,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.4582283175443346,
+          "response_time_ms": 1157,
+          "cpu_usage": 0.8348788880871479,
+          "memory_usage": 0.9530619575460058
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:08:53.925205",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_174628
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 815
+metadata:
+  generated_at: '2025-05-23T17:46:28.914027'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:46:28.913815'
+  event_type: trigger
+  description: 'Initial failure detected: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:45.913815'
+  event_type: failure
+  description: 'Failure: the server'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 49
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.4092220254763663
+      response_time_ms: 2698
+      cpu_usage: 0.8159535493137147
+      memory_usage: 0.8243367912994507
+- timestamp: '2025-05-23T17:46:46.913815'
+  event_type: recovery
+  description: 'Recovery: a pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:52.913815'
+  event_type: recovery
+  description: 'Recovery: docker container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:00.913815'
+  event_type: recovery
+  description: 'Recovery: kubernetes cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:08.913815'
+  event_type: failure
+  description: 'Failure: and memory'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 200
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: and memory - operation
+      failed'
+    metrics:
+      error_rate: 0.7598376801336608
+      response_time_ms: 4746
+      cpu_usage: 0.7382443977576202
+      memory_usage: 0.9011979157957958
+- timestamp: '2025-05-23T17:47:09.913815'
+  event_type: timeout
+  description: 'Timeout: the pod'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 54
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: the pod - operation
+      failed'
+    metrics:
+      error_rate: 0.6628042644872597
+      response_time_ms: 8691
+      cpu_usage: 0.9465999525229801
+      memory_usage: 0.8656661652851145
+- timestamp: '2025-05-23T17:47:24.913815'
+  event_type: failure
+  description: 'Failure: the node'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 144
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: the node - operation failed'
+    metrics:
+      error_rate: 0.34752171984410857
+      response_time_ms: 5252
+      cpu_usage: 0.9377509386013804
+      memory_usage: 0.9213834129733057
+- timestamp: '2025-05-23T17:47:29.913815'
+  event_type: timeout
+  description: 'Timeout: the cpu'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 216
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: the cpu - operation failed'
+    metrics:
+      error_rate: 0.6966428187120277
+      response_time_ms: 2265
+      cpu_usage: 0.7405345711689318
+      memory_usage: 0.8879565472027213
+- timestamp: '2025-05-23T18:00:03.913815'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

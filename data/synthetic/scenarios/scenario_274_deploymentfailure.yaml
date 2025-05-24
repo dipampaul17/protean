@@ -1,0 +1,65 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_174629
+description: Application deployment and rollback scenarios
+duration: 1767
+metadata:
+  generated_at: '2025-05-23T17:46:29.062632'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:29.062466'
+  event_type: trigger
+  description: 'Initial failure detected: using docker'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:05.062466'
+  event_type: failure
+  description: 'Failure: temporary failure'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 45
+    log_snippet: '[2025-05-23 17:46:29] ERROR nginx-proxy: temporary failure in failure'
+    metrics:
+      error_rate: 0.48853569339803316
+      response_time_ms: 4714
+      cpu_usage: 0.963833693910276
+      memory_usage: 0.8113519044402704
+- timestamp: '2025-05-23T17:49:44.062466'
+  event_type: scaling
+  description: 'Scaling: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:02.062466'
+  event_type: rollback
+  description: 'Rollback: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:05.062466'
+  event_type: scaling
+  description: 'Scaling: code error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:08.062466'
+  event_type: failure
+  description: 'Failure: kafka monitor'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 193
+    log_snippet: '[2025-05-23 17:46:29] ERROR web-frontend: kafka monitor in failure'
+    metrics:
+      error_rate: 0.1561288692044035
+      response_time_ms: 3168
+      cpu_usage: 0.7177588704779586
+      memory_usage: 0.8953865255306801
+- timestamp: '2025-05-23T17:51:15.062466'
+  event_type: rollback
+  description: 'Rollback: the service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:15:56.062466'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

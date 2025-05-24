@@ -1,0 +1,87 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173453",
+  "description": "Message queue and event processing failures",
+  "duration": 330,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.060902",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.060251",
+      "event_type": "trigger",
+      "description": "Initial failure detected: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:05.060251",
+      "event_type": "timeout",
+      "description": "Timeout: the memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-queue",
+        "severity": "high",
+        "duration": 82,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-queue: queue processing the memory",
+        "metrics": {
+          "error_rate": 0.37534451047504647,
+          "response_time_ms": 7649,
+          "cpu_usage": 0.7407037614440688,
+          "memory_usage": 0.8931604911944865,
+          "queue_depth": 26817,
+          "message_processing_rate": 8.00734753125953,
+          "consumer_lag_ms": 76236
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:18.060251",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: to node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:20.060251",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: kafka server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:21.060251",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: kafka cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:22.060251",
+      "event_type": "recovery",
+      "description": "Recovery: kafka cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:36.060251",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: p error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:37.060251",
+      "event_type": "recovery",
+      "description": "Recovery: channel connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:23.060251",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

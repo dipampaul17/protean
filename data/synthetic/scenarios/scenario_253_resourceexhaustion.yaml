@@ -1,0 +1,140 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173708
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 1203
+metadata:
+  generated_at: '2025-05-23T17:37:08.019244'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 7
+events:
+- timestamp: '2025-05-23T17:37:08.018844'
+  event_type: trigger
+  description: 'Initial failure detected: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:47.018844'
+  event_type: failure
+  description: 'Failure: us log'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 45
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: us log - operation
+      failed'
+    metrics:
+      error_rate: 0.21342842501242032
+      response_time_ms: 3875
+      cpu_usage: 0.7536960477643032
+      memory_usage: 0.982685079745589
+- timestamp: '2025-05-23T17:37:59.018844'
+  event_type: timeout
+  description: 'Timeout: low disk'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 180
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: low disk - operation failed'
+    metrics:
+      error_rate: 0.5038847876687154
+      response_time_ms: 2362
+      cpu_usage: 0.8002791739313682
+      memory_usage: 0.8244417621201635
+- timestamp: '2025-05-23T17:38:29.018844'
+  event_type: timeout
+  description: 'Timeout: to monitor'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 253
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: to monitor - operation
+      failed'
+    metrics:
+      error_rate: 0.16192586702234069
+      response_time_ms: 6312
+      cpu_usage: 0.9557147207361469
+      memory_usage: 0.9501601581297914
+- timestamp: '2025-05-23T17:38:45.018844'
+  event_type: failure
+  description: 'Failure: high memory'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 123
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: high memory - operation
+      failed'
+    metrics:
+      error_rate: 0.1232753730025391
+      response_time_ms: 2104
+      cpu_usage: 0.766562522633359
+      memory_usage: 0.8716496507901957
+- timestamp: '2025-05-23T17:38:48.018844'
+  event_type: failure
+  description: 'Failure: message queue'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: medium
+    duration: 250
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: message queue - operation
+      failed'
+    metrics:
+      error_rate: 0.18052704678884002
+      response_time_ms: 791
+      cpu_usage: 0.618210427228866
+      memory_usage: 0.49869051169786316
+- timestamp: '2025-05-23T17:38:51.018844'
+  event_type: timeout
+  description: 'Timeout: info node'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 228
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: info node - operation
+      failed'
+    metrics:
+      error_rate: 0.2071879353730971
+      response_time_ms: 2005
+      cpu_usage: 0.8985833713787992
+      memory_usage: 0.8505876485280962
+- timestamp: '2025-05-23T17:39:04.018844'
+  event_type: failure
+  description: 'Failure: the service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 217
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: the service - operation
+      failed'
+    metrics:
+      error_rate: 0.3637936449321413
+      response_time_ms: 6685
+      cpu_usage: 0.9588909802223227
+      memory_usage: 0.8031525612693818
+- timestamp: '2025-05-23T17:39:23.018844'
+  event_type: timeout
+  description: 'Timeout: lt container'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 227
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: lt container -
+      operation failed'
+    metrics:
+      error_rate: 0.7935234294530932
+      response_time_ms: 7639
+      cpu_usage: 0.7550460982451587
+      memory_usage: 0.8081323265271319
+- timestamp: '2025-05-23T17:57:11.018844'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,114 @@
+category: NetworkPartition
+name: NetworkPartition_20250523_174629
+description: Infrastructure failure scenario for NetworkPartition
+duration: 941
+metadata:
+  generated_at: '2025-05-23T17:46:29.072999'
+  phrase_templates_used: 4
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:46:29.071948'
+  event_type: trigger
+  description: 'Initial failure detected: each node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:03.071948'
+  event_type: failure
+  description: 'Failure: of disk'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 86
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: of disk - operation
+      failed'
+    metrics:
+      error_rate: 0.7675176285243612
+      response_time_ms: 7964
+      cpu_usage: 0.7733374001201035
+      memory_usage: 0.8241461154323935
+- timestamp: '2025-05-23T17:47:42.071948'
+  event_type: timeout
+  description: 'Timeout: of disk'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 62
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: of disk - operation failed'
+    metrics:
+      error_rate: 0.17462536296640013
+      response_time_ms: 5541
+      cpu_usage: 0.7500433862750328
+      memory_usage: 0.8499846490923701
+- timestamp: '2025-05-23T17:48:23.071948'
+  event_type: timeout
+  description: 'Timeout: and memory'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 140
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: and memory - operation
+      failed'
+    metrics:
+      error_rate: 0.6601426946600829
+      response_time_ms: 7193
+      cpu_usage: 0.9760382163803392
+      memory_usage: 0.9055012484486805
+- timestamp: '2025-05-23T17:48:25.071948'
+  event_type: failure
+  description: 'Failure: and memory'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 140
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: and memory - operation
+      failed'
+    metrics:
+      error_rate: 0.8032316561972683
+      response_time_ms: 2246
+      cpu_usage: 0.8211844231840353
+      memory_usage: 0.8869102229314182
+- timestamp: '2025-05-23T17:48:27.071948'
+  event_type: failure
+  description: 'Failure: each node'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 36
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: each node - operation
+      failed'
+    metrics:
+      error_rate: 0.10428970790482239
+      response_time_ms: 7221
+      cpu_usage: 0.8144440201928926
+      memory_usage: 0.920475404952943
+- timestamp: '2025-05-23T17:48:31.071948'
+  event_type: failure
+  description: 'Failure: and node'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 154
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: and node - operation
+      failed'
+    metrics:
+      error_rate: 0.5297201658924112
+      response_time_ms: 3200
+      cpu_usage: 0.9612258174693401
+      memory_usage: 0.9841360807956286
+- timestamp: '2025-05-23T17:48:32.071948'
+  event_type: recovery
+  description: 'Recovery: of disk'
+  injection_spec: null
+- timestamp: '2025-05-23T18:02:10.071948'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

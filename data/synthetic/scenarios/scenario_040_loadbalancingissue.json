@@ -1,0 +1,69 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_174628",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 933,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.915039",
+    "phrase_templates_used": 13,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.914933",
+      "event_type": "trigger",
+      "description": "Initial failure detected: loadbalancer service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:49.914933",
+      "event_type": "timeout",
+      "description": "Timeout: the server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 263,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR load-balancer: the server in timeout",
+        "metrics": {
+          "error_rate": 0.8680402566719807,
+          "response_time_ms": 1948,
+          "cpu_usage": 0.9166161068546899,
+          "memory_usage": 0.9059435658669107,
+          "requests_per_sec": 1182,
+          "backend_health_pct": 0.6394536038382701,
+          "connection_timeouts": 178
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:24.914933",
+      "event_type": "scaling",
+      "description": "Scaling: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:48.914933",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: that node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:37.914933",
+      "event_type": "scaling",
+      "description": "Scaling: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:02:01.914933",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

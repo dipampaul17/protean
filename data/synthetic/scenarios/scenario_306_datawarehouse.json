@@ -1,0 +1,126 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_173245",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 1386,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.750098",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.749271",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:57.749271",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 57,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.3504513093520002,
+          "response_time_ms": 8623,
+          "cpu_usage": 0.9312688347872949,
+          "memory_usage": 0.9680756926751148
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:10.749271",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 108,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.5303416385853331,
+          "response_time_ms": 4411,
+          "cpu_usage": 0.7434092872251825,
+          "memory_usage": 0.961477030784276
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:41.749271",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 224,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.1019746819247554,
+          "response_time_ms": 6646,
+          "cpu_usage": 0.9030432005036744,
+          "memory_usage": 0.9506896838612302
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:22.749271",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 92,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.6647312192928709,
+          "response_time_ms": 6422,
+          "cpu_usage": 0.9398449146954269,
+          "memory_usage": 0.8198848749116825
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:55.749271",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:57.749271",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 191,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.5379942045597135,
+          "response_time_ms": 7054,
+          "cpu_usage": 0.9759323128495505,
+          "memory_usage": 0.9705040864937327
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:55:51.749271",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_174629",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 1747,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.092431",
+    "phrase_templates_used": 45,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.092063",
+      "event_type": "trigger",
+      "description": "Initial failure detected: illuminate queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:14.092063",
+      "event_type": "failure",
+      "description": "Failure: exist error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 52,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: exist error - operation failed",
+        "metrics": {
+          "error_rate": 0.7326971541941537,
+          "response_time_ms": 4913,
+          "cpu_usage": 0.817374492513039,
+          "memory_usage": 0.9278718818987918
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:02.092063",
+      "event_type": "timeout",
+      "description": "Timeout: closed connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 229,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: closed connection - operation failed",
+        "metrics": {
+          "error_rate": 0.5518876443761215,
+          "response_time_ms": 2129,
+          "cpu_usage": 0.7789914884188992,
+          "memory_usage": 0.8608327027163025
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:39.092063",
+      "event_type": "failure",
+      "description": "Failure: existing connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 182,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: existing connection - operation failed",
+        "metrics": {
+          "error_rate": 0.39858935808983664,
+          "response_time_ms": 1017,
+          "cpu_usage": 0.8668366392691064,
+          "memory_usage": 0.8275733176350707
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:51:44.092063",
+      "event_type": "failure",
+      "description": "Failure: existing connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 159,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: existing connection - operation failed",
+        "metrics": {
+          "error_rate": 0.8647991359062769,
+          "response_time_ms": 9844,
+          "cpu_usage": 0.8745250102294285,
+          "memory_usage": 0.982238467815017
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:52:12.092063",
+      "event_type": "failure",
+      "description": "Failure: coirq error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 241,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: coirq error - operation failed",
+        "metrics": {
+          "error_rate": 0.774146729356753,
+          "response_time_ms": 8620,
+          "cpu_usage": 0.7037155494641237,
+          "memory_usage": 0.9099538352674833
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:15:36.092063",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

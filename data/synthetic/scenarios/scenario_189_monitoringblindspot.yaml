@@ -1,0 +1,63 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173453
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1385
+metadata:
+  generated_at: '2025-05-23T17:34:53.136505'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:34:53.136341'
+  event_type: trigger
+  description: 'Initial failure detected: to monitor'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:16.136341'
+  event_type: recovery
+  description: 'Recovery: kubernetes cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:28.136341'
+  event_type: recovery
+  description: 'Recovery: web server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:46.136341'
+  event_type: timeout
+  description: 'Timeout: code alert'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 149
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: code alert - operation
+      failed'
+    metrics:
+      error_rate: 0.5662964050974952
+      response_time_ms: 7468
+      cpu_usage: 0.9697604225398053
+      memory_usage: 0.8882802020268618
+- timestamp: '2025-05-23T17:38:29.136341'
+  event_type: recovery
+  description: 'Recovery: connection refused'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:24.136341'
+  event_type: failure
+  description: 'Failure: reduce alert'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 37
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: reduce alert - operation
+      failed'
+    metrics:
+      error_rate: 0.7468492145700222
+      response_time_ms: 2185
+      cpu_usage: 0.8612138747766598
+      memory_usage: 0.8328521843569422
+- timestamp: '2025-05-23T17:57:58.136341'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

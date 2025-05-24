@@ -1,0 +1,96 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_174628",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 1645,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.988364",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.988194",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:14.988194",
+      "event_type": "recovery",
+      "description": "Recovery: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:35.988194",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 188,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.20509120624035396,
+          "response_time_ms": 7484,
+          "cpu_usage": 0.9478488829515033,
+          "memory_usage": 0.8749788869528985
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:11.988194",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:51:34.988194",
+      "event_type": "timeout",
+      "description": "Timeout: disk space full",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 247,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.3632184592080232,
+          "response_time_ms": 4025,
+          "cpu_usage": 0.9566420989221075,
+          "memory_usage": 0.9745261493245568
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:51:54.988194",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 224,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.5143522092440104,
+          "response_time_ms": 6658,
+          "cpu_usage": 0.7894775641300674,
+          "memory_usage": 0.8195180565457357
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:13:53.988194",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

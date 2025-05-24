@@ -1,0 +1,70 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_173707
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 908
+metadata:
+  generated_at: '2025-05-23T17:37:07.950066'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:07.949944'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:44.949944'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 42
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.6562857213593387
+      response_time_ms: 3393
+      cpu_usage: 0.7521345115549294
+      memory_usage: 0.88711252631163
+- timestamp: '2025-05-23T17:39:27.949944'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:39.949944'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 47
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.22770975975372032
+      response_time_ms: 5684
+      cpu_usage: 0.9434073237126828
+      memory_usage: 0.9302318205631663
+- timestamp: '2025-05-23T17:39:55.949944'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 273
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.4864853926463957
+      response_time_ms: 1221
+      cpu_usage: 0.8278712157889048
+      memory_usage: 0.9370614918564131
+- timestamp: '2025-05-23T17:52:15.949944'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

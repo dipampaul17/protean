@@ -1,0 +1,96 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173453
+description: Circuit breaker activation due to cascading service failures
+duration: 1700
+metadata:
+  generated_at: '2025-05-23T17:34:53.350187'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:53.350028'
+  event_type: trigger
+  description: 'Initial failure detected: code error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:26.350028'
+  event_type: failure
+  description: 'Failure: value memory'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 170
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: value memory - operation
+      failed'
+    metrics:
+      error_rate: 0.1774930713257269
+      response_time_ms: 1301
+      cpu_usage: 0.9061647281679022
+      memory_usage: 0.9400726007179026
+- timestamp: '2025-05-23T17:36:26.350028'
+  event_type: failure
+  description: 'Failure: info node'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 210
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: info node - operation
+      failed'
+    metrics:
+      error_rate: 0.653901650543722
+      response_time_ms: 3210
+      cpu_usage: 0.9991076961887961
+      memory_usage: 0.9653615650353178
+- timestamp: '2025-05-23T17:37:43.350028'
+  event_type: degradation
+  description: 'Degradation: to resolve'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: low
+    duration: 51
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: to resolve - operation
+      failed'
+    metrics:
+      error_rate: 0.03368628808976068
+      response_time_ms: 437
+      cpu_usage: 0.7440556648303407
+      memory_usage: 0.6606118888838778
+- timestamp: '2025-05-23T17:38:15.350028'
+  event_type: timeout
+  description: 'Timeout: session timeout'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 247
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: session timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.8975437073231985
+      response_time_ms: 9572
+      cpu_usage: 0.9584006628202728
+      memory_usage: 0.8820032623191307
+- timestamp: '2025-05-23T17:38:17.350028'
+  event_type: timeout
+  description: 'Timeout: var log'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 72
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: var log - operation
+      failed'
+    metrics:
+      error_rate: 0.464375568284081
+      response_time_ms: 7276
+      cpu_usage: 0.9104824896074672
+      memory_usage: 0.8118753166605157
+- timestamp: '2025-05-23T18:03:13.350028'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

@@ -1,0 +1,132 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_174629",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 602,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.129173",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 1,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.128936",
+      "event_type": "trigger",
+      "description": "Initial failure detected: nginx server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:41.128936",
+      "event_type": "timeout",
+      "description": "Timeout: var log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 268,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: var log - operation failed",
+        "metrics": {
+          "error_rate": 0.620081547927627,
+          "response_time_ms": 6839,
+          "cpu_usage": 0.7532629692178051,
+          "memory_usage": 0.9346595931512787
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:03.128936",
+      "event_type": "timeout",
+      "description": "Timeout: kubernetes cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 120,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: kubernetes cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.8035471134325846,
+          "response_time_ms": 7456,
+          "cpu_usage": 0.8223930468235072,
+          "memory_usage": 0.9556867267570108
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:17.128936",
+      "event_type": "failure",
+      "description": "Failure: us log",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 96,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: us log - operation failed",
+        "metrics": {
+          "error_rate": 0.3527307480208596,
+          "response_time_ms": 5498,
+          "cpu_usage": 0.9253361686541636,
+          "memory_usage": 0.9369081806855735
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:17.128936",
+      "event_type": "recovery",
+      "description": "Recovery: to monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:25.128936",
+      "event_type": "recovery",
+      "description": "Recovery: the log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:28.128936",
+      "event_type": "degradation",
+      "description": "Degradation: letter queue",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "medium",
+        "duration": 37,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: letter queue - operation failed",
+        "metrics": {
+          "error_rate": 0.11322733083771971,
+          "response_time_ms": 887,
+          "cpu_usage": 0.3734434891670491,
+          "memory_usage": 0.4389608674257468
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:39.128936",
+      "event_type": "degradation",
+      "description": "Degradation: strong update",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "low",
+        "duration": 215,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.1936040854625159,
+          "response_time_ms": 497,
+          "cpu_usage": 0.42044935769904296,
+          "memory_usage": 0.5040924705415394
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:56:31.128936",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

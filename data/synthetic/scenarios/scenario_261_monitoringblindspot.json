@@ -1,0 +1,102 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173245",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 409,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.737096",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.736970",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection refused",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:22.736970",
+      "event_type": "failure",
+      "description": "Failure: and memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 77,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: and memory - operation failed",
+        "metrics": {
+          "error_rate": 0.22164215233588164,
+          "response_time_ms": 9370,
+          "cpu_usage": 0.9778510345813025,
+          "memory_usage": 0.9935106414012065
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:36.736970",
+      "event_type": "timeout",
+      "description": "Timeout: a node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 97,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: a node - operation failed",
+        "metrics": {
+          "error_rate": 0.5468046751428938,
+          "response_time_ms": 8308,
+          "cpu_usage": 0.8589645864489627,
+          "memory_usage": 0.8084282229390427
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:10.736970",
+      "event_type": "timeout",
+      "description": "Timeout: the node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 191,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: the node - operation failed",
+        "metrics": {
+          "error_rate": 0.4287060385810041,
+          "response_time_ms": 2106,
+          "cpu_usage": 0.8852467968836133,
+          "memory_usage": 0.8974976785370985
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:20.736970",
+      "event_type": "failure",
+      "description": "Failure: the cpu",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 134,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: the cpu - operation failed",
+        "metrics": {
+          "error_rate": 0.6739946260687689,
+          "response_time_ms": 3246,
+          "cpu_usage": 0.8332546564963186,
+          "memory_usage": 0.8710416243062541
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:34.736970",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_173453
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1472
+metadata:
+  generated_at: '2025-05-23T17:34:53.338716'
+  phrase_templates_used: 45
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 2
+events:
+- timestamp: '2025-05-23T17:34:53.338549'
+  event_type: trigger
+  description: 'Initial failure detected: the log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:40.338549'
+  event_type: recovery
+  description: 'Recovery: to update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:03.338549'
+  event_type: timeout
+  description: 'Timeout: get update'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 146
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: get update - operation
+      failed'
+    metrics:
+      error_rate: 0.2107727654237797
+      response_time_ms: 8723
+      cpu_usage: 0.7624401538044884
+      memory_usage: 0.9454114932808377
+- timestamp: '2025-05-23T17:37:06.338549'
+  event_type: failure
+  description: 'Failure: illuminate queue'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: medium
+    duration: 290
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: illuminate queue - operation
+      failed'
+    metrics:
+      error_rate: 0.1637921803259958
+      response_time_ms: 696
+      cpu_usage: 0.4989181681934953
+      memory_usage: 0.6306630665836325
+- timestamp: '2025-05-23T17:37:17.338549'
+  event_type: recovery
+  description: 'Recovery: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:37.338549'
+  event_type: failure
+  description: 'Failure: lt connection'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 234
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: lt connection - operation
+      failed'
+    metrics:
+      error_rate: 0.13113778853420488
+      response_time_ms: 7842
+      cpu_usage: 0.9884152076874464
+      memory_usage: 0.9776394832768398
+- timestamp: '2025-05-23T17:59:25.338549'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,54 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173453
+description: Load balancer and traffic distribution problems
+duration: 1080
+metadata:
+  generated_at: '2025-05-23T17:34:53.218388'
+  phrase_templates_used: 13
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:34:53.218128'
+  event_type: trigger
+  description: 'Initial failure detected: loadbalancer service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:07.218128'
+  event_type: scaling
+  description: 'Scaling: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:04.218128'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: kafka pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:05.218128'
+  event_type: scaling
+  description: 'Scaling: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:01.218128'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: loadbalancer service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:00.218128'
+  event_type: timeout
+  description: 'Timeout: web server'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 67
+    log_snippet: '[2025-05-23 17:34:53] ERROR vpc-main: web server in timeout'
+    metrics:
+      error_rate: 0.5599023706903882
+      response_time_ms: 4987
+      cpu_usage: 0.9333952765376388
+      memory_usage: 0.9768500137423963
+      requests_per_sec: 2712
+      backend_health_pct: 0.517791307608219
+      connection_timeouts: 745
+- timestamp: '2025-05-23T17:52:53.218128'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

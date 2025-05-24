@@ -1,0 +1,111 @@
+category: DataCorruption
+name: DataCorruption_20250523_173245
+description: Infrastructure failure scenario for DataCorruption
+duration: 1247
+metadata:
+  generated_at: '2025-05-23T17:32:45.767353'
+  phrase_templates_used: 36
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 2
+    high: 4
+events:
+- timestamp: '2025-05-23T17:32:45.767163'
+  event_type: trigger
+  description: 'Initial failure detected: only container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:07.767163'
+  event_type: timeout
+  description: 'Timeout: ebs storage'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 229
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: ebs storage -
+      operation failed'
+    metrics:
+      error_rate: 0.15594160090565243
+      response_time_ms: 6658
+      cpu_usage: 0.7015718872125114
+      memory_usage: 0.9772139339691993
+- timestamp: '2025-05-23T17:33:53.767163'
+  event_type: failure
+  description: 'Failure: the queue'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: medium
+    duration: 35
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: the queue - operation
+      failed'
+    metrics:
+      error_rate: 0.07608872219747691
+      response_time_ms: 640
+      cpu_usage: 0.4698185938997851
+      memory_usage: 0.40700904628616486
+- timestamp: '2025-05-23T17:34:25.767163'
+  event_type: timeout
+  description: 'Timeout: data container'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 153
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: data container
+      - operation failed'
+    metrics:
+      error_rate: 0.5684621749439855
+      response_time_ms: 9545
+      cpu_usage: 0.9547245928623199
+      memory_usage: 0.963679430451023
+- timestamp: '2025-05-23T17:34:49.767163'
+  event_type: failure
+  description: 'Failure: new container'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 77
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: new container
+      - operation failed'
+    metrics:
+      error_rate: 0.2944424982357329
+      response_time_ms: 9240
+      cpu_usage: 0.9488298052703467
+      memory_usage: 0.9217565104440067
+- timestamp: '2025-05-23T17:35:04.767163'
+  event_type: timeout
+  description: 'Timeout: closed connection'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 85
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: closed connection - operation
+      failed'
+    metrics:
+      error_rate: 0.810076289593311
+      response_time_ms: 6625
+      cpu_usage: 0.8208250127035446
+      memory_usage: 0.9764697736206297
+- timestamp: '2025-05-23T17:35:43.767163'
+  event_type: failure
+  description: 'Failure: code queue'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: medium
+    duration: 40
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: code queue - operation
+      failed'
+    metrics:
+      error_rate: 0.175465142389491
+      response_time_ms: 1305
+      cpu_usage: 0.5407340059960497
+      memory_usage: 0.5232494500470782
+- timestamp: '2025-05-23T17:53:32.767163'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

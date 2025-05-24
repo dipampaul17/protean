@@ -1,0 +1,55 @@
+category: EventDriven
+name: EventDriven_20250523_174628
+description: Message queue and event processing failures
+duration: 1419
+metadata:
+  generated_at: '2025-05-23T17:46:28.970406'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 0
+events:
+- timestamp: '2025-05-23T17:46:28.970280'
+  event_type: trigger
+  description: 'Initial failure detected: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:15.970280'
+  event_type: recovery
+  description: 'Recovery: to restart'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:37.970280'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: warn error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:05.970280'
+  event_type: recovery
+  description: 'Recovery: error error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:18.970280'
+  event_type: timeout
+  description: 'Timeout: message queue'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: medium
+    duration: 187
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-queue: queue processing message
+      queue'
+    metrics:
+      error_rate: 0.18007189474133162
+      response_time_ms: 972
+      cpu_usage: 0.5610784024648651
+      memory_usage: 0.5741132393635835
+      queue_depth: 49697
+      message_processing_rate: 4.8400490470776765
+      consumer_lag_ms: 119350
+- timestamp: '2025-05-23T17:50:45.970280'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: warn error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:10:07.970280'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

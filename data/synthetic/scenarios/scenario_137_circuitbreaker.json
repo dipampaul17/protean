@@ -1,0 +1,90 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_174628",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1631,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.965088",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.964949",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:50.964949",
+      "event_type": "timeout",
+      "description": "Timeout: to restart",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 150,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: to restart - operation failed",
+        "metrics": {
+          "error_rate": 0.6065227437399348,
+          "response_time_ms": 3264,
+          "cpu_usage": 0.9219968969772535,
+          "memory_usage": 0.8698887509282227
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:51:23.964949",
+      "event_type": "timeout",
+      "description": "Timeout: labels service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 288,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: labels service - operation failed",
+        "metrics": {
+          "error_rate": 0.4209952495724433,
+          "response_time_ms": 6933,
+          "cpu_usage": 0.9010715464139604,
+          "memory_usage": 0.870925825082979
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:52:44.964949",
+      "event_type": "failure",
+      "description": "Failure: handling connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 73,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: handling connection - operation failed",
+        "metrics": {
+          "error_rate": 0.7063395767425283,
+          "response_time_ms": 8552,
+          "cpu_usage": 0.8858905471502707,
+          "memory_usage": 0.8061518595879605
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:53:10.964949",
+      "event_type": "recovery",
+      "description": "Recovery: to pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:13:39.964949",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

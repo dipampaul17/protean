@@ -1,0 +1,47 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_174629
+description: Application deployment and rollback scenarios
+duration: 1243
+metadata:
+  generated_at: '2025-05-23T17:46:29.121534'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:46:29.121410'
+  event_type: trigger
+  description: 'Initial failure detected: your container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:40.121410'
+  event_type: rollback
+  description: 'Rollback: p error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:14.121410'
+  event_type: scaling
+  description: 'Scaling: temporary failure'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:59.121410'
+  event_type: rollback
+  description: 'Rollback: kafka monitor'
+  injection_spec: null
+- timestamp: '2025-05-23T17:51:02.121410'
+  event_type: failure
+  description: 'Failure: the pod'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 36
+    log_snippet: '[2025-05-23 17:46:29] ERROR web-frontend: the pod in failure'
+    metrics:
+      error_rate: 0.40411284695757
+      response_time_ms: 3914
+      cpu_usage: 0.904106296610538
+      memory_usage: 0.9174640022115437
+- timestamp: '2025-05-23T18:07:12.121410'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

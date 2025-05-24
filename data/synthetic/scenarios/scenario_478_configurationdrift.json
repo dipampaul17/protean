@@ -1,0 +1,96 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173708",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1574,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.080393",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.080226",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the deployment",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:53.080226",
+      "event_type": "restart",
+      "description": "Restart: the pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:11.080226",
+      "event_type": "restart",
+      "description": "Restart: stopped container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:12.080226",
+      "event_type": "rollback",
+      "description": "Rollback: your cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:23.080226",
+      "event_type": "config_change",
+      "description": "Config_Change: rabbitmq connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:48.080226",
+      "event_type": "failure",
+      "description": "Failure: kubernetes service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 118,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: kubernetes service - operation failed",
+        "metrics": {
+          "error_rate": 0.1967431089109688,
+          "response_time_ms": 8992,
+          "cpu_usage": 0.9780495790088847,
+          "memory_usage": 0.8150670622046271
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:26.080226",
+      "event_type": "failure",
+      "description": "Failure: the queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "medium",
+        "duration": 287,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.05621854711509161,
+          "response_time_ms": 1961,
+          "cpu_usage": 0.34345780549208627,
+          "memory_usage": 0.4399736490261252
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:35.080226",
+      "event_type": "restart",
+      "description": "Restart: following error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:03:22.080226",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

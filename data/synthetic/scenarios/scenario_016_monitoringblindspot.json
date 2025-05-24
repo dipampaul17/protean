@@ -1,0 +1,102 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173452",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1063,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.904532",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.904377",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:30.904377",
+      "event_type": "failure",
+      "description": "Failure: to monitor",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 157,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR user-service: to monitor - operation failed",
+        "metrics": {
+          "error_rate": 0.7722705095282811,
+          "response_time_ms": 3273,
+          "cpu_usage": 0.9252902454086016,
+          "memory_usage": 0.8834542568918751
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:38.904377",
+      "event_type": "recovery",
+      "description": "Recovery: the cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:37.904377",
+      "event_type": "recovery",
+      "description": "Recovery: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:37.904377",
+      "event_type": "recovery",
+      "description": "Recovery: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:53.904377",
+      "event_type": "timeout",
+      "description": "Timeout: scaled service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 204,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: scaled service - operation failed",
+        "metrics": {
+          "error_rate": 0.3517924213545597,
+          "response_time_ms": 1794,
+          "cpu_usage": 0.9030051567662536,
+          "memory_usage": 0.9440056568815521
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:17.904377",
+      "event_type": "failure",
+      "description": "Failure: quot pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 177,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: quot pod - operation failed",
+        "metrics": {
+          "error_rate": 0.31446753804756816,
+          "response_time_ms": 8629,
+          "cpu_usage": 0.7478484237565416,
+          "memory_usage": 0.9599899109123738
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:52:35.904377",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+category: DataCorruption
+name: DataCorruption_20250523_173707
+description: Infrastructure failure scenario for DataCorruption
+duration: 1142
+metadata:
+  generated_at: '2025-05-23T17:37:07.999419'
+  phrase_templates_used: 36
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 1
+events:
+- timestamp: '2025-05-23T17:37:07.999140'
+  event_type: trigger
+  description: 'Initial failure detected: instance storage'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:41.999140'
+  event_type: failure
+  description: 'Failure: context cluster'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 229
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: context cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.36987913791116633
+      response_time_ms: 1633
+      cpu_usage: 0.7590566278986294
+      memory_usage: 0.8050886043019838
+- timestamp: '2025-05-23T17:39:53.999140'
+  event_type: recovery
+  description: 'Recovery: instance storage'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:16.999140'
+  event_type: recovery
+  description: 'Recovery: code queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:15.999140'
+  event_type: timeout
+  description: 'Timeout: head queue'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: medium
+    duration: 186
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: head queue - operation
+      failed'
+    metrics:
+      error_rate: 0.2879385445465233
+      response_time_ms: 1240
+      cpu_usage: 0.36799404463033525
+      memory_usage: 0.6765233729003586
+- timestamp: '2025-05-23T17:56:09.999140'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

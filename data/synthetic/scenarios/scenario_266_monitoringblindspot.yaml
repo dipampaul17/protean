@@ -1,0 +1,100 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173453
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 919
+metadata:
+  generated_at: '2025-05-23T17:34:53.201666'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:34:53.201281'
+  event_type: trigger
+  description: 'Initial failure detected: the service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:05.201281'
+  event_type: failure
+  description: 'Failure: a container'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 93
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: a container - operation
+      failed'
+    metrics:
+      error_rate: 0.6446641569913881
+      response_time_ms: 9570
+      cpu_usage: 0.8321180195629556
+      memory_usage: 0.9284864368531071
+- timestamp: '2025-05-23T17:35:42.201281'
+  event_type: failure
+  description: 'Failure: monitoring system'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 176
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: monitoring system -
+      operation failed'
+    metrics:
+      error_rate: 0.45151006005661387
+      response_time_ms: 7110
+      cpu_usage: 0.7256142394466901
+      memory_usage: 0.9839247365939752
+- timestamp: '2025-05-23T17:36:10.201281'
+  event_type: recovery
+  description: 'Recovery: or cpu'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:16.201281'
+  event_type: timeout
+  description: 'Timeout: and memory'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 131
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: and memory - operation
+      failed'
+    metrics:
+      error_rate: 0.5608546891524359
+      response_time_ms: 8668
+      cpu_usage: 0.8452842948121506
+      memory_usage: 0.8341132544953016
+- timestamp: '2025-05-23T17:37:14.201281'
+  event_type: timeout
+  description: 'Timeout: a node'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 91
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: a node - operation
+      failed'
+    metrics:
+      error_rate: 0.1041137604939289
+      response_time_ms: 3652
+      cpu_usage: 0.7643762369894977
+      memory_usage: 0.9439608437971895
+- timestamp: '2025-05-23T17:37:15.201281'
+  event_type: timeout
+  description: 'Timeout: the container'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 86
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: the container
+      - operation failed'
+    metrics:
+      error_rate: 0.7431944744425859
+      response_time_ms: 4928
+      cpu_usage: 0.8849682211165543
+      memory_usage: 0.9855019878948763
+- timestamp: '2025-05-23T17:50:12.201281'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

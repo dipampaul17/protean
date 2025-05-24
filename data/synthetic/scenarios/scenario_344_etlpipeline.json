@@ -1,0 +1,144 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173453",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 369,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.278284",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.278081",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:09.278081",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 152,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.6369421022868893,
+          "response_time_ms": 5231,
+          "cpu_usage": 0.7472398286384195,
+          "memory_usage": 0.8137251040743942
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:16.278081",
+      "event_type": "failure",
+      "description": "Failure: memory limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 66,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.17402651447769282,
+          "response_time_ms": 6028,
+          "cpu_usage": 0.8608231061964796,
+          "memory_usage": 0.9761932782877784
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:16.278081",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 130,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.13860963257238146,
+          "response_time_ms": 5105,
+          "cpu_usage": 0.9158350703361343,
+          "memory_usage": 0.8422775913232412
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:22.278081",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 223,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.7140328806692868,
+          "response_time_ms": 2399,
+          "cpu_usage": 0.7135776142233909,
+          "memory_usage": 0.8017427976487986
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:28.278081",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 269,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.506073503592796,
+          "response_time_ms": 6018,
+          "cpu_usage": 0.9192021808640375,
+          "memory_usage": 0.8470786263156762
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:29.278081",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:39.278081",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 213,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.2602448972975531,
+          "response_time_ms": 7415,
+          "cpu_usage": 0.7570575389712829,
+          "memory_usage": 0.856193788245129
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:02.278081",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

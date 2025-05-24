@@ -1,0 +1,118 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173245
+description: Circuit breaker activation due to cascading service failures
+duration: 639
+metadata:
+  generated_at: '2025-05-23T17:32:45.712197'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 2
+    medium: 1
+    high: 3
+events:
+- timestamp: '2025-05-23T17:32:45.711979'
+  event_type: trigger
+  description: 'Initial failure detected: to log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:57.711979'
+  event_type: degradation
+  description: 'Degradation: docker container'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: low
+    duration: 91
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: docker container - operation
+      failed'
+    metrics:
+      error_rate: 0.20707817538132836
+      response_time_ms: 179
+      cpu_usage: 0.5593988791917932
+      memory_usage: 0.42680941615059165
+- timestamp: '2025-05-23T17:33:00.711979'
+  event_type: recovery
+  description: 'Recovery: docker container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:00.711979'
+  event_type: failure
+  description: 'Failure: message queue'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: medium
+    duration: 210
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: message queue
+      - operation failed'
+    metrics:
+      error_rate: 0.23675849942294658
+      response_time_ms: 761
+      cpu_usage: 0.6196751088989787
+      memory_usage: 0.45060799233913956
+- timestamp: '2025-05-23T17:33:21.711979'
+  event_type: failure
+  description: 'Failure: gateway timeout'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 195
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: gateway timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.10498293539370139
+      response_time_ms: 8209
+      cpu_usage: 0.8106270199267563
+      memory_usage: 0.9297495211339565
+- timestamp: '2025-05-23T17:33:29.711979'
+  event_type: degradation
+  description: 'Degradation: kubernetes cluster'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: low
+    duration: 203
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: kubernetes cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.1995174372464868
+      response_time_ms: 932
+      cpu_usage: 0.365057043912328
+      memory_usage: 0.5536354341077204
+- timestamp: '2025-05-23T17:33:31.711979'
+  event_type: recovery
+  description: 'Recovery: info node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:33.711979'
+  event_type: failure
+  description: 'Failure: my server'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 175
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: my server - operation
+      failed'
+    metrics:
+      error_rate: 0.4435483194491504
+      response_time_ms: 6392
+      cpu_usage: 0.9843139417829234
+      memory_usage: 0.9400877548116258
+- timestamp: '2025-05-23T17:33:41.711979'
+  event_type: timeout
+  description: 'Timeout: to fix'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 100
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: to fix - operation failed'
+    metrics:
+      error_rate: 0.1852730254314901
+      response_time_ms: 5541
+      cpu_usage: 0.8799191840127915
+      memory_usage: 0.9035840644496123
+- timestamp: '2025-05-23T17:43:24.711979'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

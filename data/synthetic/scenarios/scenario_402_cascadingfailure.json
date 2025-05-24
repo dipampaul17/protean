@@ -1,0 +1,60 @@
+{
+  "category": "CascadingFailure",
+  "name": "CascadingFailure_20250523_174629",
+  "description": "Multi-service failure propagation scenario",
+  "duration": 1450,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.124395",
+    "phrase_templates_used": 2,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.124270",
+      "event_type": "trigger",
+      "description": "Initial failure detected: demographics monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:02.124270",
+      "event_type": "recovery",
+      "description": "Recovery: cascading failure",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:18.124270",
+      "event_type": "cascade",
+      "description": "Cascade: demographics monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:11.124270",
+      "event_type": "cascade",
+      "description": "Cascade: demographics monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:26.124270",
+      "event_type": "cascade",
+      "description": "Cascade: cascading failure",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:52.124270",
+      "event_type": "propagation",
+      "description": "Propagation: demographics monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:10:39.124270",
+      "event_type": "recovery",
+      "description": "System recovered: all services recovered",
+      "injection_spec": null
+    }
+  ]
+}

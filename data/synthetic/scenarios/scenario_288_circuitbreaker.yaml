@@ -1,0 +1,74 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173453
+description: Circuit breaker activation due to cascading service failures
+duration: 1466
+metadata:
+  generated_at: '2025-05-23T17:34:53.212099'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 1
+    medium: 1
+    high: 1
+events:
+- timestamp: '2025-05-23T17:34:53.211726'
+  event_type: trigger
+  description: 'Initial failure detected: client error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:38.211726'
+  event_type: failure
+  description: 'Failure: to resolve'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 131
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: to resolve - operation
+      failed'
+    metrics:
+      error_rate: 0.6355338879942881
+      response_time_ms: 2307
+      cpu_usage: 0.8157741195509463
+      memory_usage: 0.9058293710327558
+- timestamp: '2025-05-23T17:35:55.211726'
+  event_type: recovery
+  description: 'Recovery: to fix'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:33.211726'
+  event_type: degradation
+  description: 'Degradation: a queue'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: medium
+    duration: 166
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: a queue - operation
+      failed'
+    metrics:
+      error_rate: 0.2697853455791341
+      response_time_ms: 1244
+      cpu_usage: 0.7823856657244337
+      memory_usage: 0.6866676065128887
+- timestamp: '2025-05-23T17:36:55.211726'
+  event_type: recovery
+  description: 'Recovery: labels service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:58.211726'
+  event_type: degradation
+  description: 'Degradation: to monitor'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: low
+    duration: 131
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: to monitor - operation
+      failed'
+    metrics:
+      error_rate: 0.11973843765822123
+      response_time_ms: 389
+      cpu_usage: 0.7674798928374531
+      memory_usage: 0.49806315270089985
+- timestamp: '2025-05-23T17:59:19.211726'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

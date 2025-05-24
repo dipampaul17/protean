@@ -1,0 +1,89 @@
+category: DataCorruption
+name: DataCorruption_20250523_174629
+description: Infrastructure failure scenario for DataCorruption
+duration: 1639
+metadata:
+  generated_at: '2025-05-23T17:46:29.166963'
+  phrase_templates_used: 36
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:29.166767'
+  event_type: trigger
+  description: 'Initial failure detected: closed connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:49.166767'
+  event_type: timeout
+  description: 'Timeout: partitioned queue'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: medium
+    duration: 215
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: partitioned queue
+      - operation failed'
+    metrics:
+      error_rate: 0.1904233380275978
+      response_time_ms: 1393
+      cpu_usage: 0.5528852015434607
+      memory_usage: 0.44033168523971067
+- timestamp: '2025-05-23T17:47:39.166767'
+  event_type: failure
+  description: 'Failure: one server'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 228
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: one server - operation
+      failed'
+    metrics:
+      error_rate: 0.44534680890840583
+      response_time_ms: 3331
+      cpu_usage: 0.9847858930661324
+      memory_usage: 0.9780145496959994
+- timestamp: '2025-05-23T17:48:09.166767'
+  event_type: failure
+  description: 'Failure: a database'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 102
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: a database - operation
+      failed'
+    metrics:
+      error_rate: 0.48655339272091147
+      response_time_ms: 2259
+      cpu_usage: 0.7454235826906856
+      memory_usage: 0.9193236945227206
+- timestamp: '2025-05-23T17:48:18.166767'
+  event_type: recovery
+  description: 'Recovery: to rollback'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:58.166767'
+  event_type: recovery
+  description: 'Recovery: second node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:28.166767'
+  event_type: timeout
+  description: 'Timeout: the database'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 82
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: the database - operation
+      failed'
+    metrics:
+      error_rate: 0.5254085074901849
+      response_time_ms: 7137
+      cpu_usage: 0.8803579058806162
+      memory_usage: 0.9941000626962688
+- timestamp: '2025-05-23T18:13:48.166767'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

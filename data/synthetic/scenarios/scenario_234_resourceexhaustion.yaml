@@ -1,0 +1,81 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173453
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 1129
+metadata:
+  generated_at: '2025-05-23T17:34:53.160129'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:53.159997'
+  event_type: trigger
+  description: 'Initial failure detected: message queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:37.159997'
+  event_type: timeout
+  description: 'Timeout: code cluster'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 73
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: code cluster -
+      operation failed'
+    metrics:
+      error_rate: 0.342085532566758
+      response_time_ms: 6410
+      cpu_usage: 0.9799440317650515
+      memory_usage: 0.9033477569765231
+- timestamp: '2025-05-23T17:36:37.159997'
+  event_type: failure
+  description: 'Failure: the connection'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 169
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: the connection - operation
+      failed'
+    metrics:
+      error_rate: 0.512613914984369
+      response_time_ms: 7438
+      cpu_usage: 0.9195599822412336
+      memory_usage: 0.8455692125267803
+- timestamp: '2025-05-23T17:37:09.159997'
+  event_type: timeout
+  description: 'Timeout: em connection'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 160
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: em connection - operation
+      failed'
+    metrics:
+      error_rate: 0.8578582203161152
+      response_time_ms: 1894
+      cpu_usage: 0.9345867543460463
+      memory_usage: 0.8077878055936896
+- timestamp: '2025-05-23T17:37:25.159997'
+  event_type: failure
+  description: 'Failure: scaled service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 121
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: scaled service - operation
+      failed'
+    metrics:
+      error_rate: 0.5469915478823109
+      response_time_ms: 7165
+      cpu_usage: 0.9610472343918653
+      memory_usage: 0.8642875072190234
+- timestamp: '2025-05-23T17:53:42.159997'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

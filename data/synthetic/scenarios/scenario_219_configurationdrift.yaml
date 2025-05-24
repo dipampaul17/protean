@@ -1,0 +1,70 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_174628
+description: Configuration inconsistencies causing service degradation
+duration: 529
+metadata:
+  generated_at: '2025-05-23T17:46:28.988842'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:28.988641'
+  event_type: trigger
+  description: 'Initial failure detected: kubernetes cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:53.988641'
+  event_type: config_change
+  description: 'Config_Change: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:01.988641'
+  event_type: rollback
+  description: 'Rollback: following error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:05.988641'
+  event_type: failure
+  description: 'Failure: the log'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 123
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: the log - operation failed'
+    metrics:
+      error_rate: 0.16952797230271557
+      response_time_ms: 7906
+      cpu_usage: 0.800091057913298
+      memory_usage: 0.9716497317443393
+- timestamp: '2025-05-23T17:47:10.988641'
+  event_type: rollback
+  description: 'Rollback: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:31.988641'
+  event_type: restart
+  description: 'Restart: the service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:32.988641'
+  event_type: failure
+  description: 'Failure: the container'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 273
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: the container - operation
+      failed'
+    metrics:
+      error_rate: 0.4587508890957386
+      response_time_ms: 9429
+      cpu_usage: 0.819608745451414
+      memory_usage: 0.9993251431359531
+- timestamp: '2025-05-23T17:47:39.988641'
+  event_type: rollback
+  description: 'Rollback: code error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:55:17.988641'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

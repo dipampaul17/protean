@@ -1,0 +1,55 @@
+category: CloudNative
+name: CloudNative_20250523_173707
+description: Kubernetes pod and container orchestration issues
+duration: 578
+metadata:
+  generated_at: '2025-05-23T17:37:07.977840'
+  phrase_templates_used: 39
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:37:07.977619'
+  event_type: trigger
+  description: 'Initial failure detected: true server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:17.977619'
+  event_type: deployment
+  description: 'Deployment: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:30.977619'
+  event_type: scaling
+  description: 'Scaling: your cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:41.977619'
+  event_type: pod_restart
+  description: 'Pod_Restart: context cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:46.977619'
+  event_type: failure
+  description: 'Failure: to restart'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 68
+    log_snippet: '[2025-05-23 17:37:07] ERROR web-frontend: to restart in failure'
+    metrics:
+      error_rate: 0.856078430744864
+      response_time_ms: 5124
+      cpu_usage: 0.932375079900942
+      memory_usage: 0.8280117597244326
+- timestamp: '2025-05-23T17:37:51.977619'
+  event_type: deployment
+  description: 'Deployment: dns server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:26.977619'
+  event_type: pod_restart
+  description: 'Pod_Restart: the cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:45.977619'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

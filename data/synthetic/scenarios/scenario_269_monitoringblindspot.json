@@ -1,0 +1,126 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173245",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1543,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.738555",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.738386",
+      "event_type": "trigger",
+      "description": "Initial failure detected: parse error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:39.738386",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:45.738386",
+      "event_type": "failure",
+      "description": "Failure: a node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 86,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: a node - operation failed",
+        "metrics": {
+          "error_rate": 0.7268419008594775,
+          "response_time_ms": 9835,
+          "cpu_usage": 0.9433300857188465,
+          "memory_usage": 0.9404979460359983
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:41.738386",
+      "event_type": "failure",
+      "description": "Failure: quot server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 197,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: quot server - operation failed",
+        "metrics": {
+          "error_rate": 0.6672201770044733,
+          "response_time_ms": 9738,
+          "cpu_usage": 0.724411352054699,
+          "memory_usage": 0.8790533169423992
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:43.738386",
+      "event_type": "failure",
+      "description": "Failure: strong update",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 250,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.7843861565964593,
+          "response_time_ms": 4391,
+          "cpu_usage": 0.8787278051035529,
+          "memory_usage": 0.9749040947578129
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:47.738386",
+      "event_type": "timeout",
+      "description": "Timeout: quot server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 154,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: quot server - operation failed",
+        "metrics": {
+          "error_rate": 0.30047766075436827,
+          "response_time_ms": 4973,
+          "cpu_usage": 0.711657585811636,
+          "memory_usage": 0.9405481743228787
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:19.738386",
+      "event_type": "timeout",
+      "description": "Timeout: payment service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 124,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: payment service - operation failed",
+        "metrics": {
+          "error_rate": 0.7446461395793977,
+          "response_time_ms": 9429,
+          "cpu_usage": 0.8994675747677148,
+          "memory_usage": 0.9892676863895227
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:58:28.738386",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

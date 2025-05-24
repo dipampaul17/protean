@@ -1,0 +1,72 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_174628",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 976,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.907782",
+    "phrase_templates_used": 39,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.907662",
+      "event_type": "trigger",
+      "description": "Initial failure detected: your service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:43.907662",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: an error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:56.907662",
+      "event_type": "failure",
+      "description": "Failure: your cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 230,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR web-frontend: your cluster in failure",
+        "metrics": {
+          "error_rate": 0.5174325389897411,
+          "response_time_ms": 7551,
+          "cpu_usage": 0.9912930165276073,
+          "memory_usage": 0.9038507334206299
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:13.907662",
+      "event_type": "deployment",
+      "description": "Deployment: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:17.907662",
+      "event_type": "scaling",
+      "description": "Scaling: context cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:35.907662",
+      "event_type": "deployment",
+      "description": "Deployment: true server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:02:44.907662",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

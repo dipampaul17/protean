@@ -1,0 +1,66 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_173452",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 1609,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.993629",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.993519",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:17.993519",
+      "event_type": "recovery",
+      "description": "Recovery: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:31.993519",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 269,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.5908846120544292,
+          "response_time_ms": 8426,
+          "cpu_usage": 0.9951969854747647,
+          "memory_usage": 0.8559122028963612
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:05.993519",
+      "event_type": "recovery",
+      "description": "Recovery: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:22.993519",
+      "event_type": "recovery",
+      "description": "Recovery: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:01:41.993519",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

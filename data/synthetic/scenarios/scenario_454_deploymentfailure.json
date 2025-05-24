@@ -1,0 +1,60 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_174629",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1254,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.141308",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.140525",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:12.140525",
+      "event_type": "failure",
+      "description": "Failure: headless service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 140,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR api-backend: headless service in failure",
+        "metrics": {
+          "error_rate": 0.7342622000934392,
+          "response_time_ms": 1021,
+          "cpu_usage": 0.8683594722542238,
+          "memory_usage": 0.9347566718265952
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:38.140525",
+      "event_type": "scaling",
+      "description": "Scaling: using jenkins",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:52:02.140525",
+      "event_type": "deployment",
+      "description": "Deployment: reviewing error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:07:23.140525",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

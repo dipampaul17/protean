@@ -1,0 +1,162 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_173707",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 1002,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.784254",
+    "phrase_templates_used": 15,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 7
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.784019",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:48.784019",
+      "event_type": "failure",
+      "description": "Failure: to service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 161,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: to service - operation failed",
+        "metrics": {
+          "error_rate": 0.29048931804321765,
+          "response_time_ms": 2717,
+          "cpu_usage": 0.9747010241937002,
+          "memory_usage": 0.8922807568289336
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:51.784019",
+      "event_type": "timeout",
+      "description": "Timeout: strong service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 278,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: strong service - operation failed",
+        "metrics": {
+          "error_rate": 0.43140980833501164,
+          "response_time_ms": 3541,
+          "cpu_usage": 0.9323739533962748,
+          "memory_usage": 0.9402054799090516
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:57.784019",
+      "event_type": "recovery",
+      "description": "Recovery: ui service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:01.784019",
+      "event_type": "timeout",
+      "description": "Timeout: strong service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 120,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: strong service - operation failed",
+        "metrics": {
+          "error_rate": 0.5192676924603714,
+          "response_time_ms": 9136,
+          "cpu_usage": 0.8435558041658546,
+          "memory_usage": 0.8339672583590063
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:04.784019",
+      "event_type": "failure",
+      "description": "Failure: ui service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 205,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: ui service - operation failed",
+        "metrics": {
+          "error_rate": 0.1607255452561069,
+          "response_time_ms": 3206,
+          "cpu_usage": 0.7745937027966339,
+          "memory_usage": 0.8007250415954118
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:18.784019",
+      "event_type": "failure",
+      "description": "Failure: to service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 39,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: to service - operation failed",
+        "metrics": {
+          "error_rate": 0.6875498949415367,
+          "response_time_ms": 9003,
+          "cpu_usage": 0.7116038619032311,
+          "memory_usage": 0.8908590342330011
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:37.784019",
+      "event_type": "timeout",
+      "description": "Timeout: to service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 173,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: to service - operation failed",
+        "metrics": {
+          "error_rate": 0.3557330606280573,
+          "response_time_ms": 2346,
+          "cpu_usage": 0.9816585041647554,
+          "memory_usage": 0.9511495991614697
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:46.784019",
+      "event_type": "failure",
+      "description": "Failure: the container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 269,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.5943098969642685,
+          "response_time_ms": 1207,
+          "cpu_usage": 0.7624645455554979,
+          "memory_usage": 0.8222412166279024
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:53:49.784019",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

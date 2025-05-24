@@ -1,0 +1,44 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_174629
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1286
+metadata:
+  generated_at: '2025-05-23T17:46:29.148839'
+  phrase_templates_used: 45
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:46:29.148721'
+  event_type: trigger
+  description: 'Initial failure detected: api server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:09.148721'
+  event_type: failure
+  description: 'Failure: nginx error'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 55
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: nginx error -
+      operation failed'
+    metrics:
+      error_rate: 0.41250612665155906
+      response_time_ms: 8626
+      cpu_usage: 0.8750479764903215
+      memory_usage: 0.8222955100101289
+- timestamp: '2025-05-23T17:51:50.148721'
+  event_type: recovery
+  description: 'Recovery: closed connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:52:59.148721'
+  event_type: recovery
+  description: 'Recovery: work log'
+  injection_spec: null
+- timestamp: '2025-05-23T18:07:55.148721'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

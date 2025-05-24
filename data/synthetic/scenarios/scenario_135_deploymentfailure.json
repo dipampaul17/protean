@@ -1,0 +1,102 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173453",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1418,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.048399",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.028716",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:37.028716",
+      "event_type": "deployment",
+      "description": "Deployment: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:41.028716",
+      "event_type": "deployment",
+      "description": "Deployment: kubernetes pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:53.028716",
+      "event_type": "failure",
+      "description": "Failure: to update",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 240,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR api-backend: to update in failure",
+        "metrics": {
+          "error_rate": 0.34672554664640187,
+          "response_time_ms": 3395,
+          "cpu_usage": 0.7530918085932305,
+          "memory_usage": 0.9986063069007749
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:46.028716",
+      "event_type": "rollback",
+      "description": "Rollback: the deployment",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:48.028716",
+      "event_type": "deployment",
+      "description": "Deployment: code container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:26.028716",
+      "event_type": "rollback",
+      "description": "Rollback: kafka monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:32.028716",
+      "event_type": "failure",
+      "description": "Failure: code container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 139,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR worker-consumer: code container in failure",
+        "metrics": {
+          "error_rate": 0.47002047308762096,
+          "response_time_ms": 7632,
+          "cpu_usage": 0.9046225380641567,
+          "memory_usage": 0.8557079996535587
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:45.028716",
+      "event_type": "scaling",
+      "description": "Scaling: code deployment",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:58:31.028716",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

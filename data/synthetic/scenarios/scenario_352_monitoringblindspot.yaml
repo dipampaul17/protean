@@ -1,0 +1,119 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173453
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1403
+metadata:
+  generated_at: '2025-05-23T17:34:53.279840'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:34:53.279617'
+  event_type: trigger
+  description: 'Initial failure detected: nil log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:03.279617'
+  event_type: failure
+  description: 'Failure: the server'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 260
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.32077122347811904
+      response_time_ms: 5114
+      cpu_usage: 0.9182359764897821
+      memory_usage: 0.9113601495212428
+- timestamp: '2025-05-23T17:35:32.279617'
+  event_type: timeout
+  description: 'Timeout: docker container'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 283
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: docker container - operation
+      failed'
+    metrics:
+      error_rate: 0.20150370432259657
+      response_time_ms: 8713
+      cpu_usage: 0.8473285607909107
+      memory_usage: 0.885807144751643
+- timestamp: '2025-05-23T17:35:50.279617'
+  event_type: recovery
+  description: 'Recovery: the node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:02.279617'
+  event_type: failure
+  description: 'Failure: reduce alert'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 54
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: reduce alert - operation
+      failed'
+    metrics:
+      error_rate: 0.8372834081847901
+      response_time_ms: 4870
+      cpu_usage: 0.7372855968820908
+      memory_usage: 0.932528163753412
+- timestamp: '2025-05-23T17:37:20.279617'
+  event_type: recovery
+  description: 'Recovery: monitoring system'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:36.279617'
+  event_type: timeout
+  description: 'Timeout: a service'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 84
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.2540710962803579
+      response_time_ms: 7092
+      cpu_usage: 0.9096172404998935
+      memory_usage: 0.9572492095470815
+- timestamp: '2025-05-23T17:37:44.279617'
+  event_type: timeout
+  description: 'Timeout: reduce alert'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 51
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: reduce alert -
+      operation failed'
+    metrics:
+      error_rate: 0.7673660229124165
+      response_time_ms: 9203
+      cpu_usage: 0.7320923069572293
+      memory_usage: 0.9303394672800588
+- timestamp: '2025-05-23T17:37:48.279617'
+  event_type: timeout
+  description: 'Timeout: monitoring memory'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 210
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: monitoring memory
+      - operation failed'
+    metrics:
+      error_rate: 0.8775729648332944
+      response_time_ms: 3754
+      cpu_usage: 0.9803900145391793
+      memory_usage: 0.9564987955628107
+- timestamp: '2025-05-23T17:58:16.279617'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

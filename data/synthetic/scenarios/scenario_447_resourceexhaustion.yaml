@@ -1,0 +1,108 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173245
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 1592
+metadata:
+  generated_at: '2025-05-23T17:32:45.785290'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:32:45.785074'
+  event_type: trigger
+  description: 'Initial failure detected: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:20.785074'
+  event_type: timeout
+  description: 'Timeout: em connection'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 274
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: em connection - operation
+      failed'
+    metrics:
+      error_rate: 0.30100558063199073
+      response_time_ms: 3398
+      cpu_usage: 0.9800365231294752
+      memory_usage: 0.8105437036466588
+- timestamp: '2025-05-23T17:33:58.785074'
+  event_type: recovery
+  description: 'Recovery: us log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:00.785074'
+  event_type: timeout
+  description: 'Timeout: to monitor'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 119
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: to monitor - operation
+      failed'
+    metrics:
+      error_rate: 0.4786984590295864
+      response_time_ms: 1902
+      cpu_usage: 0.7895886666121328
+      memory_usage: 0.8919741141376453
+- timestamp: '2025-05-23T17:34:07.785074'
+  event_type: recovery
+  description: 'Recovery: of memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:09.785074'
+  event_type: failure
+  description: 'Failure: most memory'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 271
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: most memory - operation
+      failed'
+    metrics:
+      error_rate: 0.17118343327077856
+      response_time_ms: 5558
+      cpu_usage: 0.9158847060106987
+      memory_usage: 0.8573565989653127
+- timestamp: '2025-05-23T17:34:17.785074'
+  event_type: recovery
+  description: 'Recovery: em connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:29.785074'
+  event_type: failure
+  description: 'Failure: info node'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 298
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: info node - operation
+      failed'
+    metrics:
+      error_rate: 0.6691869183544041
+      response_time_ms: 2066
+      cpu_usage: 0.9630921309587743
+      memory_usage: 0.9677232458889792
+- timestamp: '2025-05-23T17:34:41.785074'
+  event_type: failure
+  description: 'Failure: heap memory'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 133
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: heap memory - operation
+      failed'
+    metrics:
+      error_rate: 0.1744441186973842
+      response_time_ms: 6197
+      cpu_usage: 0.7591913980979836
+      memory_usage: 0.8881028429198411
+- timestamp: '2025-05-23T17:59:17.785074'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

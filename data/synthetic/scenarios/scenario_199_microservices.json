@@ -1,0 +1,72 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_173245",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 692,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.720130",
+    "phrase_templates_used": 15,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.719358",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:04.719358",
+      "event_type": "timeout",
+      "description": "Timeout: a service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 88,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.7400344017678794,
+          "response_time_ms": 2338,
+          "cpu_usage": 0.9397383209790702,
+          "memory_usage": 0.8754732557218244
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:01.719358",
+      "event_type": "failure",
+      "description": "Failure: another container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 205,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: another container - operation failed",
+        "metrics": {
+          "error_rate": 0.1507271825978733,
+          "response_time_ms": 6442,
+          "cpu_usage": 0.7639263051861163,
+          "memory_usage": 0.9487554296005837
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:16.719358",
+      "event_type": "recovery",
+      "description": "Recovery: lt service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:44:17.719358",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

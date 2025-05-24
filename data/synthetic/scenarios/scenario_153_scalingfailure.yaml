@@ -1,0 +1,70 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_173453
+description: Infrastructure failure scenario for ScalingFailure
+duration: 407
+metadata:
+  generated_at: '2025-05-23T17:34:53.067369'
+  phrase_templates_used: 24
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.067208'
+  event_type: trigger
+  description: 'Initial failure detected: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:11.067208'
+  event_type: failure
+  description: 'Failure: of failure'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 222
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: of failure - operation
+      failed'
+    metrics:
+      error_rate: 0.2309735374158035
+      response_time_ms: 9825
+      cpu_usage: 0.8497283229654714
+      memory_usage: 0.8568509547222757
+- timestamp: '2025-05-23T17:35:21.067208'
+  event_type: failure
+  description: 'Failure: the server'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 289
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.5073869456326983
+      response_time_ms: 4945
+      cpu_usage: 0.9797148748398308
+      memory_usage: 0.8210702800598434
+- timestamp: '2025-05-23T17:35:23.067208'
+  event_type: recovery
+  description: 'Recovery: this service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:34.067208'
+  event_type: timeout
+  description: 'Timeout: the pod'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 187
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: the pod - operation
+      failed'
+    metrics:
+      error_rate: 0.48591880619646677
+      response_time_ms: 8110
+      cpu_usage: 0.7099257810598154
+      memory_usage: 0.9472169689275832
+- timestamp: '2025-05-23T17:41:40.067208'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

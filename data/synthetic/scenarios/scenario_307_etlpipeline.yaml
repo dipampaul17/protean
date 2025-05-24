@@ -1,0 +1,85 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173708
+description: Infrastructure failure scenario for ETLPipeline
+duration: 672
+metadata:
+  generated_at: '2025-05-23T17:37:08.034080'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:37:08.033730'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:45.033730'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 177
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.36081383547299706
+      response_time_ms: 2807
+      cpu_usage: 0.7018687952973854
+      memory_usage: 0.8184395563207586
+- timestamp: '2025-05-23T17:38:16.033730'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:31.033730'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 94
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.47010306080126907
+      response_time_ms: 2177
+      cpu_usage: 0.9738878193612667
+      memory_usage: 0.9995002594709269
+- timestamp: '2025-05-23T17:39:01.033730'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 239
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.5571258441973254
+      response_time_ms: 9506
+      cpu_usage: 0.9565819607582514
+      memory_usage: 0.9657078737517554
+- timestamp: '2025-05-23T17:39:04.033730'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 188
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.7129351113076943
+      response_time_ms: 3308
+      cpu_usage: 0.9576464291672657
+      memory_usage: 0.8436135986733425
+- timestamp: '2025-05-23T17:48:20.033730'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

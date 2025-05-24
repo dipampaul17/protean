@@ -1,0 +1,104 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173707
+description: Infrastructure failure scenario for DataWarehouse
+duration: 1078
+metadata:
+  generated_at: '2025-05-23T17:37:07.989661'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:37:07.989244'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:17.989244'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:19.989244'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 177
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.5189737064649507
+      response_time_ms: 9933
+      cpu_usage: 0.936180701280124
+      memory_usage: 0.8183704377729347
+- timestamp: '2025-05-23T17:37:32.989244'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 194
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.6965848655006842
+      response_time_ms: 2638
+      cpu_usage: 0.7845507544088514
+      memory_usage: 0.9017349790814022
+- timestamp: '2025-05-23T17:38:15.989244'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 86
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.7679001431604585
+      response_time_ms: 3829
+      cpu_usage: 0.9360414807854105
+      memory_usage: 0.873167975919371
+- timestamp: '2025-05-23T17:38:25.989244'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 258
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.24304526001138171
+      response_time_ms: 1561
+      cpu_usage: 0.9816742246480559
+      memory_usage: 0.8997602034671716
+- timestamp: '2025-05-23T17:39:33.989244'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 252
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: deployment failed
+      - operation failed'
+    metrics:
+      error_rate: 0.24950025420222843
+      response_time_ms: 4031
+      cpu_usage: 0.9452598677069701
+      memory_usage: 0.8705292991200719
+- timestamp: '2025-05-23T17:39:40.989244'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:55:05.989244'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

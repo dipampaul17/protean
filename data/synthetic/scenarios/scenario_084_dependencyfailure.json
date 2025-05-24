@@ -1,0 +1,78 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173452",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 627,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.981953",
+    "phrase_templates_used": 45,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.981835",
+      "event_type": "trigger",
+      "description": "Initial failure detected: proxy server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:12.981835",
+      "event_type": "failure",
+      "description": "Failure: to monitor",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 164,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: to monitor - operation failed",
+        "metrics": {
+          "error_rate": 0.3485997534479154,
+          "response_time_ms": 5469,
+          "cpu_usage": 0.8889797380053934,
+          "memory_usage": 0.9944771183932256
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:17.981835",
+      "event_type": "timeout",
+      "description": "Timeout: code error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 222,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR auth-service: code error - operation failed",
+        "metrics": {
+          "error_rate": 0.3677692329737162,
+          "response_time_ms": 1062,
+          "cpu_usage": 0.8303998850731497,
+          "memory_usage": 0.9438039788357933
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:40.981835",
+      "event_type": "recovery",
+      "description": "Recovery: upstream queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:47.981835",
+      "event_type": "recovery",
+      "description": "Recovery: jenkins server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:45:19.981835",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

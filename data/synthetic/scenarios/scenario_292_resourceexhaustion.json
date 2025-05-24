@@ -1,0 +1,108 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_173245",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 1199,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.744194",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.744043",
+      "event_type": "trigger",
+      "description": "Initial failure detected: reading database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:14.744043",
+      "event_type": "failure",
+      "description": "Failure: of memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 127,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: of memory - operation failed",
+        "metrics": {
+          "error_rate": 0.5459748417892026,
+          "response_time_ms": 9334,
+          "cpu_usage": 0.8790310231606142,
+          "memory_usage": 0.8480835055305375
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:20.744043",
+      "event_type": "failure",
+      "description": "Failure: double scale",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 231,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: double scale - operation failed",
+        "metrics": {
+          "error_rate": 0.17231678964389924,
+          "response_time_ms": 8284,
+          "cpu_usage": 0.8751128059937319,
+          "memory_usage": 0.942575966225782
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:35.744043",
+      "event_type": "recovery",
+      "description": "Recovery: and fix",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:52.744043",
+      "event_type": "failure",
+      "description": "Failure: a node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 64,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: a node - operation failed",
+        "metrics": {
+          "error_rate": 0.2696820663385444,
+          "response_time_ms": 7224,
+          "cpu_usage": 0.9741946306979297,
+          "memory_usage": 0.8527835985646441
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:29.744043",
+      "event_type": "timeout",
+      "description": "Timeout: causing outage",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 225,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: causing outage - operation failed",
+        "metrics": {
+          "error_rate": 0.8360393738176071,
+          "response_time_ms": 2835,
+          "cpu_usage": 0.9599997322461995,
+          "memory_usage": 0.8366870484847326
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:52:44.744043",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

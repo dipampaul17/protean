@@ -1,0 +1,47 @@
+category: CloudNative
+name: CloudNative_20250523_173452
+description: Kubernetes pod and container orchestration issues
+duration: 1107
+metadata:
+  generated_at: '2025-05-23T17:34:52.994906'
+  phrase_templates_used: 39
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:34:52.994803'
+  event_type: trigger
+  description: 'Initial failure detected: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:55.994803'
+  event_type: scaling
+  description: 'Scaling: the container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:33.994803'
+  event_type: deployment
+  description: 'Deployment: an error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:31.994803'
+  event_type: failure
+  description: 'Failure: eks cluster'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 200
+    log_snippet: '[2025-05-23 17:34:52] ERROR nginx-proxy: eks cluster in failure'
+    metrics:
+      error_rate: 0.13822206309768845
+      response_time_ms: 9339
+      cpu_usage: 0.9605443859794076
+      memory_usage: 0.8675103355591759
+- timestamp: '2025-05-23T17:38:28.994803'
+  event_type: scaling
+  description: 'Scaling: kubernetes error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:53:19.994803'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

@@ -1,0 +1,73 @@
+category: CloudNative
+name: CloudNative_20250523_173708
+description: Kubernetes pod and container orchestration issues
+duration: 1770
+metadata:
+  generated_at: '2025-05-23T17:37:08.013342'
+  phrase_templates_used: 39
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:08.013059'
+  event_type: trigger
+  description: 'Initial failure detected: name debug'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:53.013059'
+  event_type: deployment
+  description: 'Deployment: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:04.013059'
+  event_type: deployment
+  description: 'Deployment: context cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:39.013059'
+  event_type: pod_restart
+  description: 'Pod_Restart: getting error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:28.013059'
+  event_type: failure
+  description: 'Failure: the error'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 161
+    log_snippet: '[2025-05-23 17:37:08] ERROR web-frontend: the error in failure'
+    metrics:
+      error_rate: 0.7441195751773405
+      response_time_ms: 1553
+      cpu_usage: 0.8863756743047991
+      memory_usage: 0.8998007261677381
+- timestamp: '2025-05-23T17:39:45.013059'
+  event_type: failure
+  description: 'Failure: delete pod'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 45
+    log_snippet: '[2025-05-23 17:37:08] ERROR worker-consumer: delete pod in failure'
+    metrics:
+      error_rate: 0.6827934489292917
+      response_time_ms: 5220
+      cpu_usage: 0.7382146712279194
+      memory_usage: 0.8341418733385461
+- timestamp: '2025-05-23T17:40:10.013059'
+  event_type: pod_restart
+  description: 'Pod_Restart: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:22.013059'
+  event_type: pod_restart
+  description: 'Pod_Restart: dns server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:49.013059'
+  event_type: deployment
+  description: 'Deployment: docker container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:06:38.013059'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

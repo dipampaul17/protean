@@ -1,0 +1,100 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_174628
+description: Infrastructure failure scenario for ETLPipeline
+duration: 578
+metadata:
+  generated_at: '2025-05-23T17:46:28.998236'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:46:28.998046'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:57.998046'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 130
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.18163480654844238
+      response_time_ms: 8855
+      cpu_usage: 0.791982887439984
+      memory_usage: 0.9834231540299566
+- timestamp: '2025-05-23T17:47:05.998046'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 203
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.12476787678256906
+      response_time_ms: 1906
+      cpu_usage: 0.7906999473311488
+      memory_usage: 0.968424946121126
+- timestamp: '2025-05-23T17:47:09.998046'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 272
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: container crashed -
+      operation failed'
+    metrics:
+      error_rate: 0.7351179184430863
+      response_time_ms: 6603
+      cpu_usage: 0.8086435056320329
+      memory_usage: 0.9015944773042236
+- timestamp: '2025-05-23T17:47:20.998046'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 188
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.8082140539124287
+      response_time_ms: 9899
+      cpu_usage: 0.9683750035442866
+      memory_usage: 0.9900569586902938
+- timestamp: '2025-05-23T17:47:31.998046'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:51.998046'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 82
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.30407576435211736
+      response_time_ms: 3368
+      cpu_usage: 0.9680208563439856
+      memory_usage: 0.8443651004644195
+- timestamp: '2025-05-23T17:56:06.998046'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

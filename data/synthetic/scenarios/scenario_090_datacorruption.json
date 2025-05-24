@@ -1,0 +1,132 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173707",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 1136,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.951010",
+    "phrase_templates_used": 36,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.950814",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:17.950814",
+      "event_type": "failure",
+      "description": "Failure: to fix",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 267,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: to fix - operation failed",
+        "metrics": {
+          "error_rate": 0.4436723573886333,
+          "response_time_ms": 8658,
+          "cpu_usage": 0.8363360528468081,
+          "memory_usage": 0.9287457981197029
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:25.950814",
+      "event_type": "failure",
+      "description": "Failure: a cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 182,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: a cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.4211557501842743,
+          "response_time_ms": 3621,
+          "cpu_usage": 0.8753559323671061,
+          "memory_usage": 0.9109852323746548
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:30.950814",
+      "event_type": "recovery",
+      "description": "Recovery: second node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:49.950814",
+      "event_type": "failure",
+      "description": "Failure: the database",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 140,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: the database - operation failed",
+        "metrics": {
+          "error_rate": 0.7654430994664017,
+          "response_time_ms": 8635,
+          "cpu_usage": 0.8302101069736846,
+          "memory_usage": 0.9490118834832274
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:56.950814",
+      "event_type": "failure",
+      "description": "Failure: the connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 60,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: the connection - operation failed",
+        "metrics": {
+          "error_rate": 0.6952754349896814,
+          "response_time_ms": 1906,
+          "cpu_usage": 0.8966049208900491,
+          "memory_usage": 0.9913251399595249
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:28.950814",
+      "event_type": "failure",
+      "description": "Failure: to disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 297,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: to disk - operation failed",
+        "metrics": {
+          "error_rate": 0.16332528146175795,
+          "response_time_ms": 1929,
+          "cpu_usage": 0.8747452449333879,
+          "memory_usage": 0.9565968630141528
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:32.950814",
+      "event_type": "recovery",
+      "description": "Recovery: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:56:03.950814",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

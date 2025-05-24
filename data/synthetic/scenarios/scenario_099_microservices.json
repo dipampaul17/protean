@@ -1,0 +1,96 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_174628",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 1083,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.955324",
+    "phrase_templates_used": 15,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.955190",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:42.955190",
+      "event_type": "recovery",
+      "description": "Recovery: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:46.955190",
+      "event_type": "failure",
+      "description": "Failure: to service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 280,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: to service - operation failed",
+        "metrics": {
+          "error_rate": 0.4327452624007092,
+          "response_time_ms": 1919,
+          "cpu_usage": 0.9291387599589807,
+          "memory_usage": 0.8536302267658
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:53.955190",
+      "event_type": "failure",
+      "description": "Failure: lt service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 139,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: lt service - operation failed",
+        "metrics": {
+          "error_rate": 0.7627631251605741,
+          "response_time_ms": 9211,
+          "cpu_usage": 0.7335988052987276,
+          "memory_usage": 0.8020673738356122
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:13.955190",
+      "event_type": "failure",
+      "description": "Failure: a cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 69,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: a cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.5311916981045166,
+          "response_time_ms": 6346,
+          "cpu_usage": 0.8022390359547249,
+          "memory_usage": 0.9633250010471798
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:30.955190",
+      "event_type": "recovery",
+      "description": "Recovery: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:04:31.955190",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

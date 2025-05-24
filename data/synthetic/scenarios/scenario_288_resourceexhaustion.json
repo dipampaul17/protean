@@ -1,0 +1,114 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_173245",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 767,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.743450",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.743289",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the limit",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:33.743289",
+      "event_type": "failure",
+      "description": "Failure: to monitor",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 198,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: to monitor - operation failed",
+        "metrics": {
+          "error_rate": 0.2684915865675353,
+          "response_time_ms": 5994,
+          "cpu_usage": 0.7883401912052899,
+          "memory_usage": 0.8939755586493747
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:10.743289",
+      "event_type": "recovery",
+      "description": "Recovery: code cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:27.743289",
+      "event_type": "failure",
+      "description": "Failure: causing outage",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 279,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: causing outage - operation failed",
+        "metrics": {
+          "error_rate": 0.5313439138042695,
+          "response_time_ms": 2350,
+          "cpu_usage": 0.7572826678890148,
+          "memory_usage": 0.9570842620024769
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:30.743289",
+      "event_type": "failure",
+      "description": "Failure: high memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 55,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: high memory - operation failed",
+        "metrics": {
+          "error_rate": 0.8352034122373707,
+          "response_time_ms": 2099,
+          "cpu_usage": 0.871242645884628,
+          "memory_usage": 0.977792603188968
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:36.743289",
+      "event_type": "recovery",
+      "description": "Recovery: info node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:38.743289",
+      "event_type": "timeout",
+      "description": "Timeout: the disk",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 45,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: the disk - operation failed",
+        "metrics": {
+          "error_rate": 0.6718112956173843,
+          "response_time_ms": 8988,
+          "cpu_usage": 0.8844317400468054,
+          "memory_usage": 0.9023857120733701
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:45:32.743289",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

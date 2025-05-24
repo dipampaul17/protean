@@ -1,0 +1,70 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_174629
+description: Infrastructure failure scenario for ScalingFailure
+duration: 1524
+metadata:
+  generated_at: '2025-05-23T17:46:29.143234'
+  phrase_templates_used: 24
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:29.143098'
+  event_type: trigger
+  description: 'Initial failure detected: the cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:10.143098'
+  event_type: failure
+  description: 'Failure: the cluster'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 276
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: the cluster -
+      operation failed'
+    metrics:
+      error_rate: 0.5133702601751486
+      response_time_ms: 8092
+      cpu_usage: 0.8726409254543319
+      memory_usage: 0.9707390445355895
+- timestamp: '2025-05-23T17:48:35.143098'
+  event_type: failure
+  description: 'Failure: of failure'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 250
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: of failure - operation
+      failed'
+    metrics:
+      error_rate: 0.2972882640621429
+      response_time_ms: 6755
+      cpu_usage: 0.9784530392437438
+      memory_usage: 0.9979229045926716
+- timestamp: '2025-05-23T17:48:51.143098'
+  event_type: failure
+  description: 'Failure: load balancer'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 239
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: load balancer - operation
+      failed'
+    metrics:
+      error_rate: 0.11348380246494144
+      response_time_ms: 9261
+      cpu_usage: 0.7186267814021025
+      memory_usage: 0.8557239476697118
+- timestamp: '2025-05-23T17:50:38.143098'
+  event_type: recovery
+  description: 'Recovery: of failure'
+  injection_spec: null
+- timestamp: '2025-05-23T18:11:53.143098'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

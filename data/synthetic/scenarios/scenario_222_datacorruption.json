@@ -1,0 +1,144 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173453",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 1298,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.156603",
+    "phrase_templates_used": 36,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.156256",
+      "event_type": "trigger",
+      "description": "Initial failure detected: duplicate update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:14.156256",
+      "event_type": "timeout",
+      "description": "Timeout: a database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 151,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: a database - operation failed",
+        "metrics": {
+          "error_rate": 0.3254040335503088,
+          "response_time_ms": 1726,
+          "cpu_usage": 0.8729406571079317,
+          "memory_usage": 0.8287513256199812
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:41.156256",
+      "event_type": "timeout",
+      "description": "Timeout: head queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "medium",
+        "duration": 101,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: head queue - operation failed",
+        "metrics": {
+          "error_rate": 0.2499483568737707,
+          "response_time_ms": 1187,
+          "cpu_usage": 0.7148153758893127,
+          "memory_usage": 0.5832335146866315
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:28.156256",
+      "event_type": "failure",
+      "description": "Failure: to disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 278,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: to disk - operation failed",
+        "metrics": {
+          "error_rate": 0.36275182971305187,
+          "response_time_ms": 5043,
+          "cpu_usage": 0.9152082709561415,
+          "memory_usage": 0.9586738926650838
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:29.156256",
+      "event_type": "timeout",
+      "description": "Timeout: to disk",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 157,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: to disk - operation failed",
+        "metrics": {
+          "error_rate": 0.46102977362551445,
+          "response_time_ms": 9885,
+          "cpu_usage": 0.7639706332165072,
+          "memory_usage": 0.9600509839388732
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:53.156256",
+      "event_type": "timeout",
+      "description": "Timeout: data container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 288,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: data container - operation failed",
+        "metrics": {
+          "error_rate": 0.527181442885202,
+          "response_time_ms": 4010,
+          "cpu_usage": 0.8474395359953755,
+          "memory_usage": 0.9958279283600519
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:46.156256",
+      "event_type": "timeout",
+      "description": "Timeout: original container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 35,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: original container - operation failed",
+        "metrics": {
+          "error_rate": 0.8763987017898226,
+          "response_time_ms": 5762,
+          "cpu_usage": 0.8363347667926005,
+          "memory_usage": 0.8150749074917953
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:58.156256",
+      "event_type": "recovery",
+      "description": "Recovery: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:56:31.156256",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

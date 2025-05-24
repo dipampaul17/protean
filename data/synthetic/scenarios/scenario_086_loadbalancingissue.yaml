@@ -1,0 +1,98 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173707
+description: Load balancer and traffic distribution problems
+duration: 1169
+metadata:
+  generated_at: '2025-05-23T17:37:07.950267'
+  phrase_templates_used: 13
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:37:07.950093'
+  event_type: trigger
+  description: 'Initial failure detected: your cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:18.950093'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:21.950093'
+  event_type: timeout
+  description: 'Timeout: loadbalancer service'
+  injection_spec:
+    type: timeout
+    target: load-balancer
+    severity: high
+    duration: 184
+    log_snippet: '[2025-05-23 17:37:07] ERROR load-balancer: loadbalancer service
+      in timeout'
+    metrics:
+      error_rate: 0.23897385108329738
+      response_time_ms: 2533
+      cpu_usage: 0.8804172196762787
+      memory_usage: 0.9627373973425782
+      requests_per_sec: 2835
+      backend_health_pct: 0.7997115513301215
+      connection_timeouts: 738
+- timestamp: '2025-05-23T17:37:50.950093'
+  event_type: timeout
+  description: 'Timeout: a server'
+  injection_spec:
+    type: timeout
+    target: load-balancer
+    severity: high
+    duration: 159
+    log_snippet: '[2025-05-23 17:37:07] ERROR load-balancer: a server in timeout'
+    metrics:
+      error_rate: 0.17026996907988004
+      response_time_ms: 1035
+      cpu_usage: 0.7188292801926175
+      memory_usage: 0.8175866397058994
+      requests_per_sec: 3120
+      backend_health_pct: 0.7147942705898367
+      connection_timeouts: 860
+- timestamp: '2025-05-23T17:37:54.950093'
+  event_type: backend_failure
+  description: 'Backend_Failure: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:02.950093'
+  event_type: timeout
+  description: 'Timeout: a service'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 183
+    log_snippet: '[2025-05-23 17:37:07] ERROR vpc-main: a service in timeout'
+    metrics:
+      error_rate: 0.19975260915295295
+      response_time_ms: 2709
+      cpu_usage: 0.9357897354470593
+      memory_usage: 0.9320234429462398
+      requests_per_sec: 2414
+      backend_health_pct: 0.5663314952344362
+      connection_timeouts: 553
+- timestamp: '2025-05-23T17:40:07.950093'
+  event_type: timeout
+  description: 'Timeout: the server'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 207
+    log_snippet: '[2025-05-23 17:37:07] ERROR subnet-private: the server in timeout'
+    metrics:
+      error_rate: 0.5563055709145692
+      response_time_ms: 8805
+      cpu_usage: 0.7371696145907487
+      memory_usage: 0.8646006962923986
+      requests_per_sec: 4701
+      backend_health_pct: 0.6953059232246922
+      connection_timeouts: 23
+- timestamp: '2025-05-23T17:56:36.950093'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

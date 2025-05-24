@@ -1,0 +1,48 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_173707
+description: Infrastructure failure scenario for DependencyFailure
+duration: 517
+metadata:
+  generated_at: '2025-05-23T17:37:07.782942'
+  phrase_templates_used: 45
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:37:07.778247'
+  event_type: trigger
+  description: 'Initial failure detected: illuminate queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:18.778247'
+  event_type: recovery
+  description: 'Recovery: to update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:40.778247'
+  event_type: recovery
+  description: 'Recovery: destination node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:04.778247'
+  event_type: recovery
+  description: 'Recovery: nginx service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:12.778247'
+  event_type: timeout
+  description: 'Timeout: code server'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 201
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: code server -
+      operation failed'
+    metrics:
+      error_rate: 0.4289331398075795
+      response_time_ms: 2449
+      cpu_usage: 0.9645222513900013
+      memory_usage: 0.942115474636423
+- timestamp: '2025-05-23T17:45:44.778247'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,95 @@
+category: EventDriven
+name: EventDriven_20250523_173245
+description: Message queue and event processing failures
+duration: 418
+metadata:
+  generated_at: '2025-05-23T17:32:45.759311'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.758786'
+  event_type: trigger
+  description: 'Initial failure detected: failed to'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:04.758786'
+  event_type: timeout
+  description: 'Timeout: on node'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 255
+    log_snippet: '[2025-05-23 17:32:45] ERROR batch-processing-queue: queue processing
+      on node'
+    metrics:
+      error_rate: 0.15103169641282588
+      response_time_ms: 4936
+      cpu_usage: 0.9755701666942322
+      memory_usage: 0.9871873617517661
+      queue_depth: 20084
+      message_processing_rate: 9.751388017806287
+      consumer_lag_ms: 57427
+- timestamp: '2025-05-23T17:33:06.758786'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: using kafka'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:07.758786'
+  event_type: timeout
+  description: 'Timeout: this error'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 295
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-queue: queue processing this
+      error'
+    metrics:
+      error_rate: 0.4301541413769526
+      response_time_ms: 8282
+      cpu_usage: 0.921503369730254
+      memory_usage: 0.9868284136411656
+      queue_depth: 32872
+      message_processing_rate: 5.610687657334482
+      consumer_lag_ms: 188924
+- timestamp: '2025-05-23T17:33:08.758786'
+  event_type: recovery
+  description: 'Recovery: p error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:17.758786'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: ephemeral node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:24.758786'
+  event_type: timeout
+  description: 'Timeout: rabbitmq queue'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: medium
+    duration: 170
+    log_snippet: '[2025-05-23 17:32:45] ERROR batch-processing-queue: queue processing
+      rabbitmq queue'
+    metrics:
+      error_rate: 0.28810000069652014
+      response_time_ms: 688
+      cpu_usage: 0.5743626746562369
+      memory_usage: 0.6936169381035378
+      queue_depth: 12890
+      message_processing_rate: 9.309754434968148
+      consumer_lag_ms: 121022
+- timestamp: '2025-05-23T17:33:31.758786'
+  event_type: message_loss
+  description: 'Message_Loss: that queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:31.758786'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: a network'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:43.758786'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

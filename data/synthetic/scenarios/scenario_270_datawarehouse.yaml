@@ -1,0 +1,86 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173453
+description: Infrastructure failure scenario for DataWarehouse
+duration: 1709
+metadata:
+  generated_at: '2025-05-23T17:34:53.203845'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.203263'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:14.203263'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:46.203263'
+  event_type: recovery
+  description: 'Recovery: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:52.203263'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:39.203263'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 189
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.2866552947842571
+      response_time_ms: 1871
+      cpu_usage: 0.9591616640228698
+      memory_usage: 0.8215355886044579
+- timestamp: '2025-05-23T17:37:50.203263'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 260
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: rate limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.6055255204418206
+      response_time_ms: 1910
+      cpu_usage: 0.9799493748570607
+      memory_usage: 0.9770284575260662
+- timestamp: '2025-05-23T17:38:04.203263'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:07.203263'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 221
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.32635148407455405
+      response_time_ms: 6019
+      cpu_usage: 0.8712922879896127
+      memory_usage: 0.9981419005968695
+- timestamp: '2025-05-23T17:38:24.203263'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T18:03:22.203263'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

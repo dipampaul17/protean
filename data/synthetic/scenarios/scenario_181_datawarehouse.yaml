@@ -1,0 +1,108 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173245
+description: Infrastructure failure scenario for DataWarehouse
+duration: 1791
+metadata:
+  generated_at: '2025-05-23T17:32:45.716214'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:32:45.715282'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:14.715282'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 295
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.8360801911249035
+      response_time_ms: 5570
+      cpu_usage: 0.8729242299907357
+      memory_usage: 0.8076016509552902
+- timestamp: '2025-05-23T17:33:26.715282'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:13.715282'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:14.715282'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 98
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.8620236008683088
+      response_time_ms: 1542
+      cpu_usage: 0.7181532635882518
+      memory_usage: 0.9292707952008101
+- timestamp: '2025-05-23T17:35:24.715282'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 87
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.3389295603499811
+      response_time_ms: 3474
+      cpu_usage: 0.9599748627401605
+      memory_usage: 0.9718212955667013
+- timestamp: '2025-05-23T17:35:34.715282'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 273
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.4027778404751773
+      response_time_ms: 2542
+      cpu_usage: 0.8602238663720652
+      memory_usage: 0.9358676837621374
+- timestamp: '2025-05-23T17:35:42.715282'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 205
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.24653468053996327
+      response_time_ms: 9607
+      cpu_usage: 0.7559252358829474
+      memory_usage: 0.8410721754181876
+- timestamp: '2025-05-23T17:36:06.715282'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T18:02:36.715282'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

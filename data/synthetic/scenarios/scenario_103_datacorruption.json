@@ -1,0 +1,120 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_174628",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 475,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.956003",
+    "phrase_templates_used": 36,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 3,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.955845",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:39.955845",
+      "event_type": "failure",
+      "description": "Failure: one server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 196,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: one server - operation failed",
+        "metrics": {
+          "error_rate": 0.2681951592223564,
+          "response_time_ms": 1639,
+          "cpu_usage": 0.7488823255186701,
+          "memory_usage": 0.9854619415079474
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:46.955845",
+      "event_type": "failure",
+      "description": "Failure: a queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "medium",
+        "duration": 279,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: a queue - operation failed",
+        "metrics": {
+          "error_rate": 0.1702130257669287,
+          "response_time_ms": 347,
+          "cpu_usage": 0.778622395046509,
+          "memory_usage": 0.6060272448610957
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:04.955845",
+      "event_type": "failure",
+      "description": "Failure: code queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "medium",
+        "duration": 279,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: code queue - operation failed",
+        "metrics": {
+          "error_rate": 0.07047501554606274,
+          "response_time_ms": 155,
+          "cpu_usage": 0.4467867496806148,
+          "memory_usage": 0.4161864792449724
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:13.955845",
+      "event_type": "timeout",
+      "description": "Timeout: second node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 55,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: second node - operation failed",
+        "metrics": {
+          "error_rate": 0.8018769118053277,
+          "response_time_ms": 3251,
+          "cpu_usage": 0.9339544609221705,
+          "memory_usage": 0.9958628824875433
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:17.955845",
+      "event_type": "failure",
+      "description": "Failure: code queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "medium",
+        "duration": 244,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: code queue - operation failed",
+        "metrics": {
+          "error_rate": 0.14150298434411382,
+          "response_time_ms": 1163,
+          "cpu_usage": 0.46869678234428847,
+          "memory_usage": 0.6529500601049754
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:54:23.955845",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

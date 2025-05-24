@@ -1,0 +1,144 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_173453",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 481,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.104007",
+    "phrase_templates_used": 15,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.101023",
+      "event_type": "trigger",
+      "description": "Initial failure detected: another container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:14.101023",
+      "event_type": "timeout",
+      "description": "Timeout: a container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 156,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: a container - operation failed",
+        "metrics": {
+          "error_rate": 0.3080150625069328,
+          "response_time_ms": 6811,
+          "cpu_usage": 0.8120672016430016,
+          "memory_usage": 0.9086325382984914
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:15.101023",
+      "event_type": "recovery",
+      "description": "Recovery: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:17.101023",
+      "event_type": "timeout",
+      "description": "Timeout: docker network",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 33,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: docker network - operation failed",
+        "metrics": {
+          "error_rate": 0.14510297587467377,
+          "response_time_ms": 3728,
+          "cpu_usage": 0.9843417730550899,
+          "memory_usage": 0.9071359341319326
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:31.101023",
+      "event_type": "timeout",
+      "description": "Timeout: lt service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 253,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: lt service - operation failed",
+        "metrics": {
+          "error_rate": 0.6447923939028881,
+          "response_time_ms": 6198,
+          "cpu_usage": 0.926639010184658,
+          "memory_usage": 0.9022661418145823
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:39.101023",
+      "event_type": "timeout",
+      "description": "Timeout: a container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 254,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: a container - operation failed",
+        "metrics": {
+          "error_rate": 0.3954747501543785,
+          "response_time_ms": 1062,
+          "cpu_usage": 0.751156014135896,
+          "memory_usage": 0.8183307314666657
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:41.101023",
+      "event_type": "timeout",
+      "description": "Timeout: http connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 280,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: http connection - operation failed",
+        "metrics": {
+          "error_rate": 0.2520074116920251,
+          "response_time_ms": 3306,
+          "cpu_usage": 0.8802605132523647,
+          "memory_usage": 0.8956107603829928
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:52.101023",
+      "event_type": "timeout",
+      "description": "Timeout: the container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 197,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.14615250528309273,
+          "response_time_ms": 3109,
+          "cpu_usage": 0.933057829020301,
+          "memory_usage": 0.8029880480914053
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:42:54.101023",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173708
+description: Infrastructure failure scenario for ETLPipeline
+duration: 1325
+metadata:
+  generated_at: '2025-05-23T17:37:08.013692'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:37:08.013517'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:21.013517'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 38
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.6715377743650968
+      response_time_ms: 6976
+      cpu_usage: 0.8808489116024822
+      memory_usage: 0.8020716854720459
+- timestamp: '2025-05-23T17:37:24.013517'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 167
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.738696469890147
+      response_time_ms: 6334
+      cpu_usage: 0.9243041830722303
+      memory_usage: 0.8466103969989488
+- timestamp: '2025-05-23T17:38:07.013517'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 92
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.842661233352814
+      response_time_ms: 9908
+      cpu_usage: 0.7956806726975497
+      memory_usage: 0.9439168993154959
+- timestamp: '2025-05-23T17:39:12.013517'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 273
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.6227944180633966
+      response_time_ms: 6459
+      cpu_usage: 0.7032502962377764
+      memory_usage: 0.956819341479618
+- timestamp: '2025-05-23T17:39:27.013517'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:55.013517'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 149
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.1371270893051258
+      response_time_ms: 7562
+      cpu_usage: 0.9910301526135157
+      memory_usage: 0.8290196241812924
+- timestamp: '2025-05-23T17:59:13.013517'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

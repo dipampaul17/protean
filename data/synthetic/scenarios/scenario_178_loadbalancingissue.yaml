@@ -1,0 +1,62 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173245
+description: Load balancer and traffic distribution problems
+duration: 1772
+metadata:
+  generated_at: '2025-05-23T17:32:45.714315'
+  phrase_templates_used: 13
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:32:45.714154'
+  event_type: trigger
+  description: 'Initial failure detected: that node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:25.714154'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: load balancer'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:16.714154'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: load balancer'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:37.714154'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: kafka pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:48.714154'
+  event_type: backend_failure
+  description: 'Backend_Failure: load balancer'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:27.714154'
+  event_type: scaling
+  description: 'Scaling: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:59.714154'
+  event_type: timeout
+  description: 'Timeout: kafka pod'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 146
+    log_snippet: '[2025-05-23 17:32:45] ERROR vpc-main: kafka pod in timeout'
+    metrics:
+      error_rate: 0.5240363486227361
+      response_time_ms: 9811
+      cpu_usage: 0.7633399995909231
+      memory_usage: 0.9960633462070639
+      requests_per_sec: 7837
+      backend_health_pct: 0.7362303632281036
+      connection_timeouts: 537
+- timestamp: '2025-05-23T17:36:08.714154'
+  event_type: scaling
+  description: 'Scaling: your cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T18:02:17.714154'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

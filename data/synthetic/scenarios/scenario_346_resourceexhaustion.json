@@ -1,0 +1,156 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_174629",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 612,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.090206",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 7
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.089981",
+      "event_type": "trigger",
+      "description": "Initial failure detected: main memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:40.089981",
+      "event_type": "timeout",
+      "description": "Timeout: the database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 109,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: the database - operation failed",
+        "metrics": {
+          "error_rate": 0.18044699847770237,
+          "response_time_ms": 1051,
+          "cpu_usage": 0.8036372345505991,
+          "memory_usage": 0.9232474082777323
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:46.089981",
+      "event_type": "timeout",
+      "description": "Timeout: potential memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 183,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: potential memory - operation failed",
+        "metrics": {
+          "error_rate": 0.5407458702279125,
+          "response_time_ms": 9044,
+          "cpu_usage": 0.8957612719513617,
+          "memory_usage": 0.9197933023289513
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:59.089981",
+      "event_type": "failure",
+      "description": "Failure: a memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 284,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: a memory - operation failed",
+        "metrics": {
+          "error_rate": 0.5868517336807106,
+          "response_time_ms": 8488,
+          "cpu_usage": 0.7603730277966727,
+          "memory_usage": 0.8011416766722464
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:16.089981",
+      "event_type": "failure",
+      "description": "Failure: associative cache",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 215,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: associative cache - operation failed",
+        "metrics": {
+          "error_rate": 0.21135940621690283,
+          "response_time_ms": 9721,
+          "cpu_usage": 0.8752102507438463,
+          "memory_usage": 0.8904043643969648
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:16.089981",
+      "event_type": "failure",
+      "description": "Failure: to monitor",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 218,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: to monitor - operation failed",
+        "metrics": {
+          "error_rate": 0.298409557684155,
+          "response_time_ms": 1499,
+          "cpu_usage": 0.9667616821042693,
+          "memory_usage": 0.8541056972754931
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:19.089981",
+      "event_type": "failure",
+      "description": "Failure: associative cache",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 160,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: associative cache - operation failed",
+        "metrics": {
+          "error_rate": 0.31662979558658233,
+          "response_time_ms": 4396,
+          "cpu_usage": 0.7395590497052983,
+          "memory_usage": 0.9615201040581285
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:33.089981",
+      "event_type": "timeout",
+      "description": "Timeout: scaled service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 65,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: scaled service - operation failed",
+        "metrics": {
+          "error_rate": 0.4348817892294855,
+          "response_time_ms": 1065,
+          "cpu_usage": 0.8921663875923554,
+          "memory_usage": 0.8175664580664738
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:56:41.089981",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

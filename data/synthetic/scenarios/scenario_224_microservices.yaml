@@ -1,0 +1,48 @@
+category: Microservices
+name: Microservices_20250523_173453
+description: Infrastructure failure scenario for Microservices
+duration: 802
+metadata:
+  generated_at: '2025-05-23T17:34:53.156994'
+  phrase_templates_used: 15
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:34:53.156890'
+  event_type: trigger
+  description: 'Initial failure detected: ui service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:13.156890'
+  event_type: recovery
+  description: 'Recovery: strong service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:51.156890'
+  event_type: recovery
+  description: 'Recovery: from service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:09.156890'
+  event_type: recovery
+  description: 'Recovery: headless service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:33.156890'
+  event_type: failure
+  description: 'Failure: a cluster'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 233
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: a cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.275621318660595
+      response_time_ms: 4376
+      cpu_usage: 0.8733697328162922
+      memory_usage: 0.8794497117744786
+- timestamp: '2025-05-23T17:48:15.156890'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

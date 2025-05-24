@@ -1,0 +1,93 @@
+category: Microservices
+name: Microservices_20250523_173708
+description: Infrastructure failure scenario for Microservices
+duration: 788
+metadata:
+  generated_at: '2025-05-23T17:37:08.050700'
+  phrase_templates_used: 15
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:37:08.050520'
+  event_type: trigger
+  description: 'Initial failure detected: docker network'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:30.050520'
+  event_type: timeout
+  description: 'Timeout: strong service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 274
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: strong service
+      - operation failed'
+    metrics:
+      error_rate: 0.413011373258683
+      response_time_ms: 2963
+      cpu_usage: 0.7394839915698248
+      memory_usage: 0.9859028749620895
+- timestamp: '2025-05-23T17:37:34.050520'
+  event_type: failure
+  description: 'Failure: another container'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 67
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: another container - operation
+      failed'
+    metrics:
+      error_rate: 0.8756932835274219
+      response_time_ms: 8577
+      cpu_usage: 0.7394557628413543
+      memory_usage: 0.820606054367406
+- timestamp: '2025-05-23T17:37:39.050520'
+  event_type: recovery
+  description: 'Recovery: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:56.050520'
+  event_type: recovery
+  description: 'Recovery: the container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:58.050520'
+  event_type: recovery
+  description: 'Recovery: ui service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:04.050520'
+  event_type: failure
+  description: 'Failure: a container'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 254
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: a container - operation
+      failed'
+    metrics:
+      error_rate: 0.7099556616812552
+      response_time_ms: 2622
+      cpu_usage: 0.9354129527852424
+      memory_usage: 0.9722505943439441
+- timestamp: '2025-05-23T17:38:12.050520'
+  event_type: timeout
+  description: 'Timeout: docker network'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 259
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: docker network - operation
+      failed'
+    metrics:
+      error_rate: 0.483861406075622
+      response_time_ms: 9860
+      cpu_usage: 0.7455157063420852
+      memory_usage: 0.8880989075042944
+- timestamp: '2025-05-23T17:50:16.050520'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,78 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_174629
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 1490
+metadata:
+  generated_at: '2025-05-23T17:46:29.082614'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:29.082449'
+  event_type: trigger
+  description: 'Initial failure detected: scaled service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:46.082449'
+  event_type: recovery
+  description: 'Recovery: of memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:23.082449'
+  event_type: failure
+  description: 'Failure: reading database'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 64
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: reading database - operation
+      failed'
+    metrics:
+      error_rate: 0.41605229496325435
+      response_time_ms: 6710
+      cpu_usage: 0.8261246143441618
+      memory_usage: 0.8292805871270139
+- timestamp: '2025-05-23T17:47:27.082449'
+  event_type: timeout
+  description: 'Timeout: most memory'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 205
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: most memory - operation
+      failed'
+    metrics:
+      error_rate: 0.8325081072169073
+      response_time_ms: 8694
+      cpu_usage: 0.8290914493393502
+      memory_usage: 0.9477998123513716
+- timestamp: '2025-05-23T17:49:10.082449'
+  event_type: timeout
+  description: 'Timeout: a node'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 155
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: a node - operation
+      failed'
+    metrics:
+      error_rate: 0.3310184837883213
+      response_time_ms: 3476
+      cpu_usage: 0.8658823499082261
+      memory_usage: 0.9098842117578564
+- timestamp: '2025-05-23T17:49:16.082449'
+  event_type: recovery
+  description: 'Recovery: causing outage'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:36.082449'
+  event_type: recovery
+  description: 'Recovery: the cache'
+  injection_spec: null
+- timestamp: '2025-05-23T18:11:19.082449'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

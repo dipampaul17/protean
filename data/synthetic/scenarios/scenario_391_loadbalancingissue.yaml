@@ -1,0 +1,93 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173245
+description: Load balancer and traffic distribution problems
+duration: 469
+metadata:
+  generated_at: '2025-05-23T17:32:45.771519'
+  phrase_templates_used: 13
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:32:45.771312'
+  event_type: trigger
+  description: 'Initial failure detected: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:56.771312'
+  event_type: timeout
+  description: 'Timeout: loadbalancer service'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 151
+    log_snippet: '[2025-05-23 17:32:45] ERROR subnet-private: loadbalancer service
+      in timeout'
+    metrics:
+      error_rate: 0.15749268380968529
+      response_time_ms: 2514
+      cpu_usage: 0.7425330866975262
+      memory_usage: 0.996681554240467
+      requests_per_sec: 2269
+      backend_health_pct: 0.6990441021075358
+      connection_timeouts: 822
+- timestamp: '2025-05-23T17:33:02.771312'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:08.771312'
+  event_type: scaling
+  description: 'Scaling: your cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:26.771312'
+  event_type: scaling
+  description: 'Scaling: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:28.771312'
+  event_type: backend_failure
+  description: 'Backend_Failure: in connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:31.771312'
+  event_type: timeout
+  description: 'Timeout: a service'
+  injection_spec:
+    type: timeout
+    target: load-balancer
+    severity: high
+    duration: 141
+    log_snippet: '[2025-05-23 17:32:45] ERROR load-balancer: a service in timeout'
+    metrics:
+      error_rate: 0.5090553822186207
+      response_time_ms: 7644
+      cpu_usage: 0.7984517100889386
+      memory_usage: 0.8394672649771336
+      requests_per_sec: 251
+      backend_health_pct: 0.7960948104572806
+      connection_timeouts: 989
+- timestamp: '2025-05-23T17:33:34.771312'
+  event_type: backend_failure
+  description: 'Backend_Failure: load balancer'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:39.771312'
+  event_type: timeout
+  description: 'Timeout: a container'
+  injection_spec:
+    type: timeout
+    target: api-gateway
+    severity: high
+    duration: 276
+    log_snippet: '[2025-05-23 17:32:45] ERROR api-gateway: a container in timeout'
+    metrics:
+      error_rate: 0.4645094179965823
+      response_time_ms: 4333
+      cpu_usage: 0.856079888247662
+      memory_usage: 0.8980536981299796
+      requests_per_sec: 8402
+      backend_health_pct: 0.7856750416176599
+      connection_timeouts: 962
+- timestamp: '2025-05-23T17:40:34.771312'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

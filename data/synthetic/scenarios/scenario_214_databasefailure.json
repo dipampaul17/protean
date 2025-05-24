@@ -1,0 +1,78 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173453",
+  "description": "Database connectivity and performance issues",
+  "duration": 1778,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.152132",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.151935",
+      "event_type": "trigger",
+      "description": "Initial failure detected: postgres server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:22.151935",
+      "event_type": "timeout",
+      "description": "Timeout: postgres server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 276,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR mongodb-shard: postgres server in timeout",
+        "metrics": {
+          "error_rate": 0.4438118710226383,
+          "response_time_ms": 5980,
+          "cpu_usage": 0.7872220517195134,
+          "memory_usage": 0.8002977533050412,
+          "connection_pool_usage": 0.9574379929898739,
+          "query_time_ms": 27046,
+          "deadlocks_per_sec": 4
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:27.151935",
+      "event_type": "timeout",
+      "description": "Timeout: the update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 34,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR mongodb-shard: the update in timeout",
+        "metrics": {
+          "error_rate": 0.8114068974290664,
+          "response_time_ms": 9494,
+          "cpu_usage": 0.9445760090057077,
+          "memory_usage": 0.8863906575973722,
+          "connection_pool_usage": 0.9764853748532156,
+          "query_time_ms": 22818,
+          "deadlocks_per_sec": 6
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:44:25.151935",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: to scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:04:31.151935",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_173708",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 1337,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.022184",
+    "phrase_templates_used": 15,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.021097",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:33.021097",
+      "event_type": "timeout",
+      "description": "Timeout: http connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 71,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: http connection - operation failed",
+        "metrics": {
+          "error_rate": 0.4336925087858985,
+          "response_time_ms": 3570,
+          "cpu_usage": 0.8779733445473179,
+          "memory_usage": 0.9394181235841086
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:46.021097",
+      "event_type": "failure",
+      "description": "Failure: ui service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 164,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: ui service - operation failed",
+        "metrics": {
+          "error_rate": 0.3186831512462882,
+          "response_time_ms": 2086,
+          "cpu_usage": 0.8230834260926861,
+          "memory_usage": 0.8750872355616673
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:34.021097",
+      "event_type": "failure",
+      "description": "Failure: the container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 188,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.10663310258185757,
+          "response_time_ms": 1528,
+          "cpu_usage": 0.7924760595433664,
+          "memory_usage": 0.9264873995519517
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:22.021097",
+      "event_type": "recovery",
+      "description": "Recovery: following error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:36.021097",
+      "event_type": "recovery",
+      "description": "Recovery: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:48.021097",
+      "event_type": "failure",
+      "description": "Failure: to service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 85,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: to service - operation failed",
+        "metrics": {
+          "error_rate": 0.8935798896968575,
+          "response_time_ms": 2428,
+          "cpu_usage": 0.7389312094091096,
+          "memory_usage": 0.9571986175637476
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:18.021097",
+      "event_type": "recovery",
+      "description": "Recovery: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:59:25.021097",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_174628",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 1115,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.969438",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.968853",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:51.968853",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:00.968853",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 35,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.3368179522702439,
+          "response_time_ms": 2083,
+          "cpu_usage": 0.717443294068529,
+          "memory_usage": 0.976520022238473
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:31.968853",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 74,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.8511505917078495,
+          "response_time_ms": 9261,
+          "cpu_usage": 0.8345681897517159,
+          "memory_usage": 0.9785031997123652
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:05.968853",
+      "event_type": "failure",
+      "description": "Failure: memory limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 290,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.6741933299664666,
+          "response_time_ms": 8611,
+          "cpu_usage": 0.9166490849340254,
+          "memory_usage": 0.9909988605752978
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:08.968853",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:11.968853",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 214,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.5488430533456885,
+          "response_time_ms": 6146,
+          "cpu_usage": 0.9137045128087048,
+          "memory_usage": 0.950464282017136
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:12.968853",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 65,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.8823250569045236,
+          "response_time_ms": 8280,
+          "cpu_usage": 0.7756019761794803,
+          "memory_usage": 0.9786693383182905
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:14.968853",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 97,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.7766217620329202,
+          "response_time_ms": 9506,
+          "cpu_usage": 0.9893583448777858,
+          "memory_usage": 0.8275601580433625
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:05:03.968853",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

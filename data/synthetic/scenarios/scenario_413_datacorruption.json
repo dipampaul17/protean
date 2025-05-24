@@ -1,0 +1,84 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173453",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 1467,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.341057",
+    "phrase_templates_used": 36,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.340947",
+      "event_type": "trigger",
+      "description": "Initial failure detected: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:47.340947",
+      "event_type": "timeout",
+      "description": "Timeout: original container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 209,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: original container - operation failed",
+        "metrics": {
+          "error_rate": 0.150204852935629,
+          "response_time_ms": 5549,
+          "cpu_usage": 0.980477227077302,
+          "memory_usage": 0.9728156444530008
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:16.340947",
+      "event_type": "failure",
+      "description": "Failure: context cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 144,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: context cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.16462399011541623,
+          "response_time_ms": 2366,
+          "cpu_usage": 0.7128951286105766,
+          "memory_usage": 0.8145811674884017
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:42:36.340947",
+      "event_type": "failure",
+      "description": "Failure: the node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 243,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: the node - operation failed",
+        "metrics": {
+          "error_rate": 0.4368450584835514,
+          "response_time_ms": 9574,
+          "cpu_usage": 0.7563947381367326,
+          "memory_usage": 0.8988920307790759
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:59:20.340947",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

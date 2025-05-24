@@ -1,0 +1,72 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173453",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 388,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.225967",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.225844",
+      "event_type": "trigger",
+      "description": "Initial failure detected: kubectl scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:05.225844",
+      "event_type": "scaling",
+      "description": "Scaling: docker service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:19.225844",
+      "event_type": "deployment",
+      "description": "Deployment: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:33.225844",
+      "event_type": "deployment",
+      "description": "Deployment: apache server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:45.225844",
+      "event_type": "deployment",
+      "description": "Deployment: docker container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:07.225844",
+      "event_type": "failure",
+      "description": "Failure: jenkins container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 299,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR nginx-proxy: jenkins container in failure",
+        "metrics": {
+          "error_rate": 0.6658694699437547,
+          "response_time_ms": 4616,
+          "cpu_usage": 0.9952345402812214,
+          "memory_usage": 0.8862457371165918
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:21.225844",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

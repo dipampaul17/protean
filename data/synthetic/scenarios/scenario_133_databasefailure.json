@@ -1,0 +1,87 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_174628",
+  "description": "Database connectivity and performance issues",
+  "duration": 903,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.964410",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.964249",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:55.964249",
+      "event_type": "corruption",
+      "description": "Corruption: your database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:30.964249",
+      "event_type": "recovery",
+      "description": "Recovery: postgres database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:31.964249",
+      "event_type": "recovery",
+      "description": "Recovery: api server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:44.964249",
+      "event_type": "recovery",
+      "description": "Recovery: postgresql database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:16.964249",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: relational database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:26.964249",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: sudo service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:32.964249",
+      "event_type": "timeout",
+      "description": "Timeout: the error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 118,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR redis-cache: the error in timeout",
+        "metrics": {
+          "error_rate": 0.696468111702733,
+          "response_time_ms": 2729,
+          "cpu_usage": 0.9196399099321668,
+          "memory_usage": 0.81691357264033,
+          "connection_pool_usage": 0.9610470989878479,
+          "query_time_ms": 9500,
+          "deadlocks_per_sec": 9
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:01:31.964249",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

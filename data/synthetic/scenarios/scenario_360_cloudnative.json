@@ -1,0 +1,96 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_173708",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 1258,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.045713",
+    "phrase_templates_used": 39,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.045552",
+      "event_type": "trigger",
+      "description": "Initial failure detected: true server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:10.045552",
+      "event_type": "failure",
+      "description": "Failure: api server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 280,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR nginx-proxy: api server in failure",
+        "metrics": {
+          "error_rate": 0.6391843230033409,
+          "response_time_ms": 5999,
+          "cpu_usage": 0.9310590321365012,
+          "memory_usage": 0.9812614830629198
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:23.045552",
+      "event_type": "scaling",
+      "description": "Scaling: the pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:52.045552",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: a node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:26.045552",
+      "event_type": "scaling",
+      "description": "Scaling: true server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:26.045552",
+      "event_type": "failure",
+      "description": "Failure: kind pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 272,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR worker-consumer: kind pod in failure",
+        "metrics": {
+          "error_rate": 0.8605113985563049,
+          "response_time_ms": 2289,
+          "cpu_usage": 0.8385780794356414,
+          "memory_usage": 0.8089404439426024
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:37.045552",
+      "event_type": "scaling",
+      "description": "Scaling: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:48.045552",
+      "event_type": "deployment",
+      "description": "Deployment: dns server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:58:06.045552",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

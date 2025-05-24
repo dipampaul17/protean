@@ -1,0 +1,95 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173245
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 417
+metadata:
+  generated_at: '2025-05-23T17:32:45.789150'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:32:45.788942'
+  event_type: trigger
+  description: 'Initial failure detected: accessed memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:56.788942'
+  event_type: recovery
+  description: 'Recovery: most memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:02.788942'
+  event_type: timeout
+  description: 'Timeout: scaled service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 38
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: scaled service
+      - operation failed'
+    metrics:
+      error_rate: 0.499798569746168
+      response_time_ms: 8298
+      cpu_usage: 0.7727895663493272
+      memory_usage: 0.8043716301972988
+- timestamp: '2025-05-23T17:33:10.788942'
+  event_type: timeout
+  description: 'Timeout: to fix'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 112
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: to fix - operation failed'
+    metrics:
+      error_rate: 0.3746611516510451
+      response_time_ms: 2331
+      cpu_usage: 0.8429996569779659
+      memory_usage: 0.9696572700981194
+- timestamp: '2025-05-23T17:33:16.788942'
+  event_type: failure
+  description: 'Failure: high memory'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 136
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: high memory - operation
+      failed'
+    metrics:
+      error_rate: 0.34078200461124797
+      response_time_ms: 3063
+      cpu_usage: 0.9871552999657268
+      memory_usage: 0.808440429692415
+- timestamp: '2025-05-23T17:33:19.788942'
+  event_type: recovery
+  description: 'Recovery: in memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:21.788942'
+  event_type: failure
+  description: 'Failure: to fix'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 233
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: to fix - operation failed'
+    metrics:
+      error_rate: 0.8345700958192894
+      response_time_ms: 7276
+      cpu_usage: 0.9299221808543668
+      memory_usage: 0.8829556127313405
+- timestamp: '2025-05-23T17:33:28.788942'
+  event_type: recovery
+  description: 'Recovery: a node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:32.788942'
+  event_type: recovery
+  description: 'Recovery: of memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:42.788942'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

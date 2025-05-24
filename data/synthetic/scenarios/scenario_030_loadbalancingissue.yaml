@@ -1,0 +1,63 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173452
+description: Load balancer and traffic distribution problems
+duration: 594
+metadata:
+  generated_at: '2025-05-23T17:34:52.909782'
+  phrase_templates_used: 13
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:34:52.909598'
+  event_type: trigger
+  description: 'Initial failure detected: a server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:08.909598'
+  event_type: backend_failure
+  description: 'Backend_Failure: that node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:26.909598'
+  event_type: backend_failure
+  description: 'Backend_Failure: a server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:34.909598'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: your cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:42.909598'
+  event_type: backend_failure
+  description: 'Backend_Failure: a server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:52.909598'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: load balancer'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:02.909598'
+  event_type: timeout
+  description: 'Timeout: loadbalancer service'
+  injection_spec:
+    type: timeout
+    target: load-balancer
+    severity: high
+    duration: 97
+    log_snippet: '[2025-05-23 17:34:52] ERROR load-balancer: loadbalancer service
+      in timeout'
+    metrics:
+      error_rate: 0.8699619104472976
+      response_time_ms: 4648
+      cpu_usage: 0.7810836149466431
+      memory_usage: 0.832934100850528
+      requests_per_sec: 5039
+      backend_health_pct: 0.6721588991279517
+      connection_timeouts: 872
+- timestamp: '2025-05-23T17:36:14.909598'
+  event_type: backend_failure
+  description: 'Backend_Failure: your cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:44:46.909598'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

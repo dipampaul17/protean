@@ -1,0 +1,78 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_173707
+description: Infrastructure failure scenario for DependencyFailure
+duration: 384
+metadata:
+  generated_at: '2025-05-23T17:37:07.947346'
+  phrase_templates_used: 45
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:07.947160'
+  event_type: trigger
+  description: 'Initial failure detected: quot network'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:32.947160'
+  event_type: failure
+  description: 'Failure: to monitor'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 31
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: to monitor - operation
+      failed'
+    metrics:
+      error_rate: 0.6889063857002938
+      response_time_ms: 3735
+      cpu_usage: 0.7809471595983206
+      memory_usage: 0.8181670658687428
+- timestamp: '2025-05-23T17:37:39.947160'
+  event_type: timeout
+  description: 'Timeout: proxy server'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 152
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: proxy server -
+      operation failed'
+    metrics:
+      error_rate: 0.4653051870774463
+      response_time_ms: 8144
+      cpu_usage: 0.7488024860021975
+      memory_usage: 0.8349295586765745
+- timestamp: '2025-05-23T17:37:43.947160'
+  event_type: timeout
+  description: 'Timeout: work log'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 197
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: work log - operation
+      failed'
+    metrics:
+      error_rate: 0.5252573398408374
+      response_time_ms: 8900
+      cpu_usage: 0.7091996534522195
+      memory_usage: 0.9991797386439174
+- timestamp: '2025-05-23T17:37:51.947160'
+  event_type: recovery
+  description: 'Recovery: external service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:54.947160'
+  event_type: recovery
+  description: 'Recovery: nginx service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:06.947160'
+  event_type: recovery
+  description: 'Recovery: the service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:43:31.947160'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

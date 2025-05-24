@@ -1,0 +1,84 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_173452",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 480,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.982437",
+    "phrase_templates_used": 15,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.982333",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:38.982333",
+      "event_type": "failure",
+      "description": "Failure: a cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 35,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR user-service: a cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.8562228990626284,
+          "response_time_ms": 1772,
+          "cpu_usage": 0.8270952481375278,
+          "memory_usage": 0.8697549584667229
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:13.982333",
+      "event_type": "timeout",
+      "description": "Timeout: to service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 162,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: to service - operation failed",
+        "metrics": {
+          "error_rate": 0.48494909644521045,
+          "response_time_ms": 5476,
+          "cpu_usage": 0.743090891692791,
+          "memory_usage": 0.9358088668921025
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:31.982333",
+      "event_type": "timeout",
+      "description": "Timeout: ui service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 217,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR user-service: ui service - operation failed",
+        "metrics": {
+          "error_rate": 0.2996792397743574,
+          "response_time_ms": 8081,
+          "cpu_usage": 0.8381070084932077,
+          "memory_usage": 0.9770841818905763
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:42:52.982333",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

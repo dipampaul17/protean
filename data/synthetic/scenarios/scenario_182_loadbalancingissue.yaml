@@ -1,0 +1,92 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173453
+description: Load balancer and traffic distribution problems
+duration: 756
+metadata:
+  generated_at: '2025-05-23T17:34:53.135021'
+  phrase_templates_used: 13
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.134803'
+  event_type: trigger
+  description: 'Initial failure detected: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:06.134803'
+  event_type: backend_failure
+  description: 'Backend_Failure: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:06.134803'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:18.134803'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:32.134803'
+  event_type: timeout
+  description: 'Timeout: your cluster'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 110
+    log_snippet: '[2025-05-23 17:34:53] ERROR vpc-main: your cluster in timeout'
+    metrics:
+      error_rate: 0.638910834661478
+      response_time_ms: 7321
+      cpu_usage: 0.7494524344820035
+      memory_usage: 0.8665980543286259
+      requests_per_sec: 800
+      backend_health_pct: 0.7180689655872747
+      connection_timeouts: 529
+- timestamp: '2025-05-23T17:35:33.134803'
+  event_type: timeout
+  description: 'Timeout: that node'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 97
+    log_snippet: '[2025-05-23 17:34:53] ERROR subnet-private: that node in timeout'
+    metrics:
+      error_rate: 0.20234398600937453
+      response_time_ms: 7988
+      cpu_usage: 0.878633623412737
+      memory_usage: 0.8754850430724619
+      requests_per_sec: 4007
+      backend_health_pct: 0.3464193774734603
+      connection_timeouts: 156
+- timestamp: '2025-05-23T17:35:49.134803'
+  event_type: timeout
+  description: 'Timeout: a service'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 144
+    log_snippet: '[2025-05-23 17:34:53] ERROR vpc-main: a service in timeout'
+    metrics:
+      error_rate: 0.2754933212976851
+      response_time_ms: 2366
+      cpu_usage: 0.9348940720252202
+      memory_usage: 0.869880538390641
+      requests_per_sec: 5990
+      backend_health_pct: 0.6203425357935011
+      connection_timeouts: 56
+- timestamp: '2025-05-23T17:36:03.134803'
+  event_type: backend_failure
+  description: 'Backend_Failure: kafka pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:08.134803'
+  event_type: backend_failure
+  description: 'Backend_Failure: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:29.134803'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

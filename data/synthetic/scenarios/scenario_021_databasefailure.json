@@ -1,0 +1,93 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173245",
+  "description": "Database connectivity and performance issues",
+  "duration": 1461,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.659030",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.658851",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:31.658851",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: postgresql database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:41.658851",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: postgresql database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:45.658851",
+      "event_type": "timeout",
+      "description": "Timeout: mongodb database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 269,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR mongodb-shard: mongodb database in timeout",
+        "metrics": {
+          "error_rate": 0.3350972164815408,
+          "response_time_ms": 8165,
+          "cpu_usage": 0.8923028499326772,
+          "memory_usage": 0.8416757415710214,
+          "connection_pool_usage": 0.8217044412412483,
+          "query_time_ms": 29150,
+          "deadlocks_per_sec": 7
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:28.658851",
+      "event_type": "recovery",
+      "description": "Recovery: docker container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:33.658851",
+      "event_type": "recovery",
+      "description": "Recovery: my database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:37.658851",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:47.658851",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: requires restart",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:52.658851",
+      "event_type": "corruption",
+      "description": "Corruption: following error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:57:06.658851",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

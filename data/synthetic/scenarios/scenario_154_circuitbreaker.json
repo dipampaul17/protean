@@ -1,0 +1,132 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173245",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1790,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.708572",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.708375",
+      "event_type": "trigger",
+      "description": "Initial failure detected: gateway timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:57.708375",
+      "event_type": "timeout",
+      "description": "Timeout: to monitor",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 133,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: to monitor - operation failed",
+        "metrics": {
+          "error_rate": 0.2201638728053631,
+          "response_time_ms": 5928,
+          "cpu_usage": 0.8062595593525792,
+          "memory_usage": 0.9518394524082555
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:46.708375",
+      "event_type": "recovery",
+      "description": "Recovery: uwsgi server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:58.708375",
+      "event_type": "timeout",
+      "description": "Timeout: code error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 194,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: code error - operation failed",
+        "metrics": {
+          "error_rate": 0.48303254068711454,
+          "response_time_ms": 2662,
+          "cpu_usage": 0.9625806086931409,
+          "memory_usage": 0.9861555768069435
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:37.708375",
+      "event_type": "degradation",
+      "description": "Degradation: exceeded timeout",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 276,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: exceeded timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.12527531200728925,
+          "response_time_ms": 9768,
+          "cpu_usage": 0.9006066158716737,
+          "memory_usage": 0.935194833578119
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:20.708375",
+      "event_type": "failure",
+      "description": "Failure: session timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 252,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: session timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.44546651872966414,
+          "response_time_ms": 8532,
+          "cpu_usage": 0.8423701289500536,
+          "memory_usage": 0.8214462783909087
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:13.708375",
+      "event_type": "recovery",
+      "description": "Recovery: to monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:22.708375",
+      "event_type": "degradation",
+      "description": "Degradation: nginx log",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "low",
+        "duration": 190,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: nginx log - operation failed",
+        "metrics": {
+          "error_rate": 0.07323645895628168,
+          "response_time_ms": 664,
+          "cpu_usage": 0.5699636726381792,
+          "memory_usage": 0.6576109449447278
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:02:35.708375",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

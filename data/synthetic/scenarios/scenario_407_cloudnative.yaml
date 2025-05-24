@@ -1,0 +1,61 @@
+category: CloudNative
+name: CloudNative_20250523_173708
+description: Kubernetes pod and container orchestration issues
+duration: 1139
+metadata:
+  generated_at: '2025-05-23T17:37:08.058978'
+  phrase_templates_used: 39
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:08.058845'
+  event_type: trigger
+  description: 'Initial failure detected: kubernetes service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:57.058845'
+  event_type: scaling
+  description: 'Scaling: deleted pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:00.058845'
+  event_type: failure
+  description: 'Failure: the server'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 158
+    log_snippet: '[2025-05-23 17:37:08] ERROR web-frontend: the server in failure'
+    metrics:
+      error_rate: 0.7154018126174412
+      response_time_ms: 8206
+      cpu_usage: 0.7307112300464348
+      memory_usage: 0.9259689460008987
+- timestamp: '2025-05-23T17:38:02.058845'
+  event_type: failure
+  description: 'Failure: your pod'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 57
+    log_snippet: '[2025-05-23 17:37:08] ERROR web-frontend: your pod in failure'
+    metrics:
+      error_rate: 0.5599604486338484
+      response_time_ms: 3136
+      cpu_usage: 0.8607440670466293
+      memory_usage: 0.8242548191348545
+- timestamp: '2025-05-23T17:38:35.058845'
+  event_type: scaling
+  description: 'Scaling: getting error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:48.058845'
+  event_type: pod_restart
+  description: 'Pod_Restart: an error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:56:07.058845'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

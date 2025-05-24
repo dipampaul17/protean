@@ -1,0 +1,97 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_173245
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 575
+metadata:
+  generated_at: '2025-05-23T17:32:45.749136'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:32:45.748422'
+  event_type: trigger
+  description: 'Initial failure detected: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:56.748422'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:59.748422'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 218
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.4366943349996405
+      response_time_ms: 5067
+      cpu_usage: 0.8791086835681751
+      memory_usage: 0.8303159874297309
+- timestamp: '2025-05-23T17:33:19.748422'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 100
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.2703921815126378
+      response_time_ms: 1294
+      cpu_usage: 0.9185422015425307
+      memory_usage: 0.9902720537162246
+- timestamp: '2025-05-23T17:33:25.748422'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 230
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.24505771224484418
+      response_time_ms: 8100
+      cpu_usage: 0.7935461925250413
+      memory_usage: 0.9733297504341217
+- timestamp: '2025-05-23T17:33:29.748422'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:33.748422'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 174
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.5470268194250621
+      response_time_ms: 1038
+      cpu_usage: 0.7415853209649544
+      memory_usage: 0.91212680319586
+- timestamp: '2025-05-23T17:33:39.748422'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:47.748422'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:42:20.748422'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

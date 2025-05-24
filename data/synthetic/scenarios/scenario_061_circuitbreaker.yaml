@@ -1,0 +1,141 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173452
+description: Circuit breaker activation due to cascading service failures
+duration: 1325
+metadata:
+  generated_at: '2025-05-23T17:34:52.975409'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 2
+    medium: 1
+    high: 5
+events:
+- timestamp: '2025-05-23T17:34:52.974723'
+  event_type: trigger
+  description: 'Initial failure detected: info node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:22.974723'
+  event_type: degradation
+  description: 'Degradation: us log'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: low
+    duration: 62
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: us log - operation
+      failed'
+    metrics:
+      error_rate: 0.1743530792273563
+      response_time_ms: 517
+      cpu_usage: 0.3553200846647512
+      memory_usage: 0.6020991416992166
+- timestamp: '2025-05-23T17:35:31.974723'
+  event_type: timeout
+  description: 'Timeout: value memory'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 164
+    log_snippet: '[2025-05-23 17:34:52] ERROR payment-service: value memory - operation
+      failed'
+    metrics:
+      error_rate: 0.7397863180030105
+      response_time_ms: 3367
+      cpu_usage: 0.7010327264706002
+      memory_usage: 0.9961454560608596
+- timestamp: '2025-05-23T17:36:02.974723'
+  event_type: degradation
+  description: 'Degradation: letter queue'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: medium
+    duration: 77
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: letter queue - operation
+      failed'
+    metrics:
+      error_rate: 0.017445222176666532
+      response_time_ms: 1504
+      cpu_usage: 0.3264209012230308
+      memory_usage: 0.679396753478559
+- timestamp: '2025-05-23T17:36:21.974723'
+  event_type: failure
+  description: 'Failure: session timeout'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 143
+    log_snippet: '[2025-05-23 17:34:52] ERROR payment-service: session timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.5529920182237097
+      response_time_ms: 3598
+      cpu_usage: 0.8816457026538319
+      memory_usage: 0.9151615115859721
+- timestamp: '2025-05-23T17:36:41.974723'
+  event_type: degradation
+  description: 'Degradation: gateway timeout'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: high
+    duration: 175
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: gateway timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.6123515655039948
+      response_time_ms: 5001
+      cpu_usage: 0.936809789580727
+      memory_usage: 0.9708549139842719
+- timestamp: '2025-05-23T17:36:57.974723'
+  event_type: failure
+  description: 'Failure: to log'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 209
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: to log - operation
+      failed'
+    metrics:
+      error_rate: 0.6011133161729292
+      response_time_ms: 1823
+      cpu_usage: 0.7302160790058558
+      memory_usage: 0.9783239256830983
+- timestamp: '2025-05-23T17:37:09.974723'
+  event_type: degradation
+  description: 'Degradation: the server'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: low
+    duration: 279
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.09114523690171421
+      response_time_ms: 970
+      cpu_usage: 0.30196335086217796
+      memory_usage: 0.5934941242881782
+- timestamp: '2025-05-23T17:37:27.974723'
+  event_type: failure
+  description: 'Failure: labels service'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 211
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: labels service - operation
+      failed'
+    metrics:
+      error_rate: 0.7420708278806578
+      response_time_ms: 6069
+      cpu_usage: 0.7974444894362237
+      memory_usage: 0.8033075848434907
+- timestamp: '2025-05-23T17:56:57.974723'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

@@ -1,0 +1,84 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173453",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 1248,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.115930",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.115396",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:25.115396",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:02.115396",
+      "event_type": "recovery",
+      "description": "Recovery: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:10.115396",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 268,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.2594513961963295,
+          "response_time_ms": 8858,
+          "cpu_usage": 0.946902157051261,
+          "memory_usage": 0.8465820387904163
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:14.115396",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:25.115396",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 196,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.48560581739699304,
+          "response_time_ms": 1024,
+          "cpu_usage": 0.9283784988034447,
+          "memory_usage": 0.9975387520642343
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:55:41.115396",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

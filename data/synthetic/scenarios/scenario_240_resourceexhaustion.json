@@ -1,0 +1,114 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_173245",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 456,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.730328",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.730150",
+      "event_type": "trigger",
+      "description": "Initial failure detected: customer service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:04.730150",
+      "event_type": "failure",
+      "description": "Failure: the disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 172,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: the disk - operation failed",
+        "metrics": {
+          "error_rate": 0.3922526503586513,
+          "response_time_ms": 5874,
+          "cpu_usage": 0.8388077664272768,
+          "memory_usage": 0.9958785479246985
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:10.730150",
+      "event_type": "recovery",
+      "description": "Recovery: double scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:11.730150",
+      "event_type": "failure",
+      "description": "Failure: by container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 72,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: by container - operation failed",
+        "metrics": {
+          "error_rate": 0.5708630866035935,
+          "response_time_ms": 8937,
+          "cpu_usage": 0.9884766076822987,
+          "memory_usage": 0.9676948157469224
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:13.730150",
+      "event_type": "failure",
+      "description": "Failure: most memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 289,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: most memory - operation failed",
+        "metrics": {
+          "error_rate": 0.43276113931341953,
+          "response_time_ms": 7441,
+          "cpu_usage": 0.7299682007624105,
+          "memory_usage": 0.9524142953697385
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:33.730150",
+      "event_type": "recovery",
+      "description": "Recovery: a connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:36.730150",
+      "event_type": "failure",
+      "description": "Failure: to scale",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 299,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: to scale - operation failed",
+        "metrics": {
+          "error_rate": 0.10246556356995323,
+          "response_time_ms": 6204,
+          "cpu_usage": 0.9118110741542532,
+          "memory_usage": 0.8495069324234119
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:21.730150",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

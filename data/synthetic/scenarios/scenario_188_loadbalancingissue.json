@@ -1,0 +1,111 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173707",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 1643,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.999914",
+    "phrase_templates_used": 13,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.999480",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:36.999480",
+      "event_type": "scaling",
+      "description": "Scaling: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:01.999480",
+      "event_type": "timeout",
+      "description": "Timeout: the server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "vpc-main",
+        "severity": "high",
+        "duration": 287,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR vpc-main: the server in timeout",
+        "metrics": {
+          "error_rate": 0.5161606233873314,
+          "response_time_ms": 9475,
+          "cpu_usage": 0.7673524398916404,
+          "memory_usage": 0.8307188882414609,
+          "requests_per_sec": 7642,
+          "backend_health_pct": 0.4229239167845238,
+          "connection_timeouts": 876
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:25.999480",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: web server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:37.999480",
+      "event_type": "timeout",
+      "description": "Timeout: your cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 134,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR api-gateway: your cluster in timeout",
+        "metrics": {
+          "error_rate": 0.8859557278850475,
+          "response_time_ms": 7097,
+          "cpu_usage": 0.9337455912921048,
+          "memory_usage": 0.8359206747206754,
+          "requests_per_sec": 9367,
+          "backend_health_pct": 0.7376339376876995,
+          "connection_timeouts": 903
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:23.999480",
+      "event_type": "timeout",
+      "description": "Timeout: a container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 44,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR load-balancer: a container in timeout",
+        "metrics": {
+          "error_rate": 0.7000262706204405,
+          "response_time_ms": 6845,
+          "cpu_usage": 0.9604662286287153,
+          "memory_usage": 0.8919507671404685,
+          "requests_per_sec": 8987,
+          "backend_health_pct": 0.686343086131723,
+          "connection_timeouts": 576
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:48.999480",
+      "event_type": "scaling",
+      "description": "Scaling: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:04:30.999480",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

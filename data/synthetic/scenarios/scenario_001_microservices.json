@@ -1,0 +1,150 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_174628",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 1347,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.905700",
+    "phrase_templates_used": 15,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.905366",
+      "event_type": "trigger",
+      "description": "Initial failure detected: ui service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:45.905366",
+      "event_type": "failure",
+      "description": "Failure: lt service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 273,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: lt service - operation failed",
+        "metrics": {
+          "error_rate": 0.47285504186009175,
+          "response_time_ms": 4834,
+          "cpu_usage": 0.717634128675101,
+          "memory_usage": 0.9884057071037917
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:06.905366",
+      "event_type": "recovery",
+      "description": "Recovery: from service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:44.905366",
+      "event_type": "failure",
+      "description": "Failure: the queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "medium",
+        "duration": 286,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.2342527099063372,
+          "response_time_ms": 1580,
+          "cpu_usage": 0.5723254729295536,
+          "memory_usage": 0.47335619757600894
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:53.905366",
+      "event_type": "failure",
+      "description": "Failure: ui service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 56,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: ui service - operation failed",
+        "metrics": {
+          "error_rate": 0.5344390415729646,
+          "response_time_ms": 1776,
+          "cpu_usage": 0.7850014570019173,
+          "memory_usage": 0.8679611595640425
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:02.905366",
+      "event_type": "timeout",
+      "description": "Timeout: a service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 58,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.4413449182180885,
+          "response_time_ms": 6705,
+          "cpu_usage": 0.9147585487590809,
+          "memory_usage": 0.8850566999737929
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:35.905366",
+      "event_type": "recovery",
+      "description": "Recovery: strong service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:52.905366",
+      "event_type": "failure",
+      "description": "Failure: a container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 238,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: a container - operation failed",
+        "metrics": {
+          "error_rate": 0.7487644867393843,
+          "response_time_ms": 6243,
+          "cpu_usage": 0.7597458262638539,
+          "memory_usage": 0.8324838480710585
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:54.905366",
+      "event_type": "failure",
+      "description": "Failure: docker network",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 146,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: docker network - operation failed",
+        "metrics": {
+          "error_rate": 0.4057624191626883,
+          "response_time_ms": 9940,
+          "cpu_usage": 0.7446041863099091,
+          "memory_usage": 0.9295517164687949
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:08:55.905366",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+category: DataCorruption
+name: DataCorruption_20250523_173708
+description: Infrastructure failure scenario for DataCorruption
+duration: 600
+metadata:
+  generated_at: '2025-05-23T17:37:08.002035'
+  phrase_templates_used: 36
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:08.001721'
+  event_type: trigger
+  description: 'Initial failure detected: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:28.001721'
+  event_type: failure
+  description: 'Failure: a queue'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: medium
+    duration: 282
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: a queue - operation
+      failed'
+    metrics:
+      error_rate: 0.18345277220492714
+      response_time_ms: 1552
+      cpu_usage: 0.6890073138455812
+      memory_usage: 0.5424723341378831
+- timestamp: '2025-05-23T17:37:50.001721'
+  event_type: failure
+  description: 'Failure: the database'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 188
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: the database - operation
+      failed'
+    metrics:
+      error_rate: 0.7285162483060103
+      response_time_ms: 8096
+      cpu_usage: 0.7756399975190271
+      memory_usage: 0.8219438703376212
+- timestamp: '2025-05-23T17:37:51.001721'
+  event_type: timeout
+  description: 'Timeout: a database'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 238
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: a database - operation
+      failed'
+    metrics:
+      error_rate: 0.4086411252037715
+      response_time_ms: 6844
+      cpu_usage: 0.9848521909541033
+      memory_usage: 0.9734630319095552
+- timestamp: '2025-05-23T17:38:06.001721'
+  event_type: failure
+  description: 'Failure: strong update'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 222
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: strong update - operation
+      failed'
+    metrics:
+      error_rate: 0.6133255000818836
+      response_time_ms: 3157
+      cpu_usage: 0.990108717274718
+      memory_usage: 0.8216076744599711
+- timestamp: '2025-05-23T17:38:45.001721'
+  event_type: recovery
+  description: 'Recovery: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:08.001721'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

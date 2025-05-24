@@ -1,0 +1,138 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_173245",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 1399,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.781449",
+    "phrase_templates_used": 15,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 2,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.781194",
+      "event_type": "trigger",
+      "description": "Initial failure detected: http connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:08.781194",
+      "event_type": "recovery",
+      "description": "Recovery: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:22.781194",
+      "event_type": "timeout",
+      "description": "Timeout: to service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 112,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: to service - operation failed",
+        "metrics": {
+          "error_rate": 0.3806290157773219,
+          "response_time_ms": 7489,
+          "cpu_usage": 0.7895108072574988,
+          "memory_usage": 0.9779029335043515
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:26.781194",
+      "event_type": "failure",
+      "description": "Failure: ui service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 154,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: ui service - operation failed",
+        "metrics": {
+          "error_rate": 0.18544558802490682,
+          "response_time_ms": 7704,
+          "cpu_usage": 0.8916822218832761,
+          "memory_usage": 0.9510890779443133
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:34.781194",
+      "event_type": "timeout",
+      "description": "Timeout: the queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "medium",
+        "duration": 149,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.2513785721800558,
+          "response_time_ms": 325,
+          "cpu_usage": 0.40800670813870477,
+          "memory_usage": 0.5824008224998584
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:51.781194",
+      "event_type": "recovery",
+      "description": "Recovery: docker network",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:00.781194",
+      "event_type": "failure",
+      "description": "Failure: the queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "medium",
+        "duration": 243,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.2101309799245107,
+          "response_time_ms": 745,
+          "cpu_usage": 0.7502560485394754,
+          "memory_usage": 0.44603101641025517
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:02.781194",
+      "event_type": "failure",
+      "description": "Failure: following error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 93,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: following error - operation failed",
+        "metrics": {
+          "error_rate": 0.25560061661624217,
+          "response_time_ms": 2626,
+          "cpu_usage": 0.7794600102999064,
+          "memory_usage": 0.9359690337679455
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:34.781194",
+      "event_type": "recovery",
+      "description": "Recovery: to service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:56:04.781194",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

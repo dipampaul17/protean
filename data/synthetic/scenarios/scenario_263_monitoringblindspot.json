@@ -1,0 +1,120 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_174629",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1628,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.019667",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.019297",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:45.019297",
+      "event_type": "failure",
+      "description": "Failure: the database",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 189,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: the database - operation failed",
+        "metrics": {
+          "error_rate": 0.5592405492938358,
+          "response_time_ms": 8371,
+          "cpu_usage": 0.8923502006329691,
+          "memory_usage": 0.8867413417865956
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:55.019297",
+      "event_type": "timeout",
+      "description": "Timeout: monitoring service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 61,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: monitoring service - operation failed",
+        "metrics": {
+          "error_rate": 0.16338865442022313,
+          "response_time_ms": 6115,
+          "cpu_usage": 0.8862615804345653,
+          "memory_usage": 0.9106286921809892
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:00.019297",
+      "event_type": "failure",
+      "description": "Failure: the memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 161,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: the memory - operation failed",
+        "metrics": {
+          "error_rate": 0.595968191292787,
+          "response_time_ms": 4232,
+          "cpu_usage": 0.9169038297840133,
+          "memory_usage": 0.8305256986734737
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:13.019297",
+      "event_type": "failure",
+      "description": "Failure: a pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 119,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: a pod - operation failed",
+        "metrics": {
+          "error_rate": 0.172737281149411,
+          "response_time_ms": 7624,
+          "cpu_usage": 0.9790539449907585,
+          "memory_usage": 0.9344727009098425
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:42.019297",
+      "event_type": "failure",
+      "description": "Failure: connection refused",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 187,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: connection refused - operation failed",
+        "metrics": {
+          "error_rate": 0.8623252521837432,
+          "response_time_ms": 2861,
+          "cpu_usage": 0.7013607028975118,
+          "memory_usage": 0.8304352247726177
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:13:37.019297",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

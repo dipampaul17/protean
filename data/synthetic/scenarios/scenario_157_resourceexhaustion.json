@@ -1,0 +1,138 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_173245",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 1152,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.709068",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.708853",
+      "event_type": "trigger",
+      "description": "Initial failure detected: low disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:01.708853",
+      "event_type": "timeout",
+      "description": "Timeout: main memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 110,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: main memory - operation failed",
+        "metrics": {
+          "error_rate": 0.6359355153135001,
+          "response_time_ms": 6518,
+          "cpu_usage": 0.8343639324747235,
+          "memory_usage": 0.8753877164479132
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:32.708853",
+      "event_type": "failure",
+      "description": "Failure: message queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "medium",
+        "duration": 241,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: message queue - operation failed",
+        "metrics": {
+          "error_rate": 0.2049226324247601,
+          "response_time_ms": 229,
+          "cpu_usage": 0.5842642949216523,
+          "memory_usage": 0.4582560248103911
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:43.708853",
+      "event_type": "failure",
+      "description": "Failure: the database",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 267,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: the database - operation failed",
+        "metrics": {
+          "error_rate": 0.6280655245331184,
+          "response_time_ms": 4516,
+          "cpu_usage": 0.9513624374306369,
+          "memory_usage": 0.9789674505186571
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:12.708853",
+      "event_type": "timeout",
+      "description": "Timeout: a memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 264,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: a memory - operation failed",
+        "metrics": {
+          "error_rate": 0.6611655730736853,
+          "response_time_ms": 3997,
+          "cpu_usage": 0.888294686022662,
+          "memory_usage": 0.8138950263233302
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:18.708853",
+      "event_type": "recovery",
+      "description": "Recovery: http server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:29.708853",
+      "event_type": "recovery",
+      "description": "Recovery: free disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:36.708853",
+      "event_type": "recovery",
+      "description": "Recovery: a connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:55.708853",
+      "event_type": "timeout",
+      "description": "Timeout: float scale",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 114,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: float scale - operation failed",
+        "metrics": {
+          "error_rate": 0.3120251620941483,
+          "response_time_ms": 7114,
+          "cpu_usage": 0.7641436750386126,
+          "memory_usage": 0.8156916594112422
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:51:57.708853",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

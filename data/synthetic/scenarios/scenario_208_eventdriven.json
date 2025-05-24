@@ -1,0 +1,123 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173708",
+  "description": "Message queue and event processing failures",
+  "duration": 458,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.006200",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.005663",
+      "event_type": "trigger",
+      "description": "Initial failure detected: using rabbitmq",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:19.005663",
+      "event_type": "recovery",
+      "description": "Recovery: using kafka",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:24.005663",
+      "event_type": "timeout",
+      "description": "Timeout: rabbitmq service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 286,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR batch-processing-queue: queue processing rabbitmq service",
+        "metrics": {
+          "error_rate": 0.7282579847325261,
+          "response_time_ms": 8283,
+          "cpu_usage": 0.9253769047829912,
+          "memory_usage": 0.8619380286948889,
+          "queue_depth": 22868,
+          "message_processing_rate": 0.37371220389006843,
+          "consumer_lag_ms": 91273
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:24.005663",
+      "event_type": "recovery",
+      "description": "Recovery: new queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:33.005663",
+      "event_type": "timeout",
+      "description": "Timeout: the cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-queue",
+        "severity": "high",
+        "duration": 217,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-queue: queue processing the cluster",
+        "metrics": {
+          "error_rate": 0.6701181225884552,
+          "response_time_ms": 8354,
+          "cpu_usage": 0.8953619194948788,
+          "memory_usage": 0.9786435054900657,
+          "queue_depth": 20608,
+          "message_processing_rate": 8.62077069014982,
+          "consumer_lag_ms": 71818
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:33.005663",
+      "event_type": "timeout",
+      "description": "Timeout: error error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-queue",
+        "severity": "high",
+        "duration": 103,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-queue: queue processing error error",
+        "metrics": {
+          "error_rate": 0.17921250794444232,
+          "response_time_ms": 8545,
+          "cpu_usage": 0.9671385290106678,
+          "memory_usage": 0.8800373639426523,
+          "queue_depth": 15260,
+          "message_processing_rate": 3.291987320065002,
+          "consumer_lag_ms": 134028
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:36.005663",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: to node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:55.005663",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: var connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:03.005663",
+      "event_type": "message_loss",
+      "description": "Message_Loss: on node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:44:46.005663",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

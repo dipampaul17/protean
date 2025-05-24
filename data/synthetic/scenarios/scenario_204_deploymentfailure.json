@@ -1,0 +1,60 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173708",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 342,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.004745",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.004527",
+      "event_type": "trigger",
+      "description": "Initial failure detected: reviewing error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:37.004527",
+      "event_type": "scaling",
+      "description": "Scaling: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:59.004527",
+      "event_type": "rollback",
+      "description": "Rollback: kafka monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:01.004527",
+      "event_type": "failure",
+      "description": "Failure: code container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 164,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR worker-consumer: code container in failure",
+        "metrics": {
+          "error_rate": 0.6536245154191705,
+          "response_time_ms": 4114,
+          "cpu_usage": 0.7829539388376596,
+          "memory_usage": 0.8814575604673545
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:42:50.004527",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_174628",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 460,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.980187",
+    "phrase_templates_used": 45,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.980060",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:51.980060",
+      "event_type": "recovery",
+      "description": "Recovery: the log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:12.980060",
+      "event_type": "recovery",
+      "description": "Recovery: vpn connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:17.980060",
+      "event_type": "failure",
+      "description": "Failure: quot network",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 235,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: quot network - operation failed",
+        "metrics": {
+          "error_rate": 0.15054772777908845,
+          "response_time_ms": 2113,
+          "cpu_usage": 0.7454437212612869,
+          "memory_usage": 0.9183448224913308
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:48.980060",
+      "event_type": "timeout",
+      "description": "Timeout: the server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 73,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.16961034389600763,
+          "response_time_ms": 1943,
+          "cpu_usage": 0.9679193818713329,
+          "memory_usage": 0.9057129583114147
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:57.980060",
+      "event_type": "recovery",
+      "description": "Recovery: code error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:54:08.980060",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

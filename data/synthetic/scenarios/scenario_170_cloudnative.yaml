@@ -1,0 +1,43 @@
+category: CloudNative
+name: CloudNative_20250523_173707
+description: Kubernetes pod and container orchestration issues
+duration: 1260
+metadata:
+  generated_at: '2025-05-23T17:37:07.991226'
+  phrase_templates_used: 39
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:37:07.991044'
+  event_type: trigger
+  description: 'Initial failure detected: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:03.991044'
+  event_type: failure
+  description: 'Failure: any log'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 160
+    log_snippet: '[2025-05-23 17:37:07] ERROR web-frontend: any log in failure'
+    metrics:
+      error_rate: 0.7249673157879103
+      response_time_ms: 9837
+      cpu_usage: 0.7002313447985828
+      memory_usage: 0.9460631166621875
+- timestamp: '2025-05-23T17:39:50.991044'
+  event_type: scaling
+  description: 'Scaling: true server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:42:43.991044'
+  event_type: scaling
+  description: 'Scaling: the container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:58:07.991044'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

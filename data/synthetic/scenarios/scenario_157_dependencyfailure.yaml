@@ -1,0 +1,89 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_173453
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1588
+metadata:
+  generated_at: '2025-05-23T17:34:53.084951'
+  phrase_templates_used: 45
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.072487'
+  event_type: trigger
+  description: 'Initial failure detected: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:03.072487'
+  event_type: recovery
+  description: 'Recovery: upstream queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:12.072487'
+  event_type: recovery
+  description: 'Recovery: var log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:29.072487'
+  event_type: timeout
+  description: 'Timeout: get update'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 165
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: get update - operation
+      failed'
+    metrics:
+      error_rate: 0.11270238845487315
+      response_time_ms: 9447
+      cpu_usage: 0.7458656042725401
+      memory_usage: 0.8246284656972963
+- timestamp: '2025-05-23T17:36:30.072487'
+  event_type: timeout
+  description: 'Timeout: connect service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 100
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: connect service
+      - operation failed'
+    metrics:
+      error_rate: 0.18763217764260462
+      response_time_ms: 4084
+      cpu_usage: 0.9608466241715854
+      memory_usage: 0.9431007278409146
+- timestamp: '2025-05-23T17:37:04.072487'
+  event_type: failure
+  description: 'Failure: inventory service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 71
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: inventory service
+      - operation failed'
+    metrics:
+      error_rate: 0.3163818413269487
+      response_time_ms: 4038
+      cpu_usage: 0.7377158578719408
+      memory_usage: 0.8890719052983143
+- timestamp: '2025-05-23T17:38:10.072487'
+  event_type: failure
+  description: 'Failure: the queue'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: medium
+    duration: 141
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: the queue - operation
+      failed'
+    metrics:
+      error_rate: 0.14539631565011119
+      response_time_ms: 1122
+      cpu_usage: 0.5475963446508083
+      memory_usage: 0.4484135956222195
+- timestamp: '2025-05-23T18:01:21.072487'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

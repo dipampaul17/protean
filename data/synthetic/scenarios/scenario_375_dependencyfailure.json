@@ -1,0 +1,132 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_174629",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 378,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.100305",
+    "phrase_templates_used": 45,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.099902",
+      "event_type": "trigger",
+      "description": "Initial failure detected: per pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:39.099902",
+      "event_type": "recovery",
+      "description": "Recovery: work log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:47.099902",
+      "event_type": "timeout",
+      "description": "Timeout: this error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 73,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: this error - operation failed",
+        "metrics": {
+          "error_rate": 0.3760332945409295,
+          "response_time_ms": 7465,
+          "cpu_usage": 0.9834759215514,
+          "memory_usage": 0.822774747957629
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:48.099902",
+      "event_type": "timeout",
+      "description": "Timeout: strong update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 73,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.7591844379080769,
+          "response_time_ms": 5069,
+          "cpu_usage": 0.9650265918136052,
+          "memory_usage": 0.8465724442040391
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:53.099902",
+      "event_type": "failure",
+      "description": "Failure: upstream queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "medium",
+        "duration": 128,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: upstream queue - operation failed",
+        "metrics": {
+          "error_rate": 0.0401735421243162,
+          "response_time_ms": 617,
+          "cpu_usage": 0.49368654132588,
+          "memory_usage": 0.4383139918006354
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:57.099902",
+      "event_type": "timeout",
+      "description": "Timeout: coirq error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 192,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: coirq error - operation failed",
+        "metrics": {
+          "error_rate": 0.6297257126243393,
+          "response_time_ms": 8997,
+          "cpu_usage": 0.7037225258934827,
+          "memory_usage": 0.8436827027457825
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:12.099902",
+      "event_type": "timeout",
+      "description": "Timeout: to update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 125,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: to update - operation failed",
+        "metrics": {
+          "error_rate": 0.6698723762481174,
+          "response_time_ms": 7767,
+          "cpu_usage": 0.7171870042413909,
+          "memory_usage": 0.9444796731193427
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:20.099902",
+      "event_type": "recovery",
+      "description": "Recovery: connect service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:52:47.099902",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

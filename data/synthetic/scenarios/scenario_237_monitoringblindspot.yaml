@@ -1,0 +1,83 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173708
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1666
+metadata:
+  generated_at: '2025-05-23T17:37:08.014689'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:37:08.014527'
+  event_type: trigger
+  description: 'Initial failure detected: a pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:05.014527'
+  event_type: timeout
+  description: 'Timeout: the pod'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 112
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: the pod - operation failed'
+    metrics:
+      error_rate: 0.7249861834986916
+      response_time_ms: 6634
+      cpu_usage: 0.778573409258582
+      memory_usage: 0.8304690854429452
+- timestamp: '2025-05-23T17:39:35.014527'
+  event_type: recovery
+  description: 'Recovery: prometheus server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:11.014527'
+  event_type: timeout
+  description: 'Timeout: and memory'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 187
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: and memory - operation
+      failed'
+    metrics:
+      error_rate: 0.4920362263583148
+      response_time_ms: 9991
+      cpu_usage: 0.9823390798189676
+      memory_usage: 0.8995429535671013
+- timestamp: '2025-05-23T17:40:53.014527'
+  event_type: timeout
+  description: 'Timeout: scaled service'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 117
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: scaled service - operation
+      failed'
+    metrics:
+      error_rate: 0.15268391931319458
+      response_time_ms: 8742
+      cpu_usage: 0.7170105071734372
+      memory_usage: 0.9823848353065421
+- timestamp: '2025-05-23T17:42:03.014527'
+  event_type: failure
+  description: 'Failure: to fix'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 191
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: to fix - operation failed'
+    metrics:
+      error_rate: 0.7160948638398764
+      response_time_ms: 1118
+      cpu_usage: 0.7643960267708146
+      memory_usage: 0.8487088455714967
+- timestamp: '2025-05-23T18:04:54.014527'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

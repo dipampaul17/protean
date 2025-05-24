@@ -1,0 +1,162 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173453",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 1012,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.215792",
+    "phrase_templates_used": 45,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 2,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.214930",
+      "event_type": "trigger",
+      "description": "Initial failure detected: quot network",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:20.214930",
+      "event_type": "recovery",
+      "description": "Recovery: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:49.214930",
+      "event_type": "failure",
+      "description": "Failure: lt connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 289,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: lt connection - operation failed",
+        "metrics": {
+          "error_rate": 0.15193521337965896,
+          "response_time_ms": 1062,
+          "cpu_usage": 0.7782858735138719,
+          "memory_usage": 0.9953311684495746
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:55.214930",
+      "event_type": "timeout",
+      "description": "Timeout: upstream queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "medium",
+        "duration": 247,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: upstream queue - operation failed",
+        "metrics": {
+          "error_rate": 0.08115032684666945,
+          "response_time_ms": 1032,
+          "cpu_usage": 0.6861150534254993,
+          "memory_usage": 0.50940892631675
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:03.214930",
+      "event_type": "timeout",
+      "description": "Timeout: existing connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 72,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: existing connection - operation failed",
+        "metrics": {
+          "error_rate": 0.844500794083728,
+          "response_time_ms": 2565,
+          "cpu_usage": 0.7546974401719108,
+          "memory_usage": 0.8696412269215614
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:03.214930",
+      "event_type": "failure",
+      "description": "Failure: code server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 199,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: code server - operation failed",
+        "metrics": {
+          "error_rate": 0.6888830597814731,
+          "response_time_ms": 6446,
+          "cpu_usage": 0.7854085592858837,
+          "memory_usage": 0.8062265924587074
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:28.214930",
+      "event_type": "timeout",
+      "description": "Timeout: the log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 276,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: the log - operation failed",
+        "metrics": {
+          "error_rate": 0.2657253022248093,
+          "response_time_ms": 7614,
+          "cpu_usage": 0.9079320562224511,
+          "memory_usage": 0.8993567688087366
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:39.214930",
+      "event_type": "timeout",
+      "description": "Timeout: the container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 116,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.5646859931882732,
+          "response_time_ms": 1245,
+          "cpu_usage": 0.8520351041950862,
+          "memory_usage": 0.9602902463097824
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:41.214930",
+      "event_type": "timeout",
+      "description": "Timeout: illuminate queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "medium",
+        "duration": 225,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: illuminate queue - operation failed",
+        "metrics": {
+          "error_rate": 0.04315796281949683,
+          "response_time_ms": 437,
+          "cpu_usage": 0.6650048567121303,
+          "memory_usage": 0.5241740777856748
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:51:45.214930",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

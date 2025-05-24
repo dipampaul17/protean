@@ -1,0 +1,81 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173245
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 477
+metadata:
+  generated_at: '2025-05-23T17:32:45.677639'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:32:45.677413'
+  event_type: trigger
+  description: 'Initial failure detected: to monitor'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:58.677413'
+  event_type: failure
+  description: 'Failure: of cpu'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 129
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: of cpu - operation failed'
+    metrics:
+      error_rate: 0.745151762138029
+      response_time_ms: 6184
+      cpu_usage: 0.9203891705879561
+      memory_usage: 0.9748648230190425
+- timestamp: '2025-05-23T17:33:02.677413'
+  event_type: recovery
+  description: 'Recovery: the alert'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:17.677413'
+  event_type: timeout
+  description: 'Timeout: to monitor'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 127
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: to monitor - operation
+      failed'
+    metrics:
+      error_rate: 0.6318150475828915
+      response_time_ms: 7532
+      cpu_usage: 0.7061734447997168
+      memory_usage: 0.9381822721338591
+- timestamp: '2025-05-23T17:33:29.677413'
+  event_type: recovery
+  description: 'Recovery: code error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:39.677413'
+  event_type: failure
+  description: 'Failure: connection refused'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 160
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: connection refused - operation
+      failed'
+    metrics:
+      error_rate: 0.178653028170696
+      response_time_ms: 3401
+      cpu_usage: 0.9204453368787526
+      memory_usage: 0.8468003298368783
+- timestamp: '2025-05-23T17:33:46.677413'
+  event_type: recovery
+  description: 'Recovery: and memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:47.677413'
+  event_type: recovery
+  description: 'Recovery: a server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:42.677413'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

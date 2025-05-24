@@ -1,0 +1,73 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173452
+description: Database connectivity and performance issues
+duration: 901
+metadata:
+  generated_at: '2025-05-23T17:34:52.989656'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:34:52.988764'
+  event_type: trigger
+  description: 'Initial failure detected: to server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:16.988764'
+  event_type: corruption
+  description: 'Corruption: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:26.988764'
+  event_type: corruption
+  description: 'Corruption: my database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:57.988764'
+  event_type: recovery
+  description: 'Recovery: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:11.988764'
+  event_type: timeout
+  description: 'Timeout: relational database'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 49
+    log_snippet: '[2025-05-23 17:34:52] FATAL mysql-primary: database relational database
+      detected'
+    metrics:
+      error_rate: 0.3000660577192502
+      response_time_ms: 2104
+      cpu_usage: 0.8122724900189127
+      memory_usage: 0.8606548676066678
+      connection_pool_usage: 0.8514379106326346
+      query_time_ms: 13608
+      deadlocks_per_sec: 5
+- timestamp: '2025-05-23T17:36:13.988764'
+  event_type: timeout
+  description: 'Timeout: code error'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 184
+    log_snippet: '[2025-05-23 17:34:52] FATAL postgres-replica: database code error
+      detected'
+    metrics:
+      error_rate: 0.7316402258503761
+      response_time_ms: 2133
+      cpu_usage: 0.873648806920645
+      memory_usage: 0.8301072627437366
+      connection_pool_usage: 0.9918123818327644
+      query_time_ms: 17175
+      deadlocks_per_sec: 9
+- timestamp: '2025-05-23T17:36:48.988764'
+  event_type: connection_loss
+  description: 'Connection_Loss: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:53.988764'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

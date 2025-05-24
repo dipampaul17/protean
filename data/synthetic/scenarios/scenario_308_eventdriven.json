@@ -1,0 +1,105 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_174629",
+  "description": "Message queue and event processing failures",
+  "duration": 1618,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.071893",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.070798",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:54.070798",
+      "event_type": "timeout",
+      "description": "Timeout: the queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "medium",
+        "duration": 147,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-queue: queue processing the queue",
+        "metrics": {
+          "error_rate": 0.26641455736690706,
+          "response_time_ms": 1519,
+          "cpu_usage": 0.34671151478644546,
+          "memory_usage": 0.40234047586197047,
+          "queue_depth": 36540,
+          "message_processing_rate": 7.91916614704447,
+          "consumer_lag_ms": 19559
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:13.070798",
+      "event_type": "timeout",
+      "description": "Timeout: current node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 213,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR batch-processing-queue: queue processing current node",
+        "metrics": {
+          "error_rate": 0.5033002408045478,
+          "response_time_ms": 8326,
+          "cpu_usage": 0.7991713346829219,
+          "memory_usage": 0.8081964680249423,
+          "queue_depth": 28990,
+          "message_processing_rate": 6.015044865885272,
+          "consumer_lag_ms": 207626
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:21.070798",
+      "event_type": "timeout",
+      "description": "Timeout: this error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 164,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR batch-processing-queue: queue processing this error",
+        "metrics": {
+          "error_rate": 0.1589679896845147,
+          "response_time_ms": 2853,
+          "cpu_usage": 0.8288562696452704,
+          "memory_usage": 0.8736393609064812,
+          "queue_depth": 14255,
+          "message_processing_rate": 0.7531254318843602,
+          "consumer_lag_ms": 63718
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:38.070798",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: using rabbitmq",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:49.070798",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: failed to",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:13:27.070798",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173707
+description: Database connectivity and performance issues
+duration: 839
+metadata:
+  generated_at: '2025-05-23T17:37:07.948134'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:07.947923'
+  event_type: trigger
+  description: 'Initial failure detected: to fix'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:25.947923'
+  event_type: timeout
+  description: 'Timeout: mysql server'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 85
+    log_snippet: '[2025-05-23 17:37:07] ERROR mongodb-shard: mysql server in timeout'
+    metrics:
+      error_rate: 0.597722106125882
+      response_time_ms: 9275
+      cpu_usage: 0.9898403870049465
+      memory_usage: 0.9276051096572666
+      connection_pool_usage: 0.9677565122584038
+      query_time_ms: 28703
+      deadlocks_per_sec: 5
+- timestamp: '2025-05-23T17:37:58.947923'
+  event_type: timeout
+  description: 'Timeout: to fix'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 113
+    log_snippet: '[2025-05-23 17:37:07] ERROR redis-cache: to fix in timeout'
+    metrics:
+      error_rate: 0.2833303132155043
+      response_time_ms: 7062
+      cpu_usage: 0.9038182032931544
+      memory_usage: 0.9484697502831313
+      connection_pool_usage: 0.9073271337334792
+      query_time_ms: 27515
+      deadlocks_per_sec: 2
+- timestamp: '2025-05-23T17:38:52.947923'
+  event_type: connection_loss
+  description: 'Connection_Loss: requires restart'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:10.947923'
+  event_type: corruption
+  description: 'Corruption: metadatacreateindexservice node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:19.947923'
+  event_type: corruption
+  description: 'Corruption: message queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:51:06.947923'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

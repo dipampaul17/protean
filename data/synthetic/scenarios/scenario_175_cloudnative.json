@@ -1,0 +1,72 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_173453",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 306,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.126326",
+    "phrase_templates_used": 39,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.126208",
+      "event_type": "trigger",
+      "description": "Initial failure detected: failed container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:19.126208",
+      "event_type": "failure",
+      "description": "Failure: delete pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 96,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR worker-consumer: delete pod in failure",
+        "metrics": {
+          "error_rate": 0.16778222463207043,
+          "response_time_ms": 9790,
+          "cpu_usage": 0.8013787059596631,
+          "memory_usage": 0.8601699615265567
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:27.126208",
+      "event_type": "failure",
+      "description": "Failure: name debug",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 117,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR api-backend: name debug in failure",
+        "metrics": {
+          "error_rate": 0.8139611307596804,
+          "response_time_ms": 3463,
+          "cpu_usage": 0.7261398501470148,
+          "memory_usage": 0.8181629696556463
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:18.126208",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: any log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:59.126208",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

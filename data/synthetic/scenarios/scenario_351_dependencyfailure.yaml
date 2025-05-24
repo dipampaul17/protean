@@ -1,0 +1,130 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_174629
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1465
+metadata:
+  generated_at: '2025-05-23T17:46:29.091119'
+  phrase_templates_used: 45
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 6
+events:
+- timestamp: '2025-05-23T17:46:29.090883'
+  event_type: trigger
+  description: 'Initial failure detected: destination node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:39.090883'
+  event_type: failure
+  description: 'Failure: nginx service'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 121
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: nginx service - operation
+      failed'
+    metrics:
+      error_rate: 0.44276466208262544
+      response_time_ms: 6409
+      cpu_usage: 0.8234060886356804
+      memory_usage: 0.9473291646966271
+- timestamp: '2025-05-23T17:46:50.090883'
+  event_type: timeout
+  description: 'Timeout: external service'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 160
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: external service -
+      operation failed'
+    metrics:
+      error_rate: 0.7636635357023993
+      response_time_ms: 4658
+      cpu_usage: 0.8261155321952894
+      memory_usage: 0.9132723221349847
+- timestamp: '2025-05-23T17:48:26.090883'
+  event_type: failure
+  description: 'Failure: closed connection'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 162
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: closed connection
+      - operation failed'
+    metrics:
+      error_rate: 0.6770808328615125
+      response_time_ms: 2941
+      cpu_usage: 0.9060601437513507
+      memory_usage: 0.9060356282106566
+- timestamp: '2025-05-23T17:48:27.090883'
+  event_type: failure
+  description: 'Failure: get update'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 151
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: get update - operation
+      failed'
+    metrics:
+      error_rate: 0.38757425553915226
+      response_time_ms: 1909
+      cpu_usage: 0.7598891818324597
+      memory_usage: 0.8638124852101193
+- timestamp: '2025-05-23T17:48:28.090883'
+  event_type: timeout
+  description: 'Timeout: upstream queue'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: medium
+    duration: 35
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: upstream queue - operation
+      failed'
+    metrics:
+      error_rate: 0.19217875736021736
+      response_time_ms: 875
+      cpu_usage: 0.7662059230171645
+      memory_usage: 0.4251738056322801
+- timestamp: '2025-05-23T17:48:46.090883'
+  event_type: failure
+  description: 'Failure: destination node'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 36
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: destination node - operation
+      failed'
+    metrics:
+      error_rate: 0.23081015350655606
+      response_time_ms: 8601
+      cpu_usage: 0.9824981480316134
+      memory_usage: 0.8737644857678138
+- timestamp: '2025-05-23T17:48:52.090883'
+  event_type: timeout
+  description: 'Timeout: to monitor'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 253
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: to monitor - operation
+      failed'
+    metrics:
+      error_rate: 0.2638796055350563
+      response_time_ms: 8836
+      cpu_usage: 0.8556084621647533
+      memory_usage: 0.9125736803188561
+- timestamp: '2025-05-23T17:49:32.090883'
+  event_type: recovery
+  description: 'Recovery: illuminate container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:10:54.090883'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

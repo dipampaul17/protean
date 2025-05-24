@@ -1,0 +1,66 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173245",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1151,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.738820",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.738719",
+      "event_type": "trigger",
+      "description": "Initial failure detected: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:30.738719",
+      "event_type": "failure",
+      "description": "Failure: p error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 133,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR api-backend: p error in failure",
+        "metrics": {
+          "error_rate": 0.42218693112162475,
+          "response_time_ms": 6427,
+          "cpu_usage": 0.9308413202013497,
+          "memory_usage": 0.9524395233896683
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:44.738719",
+      "event_type": "rollback",
+      "description": "Rollback: a pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:52.738719",
+      "event_type": "rollback",
+      "description": "Rollback: temporary failure",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:52.738719",
+      "event_type": "scaling",
+      "description": "Scaling: a deployment",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:51:56.738719",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

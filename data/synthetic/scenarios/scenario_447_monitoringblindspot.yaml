@@ -1,0 +1,81 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173708
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 983
+metadata:
+  generated_at: '2025-05-23T17:37:08.069541'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:37:08.069415'
+  event_type: trigger
+  description: 'Initial failure detected: scaled service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:43.069415'
+  event_type: timeout
+  description: 'Timeout: payment service'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 132
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: payment service - operation
+      failed'
+    metrics:
+      error_rate: 0.6802706849324951
+      response_time_ms: 6492
+      cpu_usage: 0.8076423458456466
+      memory_usage: 0.9676937528369765
+- timestamp: '2025-05-23T17:38:23.069415'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 44
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.6831555916771582
+      response_time_ms: 6360
+      cpu_usage: 0.9377629673392072
+      memory_usage: 0.9194776583530733
+- timestamp: '2025-05-23T17:38:31.069415'
+  event_type: timeout
+  description: 'Timeout: code error'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 132
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: code error - operation
+      failed'
+    metrics:
+      error_rate: 0.31522777552184134
+      response_time_ms: 7516
+      cpu_usage: 0.7639823108831655
+      memory_usage: 0.850599991365114
+- timestamp: '2025-05-23T17:39:25.069415'
+  event_type: failure
+  description: 'Failure: web server'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 81
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: web server - operation
+      failed'
+    metrics:
+      error_rate: 0.21354387831029814
+      response_time_ms: 8596
+      cpu_usage: 0.9576356440246063
+      memory_usage: 0.873522231379508
+- timestamp: '2025-05-23T17:53:31.069415'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

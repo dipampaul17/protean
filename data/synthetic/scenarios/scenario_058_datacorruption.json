@@ -1,0 +1,120 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_174628",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 1162,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.921670",
+    "phrase_templates_used": 36,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.921509",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to rollback",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:05.921509",
+      "event_type": "timeout",
+      "description": "Timeout: a cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 113,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: a cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.36094021312797264,
+          "response_time_ms": 8608,
+          "cpu_usage": 0.7724260262242713,
+          "memory_usage": 0.9429538544564877
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:29.921509",
+      "event_type": "failure",
+      "description": "Failure: same node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 281,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: same node - operation failed",
+        "metrics": {
+          "error_rate": 0.1551444082871612,
+          "response_time_ms": 9010,
+          "cpu_usage": 0.7382965132856246,
+          "memory_usage": 0.9423056739442134
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:07.921509",
+      "event_type": "timeout",
+      "description": "Timeout: instance storage",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 166,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: instance storage - operation failed",
+        "metrics": {
+          "error_rate": 0.5871308988855052,
+          "response_time_ms": 1225,
+          "cpu_usage": 0.8806683362928446,
+          "memory_usage": 0.9020285531181806
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:28.921509",
+      "event_type": "timeout",
+      "description": "Timeout: the node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 114,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: the node - operation failed",
+        "metrics": {
+          "error_rate": 0.35926239389472336,
+          "response_time_ms": 3384,
+          "cpu_usage": 0.79788494242688,
+          "memory_usage": 0.890416206582926
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:41.921509",
+      "event_type": "failure",
+      "description": "Failure: the error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 251,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: the error - operation failed",
+        "metrics": {
+          "error_rate": 0.3580333079495941,
+          "response_time_ms": 4774,
+          "cpu_usage": 0.7331792636579949,
+          "memory_usage": 0.9010592443071977
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:05:50.921509",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

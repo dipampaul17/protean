@@ -1,0 +1,114 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_173452",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 1626,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.987194",
+    "phrase_templates_used": 15,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.986955",
+      "event_type": "trigger",
+      "description": "Initial failure detected: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:02.986955",
+      "event_type": "timeout",
+      "description": "Timeout: the container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 276,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.3414805709877391,
+          "response_time_ms": 6447,
+          "cpu_usage": 0.8453724487349761,
+          "memory_usage": 0.8451028607130636
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:06.986955",
+      "event_type": "recovery",
+      "description": "Recovery: from service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:09.986955",
+      "event_type": "timeout",
+      "description": "Timeout: to service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 229,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: to service - operation failed",
+        "metrics": {
+          "error_rate": 0.23577122634671266,
+          "response_time_ms": 6402,
+          "cpu_usage": 0.916041956158888,
+          "memory_usage": 0.823209590364646
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:04.986955",
+      "event_type": "timeout",
+      "description": "Timeout: lt service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 293,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: lt service - operation failed",
+        "metrics": {
+          "error_rate": 0.4606824334107563,
+          "response_time_ms": 5882,
+          "cpu_usage": 0.9820887293383224,
+          "memory_usage": 0.849193269807496
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:32.986955",
+      "event_type": "failure",
+      "description": "Failure: headless service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 285,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: headless service - operation failed",
+        "metrics": {
+          "error_rate": 0.30140775893264293,
+          "response_time_ms": 8668,
+          "cpu_usage": 0.8495913997984177,
+          "memory_usage": 0.8860428806054735
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:06.986955",
+      "event_type": "recovery",
+      "description": "Recovery: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:01:58.986955",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

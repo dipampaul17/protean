@@ -1,0 +1,67 @@
+category: DataCorruption
+name: DataCorruption_20250523_173453
+description: Infrastructure failure scenario for DataCorruption
+duration: 637
+metadata:
+  generated_at: '2025-05-23T17:34:53.350499'
+  phrase_templates_used: 36
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:34:53.350355'
+  event_type: trigger
+  description: 'Initial failure detected: to node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:16.350355'
+  event_type: recovery
+  description: 'Recovery: using rabbitmq'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:36.350355'
+  event_type: recovery
+  description: 'Recovery: same node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:46.350355'
+  event_type: failure
+  description: 'Failure: the database'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 117
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: the database - operation
+      failed'
+    metrics:
+      error_rate: 0.4073328454757269
+      response_time_ms: 4855
+      cpu_usage: 0.7764390850552692
+      memory_usage: 0.9243027998099976
+- timestamp: '2025-05-23T17:36:07.350355'
+  event_type: recovery
+  description: 'Recovery: using rabbitmq'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:29.350355'
+  event_type: failure
+  description: 'Failure: docker container'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 42
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: docker container -
+      operation failed'
+    metrics:
+      error_rate: 0.1501881710648011
+      response_time_ms: 5335
+      cpu_usage: 0.7578892031620671
+      memory_usage: 0.8121440429701825
+- timestamp: '2025-05-23T17:36:35.350355'
+  event_type: recovery
+  description: 'Recovery: duplicate update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:45:30.350355'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

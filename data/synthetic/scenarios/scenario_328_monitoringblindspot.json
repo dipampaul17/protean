@@ -1,0 +1,144 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173245",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 930,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.755122",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.754287",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:17.754287",
+      "event_type": "timeout",
+      "description": "Timeout: the cpu",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 177,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: the cpu - operation failed",
+        "metrics": {
+          "error_rate": 0.8586467529601017,
+          "response_time_ms": 4782,
+          "cpu_usage": 0.9386944756393495,
+          "memory_usage": 0.8771297122597566
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:37.754287",
+      "event_type": "failure",
+      "description": "Failure: code container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 142,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: code container - operation failed",
+        "metrics": {
+          "error_rate": 0.2487252520419391,
+          "response_time_ms": 9442,
+          "cpu_usage": 0.9621372868602132,
+          "memory_usage": 0.8644796939286862
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:42.754287",
+      "event_type": "recovery",
+      "description": "Recovery: the cpu",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:24.754287",
+      "event_type": "timeout",
+      "description": "Timeout: the server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 178,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.8638534714826931,
+          "response_time_ms": 1023,
+          "cpu_usage": 0.9148599958258947,
+          "memory_usage": 0.8641714626850221
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:38.754287",
+      "event_type": "failure",
+      "description": "Failure: the cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 98,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: the cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.31620214831727467,
+          "response_time_ms": 1465,
+          "cpu_usage": 0.7631400949449204,
+          "memory_usage": 0.8795964664106095
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:40.754287",
+      "event_type": "timeout",
+      "description": "Timeout: each node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 271,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: each node - operation failed",
+        "metrics": {
+          "error_rate": 0.49380420615489473,
+          "response_time_ms": 9540,
+          "cpu_usage": 0.7645164857488248,
+          "memory_usage": 0.9940856194024985
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:53.754287",
+      "event_type": "failure",
+      "description": "Failure: a container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 234,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: a container - operation failed",
+        "metrics": {
+          "error_rate": 0.34255567248691865,
+          "response_time_ms": 8464,
+          "cpu_usage": 0.7511525702103979,
+          "memory_usage": 0.987603473216399
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:15.754287",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

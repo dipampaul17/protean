@@ -1,0 +1,102 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_173245",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 452,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.655576",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.655449",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:33.655449",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 205,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.7327601732697286,
+          "response_time_ms": 5197,
+          "cpu_usage": 0.9673770580214306,
+          "memory_usage": 0.8720993851092944
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:04.655449",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 55,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.5090119646999762,
+          "response_time_ms": 9133,
+          "cpu_usage": 0.9142426999068383,
+          "memory_usage": 0.9684061429459782
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:25.655449",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 73,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.654997101046581,
+          "response_time_ms": 7143,
+          "cpu_usage": 0.8915520234919235,
+          "memory_usage": 0.8827910144882068
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:29.655449",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 239,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.6679097837638535,
+          "response_time_ms": 9048,
+          "cpu_usage": 0.9876273247491014,
+          "memory_usage": 0.8042196888388993
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:17.655449",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

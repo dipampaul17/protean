@@ -1,0 +1,66 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173707
+description: Infrastructure failure scenario for ETLPipeline
+duration: 1749
+metadata:
+  generated_at: '2025-05-23T17:37:07.987138'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:07.986926'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:30.986926'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 58
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: queue overflow
+      - operation failed'
+    metrics:
+      error_rate: 0.2906644315393879
+      response_time_ms: 9413
+      cpu_usage: 0.9673273046964579
+      memory_usage: 0.8934511986679736
+- timestamp: '2025-05-23T17:43:11.986926'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 56
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.27937547432274945
+      response_time_ms: 2730
+      cpu_usage: 0.813651616196382
+      memory_usage: 0.8217232691209003
+- timestamp: '2025-05-23T17:44:21.986926'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 258
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.29568565853745943
+      response_time_ms: 9948
+      cpu_usage: 0.9724209013775484
+      memory_usage: 0.8259980668302569
+- timestamp: '2025-05-23T18:06:16.986926'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

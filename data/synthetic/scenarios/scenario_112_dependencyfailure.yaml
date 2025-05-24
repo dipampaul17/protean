@@ -1,0 +1,99 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_174628
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1703
+metadata:
+  generated_at: '2025-05-23T17:46:28.958996'
+  phrase_templates_used: 45
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:46:28.958815'
+  event_type: trigger
+  description: 'Initial failure detected: and update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:39.958815'
+  event_type: recovery
+  description: 'Recovery: the service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:14.958815'
+  event_type: timeout
+  description: 'Timeout: jenkins server'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 234
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: jenkins server
+      - operation failed'
+    metrics:
+      error_rate: 0.21290577223717247
+      response_time_ms: 7645
+      cpu_usage: 0.8596487586816915
+      memory_usage: 0.8475791807204428
+- timestamp: '2025-05-23T17:49:31.958815'
+  event_type: timeout
+  description: 'Timeout: the connection'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 192
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: the connection - operation
+      failed'
+    metrics:
+      error_rate: 0.6745181012944607
+      response_time_ms: 5783
+      cpu_usage: 0.9817233782895778
+      memory_usage: 0.9587640388395567
+- timestamp: '2025-05-23T17:49:58.958815'
+  event_type: timeout
+  description: 'Timeout: strong update'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 282
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: strong update
+      - operation failed'
+    metrics:
+      error_rate: 0.24928403765211052
+      response_time_ms: 9627
+      cpu_usage: 0.9596484605032809
+      memory_usage: 0.8720161824844265
+- timestamp: '2025-05-23T17:50:04.958815'
+  event_type: failure
+  description: 'Failure: work log'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 44
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: work log - operation failed'
+    metrics:
+      error_rate: 0.6112591962951114
+      response_time_ms: 2135
+      cpu_usage: 0.7548191291071727
+      memory_usage: 0.9058552654910434
+- timestamp: '2025-05-23T17:51:10.958815'
+  event_type: timeout
+  description: 'Timeout: vpn connection'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 33
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: vpn connection - operation
+      failed'
+    metrics:
+      error_rate: 0.31029989800143754
+      response_time_ms: 5209
+      cpu_usage: 0.8918419067728266
+      memory_usage: 0.9556751789580338
+- timestamp: '2025-05-23T18:14:51.958815'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

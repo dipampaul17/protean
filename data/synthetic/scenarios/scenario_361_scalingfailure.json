@@ -1,0 +1,144 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_173453",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 438,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.283806",
+    "phrase_templates_used": 24,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.282843",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:09.282843",
+      "event_type": "failure",
+      "description": "Failure: a node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 58,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: a node - operation failed",
+        "metrics": {
+          "error_rate": 0.3482196688829515,
+          "response_time_ms": 1102,
+          "cpu_usage": 0.7245009784777175,
+          "memory_usage": 0.8795264438784522
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:15.282843",
+      "event_type": "recovery",
+      "description": "Recovery: aws application",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:15.282843",
+      "event_type": "failure",
+      "description": "Failure: nodeport service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 102,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: nodeport service - operation failed",
+        "metrics": {
+          "error_rate": 0.8611101020503721,
+          "response_time_ms": 5027,
+          "cpu_usage": 0.7947847040436495,
+          "memory_usage": 0.8717278502031982
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:20.282843",
+      "event_type": "failure",
+      "description": "Failure: per server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 112,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: per server - operation failed",
+        "metrics": {
+          "error_rate": 0.6809475955536544,
+          "response_time_ms": 9939,
+          "cpu_usage": 0.7780438060036317,
+          "memory_usage": 0.921014962755731
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:24.282843",
+      "event_type": "failure",
+      "description": "Failure: an error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 279,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: an error - operation failed",
+        "metrics": {
+          "error_rate": 0.14569345606073494,
+          "response_time_ms": 1935,
+          "cpu_usage": 0.7342799504005761,
+          "memory_usage": 0.8917772838843975
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:28.282843",
+      "event_type": "timeout",
+      "description": "Timeout: this service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 257,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: this service - operation failed",
+        "metrics": {
+          "error_rate": 0.6074843880040206,
+          "response_time_ms": 9511,
+          "cpu_usage": 0.7260200168486987,
+          "memory_usage": 0.9075808385557588
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:45.282843",
+      "event_type": "failure",
+      "description": "Failure: nodeport service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 106,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: nodeport service - operation failed",
+        "metrics": {
+          "error_rate": 0.33009080740974506,
+          "response_time_ms": 6058,
+          "cpu_usage": 0.7796447326890081,
+          "memory_usage": 0.8627335689895586
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:42:11.282843",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

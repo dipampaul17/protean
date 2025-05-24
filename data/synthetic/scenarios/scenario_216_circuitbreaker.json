@@ -1,0 +1,132 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173708",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1673,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.010159",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.009943",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:52.009943",
+      "event_type": "recovery",
+      "description": "Recovery: to monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:51.009943",
+      "event_type": "degradation",
+      "description": "Degradation: to fix",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "low",
+        "duration": 232,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: to fix - operation failed",
+        "metrics": {
+          "error_rate": 0.21026713630995458,
+          "response_time_ms": 886,
+          "cpu_usage": 0.4001848820409063,
+          "memory_usage": 0.6205747768272661
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:06.009943",
+      "event_type": "failure",
+      "description": "Failure: handling connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 54,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: handling connection - operation failed",
+        "metrics": {
+          "error_rate": 0.8579927361636369,
+          "response_time_ms": 3495,
+          "cpu_usage": 0.9748054802037969,
+          "memory_usage": 0.9749810801225636
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:38.009943",
+      "event_type": "timeout",
+      "description": "Timeout: following error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 64,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: following error - operation failed",
+        "metrics": {
+          "error_rate": 0.7582785534188641,
+          "response_time_ms": 9689,
+          "cpu_usage": 0.9357729073546059,
+          "memory_usage": 0.8973224849949574
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:39.009943",
+      "event_type": "recovery",
+      "description": "Recovery: reduce alert",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:39.009943",
+      "event_type": "timeout",
+      "description": "Timeout: strong update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 111,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.6349701076334381,
+          "response_time_ms": 5237,
+          "cpu_usage": 0.7540459034922848,
+          "memory_usage": 0.8068271167645925
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:52.009943",
+      "event_type": "failure",
+      "description": "Failure: nginx error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 235,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: nginx error - operation failed",
+        "metrics": {
+          "error_rate": 0.5144560152730783,
+          "response_time_ms": 5146,
+          "cpu_usage": 0.8728823488559105,
+          "memory_usage": 0.8521260998936311
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:05:01.009943",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173452
+description: Load balancer and traffic distribution problems
+duration: 390
+metadata:
+  generated_at: '2025-05-23T17:34:52.911193'
+  phrase_templates_used: 13
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:34:52.911051'
+  event_type: trigger
+  description: 'Initial failure detected: that node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:07.911051'
+  event_type: scaling
+  description: 'Scaling: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:16.911051'
+  event_type: timeout
+  description: 'Timeout: strong update'
+  injection_spec:
+    type: timeout
+    target: load-balancer
+    severity: high
+    duration: 171
+    log_snippet: '[2025-05-23 17:34:52] ERROR load-balancer: strong update in timeout'
+    metrics:
+      error_rate: 0.44124180720410977
+      response_time_ms: 4031
+      cpu_usage: 0.8439881937581187
+      memory_usage: 0.8970064725074366
+      requests_per_sec: 1042
+      backend_health_pct: 0.450322558750747
+      connection_timeouts: 473
+- timestamp: '2025-05-23T17:35:37.911051'
+  event_type: backend_failure
+  description: 'Backend_Failure: web server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:40.911051'
+  event_type: scaling
+  description: 'Scaling: that node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:43.911051'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: web server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:53.911051'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:22.911051'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

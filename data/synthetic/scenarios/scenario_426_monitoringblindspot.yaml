@@ -1,0 +1,73 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173245
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1223
+metadata:
+  generated_at: '2025-05-23T17:32:45.779109'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:32:45.778857'
+  event_type: trigger
+  description: 'Initial failure detected: kubernetes pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:25.778857'
+  event_type: failure
+  description: 'Failure: code error'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 267
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: code error - operation
+      failed'
+    metrics:
+      error_rate: 0.8546432356393419
+      response_time_ms: 2679
+      cpu_usage: 0.8813198741531365
+      memory_usage: 0.9124116485794503
+- timestamp: '2025-05-23T17:33:30.778857'
+  event_type: recovery
+  description: 'Recovery: prometheus server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:49.778857'
+  event_type: failure
+  description: 'Failure: a pod'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 189
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: a pod - operation failed'
+    metrics:
+      error_rate: 0.21625788279083508
+      response_time_ms: 6817
+      cpu_usage: 0.8326083178096298
+      memory_usage: 0.8518982807252198
+- timestamp: '2025-05-23T17:34:58.778857'
+  event_type: recovery
+  description: 'Recovery: us log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:21.778857'
+  event_type: failure
+  description: 'Failure: a container'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 228
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: a container - operation
+      failed'
+    metrics:
+      error_rate: 0.5324092752940589
+      response_time_ms: 8510
+      cpu_usage: 0.9175820059545055
+      memory_usage: 0.8329289405824601
+- timestamp: '2025-05-23T17:53:08.778857'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

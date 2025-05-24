@@ -1,0 +1,78 @@
+{
+  "category": "CascadingFailure",
+  "name": "CascadingFailure_20250523_174629",
+  "description": "Multi-service failure propagation scenario",
+  "duration": 311,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.133284",
+    "phrase_templates_used": 2,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.133096",
+      "event_type": "trigger",
+      "description": "Initial failure detected: cascading failure",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:39.133096",
+      "event_type": "cascade",
+      "description": "Cascade: demographics monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:43.133096",
+      "event_type": "cascade",
+      "description": "Cascade: demographics monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:54.133096",
+      "event_type": "recovery",
+      "description": "Recovery: demographics monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:59.133096",
+      "event_type": "recovery",
+      "description": "Recovery: cascading failure",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:59.133096",
+      "event_type": "propagation",
+      "description": "Propagation: demographics monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:00.133096",
+      "event_type": "cascade",
+      "description": "Cascade: cascading failure",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:03.133096",
+      "event_type": "recovery",
+      "description": "Recovery: demographics monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:03.133096",
+      "event_type": "recovery",
+      "description": "Recovery: demographics monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:51:40.133096",
+      "event_type": "recovery",
+      "description": "System recovered: all services recovered",
+      "injection_spec": null
+    }
+  ]
+}

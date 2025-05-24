@@ -1,0 +1,120 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173708",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 1562,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.050105",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.049924",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:23.049924",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 40,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.8268606522728309,
+          "response_time_ms": 3522,
+          "cpu_usage": 0.7505701883172667,
+          "memory_usage": 0.9702207389309864
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:01.049924",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:38.049924",
+      "event_type": "recovery",
+      "description": "Recovery: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:47.049924",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 86,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.7343467499699247,
+          "response_time_ms": 6688,
+          "cpu_usage": 0.7465448537322029,
+          "memory_usage": 0.988927713864374
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:00.049924",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 175,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.8659881008508746,
+          "response_time_ms": 9664,
+          "cpu_usage": 0.9946836289583851,
+          "memory_usage": 0.8435991114618128
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:01.049924",
+      "event_type": "recovery",
+      "description": "Recovery: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:12.049924",
+      "event_type": "failure",
+      "description": "Failure: memory limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 187,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.6368169166937755,
+          "response_time_ms": 8748,
+          "cpu_usage": 0.8317408158176813,
+          "memory_usage": 0.893922364602071
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:03:10.049924",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

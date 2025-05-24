@@ -1,0 +1,90 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_174629",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1211,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.165400",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 2,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.165266",
+      "event_type": "trigger",
+      "description": "Initial failure detected: an error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:45.165266",
+      "event_type": "degradation",
+      "description": "Degradation: kubernetes cluster",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "low",
+        "duration": 237,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: kubernetes cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.10490410459732967,
+          "response_time_ms": 1641,
+          "cpu_usage": 0.7716894128293403,
+          "memory_usage": 0.46147718902069185
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:08.165266",
+      "event_type": "degradation",
+      "description": "Degradation: code error",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "low",
+        "duration": 271,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: code error - operation failed",
+        "metrics": {
+          "error_rate": 0.18598427390057723,
+          "response_time_ms": 330,
+          "cpu_usage": 0.7126749692191746,
+          "memory_usage": 0.5147387685670508
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:15.165266",
+      "event_type": "recovery",
+      "description": "Recovery: to fix",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:17.165266",
+      "event_type": "failure",
+      "description": "Failure: ssh connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 271,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: ssh connection - operation failed",
+        "metrics": {
+          "error_rate": 0.30104260470491784,
+          "response_time_ms": 6417,
+          "cpu_usage": 0.9405770409352283,
+          "memory_usage": 0.9540194604377376
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:06:40.165266",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

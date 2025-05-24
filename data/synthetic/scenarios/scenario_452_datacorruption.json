@@ -1,0 +1,108 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173708",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 1349,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.070439",
+    "phrase_templates_used": 36,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 2,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.070217",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:36.070217",
+      "event_type": "failure",
+      "description": "Failure: only container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 220,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: only container - operation failed",
+        "metrics": {
+          "error_rate": 0.31378407731599045,
+          "response_time_ms": 3736,
+          "cpu_usage": 0.8158078890408282,
+          "memory_usage": 0.8942969922509406
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:47.070217",
+      "event_type": "failure",
+      "description": "Failure: partitioned queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "medium",
+        "duration": 63,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: partitioned queue - operation failed",
+        "metrics": {
+          "error_rate": 0.275503234930325,
+          "response_time_ms": 399,
+          "cpu_usage": 0.5796100919767152,
+          "memory_usage": 0.4116784267509518
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:35.070217",
+      "event_type": "failure",
+      "description": "Failure: the error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 59,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: the error - operation failed",
+        "metrics": {
+          "error_rate": 0.1635876946056274,
+          "response_time_ms": 3826,
+          "cpu_usage": 0.7181850096515715,
+          "memory_usage": 0.998882226109099
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:17.070217",
+      "event_type": "recovery",
+      "description": "Recovery: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:41:03.070217",
+      "event_type": "failure",
+      "description": "Failure: head queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "medium",
+        "duration": 125,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: head queue - operation failed",
+        "metrics": {
+          "error_rate": 0.1584990291724845,
+          "response_time_ms": 614,
+          "cpu_usage": 0.35436721983555086,
+          "memory_usage": 0.43057313357259286
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:59:37.070217",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

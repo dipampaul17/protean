@@ -1,0 +1,96 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173707",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 740,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.978518",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.978333",
+      "event_type": "trigger",
+      "description": "Initial failure detected: var log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:33.978333",
+      "event_type": "restart",
+      "description": "Restart: code server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:48.978333",
+      "event_type": "config_change",
+      "description": "Config_Change: code server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:54.978333",
+      "event_type": "failure",
+      "description": "Failure: nginx error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 113,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: nginx error - operation failed",
+        "metrics": {
+          "error_rate": 0.25246250683644544,
+          "response_time_ms": 9244,
+          "cpu_usage": 0.9460692187239577,
+          "memory_usage": 0.8599663340091184
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:59.978333",
+      "event_type": "config_change",
+      "description": "Config_Change: following error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:00.978333",
+      "event_type": "failure",
+      "description": "Failure: following error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 50,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: following error - operation failed",
+        "metrics": {
+          "error_rate": 0.3013027275212091,
+          "response_time_ms": 5559,
+          "cpu_usage": 0.8778271977053389,
+          "memory_usage": 0.9542679463681115
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:04.978333",
+      "event_type": "rollback",
+      "description": "Rollback: to update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:19.978333",
+      "event_type": "restart",
+      "description": "Restart: the log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:27.978333",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

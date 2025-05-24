@@ -1,0 +1,105 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173245",
+  "description": "Database connectivity and performance issues",
+  "duration": 1595,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.718685",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 2,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.718537",
+      "event_type": "trigger",
+      "description": "Initial failure detected: api server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:40.718537",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: using docker",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:44.718537",
+      "event_type": "timeout",
+      "description": "Timeout: the queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "medium",
+        "duration": 224,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR redis-cache: the queue in timeout",
+        "metrics": {
+          "error_rate": 0.18670097074103337,
+          "response_time_ms": 1543,
+          "cpu_usage": 0.3589305647275314,
+          "memory_usage": 0.4446050378846276,
+          "connection_pool_usage": 0.944967745533439,
+          "query_time_ms": 28839,
+          "deadlocks_per_sec": 3
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:25.718537",
+      "event_type": "timeout",
+      "description": "Timeout: message queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "medium",
+        "duration": 149,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR redis-cache: message queue in timeout",
+        "metrics": {
+          "error_rate": 0.027996957198401923,
+          "response_time_ms": 422,
+          "cpu_usage": 0.4380527477937205,
+          "memory_usage": 0.5167311378553527,
+          "connection_pool_usage": 0.8135584152143501,
+          "query_time_ms": 13804,
+          "deadlocks_per_sec": 3
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:35.718537",
+      "event_type": "timeout",
+      "description": "Timeout: to fix",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 125,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR redis-cache: to fix in timeout",
+        "metrics": {
+          "error_rate": 0.7321058461341627,
+          "response_time_ms": 2459,
+          "cpu_usage": 0.8968210507276431,
+          "memory_usage": 0.8165506306160322,
+          "connection_pool_usage": 0.9985367001984797,
+          "query_time_ms": 29963,
+          "deadlocks_per_sec": 6
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:48.718537",
+      "event_type": "recovery",
+      "description": "Recovery: on database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:59:20.718537",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_173453",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 1112,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.207790",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.207516",
+      "event_type": "trigger",
+      "description": "Initial failure detected: code cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:38.207516",
+      "event_type": "failure",
+      "description": "Failure: accessed memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 167,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: accessed memory - operation failed",
+        "metrics": {
+          "error_rate": 0.2596093184537896,
+          "response_time_ms": 4309,
+          "cpu_usage": 0.7518963822766945,
+          "memory_usage": 0.9046061907927792
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:18.207516",
+      "event_type": "timeout",
+      "description": "Timeout: the server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 206,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.780260336405754,
+          "response_time_ms": 3816,
+          "cpu_usage": 0.8943340080653673,
+          "memory_usage": 0.831502682071858
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:50.207516",
+      "event_type": "timeout",
+      "description": "Timeout: to fix",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 160,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: to fix - operation failed",
+        "metrics": {
+          "error_rate": 0.10674546238386791,
+          "response_time_ms": 4385,
+          "cpu_usage": 0.9294111312529129,
+          "memory_usage": 0.9735790096931685
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:53:25.207516",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

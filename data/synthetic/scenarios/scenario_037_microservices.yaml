@@ -1,0 +1,55 @@
+category: Microservices
+name: Microservices_20250523_174628
+description: Infrastructure failure scenario for Microservices
+duration: 1068
+metadata:
+  generated_at: '2025-05-23T17:46:28.914572'
+  phrase_templates_used: 15
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:28.914481'
+  event_type: trigger
+  description: 'Initial failure detected: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:04.914481'
+  event_type: failure
+  description: 'Failure: following error'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 240
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: following error - operation
+      failed'
+    metrics:
+      error_rate: 0.47825354497944816
+      response_time_ms: 1286
+      cpu_usage: 0.9796967139448721
+      memory_usage: 0.8670969715131942
+- timestamp: '2025-05-23T17:50:27.914481'
+  event_type: recovery
+  description: 'Recovery: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:51:11.914481'
+  event_type: timeout
+  description: 'Timeout: headless service'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 243
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: headless service - operation
+      failed'
+    metrics:
+      error_rate: 0.46931057002481236
+      response_time_ms: 3004
+      cpu_usage: 0.7429315958178618
+      memory_usage: 0.9753687071003663
+- timestamp: '2025-05-23T18:04:16.914481'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

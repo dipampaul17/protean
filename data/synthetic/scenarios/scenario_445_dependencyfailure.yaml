@@ -1,0 +1,104 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_174629
+description: Infrastructure failure scenario for DependencyFailure
+duration: 714
+metadata:
+  generated_at: '2025-05-23T17:46:29.138611'
+  phrase_templates_used: 45
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 2
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:29.138392'
+  event_type: trigger
+  description: 'Initial failure detected: lt connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:46.138392'
+  event_type: failure
+  description: 'Failure: the queue'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: medium
+    duration: 287
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: the queue - operation
+      failed'
+    metrics:
+      error_rate: 0.2546430596890749
+      response_time_ms: 989
+      cpu_usage: 0.30425133390076703
+      memory_usage: 0.4340871306461572
+- timestamp: '2025-05-23T17:47:10.138392'
+  event_type: recovery
+  description: 'Recovery: to update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:15.138392'
+  event_type: failure
+  description: 'Failure: existing connection'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 56
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: existing connection
+      - operation failed'
+    metrics:
+      error_rate: 0.35458736627538046
+      response_time_ms: 2935
+      cpu_usage: 0.915939317853314
+      memory_usage: 0.8770340564951107
+- timestamp: '2025-05-23T17:47:22.138392'
+  event_type: failure
+  description: 'Failure: exist error'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 72
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: exist error -
+      operation failed'
+    metrics:
+      error_rate: 0.4152513852516252
+      response_time_ms: 1337
+      cpu_usage: 0.9302695504406737
+      memory_usage: 0.8301460752658888
+- timestamp: '2025-05-23T17:47:22.138392'
+  event_type: failure
+  description: 'Failure: upstream queue'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: medium
+    duration: 41
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: upstream queue - operation
+      failed'
+    metrics:
+      error_rate: 0.10633017572653304
+      response_time_ms: 516
+      cpu_usage: 0.5462890473722884
+      memory_usage: 0.42825140121170846
+- timestamp: '2025-05-23T17:47:22.138392'
+  event_type: recovery
+  description: 'Recovery: destination node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:04.138392'
+  event_type: timeout
+  description: 'Timeout: strong update'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 188
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: strong update - operation
+      failed'
+    metrics:
+      error_rate: 0.3438121352888963
+      response_time_ms: 6957
+      cpu_usage: 0.8401488979196031
+      memory_usage: 0.9914565277928291
+- timestamp: '2025-05-23T17:58:23.138392'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

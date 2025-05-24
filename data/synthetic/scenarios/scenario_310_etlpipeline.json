@@ -1,0 +1,138 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173245",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 927,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.751520",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.751306",
+      "event_type": "trigger",
+      "description": "Initial failure detected: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:06.751306",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:22.751306",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 173,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.6038922642112596,
+          "response_time_ms": 2819,
+          "cpu_usage": 0.9394382654437023,
+          "memory_usage": 0.8193486974115517
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:25.751306",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 238,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.8991299663419386,
+          "response_time_ms": 7304,
+          "cpu_usage": 0.7445176012226885,
+          "memory_usage": 0.8824419424921992
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:25.751306",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:04.751306",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:17.751306",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 216,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.8247654848313604,
+          "response_time_ms": 4438,
+          "cpu_usage": 0.7589268041304864,
+          "memory_usage": 0.8807302881966881
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:21.751306",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 192,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.601819236720392,
+          "response_time_ms": 8706,
+          "cpu_usage": 0.9304102052177547,
+          "memory_usage": 0.8597683409521454
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:24.751306",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 300,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.163766818264667,
+          "response_time_ms": 1491,
+          "cpu_usage": 0.738890066004078,
+          "memory_usage": 0.9680349319877641
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:12.751306",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

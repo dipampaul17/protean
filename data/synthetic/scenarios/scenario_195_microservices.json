@@ -1,0 +1,108 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_173708",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 1030,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.002383",
+    "phrase_templates_used": 15,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.002069",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:50.002069",
+      "event_type": "failure",
+      "description": "Failure: lt service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 223,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: lt service - operation failed",
+        "metrics": {
+          "error_rate": 0.7471955823676565,
+          "response_time_ms": 3483,
+          "cpu_usage": 0.7267386767627623,
+          "memory_usage": 0.9518333914943597
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:52.002069",
+      "event_type": "timeout",
+      "description": "Timeout: following error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 51,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: following error - operation failed",
+        "metrics": {
+          "error_rate": 0.2851210983742985,
+          "response_time_ms": 2809,
+          "cpu_usage": 0.8102176126622954,
+          "memory_usage": 0.9425287213252372
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:01.002069",
+      "event_type": "failure",
+      "description": "Failure: to service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 259,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: to service - operation failed",
+        "metrics": {
+          "error_rate": 0.49704636655449375,
+          "response_time_ms": 5338,
+          "cpu_usage": 0.8826900004949069,
+          "memory_usage": 0.9206913400441594
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:14.002069",
+      "event_type": "timeout",
+      "description": "Timeout: docker network",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 189,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: docker network - operation failed",
+        "metrics": {
+          "error_rate": 0.3881995477197876,
+          "response_time_ms": 9687,
+          "cpu_usage": 0.8509116583132057,
+          "memory_usage": 0.953178561441283
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:02.002069",
+      "event_type": "recovery",
+      "description": "Recovery: http connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:54:18.002069",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_174629",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 530,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.132650",
+    "phrase_templates_used": 13,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.132377",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:53.132377",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:54.132377",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: that node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:14.132377",
+      "event_type": "timeout",
+      "description": "Timeout: kafka pod",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "vpc-main",
+        "severity": "high",
+        "duration": 216,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR vpc-main: kafka pod in timeout",
+        "metrics": {
+          "error_rate": 0.8980689525414622,
+          "response_time_ms": 3345,
+          "cpu_usage": 0.74552094324838,
+          "memory_usage": 0.8791989783780079,
+          "requests_per_sec": 5613,
+          "backend_health_pct": 0.7605025791713018,
+          "connection_timeouts": 644
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:21.132377",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: a pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:35.132377",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:52.132377",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: your cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:55:19.132377",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

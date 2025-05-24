@@ -1,0 +1,55 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173452
+description: Infrastructure failure scenario for ETLPipeline
+duration: 1016
+metadata:
+  generated_at: '2025-05-23T17:34:52.973655'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:34:52.973548'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:54.973548'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:10.973548'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 109
+    log_snippet: '[2025-05-23 17:34:52] ERROR payment-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.10928394952273113
+      response_time_ms: 6234
+      cpu_usage: 0.9222981364498636
+      memory_usage: 0.98572405115329
+- timestamp: '2025-05-23T17:40:18.973548'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 182
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.849982854180593
+      response_time_ms: 2100
+      cpu_usage: 0.8819909922158333
+      memory_usage: 0.8188763597345671
+- timestamp: '2025-05-23T17:51:48.973548'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

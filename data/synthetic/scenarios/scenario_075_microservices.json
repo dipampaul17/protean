@@ -1,0 +1,108 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_174628",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 1345,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.926260",
+    "phrase_templates_used": 15,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.926091",
+      "event_type": "trigger",
+      "description": "Initial failure detected: ui service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:41.926091",
+      "event_type": "failure",
+      "description": "Failure: the container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 224,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.6543151119793165,
+          "response_time_ms": 2439,
+          "cpu_usage": 0.9242542782804726,
+          "memory_usage": 0.8989678240747525
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:06.926091",
+      "event_type": "failure",
+      "description": "Failure: following error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 227,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: following error - operation failed",
+        "metrics": {
+          "error_rate": 0.6428905938040206,
+          "response_time_ms": 1229,
+          "cpu_usage": 0.9238754786218731,
+          "memory_usage": 0.9933044205955313
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:15.926091",
+      "event_type": "recovery",
+      "description": "Recovery: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:09.926091",
+      "event_type": "recovery",
+      "description": "Recovery: following error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:12.926091",
+      "event_type": "recovery",
+      "description": "Recovery: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:20.926091",
+      "event_type": "failure",
+      "description": "Failure: a cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 265,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: a cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.5239454579218443,
+          "response_time_ms": 5193,
+          "cpu_usage": 0.852183066344038,
+          "memory_usage": 0.8479958455674672
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:40.926091",
+      "event_type": "recovery",
+      "description": "Recovery: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:08:53.926091",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

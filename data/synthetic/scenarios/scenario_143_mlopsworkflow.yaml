@@ -1,0 +1,100 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_173453
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1498
+metadata:
+  generated_at: '2025-05-23T17:34:53.059080'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:34:53.057318'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:14.057318'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 42
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.3997016271188435
+      response_time_ms: 6258
+      cpu_usage: 0.7942670173502406
+      memory_usage: 0.8772551679947667
+- timestamp: '2025-05-23T17:35:28.057318'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 226
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.3715920530043302
+      response_time_ms: 5835
+      cpu_usage: 0.8647592968347121
+      memory_usage: 0.8187910851808426
+- timestamp: '2025-05-23T17:35:52.057318'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 265
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: disk space full
+      - operation failed'
+    metrics:
+      error_rate: 0.21411810701468614
+      response_time_ms: 3030
+      cpu_usage: 0.9784237811857375
+      memory_usage: 0.8597409842614558
+- timestamp: '2025-05-23T17:36:26.057318'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 117
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.7738254506832146
+      response_time_ms: 1005
+      cpu_usage: 0.8778620798631471
+      memory_usage: 0.8644972036211261
+- timestamp: '2025-05-23T17:37:18.057318'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:33.057318'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 251
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.7242058723194712
+      response_time_ms: 6126
+      cpu_usage: 0.9263922316519275
+      memory_usage: 0.9082062824398852
+- timestamp: '2025-05-23T17:59:51.057318'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,84 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_173708",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 766,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.018183",
+    "phrase_templates_used": 39,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.018053",
+      "event_type": "trigger",
+      "description": "Initial failure detected: gt service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:09.018053",
+      "event_type": "failure",
+      "description": "Failure: name debug",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 111,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR worker-consumer: name debug in failure",
+        "metrics": {
+          "error_rate": 0.6014020053006017,
+          "response_time_ms": 3283,
+          "cpu_usage": 0.7874840039515673,
+          "memory_usage": 0.9796716206079229
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:53.018053",
+      "event_type": "deployment",
+      "description": "Deployment: docker container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:59.018053",
+      "event_type": "failure",
+      "description": "Failure: your cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 130,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR worker-consumer: your cluster in failure",
+        "metrics": {
+          "error_rate": 0.5241997895435617,
+          "response_time_ms": 1231,
+          "cpu_usage": 0.9637050555141542,
+          "memory_usage": 0.8854437014916036
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:15.018053",
+      "event_type": "scaling",
+      "description": "Scaling: a node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:16.018053",
+      "event_type": "scaling",
+      "description": "Scaling: deleted pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:54.018053",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

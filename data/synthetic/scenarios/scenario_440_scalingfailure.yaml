@@ -1,0 +1,78 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_173708
+description: Infrastructure failure scenario for ScalingFailure
+duration: 1739
+metadata:
+  generated_at: '2025-05-23T17:37:08.068268'
+  phrase_templates_used: 24
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:08.068111'
+  event_type: trigger
+  description: 'Initial failure detected: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:25.068111'
+  event_type: recovery
+  description: 'Recovery: the pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:42.068111'
+  event_type: timeout
+  description: 'Timeout: the node'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 298
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: the node - operation
+      failed'
+    metrics:
+      error_rate: 0.2221445937958249
+      response_time_ms: 9334
+      cpu_usage: 0.950692720540426
+      memory_usage: 0.8382495981705056
+- timestamp: '2025-05-23T17:40:25.068111'
+  event_type: recovery
+  description: 'Recovery: which node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:18.068111'
+  event_type: failure
+  description: 'Failure: a server'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 178
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: a server - operation
+      failed'
+    metrics:
+      error_rate: 0.7202623158909784
+      response_time_ms: 9760
+      cpu_usage: 0.7222306771772388
+      memory_usage: 0.8559081744558946
+- timestamp: '2025-05-23T17:41:44.068111'
+  event_type: timeout
+  description: 'Timeout: a cluster'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 238
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: a cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.8639852449679021
+      response_time_ms: 3235
+      cpu_usage: 0.9534968601147855
+      memory_usage: 0.9869264515163267
+- timestamp: '2025-05-23T17:41:57.068111'
+  event_type: recovery
+  description: 'Recovery: a node'
+  injection_spec: null
+- timestamp: '2025-05-23T18:06:07.068111'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

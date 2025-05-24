@@ -1,0 +1,108 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_174629",
+  "description": "Database connectivity and performance issues",
+  "duration": 1437,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.069289",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.068957",
+      "event_type": "trigger",
+      "description": "Initial failure detected: api server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:30.068957",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:32.068957",
+      "event_type": "corruption",
+      "description": "Corruption: my database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:33.068957",
+      "event_type": "corruption",
+      "description": "Corruption: mysql server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:56.068957",
+      "event_type": "timeout",
+      "description": "Timeout: postgresql database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 217,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR mongodb-shard: postgresql database in timeout",
+        "metrics": {
+          "error_rate": 0.15939759467006695,
+          "response_time_ms": 9572,
+          "cpu_usage": 0.9802752368310046,
+          "memory_usage": 0.8162300352407241,
+          "connection_pool_usage": 0.926315031040365,
+          "query_time_ms": 17815,
+          "deadlocks_per_sec": 7
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:18.068957",
+      "event_type": "recovery",
+      "description": "Recovery: to server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:04.068957",
+      "event_type": "recovery",
+      "description": "Recovery: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:17.068957",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: following error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:19.068957",
+      "event_type": "timeout",
+      "description": "Timeout: strong update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 271,
+        "log_snippet": "[2025-05-23 17:46:29] FATAL mysql-primary: database strong update detected",
+        "metrics": {
+          "error_rate": 0.4032534537106893,
+          "response_time_ms": 9304,
+          "cpu_usage": 0.7251268640516423,
+          "memory_usage": 0.8943237953080481,
+          "connection_pool_usage": 0.9447542017072265,
+          "query_time_ms": 8430,
+          "deadlocks_per_sec": 9
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:10:26.068957",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

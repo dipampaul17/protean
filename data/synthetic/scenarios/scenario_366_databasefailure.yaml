@@ -1,0 +1,50 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173245
+description: Database connectivity and performance issues
+duration: 1080
+metadata:
+  generated_at: '2025-05-23T17:32:45.764277'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:32:45.764056'
+  event_type: trigger
+  description: 'Initial failure detected: postgresql database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:11.764056'
+  event_type: connection_loss
+  description: 'Connection_Loss: postgresql database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:54.764056'
+  event_type: recovery
+  description: 'Recovery: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:05.764056'
+  event_type: connection_loss
+  description: 'Connection_Loss: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:12.764056'
+  event_type: timeout
+  description: 'Timeout: a service'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 56
+    log_snippet: '[2025-05-23 17:32:45] ERROR mongodb-shard: a service in timeout'
+    metrics:
+      error_rate: 0.4099898958207975
+      response_time_ms: 6930
+      cpu_usage: 0.7405178519336186
+      memory_usage: 0.9663918811629212
+      connection_pool_usage: 0.8837220688579088
+      query_time_ms: 8357
+      deadlocks_per_sec: 5
+- timestamp: '2025-05-23T17:50:45.764056'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

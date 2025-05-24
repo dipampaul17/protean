@@ -1,0 +1,96 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173245
+description: Infrastructure failure scenario for DataWarehouse
+duration: 980
+metadata:
+  generated_at: '2025-05-23T17:32:45.718199'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:32:45.718016'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:02.718016'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 86
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.19229551831807648
+      response_time_ms: 2132
+      cpu_usage: 0.7491132495183486
+      memory_usage: 0.8857062398419059
+- timestamp: '2025-05-23T17:34:05.718016'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 193
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.7850963248350943
+      response_time_ms: 3630
+      cpu_usage: 0.8915172803240925
+      memory_usage: 0.8546244961672257
+- timestamp: '2025-05-23T17:34:11.718016'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 129
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: container crashed - operation
+      failed'
+    metrics:
+      error_rate: 0.362528761862395
+      response_time_ms: 9384
+      cpu_usage: 0.9481544773342425
+      memory_usage: 0.9862794027197805
+- timestamp: '2025-05-23T17:34:28.718016'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 151
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.17543236328251244
+      response_time_ms: 4407
+      cpu_usage: 0.9969241080932707
+      memory_usage: 0.8530372673751448
+- timestamp: '2025-05-23T17:36:00.718016'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 75
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.6601370413151018
+      response_time_ms: 1849
+      cpu_usage: 0.9446792717929229
+      memory_usage: 0.8896097990694032
+- timestamp: '2025-05-23T17:49:05.718016'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

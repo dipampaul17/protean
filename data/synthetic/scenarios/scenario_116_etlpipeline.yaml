@@ -1,0 +1,130 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173707
+description: Infrastructure failure scenario for ETLPipeline
+duration: 1590
+metadata:
+  generated_at: '2025-05-23T17:37:07.959828'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 7
+events:
+- timestamp: '2025-05-23T17:37:07.959594'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:32.959594'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 93
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.49586798675007937
+      response_time_ms: 9153
+      cpu_usage: 0.8798177007637125
+      memory_usage: 0.8676048506758327
+- timestamp: '2025-05-23T17:38:00.959594'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 241
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.5633454118520089
+      response_time_ms: 2332
+      cpu_usage: 0.7302423616923143
+      memory_usage: 0.9404574030223196
+- timestamp: '2025-05-23T17:38:09.959594'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 221
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.7232012870369425
+      response_time_ms: 2158
+      cpu_usage: 0.9100712958140064
+      memory_usage: 0.9071307171663197
+- timestamp: '2025-05-23T17:38:35.959594'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:07.959594'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 255
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.411336482267039
+      response_time_ms: 3004
+      cpu_usage: 0.9530325943464206
+      memory_usage: 0.9143622219148295
+- timestamp: '2025-05-23T17:39:14.959594'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 90
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.8155772445148369
+      response_time_ms: 8196
+      cpu_usage: 0.8929965775378765
+      memory_usage: 0.988381764450162
+- timestamp: '2025-05-23T17:39:34.959594'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 49
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.5302056655981451
+      response_time_ms: 3713
+      cpu_usage: 0.7934224121377208
+      memory_usage: 0.844801231937607
+- timestamp: '2025-05-23T17:39:55.959594'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 292
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.7585468926227392
+      response_time_ms: 4663
+      cpu_usage: 0.8549834696397557
+      memory_usage: 0.8880575599662642
+- timestamp: '2025-05-23T18:03:37.959594'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

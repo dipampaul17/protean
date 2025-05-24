@@ -1,0 +1,90 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173245",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 1458,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.742565",
+    "phrase_templates_used": 45,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.742441",
+      "event_type": "trigger",
+      "description": "Initial failure detected: upstream server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:30.742441",
+      "event_type": "timeout",
+      "description": "Timeout: nginx error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 222,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: nginx error - operation failed",
+        "metrics": {
+          "error_rate": 0.5540388154347922,
+          "response_time_ms": 3067,
+          "cpu_usage": 0.9550067595990103,
+          "memory_usage": 0.8894926978395319
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:43.742441",
+      "event_type": "failure",
+      "description": "Failure: the node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 46,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: the node - operation failed",
+        "metrics": {
+          "error_rate": 0.7761885840240401,
+          "response_time_ms": 4199,
+          "cpu_usage": 0.8126996170525079,
+          "memory_usage": 0.9128514082142225
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:01.742441",
+      "event_type": "timeout",
+      "description": "Timeout: proxy server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 85,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: proxy server - operation failed",
+        "metrics": {
+          "error_rate": 0.40647252275123447,
+          "response_time_ms": 4656,
+          "cpu_usage": 0.8795161962128746,
+          "memory_usage": 0.8235321616809956
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:59.742441",
+      "event_type": "recovery",
+      "description": "Recovery: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:57:03.742441",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

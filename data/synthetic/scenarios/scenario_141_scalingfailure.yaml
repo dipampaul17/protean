@@ -1,0 +1,119 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_173245
+description: Infrastructure failure scenario for ScalingFailure
+duration: 1468
+metadata:
+  generated_at: '2025-05-23T17:32:45.706174'
+  phrase_templates_used: 24
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:32:45.705940'
+  event_type: trigger
+  description: 'Initial failure detected: a node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:01.705940'
+  event_type: timeout
+  description: 'Timeout: of failure'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 127
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: of failure - operation
+      failed'
+    metrics:
+      error_rate: 0.2681907607916567
+      response_time_ms: 8796
+      cpu_usage: 0.9811526856382566
+      memory_usage: 0.845207367039492
+- timestamp: '2025-05-23T17:33:06.705940'
+  event_type: failure
+  description: 'Failure: the server'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 229
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.3016512824142713
+      response_time_ms: 6604
+      cpu_usage: 0.8059351581511827
+      memory_usage: 0.8054773782175417
+- timestamp: '2025-05-23T17:33:41.705940'
+  event_type: failure
+  description: 'Failure: web server'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 263
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: web server - operation
+      failed'
+    metrics:
+      error_rate: 0.5645145925617885
+      response_time_ms: 5246
+      cpu_usage: 0.9181565203877912
+      memory_usage: 0.9247639705424338
+- timestamp: '2025-05-23T17:33:49.705940'
+  event_type: failure
+  description: 'Failure: clusterip service'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 147
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: clusterip service - operation
+      failed'
+    metrics:
+      error_rate: 0.6576535541821568
+      response_time_ms: 5052
+      cpu_usage: 0.7226084475524073
+      memory_usage: 0.8110099327019327
+- timestamp: '2025-05-23T17:34:03.705940'
+  event_type: recovery
+  description: 'Recovery: a server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:27.705940'
+  event_type: timeout
+  description: 'Timeout: this service'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 299
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: this service - operation
+      failed'
+    metrics:
+      error_rate: 0.8494203471120664
+      response_time_ms: 7185
+      cpu_usage: 0.7206651591427262
+      memory_usage: 0.8301469977943253
+- timestamp: '2025-05-23T17:34:34.705940'
+  event_type: timeout
+  description: 'Timeout: of failure'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 62
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: of failure - operation
+      failed'
+    metrics:
+      error_rate: 0.7370361425518297
+      response_time_ms: 3120
+      cpu_usage: 0.9233989635319706
+      memory_usage: 0.9077881114468348
+- timestamp: '2025-05-23T17:35:48.705940'
+  event_type: recovery
+  description: 'Recovery: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:57:13.705940'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

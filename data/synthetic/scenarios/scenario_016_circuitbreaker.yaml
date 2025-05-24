@@ -1,0 +1,74 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_174628
+description: Circuit breaker activation due to cascading service failures
+duration: 1202
+metadata:
+  generated_at: '2025-05-23T17:46:28.908324'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 1
+    medium: 1
+    high: 1
+events:
+- timestamp: '2025-05-23T17:46:28.908182'
+  event_type: trigger
+  description: 'Initial failure detected: message queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:47.908182'
+  event_type: degradation
+  description: 'Degradation: nginx server'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: low
+    duration: 107
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: nginx server -
+      operation failed'
+    metrics:
+      error_rate: 0.2930510532800321
+      response_time_ms: 1044
+      cpu_usage: 0.3067454556808342
+      memory_usage: 0.6438915315936758
+- timestamp: '2025-05-23T17:46:49.908182'
+  event_type: failure
+  description: 'Failure: nginx error'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 158
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: nginx error -
+      operation failed'
+    metrics:
+      error_rate: 0.35670714130265857
+      response_time_ms: 3361
+      cpu_usage: 0.9779406919159461
+      memory_usage: 0.982035251132264
+- timestamp: '2025-05-23T17:48:17.908182'
+  event_type: recovery
+  description: 'Recovery: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:52.908182'
+  event_type: failure
+  description: 'Failure: letter queue'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: medium
+    duration: 152
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: letter queue - operation
+      failed'
+    metrics:
+      error_rate: 0.11078737520167976
+      response_time_ms: 871
+      cpu_usage: 0.4480897950992452
+      memory_usage: 0.6390362572196271
+- timestamp: '2025-05-23T17:50:17.908182'
+  event_type: recovery
+  description: 'Recovery: reduce alert'
+  injection_spec: null
+- timestamp: '2025-05-23T18:06:30.908182'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

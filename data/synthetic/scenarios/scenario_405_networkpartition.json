@@ -1,0 +1,132 @@
+{
+  "category": "NetworkPartition",
+  "name": "NetworkPartition_20250523_173708",
+  "description": "Infrastructure failure scenario for NetworkPartition",
+  "duration": 1065,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.058641",
+    "phrase_templates_used": 4,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.058244",
+      "event_type": "trigger",
+      "description": "Initial failure detected: and memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:30.058244",
+      "event_type": "timeout",
+      "description": "Timeout: of disk",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 243,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: of disk - operation failed",
+        "metrics": {
+          "error_rate": 0.4122125528392988,
+          "response_time_ms": 5777,
+          "cpu_usage": 0.7906930292397369,
+          "memory_usage": 0.8583252499186758
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:47.058244",
+      "event_type": "timeout",
+      "description": "Timeout: each node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 216,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: each node - operation failed",
+        "metrics": {
+          "error_rate": 0.632841484660032,
+          "response_time_ms": 9855,
+          "cpu_usage": 0.8574974347699051,
+          "memory_usage": 0.9878356853328459
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:49.058244",
+      "event_type": "timeout",
+      "description": "Timeout: and memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 139,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: and memory - operation failed",
+        "metrics": {
+          "error_rate": 0.5217390439137732,
+          "response_time_ms": 6378,
+          "cpu_usage": 0.921653443384165,
+          "memory_usage": 0.9720510016184973
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:16.058244",
+      "event_type": "recovery",
+      "description": "Recovery: and node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:21.058244",
+      "event_type": "recovery",
+      "description": "Recovery: and node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:35.058244",
+      "event_type": "timeout",
+      "description": "Timeout: of disk",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 245,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: of disk - operation failed",
+        "metrics": {
+          "error_rate": 0.5649774345307328,
+          "response_time_ms": 4329,
+          "cpu_usage": 0.8776804015096167,
+          "memory_usage": 0.9038597184949775
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:39.058244",
+      "event_type": "failure",
+      "description": "Failure: and memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 246,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: and memory - operation failed",
+        "metrics": {
+          "error_rate": 0.6691437315171521,
+          "response_time_ms": 8806,
+          "cpu_usage": 0.9443796777141233,
+          "memory_usage": 0.9844133287390269
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:54:53.058244",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

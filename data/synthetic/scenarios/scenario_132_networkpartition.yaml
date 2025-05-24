@@ -1,0 +1,96 @@
+category: NetworkPartition
+name: NetworkPartition_20250523_173707
+description: Infrastructure failure scenario for NetworkPartition
+duration: 935
+metadata:
+  generated_at: '2025-05-23T17:37:07.978298'
+  phrase_templates_used: 4
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:37:07.977896'
+  event_type: trigger
+  description: 'Initial failure detected: and node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:31.977896'
+  event_type: timeout
+  description: 'Timeout: and memory'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 299
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: and memory - operation
+      failed'
+    metrics:
+      error_rate: 0.3865085083979366
+      response_time_ms: 8228
+      cpu_usage: 0.8054911512447027
+      memory_usage: 0.8004909543175188
+- timestamp: '2025-05-23T17:38:07.977896'
+  event_type: timeout
+  description: 'Timeout: and node'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 93
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: and node - operation
+      failed'
+    metrics:
+      error_rate: 0.39554224236142743
+      response_time_ms: 4017
+      cpu_usage: 0.7678019037653022
+      memory_usage: 0.8015051879235201
+- timestamp: '2025-05-23T17:38:48.977896'
+  event_type: timeout
+  description: 'Timeout: and memory'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 176
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: and memory - operation
+      failed'
+    metrics:
+      error_rate: 0.1771679941402889
+      response_time_ms: 5279
+      cpu_usage: 0.9140174369657488
+      memory_usage: 0.8020442902132059
+- timestamp: '2025-05-23T17:38:55.977896'
+  event_type: timeout
+  description: 'Timeout: and memory'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 102
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: and memory - operation
+      failed'
+    metrics:
+      error_rate: 0.28412945619009805
+      response_time_ms: 1411
+      cpu_usage: 0.8777345431568551
+      memory_usage: 0.8497844708821446
+- timestamp: '2025-05-23T17:40:12.977896'
+  event_type: failure
+  description: 'Failure: and memory'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 299
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: and memory - operation
+      failed'
+    metrics:
+      error_rate: 0.7607615257121058
+      response_time_ms: 9813
+      cpu_usage: 0.8859261543623854
+      memory_usage: 0.8433682122060094
+- timestamp: '2025-05-23T17:52:42.977896'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,44 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173453
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 1490
+metadata:
+  generated_at: '2025-05-23T17:34:53.290614'
+  phrase_templates_used: 50
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:34:53.290532'
+  event_type: trigger
+  description: 'Initial failure detected: info node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:33.290532'
+  event_type: recovery
+  description: 'Recovery: the database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:00.290532'
+  event_type: timeout
+  description: 'Timeout: the pod'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 180
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: the pod - operation
+      failed'
+    metrics:
+      error_rate: 0.2065915983916491
+      response_time_ms: 5069
+      cpu_usage: 0.952548917065567
+      memory_usage: 0.8478729321723943
+- timestamp: '2025-05-23T17:41:37.290532'
+  event_type: recovery
+  description: 'Recovery: to monitor'
+  injection_spec: null
+- timestamp: '2025-05-23T17:59:43.290532'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,70 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173453
+description: Circuit breaker activation due to cascading service failures
+duration: 675
+metadata:
+  generated_at: '2025-05-23T17:34:53.096974'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:34:53.096807'
+  event_type: trigger
+  description: 'Initial failure detected: to monitor'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:15.096807'
+  event_type: recovery
+  description: 'Recovery: letter queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:26.096807'
+  event_type: degradation
+  description: 'Degradation: session timeout'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: high
+    duration: 94
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: session timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.6398423471713983
+      response_time_ms: 9394
+      cpu_usage: 0.7202195777193173
+      memory_usage: 0.9693769131593943
+- timestamp: '2025-05-23T17:36:48.096807'
+  event_type: failure
+  description: 'Failure: value memory'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 230
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: value memory - operation
+      failed'
+    metrics:
+      error_rate: 0.2602648467101891
+      response_time_ms: 2853
+      cpu_usage: 0.8150116266138085
+      memory_usage: 0.802621412253967
+- timestamp: '2025-05-23T17:37:23.096807'
+  event_type: degradation
+  description: 'Degradation: my server'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: low
+    duration: 158
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: my server - operation
+      failed'
+    metrics:
+      error_rate: 0.10124056865035898
+      response_time_ms: 882
+      cpu_usage: 0.6483962850914771
+      memory_usage: 0.4465581198989319
+- timestamp: '2025-05-23T17:46:08.096807'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

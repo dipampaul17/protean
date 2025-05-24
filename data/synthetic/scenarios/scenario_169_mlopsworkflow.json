@@ -1,0 +1,156 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_174628",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 1630,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.974330",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 7
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.974122",
+      "event_type": "trigger",
+      "description": "Initial failure detected: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:11.974122",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 300,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.22516488384079986,
+          "response_time_ms": 2458,
+          "cpu_usage": 0.9056625452487825,
+          "memory_usage": 0.9083294346808118
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:21.974122",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 85,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.5359740889157572,
+          "response_time_ms": 2779,
+          "cpu_usage": 0.9122504093070487,
+          "memory_usage": 0.9988744126032467
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:52.974122",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 140,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.23784293592379102,
+          "response_time_ms": 1642,
+          "cpu_usage": 0.9126740917220598,
+          "memory_usage": 0.9284275623581075
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:06.974122",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 70,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.5110730501406283,
+          "response_time_ms": 2163,
+          "cpu_usage": 0.9375517486678762,
+          "memory_usage": 0.819958159199136
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:09.974122",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 60,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.43243890478532954,
+          "response_time_ms": 3466,
+          "cpu_usage": 0.8620537114830269,
+          "memory_usage": 0.8530084358359621
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:58.974122",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 199,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.335137105632122,
+          "response_time_ms": 6125,
+          "cpu_usage": 0.7382526840962476,
+          "memory_usage": 0.91993144389048
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:24.974122",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 257,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.8892684695646744,
+          "response_time_ms": 5819,
+          "cpu_usage": 0.7933420697567036,
+          "memory_usage": 0.952566767439117
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:13:38.974122",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

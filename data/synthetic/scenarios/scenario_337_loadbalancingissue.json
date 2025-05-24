@@ -1,0 +1,90 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173453",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 788,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.227348",
+    "phrase_templates_used": 13,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.227218",
+      "event_type": "trigger",
+      "description": "Initial failure detected: web server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:16.227218",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:17.227218",
+      "event_type": "timeout",
+      "description": "Timeout: that node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "subnet-private",
+        "severity": "high",
+        "duration": 136,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR subnet-private: that node in timeout",
+        "metrics": {
+          "error_rate": 0.549426777477888,
+          "response_time_ms": 6217,
+          "cpu_usage": 0.8587290488277493,
+          "memory_usage": 0.8740731257676253,
+          "requests_per_sec": 2313,
+          "backend_health_pct": 0.43771070606759144,
+          "connection_timeouts": 873
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:18.227218",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:36.227218",
+      "event_type": "scaling",
+      "description": "Scaling: a server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:04.227218",
+      "event_type": "timeout",
+      "description": "Timeout: kafka pod",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "subnet-private",
+        "severity": "high",
+        "duration": 165,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR subnet-private: kafka pod in timeout",
+        "metrics": {
+          "error_rate": 0.6056257122078997,
+          "response_time_ms": 7251,
+          "cpu_usage": 0.790753915552418,
+          "memory_usage": 0.897527252497668,
+          "requests_per_sec": 4138,
+          "backend_health_pct": 0.5495634995133047,
+          "connection_timeouts": 360
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:01.227218",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

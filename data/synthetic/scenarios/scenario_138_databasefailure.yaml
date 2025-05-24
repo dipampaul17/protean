@@ -1,0 +1,50 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173707
+description: Database connectivity and performance issues
+duration: 602
+metadata:
+  generated_at: '2025-05-23T17:37:07.979373'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:37:07.979271'
+  event_type: trigger
+  description: 'Initial failure detected: mysql server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:32.979271'
+  event_type: corruption
+  description: 'Corruption: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:45.979271'
+  event_type: timeout
+  description: 'Timeout: requires restart'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 102
+    log_snippet: '[2025-05-23 17:37:07] ERROR redis-cache: requires restart in timeout'
+    metrics:
+      error_rate: 0.6689397290936198
+      response_time_ms: 3543
+      cpu_usage: 0.9453279031401327
+      memory_usage: 0.8652963730310304
+      connection_pool_usage: 0.819733883811128
+      query_time_ms: 18013
+      deadlocks_per_sec: 9
+- timestamp: '2025-05-23T17:39:35.979271'
+  event_type: corruption
+  description: 'Corruption: message queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:37.979271'
+  event_type: connection_loss
+  description: 'Connection_Loss: mysql server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:09.979271'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

@@ -1,0 +1,74 @@
+category: Microservices
+name: Microservices_20250523_173453
+description: Infrastructure failure scenario for Microservices
+duration: 469
+metadata:
+  generated_at: '2025-05-23T17:34:53.056903'
+  phrase_templates_used: 15
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.054363'
+  event_type: trigger
+  description: 'Initial failure detected: from service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:27.054363'
+  event_type: recovery
+  description: 'Recovery: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:29.054363'
+  event_type: failure
+  description: 'Failure: headless service'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 255
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: headless service - operation
+      failed'
+    metrics:
+      error_rate: 0.7947503762524695
+      response_time_ms: 3231
+      cpu_usage: 0.7713987548570015
+      memory_usage: 0.847537919920767
+- timestamp: '2025-05-23T17:35:31.054363'
+  event_type: failure
+  description: 'Failure: http connection'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 134
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: http connection - operation
+      failed'
+    metrics:
+      error_rate: 0.1092565497574367
+      response_time_ms: 8064
+      cpu_usage: 0.8279480661929047
+      memory_usage: 0.9164606724222637
+- timestamp: '2025-05-23T17:36:00.054363'
+  event_type: recovery
+  description: 'Recovery: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:25.054363'
+  event_type: timeout
+  description: 'Timeout: lt service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 219
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: lt service - operation
+      failed'
+    metrics:
+      error_rate: 0.17924449839716924
+      response_time_ms: 9897
+      cpu_usage: 0.9753369445774225
+      memory_usage: 0.807202577696679
+- timestamp: '2025-05-23T17:42:42.054363'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

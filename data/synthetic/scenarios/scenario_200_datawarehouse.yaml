@@ -1,0 +1,104 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173245
+description: Infrastructure failure scenario for DataWarehouse
+duration: 448
+metadata:
+  generated_at: '2025-05-23T17:32:45.721309'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:32:45.720329'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:58.720329'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 258
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.7680176702975607
+      response_time_ms: 4671
+      cpu_usage: 0.7885197753129206
+      memory_usage: 0.8453680313951889
+- timestamp: '2025-05-23T17:33:01.720329'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 199
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.6926959044013775
+      response_time_ms: 7835
+      cpu_usage: 0.9626526712466275
+      memory_usage: 0.9363967871410374
+- timestamp: '2025-05-23T17:33:23.720329'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 94
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.1430744804766799
+      response_time_ms: 6465
+      cpu_usage: 0.7582732628459544
+      memory_usage: 0.8729022004003772
+- timestamp: '2025-05-23T17:33:25.720329'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 102
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.24519902003938504
+      response_time_ms: 6525
+      cpu_usage: 0.7932492860026058
+      memory_usage: 0.9434090715953383
+- timestamp: '2025-05-23T17:33:33.720329'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:35.720329'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:41.720329'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 63
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.4070824373080151
+      response_time_ms: 7641
+      cpu_usage: 0.9413689430460469
+      memory_usage: 0.935989260476097
+- timestamp: '2025-05-23T17:40:13.720329'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

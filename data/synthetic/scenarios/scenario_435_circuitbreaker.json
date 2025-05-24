@@ -1,0 +1,132 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173245",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1500,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.782577",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 1,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.782368",
+      "event_type": "trigger",
+      "description": "Initial failure detected: code error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:25.782368",
+      "event_type": "failure",
+      "description": "Failure: info node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 276,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: info node - operation failed",
+        "metrics": {
+          "error_rate": 0.3657226218724825,
+          "response_time_ms": 3701,
+          "cpu_usage": 0.8518805711454577,
+          "memory_usage": 0.8337308804629577
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:42.782368",
+      "event_type": "timeout",
+      "description": "Timeout: the log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 165,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: the log - operation failed",
+        "metrics": {
+          "error_rate": 0.5140979651676852,
+          "response_time_ms": 1011,
+          "cpu_usage": 0.9576343374052582,
+          "memory_usage": 0.9178173179520203
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:36.782368",
+      "event_type": "timeout",
+      "description": "Timeout: handling connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 171,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: handling connection - operation failed",
+        "metrics": {
+          "error_rate": 0.5116518613846247,
+          "response_time_ms": 7275,
+          "cpu_usage": 0.8170570894200756,
+          "memory_usage": 0.8978338270795416
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:41.782368",
+      "event_type": "failure",
+      "description": "Failure: a queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "medium",
+        "duration": 193,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: a queue - operation failed",
+        "metrics": {
+          "error_rate": 0.11885439393440451,
+          "response_time_ms": 645,
+          "cpu_usage": 0.46339269652011894,
+          "memory_usage": 0.5200831128112635
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:53.782368",
+      "event_type": "recovery",
+      "description": "Recovery: to pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:20.782368",
+      "event_type": "degradation",
+      "description": "Degradation: the log",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "low",
+        "duration": 224,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: the log - operation failed",
+        "metrics": {
+          "error_rate": 0.15712051182770698,
+          "response_time_ms": 1656,
+          "cpu_usage": 0.3451449180582038,
+          "memory_usage": 0.5140247952371041
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:24.782368",
+      "event_type": "recovery",
+      "description": "Recovery: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:57:45.782368",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

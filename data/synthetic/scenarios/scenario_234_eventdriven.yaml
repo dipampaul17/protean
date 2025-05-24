@@ -1,0 +1,73 @@
+category: EventDriven
+name: EventDriven_20250523_174628
+description: Message queue and event processing failures
+duration: 412
+metadata:
+  generated_at: '2025-05-23T17:46:28.993594'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:28.993431'
+  event_type: trigger
+  description: 'Initial failure detected: docker container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:38.993431'
+  event_type: timeout
+  description: 'Timeout: on node'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 48
+    log_snippet: '[2025-05-23 17:46:28] ERROR batch-processing-queue: queue processing
+      on node'
+    metrics:
+      error_rate: 0.7916635239996592
+      response_time_ms: 5867
+      cpu_usage: 0.7935625101212205
+      memory_usage: 0.8992857334664126
+      queue_depth: 28098
+      message_processing_rate: 1.7423118807134506
+      consumer_lag_ms: 258802
+- timestamp: '2025-05-23T17:46:46.993431'
+  event_type: recovery
+  description: 'Recovery: failed to'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:58.993431'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:25.993431'
+  event_type: recovery
+  description: 'Recovery: failed to'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:32.993431'
+  event_type: timeout
+  description: 'Timeout: the server'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 178
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-queue: queue processing the
+      server'
+    metrics:
+      error_rate: 0.7022500302719136
+      response_time_ms: 2689
+      cpu_usage: 0.9486735512707272
+      memory_usage: 0.9921298372852061
+      queue_depth: 4495
+      message_processing_rate: 9.283194103696845
+      consumer_lag_ms: 257602
+- timestamp: '2025-05-23T17:47:35.993431'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: a queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:53:20.993431'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

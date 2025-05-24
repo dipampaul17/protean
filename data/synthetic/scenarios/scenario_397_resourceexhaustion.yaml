@@ -1,0 +1,97 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173245
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 1249
+metadata:
+  generated_at: '2025-05-23T17:32:45.772649'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:32:45.772437'
+  event_type: trigger
+  description: 'Initial failure detected: customer service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:15.772437'
+  event_type: failure
+  description: 'Failure: in memory'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 30
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: in memory - operation
+      failed'
+    metrics:
+      error_rate: 0.5940440872823406
+      response_time_ms: 8454
+      cpu_usage: 0.919106899558075
+      memory_usage: 0.9245116000836595
+- timestamp: '2025-05-23T17:33:48.772437'
+  event_type: recovery
+  description: 'Recovery: associative cache'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:08.772437'
+  event_type: recovery
+  description: 'Recovery: the memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:28.772437'
+  event_type: recovery
+  description: 'Recovery: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:31.772437'
+  event_type: recovery
+  description: 'Recovery: high memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:35.772437'
+  event_type: failure
+  description: 'Failure: to memory'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 141
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: to memory - operation
+      failed'
+    metrics:
+      error_rate: 0.3106144142456734
+      response_time_ms: 8964
+      cpu_usage: 0.7738890727711264
+      memory_usage: 0.8068639169366502
+- timestamp: '2025-05-23T17:34:41.772437'
+  event_type: failure
+  description: 'Failure: the memory'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 198
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: the memory - operation
+      failed'
+    metrics:
+      error_rate: 0.4346027228160544
+      response_time_ms: 6399
+      cpu_usage: 0.8758579715254793
+      memory_usage: 0.8293370930002729
+- timestamp: '2025-05-23T17:34:45.772437'
+  event_type: failure
+  description: 'Failure: the container'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 57
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: the container
+      - operation failed'
+    metrics:
+      error_rate: 0.5153061265733089
+      response_time_ms: 9474
+      cpu_usage: 0.8461605071187724
+      memory_usage: 0.879997032841198
+- timestamp: '2025-05-23T17:53:34.772437'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

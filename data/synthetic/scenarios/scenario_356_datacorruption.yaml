@@ -1,0 +1,96 @@
+category: DataCorruption
+name: DataCorruption_20250523_174629
+description: Infrastructure failure scenario for DataCorruption
+duration: 465
+metadata:
+  generated_at: '2025-05-23T17:46:29.092855'
+  phrase_templates_used: 36
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:29.092460'
+  event_type: trigger
+  description: 'Initial failure detected: the node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:47.092460'
+  event_type: failure
+  description: 'Failure: the error'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 135
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.47819566642115674
+      response_time_ms: 8737
+      cpu_usage: 0.7286136978322877
+      memory_usage: 0.8360481542923258
+- timestamp: '2025-05-23T17:46:53.092460'
+  event_type: recovery
+  description: 'Recovery: closed connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:01.092460'
+  event_type: recovery
+  description: 'Recovery: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:04.092460'
+  event_type: failure
+  description: 'Failure: message queue'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: medium
+    duration: 138
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: message queue - operation
+      failed'
+    metrics:
+      error_rate: 0.23456837786068846
+      response_time_ms: 921
+      cpu_usage: 0.4850860137428027
+      memory_usage: 0.4474489602559116
+- timestamp: '2025-05-23T17:47:06.092460'
+  event_type: failure
+  description: 'Failure: context cluster'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 142
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: context cluster
+      - operation failed'
+    metrics:
+      error_rate: 0.8897877056398359
+      response_time_ms: 4567
+      cpu_usage: 0.7702514688464134
+      memory_usage: 0.8618086171928513
+- timestamp: '2025-05-23T17:47:10.092460'
+  event_type: failure
+  description: 'Failure: to disk'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 213
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: to disk - operation failed'
+    metrics:
+      error_rate: 0.22587450818755023
+      response_time_ms: 7389
+      cpu_usage: 0.952630690045206
+      memory_usage: 0.8971808764240037
+- timestamp: '2025-05-23T17:47:15.092460'
+  event_type: recovery
+  description: 'Recovery: a database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:16.092460'
+  event_type: recovery
+  description: 'Recovery: to fix'
+  injection_spec: null
+- timestamp: '2025-05-23T17:54:14.092460'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

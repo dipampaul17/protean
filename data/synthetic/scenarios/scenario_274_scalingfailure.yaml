@@ -1,0 +1,85 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_173453
+description: Infrastructure failure scenario for ScalingFailure
+duration: 1444
+metadata:
+  generated_at: '2025-05-23T17:34:53.206198'
+  phrase_templates_used: 24
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:53.205764'
+  event_type: trigger
+  description: 'Initial failure detected: https connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:28.205764'
+  event_type: failure
+  description: 'Failure: web server'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 79
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: web server - operation
+      failed'
+    metrics:
+      error_rate: 0.4370595412113226
+      response_time_ms: 5574
+      cpu_usage: 0.8220285413820896
+      memory_usage: 0.8463689947692346
+- timestamp: '2025-05-23T17:37:15.205764'
+  event_type: timeout
+  description: 'Timeout: load balancer'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 282
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: load balancer
+      - operation failed'
+    metrics:
+      error_rate: 0.5287177466262271
+      response_time_ms: 5101
+      cpu_usage: 0.7539911166639393
+      memory_usage: 0.9878166943223244
+- timestamp: '2025-05-23T17:38:06.205764'
+  event_type: recovery
+  description: 'Recovery: the cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:29.205764'
+  event_type: failure
+  description: 'Failure: a service'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 175
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.485116656533814
+      response_time_ms: 6084
+      cpu_usage: 0.9724403544987925
+      memory_usage: 0.8013945687786144
+- timestamp: '2025-05-23T17:39:16.205764'
+  event_type: timeout
+  description: 'Timeout: this error'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 104
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: this error - operation
+      failed'
+    metrics:
+      error_rate: 0.7422836128984535
+      response_time_ms: 4698
+      cpu_usage: 0.7017528319929225
+      memory_usage: 0.8346694380144504
+- timestamp: '2025-05-23T17:58:57.205764'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

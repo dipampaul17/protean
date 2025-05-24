@@ -1,0 +1,79 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173245
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 460
+metadata:
+  generated_at: '2025-05-23T17:32:45.712348'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:32:45.712223'
+  event_type: trigger
+  description: 'Initial failure detected: monitoring memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:13.712223'
+  event_type: failure
+  description: 'Failure: the memory'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 55
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: the memory - operation
+      failed'
+    metrics:
+      error_rate: 0.22313106192040957
+      response_time_ms: 5967
+      cpu_usage: 0.8261843207960419
+      memory_usage: 0.8456953409461416
+- timestamp: '2025-05-23T17:33:54.712223'
+  event_type: failure
+  description: 'Failure: an alert'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 79
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: an alert - operation failed'
+    metrics:
+      error_rate: 0.3545680841013733
+      response_time_ms: 8159
+      cpu_usage: 0.8049314807361547
+      memory_usage: 0.9993486705034255
+- timestamp: '2025-05-23T17:34:25.712223'
+  event_type: timeout
+  description: 'Timeout: the node'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 247
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: the node - operation failed'
+    metrics:
+      error_rate: 0.676332067570358
+      response_time_ms: 8300
+      cpu_usage: 0.8217121715345196
+      memory_usage: 0.9993476851692815
+- timestamp: '2025-05-23T17:34:36.712223'
+  event_type: timeout
+  description: 'Timeout: reduce alert'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 175
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: reduce alert - operation
+      failed'
+    metrics:
+      error_rate: 0.6844393181699253
+      response_time_ms: 2006
+      cpu_usage: 0.7012184243198446
+      memory_usage: 0.8190202561723517
+- timestamp: '2025-05-23T17:40:25.712223'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

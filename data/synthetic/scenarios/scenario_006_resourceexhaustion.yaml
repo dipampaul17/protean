@@ -1,0 +1,59 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173707
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 458
+metadata:
+  generated_at: '2025-05-23T17:37:07.773429'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:07.773318'
+  event_type: trigger
+  description: 'Initial failure detected: in memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:32.773318'
+  event_type: recovery
+  description: 'Recovery: a node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:55.773318'
+  event_type: recovery
+  description: 'Recovery: heap memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:11.773318'
+  event_type: timeout
+  description: 'Timeout: in memory'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 140
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: in memory - operation
+      failed'
+    metrics:
+      error_rate: 0.23602863006342806
+      response_time_ms: 6561
+      cpu_usage: 0.8628150593583822
+      memory_usage: 0.9664236412664621
+- timestamp: '2025-05-23T17:39:01.773318'
+  event_type: timeout
+  description: 'Timeout: causing outage'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 262
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: causing outage - operation
+      failed'
+    metrics:
+      error_rate: 0.5207354550235115
+      response_time_ms: 7938
+      cpu_usage: 0.72794924391996
+      memory_usage: 0.8208522467192593
+- timestamp: '2025-05-23T17:44:45.773318'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,54 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173453",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1730,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.223317",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.223099",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:16.223099",
+      "event_type": "restart",
+      "description": "Restart: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:28.223099",
+      "event_type": "rollback",
+      "description": "Rollback: docker service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:00.223099",
+      "event_type": "restart",
+      "description": "Restart: proxy server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:40.223099",
+      "event_type": "rollback",
+      "description": "Rollback: the log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:03:43.223099",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

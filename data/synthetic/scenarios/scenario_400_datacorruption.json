@@ -1,0 +1,78 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173453",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 1673,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.291765",
+    "phrase_templates_used": 36,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.291657",
+      "event_type": "trigger",
+      "description": "Initial failure detected: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:05.291657",
+      "event_type": "recovery",
+      "description": "Recovery: transaction log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:12.291657",
+      "event_type": "recovery",
+      "description": "Recovery: to node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:13.291657",
+      "event_type": "timeout",
+      "description": "Timeout: the container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 108,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.45612616505645354,
+          "response_time_ms": 8266,
+          "cpu_usage": 0.7704788402449547,
+          "memory_usage": 0.9286903104347519
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:55.291657",
+      "event_type": "timeout",
+      "description": "Timeout: the error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 97,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: the error - operation failed",
+        "metrics": {
+          "error_rate": 0.3411742863508722,
+          "response_time_ms": 3468,
+          "cpu_usage": 0.9495198289218025,
+          "memory_usage": 0.8741496160624387
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:02:46.291657",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

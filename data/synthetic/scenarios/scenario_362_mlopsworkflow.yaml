@@ -1,0 +1,75 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_173245
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1304
+metadata:
+  generated_at: '2025-05-23T17:32:45.763637'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.763271'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:38.763271'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:44.763271'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:04.763271'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:05.763271'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:35.763271'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 228
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.6163791732824253
+      response_time_ms: 6815
+      cpu_usage: 0.7593556865069611
+      memory_usage: 0.9520337747064549
+- timestamp: '2025-05-23T17:34:39.763271'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 257
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.5388712933826078
+      response_time_ms: 1189
+      cpu_usage: 0.8778875581227548
+      memory_usage: 0.8956753498034555
+- timestamp: '2025-05-23T17:35:05.763271'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:23.763271'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:54:29.763271'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

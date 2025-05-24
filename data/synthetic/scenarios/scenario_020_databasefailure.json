@@ -1,0 +1,96 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173707",
+  "description": "Database connectivity and performance issues",
+  "duration": 505,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.783205",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.783006",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:17.783006",
+      "event_type": "corruption",
+      "description": "Corruption: mysql database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:29.783006",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: relational database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:34.783006",
+      "event_type": "recovery",
+      "description": "Recovery: sudo service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:39.783006",
+      "event_type": "timeout",
+      "description": "Timeout: requires restart",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 176,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR redis-cache: requires restart in timeout",
+        "metrics": {
+          "error_rate": 0.874227515354056,
+          "response_time_ms": 3111,
+          "cpu_usage": 0.9499998644829922,
+          "memory_usage": 0.8906593434302424,
+          "connection_pool_usage": 0.8150043546259371,
+          "query_time_ms": 10612,
+          "deadlocks_per_sec": 7
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:46.783006",
+      "event_type": "timeout",
+      "description": "Timeout: postgresql database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 265,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR mongodb-shard: postgresql database in timeout",
+        "metrics": {
+          "error_rate": 0.5137056640728018,
+          "response_time_ms": 3808,
+          "cpu_usage": 0.9487284351237674,
+          "memory_usage": 0.9005966109108079,
+          "connection_pool_usage": 0.8685938732949116,
+          "query_time_ms": 18633,
+          "deadlocks_per_sec": 7
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:12.783006",
+      "event_type": "corruption",
+      "description": "Corruption: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:45:32.783006",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

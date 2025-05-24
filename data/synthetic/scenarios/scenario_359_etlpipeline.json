@@ -1,0 +1,72 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173453",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 1083,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.281622",
+    "phrase_templates_used": 0,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.281400",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:35.281400",
+      "event_type": "recovery",
+      "description": "Recovery: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:02.281400",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 147,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.6676026596930613,
+          "response_time_ms": 8598,
+          "cpu_usage": 0.7434917627504335,
+          "memory_usage": 0.8967019069347213
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:55.281400",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 81,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.22498094139196612,
+          "response_time_ms": 2343,
+          "cpu_usage": 0.8078187124406998,
+          "memory_usage": 0.8131183426782553
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:52:56.281400",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

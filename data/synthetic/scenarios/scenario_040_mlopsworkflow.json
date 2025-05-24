@@ -1,0 +1,132 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_173707",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 674,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.791691",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.791026",
+      "event_type": "trigger",
+      "description": "Initial failure detected: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:19.791026",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 182,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.16694517558052305,
+          "response_time_ms": 4030,
+          "cpu_usage": 0.9685620914178639,
+          "memory_usage": 0.8398545491985003
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:19.791026",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 221,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.865232735372486,
+          "response_time_ms": 7843,
+          "cpu_usage": 0.9586691078715447,
+          "memory_usage": 0.8390273304302391
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:21.791026",
+      "event_type": "recovery",
+      "description": "Recovery: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:31.791026",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 240,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.28869508626118845,
+          "response_time_ms": 6084,
+          "cpu_usage": 0.7582800538269577,
+          "memory_usage": 0.8527405399127073
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:36.791026",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:45.791026",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 209,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.8085893329901624,
+          "response_time_ms": 4443,
+          "cpu_usage": 0.8937648078361892,
+          "memory_usage": 0.9585615903012039
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:48.791026",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 264,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.17817163349306694,
+          "response_time_ms": 9117,
+          "cpu_usage": 0.8656109633293562,
+          "memory_usage": 0.967541215976922
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:21.791026",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

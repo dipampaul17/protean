@@ -1,0 +1,84 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173707",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 1744,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.961834",
+    "phrase_templates_used": 13,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.961721",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:55.961721",
+      "event_type": "timeout",
+      "description": "Timeout: web server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 210,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR api-gateway: web server in timeout",
+        "metrics": {
+          "error_rate": 0.3193263189113716,
+          "response_time_ms": 2096,
+          "cpu_usage": 0.8519013310548077,
+          "memory_usage": 0.8601090557248255,
+          "requests_per_sec": 8866,
+          "backend_health_pct": 0.3297017898571365,
+          "connection_timeouts": 198
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:32.961721",
+      "event_type": "scaling",
+      "description": "Scaling: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:24.961721",
+      "event_type": "scaling",
+      "description": "Scaling: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:44:22.961721",
+      "event_type": "timeout",
+      "description": "Timeout: that node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "vpc-main",
+        "severity": "high",
+        "duration": 94,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR vpc-main: that node in timeout",
+        "metrics": {
+          "error_rate": 0.689439146295969,
+          "response_time_ms": 6092,
+          "cpu_usage": 0.911752683709298,
+          "memory_usage": 0.9101114866486703,
+          "requests_per_sec": 8993,
+          "backend_health_pct": 0.37392726155053846,
+          "connection_timeouts": 980
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:06:11.961721",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

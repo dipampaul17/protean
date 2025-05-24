@@ -1,0 +1,94 @@
+category: CloudNative
+name: CloudNative_20250523_174629
+description: Kubernetes pod and container orchestration issues
+duration: 1125
+metadata:
+  generated_at: '2025-05-23T17:46:29.083127'
+  phrase_templates_used: 39
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:46:29.082918'
+  event_type: trigger
+  description: 'Initial failure detected: code pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:41.082918'
+  event_type: scaling
+  description: 'Scaling: your container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:20.082918'
+  event_type: failure
+  description: 'Failure: deleted pod'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 137
+    log_snippet: '[2025-05-23 17:46:29] ERROR api-backend: deleted pod in failure'
+    metrics:
+      error_rate: 0.6518301734399091
+      response_time_ms: 6583
+      cpu_usage: 0.7098482036898132
+      memory_usage: 0.8607734330608923
+- timestamp: '2025-05-23T17:47:39.082918'
+  event_type: pod_restart
+  description: 'Pod_Restart: delete pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:49.082918'
+  event_type: scaling
+  description: 'Scaling: deleted pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:55.082918'
+  event_type: failure
+  description: 'Failure: kubernetes error'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 216
+    log_snippet: '[2025-05-23 17:46:29] ERROR worker-consumer: kubernetes error in
+      failure'
+    metrics:
+      error_rate: 0.2605835939884139
+      response_time_ms: 4342
+      cpu_usage: 0.9385839308882803
+      memory_usage: 0.8820505872073451
+- timestamp: '2025-05-23T17:48:13.082918'
+  event_type: failure
+  description: 'Failure: an error'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 121
+    log_snippet: '[2025-05-23 17:46:29] ERROR worker-consumer: an error in failure'
+    metrics:
+      error_rate: 0.2149204822497719
+      response_time_ms: 3132
+      cpu_usage: 0.9058246969371498
+      memory_usage: 0.8467748551837644
+- timestamp: '2025-05-23T17:48:16.082918'
+  event_type: scaling
+  description: 'Scaling: a pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:41.082918'
+  event_type: failure
+  description: 'Failure: a pod'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 254
+    log_snippet: '[2025-05-23 17:46:29] ERROR nginx-proxy: a pod in failure'
+    metrics:
+      error_rate: 0.629659511832294
+      response_time_ms: 5696
+      cpu_usage: 0.7752345583479783
+      memory_usage: 0.9928979860229405
+- timestamp: '2025-05-23T18:05:14.082918'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

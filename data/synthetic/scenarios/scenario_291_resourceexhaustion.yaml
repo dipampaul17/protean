@@ -1,0 +1,89 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_174629
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 455
+metadata:
+  generated_at: '2025-05-23T17:46:29.065770'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:46:29.065611'
+  event_type: trigger
+  description: 'Initial failure detected: code cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:02.065611'
+  event_type: failure
+  description: 'Failure: potential memory'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 62
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: potential memory
+      - operation failed'
+    metrics:
+      error_rate: 0.8909995407324648
+      response_time_ms: 9837
+      cpu_usage: 0.8470140499000153
+      memory_usage: 0.8070416863186767
+- timestamp: '2025-05-23T17:47:03.065611'
+  event_type: failure
+  description: 'Failure: high memory'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 126
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: high memory -
+      operation failed'
+    metrics:
+      error_rate: 0.6702675504063094
+      response_time_ms: 3814
+      cpu_usage: 0.8271156389069725
+      memory_usage: 0.870649988222431
+- timestamp: '2025-05-23T17:47:04.065611'
+  event_type: failure
+  description: 'Failure: to fix'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 96
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: to fix - operation
+      failed'
+    metrics:
+      error_rate: 0.806441270309048
+      response_time_ms: 6923
+      cpu_usage: 0.9641727984868567
+      memory_usage: 0.8187745659150012
+- timestamp: '2025-05-23T17:47:07.065611'
+  event_type: recovery
+  description: 'Recovery: served memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:33.065611'
+  event_type: timeout
+  description: 'Timeout: to monitor'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 176
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: to monitor - operation
+      failed'
+    metrics:
+      error_rate: 0.4666033731162099
+      response_time_ms: 3783
+      cpu_usage: 0.797104452771428
+      memory_usage: 0.8728292450262497
+- timestamp: '2025-05-23T17:47:35.065611'
+  event_type: recovery
+  description: 'Recovery: the connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:54:04.065611'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

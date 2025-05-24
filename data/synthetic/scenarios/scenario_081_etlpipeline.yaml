@@ -1,0 +1,66 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173452
+description: Infrastructure failure scenario for ETLPipeline
+duration: 538
+metadata:
+  generated_at: '2025-05-23T17:34:52.981401'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:52.981232'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:51.981232'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 242
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.8379388576826056
+      response_time_ms: 6669
+      cpu_usage: 0.7720742905317827
+      memory_usage: 0.9000156416843693
+- timestamp: '2025-05-23T17:37:14.981232'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 225
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: deployment failed
+      - operation failed'
+    metrics:
+      error_rate: 0.47742673642208877
+      response_time_ms: 3724
+      cpu_usage: 0.7299275433871
+      memory_usage: 0.9352908539505328
+- timestamp: '2025-05-23T17:37:41.981232'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 107
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.5903716230160988
+      response_time_ms: 2341
+      cpu_usage: 0.7096693559788609
+      memory_usage: 0.9726776011864224
+- timestamp: '2025-05-23T17:43:50.981232'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

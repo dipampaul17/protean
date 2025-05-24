@@ -1,0 +1,102 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173452",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 1100,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.990848",
+    "phrase_templates_used": 45,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.990709",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:32.990709",
+      "event_type": "timeout",
+      "description": "Timeout: the log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 31,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: the log - operation failed",
+        "metrics": {
+          "error_rate": 0.8626001657604537,
+          "response_time_ms": 4303,
+          "cpu_usage": 0.7715634504668639,
+          "memory_usage": 0.8846297296267974
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:00.990709",
+      "event_type": "failure",
+      "description": "Failure: headless service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 117,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: headless service - operation failed",
+        "metrics": {
+          "error_rate": 0.11668969726764145,
+          "response_time_ms": 4511,
+          "cpu_usage": 0.7354494287657265,
+          "memory_usage": 0.9641223458189173
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:03.990709",
+      "event_type": "failure",
+      "description": "Failure: proxy server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 288,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: proxy server - operation failed",
+        "metrics": {
+          "error_rate": 0.3733327559653822,
+          "response_time_ms": 1205,
+          "cpu_usage": 0.9523196827162255,
+          "memory_usage": 0.9487902964798657
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:49.990709",
+      "event_type": "timeout",
+      "description": "Timeout: nginx error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 43,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR auth-service: nginx error - operation failed",
+        "metrics": {
+          "error_rate": 0.397437451347602,
+          "response_time_ms": 7344,
+          "cpu_usage": 0.7587502744412455,
+          "memory_usage": 0.8887704906704157
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:53:12.990709",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_173708",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 396,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.081529",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.081308",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:19.081308",
+      "event_type": "recovery",
+      "description": "Recovery: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:22.081308",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 75,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.392298972570185,
+          "response_time_ms": 4289,
+          "cpu_usage": 0.7946420710683015,
+          "memory_usage": 0.9754511242057532
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:28.081308",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 50,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.14609960246818787,
+          "response_time_ms": 1223,
+          "cpu_usage": 0.8439870215285905,
+          "memory_usage": 0.9816040564823414
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:41.081308",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:42.081308",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 290,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.6786410947456564,
+          "response_time_ms": 3082,
+          "cpu_usage": 0.9418711267041774,
+          "memory_usage": 0.9201159585720449
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:45.081308",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 272,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.2620542902054138,
+          "response_time_ms": 9647,
+          "cpu_usage": 0.9881139385877973,
+          "memory_usage": 0.8339478012045346
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:47.081308",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 117,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.2538491598910042,
+          "response_time_ms": 7595,
+          "cpu_usage": 0.7280119145546393,
+          "memory_usage": 0.8590352826556554
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:50.081308",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 31,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.5947654535417882,
+          "response_time_ms": 5243,
+          "cpu_usage": 0.8314940848804059,
+          "memory_usage": 0.8557595823258024
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:43:44.081308",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

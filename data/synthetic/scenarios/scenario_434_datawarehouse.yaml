@@ -1,0 +1,97 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173708
+description: Infrastructure failure scenario for DataWarehouse
+duration: 1060
+metadata:
+  generated_at: '2025-05-23T17:37:08.066815'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:37:08.066193'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:20.066193'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:27.066193'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:50.066193'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 86
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.7988104322318464
+      response_time_ms: 6643
+      cpu_usage: 0.9231257854087473
+      memory_usage: 0.8601074352781881
+- timestamp: '2025-05-23T17:38:12.066193'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:41.066193'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 160
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.6829991682842065
+      response_time_ms: 5541
+      cpu_usage: 0.7743978938048204
+      memory_usage: 0.9732422159725426
+- timestamp: '2025-05-23T17:38:44.066193'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 227
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.8835287795419887
+      response_time_ms: 8952
+      cpu_usage: 0.9346973550094579
+      memory_usage: 0.9728106858465276
+- timestamp: '2025-05-23T17:39:03.066193'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 281
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.7162383469956671
+      response_time_ms: 6306
+      cpu_usage: 0.7362035969826242
+      memory_usage: 0.9626036083548514
+- timestamp: '2025-05-23T17:39:17.066193'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:54:48.066193'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

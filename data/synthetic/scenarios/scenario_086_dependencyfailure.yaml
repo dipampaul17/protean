@@ -1,0 +1,89 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_174628
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1756
+metadata:
+  generated_at: '2025-05-23T17:46:28.952583'
+  phrase_templates_used: 45
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:46:28.929509'
+  event_type: trigger
+  description: 'Initial failure detected: following error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:52.929509'
+  event_type: failure
+  description: 'Failure: nginx error'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 290
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: nginx error - operation
+      failed'
+    metrics:
+      error_rate: 0.12552917000991004
+      response_time_ms: 8834
+      cpu_usage: 0.7357100300215007
+      memory_usage: 0.9366239422301492
+- timestamp: '2025-05-23T17:48:14.929509'
+  event_type: recovery
+  description: 'Recovery: and update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:24.929509'
+  event_type: failure
+  description: 'Failure: nginx service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 110
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: nginx service
+      - operation failed'
+    metrics:
+      error_rate: 0.8669149527882811
+      response_time_ms: 5067
+      cpu_usage: 0.8547338037001291
+      memory_usage: 0.8666333925607728
+- timestamp: '2025-05-23T17:49:43.929509'
+  event_type: recovery
+  description: 'Recovery: work log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:57.929509'
+  event_type: failure
+  description: 'Failure: and update'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 226
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: and update - operation
+      failed'
+    metrics:
+      error_rate: 0.422311780740088
+      response_time_ms: 5131
+      cpu_usage: 0.9188059293875186
+      memory_usage: 0.8407453237563811
+- timestamp: '2025-05-23T17:51:00.929509'
+  event_type: timeout
+  description: 'Timeout: destination node'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 281
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: destination node
+      - operation failed'
+    metrics:
+      error_rate: 0.19140274059789367
+      response_time_ms: 1114
+      cpu_usage: 0.8342678231249752
+      memory_usage: 0.8118689585578229
+- timestamp: '2025-05-23T18:15:44.929509'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,125 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173453
+description: Circuit breaker activation due to cascading service failures
+duration: 393
+metadata:
+  generated_at: '2025-05-23T17:34:53.157581'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 3
+    medium: 1
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.157373'
+  event_type: trigger
+  description: 'Initial failure detected: client error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:04.157373'
+  event_type: degradation
+  description: 'Degradation: true error'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: low
+    duration: 88
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: true error - operation
+      failed'
+    metrics:
+      error_rate: 0.026693133537954793
+      response_time_ms: 372
+      cpu_usage: 0.4964743569566887
+      memory_usage: 0.43459791361557515
+- timestamp: '2025-05-23T17:35:05.157373'
+  event_type: degradation
+  description: 'Degradation: connection refused'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: high
+    duration: 96
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: connection refused
+      - operation failed'
+    metrics:
+      error_rate: 0.5915278677628074
+      response_time_ms: 8917
+      cpu_usage: 0.7018801789435126
+      memory_usage: 0.896976312353014
+- timestamp: '2025-05-23T17:35:09.157373'
+  event_type: degradation
+  description: 'Degradation: strong update'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: low
+    duration: 81
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: strong update - operation
+      failed'
+    metrics:
+      error_rate: 0.15760975267610058
+      response_time_ms: 206
+      cpu_usage: 0.6680298090562489
+      memory_usage: 0.6235887632338608
+- timestamp: '2025-05-23T17:35:15.157373'
+  event_type: degradation
+  description: 'Degradation: an error'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: low
+    duration: 158
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: an error - operation failed'
+    metrics:
+      error_rate: 0.17881742196550118
+      response_time_ms: 1602
+      cpu_usage: 0.6597012763202521
+      memory_usage: 0.6601281648753291
+- timestamp: '2025-05-23T17:35:17.157373'
+  event_type: failure
+  description: 'Failure: the queue'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: medium
+    duration: 217
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: the queue - operation
+      failed'
+    metrics:
+      error_rate: 0.2593628160097199
+      response_time_ms: 999
+      cpu_usage: 0.4336825046854882
+      memory_usage: 0.6467283435074501
+- timestamp: '2025-05-23T17:35:28.157373'
+  event_type: timeout
+  description: 'Timeout: code error'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 112
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: code error - operation
+      failed'
+    metrics:
+      error_rate: 0.6918239505681874
+      response_time_ms: 6063
+      cpu_usage: 0.8492117958069305
+      memory_usage: 0.9438607554893579
+- timestamp: '2025-05-23T17:35:40.157373'
+  event_type: failure
+  description: 'Failure: uwsgi server'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 210
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: uwsgi server -
+      operation failed'
+    metrics:
+      error_rate: 0.5704166435067725
+      response_time_ms: 9634
+      cpu_usage: 0.7961901058762724
+      memory_usage: 0.9105375358054608
+- timestamp: '2025-05-23T17:41:26.157373'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

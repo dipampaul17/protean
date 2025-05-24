@@ -1,0 +1,59 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_174629
+description: Database connectivity and performance issues
+duration: 480
+metadata:
+  generated_at: '2025-05-23T17:46:29.066079'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:46:29.065938'
+  event_type: trigger
+  description: 'Initial failure detected: postgres database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:50.065938'
+  event_type: corruption
+  description: 'Corruption: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:09.065938'
+  event_type: corruption
+  description: 'Corruption: the service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:10.065938'
+  event_type: corruption
+  description: 'Corruption: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:11.065938'
+  event_type: corruption
+  description: 'Corruption: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:15.065938'
+  event_type: timeout
+  description: 'Timeout: the connection'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 215
+    log_snippet: '[2025-05-23 17:46:29] FATAL postgres-replica: database the connection
+      detected'
+    metrics:
+      error_rate: 0.8161266965239248
+      response_time_ms: 3112
+      cpu_usage: 0.7268705186853445
+      memory_usage: 0.8616559702285104
+      connection_pool_usage: 0.892445928359261
+      query_time_ms: 12632
+      deadlocks_per_sec: 4
+- timestamp: '2025-05-23T17:47:31.065938'
+  event_type: connection_loss
+  description: 'Connection_Loss: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:54:29.065938'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

@@ -1,0 +1,115 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173453
+description: Infrastructure failure scenario for DataWarehouse
+duration: 1716
+metadata:
+  generated_at: '2025-05-23T17:34:53.382983'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:34:53.382782'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:55.382782'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 172
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.7467029017054119
+      response_time_ms: 2604
+      cpu_usage: 0.7261554256891364
+      memory_usage: 0.863701530700955
+- timestamp: '2025-05-23T17:37:29.382782'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 109
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.10414626004603411
+      response_time_ms: 6471
+      cpu_usage: 0.7428132881852635
+      memory_usage: 0.8675908629454775
+- timestamp: '2025-05-23T17:37:50.382782'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 265
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: disk space full
+      - operation failed'
+    metrics:
+      error_rate: 0.19059247178879568
+      response_time_ms: 2931
+      cpu_usage: 0.7066335725003017
+      memory_usage: 0.8125269224872891
+- timestamp: '2025-05-23T17:37:55.382782'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:02.382782'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 84
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: queue overflow
+      - operation failed'
+    metrics:
+      error_rate: 0.328014898270345
+      response_time_ms: 9816
+      cpu_usage: 0.9365564058805589
+      memory_usage: 0.9260920464802462
+- timestamp: '2025-05-23T17:38:49.382782'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 189
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.5193830835010578
+      response_time_ms: 7234
+      cpu_usage: 0.7324280337169792
+      memory_usage: 0.8617280511621809
+- timestamp: '2025-05-23T17:38:56.382782'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 73
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.5430381865712304
+      response_time_ms: 8848
+      cpu_usage: 0.9707211822990699
+      memory_usage: 0.8174491921123309
+- timestamp: '2025-05-23T18:03:29.382782'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

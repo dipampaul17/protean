@@ -1,0 +1,65 @@
+category: DataCorruption
+name: DataCorruption_20250523_173453
+description: Infrastructure failure scenario for DataCorruption
+duration: 651
+metadata:
+  generated_at: '2025-05-23T17:34:53.100988'
+  phrase_templates_used: 36
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.099420'
+  event_type: trigger
+  description: 'Initial failure detected: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:57.099420'
+  event_type: timeout
+  description: 'Timeout: original container'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 170
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: original container
+      - operation failed'
+    metrics:
+      error_rate: 0.6957215858889094
+      response_time_ms: 9603
+      cpu_usage: 0.766504786771775
+      memory_usage: 0.9697453931629009
+- timestamp: '2025-05-23T17:37:41.099420'
+  event_type: failure
+  description: 'Failure: to node'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 290
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: to node - operation failed'
+    metrics:
+      error_rate: 0.20054769554470006
+      response_time_ms: 5015
+      cpu_usage: 0.7953592397980356
+      memory_usage: 0.924116879719781
+- timestamp: '2025-05-23T17:38:22.099420'
+  event_type: failure
+  description: 'Failure: strong update'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 79
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: strong update - operation
+      failed'
+    metrics:
+      error_rate: 0.2723045119341359
+      response_time_ms: 5793
+      cpu_usage: 0.8499614290699818
+      memory_usage: 0.803498079759496
+- timestamp: '2025-05-23T17:45:44.099420'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,126 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_174629",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1160,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.069698",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.069493",
+      "event_type": "trigger",
+      "description": "Initial failure detected: kubernetes cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:54.069493",
+      "event_type": "recovery",
+      "description": "Recovery: to scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:07.069493",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 69,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.1579184192590084,
+          "response_time_ms": 1736,
+          "cpu_usage": 0.893109185521677,
+          "memory_usage": 0.8620384666174534
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:30.069493",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:52.069493",
+      "event_type": "failure",
+      "description": "Failure: the alert",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 188,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: the alert - operation failed",
+        "metrics": {
+          "error_rate": 0.16156666411350173,
+          "response_time_ms": 9022,
+          "cpu_usage": 0.9166885326851851,
+          "memory_usage": 0.9050776718724389
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:29.069493",
+      "event_type": "failure",
+      "description": "Failure: or cpu",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 104,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: or cpu - operation failed",
+        "metrics": {
+          "error_rate": 0.4566937948337009,
+          "response_time_ms": 6654,
+          "cpu_usage": 0.7187224999487895,
+          "memory_usage": 0.8464991818533427
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:29.069493",
+      "event_type": "recovery",
+      "description": "Recovery: of cpu",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:39.069493",
+      "event_type": "failure",
+      "description": "Failure: quot server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 156,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: quot server - operation failed",
+        "metrics": {
+          "error_rate": 0.450723506272544,
+          "response_time_ms": 4003,
+          "cpu_usage": 0.7414216428165242,
+          "memory_usage": 0.8031484484342948
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:44.069493",
+      "event_type": "recovery",
+      "description": "Recovery: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:05:49.069493",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

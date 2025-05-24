@@ -1,0 +1,126 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_173707",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 972,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.998296",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.997935",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:57.997935",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 293,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.30206020277022605,
+          "response_time_ms": 1683,
+          "cpu_usage": 0.744088608688152,
+          "memory_usage": 0.951138191013722
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:29.997935",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 172,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.2882286607287835,
+          "response_time_ms": 4549,
+          "cpu_usage": 0.8080100703537474,
+          "memory_usage": 0.9251882883558714
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:58.997935",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:00.997935",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 140,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.5484874742451118,
+          "response_time_ms": 5848,
+          "cpu_usage": 0.7710562596109207,
+          "memory_usage": 0.9028357922958294
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:01.997935",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 151,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.41607119380084323,
+          "response_time_ms": 2091,
+          "cpu_usage": 0.7814926431796143,
+          "memory_usage": 0.9878779064305783
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:06.997935",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 233,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.7377255032512825,
+          "response_time_ms": 3311,
+          "cpu_usage": 0.8928234726084849,
+          "memory_usage": 0.8513305823083626
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:53:19.997935",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

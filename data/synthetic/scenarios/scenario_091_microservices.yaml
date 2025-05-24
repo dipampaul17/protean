@@ -1,0 +1,59 @@
+category: Microservices
+name: Microservices_20250523_173707
+description: Infrastructure failure scenario for Microservices
+duration: 813
+metadata:
+  generated_at: '2025-05-23T17:37:07.951144'
+  phrase_templates_used: 15
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:07.951036'
+  event_type: trigger
+  description: 'Initial failure detected: following error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:00.951036'
+  event_type: timeout
+  description: 'Timeout: a service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 259
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.15029462774968325
+      response_time_ms: 9157
+      cpu_usage: 0.7377312640831757
+      memory_usage: 0.9431331710969135
+- timestamp: '2025-05-23T17:38:35.951036'
+  event_type: recovery
+  description: 'Recovery: http connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:35.951036'
+  event_type: failure
+  description: 'Failure: the container'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 147
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: the container
+      - operation failed'
+    metrics:
+      error_rate: 0.5315247081291996
+      response_time_ms: 9194
+      cpu_usage: 0.8657548252108155
+      memory_usage: 0.8741049324584346
+- timestamp: '2025-05-23T17:39:46.951036'
+  event_type: recovery
+  description: 'Recovery: http connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:40.951036'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

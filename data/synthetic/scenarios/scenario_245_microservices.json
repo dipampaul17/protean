@@ -1,0 +1,102 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_174628",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 1372,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.995621",
+    "phrase_templates_used": 15,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.995456",
+      "event_type": "trigger",
+      "description": "Initial failure detected: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:14.995456",
+      "event_type": "failure",
+      "description": "Failure: to service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 45,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: to service - operation failed",
+        "metrics": {
+          "error_rate": 0.6964667594269404,
+          "response_time_ms": 9779,
+          "cpu_usage": 0.8528343613760121,
+          "memory_usage": 0.9174282465835996
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:25.995456",
+      "event_type": "failure",
+      "description": "Failure: ui service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 248,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: ui service - operation failed",
+        "metrics": {
+          "error_rate": 0.60618919768419,
+          "response_time_ms": 4868,
+          "cpu_usage": 0.7358096593592142,
+          "memory_usage": 0.9970359079176183
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:08.995456",
+      "event_type": "recovery",
+      "description": "Recovery: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:27.995456",
+      "event_type": "recovery",
+      "description": "Recovery: lt service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:17.995456",
+      "event_type": "failure",
+      "description": "Failure: headless service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 106,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: headless service - operation failed",
+        "metrics": {
+          "error_rate": 0.8150238791131775,
+          "response_time_ms": 2548,
+          "cpu_usage": 0.794833150480942,
+          "memory_usage": 0.9622923152716243
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:05.995456",
+      "event_type": "recovery",
+      "description": "Recovery: lt service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:09:20.995456",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

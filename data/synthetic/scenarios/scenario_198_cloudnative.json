@@ -1,0 +1,72 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_174628",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 1517,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.981196",
+    "phrase_templates_used": 39,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.981075",
+      "event_type": "trigger",
+      "description": "Initial failure detected: an error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:51.981075",
+      "event_type": "scaling",
+      "description": "Scaling: kubernetes cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:08.981075",
+      "event_type": "scaling",
+      "description": "Scaling: docker container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:21.981075",
+      "event_type": "failure",
+      "description": "Failure: a cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 190,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR api-backend: a cluster in failure",
+        "metrics": {
+          "error_rate": 0.5346997336452967,
+          "response_time_ms": 7453,
+          "cpu_usage": 0.8294683387259426,
+          "memory_usage": 0.8967423149951933
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:43.981075",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: your pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:45.981075",
+      "event_type": "scaling",
+      "description": "Scaling: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:11:45.981075",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

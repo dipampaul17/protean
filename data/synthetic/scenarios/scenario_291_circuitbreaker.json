@@ -1,0 +1,126 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173453",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1547,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.213776",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.213303",
+      "event_type": "trigger",
+      "description": "Initial failure detected: nginx server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:06.213303",
+      "event_type": "recovery",
+      "description": "Recovery: true error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:12.213303",
+      "event_type": "degradation",
+      "description": "Degradation: the timeout",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 199,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: the timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.2706819830161684,
+          "response_time_ms": 2513,
+          "cpu_usage": 0.8830483863570455,
+          "memory_usage": 0.8653026732701032
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:15.213303",
+      "event_type": "timeout",
+      "description": "Timeout: to resolve",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 56,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: to resolve - operation failed",
+        "metrics": {
+          "error_rate": 0.6360147259458796,
+          "response_time_ms": 8405,
+          "cpu_usage": 0.8635440833836087,
+          "memory_usage": 0.9217227027555337
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:25.213303",
+      "event_type": "recovery",
+      "description": "Recovery: ssh connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:46.213303",
+      "event_type": "recovery",
+      "description": "Recovery: to pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:59.213303",
+      "event_type": "recovery",
+      "description": "Recovery: following error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:05.213303",
+      "event_type": "degradation",
+      "description": "Degradation: scaled service",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "low",
+        "duration": 55,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: scaled service - operation failed",
+        "metrics": {
+          "error_rate": 0.03616899129121476,
+          "response_time_ms": 851,
+          "cpu_usage": 0.636410805716431,
+          "memory_usage": 0.4856388340763235
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:25.213303",
+      "event_type": "failure",
+      "description": "Failure: to fix",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 218,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: to fix - operation failed",
+        "metrics": {
+          "error_rate": 0.42915236564000714,
+          "response_time_ms": 7075,
+          "cpu_usage": 0.7576001512622919,
+          "memory_usage": 0.9703952655692886
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:00:40.213303",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

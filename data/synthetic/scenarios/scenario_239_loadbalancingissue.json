@@ -1,0 +1,138 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173245",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 317,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.730113",
+    "phrase_templates_used": 13,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.729255",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:59.729255",
+      "event_type": "timeout",
+      "description": "Timeout: the server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 87,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR api-gateway: the server in timeout",
+        "metrics": {
+          "error_rate": 0.8997860269583894,
+          "response_time_ms": 2731,
+          "cpu_usage": 0.8391633128675113,
+          "memory_usage": 0.8224461137649713,
+          "requests_per_sec": 7648,
+          "backend_health_pct": 0.6783641365325077,
+          "connection_timeouts": 729
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:00.729255",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: in connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:00.729255",
+      "event_type": "timeout",
+      "description": "Timeout: that node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "subnet-private",
+        "severity": "high",
+        "duration": 240,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR subnet-private: that node in timeout",
+        "metrics": {
+          "error_rate": 0.6801458809624098,
+          "response_time_ms": 5828,
+          "cpu_usage": 0.9106141544969326,
+          "memory_usage": 0.9698005859922905,
+          "requests_per_sec": 8901,
+          "backend_health_pct": 0.7775660377053197,
+          "connection_timeouts": 541
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:01.729255",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: in connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:02.729255",
+      "event_type": "timeout",
+      "description": "Timeout: a service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "vpc-main",
+        "severity": "high",
+        "duration": 144,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR vpc-main: a service in timeout",
+        "metrics": {
+          "error_rate": 0.2510188778232185,
+          "response_time_ms": 6503,
+          "cpu_usage": 0.7390587253370602,
+          "memory_usage": 0.8134835106960931,
+          "requests_per_sec": 1849,
+          "backend_health_pct": 0.480156579540178,
+          "connection_timeouts": 459
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:07.729255",
+      "event_type": "timeout",
+      "description": "Timeout: load balancer",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 189,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR load-balancer: load balancer in timeout",
+        "metrics": {
+          "error_rate": 0.13519493656287054,
+          "response_time_ms": 7759,
+          "cpu_usage": 0.843919336145061,
+          "memory_usage": 0.8412243032789726,
+          "requests_per_sec": 3826,
+          "backend_health_pct": 0.7684866039167464,
+          "connection_timeouts": 561
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:07.729255",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:17.729255",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: a server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:02.729255",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

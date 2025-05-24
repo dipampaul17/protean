@@ -1,0 +1,138 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_173707",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 1014,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.776825",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.776189",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:23.776189",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 216,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.8646198155464632,
+          "response_time_ms": 5183,
+          "cpu_usage": 0.8526503986727069,
+          "memory_usage": 0.8384159536242012
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:25.776189",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 287,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.5941662010007669,
+          "response_time_ms": 9633,
+          "cpu_usage": 0.921018392383146,
+          "memory_usage": 0.9045012374462116
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:45.776189",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 232,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.7789268089800259,
+          "response_time_ms": 2942,
+          "cpu_usage": 0.9785738370597488,
+          "memory_usage": 0.8156282245726795
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:56.776189",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 243,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.8142968671478223,
+          "response_time_ms": 1690,
+          "cpu_usage": 0.8534126006586051,
+          "memory_usage": 0.842016642460759
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:15.776189",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 179,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.17532834584391566,
+          "response_time_ms": 9670,
+          "cpu_usage": 0.7920181335728171,
+          "memory_usage": 0.8974508441731129
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:23.776189",
+      "event_type": "recovery",
+      "description": "Recovery: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:57.776189",
+      "event_type": "recovery",
+      "description": "Recovery: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:58.776189",
+      "event_type": "recovery",
+      "description": "Recovery: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:54:01.776189",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

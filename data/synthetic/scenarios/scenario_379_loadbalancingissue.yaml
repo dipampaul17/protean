@@ -1,0 +1,63 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173245
+description: Load balancer and traffic distribution problems
+duration: 1042
+metadata:
+  generated_at: '2025-05-23T17:32:45.767971'
+  phrase_templates_used: 13
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.767852'
+  event_type: trigger
+  description: 'Initial failure detected: web server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:31.767852'
+  event_type: timeout
+  description: 'Timeout: a container'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 188
+    log_snippet: '[2025-05-23 17:32:45] ERROR vpc-main: a container in timeout'
+    metrics:
+      error_rate: 0.47654929370188215
+      response_time_ms: 7036
+      cpu_usage: 0.7872712016446929
+      memory_usage: 0.9882773183498356
+      requests_per_sec: 1247
+      backend_health_pct: 0.668532168842306
+      connection_timeouts: 90
+- timestamp: '2025-05-23T17:34:31.767852'
+  event_type: scaling
+  description: 'Scaling: in connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:21.767852'
+  event_type: timeout
+  description: 'Timeout: the server'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 227
+    log_snippet: '[2025-05-23 17:32:45] ERROR vpc-main: the server in timeout'
+    metrics:
+      error_rate: 0.7867994829669221
+      response_time_ms: 4512
+      cpu_usage: 0.7973724418668651
+      memory_usage: 0.805267694708175
+      requests_per_sec: 1901
+      backend_health_pct: 0.6409339873495483
+      connection_timeouts: 564
+- timestamp: '2025-05-23T17:35:43.767852'
+  event_type: scaling
+  description: 'Scaling: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:07.767852'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

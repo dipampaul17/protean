@@ -1,0 +1,79 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_174629
+description: Database connectivity and performance issues
+duration: 618
+metadata:
+  generated_at: '2025-05-23T17:46:29.098109'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:29.097771'
+  event_type: trigger
+  description: 'Initial failure detected: to server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:46.097771'
+  event_type: timeout
+  description: 'Timeout: a container'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 286
+    log_snippet: '[2025-05-23 17:46:29] ERROR redis-cache: a container in timeout'
+    metrics:
+      error_rate: 0.6882966639085637
+      response_time_ms: 4858
+      cpu_usage: 0.7864702670607048
+      memory_usage: 0.8829129452619273
+      connection_pool_usage: 0.8845261146647662
+      query_time_ms: 17239
+      deadlocks_per_sec: 10
+- timestamp: '2025-05-23T17:46:50.097771'
+  event_type: corruption
+  description: 'Corruption: postgres database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:51.097771'
+  event_type: recovery
+  description: 'Recovery: postgres container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:59.097771'
+  event_type: recovery
+  description: 'Recovery: var log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:03.097771'
+  event_type: corruption
+  description: 'Corruption: mysql server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:05.097771'
+  event_type: corruption
+  description: 'Corruption: postgres container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:14.097771'
+  event_type: corruption
+  description: 'Corruption: the update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:16.097771'
+  event_type: timeout
+  description: 'Timeout: a container'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 190
+    log_snippet: '[2025-05-23 17:46:29] ERROR mongodb-shard: a container in timeout'
+    metrics:
+      error_rate: 0.11478639330877201
+      response_time_ms: 2170
+      cpu_usage: 0.8156356731717863
+      memory_usage: 0.8305759862901829
+      connection_pool_usage: 0.9210743036723517
+      query_time_ms: 11672
+      deadlocks_per_sec: 3
+- timestamp: '2025-05-23T17:56:47.097771'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

@@ -1,0 +1,103 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_174629
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1380
+metadata:
+  generated_at: '2025-05-23T17:46:29.167222'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:46:29.166993'
+  event_type: trigger
+  description: 'Initial failure detected: an alert'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:47.166993'
+  event_type: timeout
+  description: 'Timeout: monitoring service'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 198
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: monitoring service
+      - operation failed'
+    metrics:
+      error_rate: 0.5590549885002251
+      response_time_ms: 4660
+      cpu_usage: 0.8715303311426119
+      memory_usage: 0.9110156200592406
+- timestamp: '2025-05-23T17:47:50.166993'
+  event_type: failure
+  description: 'Failure: to scale'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 102
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: to scale - operation failed'
+    metrics:
+      error_rate: 0.8323771738576534
+      response_time_ms: 3397
+      cpu_usage: 0.8170727762507836
+      memory_usage: 0.9558763298525261
+- timestamp: '2025-05-23T17:48:11.166993'
+  event_type: timeout
+  description: 'Timeout: kubernetes pod'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 200
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: kubernetes pod
+      - operation failed'
+    metrics:
+      error_rate: 0.8117973892026206
+      response_time_ms: 2200
+      cpu_usage: 0.7895281391397899
+      memory_usage: 0.9152072624151512
+- timestamp: '2025-05-23T17:48:12.166993'
+  event_type: failure
+  description: 'Failure: the log'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 82
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: the log - operation
+      failed'
+    metrics:
+      error_rate: 0.6329459563233935
+      response_time_ms: 7252
+      cpu_usage: 0.9582360204221405
+      memory_usage: 0.9596582431933517
+- timestamp: '2025-05-23T17:48:35.166993'
+  event_type: recovery
+  description: 'Recovery: reduce alert'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:45.166993'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 228
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.11266028064565799
+      response_time_ms: 5836
+      cpu_usage: 0.7941965551190482
+      memory_usage: 0.9489998386467015
+- timestamp: '2025-05-23T17:49:18.166993'
+  event_type: recovery
+  description: 'Recovery: parse error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:09:29.166993'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

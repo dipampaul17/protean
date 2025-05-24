@@ -1,0 +1,115 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_174629
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 1615
+metadata:
+  generated_at: '2025-05-23T17:46:29.097373'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 5
+events:
+- timestamp: '2025-05-23T17:46:29.096797'
+  event_type: trigger
+  description: 'Initial failure detected: the database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:53.096797'
+  event_type: timeout
+  description: 'Timeout: urgent memory'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 181
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: urgent memory
+      - operation failed'
+    metrics:
+      error_rate: 0.2169210964369558
+      response_time_ms: 4105
+      cpu_usage: 0.9457904742511684
+      memory_usage: 0.9819047729723664
+- timestamp: '2025-05-23T17:47:45.096797'
+  event_type: failure
+  description: 'Failure: the service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 36
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: the service -
+      operation failed'
+    metrics:
+      error_rate: 0.6560641610216302
+      response_time_ms: 1472
+      cpu_usage: 0.9761973490107809
+      memory_usage: 0.8513477273451806
+- timestamp: '2025-05-23T17:47:54.096797'
+  event_type: timeout
+  description: 'Timeout: http server'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 177
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: http server - operation
+      failed'
+    metrics:
+      error_rate: 0.32627719496190344
+      response_time_ms: 7809
+      cpu_usage: 0.7350171659225829
+      memory_usage: 0.8309534584547017
+- timestamp: '2025-05-23T17:48:08.096797'
+  event_type: timeout
+  description: 'Timeout: the queue'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: medium
+    duration: 131
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: the queue - operation
+      failed'
+    metrics:
+      error_rate: 0.22418844021477216
+      response_time_ms: 854
+      cpu_usage: 0.6848204940797481
+      memory_usage: 0.5650608090304323
+- timestamp: '2025-05-23T17:49:03.096797'
+  event_type: failure
+  description: 'Failure: to scale'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 264
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: to scale - operation
+      failed'
+    metrics:
+      error_rate: 0.6379874331424362
+      response_time_ms: 1192
+      cpu_usage: 0.7812504938896777
+      memory_usage: 0.9434080919083345
+- timestamp: '2025-05-23T17:49:35.096797'
+  event_type: recovery
+  description: 'Recovery: the service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:10.096797'
+  event_type: failure
+  description: 'Failure: the error'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 143
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.12379099490753882
+      response_time_ms: 4604
+      cpu_usage: 0.945076663043054
+      memory_usage: 0.9208090220651234
+- timestamp: '2025-05-23T18:13:24.096797'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

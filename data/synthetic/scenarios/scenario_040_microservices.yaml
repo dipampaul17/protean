@@ -1,0 +1,141 @@
+category: Microservices
+name: Microservices_20250523_173245
+description: Infrastructure failure scenario for Microservices
+duration: 1212
+metadata:
+  generated_at: '2025-05-23T17:32:45.664322'
+  phrase_templates_used: 15
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 8
+events:
+- timestamp: '2025-05-23T17:32:45.664088'
+  event_type: trigger
+  description: 'Initial failure detected: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:23.664088'
+  event_type: failure
+  description: 'Failure: following error'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 208
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: following error - operation
+      failed'
+    metrics:
+      error_rate: 0.7827544078655196
+      response_time_ms: 7492
+      cpu_usage: 0.7979448070295357
+      memory_usage: 0.8237265264630697
+- timestamp: '2025-05-23T17:33:38.664088'
+  event_type: timeout
+  description: 'Timeout: strong service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 249
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: strong service
+      - operation failed'
+    metrics:
+      error_rate: 0.1813503723335301
+      response_time_ms: 8224
+      cpu_usage: 0.7444068364928803
+      memory_usage: 0.8886417243796396
+- timestamp: '2025-05-23T17:33:50.664088'
+  event_type: timeout
+  description: 'Timeout: a service'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 59
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.15152027332084517
+      response_time_ms: 4060
+      cpu_usage: 0.9531052560671176
+      memory_usage: 0.8979228338091048
+- timestamp: '2025-05-23T17:33:57.664088'
+  event_type: failure
+  description: 'Failure: docker network'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 268
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: docker network
+      - operation failed'
+    metrics:
+      error_rate: 0.16103167703396937
+      response_time_ms: 2994
+      cpu_usage: 0.7968714959221367
+      memory_usage: 0.9982704013045303
+- timestamp: '2025-05-23T17:34:14.664088'
+  event_type: failure
+  description: 'Failure: http connection'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 88
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: http connection - operation
+      failed'
+    metrics:
+      error_rate: 0.5342681988752884
+      response_time_ms: 6863
+      cpu_usage: 0.7847627589388881
+      memory_usage: 0.8084308174253645
+- timestamp: '2025-05-23T17:34:38.664088'
+  event_type: timeout
+  description: 'Timeout: docker network'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 252
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: docker network - operation
+      failed'
+    metrics:
+      error_rate: 0.17443842204008925
+      response_time_ms: 2170
+      cpu_usage: 0.8296671950650675
+      memory_usage: 0.9572033761224036
+- timestamp: '2025-05-23T17:34:44.664088'
+  event_type: failure
+  description: 'Failure: a cluster'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 145
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: a cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.7877461828371797
+      response_time_ms: 6460
+      cpu_usage: 0.9742960004351388
+      memory_usage: 0.8485111882232996
+- timestamp: '2025-05-23T17:35:12.664088'
+  event_type: timeout
+  description: 'Timeout: a service'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 86
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.7305250610576518
+      response_time_ms: 1252
+      cpu_usage: 0.7256332479937786
+      memory_usage: 0.931257512424534
+- timestamp: '2025-05-23T17:52:57.664088'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

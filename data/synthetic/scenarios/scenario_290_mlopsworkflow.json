@@ -1,0 +1,78 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_173245",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 994,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.743793",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.743686",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:15.743686",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:18.743686",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 207,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.1714135556934595,
+          "response_time_ms": 1685,
+          "cpu_usage": 0.7455301776211476,
+          "memory_usage": 0.9433178620777358
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:19.743686",
+      "event_type": "recovery",
+      "description": "Recovery: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:45.743686",
+      "event_type": "timeout",
+      "description": "Timeout: disk space full",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 187,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.6525052950841516,
+          "response_time_ms": 5958,
+          "cpu_usage": 0.9299762359594456,
+          "memory_usage": 0.8785234321817442
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:19.743686",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

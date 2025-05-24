@@ -1,0 +1,81 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_173708
+description: Infrastructure failure scenario for DependencyFailure
+duration: 540
+metadata:
+  generated_at: '2025-05-23T17:37:08.077915'
+  phrase_templates_used: 45
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:37:08.077692'
+  event_type: trigger
+  description: 'Initial failure detected: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:29.077692'
+  event_type: failure
+  description: 'Failure: the error'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 217
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.470040896434165
+      response_time_ms: 1063
+      cpu_usage: 0.7110396652746895
+      memory_usage: 0.9488715960768346
+- timestamp: '2025-05-23T17:37:45.077692'
+  event_type: timeout
+  description: 'Timeout: web server'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 245
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: web server - operation
+      failed'
+    metrics:
+      error_rate: 0.15374910690233792
+      response_time_ms: 3977
+      cpu_usage: 0.8237488567599094
+      memory_usage: 0.8015579526998918
+- timestamp: '2025-05-23T17:38:41.077692'
+  event_type: failure
+  description: 'Failure: proxy server'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 255
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: proxy server - operation
+      failed'
+    metrics:
+      error_rate: 0.103901089515802
+      response_time_ms: 7378
+      cpu_usage: 0.9705305639666217
+      memory_usage: 0.9317051428212053
+- timestamp: '2025-05-23T17:39:08.077692'
+  event_type: timeout
+  description: 'Timeout: failed to'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 30
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: failed to - operation
+      failed'
+    metrics:
+      error_rate: 0.7168397016670662
+      response_time_ms: 9001
+      cpu_usage: 0.9472494809792757
+      memory_usage: 0.8691334556249815
+- timestamp: '2025-05-23T17:46:08.077692'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,115 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_174629
+description: Infrastructure failure scenario for DataWarehouse
+duration: 921
+metadata:
+  generated_at: '2025-05-23T17:46:29.019265'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:46:29.018666'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:48.018666'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 300
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.5576068203008958
+      response_time_ms: 2500
+      cpu_usage: 0.9524306275728316
+      memory_usage: 0.8444118213926365
+- timestamp: '2025-05-23T17:47:07.018666'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:25.018666'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 182
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.5513471090218391
+      response_time_ms: 9091
+      cpu_usage: 0.7019048810441089
+      memory_usage: 0.9407989351538499
+- timestamp: '2025-05-23T17:47:48.018666'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 89
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.4790874998222826
+      response_time_ms: 7667
+      cpu_usage: 0.7894854181092741
+      memory_usage: 0.8696761462294469
+- timestamp: '2025-05-23T17:47:56.018666'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 170
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.7546457282718136
+      response_time_ms: 5522
+      cpu_usage: 0.7183780517053361
+      memory_usage: 0.9901078784472666
+- timestamp: '2025-05-23T17:47:59.018666'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 289
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: container crashed
+      - operation failed'
+    metrics:
+      error_rate: 0.7164879507396111
+      response_time_ms: 5818
+      cpu_usage: 0.9578645653872515
+      memory_usage: 0.9374164114910651
+- timestamp: '2025-05-23T17:48:35.018666'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 202
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.7920059790462392
+      response_time_ms: 5147
+      cpu_usage: 0.7643178082446025
+      memory_usage: 0.9478994577257113
+- timestamp: '2025-05-23T18:01:50.018666'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

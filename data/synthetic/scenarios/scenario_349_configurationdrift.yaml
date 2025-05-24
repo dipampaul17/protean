@@ -1,0 +1,60 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173708
+description: Configuration inconsistencies causing service degradation
+duration: 917
+metadata:
+  generated_at: '2025-05-23T17:37:08.043968'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:37:08.043821'
+  event_type: trigger
+  description: 'Initial failure detected: following error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:36.043821'
+  event_type: restart
+  description: 'Restart: kafka log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:41.043821'
+  event_type: failure
+  description: 'Failure: rabbitmq server'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 183
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: rabbitmq server - operation
+      failed'
+    metrics:
+      error_rate: 0.17315403636887475
+      response_time_ms: 5411
+      cpu_usage: 0.7023838311116612
+      memory_usage: 0.962569392954563
+- timestamp: '2025-05-23T17:37:46.043821'
+  event_type: rollback
+  description: 'Rollback: xxxxxxx cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:47.043821'
+  event_type: restart
+  description: 'Restart: rabbitmq server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:21.043821'
+  event_type: config_change
+  description: 'Config_Change: kubernetes service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:26.043821'
+  event_type: restart
+  description: 'Restart: string container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:43.043821'
+  event_type: config_change
+  description: 'Config_Change: the deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T17:52:25.043821'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

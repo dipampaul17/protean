@@ -1,0 +1,84 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_174628
+description: Circuit breaker activation due to cascading service failures
+duration: 1076
+metadata:
+  generated_at: '2025-05-23T17:46:28.994204'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 1
+    medium: 1
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:28.994055'
+  event_type: trigger
+  description: 'Initial failure detected: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:16.994055'
+  event_type: timeout
+  description: 'Timeout: var log'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 148
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: var log - operation
+      failed'
+    metrics:
+      error_rate: 0.3030568693849063
+      response_time_ms: 3244
+      cpu_usage: 0.8602275094170697
+      memory_usage: 0.8061777400377679
+- timestamp: '2025-05-23T17:48:11.994055'
+  event_type: recovery
+  description: 'Recovery: session timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:32.994055'
+  event_type: timeout
+  description: 'Timeout: var log'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 210
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: var log - operation failed'
+    metrics:
+      error_rate: 0.357360820796746
+      response_time_ms: 5567
+      cpu_usage: 0.9294676005564226
+      memory_usage: 0.8996227666192478
+- timestamp: '2025-05-23T17:49:15.994055'
+  event_type: timeout
+  description: 'Timeout: message queue'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: medium
+    duration: 184
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: message queue - operation
+      failed'
+    metrics:
+      error_rate: 0.22096591965999643
+      response_time_ms: 677
+      cpu_usage: 0.4211393732119636
+      memory_usage: 0.5115687854001691
+- timestamp: '2025-05-23T17:49:25.994055'
+  event_type: degradation
+  description: 'Degradation: to monitor'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: low
+    duration: 130
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: to monitor - operation
+      failed'
+    metrics:
+      error_rate: 0.278224860073151
+      response_time_ms: 1274
+      cpu_usage: 0.41597665344261103
+      memory_usage: 0.6243893117745127
+- timestamp: '2025-05-23T18:04:24.994055'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

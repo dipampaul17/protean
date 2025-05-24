@@ -1,0 +1,120 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173453",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 842,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.227796",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.227524",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:06.227524",
+      "event_type": "recovery",
+      "description": "Recovery: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:18.227524",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 74,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.7622583027322751,
+          "response_time_ms": 9226,
+          "cpu_usage": 0.9404268243642807,
+          "memory_usage": 0.8645289709735406
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:24.227524",
+      "event_type": "recovery",
+      "description": "Recovery: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:45.227524",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:49.227524",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 291,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.45283373069610244,
+          "response_time_ms": 9083,
+          "cpu_usage": 0.9960057665952033,
+          "memory_usage": 0.8131607598101637
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:52.227524",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 83,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.7257384015290689,
+          "response_time_ms": 6811,
+          "cpu_usage": 0.7229640125097485,
+          "memory_usage": 0.9691967778902659
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:53.227524",
+      "event_type": "timeout",
+      "description": "Timeout: disk space full",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 125,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.5364273842340651,
+          "response_time_ms": 2755,
+          "cpu_usage": 0.9761364381309154,
+          "memory_usage": 0.8954366584436854
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:55.227524",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

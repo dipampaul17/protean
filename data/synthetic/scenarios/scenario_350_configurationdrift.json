@@ -1,0 +1,90 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173245",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 647,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.761253",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.761101",
+      "event_type": "trigger",
+      "description": "Initial failure detected: var log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:04.761101",
+      "event_type": "failure",
+      "description": "Failure: a container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 194,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: a container - operation failed",
+        "metrics": {
+          "error_rate": 0.7090569065189668,
+          "response_time_ms": 3194,
+          "cpu_usage": 0.9860705089668711,
+          "memory_usage": 0.8141863344515973
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:16.761101",
+      "event_type": "config_change",
+      "description": "Config_Change: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:47.761101",
+      "event_type": "failure",
+      "description": "Failure: string container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 285,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: string container - operation failed",
+        "metrics": {
+          "error_rate": 0.45210702107172096,
+          "response_time_ms": 5453,
+          "cpu_usage": 0.7741107778885259,
+          "memory_usage": 0.8253989596223658
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:07.761101",
+      "event_type": "restart",
+      "description": "Restart: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:07.761101",
+      "event_type": "config_change",
+      "description": "Config_Change: kafka log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:28.761101",
+      "event_type": "rollback",
+      "description": "Rollback: api server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:43:32.761101",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

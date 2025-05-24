@@ -1,0 +1,80 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173708
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 650
+metadata:
+  generated_at: '2025-05-23T17:37:08.055781'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:37:08.055649'
+  event_type: trigger
+  description: 'Initial failure detected: double scale'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:20.055649'
+  event_type: timeout
+  description: 'Timeout: a node'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 247
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: a node - operation failed'
+    metrics:
+      error_rate: 0.3832569526547641
+      response_time_ms: 4984
+      cpu_usage: 0.8162687239252602
+      memory_usage: 0.8745454646012565
+- timestamp: '2025-05-23T17:37:45.055649'
+  event_type: failure
+  description: 'Failure: high memory'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 95
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: high memory - operation
+      failed'
+    metrics:
+      error_rate: 0.6212681095069288
+      response_time_ms: 5792
+      cpu_usage: 0.8796597665511495
+      memory_usage: 0.965364338999654
+- timestamp: '2025-05-23T17:38:53.055649'
+  event_type: timeout
+  description: 'Timeout: info node'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 254
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: info node - operation
+      failed'
+    metrics:
+      error_rate: 0.6050751406481988
+      response_time_ms: 8043
+      cpu_usage: 0.9647090831099072
+      memory_usage: 0.8388935550354106
+- timestamp: '2025-05-23T17:39:45.055649'
+  event_type: failure
+  description: 'Failure: em connection'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 96
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: em connection - operation
+      failed'
+    metrics:
+      error_rate: 0.7469775928455262
+      response_time_ms: 2543
+      cpu_usage: 0.9826835641015069
+      memory_usage: 0.950160748514548
+- timestamp: '2025-05-23T17:47:58.055649'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

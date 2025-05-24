@@ -1,0 +1,70 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173453
+description: Infrastructure failure scenario for ETLPipeline
+duration: 838
+metadata:
+  generated_at: '2025-05-23T17:34:53.223071'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.222827'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:16.222827'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 272
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: circuit breaker
+      triggered - operation failed'
+    metrics:
+      error_rate: 0.33107141114990835
+      response_time_ms: 8948
+      cpu_usage: 0.8873948136418879
+      memory_usage: 0.9111642068694276
+- timestamp: '2025-05-23T17:35:21.222827'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:55.222827'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 69
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.32191942963354503
+      response_time_ms: 7934
+      cpu_usage: 0.8836171866772795
+      memory_usage: 0.9077631021360466
+- timestamp: '2025-05-23T17:36:04.222827'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 281
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.16503227140390458
+      response_time_ms: 1578
+      cpu_usage: 0.8922870236432292
+      memory_usage: 0.889243724391859
+- timestamp: '2025-05-23T17:48:51.222827'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

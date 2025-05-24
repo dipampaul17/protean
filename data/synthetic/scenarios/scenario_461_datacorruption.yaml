@@ -1,0 +1,77 @@
+category: DataCorruption
+name: DataCorruption_20250523_173245
+description: Infrastructure failure scenario for DataCorruption
+duration: 490
+metadata:
+  generated_at: '2025-05-23T17:32:45.788597'
+  phrase_templates_used: 36
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.788290'
+  event_type: trigger
+  description: 'Initial failure detected: the cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:06.788290'
+  event_type: recovery
+  description: 'Recovery: using rabbitmq'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:16.788290'
+  event_type: recovery
+  description: 'Recovery: using rabbitmq'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:18.788290'
+  event_type: timeout
+  description: 'Timeout: a database'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 244
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: a database - operation
+      failed'
+    metrics:
+      error_rate: 0.6396635162833038
+      response_time_ms: 3003
+      cpu_usage: 0.9105104739730167
+      memory_usage: 0.8217032888301633
+- timestamp: '2025-05-23T17:33:27.788290'
+  event_type: failure
+  description: 'Failure: to node'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 102
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: to node - operation failed'
+    metrics:
+      error_rate: 0.6704064558764181
+      response_time_ms: 8020
+      cpu_usage: 0.7977552873916713
+      memory_usage: 0.9711917348276538
+- timestamp: '2025-05-23T17:33:36.788290'
+  event_type: recovery
+  description: 'Recovery: the node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:36.788290'
+  event_type: timeout
+  description: 'Timeout: message queue'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: medium
+    duration: 37
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: message queue - operation
+      failed'
+    metrics:
+      error_rate: 0.07690742135586018
+      response_time_ms: 1652
+      cpu_usage: 0.542093161170674
+      memory_usage: 0.5016890102376742
+- timestamp: '2025-05-23T17:40:55.788290'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

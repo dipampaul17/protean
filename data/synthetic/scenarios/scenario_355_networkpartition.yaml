@@ -1,0 +1,70 @@
+category: NetworkPartition
+name: NetworkPartition_20250523_173453
+description: Infrastructure failure scenario for NetworkPartition
+duration: 363
+metadata:
+  generated_at: '2025-05-23T17:34:53.280377'
+  phrase_templates_used: 4
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.280257'
+  event_type: trigger
+  description: 'Initial failure detected: each node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:15.280257'
+  event_type: timeout
+  description: 'Timeout: and node'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 133
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: and node - operation
+      failed'
+    metrics:
+      error_rate: 0.7630426561426451
+      response_time_ms: 9515
+      cpu_usage: 0.7358845450063392
+      memory_usage: 0.8345486531941297
+- timestamp: '2025-05-23T17:35:18.280257'
+  event_type: timeout
+  description: 'Timeout: and node'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 194
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: and node - operation
+      failed'
+    metrics:
+      error_rate: 0.7357354910322172
+      response_time_ms: 8594
+      cpu_usage: 0.8089243297309494
+      memory_usage: 0.9096069216614654
+- timestamp: '2025-05-23T17:35:41.280257'
+  event_type: failure
+  description: 'Failure: and node'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 53
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: and node - operation
+      failed'
+    metrics:
+      error_rate: 0.7737355528075706
+      response_time_ms: 8912
+      cpu_usage: 0.9925544975224564
+      memory_usage: 0.8605714326489983
+- timestamp: '2025-05-23T17:36:00.280257'
+  event_type: recovery
+  description: 'Recovery: of disk'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:56.280257'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

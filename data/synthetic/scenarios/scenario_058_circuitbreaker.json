@@ -1,0 +1,138 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173452",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 594,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.973910",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 2,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.973683",
+      "event_type": "trigger",
+      "description": "Initial failure detected: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:05.973683",
+      "event_type": "failure",
+      "description": "Failure: code error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 76,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: code error - operation failed",
+        "metrics": {
+          "error_rate": 0.7152918558372561,
+          "response_time_ms": 8100,
+          "cpu_usage": 0.9689092127190513,
+          "memory_usage": 0.8292303989886263
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:10.973683",
+      "event_type": "recovery",
+      "description": "Recovery: gateway timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:20.973683",
+      "event_type": "failure",
+      "description": "Failure: to restart",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 76,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR user-service: to restart - operation failed",
+        "metrics": {
+          "error_rate": 0.15220747771660667,
+          "response_time_ms": 4414,
+          "cpu_usage": 0.7989968236303094,
+          "memory_usage": 0.9815689351163274
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:21.973683",
+      "event_type": "degradation",
+      "description": "Degradation: info node",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "low",
+        "duration": 118,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR auth-service: info node - operation failed",
+        "metrics": {
+          "error_rate": 0.0640167971024859,
+          "response_time_ms": 929,
+          "cpu_usage": 0.7938346911986202,
+          "memory_usage": 0.659038221870281
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:32.973683",
+      "event_type": "failure",
+      "description": "Failure: virtual memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 81,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: virtual memory - operation failed",
+        "metrics": {
+          "error_rate": 0.719410471279401,
+          "response_time_ms": 7430,
+          "cpu_usage": 0.9719316118129259,
+          "memory_usage": 0.8149923071227126
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:03.973683",
+      "event_type": "recovery",
+      "description": "Recovery: virtual memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:06.973683",
+      "event_type": "degradation",
+      "description": "Degradation: quot error",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "low",
+        "duration": 257,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: quot error - operation failed",
+        "metrics": {
+          "error_rate": 0.04589417537265655,
+          "response_time_ms": 492,
+          "cpu_usage": 0.5976601608262471,
+          "memory_usage": 0.6545883332135938
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:06.973683",
+      "event_type": "recovery",
+      "description": "Recovery: exceeded timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:44:46.973683",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173452",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 499,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.981188",
+    "phrase_templates_used": 36,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.980884",
+      "event_type": "trigger",
+      "description": "Initial failure detected: transaction log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:36.980884",
+      "event_type": "timeout",
+      "description": "Timeout: one server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 45,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: one server - operation failed",
+        "metrics": {
+          "error_rate": 0.7909950994398757,
+          "response_time_ms": 4601,
+          "cpu_usage": 0.7432041583205935,
+          "memory_usage": 0.8518866253633557
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:31.980884",
+      "event_type": "timeout",
+      "description": "Timeout: one server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 199,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: one server - operation failed",
+        "metrics": {
+          "error_rate": 0.21318616713022343,
+          "response_time_ms": 9224,
+          "cpu_usage": 0.7318671027947427,
+          "memory_usage": 0.8190960549740554
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:12.980884",
+      "event_type": "failure",
+      "description": "Failure: the container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 210,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR auth-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.22935254443757414,
+          "response_time_ms": 9652,
+          "cpu_usage": 0.9731700150635563,
+          "memory_usage": 0.9664897303528031
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:43:11.980884",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_174629",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1686,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.129561",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.129366",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:10.129366",
+      "event_type": "rollback",
+      "description": "Rollback: docker container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:36.129366",
+      "event_type": "config_change",
+      "description": "Config_Change: nginx container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:11.129366",
+      "event_type": "config_change",
+      "description": "Config_Change: kafka cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:12.129366",
+      "event_type": "config_change",
+      "description": "Config_Change: the cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:14.129366",
+      "event_type": "failure",
+      "description": "Failure: a cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 36,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: a cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.844511170819053,
+          "response_time_ms": 4716,
+          "cpu_usage": 0.8749076050152341,
+          "memory_usage": 0.8716031781786099
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:49.129366",
+      "event_type": "restart",
+      "description": "Restart: code error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:51.129366",
+      "event_type": "restart",
+      "description": "Restart: the log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:54.129366",
+      "event_type": "restart",
+      "description": "Restart: elasticsearch cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:14:35.129366",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

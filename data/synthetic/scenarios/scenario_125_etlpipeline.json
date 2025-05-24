@@ -1,0 +1,108 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_174628",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 490,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.961962",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.961202",
+      "event_type": "trigger",
+      "description": "Initial failure detected: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:51.961202",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:08.961202",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 197,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.7791848902213933,
+          "response_time_ms": 6355,
+          "cpu_usage": 0.9352365953749293,
+          "memory_usage": 0.9343928079395707
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:14.961202",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 63,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.14755915406211512,
+          "response_time_ms": 2379,
+          "cpu_usage": 0.9290883251840394,
+          "memory_usage": 0.8855932456535183
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:17.961202",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 185,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.5393636122371068,
+          "response_time_ms": 6206,
+          "cpu_usage": 0.85385966923701,
+          "memory_usage": 0.9648139316213002
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:25.961202",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 45,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.13508440531503674,
+          "response_time_ms": 9703,
+          "cpu_usage": 0.8110205044444901,
+          "memory_usage": 0.9852167651411223
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:54:38.961202",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

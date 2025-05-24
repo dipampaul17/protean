@@ -1,0 +1,88 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_173707
+description: Infrastructure failure scenario for DependencyFailure
+duration: 650
+metadata:
+  generated_at: '2025-05-23T17:37:07.948658'
+  phrase_templates_used: 45
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:37:07.948493'
+  event_type: trigger
+  description: 'Initial failure detected: headless service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:20.948493'
+  event_type: failure
+  description: 'Failure: to update'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 76
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: to update - operation
+      failed'
+    metrics:
+      error_rate: 0.4176551535604217
+      response_time_ms: 4991
+      cpu_usage: 0.8678729761191538
+      memory_usage: 0.9120190531153514
+- timestamp: '2025-05-23T17:38:18.948493'
+  event_type: timeout
+  description: 'Timeout: work log'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 261
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: work log - operation failed'
+    metrics:
+      error_rate: 0.5036580417775356
+      response_time_ms: 4667
+      cpu_usage: 0.7311834821556645
+      memory_usage: 0.985620790092853
+- timestamp: '2025-05-23T17:38:31.948493'
+  event_type: failure
+  description: 'Failure: vpn connection'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 199
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: vpn connection
+      - operation failed'
+    metrics:
+      error_rate: 0.46671862621313864
+      response_time_ms: 9254
+      cpu_usage: 0.8121282802205109
+      memory_usage: 0.8338444135256758
+- timestamp: '2025-05-23T17:38:32.948493'
+  event_type: recovery
+  description: 'Recovery: federated queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:45.948493'
+  event_type: failure
+  description: 'Failure: failed to'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 279
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: failed to - operation
+      failed'
+    metrics:
+      error_rate: 0.6855773866652466
+      response_time_ms: 3804
+      cpu_usage: 0.8335857743379148
+      memory_usage: 0.9982332694867412
+- timestamp: '2025-05-23T17:38:46.948493'
+  event_type: recovery
+  description: 'Recovery: the container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:57.948493'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

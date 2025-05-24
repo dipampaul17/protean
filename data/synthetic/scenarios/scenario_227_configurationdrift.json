@@ -1,0 +1,60 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173453",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1255,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.157348",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.157263",
+      "event_type": "trigger",
+      "description": "Initial failure detected: code server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:02.157263",
+      "event_type": "failure",
+      "description": "Failure: p error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 141,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: p error - operation failed",
+        "metrics": {
+          "error_rate": 0.10491000792802102,
+          "response_time_ms": 9191,
+          "cpu_usage": 0.8042373028786116,
+          "memory_usage": 0.9590302346596271
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:49.157263",
+      "event_type": "config_change",
+      "description": "Config_Change: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:41:20.157263",
+      "event_type": "rollback",
+      "description": "Rollback: nginx restart",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:55:48.157263",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

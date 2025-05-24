@@ -1,0 +1,126 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_173453",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 1117,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.346570",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.346372",
+      "event_type": "trigger",
+      "description": "Initial failure detected: in memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:16.346372",
+      "event_type": "recovery",
+      "description": "Recovery: reading database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:58.346372",
+      "event_type": "recovery",
+      "description": "Recovery: lt container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:11.346372",
+      "event_type": "failure",
+      "description": "Failure: potential memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 269,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: potential memory - operation failed",
+        "metrics": {
+          "error_rate": 0.8471741083843102,
+          "response_time_ms": 4094,
+          "cpu_usage": 0.718540232640624,
+          "memory_usage": 0.9430153971550391
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:13.346372",
+      "event_type": "failure",
+      "description": "Failure: the pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 268,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: the pod - operation failed",
+        "metrics": {
+          "error_rate": 0.34175579415512747,
+          "response_time_ms": 3548,
+          "cpu_usage": 0.9102783358793782,
+          "memory_usage": 0.8419846916277072
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:51.346372",
+      "event_type": "recovery",
+      "description": "Recovery: served memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:54.346372",
+      "event_type": "failure",
+      "description": "Failure: info node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 145,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: info node - operation failed",
+        "metrics": {
+          "error_rate": 0.6876857428024479,
+          "response_time_ms": 5421,
+          "cpu_usage": 0.9774857240763961,
+          "memory_usage": 0.9718145253281095
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:04.346372",
+      "event_type": "recovery",
+      "description": "Recovery: to scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:12.346372",
+      "event_type": "timeout",
+      "description": "Timeout: the disk",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 219,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: the disk - operation failed",
+        "metrics": {
+          "error_rate": 0.6152920828924549,
+          "response_time_ms": 2569,
+          "cpu_usage": 0.7603522491357749,
+          "memory_usage": 0.8759846235078173
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:53:30.346372",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

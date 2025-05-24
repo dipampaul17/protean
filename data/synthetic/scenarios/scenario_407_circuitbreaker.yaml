@@ -1,0 +1,65 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_174629
+description: Circuit breaker activation due to cascading service failures
+duration: 1232
+metadata:
+  generated_at: '2025-05-23T17:46:29.126411'
+  phrase_templates_used: 50
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:29.125235'
+  event_type: trigger
+  description: 'Initial failure detected: value memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:26.125235'
+  event_type: failure
+  description: 'Failure: value memory'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 284
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: value memory - operation
+      failed'
+    metrics:
+      error_rate: 0.28527731011431157
+      response_time_ms: 4363
+      cpu_usage: 0.9937477182453975
+      memory_usage: 0.9559096442547159
+- timestamp: '2025-05-23T17:48:05.125235'
+  event_type: timeout
+  description: 'Timeout: code error'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 84
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: code error - operation
+      failed'
+    metrics:
+      error_rate: 0.5091090246344918
+      response_time_ms: 9469
+      cpu_usage: 0.8045433643951383
+      memory_usage: 0.8387580518850888
+- timestamp: '2025-05-23T17:49:25.125235'
+  event_type: failure
+  description: 'Failure: var log'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 154
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: var log - operation failed'
+    metrics:
+      error_rate: 0.1294642505773398
+      response_time_ms: 5474
+      cpu_usage: 0.7544221887147488
+      memory_usage: 0.928862283044085
+- timestamp: '2025-05-23T18:07:01.125235'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

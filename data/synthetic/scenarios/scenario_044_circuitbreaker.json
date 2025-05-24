@@ -1,0 +1,84 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173245",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 932,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.667752",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 1,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.667618",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:15.667618",
+      "event_type": "failure",
+      "description": "Failure: the log",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 300,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: the log - operation failed",
+        "metrics": {
+          "error_rate": 0.38014790456521375,
+          "response_time_ms": 8702,
+          "cpu_usage": 0.8579499262811002,
+          "memory_usage": 0.8934158884513553
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:27.667618",
+      "event_type": "degradation",
+      "description": "Degradation: us log",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "low",
+        "duration": 124,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: us log - operation failed",
+        "metrics": {
+          "error_rate": 0.2666105776964971,
+          "response_time_ms": 1286,
+          "cpu_usage": 0.4447782744330559,
+          "memory_usage": 0.4610628703131371
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:40.667618",
+      "event_type": "failure",
+      "description": "Failure: message queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "medium",
+        "duration": 140,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: message queue - operation failed",
+        "metrics": {
+          "error_rate": 0.0358339970886576,
+          "response_time_ms": 942,
+          "cpu_usage": 0.6750314557686201,
+          "memory_usage": 0.6197759501294725
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:17.667618",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

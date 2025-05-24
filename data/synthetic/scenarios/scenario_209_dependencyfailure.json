@@ -1,0 +1,84 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173245",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 1645,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.722747",
+    "phrase_templates_used": 45,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.722590",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:09.722590",
+      "event_type": "failure",
+      "description": "Failure: destination node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 143,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: destination node - operation failed",
+        "metrics": {
+          "error_rate": 0.7871687643628702,
+          "response_time_ms": 1934,
+          "cpu_usage": 0.7381380170760884,
+          "memory_usage": 0.9953064269582121
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:15.722590",
+      "event_type": "recovery",
+      "description": "Recovery: upstream queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:24.722590",
+      "event_type": "recovery",
+      "description": "Recovery: closed connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:28.722590",
+      "event_type": "recovery",
+      "description": "Recovery: jenkins server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:00.722590",
+      "event_type": "recovery",
+      "description": "Recovery: illuminate queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:19.722590",
+      "event_type": "recovery",
+      "description": "Recovery: proxy server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:34.722590",
+      "event_type": "recovery",
+      "description": "Recovery: code error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:00:10.722590",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173245",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 1115,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.796168",
+    "phrase_templates_used": 45,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.796036",
+      "event_type": "trigger",
+      "description": "Initial failure detected: per pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:18.796036",
+      "event_type": "timeout",
+      "description": "Timeout: coirq error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 192,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: coirq error - operation failed",
+        "metrics": {
+          "error_rate": 0.8260646806887921,
+          "response_time_ms": 8777,
+          "cpu_usage": 0.9713995739819896,
+          "memory_usage": 0.8744406481487892
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:28.796036",
+      "event_type": "failure",
+      "description": "Failure: nginx service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 63,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: nginx service - operation failed",
+        "metrics": {
+          "error_rate": 0.8904774235733242,
+          "response_time_ms": 2131,
+          "cpu_usage": 0.7746747352940889,
+          "memory_usage": 0.850146271455994
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:28.796036",
+      "event_type": "recovery",
+      "description": "Recovery: failed to",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:32.796036",
+      "event_type": "recovery",
+      "description": "Recovery: the connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:31.796036",
+      "event_type": "recovery",
+      "description": "Recovery: nginx service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:51:20.796036",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

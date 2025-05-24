@@ -1,0 +1,120 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_174628",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 1339,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.954404",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.954217",
+      "event_type": "trigger",
+      "description": "Initial failure detected: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:05.954217",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:08.954217",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 225,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.6200266720189282,
+          "response_time_ms": 6181,
+          "cpu_usage": 0.7223499374340097,
+          "memory_usage": 0.8568190094137184
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:08.954217",
+      "event_type": "timeout",
+      "description": "Timeout: disk space full",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 228,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.8144144421926852,
+          "response_time_ms": 5036,
+          "cpu_usage": 0.9668487393952999,
+          "memory_usage": 0.9096239923524805
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:45.954217",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:59.954217",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:48.954217",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 105,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.8544840582256114,
+          "response_time_ms": 2005,
+          "cpu_usage": 0.970828685614601,
+          "memory_usage": 0.8667583113885405
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:59.954217",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 209,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.44796232941495784,
+          "response_time_ms": 6138,
+          "cpu_usage": 0.7449198069641106,
+          "memory_usage": 0.9871167880087783
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:08:47.954217",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

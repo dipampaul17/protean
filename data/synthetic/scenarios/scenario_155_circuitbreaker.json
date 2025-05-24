@@ -1,0 +1,102 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173245",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 322,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.708728",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 2,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.708597",
+      "event_type": "trigger",
+      "description": "Initial failure detected: p update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:18.708597",
+      "event_type": "failure",
+      "description": "Failure: the container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 123,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.28161394164553,
+          "response_time_ms": 9359,
+          "cpu_usage": 0.8270999908730479,
+          "memory_usage": 0.9893783922136781
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:33.708597",
+      "event_type": "degradation",
+      "description": "Degradation: a service",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "low",
+        "duration": 293,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.11851238296807551,
+          "response_time_ms": 1699,
+          "cpu_usage": 0.34010183326129234,
+          "memory_usage": 0.6806275246768008
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:38.708597",
+      "event_type": "degradation",
+      "description": "Degradation: var log",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "low",
+        "duration": 209,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: var log - operation failed",
+        "metrics": {
+          "error_rate": 0.2544492938069195,
+          "response_time_ms": 1361,
+          "cpu_usage": 0.4163068353921143,
+          "memory_usage": 0.4735324161748714
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:58.708597",
+      "event_type": "failure",
+      "description": "Failure: p update",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 214,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: p update - operation failed",
+        "metrics": {
+          "error_rate": 0.7521363248419894,
+          "response_time_ms": 2023,
+          "cpu_usage": 0.7337256086389929,
+          "memory_usage": 0.824656732429496
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:07.708597",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

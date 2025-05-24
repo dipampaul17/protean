@@ -1,0 +1,138 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_174629",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 414,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.086174",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.085939",
+      "event_type": "trigger",
+      "description": "Initial failure detected: customer service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:40.085939",
+      "event_type": "degradation",
+      "description": "Degradation: session timeout",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 42,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: session timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.34459300919980623,
+          "response_time_ms": 9760,
+          "cpu_usage": 0.9308914406863285,
+          "memory_usage": 0.8747065364117449
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:50.085939",
+      "event_type": "timeout",
+      "description": "Timeout: quot error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 114,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: quot error - operation failed",
+        "metrics": {
+          "error_rate": 0.21525679711998624,
+          "response_time_ms": 5833,
+          "cpu_usage": 0.791202353722283,
+          "memory_usage": 0.9733149948828866
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:06.085939",
+      "event_type": "degradation",
+      "description": "Degradation: the timeout",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 171,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: the timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.535744578428957,
+          "response_time_ms": 2252,
+          "cpu_usage": 0.8032975262582858,
+          "memory_usage": 0.990094621632036
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:13.085939",
+      "event_type": "timeout",
+      "description": "Timeout: kubernetes cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 204,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: kubernetes cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.5631929181067573,
+          "response_time_ms": 2271,
+          "cpu_usage": 0.8242716236945,
+          "memory_usage": 0.8124793799513671
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:28.085939",
+      "event_type": "timeout",
+      "description": "Timeout: session timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 158,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: session timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.6284107487280659,
+          "response_time_ms": 6208,
+          "cpu_usage": 0.8068206662238392,
+          "memory_usage": 0.8873383977668343
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:34.085939",
+      "event_type": "timeout",
+      "description": "Timeout: virtual memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 236,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: virtual memory - operation failed",
+        "metrics": {
+          "error_rate": 0.2217642340337921,
+          "response_time_ms": 6687,
+          "cpu_usage": 0.7039988759676459,
+          "memory_usage": 0.8702109415995067
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:53:23.085939",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

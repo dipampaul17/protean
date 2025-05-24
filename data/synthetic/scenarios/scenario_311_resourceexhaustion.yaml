@@ -1,0 +1,70 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173453
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 838
+metadata:
+  generated_at: '2025-05-23T17:34:53.220677'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.220551'
+  event_type: trigger
+  description: 'Initial failure detected: lt container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:21.220551'
+  event_type: timeout
+  description: 'Timeout: the error'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 155
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.46263428847534904
+      response_time_ms: 6516
+      cpu_usage: 0.7031954203050308
+      memory_usage: 0.9288218246259244
+- timestamp: '2025-05-23T17:35:44.220551'
+  event_type: recovery
+  description: 'Recovery: the service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:54.220551'
+  event_type: timeout
+  description: 'Timeout: served memory'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 170
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: served memory - operation
+      failed'
+    metrics:
+      error_rate: 0.8628065365508657
+      response_time_ms: 5209
+      cpu_usage: 0.9952921464389393
+      memory_usage: 0.8108830361382677
+- timestamp: '2025-05-23T17:36:08.220551'
+  event_type: timeout
+  description: 'Timeout: high memory'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 285
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: high memory -
+      operation failed'
+    metrics:
+      error_rate: 0.33593451044145173
+      response_time_ms: 3940
+      cpu_usage: 0.7229627857302197
+      memory_usage: 0.9262784820896204
+- timestamp: '2025-05-23T17:48:51.220551'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

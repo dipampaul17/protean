@@ -1,0 +1,89 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173453
+description: Circuit breaker activation due to cascading service failures
+duration: 533
+metadata:
+  generated_at: '2025-05-23T17:34:53.161848'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 1
+    medium: 1
+    high: 2
+events:
+- timestamp: '2025-05-23T17:34:53.161682'
+  event_type: trigger
+  description: 'Initial failure detected: p update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:14.161682'
+  event_type: recovery
+  description: 'Recovery: a queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:17.161682'
+  event_type: failure
+  description: 'Failure: letter queue'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: medium
+    duration: 197
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: letter queue - operation
+      failed'
+    metrics:
+      error_rate: 0.13610068020479338
+      response_time_ms: 1726
+      cpu_usage: 0.35904247117214433
+      memory_usage: 0.4332073774145626
+- timestamp: '2025-05-23T17:35:35.161682'
+  event_type: timeout
+  description: 'Timeout: code error'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 110
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: code error - operation
+      failed'
+    metrics:
+      error_rate: 0.6294346155531827
+      response_time_ms: 2677
+      cpu_usage: 0.8689658095229023
+      memory_usage: 0.8862929038791743
+- timestamp: '2025-05-23T17:35:43.161682'
+  event_type: recovery
+  description: 'Recovery: gateway timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:05.161682'
+  event_type: timeout
+  description: 'Timeout: a service'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 281
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.8423440510828281
+      response_time_ms: 3756
+      cpu_usage: 0.98177738310129
+      memory_usage: 0.8425457753500888
+- timestamp: '2025-05-23T17:36:06.161682'
+  event_type: degradation
+  description: 'Degradation: info node'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: low
+    duration: 256
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: info node - operation
+      failed'
+    metrics:
+      error_rate: 0.026707556788447225
+      response_time_ms: 1907
+      cpu_usage: 0.621650507305198
+      memory_usage: 0.5939930472283601
+- timestamp: '2025-05-23T17:43:46.161682'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

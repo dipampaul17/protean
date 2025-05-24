@@ -1,0 +1,44 @@
+category: Microservices
+name: Microservices_20250523_173453
+description: Infrastructure failure scenario for Microservices
+duration: 1376
+metadata:
+  generated_at: '2025-05-23T17:34:53.066196'
+  phrase_templates_used: 15
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:34:53.066026'
+  event_type: trigger
+  description: 'Initial failure detected: another container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:26.066026'
+  event_type: timeout
+  description: 'Timeout: a container'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 274
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: a container - operation
+      failed'
+    metrics:
+      error_rate: 0.13204229378701218
+      response_time_ms: 6594
+      cpu_usage: 0.7650519088666352
+      memory_usage: 0.9300217080035442
+- timestamp: '2025-05-23T17:37:32.066026'
+  event_type: recovery
+  description: 'Recovery: lt service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:00.066026'
+  event_type: recovery
+  description: 'Recovery: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:57:49.066026'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

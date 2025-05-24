@@ -1,0 +1,85 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173245
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1326
+metadata:
+  generated_at: '2025-05-23T17:32:45.728667'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:32:45.728519'
+  event_type: trigger
+  description: 'Initial failure detected: the service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:14.728519'
+  event_type: timeout
+  description: 'Timeout: web server'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 234
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: web server - operation
+      failed'
+    metrics:
+      error_rate: 0.11987057445686854
+      response_time_ms: 2807
+      cpu_usage: 0.7305536476033262
+      memory_usage: 0.8133760979876717
+- timestamp: '2025-05-23T17:34:00.728519'
+  event_type: timeout
+  description: 'Timeout: code container'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 253
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: code container - operation
+      failed'
+    metrics:
+      error_rate: 0.8801383288112657
+      response_time_ms: 8900
+      cpu_usage: 0.9504713169659778
+      memory_usage: 0.9431232657747227
+- timestamp: '2025-05-23T17:34:25.728519'
+  event_type: failure
+  description: 'Failure: customer service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 234
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: customer service -
+      operation failed'
+    metrics:
+      error_rate: 0.5256362847276772
+      response_time_ms: 6995
+      cpu_usage: 0.7169499608714831
+      memory_usage: 0.8584282240874997
+- timestamp: '2025-05-23T17:34:52.728519'
+  event_type: timeout
+  description: 'Timeout: and memory'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 94
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: and memory - operation
+      failed'
+    metrics:
+      error_rate: 0.5416775230780341
+      response_time_ms: 3436
+      cpu_usage: 0.8509966336615734
+      memory_usage: 0.978026931760739
+- timestamp: '2025-05-23T17:36:38.728519'
+  event_type: recovery
+  description: 'Recovery: the container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:54:51.728519'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

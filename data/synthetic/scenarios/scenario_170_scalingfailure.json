@@ -1,0 +1,132 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_174628",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 851,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.974609",
+    "phrase_templates_used": 24,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.974356",
+      "event_type": "trigger",
+      "description": "Initial failure detected: aws application",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:18.974356",
+      "event_type": "recovery",
+      "description": "Recovery: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:24.974356",
+      "event_type": "failure",
+      "description": "Failure: the node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 39,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: the node - operation failed",
+        "metrics": {
+          "error_rate": 0.5269035999133096,
+          "response_time_ms": 2620,
+          "cpu_usage": 0.9308444529771578,
+          "memory_usage": 0.9351311664979405
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:27.974356",
+      "event_type": "recovery",
+      "description": "Recovery: this service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:31.974356",
+      "event_type": "failure",
+      "description": "Failure: the server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 157,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.3165505067976573,
+          "response_time_ms": 6824,
+          "cpu_usage": 0.9369272688113325,
+          "memory_usage": 0.8667502622119851
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:40.974356",
+      "event_type": "timeout",
+      "description": "Timeout: a node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 265,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: a node - operation failed",
+        "metrics": {
+          "error_rate": 0.8151880940299189,
+          "response_time_ms": 3245,
+          "cpu_usage": 0.8175063432441375,
+          "memory_usage": 0.9715062503887655
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:56.974356",
+      "event_type": "timeout",
+      "description": "Timeout: nodeport service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 161,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: nodeport service - operation failed",
+        "metrics": {
+          "error_rate": 0.4101739302481333,
+          "response_time_ms": 8935,
+          "cpu_usage": 0.7004228898029228,
+          "memory_usage": 0.8586355265767487
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:57.974356",
+      "event_type": "failure",
+      "description": "Failure: of failure",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 293,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: of failure - operation failed",
+        "metrics": {
+          "error_rate": 0.23009659323030612,
+          "response_time_ms": 8595,
+          "cpu_usage": 0.799798059882166,
+          "memory_usage": 0.9685410218856185
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:00:39.974356",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

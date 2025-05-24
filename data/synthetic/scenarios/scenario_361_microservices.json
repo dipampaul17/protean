@@ -1,0 +1,126 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_174629",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 1301,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.093942",
+    "phrase_templates_used": 15,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.093652",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:22.093652",
+      "event_type": "failure",
+      "description": "Failure: from service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 159,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: from service - operation failed",
+        "metrics": {
+          "error_rate": 0.6134010443697958,
+          "response_time_ms": 2576,
+          "cpu_usage": 0.7382825108691076,
+          "memory_usage": 0.9809613181223672
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:25.093652",
+      "event_type": "recovery",
+      "description": "Recovery: another container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:26.093652",
+      "event_type": "timeout",
+      "description": "Timeout: http connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 47,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: http connection - operation failed",
+        "metrics": {
+          "error_rate": 0.7668500452670409,
+          "response_time_ms": 4676,
+          "cpu_usage": 0.897060893644768,
+          "memory_usage": 0.9174259401538942
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:27.093652",
+      "event_type": "timeout",
+      "description": "Timeout: following error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 257,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: following error - operation failed",
+        "metrics": {
+          "error_rate": 0.15935550364913623,
+          "response_time_ms": 3779,
+          "cpu_usage": 0.983974809669605,
+          "memory_usage": 0.9956131938172122
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:45.093652",
+      "event_type": "recovery",
+      "description": "Recovery: docker network",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:02.093652",
+      "event_type": "recovery",
+      "description": "Recovery: to service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:23.093652",
+      "event_type": "recovery",
+      "description": "Recovery: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:06.093652",
+      "event_type": "failure",
+      "description": "Failure: the container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 240,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.5339063024512377,
+          "response_time_ms": 6484,
+          "cpu_usage": 0.9905099201680083,
+          "memory_usage": 0.8143597919642467
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:08:10.093652",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_174629
+description: Load balancer and traffic distribution problems
+duration: 1028
+metadata:
+  generated_at: '2025-05-23T17:46:29.099595'
+  phrase_templates_used: 13
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:29.099335'
+  event_type: trigger
+  description: 'Initial failure detected: load balancer'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:49.099335'
+  event_type: backend_failure
+  description: 'Backend_Failure: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:51.099335'
+  event_type: scaling
+  description: 'Scaling: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:12.099335'
+  event_type: timeout
+  description: 'Timeout: a server'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 233
+    log_snippet: '[2025-05-23 17:46:29] ERROR vpc-main: a server in timeout'
+    metrics:
+      error_rate: 0.14756318753466174
+      response_time_ms: 9320
+      cpu_usage: 0.9773258180232832
+      memory_usage: 0.946997143782145
+      requests_per_sec: 2829
+      backend_health_pct: 0.48958908409731294
+      connection_timeouts: 37
+- timestamp: '2025-05-23T17:47:44.099335'
+  event_type: timeout
+  description: 'Timeout: in connection'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 298
+    log_snippet: '[2025-05-23 17:46:29] ERROR vpc-main: in connection in timeout'
+    metrics:
+      error_rate: 0.18956125367998836
+      response_time_ms: 2730
+      cpu_usage: 0.7160794429950867
+      memory_usage: 0.8959516148079166
+      requests_per_sec: 7272
+      backend_health_pct: 0.6278148085130286
+      connection_timeouts: 193
+- timestamp: '2025-05-23T17:47:50.099335'
+  event_type: timeout
+  description: 'Timeout: a container'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 216
+    log_snippet: '[2025-05-23 17:46:29] ERROR subnet-private: a container in timeout'
+    metrics:
+      error_rate: 0.37794721536835707
+      response_time_ms: 8787
+      cpu_usage: 0.7500288232516078
+      memory_usage: 0.9605541278527059
+      requests_per_sec: 8832
+      backend_health_pct: 0.46563442967977575
+      connection_timeouts: 596
+- timestamp: '2025-05-23T17:48:35.099335'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: in connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:55.099335'
+  event_type: scaling
+  description: 'Scaling: web server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:03:37.099335'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

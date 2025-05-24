@@ -1,0 +1,102 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173245",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1566,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.793878",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.793690",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:04.793690",
+      "event_type": "rollback",
+      "description": "Rollback: a deployment",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:23.793690",
+      "event_type": "failure",
+      "description": "Failure: kubectl scale",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 127,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR nginx-proxy: kubectl scale in failure",
+        "metrics": {
+          "error_rate": 0.8650226130625895,
+          "response_time_ms": 3057,
+          "cpu_usage": 0.7482771820845651,
+          "memory_usage": 0.9874209410711013
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:40.793690",
+      "event_type": "scaling",
+      "description": "Scaling: using jenkins",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:09.793690",
+      "event_type": "deployment",
+      "description": "Deployment: using docker",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:50.793690",
+      "event_type": "failure",
+      "description": "Failure: this error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 40,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR nginx-proxy: this error in failure",
+        "metrics": {
+          "error_rate": 0.5133941073142732,
+          "response_time_ms": 1663,
+          "cpu_usage": 0.8529310420292333,
+          "memory_usage": 0.8648863258503406
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:23.793690",
+      "event_type": "scaling",
+      "description": "Scaling: container pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:58.793690",
+      "event_type": "scaling",
+      "description": "Scaling: reviewing error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:59.793690",
+      "event_type": "scaling",
+      "description": "Scaling: kubernetes cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:58:51.793690",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

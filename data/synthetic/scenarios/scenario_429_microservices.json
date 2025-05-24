@@ -1,0 +1,132 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_173453",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 907,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.345396",
+    "phrase_templates_used": 15,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.345210",
+      "event_type": "trigger",
+      "description": "Initial failure detected: http connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:07.345210",
+      "event_type": "timeout",
+      "description": "Timeout: a cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 281,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: a cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.4361829530436355,
+          "response_time_ms": 7686,
+          "cpu_usage": 0.9357946862348021,
+          "memory_usage": 0.9243242315268275
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:21.345210",
+      "event_type": "recovery",
+      "description": "Recovery: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:22.345210",
+      "event_type": "recovery",
+      "description": "Recovery: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:54.345210",
+      "event_type": "timeout",
+      "description": "Timeout: a service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 80,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.5802838095140118,
+          "response_time_ms": 3988,
+          "cpu_usage": 0.9299598488374435,
+          "memory_usage": 0.9443311991320502
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:26.345210",
+      "event_type": "timeout",
+      "description": "Timeout: the container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 89,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.2772472476884305,
+          "response_time_ms": 6724,
+          "cpu_usage": 0.9356750507281233,
+          "memory_usage": 0.9976075334060839
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:37.345210",
+      "event_type": "timeout",
+      "description": "Timeout: http connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 82,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: http connection - operation failed",
+        "metrics": {
+          "error_rate": 0.20066767469434155,
+          "response_time_ms": 3199,
+          "cpu_usage": 0.8447404425970974,
+          "memory_usage": 0.9022676777663732
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:38.345210",
+      "event_type": "failure",
+      "description": "Failure: a container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 125,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: a container - operation failed",
+        "metrics": {
+          "error_rate": 0.4650865383671864,
+          "response_time_ms": 7290,
+          "cpu_usage": 0.9312428001399125,
+          "memory_usage": 0.8760562265069489
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:00.345210",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

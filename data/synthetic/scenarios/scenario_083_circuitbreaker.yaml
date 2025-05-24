@@ -1,0 +1,96 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173245
+description: Circuit breaker activation due to cascading service failures
+duration: 1428
+metadata:
+  generated_at: '2025-05-23T17:32:45.677080'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:32:45.676930'
+  event_type: trigger
+  description: 'Initial failure detected: scaled service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:35.676930'
+  event_type: timeout
+  description: 'Timeout: exceeded timeout'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 291
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: exceeded timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.30191386002431186
+      response_time_ms: 3358
+      cpu_usage: 0.8100101745301336
+      memory_usage: 0.9263157114285941
+- timestamp: '2025-05-23T17:34:04.676930'
+  event_type: degradation
+  description: 'Degradation: handling connection'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: low
+    duration: 127
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: handling connection -
+      operation failed'
+    metrics:
+      error_rate: 0.2080885796421153
+      response_time_ms: 1030
+      cpu_usage: 0.44154598407804085
+      memory_usage: 0.49532083269807686
+- timestamp: '2025-05-23T17:35:15.676930'
+  event_type: timeout
+  description: 'Timeout: value memory'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 175
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: value memory - operation
+      failed'
+    metrics:
+      error_rate: 0.7500422122919566
+      response_time_ms: 3967
+      cpu_usage: 0.9015097379599988
+      memory_usage: 0.9146610699068666
+- timestamp: '2025-05-23T17:35:33.676930'
+  event_type: timeout
+  description: 'Timeout: session timeout'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 230
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: session timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.44954771940118965
+      response_time_ms: 9189
+      cpu_usage: 0.7940128234274636
+      memory_usage: 0.8080797675420598
+- timestamp: '2025-05-23T17:36:19.676930'
+  event_type: failure
+  description: 'Failure: my server'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 199
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: my server - operation
+      failed'
+    metrics:
+      error_rate: 0.882030877749725
+      response_time_ms: 2410
+      cpu_usage: 0.839676295213137
+      memory_usage: 0.805254627863926
+- timestamp: '2025-05-23T17:56:33.676930'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

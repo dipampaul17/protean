@@ -1,0 +1,130 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_173245
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1576
+metadata:
+  generated_at: '2025-05-23T17:32:45.735277'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 7
+events:
+- timestamp: '2025-05-23T17:32:45.735011'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:02.735011'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 220
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.30324496374040344
+      response_time_ms: 4820
+      cpu_usage: 0.992162758426782
+      memory_usage: 0.9282282385396602
+- timestamp: '2025-05-23T17:33:30.735011'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 211
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.335790790793402
+      response_time_ms: 3319
+      cpu_usage: 0.9421915471408396
+      memory_usage: 0.9761039311444918
+- timestamp: '2025-05-23T17:34:09.735011'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 156
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: circuit breaker
+      triggered - operation failed'
+    metrics:
+      error_rate: 0.8067055660607619
+      response_time_ms: 9477
+      cpu_usage: 0.9538162385384051
+      memory_usage: 0.9339513888922527
+- timestamp: '2025-05-23T17:34:18.735011'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 168
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.8379582262746831
+      response_time_ms: 4015
+      cpu_usage: 0.8105347431689952
+      memory_usage: 0.9473766091797022
+- timestamp: '2025-05-23T17:34:27.735011'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 222
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.2471586690617482
+      response_time_ms: 3569
+      cpu_usage: 0.7138061176572257
+      memory_usage: 0.8907729259977661
+- timestamp: '2025-05-23T17:34:29.735011'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 220
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.6677803563076283
+      response_time_ms: 8818
+      cpu_usage: 0.8564485143200062
+      memory_usage: 0.9367027961061825
+- timestamp: '2025-05-23T17:34:56.735011'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:31.735011'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 48
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.1996692454697315
+      response_time_ms: 2578
+      cpu_usage: 0.8509881214912046
+      memory_usage: 0.9740844975667385
+- timestamp: '2025-05-23T17:59:01.735011'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,72 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_173708",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 1719,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.066936",
+    "phrase_templates_used": 15,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.066842",
+      "event_type": "trigger",
+      "description": "Initial failure detected: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:06.066842",
+      "event_type": "recovery",
+      "description": "Recovery: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:23.066842",
+      "event_type": "timeout",
+      "description": "Timeout: a service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 164,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.22511838517121208,
+          "response_time_ms": 8843,
+          "cpu_usage": 0.9131558278476427,
+          "memory_usage": 0.9656157213592595
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:29.066842",
+      "event_type": "failure",
+      "description": "Failure: http connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 123,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: http connection - operation failed",
+        "metrics": {
+          "error_rate": 0.8502734105057199,
+          "response_time_ms": 3826,
+          "cpu_usage": 0.7106591720847265,
+          "memory_usage": 0.8214290841222162
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:05:47.066842",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

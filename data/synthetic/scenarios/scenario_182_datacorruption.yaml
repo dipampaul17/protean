@@ -1,0 +1,69 @@
+category: DataCorruption
+name: DataCorruption_20250523_173707
+description: Infrastructure failure scenario for DataCorruption
+duration: 1645
+metadata:
+  generated_at: '2025-05-23T17:37:07.997078'
+  phrase_templates_used: 36
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:07.996336'
+  event_type: trigger
+  description: 'Initial failure detected: the database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:17.996336'
+  event_type: recovery
+  description: 'Recovery: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:42:14.996336'
+  event_type: timeout
+  description: 'Timeout: same node'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 71
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: same node - operation
+      failed'
+    metrics:
+      error_rate: 0.28417879891513154
+      response_time_ms: 3607
+      cpu_usage: 0.8633973512959536
+      memory_usage: 0.9621654642082476
+- timestamp: '2025-05-23T17:42:37.996336'
+  event_type: timeout
+  description: 'Timeout: the node'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 249
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: the node - operation failed'
+    metrics:
+      error_rate: 0.3039103038256711
+      response_time_ms: 7005
+      cpu_usage: 0.8713297871837893
+      memory_usage: 0.9849982518230501
+- timestamp: '2025-05-23T17:42:59.996336'
+  event_type: timeout
+  description: 'Timeout: the queue'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: medium
+    duration: 272
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: the queue - operation
+      failed'
+    metrics:
+      error_rate: 0.14636433919709077
+      response_time_ms: 1736
+      cpu_usage: 0.48369253237114296
+      memory_usage: 0.6435149090963711
+- timestamp: '2025-05-23T18:04:32.996336'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

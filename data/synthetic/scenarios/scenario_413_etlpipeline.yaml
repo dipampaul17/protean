@@ -1,0 +1,93 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173708
+description: Infrastructure failure scenario for ETLPipeline
+duration: 1050
+metadata:
+  generated_at: '2025-05-23T17:37:08.060018'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:37:08.059839'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:18.059839'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:49.059839'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:56.059839'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 167
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.35981387840776136
+      response_time_ms: 1581
+      cpu_usage: 0.9785882349420983
+      memory_usage: 0.8335150219003715
+- timestamp: '2025-05-23T17:38:17.059839'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 34
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: container crashed - operation
+      failed'
+    metrics:
+      error_rate: 0.25989497940306794
+      response_time_ms: 2009
+      cpu_usage: 0.8190706047232739
+      memory_usage: 0.9915066376323844
+- timestamp: '2025-05-23T17:39:17.059839'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:20.059839'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 114
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.5239082241689241
+      response_time_ms: 9310
+      cpu_usage: 0.8813779267895562
+      memory_usage: 0.8684966334617306
+- timestamp: '2025-05-23T17:39:21.059839'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 101
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.2278032924027804
+      response_time_ms: 2985
+      cpu_usage: 0.7758794555943636
+      memory_usage: 0.8796339324420208
+- timestamp: '2025-05-23T17:54:38.059839'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

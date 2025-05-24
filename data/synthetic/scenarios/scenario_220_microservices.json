@@ -1,0 +1,108 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_173453",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 1131,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.155890",
+    "phrase_templates_used": 15,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.155431",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:19.155431",
+      "event_type": "recovery",
+      "description": "Recovery: lt service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:30.155431",
+      "event_type": "recovery",
+      "description": "Recovery: from service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:38.155431",
+      "event_type": "recovery",
+      "description": "Recovery: another container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:03.155431",
+      "event_type": "recovery",
+      "description": "Recovery: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:21.155431",
+      "event_type": "timeout",
+      "description": "Timeout: the queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "medium",
+        "duration": 76,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.07761384253313099,
+          "response_time_ms": 1206,
+          "cpu_usage": 0.5959302393783543,
+          "memory_usage": 0.6365979836257125
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:22.155431",
+      "event_type": "timeout",
+      "description": "Timeout: a container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 290,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: a container - operation failed",
+        "metrics": {
+          "error_rate": 0.27509972900393875,
+          "response_time_ms": 6056,
+          "cpu_usage": 0.7274363084203271,
+          "memory_usage": 0.8725651581384406
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:27.155431",
+      "event_type": "failure",
+      "description": "Failure: a service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 213,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.21389600512930748,
+          "response_time_ms": 2690,
+          "cpu_usage": 0.8169411981360818,
+          "memory_usage": 0.8927393036981843
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:53:44.155431",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

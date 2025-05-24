@@ -1,0 +1,81 @@
+category: NetworkPartition
+name: NetworkPartition_20250523_173453
+description: Infrastructure failure scenario for NetworkPartition
+duration: 601
+metadata:
+  generated_at: '2025-05-23T17:34:53.345593'
+  phrase_templates_used: 4
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.345421'
+  event_type: trigger
+  description: 'Initial failure detected: of disk'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:14.345421'
+  event_type: recovery
+  description: 'Recovery: each node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:28.345421'
+  event_type: recovery
+  description: 'Recovery: and node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:29.345421'
+  event_type: recovery
+  description: 'Recovery: and node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:30.345421'
+  event_type: failure
+  description: 'Failure: and memory'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 280
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: and memory - operation
+      failed'
+    metrics:
+      error_rate: 0.579668620499849
+      response_time_ms: 2112
+      cpu_usage: 0.8109148126423543
+      memory_usage: 0.9418092239172067
+- timestamp: '2025-05-23T17:35:48.345421'
+  event_type: failure
+  description: 'Failure: and node'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 92
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: and node - operation failed'
+    metrics:
+      error_rate: 0.3908852628552689
+      response_time_ms: 5980
+      cpu_usage: 0.9773152816555877
+      memory_usage: 0.9517625495180372
+- timestamp: '2025-05-23T17:36:03.345421'
+  event_type: recovery
+  description: 'Recovery: and memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:05.345421'
+  event_type: failure
+  description: 'Failure: of disk'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 32
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: of disk - operation
+      failed'
+    metrics:
+      error_rate: 0.3798450496015997
+      response_time_ms: 5101
+      cpu_usage: 0.9701713234677533
+      memory_usage: 0.947383480204453
+- timestamp: '2025-05-23T17:44:54.345421'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,74 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173707
+description: Configuration inconsistencies causing service degradation
+duration: 1360
+metadata:
+  generated_at: '2025-05-23T17:37:07.786240'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:07.786096'
+  event_type: trigger
+  description: 'Initial failure detected: the node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:18.786096'
+  event_type: failure
+  description: 'Failure: the error'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 267
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.8384982205963395
+      response_time_ms: 7029
+      cpu_usage: 0.8798611532349053
+      memory_usage: 0.8227072280181209
+- timestamp: '2025-05-23T17:37:21.786096'
+  event_type: failure
+  description: 'Failure: code error'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 267
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: code error - operation
+      failed'
+    metrics:
+      error_rate: 0.3137161623927172
+      response_time_ms: 2160
+      cpu_usage: 0.8040336459858967
+      memory_usage: 0.8378470862144071
+- timestamp: '2025-05-23T17:39:13.786096'
+  event_type: failure
+  description: 'Failure: string container'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 108
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: string container
+      - operation failed'
+    metrics:
+      error_rate: 0.21828196581547435
+      response_time_ms: 9050
+      cpu_usage: 0.95333860005241
+      memory_usage: 0.9961310367184599
+- timestamp: '2025-05-23T17:39:45.786096'
+  event_type: rollback
+  description: 'Rollback: kubernetes cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:35.786096'
+  event_type: rollback
+  description: 'Rollback: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:59:47.786096'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

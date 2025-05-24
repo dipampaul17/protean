@@ -1,0 +1,64 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_174629
+description: Database connectivity and performance issues
+duration: 1311
+metadata:
+  generated_at: '2025-05-23T17:46:29.086956'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:29.086841'
+  event_type: trigger
+  description: 'Initial failure detected: postgres container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:53.086841'
+  event_type: timeout
+  description: 'Timeout: the cache'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 252
+    log_snippet: '[2025-05-23 17:46:29] ERROR mongodb-shard: the cache in timeout'
+    metrics:
+      error_rate: 0.11559291342490355
+      response_time_ms: 6667
+      cpu_usage: 0.8017635733251545
+      memory_usage: 0.9040119851176022
+      connection_pool_usage: 0.9955961688632999
+      query_time_ms: 17799
+      deadlocks_per_sec: 7
+- timestamp: '2025-05-23T17:47:22.086841'
+  event_type: corruption
+  description: 'Corruption: code update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:53.086841'
+  event_type: corruption
+  description: 'Corruption: mongodb database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:47.086841'
+  event_type: timeout
+  description: 'Timeout: my database'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 290
+    log_snippet: '[2025-05-23 17:46:29] FATAL postgres-replica: database my database
+      detected'
+    metrics:
+      error_rate: 0.2566932633871133
+      response_time_ms: 1667
+      cpu_usage: 0.9055699927167904
+      memory_usage: 0.8534671946622143
+      connection_pool_usage: 0.8316162511728641
+      query_time_ms: 28446
+      deadlocks_per_sec: 1
+- timestamp: '2025-05-23T18:08:20.086841'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

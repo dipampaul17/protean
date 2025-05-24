@@ -1,0 +1,56 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173453
+description: Configuration inconsistencies causing service degradation
+duration: 1643
+metadata:
+  generated_at: '2025-05-23T17:34:53.356994'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:34:53.356856'
+  event_type: trigger
+  description: 'Initial failure detected: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:40.356856'
+  event_type: restart
+  description: 'Restart: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:18.356856'
+  event_type: restart
+  description: 'Restart: nginx restart'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:42.356856'
+  event_type: config_change
+  description: 'Config_Change: redis container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:07.356856'
+  event_type: restart
+  description: 'Restart: using docker'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:57.356856'
+  event_type: failure
+  description: 'Failure: your cluster'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 167
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: your cluster -
+      operation failed'
+    metrics:
+      error_rate: 0.8286992439648616
+      response_time_ms: 7685
+      cpu_usage: 0.8154653687188842
+      memory_usage: 0.8652561440131755
+- timestamp: '2025-05-23T17:39:16.356856'
+  event_type: rollback
+  description: 'Rollback: docker container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:02:16.356856'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

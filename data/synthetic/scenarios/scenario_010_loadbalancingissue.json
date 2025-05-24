@@ -1,0 +1,75 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_174628",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 717,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.907265",
+    "phrase_templates_used": 13,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.907140",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:48.907140",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: in connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:03.907140",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: in connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:10.907140",
+      "event_type": "timeout",
+      "description": "Timeout: a container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 42,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR api-gateway: a container in timeout",
+        "metrics": {
+          "error_rate": 0.2201575000718533,
+          "response_time_ms": 6285,
+          "cpu_usage": 0.8234011495571841,
+          "memory_usage": 0.908926170570219,
+          "requests_per_sec": 2552,
+          "backend_health_pct": 0.38915471888573594,
+          "connection_timeouts": 334
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:24.907140",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: load balancer",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:35.907140",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:58:25.907140",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_173245",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 1367,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.708245",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.708028",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:05.708028",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 290,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.5550501979472464,
+          "response_time_ms": 1282,
+          "cpu_usage": 0.8903912240141221,
+          "memory_usage": 0.9574456519030855
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:55.708028",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 114,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.1174395004990661,
+          "response_time_ms": 9578,
+          "cpu_usage": 0.9856506026050909,
+          "memory_usage": 0.8115580135788611
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:10.708028",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 222,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.7439609171808538,
+          "response_time_ms": 4787,
+          "cpu_usage": 0.9823189134347452,
+          "memory_usage": 0.9140382567886629
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:25.708028",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 154,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.18246733418661637,
+          "response_time_ms": 6185,
+          "cpu_usage": 0.7587235979130995,
+          "memory_usage": 0.8703613131861819
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:36.708028",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 147,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.6467896207587721,
+          "response_time_ms": 3933,
+          "cpu_usage": 0.7535348923365679,
+          "memory_usage": 0.8468520161839765
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:40.708028",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 44,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.11039090735427984,
+          "response_time_ms": 4781,
+          "cpu_usage": 0.8950518461946343,
+          "memory_usage": 0.8284056958727969
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:59.708028",
+      "event_type": "recovery",
+      "description": "Recovery: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:55:32.708028",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

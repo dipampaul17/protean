@@ -1,0 +1,85 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_174628
+description: Infrastructure failure scenario for DataWarehouse
+duration: 381
+metadata:
+  generated_at: '2025-05-23T17:46:28.997102'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:46:28.996227'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:43.996227'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 156
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.28057381147192473
+      response_time_ms: 8935
+      cpu_usage: 0.8886703871173424
+      memory_usage: 0.8207499039531865
+- timestamp: '2025-05-23T17:46:57.996227'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 232
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: authentication
+      failed - operation failed'
+    metrics:
+      error_rate: 0.12653241162544582
+      response_time_ms: 4840
+      cpu_usage: 0.8773023942151592
+      memory_usage: 0.9285865725954403
+- timestamp: '2025-05-23T17:47:07.996227'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 44
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.21689201439508088
+      response_time_ms: 1586
+      cpu_usage: 0.7598745934864934
+      memory_usage: 0.9062166673070107
+- timestamp: '2025-05-23T17:47:15.996227'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 77
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.4061924492073241
+      response_time_ms: 7808
+      cpu_usage: 0.8958323472256375
+      memory_usage: 0.9734344813753548
+- timestamp: '2025-05-23T17:47:33.996227'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:52:49.996227'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

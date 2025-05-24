@@ -1,0 +1,66 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173708
+description: Circuit breaker activation due to cascading service failures
+duration: 653
+metadata:
+  generated_at: '2025-05-23T17:37:08.080825'
+  phrase_templates_used: 50
+  total_events: 5
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:08.080727'
+  event_type: trigger
+  description: 'Initial failure detected: info node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:23.080727'
+  event_type: degradation
+  description: 'Degradation: session timeout'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: high
+    duration: 89
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: session timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.3535855496037632
+      response_time_ms: 6013
+      cpu_usage: 0.926450901861302
+      memory_usage: 0.917107073706627
+- timestamp: '2025-05-23T17:40:28.080727'
+  event_type: timeout
+  description: 'Timeout: p update'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 278
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: p update - operation
+      failed'
+    metrics:
+      error_rate: 0.49212841062727786
+      response_time_ms: 4192
+      cpu_usage: 0.8097400064591975
+      memory_usage: 0.8704074932794996
+- timestamp: '2025-05-23T17:40:36.080727'
+  event_type: degradation
+  description: 'Degradation: the connection'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: low
+    duration: 213
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: the connection - operation
+      failed'
+    metrics:
+      error_rate: 0.09279362060327098
+      response_time_ms: 1248
+      cpu_usage: 0.7391459313969617
+      memory_usage: 0.4196613086901202
+- timestamp: '2025-05-23T17:48:01.080727'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

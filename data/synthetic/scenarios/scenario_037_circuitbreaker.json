@@ -1,0 +1,162 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173707",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 820,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.787209",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 7
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.786976",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:29.786976",
+      "event_type": "timeout",
+      "description": "Timeout: an error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 140,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: an error - operation failed",
+        "metrics": {
+          "error_rate": 0.5932357966581966,
+          "response_time_ms": 4648,
+          "cpu_usage": 0.8363064512063246,
+          "memory_usage": 0.8359010873539409
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:35.786976",
+      "event_type": "recovery",
+      "description": "Recovery: to pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:09.786976",
+      "event_type": "failure",
+      "description": "Failure: to monitor",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 298,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: to monitor - operation failed",
+        "metrics": {
+          "error_rate": 0.30509090513802795,
+          "response_time_ms": 4269,
+          "cpu_usage": 0.7471909630904402,
+          "memory_usage": 0.9949463154832575
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:12.786976",
+      "event_type": "failure",
+      "description": "Failure: the container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 167,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.7459137741809853,
+          "response_time_ms": 6447,
+          "cpu_usage": 0.9428479526684872,
+          "memory_usage": 0.9723639167499316
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:12.786976",
+      "event_type": "failure",
+      "description": "Failure: nginx server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 89,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: nginx server - operation failed",
+        "metrics": {
+          "error_rate": 0.16122202619753168,
+          "response_time_ms": 4051,
+          "cpu_usage": 0.732607620916254,
+          "memory_usage": 0.9520967848208173
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:24.786976",
+      "event_type": "timeout",
+      "description": "Timeout: a timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 86,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: a timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.17082386261619434,
+          "response_time_ms": 7579,
+          "cpu_usage": 0.999217765084877,
+          "memory_usage": 0.8019908802399376
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:28.786976",
+      "event_type": "failure",
+      "description": "Failure: kubernetes cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 293,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: kubernetes cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.23356161785161095,
+          "response_time_ms": 1251,
+          "cpu_usage": 0.8178304253705767,
+          "memory_usage": 0.8137620209394719
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:35.786976",
+      "event_type": "failure",
+      "description": "Failure: to pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 195,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: to pod - operation failed",
+        "metrics": {
+          "error_rate": 0.340682824360688,
+          "response_time_ms": 4780,
+          "cpu_usage": 0.7093745493186298,
+          "memory_usage": 0.9532432923396673
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:47.786976",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

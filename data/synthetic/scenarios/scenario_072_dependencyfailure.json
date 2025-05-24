@@ -1,0 +1,108 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173707",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 1447,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.947779",
+    "phrase_templates_used": 45,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.947439",
+      "event_type": "trigger",
+      "description": "Initial failure detected: upstream queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:36.947439",
+      "event_type": "timeout",
+      "description": "Timeout: the queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "medium",
+        "duration": 144,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.1297729376025485,
+          "response_time_ms": 1307,
+          "cpu_usage": 0.7161773389219945,
+          "memory_usage": 0.5507217599581765
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:16.947439",
+      "event_type": "timeout",
+      "description": "Timeout: coirq error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 278,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: coirq error - operation failed",
+        "metrics": {
+          "error_rate": 0.1210531225495508,
+          "response_time_ms": 2225,
+          "cpu_usage": 0.7459991070968164,
+          "memory_usage": 0.9050184096800107
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:24.947439",
+      "event_type": "recovery",
+      "description": "Recovery: coirq error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:25.947439",
+      "event_type": "recovery",
+      "description": "Recovery: nginx service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:44.947439",
+      "event_type": "recovery",
+      "description": "Recovery: federated queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:54.947439",
+      "event_type": "failure",
+      "description": "Failure: nginx service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 166,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: nginx service - operation failed",
+        "metrics": {
+          "error_rate": 0.3773398154247656,
+          "response_time_ms": 1053,
+          "cpu_usage": 0.9456622782350449,
+          "memory_usage": 0.876052847279721
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:33.947439",
+      "event_type": "recovery",
+      "description": "Recovery: external service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:01:14.947439",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

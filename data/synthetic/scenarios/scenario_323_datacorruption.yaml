@@ -1,0 +1,81 @@
+category: DataCorruption
+name: DataCorruption_20250523_173245
+description: Infrastructure failure scenario for DataCorruption
+duration: 453
+metadata:
+  generated_at: '2025-05-23T17:32:45.753546'
+  phrase_templates_used: 36
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:32:45.753411'
+  event_type: trigger
+  description: 'Initial failure detected: original container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:16.753411'
+  event_type: failure
+  description: 'Failure: a cluster'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 237
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: a cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.7617942807128089
+      response_time_ms: 2265
+      cpu_usage: 0.8626484907776151
+      memory_usage: 0.8659856132197814
+- timestamp: '2025-05-23T17:33:19.753411'
+  event_type: failure
+  description: 'Failure: new container'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 218
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: new container - operation
+      failed'
+    metrics:
+      error_rate: 0.33626601471584616
+      response_time_ms: 5537
+      cpu_usage: 0.862202152755932
+      memory_usage: 0.9974883418762959
+- timestamp: '2025-05-23T17:33:53.753411'
+  event_type: timeout
+  description: 'Timeout: a cluster'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 223
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: a cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.49538747807066574
+      response_time_ms: 6221
+      cpu_usage: 0.9160013433773642
+      memory_usage: 0.8006789466373573
+- timestamp: '2025-05-23T17:34:32.753411'
+  event_type: failure
+  description: 'Failure: context cluster'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 53
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: context cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.4102823278255555
+      response_time_ms: 2849
+      cpu_usage: 0.7432464460195923
+      memory_usage: 0.9473399415827597
+- timestamp: '2025-05-23T17:40:18.753411'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

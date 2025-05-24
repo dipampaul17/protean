@@ -1,0 +1,83 @@
+category: CloudNative
+name: CloudNative_20250523_173453
+description: Kubernetes pod and container orchestration issues
+duration: 1196
+metadata:
+  generated_at: '2025-05-23T17:34:53.278873'
+  phrase_templates_used: 39
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.278672'
+  event_type: trigger
+  description: 'Initial failure detected: kind service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:03.278672'
+  event_type: pod_restart
+  description: 'Pod_Restart: a pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:29.278672'
+  event_type: scaling
+  description: 'Scaling: your pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:46.278672'
+  event_type: failure
+  description: 'Failure: your service'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 144
+    log_snippet: '[2025-05-23 17:34:53] ERROR web-frontend: your service in failure'
+    metrics:
+      error_rate: 0.19956564882390274
+      response_time_ms: 8722
+      cpu_usage: 0.9200860542542955
+      memory_usage: 0.986493223828518
+- timestamp: '2025-05-23T17:36:16.278672'
+  event_type: failure
+  description: 'Failure: getting error'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 295
+    log_snippet: '[2025-05-23 17:34:53] ERROR api-backend: getting error in failure'
+    metrics:
+      error_rate: 0.8966890657659625
+      response_time_ms: 8042
+      cpu_usage: 0.923066902419857
+      memory_usage: 0.8157855643406106
+- timestamp: '2025-05-23T17:36:37.278672'
+  event_type: pod_restart
+  description: 'Pod_Restart: a pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:40.278672'
+  event_type: scaling
+  description: 'Scaling: code pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:58.278672'
+  event_type: failure
+  description: 'Failure: your cluster'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 166
+    log_snippet: '[2025-05-23 17:34:53] ERROR nginx-proxy: your cluster in failure'
+    metrics:
+      error_rate: 0.6463015209039796
+      response_time_ms: 5368
+      cpu_usage: 0.9878593463132289
+      memory_usage: 0.8002123879376397
+- timestamp: '2025-05-23T17:37:15.278672'
+  event_type: pod_restart
+  description: 'Pod_Restart: the service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:54:49.278672'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

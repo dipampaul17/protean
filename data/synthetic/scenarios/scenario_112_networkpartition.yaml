@@ -1,0 +1,73 @@
+category: NetworkPartition
+name: NetworkPartition_20250523_173707
+description: Infrastructure failure scenario for NetworkPartition
+duration: 1037
+metadata:
+  generated_at: '2025-05-23T17:37:07.958075'
+  phrase_templates_used: 4
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:07.957221'
+  event_type: trigger
+  description: 'Initial failure detected: of disk'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:44.957221'
+  event_type: recovery
+  description: 'Recovery: and memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:57.957221'
+  event_type: failure
+  description: 'Failure: and node'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 45
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: and node - operation failed'
+    metrics:
+      error_rate: 0.22813942701026058
+      response_time_ms: 2148
+      cpu_usage: 0.903005827410664
+      memory_usage: 0.974478422032691
+- timestamp: '2025-05-23T17:40:06.957221'
+  event_type: failure
+  description: 'Failure: and memory'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 115
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: and memory - operation
+      failed'
+    metrics:
+      error_rate: 0.5216947137060682
+      response_time_ms: 5610
+      cpu_usage: 0.8917319608246385
+      memory_usage: 0.9553350400620481
+- timestamp: '2025-05-23T17:40:19.957221'
+  event_type: recovery
+  description: 'Recovery: and node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:32.957221'
+  event_type: timeout
+  description: 'Timeout: each node'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 269
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: each node - operation
+      failed'
+    metrics:
+      error_rate: 0.4613498365388231
+      response_time_ms: 8672
+      cpu_usage: 0.9773541014774167
+      memory_usage: 0.9903532135766671
+- timestamp: '2025-05-23T17:54:24.957221'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

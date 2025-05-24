@@ -1,0 +1,90 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173245",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1664,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.722955",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.722772",
+      "event_type": "trigger",
+      "description": "Initial failure detected: kubernetes error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:00.722772",
+      "event_type": "failure",
+      "description": "Failure: the server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 71,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR worker-consumer: the server in failure",
+        "metrics": {
+          "error_rate": 0.6634371490134734,
+          "response_time_ms": 8203,
+          "cpu_usage": 0.8451569511197385,
+          "memory_usage": 0.8365328525718928
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:52.722772",
+      "event_type": "scaling",
+      "description": "Scaling: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:17.722772",
+      "event_type": "deployment",
+      "description": "Deployment: the pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:09.722772",
+      "event_type": "rollback",
+      "description": "Rollback: kubernetes error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:23.722772",
+      "event_type": "deployment",
+      "description": "Deployment: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:27.722772",
+      "event_type": "deployment",
+      "description": "Deployment: your container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:32.722772",
+      "event_type": "scaling",
+      "description": "Scaling: an error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:58.722772",
+      "event_type": "rollback",
+      "description": "Rollback: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:00:29.722772",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173452",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 1286,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.908861",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.908641",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:05.908641",
+      "event_type": "recovery",
+      "description": "Recovery: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:57.908641",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 269,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR auth-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.6626479349071263,
+          "response_time_ms": 9354,
+          "cpu_usage": 0.8830055823523687,
+          "memory_usage": 0.9413953385325954
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:59.908641",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 66,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR user-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.4281296116643082,
+          "response_time_ms": 1967,
+          "cpu_usage": 0.9410661216240395,
+          "memory_usage": 0.9784085735634176
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:04.908641",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 33,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.7042588823506478,
+          "response_time_ms": 3103,
+          "cpu_usage": 0.9571311428434415,
+          "memory_usage": 0.973792063689547
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:23.908641",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 40,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.4571205212917777,
+          "response_time_ms": 7742,
+          "cpu_usage": 0.8417124340718625,
+          "memory_usage": 0.9573937983869701
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:24.908641",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:27.908641",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 298,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR user-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.43735106663607504,
+          "response_time_ms": 3393,
+          "cpu_usage": 0.7424420228125669,
+          "memory_usage": 0.821379779543024
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:32.908641",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 286,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR user-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.3614776937187344,
+          "response_time_ms": 7433,
+          "cpu_usage": 0.7450875980878329,
+          "memory_usage": 0.995325442994963
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:56:18.908641",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

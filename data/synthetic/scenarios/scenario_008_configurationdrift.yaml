@@ -1,0 +1,60 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_174628
+description: Configuration inconsistencies causing service degradation
+duration: 1257
+metadata:
+  generated_at: '2025-05-23T17:46:28.906897'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:46:28.906740'
+  event_type: trigger
+  description: 'Initial failure detected: proxy server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:54.906740'
+  event_type: rollback
+  description: 'Rollback: nginx container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:34.906740'
+  event_type: config_change
+  description: 'Config_Change: the deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:15.906740'
+  event_type: config_change
+  description: 'Config_Change: the cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:08.906740'
+  event_type: failure
+  description: 'Failure: kafka log'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 219
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: kafka log - operation
+      failed'
+    metrics:
+      error_rate: 0.425570032497421
+      response_time_ms: 5325
+      cpu_usage: 0.7188735051584917
+      memory_usage: 0.910205199606741
+- timestamp: '2025-05-23T17:49:10.906740'
+  event_type: config_change
+  description: 'Config_Change: the container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:23.906740'
+  event_type: restart
+  description: 'Restart: redis server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:27.906740'
+  event_type: restart
+  description: 'Restart: code error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:07:25.906740'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

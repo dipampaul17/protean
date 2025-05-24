@@ -1,0 +1,85 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_174629
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1543
+metadata:
+  generated_at: '2025-05-23T17:46:29.144659'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:46:29.144493'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:51.144493'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 112
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: container crashed -
+      operation failed'
+    metrics:
+      error_rate: 0.10786270128596281
+      response_time_ms: 2552
+      cpu_usage: 0.9127429115344458
+      memory_usage: 0.8483971311990709
+- timestamp: '2025-05-23T17:47:46.144493'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 171
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.5011623666117112
+      response_time_ms: 7884
+      cpu_usage: 0.8337358877042087
+      memory_usage: 0.9595957726803914
+- timestamp: '2025-05-23T17:48:32.144493'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 33
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.720687060639352
+      response_time_ms: 6889
+      cpu_usage: 0.7863632503995281
+      memory_usage: 0.913970793505441
+- timestamp: '2025-05-23T17:49:26.144493'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 137
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.663327385053182
+      response_time_ms: 9672
+      cpu_usage: 0.835255966458596
+      memory_usage: 0.8269675024110368
+- timestamp: '2025-05-23T17:49:37.144493'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T18:12:12.144493'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

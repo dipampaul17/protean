@@ -1,0 +1,102 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173245",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 453,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.752513",
+    "phrase_templates_used": 45,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.752349",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:58.752349",
+      "event_type": "failure",
+      "description": "Failure: code error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 209,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: code error - operation failed",
+        "metrics": {
+          "error_rate": 0.6213037940379008,
+          "response_time_ms": 8368,
+          "cpu_usage": 0.9559482105096081,
+          "memory_usage": 0.8009290190379083
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:20.752349",
+      "event_type": "failure",
+      "description": "Failure: upstream queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "medium",
+        "duration": 122,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: upstream queue - operation failed",
+        "metrics": {
+          "error_rate": 0.2381622178881697,
+          "response_time_ms": 1295,
+          "cpu_usage": 0.7611109004371037,
+          "memory_usage": 0.4032552424341708
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:22.752349",
+      "event_type": "failure",
+      "description": "Failure: the node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 201,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: the node - operation failed",
+        "metrics": {
+          "error_rate": 0.31917730979345627,
+          "response_time_ms": 4924,
+          "cpu_usage": 0.7056984098555941,
+          "memory_usage": 0.9568016072440989
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:28.752349",
+      "event_type": "recovery",
+      "description": "Recovery: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:31.752349",
+      "event_type": "recovery",
+      "description": "Recovery: inventory service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:45.752349",
+      "event_type": "recovery",
+      "description": "Recovery: to update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:18.752349",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

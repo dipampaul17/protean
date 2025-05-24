@@ -1,0 +1,100 @@
+category: DataCorruption
+name: DataCorruption_20250523_173453
+description: Infrastructure failure scenario for DataCorruption
+duration: 332
+metadata:
+  generated_at: '2025-05-23T17:34:53.285707'
+  phrase_templates_used: 36
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:34:53.285529'
+  event_type: trigger
+  description: 'Initial failure detected: the database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:07.285529'
+  event_type: timeout
+  description: 'Timeout: instance storage'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 99
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: instance storage
+      - operation failed'
+    metrics:
+      error_rate: 0.6363477590430873
+      response_time_ms: 4856
+      cpu_usage: 0.9084156596676255
+      memory_usage: 0.8809343992479545
+- timestamp: '2025-05-23T17:35:26.285529'
+  event_type: timeout
+  description: 'Timeout: to resolve'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 164
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: to resolve - operation
+      failed'
+    metrics:
+      error_rate: 0.8216972691561585
+      response_time_ms: 5099
+      cpu_usage: 0.7617830477112012
+      memory_usage: 0.9905873181974945
+- timestamp: '2025-05-23T17:35:34.285529'
+  event_type: timeout
+  description: 'Timeout: the database'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 63
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: the database - operation
+      failed'
+    metrics:
+      error_rate: 0.7086102415523094
+      response_time_ms: 8230
+      cpu_usage: 0.9882893748480297
+      memory_usage: 0.8374976245041638
+- timestamp: '2025-05-23T17:35:35.285529'
+  event_type: recovery
+  description: 'Recovery: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:36.285529'
+  event_type: timeout
+  description: 'Timeout: transaction log'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 198
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: transaction log - operation
+      failed'
+    metrics:
+      error_rate: 0.7868327362364421
+      response_time_ms: 7681
+      cpu_usage: 0.7717385349882253
+      memory_usage: 0.8299870955487562
+- timestamp: '2025-05-23T17:35:47.285529'
+  event_type: failure
+  description: 'Failure: only container'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 182
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: only container - operation
+      failed'
+    metrics:
+      error_rate: 0.6512812110201177
+      response_time_ms: 5653
+      cpu_usage: 0.844393559158307
+      memory_usage: 0.8993788531901438
+- timestamp: '2025-05-23T17:40:25.285529'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,66 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173453",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 900,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.217305",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.217203",
+      "event_type": "trigger",
+      "description": "Initial failure detected: nginx container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:51.217203",
+      "event_type": "restart",
+      "description": "Restart: following error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:57.217203",
+      "event_type": "config_change",
+      "description": "Config_Change: string container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:33.217203",
+      "event_type": "config_change",
+      "description": "Config_Change: stopped container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:56.217203",
+      "event_type": "failure",
+      "description": "Failure: rabbitmq connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 178,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: rabbitmq connection - operation failed",
+        "metrics": {
+          "error_rate": 0.5400323110169551,
+          "response_time_ms": 6648,
+          "cpu_usage": 0.8868283375286246,
+          "memory_usage": 0.9094439350633811
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:53.217203",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

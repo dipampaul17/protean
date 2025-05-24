@@ -1,0 +1,61 @@
+category: CloudNative
+name: CloudNative_20250523_173245
+description: Kubernetes pod and container orchestration issues
+duration: 1104
+metadata:
+  generated_at: '2025-05-23T17:32:45.753128'
+  phrase_templates_used: 39
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.752998'
+  event_type: trigger
+  description: 'Initial failure detected: a pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:17.752998'
+  event_type: failure
+  description: 'Failure: kubernetes error'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 209
+    log_snippet: '[2025-05-23 17:32:45] ERROR web-frontend: kubernetes error in failure'
+    metrics:
+      error_rate: 0.644305712367969
+      response_time_ms: 7250
+      cpu_usage: 0.7368179643541697
+      memory_usage: 0.8569528031367265
+- timestamp: '2025-05-23T17:33:48.752998'
+  event_type: deployment
+  description: 'Deployment: docker container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:56.752998'
+  event_type: pod_restart
+  description: 'Pod_Restart: any log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:28.752998'
+  event_type: pod_restart
+  description: 'Pod_Restart: true server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:42.752998'
+  event_type: failure
+  description: 'Failure: delete pod'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 236
+    log_snippet: '[2025-05-23 17:32:45] ERROR api-backend: delete pod in failure'
+    metrics:
+      error_rate: 0.8064573696872771
+      response_time_ms: 3869
+      cpu_usage: 0.9567843657189572
+      memory_usage: 0.9789701816881005
+- timestamp: '2025-05-23T17:51:09.752998'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

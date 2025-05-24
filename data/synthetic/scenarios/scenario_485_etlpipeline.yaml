@@ -1,0 +1,70 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173453
+description: Infrastructure failure scenario for ETLPipeline
+duration: 668
+metadata:
+  generated_at: '2025-05-23T17:34:53.380309'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.380190'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:07.380190'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:52.380190'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 39
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.621215885508673
+      response_time_ms: 5484
+      cpu_usage: 0.8444079092125859
+      memory_usage: 0.8154567166791493
+- timestamp: '2025-05-23T17:36:56.380190'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 114
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.7276928946474629
+      response_time_ms: 5451
+      cpu_usage: 0.7588860808913707
+      memory_usage: 0.857148029683617
+- timestamp: '2025-05-23T17:37:09.380190'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 101
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: rate limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.6380298975173071
+      response_time_ms: 2527
+      cpu_usage: 0.8197609520016049
+      memory_usage: 0.9472676632403136
+- timestamp: '2025-05-23T17:46:01.380190'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

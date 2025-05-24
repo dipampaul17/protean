@@ -1,0 +1,132 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_173452",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 1692,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.976096",
+    "phrase_templates_used": 15,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.975831",
+      "event_type": "trigger",
+      "description": "Initial failure detected: ui service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:13.975831",
+      "event_type": "failure",
+      "description": "Failure: a service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 37,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.45869422233381296,
+          "response_time_ms": 9767,
+          "cpu_usage": 0.9760661180732042,
+          "memory_usage": 0.8804861753007965
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:13.975831",
+      "event_type": "recovery",
+      "description": "Recovery: ui service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:19.975831",
+      "event_type": "recovery",
+      "description": "Recovery: another container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:42.975831",
+      "event_type": "failure",
+      "description": "Failure: the container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 162,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.7459341686113938,
+          "response_time_ms": 2890,
+          "cpu_usage": 0.8716642302506814,
+          "memory_usage": 0.918782948080488
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:44.975831",
+      "event_type": "timeout",
+      "description": "Timeout: a container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 185,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR user-service: a container - operation failed",
+        "metrics": {
+          "error_rate": 0.8214008535636212,
+          "response_time_ms": 8798,
+          "cpu_usage": 0.7749121342442375,
+          "memory_usage": 0.9707592547494039
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:50.975831",
+      "event_type": "failure",
+      "description": "Failure: docker network",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 235,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: docker network - operation failed",
+        "metrics": {
+          "error_rate": 0.7811666777737422,
+          "response_time_ms": 6511,
+          "cpu_usage": 0.7782230439561805,
+          "memory_usage": 0.9698407958142694
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:42.975831",
+      "event_type": "failure",
+      "description": "Failure: a cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 280,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR auth-service: a cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.699412437165573,
+          "response_time_ms": 1331,
+          "cpu_usage": 0.717287523235969,
+          "memory_usage": 0.8017185613440215
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:03:04.975831",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

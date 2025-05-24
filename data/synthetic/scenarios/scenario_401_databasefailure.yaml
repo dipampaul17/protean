@@ -1,0 +1,76 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173245
+description: Database connectivity and performance issues
+duration: 1655
+metadata:
+  generated_at: '2025-05-23T17:32:45.773323'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.773154'
+  event_type: trigger
+  description: 'Initial failure detected: redis server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:15.773154'
+  event_type: corruption
+  description: 'Corruption: mysql error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:17.773154'
+  event_type: connection_loss
+  description: 'Connection_Loss: the update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:19.773154'
+  event_type: recovery
+  description: 'Recovery: get update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:23.773154'
+  event_type: recovery
+  description: 'Recovery: the connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:47.773154'
+  event_type: recovery
+  description: 'Recovery: your database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:23.773154'
+  event_type: timeout
+  description: 'Timeout: the cache'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 279
+    log_snippet: '[2025-05-23 17:32:45] ERROR mongodb-shard: the cache in timeout'
+    metrics:
+      error_rate: 0.3605139020010454
+      response_time_ms: 2320
+      cpu_usage: 0.822948644988185
+      memory_usage: 0.8519664702144275
+      connection_pool_usage: 0.9172840025582963
+      query_time_ms: 29644
+      deadlocks_per_sec: 9
+- timestamp: '2025-05-23T17:36:21.773154'
+  event_type: timeout
+  description: 'Timeout: a container'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 67
+    log_snippet: '[2025-05-23 17:32:45] FATAL mysql-primary: database a container
+      detected'
+    metrics:
+      error_rate: 0.600648535778219
+      response_time_ms: 8747
+      cpu_usage: 0.9106384179867366
+      memory_usage: 0.8117582430218017
+      connection_pool_usage: 0.9633595062718935
+      query_time_ms: 14551
+      deadlocks_per_sec: 1
+- timestamp: '2025-05-23T18:00:20.773154'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

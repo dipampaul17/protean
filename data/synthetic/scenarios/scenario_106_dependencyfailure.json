@@ -1,0 +1,108 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173245",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 370,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.682884",
+    "phrase_templates_used": 45,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.682739",
+      "event_type": "trigger",
+      "description": "Initial failure detected: proxy server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:15.682739",
+      "event_type": "recovery",
+      "description": "Recovery: to update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:40.682739",
+      "event_type": "timeout",
+      "description": "Timeout: strong update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 238,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.5193944272234938,
+          "response_time_ms": 5383,
+          "cpu_usage": 0.7970073679427698,
+          "memory_usage": 0.961063631827873
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:43.682739",
+      "event_type": "timeout",
+      "description": "Timeout: jenkins server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 178,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: jenkins server - operation failed",
+        "metrics": {
+          "error_rate": 0.32562243594228885,
+          "response_time_ms": 3810,
+          "cpu_usage": 0.985788431138799,
+          "memory_usage": 0.8328053399877595
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:49.682739",
+      "event_type": "timeout",
+      "description": "Timeout: exist error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 300,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: exist error - operation failed",
+        "metrics": {
+          "error_rate": 0.3537780829157974,
+          "response_time_ms": 9656,
+          "cpu_usage": 0.8766295411771987,
+          "memory_usage": 0.8910254749763501
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:55.682739",
+      "event_type": "timeout",
+      "description": "Timeout: var log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 151,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: var log - operation failed",
+        "metrics": {
+          "error_rate": 0.6371660898786364,
+          "response_time_ms": 4189,
+          "cpu_usage": 0.8251309577449034,
+          "memory_usage": 0.8987486650967836
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:55.682739",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

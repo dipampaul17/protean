@@ -1,0 +1,78 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173708",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1438,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.081282",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.081009",
+      "event_type": "trigger",
+      "description": "Initial failure detected: stopped container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:08.081009",
+      "event_type": "config_change",
+      "description": "Config_Change: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:11.081009",
+      "event_type": "failure",
+      "description": "Failure: api server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 74,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: api server - operation failed",
+        "metrics": {
+          "error_rate": 0.6697496563779426,
+          "response_time_ms": 3939,
+          "cpu_usage": 0.9176844313159658,
+          "memory_usage": 0.927849411608787
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:25.081009",
+      "event_type": "failure",
+      "description": "Failure: following error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 205,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: following error - operation failed",
+        "metrics": {
+          "error_rate": 0.2943450762052957,
+          "response_time_ms": 4640,
+          "cpu_usage": 0.9766725547227633,
+          "memory_usage": 0.9341283644492338
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:42:12.081009",
+      "event_type": "restart",
+      "description": "Restart: the cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:01:06.081009",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

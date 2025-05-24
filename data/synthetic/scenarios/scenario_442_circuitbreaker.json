@@ -1,0 +1,90 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_174629",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1264,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.137896",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.137762",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:40.137762",
+      "event_type": "recovery",
+      "description": "Recovery: to resolve",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:45.137762",
+      "event_type": "timeout",
+      "description": "Timeout: to log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 30,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: to log - operation failed",
+        "metrics": {
+          "error_rate": 0.2946764821155631,
+          "response_time_ms": 6254,
+          "cpu_usage": 0.9752099282318452,
+          "memory_usage": 0.9906452322380014
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:51:04.137762",
+      "event_type": "failure",
+      "description": "Failure: to pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 208,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: to pod - operation failed",
+        "metrics": {
+          "error_rate": 0.17878385148081063,
+          "response_time_ms": 5972,
+          "cpu_usage": 0.779678178173898,
+          "memory_usage": 0.9856827574619242
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:51:14.137762",
+      "event_type": "failure",
+      "description": "Failure: docker container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 177,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: docker container - operation failed",
+        "metrics": {
+          "error_rate": 0.10988013263625254,
+          "response_time_ms": 3310,
+          "cpu_usage": 0.7666790707005763,
+          "memory_usage": 0.9418557477171348
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:07:33.137762",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

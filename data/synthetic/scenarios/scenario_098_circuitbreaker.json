@@ -1,0 +1,126 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173707",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 314,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.954910",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.954635",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection refused",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:24.954635",
+      "event_type": "timeout",
+      "description": "Timeout: client error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 299,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: client error - operation failed",
+        "metrics": {
+          "error_rate": 0.844684819512727,
+          "response_time_ms": 7124,
+          "cpu_usage": 0.7513213730029701,
+          "memory_usage": 0.8024626788028211
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:29.954635",
+      "event_type": "failure",
+      "description": "Failure: a service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 215,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.21356848852600613,
+          "response_time_ms": 6696,
+          "cpu_usage": 0.9066240236257819,
+          "memory_usage": 0.8946176595364337
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:31.954635",
+      "event_type": "timeout",
+      "description": "Timeout: docker container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 56,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: docker container - operation failed",
+        "metrics": {
+          "error_rate": 0.7793730285706711,
+          "response_time_ms": 3548,
+          "cpu_usage": 0.9749070638209425,
+          "memory_usage": 0.8985256372431586
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:36.954635",
+      "event_type": "failure",
+      "description": "Failure: nginx server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 98,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: nginx server - operation failed",
+        "metrics": {
+          "error_rate": 0.8595179488454997,
+          "response_time_ms": 9806,
+          "cpu_usage": 0.7413708062679426,
+          "memory_usage": 0.9261345225331485
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:39.954635",
+      "event_type": "recovery",
+      "description": "Recovery: a timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:52.954635",
+      "event_type": "failure",
+      "description": "Failure: session timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 76,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: session timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.19707994183888708,
+          "response_time_ms": 8191,
+          "cpu_usage": 0.8714275045505553,
+          "memory_usage": 0.8298968250700035
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:42:21.954635",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

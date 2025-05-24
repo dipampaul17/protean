@@ -1,0 +1,78 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_174628",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 1311,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.912733",
+    "phrase_templates_used": 39,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.911502",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:59.911502",
+      "event_type": "scaling",
+      "description": "Scaling: name debug",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:09.911502",
+      "event_type": "deployment",
+      "description": "Deployment: code pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:40.911502",
+      "event_type": "failure",
+      "description": "Failure: true server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 254,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR web-frontend: true server in failure",
+        "metrics": {
+          "error_rate": 0.4153571252005468,
+          "response_time_ms": 6316,
+          "cpu_usage": 0.8489443671450253,
+          "memory_usage": 0.8960031435747764
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:37.911502",
+      "event_type": "deployment",
+      "description": "Deployment: kubernetes pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:30.911502",
+      "event_type": "deployment",
+      "description": "Deployment: code service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:05.911502",
+      "event_type": "deployment",
+      "description": "Deployment: code pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:08:19.911502",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

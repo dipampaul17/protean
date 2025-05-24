@@ -1,0 +1,84 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_174628",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 871,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.969934",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.969798",
+      "event_type": "trigger",
+      "description": "Initial failure detected: kubernetes pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:41.969798",
+      "event_type": "rollback",
+      "description": "Rollback: jenkins server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:49.969798",
+      "event_type": "failure",
+      "description": "Failure: elasticsearch cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 165,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: elasticsearch cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.3956323123204991,
+          "response_time_ms": 6577,
+          "cpu_usage": 0.9276302061017156,
+          "memory_usage": 0.9764357717053387
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:53.969798",
+      "event_type": "failure",
+      "description": "Failure: strong update",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 280,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.42263111950001386,
+          "response_time_ms": 9894,
+          "cpu_usage": 0.9840487543428955,
+          "memory_usage": 0.8939001830783462
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:40.969798",
+      "event_type": "config_change",
+      "description": "Config_Change: kubernetes service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:16.969798",
+      "event_type": "config_change",
+      "description": "Config_Change: rabbitmq server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:00:59.969798",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

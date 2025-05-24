@@ -1,0 +1,126 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173708",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 901,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.065853",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.065651",
+      "event_type": "trigger",
+      "description": "Initial failure detected: prometheus server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:20.065651",
+      "event_type": "recovery",
+      "description": "Recovery: nil log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:40.065651",
+      "event_type": "failure",
+      "description": "Failure: the service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 108,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: the service - operation failed",
+        "metrics": {
+          "error_rate": 0.5973151819742294,
+          "response_time_ms": 2234,
+          "cpu_usage": 0.8723576400854657,
+          "memory_usage": 0.9408193974895519
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:04.065651",
+      "event_type": "recovery",
+      "description": "Recovery: customer service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:09.065651",
+      "event_type": "recovery",
+      "description": "Recovery: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:30.065651",
+      "event_type": "failure",
+      "description": "Failure: the database",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 37,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: the database - operation failed",
+        "metrics": {
+          "error_rate": 0.7025385833167126,
+          "response_time_ms": 5376,
+          "cpu_usage": 0.9205993413075032,
+          "memory_usage": 0.9986502825433691
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:37.065651",
+      "event_type": "failure",
+      "description": "Failure: a server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 185,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: a server - operation failed",
+        "metrics": {
+          "error_rate": 0.24179972516569076,
+          "response_time_ms": 5083,
+          "cpu_usage": 0.7784668079803772,
+          "memory_usage": 0.8161094697267065
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:48.065651",
+      "event_type": "failure",
+      "description": "Failure: the error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 235,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: the error - operation failed",
+        "metrics": {
+          "error_rate": 0.1792452992570083,
+          "response_time_ms": 2501,
+          "cpu_usage": 0.9390261948896197,
+          "memory_usage": 0.9818615174181304
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:58.065651",
+      "event_type": "recovery",
+      "description": "Recovery: a node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:52:09.065651",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

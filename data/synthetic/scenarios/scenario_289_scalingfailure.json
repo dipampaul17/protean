@@ -1,0 +1,132 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_173453",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 1153,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.212720",
+    "phrase_templates_used": 24,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.212175",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:06.212175",
+      "event_type": "timeout",
+      "description": "Timeout: of failure",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 46,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: of failure - operation failed",
+        "metrics": {
+          "error_rate": 0.8373064289362756,
+          "response_time_ms": 1399,
+          "cpu_usage": 0.8109504395847814,
+          "memory_usage": 0.8339106107745984
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:20.212175",
+      "event_type": "recovery",
+      "description": "Recovery: scaling scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:26.212175",
+      "event_type": "timeout",
+      "description": "Timeout: the cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 172,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: the cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.793991525198419,
+          "response_time_ms": 1329,
+          "cpu_usage": 0.7997657262655518,
+          "memory_usage": 0.9848656845586763
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:31.212175",
+      "event_type": "recovery",
+      "description": "Recovery: per server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:05.212175",
+      "event_type": "timeout",
+      "description": "Timeout: a service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 196,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.2766348199919027,
+          "response_time_ms": 9568,
+          "cpu_usage": 0.8976623146465704,
+          "memory_usage": 0.8523984839411777
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:06.212175",
+      "event_type": "failure",
+      "description": "Failure: load balancer",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 289,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: load balancer - operation failed",
+        "metrics": {
+          "error_rate": 0.44433495483160945,
+          "response_time_ms": 5208,
+          "cpu_usage": 0.7090403495398239,
+          "memory_usage": 0.96726248838284
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:54.212175",
+      "event_type": "failure",
+      "description": "Failure: the server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 285,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.4618823314937218,
+          "response_time_ms": 6107,
+          "cpu_usage": 0.7944895942717377,
+          "memory_usage": 0.8531997544171053
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:54:06.212175",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

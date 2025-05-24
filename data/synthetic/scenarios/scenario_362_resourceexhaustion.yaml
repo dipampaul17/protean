@@ -1,0 +1,60 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_174629
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 1629
+metadata:
+  generated_at: '2025-05-23T17:46:29.094786'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:46:29.093971'
+  event_type: trigger
+  description: 'Initial failure detected: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:39.093971'
+  event_type: recovery
+  description: 'Recovery: accessed memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:44.093971'
+  event_type: recovery
+  description: 'Recovery: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:05.093971'
+  event_type: recovery
+  description: 'Recovery: message queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:43.093971'
+  event_type: recovery
+  description: 'Recovery: by container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:46.093971'
+  event_type: failure
+  description: 'Failure: lt container'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 293
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: lt container -
+      operation failed'
+    metrics:
+      error_rate: 0.6572846599291006
+      response_time_ms: 3477
+      cpu_usage: 0.7906977303310746
+      memory_usage: 0.8491601818604234
+- timestamp: '2025-05-23T17:49:36.093971'
+  event_type: recovery
+  description: 'Recovery: the disk'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:56.093971'
+  event_type: recovery
+  description: 'Recovery: and fix'
+  injection_spec: null
+- timestamp: '2025-05-23T18:13:38.093971'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,114 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173245",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1173,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.743079",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.742887",
+      "event_type": "trigger",
+      "description": "Initial failure detected: using docker",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:02.742887",
+      "event_type": "failure",
+      "description": "Failure: proxy server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 63,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: proxy server - operation failed",
+        "metrics": {
+          "error_rate": 0.8216409257284804,
+          "response_time_ms": 4134,
+          "cpu_usage": 0.9521250194018609,
+          "memory_usage": 0.9705201364043828
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:41.742887",
+      "event_type": "rollback",
+      "description": "Rollback: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:52.742887",
+      "event_type": "config_change",
+      "description": "Config_Change: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:01.742887",
+      "event_type": "failure",
+      "description": "Failure: p error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 295,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: p error - operation failed",
+        "metrics": {
+          "error_rate": 0.48275009280427017,
+          "response_time_ms": 4621,
+          "cpu_usage": 0.9403663616862785,
+          "memory_usage": 0.8563836189382805
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:25.742887",
+      "event_type": "failure",
+      "description": "Failure: docker container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 221,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: docker container - operation failed",
+        "metrics": {
+          "error_rate": 0.851574926722055,
+          "response_time_ms": 9047,
+          "cpu_usage": 0.9207065112137565,
+          "memory_usage": 0.8819972891993507
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:25.742887",
+      "event_type": "rollback",
+      "description": "Rollback: docker service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:42.742887",
+      "event_type": "rollback",
+      "description": "Rollback: the log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:48.742887",
+      "event_type": "rollback",
+      "description": "Rollback: an error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:52:18.742887",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

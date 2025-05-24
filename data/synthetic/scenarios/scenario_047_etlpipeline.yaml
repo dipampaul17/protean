@@ -1,0 +1,115 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173452
+description: Infrastructure failure scenario for ETLPipeline
+duration: 1623
+metadata:
+  generated_at: '2025-05-23T17:34:52.914766'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:34:52.914438'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:23.914438'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:01.914438'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 47
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: container crashed
+      - operation failed'
+    metrics:
+      error_rate: 0.3566026264762161
+      response_time_ms: 7128
+      cpu_usage: 0.8156806724505792
+      memory_usage: 0.9993547174750932
+- timestamp: '2025-05-23T17:36:10.914438'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 204
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.4054330480623577
+      response_time_ms: 2688
+      cpu_usage: 0.7228312833573218
+      memory_usage: 0.9789310790977266
+- timestamp: '2025-05-23T17:36:17.914438'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 233
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.725162608572254
+      response_time_ms: 3594
+      cpu_usage: 0.9965171528388483
+      memory_usage: 0.9920957425568031
+- timestamp: '2025-05-23T17:37:11.914438'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 76
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.7995759821515319
+      response_time_ms: 1386
+      cpu_usage: 0.8931981581679765
+      memory_usage: 0.9931060686995782
+- timestamp: '2025-05-23T17:37:29.914438'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 87
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.3567709729745573
+      response_time_ms: 3359
+      cpu_usage: 0.9395152320800044
+      memory_usage: 0.9662625896682715
+- timestamp: '2025-05-23T17:38:05.914438'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 246
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.43867819781813244
+      response_time_ms: 2831
+      cpu_usage: 0.8391152086844529
+      memory_usage: 0.9996231079593122
+- timestamp: '2025-05-23T18:01:55.914438'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

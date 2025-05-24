@@ -1,0 +1,84 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_174628",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 1382,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.924461",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.924357",
+      "event_type": "trigger",
+      "description": "Initial failure detected: lt container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:41.924357",
+      "event_type": "failure",
+      "description": "Failure: a memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 285,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: a memory - operation failed",
+        "metrics": {
+          "error_rate": 0.4502461685751473,
+          "response_time_ms": 7021,
+          "cpu_usage": 0.9279558281799072,
+          "memory_usage": 0.8727574875544928
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:53:22.924357",
+      "event_type": "failure",
+      "description": "Failure: a memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 289,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: a memory - operation failed",
+        "metrics": {
+          "error_rate": 0.22012418956175434,
+          "response_time_ms": 8567,
+          "cpu_usage": 0.7742349266030089,
+          "memory_usage": 0.8642479574616735
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:53:38.924357",
+      "event_type": "failure",
+      "description": "Failure: the error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 179,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: the error - operation failed",
+        "metrics": {
+          "error_rate": 0.11657317156511598,
+          "response_time_ms": 9070,
+          "cpu_usage": 0.7764247076360544,
+          "memory_usage": 0.812746508005631
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:09:30.924357",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

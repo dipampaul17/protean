@@ -1,0 +1,132 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_174628",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 1145,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.971798",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.971058",
+      "event_type": "trigger",
+      "description": "Initial failure detected: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:49.971058",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 290,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.44663773275633634,
+          "response_time_ms": 6382,
+          "cpu_usage": 0.9717544257976173,
+          "memory_usage": 0.9182210602799213
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:56.971058",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 271,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.11324525252038403,
+          "response_time_ms": 8682,
+          "cpu_usage": 0.7666782683427604,
+          "memory_usage": 0.8505169566965648
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:24.971058",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 46,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.3155271905997201,
+          "response_time_ms": 2742,
+          "cpu_usage": 0.8627487055254012,
+          "memory_usage": 0.9197948258146643
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:30.971058",
+      "event_type": "recovery",
+      "description": "Recovery: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:46.971058",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:55.971058",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 79,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.5307424003866327,
+          "response_time_ms": 4728,
+          "cpu_usage": 0.802782272870004,
+          "memory_usage": 0.8070892287570356
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:15.971058",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 186,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.2605301582183761,
+          "response_time_ms": 8897,
+          "cpu_usage": 0.9217425792039056,
+          "memory_usage": 0.9006861099584484
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:05:33.971058",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

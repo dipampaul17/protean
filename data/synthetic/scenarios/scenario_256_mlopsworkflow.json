@@ -1,0 +1,120 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_173708",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 1362,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.019780",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.019595",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:51.019595",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:12.019595",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 148,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.7565077339489374,
+          "response_time_ms": 3675,
+          "cpu_usage": 0.934877235022118,
+          "memory_usage": 0.8506879494613262
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:29.019595",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:49.019595",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 215,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.8688109119746922,
+          "response_time_ms": 7314,
+          "cpu_usage": 0.7215638845477185,
+          "memory_usage": 0.9385818447167795
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:51.019595",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:24.019595",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 261,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.4164627593639555,
+          "response_time_ms": 6964,
+          "cpu_usage": 0.9277039376615729,
+          "memory_usage": 0.9807395143230782
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:08.019595",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 42,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.7616229864062638,
+          "response_time_ms": 4373,
+          "cpu_usage": 0.947162655634919,
+          "memory_usage": 0.9271494224770485
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:59:50.019595",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

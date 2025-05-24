@@ -1,0 +1,114 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173708",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 1471,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.033237",
+    "phrase_templates_used": 36,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.033061",
+      "event_type": "trigger",
+      "description": "Initial failure detected: partitioned queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:32.033061",
+      "event_type": "recovery",
+      "description": "Recovery: transaction log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:35.033061",
+      "event_type": "recovery",
+      "description": "Recovery: one server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:38.033061",
+      "event_type": "failure",
+      "description": "Failure: to disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 253,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: to disk - operation failed",
+        "metrics": {
+          "error_rate": 0.49895462413253566,
+          "response_time_ms": 7402,
+          "cpu_usage": 0.9923883155629925,
+          "memory_usage": 0.8496880662848638
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:48.033061",
+      "event_type": "timeout",
+      "description": "Timeout: the cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 112,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: the cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.8776643278129842,
+          "response_time_ms": 2447,
+          "cpu_usage": 0.9869386564368477,
+          "memory_usage": 0.8501611290664662
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:37.033061",
+      "event_type": "failure",
+      "description": "Failure: the connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 52,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: the connection - operation failed",
+        "metrics": {
+          "error_rate": 0.8797739396368744,
+          "response_time_ms": 8957,
+          "cpu_usage": 0.9789175176840779,
+          "memory_usage": 0.8623977667737434
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:38.033061",
+      "event_type": "timeout",
+      "description": "Timeout: context cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 176,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: context cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.461314956865602,
+          "response_time_ms": 5228,
+          "cpu_usage": 0.7632851001220985,
+          "memory_usage": 0.9183724472838666
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:01:39.033061",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

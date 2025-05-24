@@ -1,0 +1,114 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173245",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1363,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.691172",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.691001",
+      "event_type": "trigger",
+      "description": "Initial failure detected: an alert",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:01.691001",
+      "event_type": "failure",
+      "description": "Failure: parse error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 175,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: parse error - operation failed",
+        "metrics": {
+          "error_rate": 0.6460625351544648,
+          "response_time_ms": 1813,
+          "cpu_usage": 0.8894003051441315,
+          "memory_usage": 0.8914241539951399
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:35.691001",
+      "event_type": "timeout",
+      "description": "Timeout: a node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 272,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: a node - operation failed",
+        "metrics": {
+          "error_rate": 0.47591892193522345,
+          "response_time_ms": 4185,
+          "cpu_usage": 0.9200336580320154,
+          "memory_usage": 0.9865169865869097
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:50.691001",
+      "event_type": "recovery",
+      "description": "Recovery: customer service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:49.691001",
+      "event_type": "failure",
+      "description": "Failure: parse error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 215,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: parse error - operation failed",
+        "metrics": {
+          "error_rate": 0.5234096848616525,
+          "response_time_ms": 1923,
+          "cpu_usage": 0.9852710119455983,
+          "memory_usage": 0.9692000223761723
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:15.691001",
+      "event_type": "timeout",
+      "description": "Timeout: docker container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 107,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: docker container - operation failed",
+        "metrics": {
+          "error_rate": 0.37531396844358367,
+          "response_time_ms": 8000,
+          "cpu_usage": 0.7109245898674065,
+          "memory_usage": 0.9457604785057324
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:44.691001",
+      "event_type": "recovery",
+      "description": "Recovery: monitoring service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:55:28.691001",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

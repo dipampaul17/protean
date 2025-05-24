@@ -1,0 +1,86 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173453
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1137
+metadata:
+  generated_at: '2025-05-23T17:34:53.281169'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.280888'
+  event_type: trigger
+  description: 'Initial failure detected: reduce alert'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:03.280888'
+  event_type: recovery
+  description: 'Recovery: the service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:23.280888'
+  event_type: recovery
+  description: 'Recovery: reduce alert'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:26.280888'
+  event_type: recovery
+  description: 'Recovery: the cpu'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:46.280888'
+  event_type: recovery
+  description: 'Recovery: and memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:08.280888'
+  event_type: timeout
+  description: 'Timeout: and memory'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 62
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: and memory - operation
+      failed'
+    metrics:
+      error_rate: 0.35669732595379045
+      response_time_ms: 1798
+      cpu_usage: 0.881196195432746
+      memory_usage: 0.9366434841580398
+- timestamp: '2025-05-23T17:36:47.280888'
+  event_type: recovery
+  description: 'Recovery: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:52.280888'
+  event_type: timeout
+  description: 'Timeout: the service'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 224
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: the service - operation
+      failed'
+    metrics:
+      error_rate: 0.5902176128306231
+      response_time_ms: 7687
+      cpu_usage: 0.8424245022702435
+      memory_usage: 0.8197301962046684
+- timestamp: '2025-05-23T17:36:58.280888'
+  event_type: timeout
+  description: 'Timeout: the pod'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 153
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: the pod - operation
+      failed'
+    metrics:
+      error_rate: 0.8826500488100493
+      response_time_ms: 5064
+      cpu_usage: 0.7575218861700627
+      memory_usage: 0.9985901344163484
+- timestamp: '2025-05-23T17:53:50.280888'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

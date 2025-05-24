@@ -1,0 +1,55 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_173707
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 364
+metadata:
+  generated_at: '2025-05-23T17:37:07.783516'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:07.783235'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:27.783235'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 255
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: circuit breaker
+      triggered - operation failed'
+    metrics:
+      error_rate: 0.8018781895979464
+      response_time_ms: 1771
+      cpu_usage: 0.8922980125648229
+      memory_usage: 0.8714939978437253
+- timestamp: '2025-05-23T17:37:45.783235'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 293
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: authentication
+      failed - operation failed'
+    metrics:
+      error_rate: 0.17449993521401758
+      response_time_ms: 2064
+      cpu_usage: 0.7644977675597795
+      memory_usage: 0.9715830679448478
+- timestamp: '2025-05-23T17:38:26.783235'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:43:11.783235'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

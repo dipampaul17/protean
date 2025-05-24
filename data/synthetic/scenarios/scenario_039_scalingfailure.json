@@ -1,0 +1,132 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_174628",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 935,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.914909",
+    "phrase_templates_used": 24,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.914718",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to fix",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:41.914718",
+      "event_type": "timeout",
+      "description": "Timeout: a server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 39,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: a server - operation failed",
+        "metrics": {
+          "error_rate": 0.6345366801537193,
+          "response_time_ms": 1886,
+          "cpu_usage": 0.8803807925567976,
+          "memory_usage": 0.8180557768909431
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:46.914718",
+      "event_type": "timeout",
+      "description": "Timeout: this error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 57,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: this error - operation failed",
+        "metrics": {
+          "error_rate": 0.8293883795022107,
+          "response_time_ms": 1834,
+          "cpu_usage": 0.7138359092105458,
+          "memory_usage": 0.881660813299551
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:08.914718",
+      "event_type": "timeout",
+      "description": "Timeout: to scale",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 190,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: to scale - operation failed",
+        "metrics": {
+          "error_rate": 0.36453468852954485,
+          "response_time_ms": 9163,
+          "cpu_usage": 0.9757708353219967,
+          "memory_usage": 0.9735300867407822
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:32.914718",
+      "event_type": "recovery",
+      "description": "Recovery: the pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:01.914718",
+      "event_type": "recovery",
+      "description": "Recovery: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:15.914718",
+      "event_type": "failure",
+      "description": "Failure: a server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 170,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: a server - operation failed",
+        "metrics": {
+          "error_rate": 0.4190551347436857,
+          "response_time_ms": 4808,
+          "cpu_usage": 0.875252702341732,
+          "memory_usage": 0.8882353397592049
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:22.914718",
+      "event_type": "timeout",
+      "description": "Timeout: which node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 276,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: which node - operation failed",
+        "metrics": {
+          "error_rate": 0.7731784425089621,
+          "response_time_ms": 6453,
+          "cpu_usage": 0.9232832703591679,
+          "memory_usage": 0.8818239327924465
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:02:03.914718",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

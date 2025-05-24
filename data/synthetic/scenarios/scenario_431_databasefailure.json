@@ -1,0 +1,123 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173453",
+  "description": "Database connectivity and performance issues",
+  "duration": 348,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.345821",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.345617",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to fix",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:03.345617",
+      "event_type": "recovery",
+      "description": "Recovery: postgres server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:06.345617",
+      "event_type": "recovery",
+      "description": "Recovery: mysql server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:10.345617",
+      "event_type": "timeout",
+      "description": "Timeout: postgresql database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "postgres-replica",
+        "severity": "high",
+        "duration": 293,
+        "log_snippet": "[2025-05-23 17:34:53] FATAL postgres-replica: database postgresql database detected",
+        "metrics": {
+          "error_rate": 0.15924844520250822,
+          "response_time_ms": 6080,
+          "cpu_usage": 0.8661716793887108,
+          "memory_usage": 0.9805559125976143,
+          "connection_pool_usage": 0.8235311435878625,
+          "query_time_ms": 9531,
+          "deadlocks_per_sec": 2
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:14.345617",
+      "event_type": "corruption",
+      "description": "Corruption: create database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:15.345617",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: code update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:20.345617",
+      "event_type": "timeout",
+      "description": "Timeout: postgres container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "postgres-replica",
+        "severity": "high",
+        "duration": 52,
+        "log_snippet": "[2025-05-23 17:34:53] FATAL postgres-replica: database postgres container detected",
+        "metrics": {
+          "error_rate": 0.21751541236043012,
+          "response_time_ms": 3682,
+          "cpu_usage": 0.9699770658516251,
+          "memory_usage": 0.8235552653673203,
+          "connection_pool_usage": 0.8271162936228648,
+          "query_time_ms": 24442,
+          "deadlocks_per_sec": 8
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:23.345617",
+      "event_type": "corruption",
+      "description": "Corruption: an error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:24.345617",
+      "event_type": "timeout",
+      "description": "Timeout: api server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 43,
+        "log_snippet": "[2025-05-23 17:34:53] FATAL mysql-primary: database api server detected",
+        "metrics": {
+          "error_rate": 0.7323377409414534,
+          "response_time_ms": 9833,
+          "cpu_usage": 0.9336341678340866,
+          "memory_usage": 0.8135128412055451,
+          "connection_pool_usage": 0.8406672452906501,
+          "query_time_ms": 27058,
+          "deadlocks_per_sec": 4
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:41.345617",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

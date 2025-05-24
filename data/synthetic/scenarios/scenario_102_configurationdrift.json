@@ -1,0 +1,102 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173452",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1442,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.986671",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.986471",
+      "event_type": "trigger",
+      "description": "Initial failure detected: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:07.986471",
+      "event_type": "config_change",
+      "description": "Config_Change: code error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:27.986471",
+      "event_type": "rollback",
+      "description": "Rollback: to update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:41.986471",
+      "event_type": "failure",
+      "description": "Failure: the service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 38,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: the service - operation failed",
+        "metrics": {
+          "error_rate": 0.3515310488612937,
+          "response_time_ms": 3094,
+          "cpu_usage": 0.7662523932848317,
+          "memory_usage": 0.8001374879834476
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:52.986471",
+      "event_type": "rollback",
+      "description": "Rollback: nginx error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:00.986471",
+      "event_type": "restart",
+      "description": "Restart: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:39.986471",
+      "event_type": "failure",
+      "description": "Failure: your cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 196,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR auth-service: your cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.8601401190704112,
+          "response_time_ms": 4319,
+          "cpu_usage": 0.9812227121579982,
+          "memory_usage": 0.8593550982327147
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:22.986471",
+      "event_type": "config_change",
+      "description": "Config_Change: rabbitmq server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:39.986471",
+      "event_type": "restart",
+      "description": "Restart: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:58:54.986471",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

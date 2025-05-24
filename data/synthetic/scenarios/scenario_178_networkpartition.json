@@ -1,0 +1,114 @@
+{
+  "category": "NetworkPartition",
+  "name": "NetworkPartition_20250523_173707",
+  "description": "Infrastructure failure scenario for NetworkPartition",
+  "duration": 1378,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.995164",
+    "phrase_templates_used": 4,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.994827",
+      "event_type": "trigger",
+      "description": "Initial failure detected: and memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:12.994827",
+      "event_type": "recovery",
+      "description": "Recovery: of disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:46.994827",
+      "event_type": "recovery",
+      "description": "Recovery: of disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:04.994827",
+      "event_type": "failure",
+      "description": "Failure: and node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 88,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: and node - operation failed",
+        "metrics": {
+          "error_rate": 0.3346755710199415,
+          "response_time_ms": 1827,
+          "cpu_usage": 0.9290505714370638,
+          "memory_usage": 0.8932383677637624
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:27.994827",
+      "event_type": "failure",
+      "description": "Failure: of disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 187,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: of disk - operation failed",
+        "metrics": {
+          "error_rate": 0.6936876206500012,
+          "response_time_ms": 9554,
+          "cpu_usage": 0.7578837227621011,
+          "memory_usage": 0.9577772311873156
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:36.994827",
+      "event_type": "timeout",
+      "description": "Timeout: and node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 171,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: and node - operation failed",
+        "metrics": {
+          "error_rate": 0.196931713404359,
+          "response_time_ms": 9717,
+          "cpu_usage": 0.7153418064967528,
+          "memory_usage": 0.9333653204199484
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:41.994827",
+      "event_type": "timeout",
+      "description": "Timeout: and node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 135,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: and node - operation failed",
+        "metrics": {
+          "error_rate": 0.23473551518076397,
+          "response_time_ms": 1969,
+          "cpu_usage": 0.7656925985604922,
+          "memory_usage": 0.9447102804606483
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:00:05.994827",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_173453",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 1361,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.382463",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.382285",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:09.382285",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 130,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.6959046672856609,
+          "response_time_ms": 1630,
+          "cpu_usage": 0.935996233418867,
+          "memory_usage": 0.9116410631658981
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:12.382285",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 67,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.3205630636743302,
+          "response_time_ms": 9092,
+          "cpu_usage": 0.9620684206427542,
+          "memory_usage": 0.9675586230061038
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:30.382285",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 107,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.6116189118242861,
+          "response_time_ms": 7610,
+          "cpu_usage": 0.9765914796021686,
+          "memory_usage": 0.8488528419109853
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:16.382285",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 98,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.5026095448071466,
+          "response_time_ms": 6451,
+          "cpu_usage": 0.9779039063690147,
+          "memory_usage": 0.8800391579474872
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:46.382285",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 42,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.539844388544236,
+          "response_time_ms": 4070,
+          "cpu_usage": 0.7690700197168036,
+          "memory_usage": 0.9661721527868107
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:58.382285",
+      "event_type": "recovery",
+      "description": "Recovery: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:57:34.382285",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

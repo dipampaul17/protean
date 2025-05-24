@@ -1,0 +1,102 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_173453",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 1542,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.286042",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.285911",
+      "event_type": "trigger",
+      "description": "Initial failure detected: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:06.285911",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 266,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.7743819291705177,
+          "response_time_ms": 1064,
+          "cpu_usage": 0.7446420257433476,
+          "memory_usage": 0.9852409651876701
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:27.285911",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 87,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.6306264308843862,
+          "response_time_ms": 1771,
+          "cpu_usage": 0.950742690461769,
+          "memory_usage": 0.9007774520743543
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:54.285911",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 296,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.546018229173305,
+          "response_time_ms": 3285,
+          "cpu_usage": 0.962311068295483,
+          "memory_usage": 0.9516855461482963
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:25.285911",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 99,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.8121017100654039,
+          "response_time_ms": 3968,
+          "cpu_usage": 0.7718912298531028,
+          "memory_usage": 0.8624917654103776
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:00:35.285911",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

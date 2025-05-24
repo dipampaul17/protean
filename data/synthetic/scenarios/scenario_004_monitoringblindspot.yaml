@@ -1,0 +1,55 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173707
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1708
+metadata:
+  generated_at: '2025-05-23T17:37:07.773159'
+  phrase_templates_used: 50
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:07.773060'
+  event_type: trigger
+  description: 'Initial failure detected: the pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:42:27.773060'
+  event_type: failure
+  description: 'Failure: the container'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 228
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: the container - operation
+      failed'
+    metrics:
+      error_rate: 0.18012406760868185
+      response_time_ms: 4361
+      cpu_usage: 0.7088486603388098
+      memory_usage: 0.977650696072409
+- timestamp: '2025-05-23T17:43:53.773060'
+  event_type: recovery
+  description: 'Recovery: used cpu'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:23.773060'
+  event_type: failure
+  description: 'Failure: code alert'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 279
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: code alert - operation
+      failed'
+    metrics:
+      error_rate: 0.7679263241851746
+      response_time_ms: 1291
+      cpu_usage: 0.8444587078497687
+      memory_usage: 0.9476190063612735
+- timestamp: '2025-05-23T18:05:35.773060'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

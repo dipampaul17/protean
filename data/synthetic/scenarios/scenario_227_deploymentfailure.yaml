@@ -1,0 +1,59 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_174628
+description: Application deployment and rollback scenarios
+duration: 1458
+metadata:
+  generated_at: '2025-05-23T17:46:28.990434'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:46:28.990280'
+  event_type: trigger
+  description: 'Initial failure detected: and deploy'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:06.990280'
+  event_type: deployment
+  description: 'Deployment: using docker'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:51.990280'
+  event_type: failure
+  description: 'Failure: a service'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 93
+    log_snippet: '[2025-05-23 17:46:28] ERROR api-backend: a service in failure'
+    metrics:
+      error_rate: 0.6950074034552587
+      response_time_ms: 9470
+      cpu_usage: 0.7108766717216367
+      memory_usage: 0.8398199748551285
+- timestamp: '2025-05-23T17:48:23.990280'
+  event_type: scaling
+  description: 'Scaling: temporary failure'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:44.990280'
+  event_type: deployment
+  description: 'Deployment: code deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:58.990280'
+  event_type: scaling
+  description: 'Scaling: the pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:30.990280'
+  event_type: deployment
+  description: 'Deployment: the pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:49.990280'
+  event_type: scaling
+  description: 'Scaling: kafka monitor'
+  injection_spec: null
+- timestamp: '2025-05-23T18:10:46.990280'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

@@ -1,0 +1,44 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173245
+description: Infrastructure failure scenario for ETLPipeline
+duration: 828
+metadata:
+  generated_at: '2025-05-23T17:32:45.772187'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:32:45.772101'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:29.772101'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:15.772101'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:23.772101'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 218
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.33194198804772024
+      response_time_ms: 5137
+      cpu_usage: 0.7101445672354962
+      memory_usage: 0.827987990617899
+- timestamp: '2025-05-23T17:46:33.772101'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

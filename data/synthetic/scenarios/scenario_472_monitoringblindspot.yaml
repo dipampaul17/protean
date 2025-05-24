@@ -1,0 +1,118 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173245
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 462
+metadata:
+  generated_at: '2025-05-23T17:32:45.791862'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:32:45.791636'
+  event_type: trigger
+  description: 'Initial failure detected: the cpu'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:57.791636'
+  event_type: failure
+  description: 'Failure: kubernetes pod'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 229
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: kubernetes pod - operation
+      failed'
+    metrics:
+      error_rate: 0.5827597684863333
+      response_time_ms: 8275
+      cpu_usage: 0.8806624361100979
+      memory_usage: 0.8322624422382223
+- timestamp: '2025-05-23T17:32:58.791636'
+  event_type: timeout
+  description: 'Timeout: to fix'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 274
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: to fix - operation
+      failed'
+    metrics:
+      error_rate: 0.6471736819986079
+      response_time_ms: 3346
+      cpu_usage: 0.7552774427424498
+      memory_usage: 0.8606715242391119
+- timestamp: '2025-05-23T17:33:01.791636'
+  event_type: timeout
+  description: 'Timeout: nil log'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 157
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: nil log - operation
+      failed'
+    metrics:
+      error_rate: 0.714128518131036
+      response_time_ms: 5138
+      cpu_usage: 0.9219905118775538
+      memory_usage: 0.9694383522386003
+- timestamp: '2025-05-23T17:33:03.791636'
+  event_type: timeout
+  description: 'Timeout: the log'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 269
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: the log - operation
+      failed'
+    metrics:
+      error_rate: 0.3128880208232981
+      response_time_ms: 6462
+      cpu_usage: 0.7484228112950764
+      memory_usage: 0.8224148509838914
+- timestamp: '2025-05-23T17:33:06.791636'
+  event_type: failure
+  description: 'Failure: payment service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 194
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: payment service
+      - operation failed'
+    metrics:
+      error_rate: 0.42691392522990357
+      response_time_ms: 6572
+      cpu_usage: 0.7289162502277339
+      memory_usage: 0.9273699563722179
+- timestamp: '2025-05-23T17:33:20.791636'
+  event_type: recovery
+  description: 'Recovery: code container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:38.791636'
+  event_type: timeout
+  description: 'Timeout: the node'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 266
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: the node - operation failed'
+    metrics:
+      error_rate: 0.624797665538481
+      response_time_ms: 3396
+      cpu_usage: 0.8217433304191923
+      memory_usage: 0.9123053694746529
+- timestamp: '2025-05-23T17:33:40.791636'
+  event_type: recovery
+  description: 'Recovery: prometheus server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:27.791636'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,37 @@
+category: CascadingFailure
+name: CascadingFailure_20250523_173452
+description: Multi-service failure propagation scenario
+duration: 1188
+metadata:
+  generated_at: '2025-05-23T17:34:52.992021'
+  phrase_templates_used: 2
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:34:52.991930'
+  event_type: trigger
+  description: 'Initial failure detected: cascading failure'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:26.991930'
+  event_type: cascade
+  description: 'Cascade: cascading failure'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:43.991930'
+  event_type: initial_failure
+  description: 'Initial_Failure: demographics monitor'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:24.991930'
+  event_type: propagation
+  description: 'Propagation: cascading failure'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:46.991930'
+  event_type: propagation
+  description: 'Propagation: cascading failure'
+  injection_spec: null
+- timestamp: '2025-05-23T17:54:40.991930'
+  event_type: recovery
+  description: 'System recovered: all services recovered'
+  injection_spec: null

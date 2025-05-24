@@ -1,0 +1,85 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173453
+description: Database connectivity and performance issues
+duration: 662
+metadata:
+  generated_at: '2025-05-23T17:34:53.288901'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.288734'
+  event_type: trigger
+  description: 'Initial failure detected: var log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:12.288734'
+  event_type: timeout
+  description: 'Timeout: the database'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 71
+    log_snippet: '[2025-05-23 17:34:53] ERROR mongodb-shard: the database in timeout'
+    metrics:
+      error_rate: 0.30624550681140256
+      response_time_ms: 6669
+      cpu_usage: 0.8332240212321317
+      memory_usage: 0.9441655868373879
+      connection_pool_usage: 0.9136100292702438
+      query_time_ms: 18343
+      deadlocks_per_sec: 8
+- timestamp: '2025-05-23T17:35:43.288734'
+  event_type: timeout
+  description: 'Timeout: using docker'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 193
+    log_snippet: '[2025-05-23 17:34:53] FATAL mysql-primary: database using docker
+      detected'
+    metrics:
+      error_rate: 0.3078207862786134
+      response_time_ms: 9306
+      cpu_usage: 0.7422456865050618
+      memory_usage: 0.8695572443800118
+      connection_pool_usage: 0.8854100061343039
+      query_time_ms: 13185
+      deadlocks_per_sec: 6
+- timestamp: '2025-05-23T17:35:55.288734'
+  event_type: connection_loss
+  description: 'Connection_Loss: requires restart'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:01.288734'
+  event_type: timeout
+  description: 'Timeout: an error'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 80
+    log_snippet: '[2025-05-23 17:34:53] ERROR redis-cache: an error in timeout'
+    metrics:
+      error_rate: 0.2343116213911076
+      response_time_ms: 6379
+      cpu_usage: 0.964642828620909
+      memory_usage: 0.9172557214425299
+      connection_pool_usage: 0.873784142572369
+      query_time_ms: 17245
+      deadlocks_per_sec: 7
+- timestamp: '2025-05-23T17:36:21.288734'
+  event_type: corruption
+  description: 'Corruption: code server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:36.288734'
+  event_type: connection_loss
+  description: 'Connection_Loss: sql server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:45:55.288734'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

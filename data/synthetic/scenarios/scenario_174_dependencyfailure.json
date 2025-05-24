@@ -1,0 +1,90 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_174628",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 988,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.975735",
+    "phrase_templates_used": 45,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.975615",
+      "event_type": "trigger",
+      "description": "Initial failure detected: failed to",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:48.975615",
+      "event_type": "recovery",
+      "description": "Recovery: closed connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:12.975615",
+      "event_type": "timeout",
+      "description": "Timeout: quot network",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 125,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: quot network - operation failed",
+        "metrics": {
+          "error_rate": 0.27226127301366776,
+          "response_time_ms": 9600,
+          "cpu_usage": 0.7684919636081091,
+          "memory_usage": 0.9162511363576017
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:24.975615",
+      "event_type": "timeout",
+      "description": "Timeout: code error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 149,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: code error - operation failed",
+        "metrics": {
+          "error_rate": 0.3286901825231696,
+          "response_time_ms": 9622,
+          "cpu_usage": 0.8522363849969604,
+          "memory_usage": 0.9893300644453483
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:28.975615",
+      "event_type": "timeout",
+      "description": "Timeout: destination node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 76,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: destination node - operation failed",
+        "metrics": {
+          "error_rate": 0.7083004246102782,
+          "response_time_ms": 5713,
+          "cpu_usage": 0.8648332929035968,
+          "memory_usage": 0.8419305080215966
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:02:56.975615",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

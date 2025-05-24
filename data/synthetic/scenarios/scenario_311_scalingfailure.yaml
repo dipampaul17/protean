@@ -1,0 +1,95 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_173708
+description: Infrastructure failure scenario for ScalingFailure
+duration: 1337
+metadata:
+  generated_at: '2025-05-23T17:37:08.034606'
+  phrase_templates_used: 24
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:37:08.034448'
+  event_type: trigger
+  description: 'Initial failure detected: the service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:17.034448'
+  event_type: timeout
+  description: 'Timeout: to scale'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 278
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: to scale - operation
+      failed'
+    metrics:
+      error_rate: 0.16885682283481102
+      response_time_ms: 2819
+      cpu_usage: 0.8820456345019907
+      memory_usage: 0.8375010498495112
+- timestamp: '2025-05-23T17:38:22.034448'
+  event_type: timeout
+  description: 'Timeout: a node'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 168
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: a node - operation
+      failed'
+    metrics:
+      error_rate: 0.33876631802749024
+      response_time_ms: 9111
+      cpu_usage: 0.903184169377116
+      memory_usage: 0.910925531901333
+- timestamp: '2025-05-23T17:38:54.034448'
+  event_type: failure
+  description: 'Failure: this error'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 129
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: this error - operation
+      failed'
+    metrics:
+      error_rate: 0.22253802921716917
+      response_time_ms: 8922
+      cpu_usage: 0.8347466806506781
+      memory_usage: 0.8030898028401855
+- timestamp: '2025-05-23T17:39:51.034448'
+  event_type: failure
+  description: 'Failure: the server'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 100
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.1362376679544946
+      response_time_ms: 5012
+      cpu_usage: 0.7827289274686186
+      memory_usage: 0.9586725716046581
+- timestamp: '2025-05-23T17:41:08.034448'
+  event_type: timeout
+  description: 'Timeout: the pod'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 283
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: the pod - operation failed'
+    metrics:
+      error_rate: 0.12608068650898138
+      response_time_ms: 8775
+      cpu_usage: 0.8456715693958532
+      memory_usage: 0.896767708515934
+- timestamp: '2025-05-23T17:59:25.034448'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

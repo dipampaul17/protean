@@ -1,0 +1,78 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173453
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1679
+metadata:
+  generated_at: '2025-05-23T17:34:53.066870'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.066630'
+  event_type: trigger
+  description: 'Initial failure detected: prometheus server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:33.066630'
+  event_type: recovery
+  description: 'Recovery: the memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:46.066630'
+  event_type: timeout
+  description: 'Timeout: the memory'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 247
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: the memory - operation
+      failed'
+    metrics:
+      error_rate: 0.33811439744842336
+      response_time_ms: 8045
+      cpu_usage: 0.8305631696495701
+      memory_usage: 0.9270965989570428
+- timestamp: '2025-05-23T17:37:15.066630'
+  event_type: recovery
+  description: 'Recovery: the service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:39.066630'
+  event_type: recovery
+  description: 'Recovery: quot pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:42.066630'
+  event_type: timeout
+  description: 'Timeout: code alert'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 170
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: code alert - operation
+      failed'
+    metrics:
+      error_rate: 0.7007308888724726
+      response_time_ms: 1911
+      cpu_usage: 0.7969884803209639
+      memory_usage: 0.8771813799352004
+- timestamp: '2025-05-23T17:38:46.066630'
+  event_type: failure
+  description: 'Failure: the memory'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 233
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: the memory - operation
+      failed'
+    metrics:
+      error_rate: 0.6641649629757435
+      response_time_ms: 4631
+      cpu_usage: 0.8487392897314208
+      memory_usage: 0.9452363498283622
+- timestamp: '2025-05-23T18:02:52.066630'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

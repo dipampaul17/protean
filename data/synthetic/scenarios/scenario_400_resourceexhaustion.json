@@ -1,0 +1,84 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_173708",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 708,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.056995",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.056894",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:45.056894",
+      "event_type": "timeout",
+      "description": "Timeout: a connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 298,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: a connection - operation failed",
+        "metrics": {
+          "error_rate": 0.5491196468273133,
+          "response_time_ms": 7091,
+          "cpu_usage": 0.7976012040563707,
+          "memory_usage": 0.8939085336373359
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:49.056894",
+      "event_type": "failure",
+      "description": "Failure: the connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 137,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: the connection - operation failed",
+        "metrics": {
+          "error_rate": 0.5535642921595169,
+          "response_time_ms": 4305,
+          "cpu_usage": 0.9362186882043745,
+          "memory_usage": 0.9642550739950304
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:03.056894",
+      "event_type": "timeout",
+      "description": "Timeout: by container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 56,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: by container - operation failed",
+        "metrics": {
+          "error_rate": 0.7772759772183186,
+          "response_time_ms": 1216,
+          "cpu_usage": 0.7899307609104737,
+          "memory_usage": 0.8317631746122566
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:56.056894",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

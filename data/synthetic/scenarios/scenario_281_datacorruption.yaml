@@ -1,0 +1,99 @@
+category: DataCorruption
+name: DataCorruption_20250523_173453
+description: Infrastructure failure scenario for DataCorruption
+duration: 304
+metadata:
+  generated_at: '2025-05-23T17:34:53.209167'
+  phrase_templates_used: 36
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:34:53.208592'
+  event_type: trigger
+  description: 'Initial failure detected: to node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:05.208592'
+  event_type: failure
+  description: 'Failure: closed connection'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 205
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: closed connection - operation
+      failed'
+    metrics:
+      error_rate: 0.6175760274155427
+      response_time_ms: 5662
+      cpu_usage: 0.8925567398068958
+      memory_usage: 0.9952592572124512
+- timestamp: '2025-05-23T17:35:26.208592'
+  event_type: failure
+  description: 'Failure: transaction log'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 132
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: transaction log - operation
+      failed'
+    metrics:
+      error_rate: 0.7733758276997919
+      response_time_ms: 6681
+      cpu_usage: 0.9069981796008932
+      memory_usage: 0.8158268013769174
+- timestamp: '2025-05-23T17:35:35.208592'
+  event_type: timeout
+  description: 'Timeout: the error'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 147
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.648541561155535
+      response_time_ms: 3541
+      cpu_usage: 0.7571771230094119
+      memory_usage: 0.8186045950656363
+- timestamp: '2025-05-23T17:35:35.208592'
+  event_type: recovery
+  description: 'Recovery: to fix'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:38.208592'
+  event_type: failure
+  description: 'Failure: one server'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 64
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: one server - operation
+      failed'
+    metrics:
+      error_rate: 0.6562042681897745
+      response_time_ms: 3479
+      cpu_usage: 0.9741646259580834
+      memory_usage: 0.8817199735191864
+- timestamp: '2025-05-23T17:35:38.208592'
+  event_type: failure
+  description: 'Failure: the node'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 286
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: the node - operation failed'
+    metrics:
+      error_rate: 0.32075811717260594
+      response_time_ms: 7990
+      cpu_usage: 0.8909818304020294
+      memory_usage: 0.8055935138162571
+- timestamp: '2025-05-23T17:39:57.208592'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

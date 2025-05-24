@@ -1,0 +1,78 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_173707",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 1389,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.786521",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.786401",
+      "event_type": "trigger",
+      "description": "Initial failure detected: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:28.786401",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 70,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.742522575691512,
+          "response_time_ms": 8643,
+          "cpu_usage": 0.8820333705510661,
+          "memory_usage": 0.876467398784553
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:53.786401",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 126,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.4159475973229776,
+          "response_time_ms": 8760,
+          "cpu_usage": 0.8151398338758945,
+          "memory_usage": 0.9605944395970291
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:42:13.786401",
+      "event_type": "recovery",
+      "description": "Recovery: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:42:23.786401",
+      "event_type": "recovery",
+      "description": "Recovery: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:00:16.786401",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

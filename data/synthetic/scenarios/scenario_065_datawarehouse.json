@@ -1,0 +1,102 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_173452",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 1248,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.976568",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.976399",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:11.976399",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:35.976399",
+      "event_type": "recovery",
+      "description": "Recovery: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:12.976399",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 40,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.4694325306347714,
+          "response_time_ms": 5355,
+          "cpu_usage": 0.7852295822518197,
+          "memory_usage": 0.8443896522517316
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:44.976399",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:15.976399",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 33,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.6148061624717296,
+          "response_time_ms": 1716,
+          "cpu_usage": 0.8249027569193695,
+          "memory_usage": 0.8279270009735978
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:40.976399",
+      "event_type": "failure",
+      "description": "Failure: memory limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 168,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.6005699561458959,
+          "response_time_ms": 2393,
+          "cpu_usage": 0.7012180251601754,
+          "memory_usage": 0.8785091829530725
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:55:40.976399",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

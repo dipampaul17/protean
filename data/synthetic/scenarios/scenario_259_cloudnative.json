@@ -1,0 +1,102 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_173245",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 1434,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.736703",
+    "phrase_templates_used": 39,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.736521",
+      "event_type": "trigger",
+      "description": "Initial failure detected: kubernetes pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:21.736521",
+      "event_type": "failure",
+      "description": "Failure: gt service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 246,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR worker-consumer: gt service in failure",
+        "metrics": {
+          "error_rate": 0.523076712042004,
+          "response_time_ms": 1143,
+          "cpu_usage": 0.8742781767753868,
+          "memory_usage": 0.8946159030633366
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:34.736521",
+      "event_type": "scaling",
+      "description": "Scaling: a node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:49.736521",
+      "event_type": "failure",
+      "description": "Failure: the server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 267,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR web-frontend: the server in failure",
+        "metrics": {
+          "error_rate": 0.3833472917337065,
+          "response_time_ms": 6577,
+          "cpu_usage": 0.786095471845234,
+          "memory_usage": 0.9865988978756561
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:59.736521",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: the pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:35.736521",
+      "event_type": "scaling",
+      "description": "Scaling: kubernetes service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:26.736521",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: kubernetes cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:28.736521",
+      "event_type": "deployment",
+      "description": "Deployment: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:44.736521",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: any log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:56:39.736521",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_173245",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 871,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.776216",
+    "phrase_templates_used": 24,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.775293",
+      "event_type": "trigger",
+      "description": "Initial failure detected: which node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:03.775293",
+      "event_type": "failure",
+      "description": "Failure: to scale",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 221,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: to scale - operation failed",
+        "metrics": {
+          "error_rate": 0.23965882385191836,
+          "response_time_ms": 5598,
+          "cpu_usage": 0.7583365127934698,
+          "memory_usage": 0.8166039061252588
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:35.775293",
+      "event_type": "timeout",
+      "description": "Timeout: a service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 224,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.45438951192054,
+          "response_time_ms": 2720,
+          "cpu_usage": 0.7440334834790419,
+          "memory_usage": 0.9447708402994301
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:18.775293",
+      "event_type": "timeout",
+      "description": "Timeout: the service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 33,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: the service - operation failed",
+        "metrics": {
+          "error_rate": 0.7116603374892443,
+          "response_time_ms": 1192,
+          "cpu_usage": 0.897532090134838,
+          "memory_usage": 0.9629001472670853
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:22.775293",
+      "event_type": "timeout",
+      "description": "Timeout: which node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 175,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: which node - operation failed",
+        "metrics": {
+          "error_rate": 0.2851069642786655,
+          "response_time_ms": 8246,
+          "cpu_usage": 0.7510858222094512,
+          "memory_usage": 0.8962163725524449
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:25.775293",
+      "event_type": "recovery",
+      "description": "Recovery: nodeport service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:31.775293",
+      "event_type": "timeout",
+      "description": "Timeout: to scale",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 222,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: to scale - operation failed",
+        "metrics": {
+          "error_rate": 0.6983460208104663,
+          "response_time_ms": 9330,
+          "cpu_usage": 0.7947972432054803,
+          "memory_usage": 0.8216505803779045
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:45.775293",
+      "event_type": "failure",
+      "description": "Failure: of failure",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 255,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: of failure - operation failed",
+        "metrics": {
+          "error_rate": 0.6914688435566048,
+          "response_time_ms": 5565,
+          "cpu_usage": 0.7649257227588826,
+          "memory_usage": 0.9375225465510345
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:16.775293",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

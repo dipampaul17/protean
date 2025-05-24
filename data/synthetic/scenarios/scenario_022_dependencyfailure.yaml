@@ -1,0 +1,85 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_173245
+description: Infrastructure failure scenario for DependencyFailure
+duration: 980
+metadata:
+  generated_at: '2025-05-23T17:32:45.659202'
+  phrase_templates_used: 45
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:32:45.659056'
+  event_type: trigger
+  description: 'Initial failure detected: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:05.659056'
+  event_type: failure
+  description: 'Failure: illuminate container'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 49
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: illuminate container -
+      operation failed'
+    metrics:
+      error_rate: 0.28152312049619904
+      response_time_ms: 1961
+      cpu_usage: 0.7839942442471065
+      memory_usage: 0.9667079663785803
+- timestamp: '2025-05-23T17:33:35.659056'
+  event_type: timeout
+  description: 'Timeout: api server'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 169
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: api server - operation
+      failed'
+    metrics:
+      error_rate: 0.16639070107764242
+      response_time_ms: 9019
+      cpu_usage: 0.9186805437377866
+      memory_usage: 0.8664351251616528
+- timestamp: '2025-05-23T17:34:38.659056'
+  event_type: failure
+  description: 'Failure: code error'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 108
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: code error - operation
+      failed'
+    metrics:
+      error_rate: 0.4630015039215092
+      response_time_ms: 6073
+      cpu_usage: 0.7107522493706503
+      memory_usage: 0.8951845533169324
+- timestamp: '2025-05-23T17:34:40.659056'
+  event_type: failure
+  description: 'Failure: the connection'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 150
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: the connection - operation
+      failed'
+    metrics:
+      error_rate: 0.41436294672657803
+      response_time_ms: 1878
+      cpu_usage: 0.9056471277364706
+      memory_usage: 0.9049486627529969
+- timestamp: '2025-05-23T17:35:39.659056'
+  event_type: recovery
+  description: 'Recovery: to update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:05.659056'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

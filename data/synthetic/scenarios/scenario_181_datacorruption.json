@@ -1,0 +1,132 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173707",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 1770,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.996269",
+    "phrase_templates_used": 36,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.995870",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:26.995870",
+      "event_type": "recovery",
+      "description": "Recovery: using rabbitmq",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:28.995870",
+      "event_type": "timeout",
+      "description": "Timeout: context cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 144,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: context cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.18325091657556003,
+          "response_time_ms": 2739,
+          "cpu_usage": 0.9146269251844878,
+          "memory_usage": 0.960285121624457
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:41.995870",
+      "event_type": "timeout",
+      "description": "Timeout: the cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 115,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: the cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.42982338650701546,
+          "response_time_ms": 6046,
+          "cpu_usage": 0.9566323811767212,
+          "memory_usage": 0.9811612419018881
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:44.995870",
+      "event_type": "timeout",
+      "description": "Timeout: to resolve",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 37,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: to resolve - operation failed",
+        "metrics": {
+          "error_rate": 0.4042635506345862,
+          "response_time_ms": 3670,
+          "cpu_usage": 0.8595698271596959,
+          "memory_usage": 0.9704036941055025
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:50.995870",
+      "event_type": "recovery",
+      "description": "Recovery: new container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:55.995870",
+      "event_type": "failure",
+      "description": "Failure: same node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 226,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: same node - operation failed",
+        "metrics": {
+          "error_rate": 0.4250324489964806,
+          "response_time_ms": 7194,
+          "cpu_usage": 0.7686692525721303,
+          "memory_usage": 0.8234500716091421
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:14.995870",
+      "event_type": "timeout",
+      "description": "Timeout: a database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 258,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: a database - operation failed",
+        "metrics": {
+          "error_rate": 0.867626114631146,
+          "response_time_ms": 2980,
+          "cpu_usage": 0.9699716012664716,
+          "memory_usage": 0.9589110791747677
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:06:37.995870",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

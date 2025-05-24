@@ -1,0 +1,62 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173245
+description: Database connectivity and performance issues
+duration: 568
+metadata:
+  generated_at: '2025-05-23T17:32:45.787265'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:32:45.787099'
+  event_type: trigger
+  description: 'Initial failure detected: sql server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:00.787099'
+  event_type: connection_loss
+  description: 'Connection_Loss: docker container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:20.787099'
+  event_type: connection_loss
+  description: 'Connection_Loss: the cache'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:31.787099'
+  event_type: connection_loss
+  description: 'Connection_Loss: sql server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:54.787099'
+  event_type: connection_loss
+  description: 'Connection_Loss: create database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:55.787099'
+  event_type: connection_loss
+  description: 'Connection_Loss: to scale'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:55.787099'
+  event_type: timeout
+  description: 'Timeout: mysql error'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 145
+    log_snippet: '[2025-05-23 17:32:45] ERROR mongodb-shard: mysql error in timeout'
+    metrics:
+      error_rate: 0.5713254845738092
+      response_time_ms: 4953
+      cpu_usage: 0.7830886549260021
+      memory_usage: 0.8515333290453354
+      connection_pool_usage: 0.9403236073493493
+      query_time_ms: 28388
+      deadlocks_per_sec: 9
+- timestamp: '2025-05-23T17:33:59.787099'
+  event_type: recovery
+  description: 'Recovery: in memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:42:13.787099'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

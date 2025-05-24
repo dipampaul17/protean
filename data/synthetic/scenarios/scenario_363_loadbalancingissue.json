@@ -1,0 +1,90 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173453",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 1458,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.284167",
+    "phrase_templates_used": 13,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.284023",
+      "event_type": "trigger",
+      "description": "Initial failure detected: loadbalancer service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:20.284023",
+      "event_type": "timeout",
+      "description": "Timeout: kafka pod",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 236,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR api-gateway: kafka pod in timeout",
+        "metrics": {
+          "error_rate": 0.36070787580414154,
+          "response_time_ms": 6519,
+          "cpu_usage": 0.7437706974419797,
+          "memory_usage": 0.9192076501508607,
+          "requests_per_sec": 9008,
+          "backend_health_pct": 0.4413335393998447,
+          "connection_timeouts": 255
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:58.284023",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:03.284023",
+      "event_type": "scaling",
+      "description": "Scaling: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:31.284023",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: that node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:03.284023",
+      "event_type": "timeout",
+      "description": "Timeout: a container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "vpc-main",
+        "severity": "high",
+        "duration": 227,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR vpc-main: a container in timeout",
+        "metrics": {
+          "error_rate": 0.653632566411427,
+          "response_time_ms": 4292,
+          "cpu_usage": 0.7232126525863707,
+          "memory_usage": 0.9080936285506511,
+          "requests_per_sec": 8324,
+          "backend_health_pct": 0.32379733365942587,
+          "connection_timeouts": 626
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:59:11.284023",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

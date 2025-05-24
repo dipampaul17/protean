@@ -1,0 +1,126 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173245",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 1179,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.655099",
+    "phrase_templates_used": 36,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.654878",
+      "event_type": "trigger",
+      "description": "Initial failure detected: head queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:18.654878",
+      "event_type": "timeout",
+      "description": "Timeout: context cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 282,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: context cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.5315782450333558,
+          "response_time_ms": 5641,
+          "cpu_usage": 0.8503451519220334,
+          "memory_usage": 0.8755265100352201
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:23.654878",
+      "event_type": "failure",
+      "description": "Failure: the cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 270,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: the cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.10271123830400093,
+          "response_time_ms": 8789,
+          "cpu_usage": 0.7292123153622102,
+          "memory_usage": 0.8467876386887383
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:31.654878",
+      "event_type": "failure",
+      "description": "Failure: context cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 284,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: context cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.861313990424775,
+          "response_time_ms": 4475,
+          "cpu_usage": 0.8369498806253189,
+          "memory_usage": 0.89486043251977
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:52.654878",
+      "event_type": "failure",
+      "description": "Failure: transaction log",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 171,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: transaction log - operation failed",
+        "metrics": {
+          "error_rate": 0.25751866125469647,
+          "response_time_ms": 7593,
+          "cpu_usage": 0.8605956580861366,
+          "memory_usage": 0.8664309525912393
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:12.654878",
+      "event_type": "recovery",
+      "description": "Recovery: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:19.654878",
+      "event_type": "failure",
+      "description": "Failure: to resolve",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 134,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: to resolve - operation failed",
+        "metrics": {
+          "error_rate": 0.4532657356762818,
+          "response_time_ms": 1086,
+          "cpu_usage": 0.9029431658043912,
+          "memory_usage": 0.8988682996165147
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:52:24.654878",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+category: DataCorruption
+name: DataCorruption_20250523_173245
+description: Infrastructure failure scenario for DataCorruption
+duration: 680
+metadata:
+  generated_at: '2025-05-23T17:32:45.713357'
+  phrase_templates_used: 36
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:32:45.713132'
+  event_type: trigger
+  description: 'Initial failure detected: instance storage'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:07.713132'
+  event_type: failure
+  description: 'Failure: strong update'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 48
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: strong update - operation
+      failed'
+    metrics:
+      error_rate: 0.1784899802622479
+      response_time_ms: 6721
+      cpu_usage: 0.838200216179087
+      memory_usage: 0.8569697494611775
+- timestamp: '2025-05-23T17:33:18.713132'
+  event_type: timeout
+  description: 'Timeout: the connection'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 228
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: the connection - operation
+      failed'
+    metrics:
+      error_rate: 0.6537391093392626
+      response_time_ms: 1425
+      cpu_usage: 0.8590754242302875
+      memory_usage: 0.9973569851212991
+- timestamp: '2025-05-23T17:33:29.713132'
+  event_type: timeout
+  description: 'Timeout: transaction log'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 228
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: transaction log - operation
+      failed'
+    metrics:
+      error_rate: 0.18604800491410486
+      response_time_ms: 2504
+      cpu_usage: 0.7212255803001629
+      memory_usage: 0.8427199917851464
+- timestamp: '2025-05-23T17:33:30.713132'
+  event_type: recovery
+  description: 'Recovery: to fix'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:32.713132'
+  event_type: failure
+  description: 'Failure: the error'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 288
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.3274640048308438
+      response_time_ms: 2349
+      cpu_usage: 0.7598194511914531
+      memory_usage: 0.8100088497460974
+- timestamp: '2025-05-23T17:33:33.713132'
+  event_type: failure
+  description: 'Failure: a cluster'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 88
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: a cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.5401202294582564
+      response_time_ms: 4826
+      cpu_usage: 0.8283401015979467
+      memory_usage: 0.8350670779869638
+- timestamp: '2025-05-23T17:33:51.713132'
+  event_type: failure
+  description: 'Failure: using rabbitmq'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 265
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: using rabbitmq
+      - operation failed'
+    metrics:
+      error_rate: 0.16964193975652614
+      response_time_ms: 3064
+      cpu_usage: 0.8646680104355444
+      memory_usage: 0.9147623111008847
+- timestamp: '2025-05-23T17:33:56.713132'
+  event_type: recovery
+  description: 'Recovery: the cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:44:05.713132'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

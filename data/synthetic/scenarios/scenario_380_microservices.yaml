@@ -1,0 +1,81 @@
+category: Microservices
+name: Microservices_20250523_173708
+description: Infrastructure failure scenario for Microservices
+duration: 1390
+metadata:
+  generated_at: '2025-05-23T17:37:08.050848'
+  phrase_templates_used: 15
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:37:08.050724'
+  event_type: trigger
+  description: 'Initial failure detected: docker network'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:36.050724'
+  event_type: failure
+  description: 'Failure: strong service'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 192
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: strong service - operation
+      failed'
+    metrics:
+      error_rate: 0.8261978007152916
+      response_time_ms: 4631
+      cpu_usage: 0.9465895981687794
+      memory_usage: 0.8258809404696076
+- timestamp: '2025-05-23T17:37:41.050724'
+  event_type: timeout
+  description: 'Timeout: a cluster'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 49
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: a cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.7012845979779498
+      response_time_ms: 2891
+      cpu_usage: 0.763298188575445
+      memory_usage: 0.9320344991245829
+- timestamp: '2025-05-23T17:38:48.050724'
+  event_type: failure
+  description: 'Failure: the container'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 174
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: the container - operation
+      failed'
+    metrics:
+      error_rate: 0.44808946696349405
+      response_time_ms: 6285
+      cpu_usage: 0.7760474166997826
+      memory_usage: 0.9295105229599875
+- timestamp: '2025-05-23T17:38:54.050724'
+  event_type: timeout
+  description: 'Timeout: ui service'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 173
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: ui service - operation
+      failed'
+    metrics:
+      error_rate: 0.7445537518908076
+      response_time_ms: 6010
+      cpu_usage: 0.9282995992139476
+      memory_usage: 0.818332284818578
+- timestamp: '2025-05-23T18:00:18.050724'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

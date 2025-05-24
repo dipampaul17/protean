@@ -1,0 +1,84 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173453",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1691,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.216246",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.216103",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:05.216103",
+      "event_type": "failure",
+      "description": "Failure: proxy server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 191,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: proxy server - operation failed",
+        "metrics": {
+          "error_rate": 0.8755026054995868,
+          "response_time_ms": 4731,
+          "cpu_usage": 0.85422365335692,
+          "memory_usage": 0.9287769088493355
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:07.216103",
+      "event_type": "failure",
+      "description": "Failure: rabbitmq server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 149,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: rabbitmq server - operation failed",
+        "metrics": {
+          "error_rate": 0.8402334540358137,
+          "response_time_ms": 3265,
+          "cpu_usage": 0.9258584421325827,
+          "memory_usage": 0.8534008723673174
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:51.216103",
+      "event_type": "restart",
+      "description": "Restart: kafka cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:12.216103",
+      "event_type": "restart",
+      "description": "Restart: the pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:47.216103",
+      "event_type": "restart",
+      "description": "Restart: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:03:04.216103",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

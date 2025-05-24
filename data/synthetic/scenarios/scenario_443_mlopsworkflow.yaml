@@ -1,0 +1,70 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_173245
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 890
+metadata:
+  generated_at: '2025-05-23T17:32:45.784118'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:32:45.783860'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:55.783860'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 81
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: authentication
+      failed - operation failed'
+    metrics:
+      error_rate: 0.17849717513182606
+      response_time_ms: 1614
+      cpu_usage: 0.7704664721873616
+      memory_usage: 0.8306974567301312
+- timestamp: '2025-05-23T17:34:18.783860'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 43
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.14490581885160383
+      response_time_ms: 2695
+      cpu_usage: 0.8159784907615112
+      memory_usage: 0.9610132418981583
+- timestamp: '2025-05-23T17:34:27.783860'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:40.783860'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 202
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.7419815643897233
+      response_time_ms: 9145
+      cpu_usage: 0.7410956298205572
+      memory_usage: 0.8385451947368119
+- timestamp: '2025-05-23T17:47:35.783860'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

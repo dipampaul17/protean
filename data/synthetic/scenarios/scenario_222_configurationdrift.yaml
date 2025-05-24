@@ -1,0 +1,37 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173245
+description: Configuration inconsistencies causing service degradation
+duration: 1711
+metadata:
+  generated_at: '2025-05-23T17:32:45.726483'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:32:45.726391'
+  event_type: trigger
+  description: 'Initial failure detected: the log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:51.726391'
+  event_type: config_change
+  description: 'Config_Change: nginx container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:12.726391'
+  event_type: rollback
+  description: 'Rollback: the service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:47.726391'
+  event_type: restart
+  description: 'Restart: kubernetes pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:53.726391'
+  event_type: config_change
+  description: 'Config_Change: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T18:01:16.726391'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

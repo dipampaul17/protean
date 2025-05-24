@@ -1,0 +1,89 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_174629
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1010
+metadata:
+  generated_at: '2025-05-23T17:46:29.070775'
+  phrase_templates_used: 45
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:29.070616'
+  event_type: trigger
+  description: 'Initial failure detected: inventory service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:46.070616'
+  event_type: failure
+  description: 'Failure: code error'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 70
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: code error - operation
+      failed'
+    metrics:
+      error_rate: 0.2251348259067342
+      response_time_ms: 6456
+      cpu_usage: 0.9513462122285181
+      memory_usage: 0.9708483090464127
+- timestamp: '2025-05-23T17:46:59.070616'
+  event_type: failure
+  description: 'Failure: the queue'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: medium
+    duration: 70
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: the queue - operation
+      failed'
+    metrics:
+      error_rate: 0.04051014715910093
+      response_time_ms: 1553
+      cpu_usage: 0.5400556906356238
+      memory_usage: 0.5741389499794518
+- timestamp: '2025-05-23T17:47:29.070616'
+  event_type: recovery
+  description: 'Recovery: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:31.070616'
+  event_type: failure
+  description: 'Failure: the error'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 94
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.36219117497688913
+      response_time_ms: 5672
+      cpu_usage: 0.7304197182436863
+      memory_usage: 0.8644860564404603
+- timestamp: '2025-05-23T17:48:57.070616'
+  event_type: timeout
+  description: 'Timeout: failed to'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 83
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: failed to - operation
+      failed'
+    metrics:
+      error_rate: 0.7601040384053593
+      response_time_ms: 7667
+      cpu_usage: 0.9240511503593558
+      memory_usage: 0.9715952724852079
+- timestamp: '2025-05-23T17:49:05.070616'
+  event_type: recovery
+  description: 'Recovery: code server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:03:19.070616'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

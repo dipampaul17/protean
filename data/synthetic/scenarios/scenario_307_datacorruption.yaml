@@ -1,0 +1,67 @@
+category: DataCorruption
+name: DataCorruption_20250523_173453
+description: Infrastructure failure scenario for DataCorruption
+duration: 405
+metadata:
+  generated_at: '2025-05-23T17:34:53.218567'
+  phrase_templates_used: 36
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 1
+events:
+- timestamp: '2025-05-23T17:34:53.218415'
+  event_type: trigger
+  description: 'Initial failure detected: only container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:05.218415'
+  event_type: recovery
+  description: 'Recovery: code queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:07.218415'
+  event_type: timeout
+  description: 'Timeout: message queue'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: medium
+    duration: 114
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: message queue - operation
+      failed'
+    metrics:
+      error_rate: 0.06285741469994158
+      response_time_ms: 1914
+      cpu_usage: 0.784351487825715
+      memory_usage: 0.4277326758706496
+- timestamp: '2025-05-23T17:35:08.218415'
+  event_type: recovery
+  description: 'Recovery: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:21.218415'
+  event_type: recovery
+  description: 'Recovery: ebs storage'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:23.218415'
+  event_type: recovery
+  description: 'Recovery: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:55.218415'
+  event_type: failure
+  description: 'Failure: original container'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 183
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: original container
+      - operation failed'
+    metrics:
+      error_rate: 0.8362283441166215
+      response_time_ms: 9204
+      cpu_usage: 0.9962268107174215
+      memory_usage: 0.8374336600680894
+- timestamp: '2025-05-23T17:41:38.218415'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

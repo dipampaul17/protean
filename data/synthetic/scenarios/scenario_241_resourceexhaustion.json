@@ -1,0 +1,72 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_173453",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 1585,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.161656",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.161536",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:06.161536",
+      "event_type": "failure",
+      "description": "Failure: customer service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 179,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: customer service - operation failed",
+        "metrics": {
+          "error_rate": 0.3926048722497487,
+          "response_time_ms": 3917,
+          "cpu_usage": 0.9248797963294328,
+          "memory_usage": 0.893942217804419
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:31.161536",
+      "event_type": "recovery",
+      "description": "Recovery: a connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:42:30.161536",
+      "event_type": "timeout",
+      "description": "Timeout: by container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 160,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: by container - operation failed",
+        "metrics": {
+          "error_rate": 0.7596390121504454,
+          "response_time_ms": 9684,
+          "cpu_usage": 0.7829240689287547,
+          "memory_usage": 0.943396606872006
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:01:18.161536",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

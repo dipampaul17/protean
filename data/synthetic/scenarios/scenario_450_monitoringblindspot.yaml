@@ -1,0 +1,78 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173708
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1059
+metadata:
+  generated_at: '2025-05-23T17:37:08.070009'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:08.069852'
+  event_type: trigger
+  description: 'Initial failure detected: to scale'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:48.069852'
+  event_type: failure
+  description: 'Failure: the alert'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 139
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: the alert - operation
+      failed'
+    metrics:
+      error_rate: 0.7440941290541181
+      response_time_ms: 2999
+      cpu_usage: 0.9507098578363176
+      memory_usage: 0.9205068203170921
+- timestamp: '2025-05-23T17:38:57.069852'
+  event_type: timeout
+  description: 'Timeout: a server'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 128
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: a server - operation
+      failed'
+    metrics:
+      error_rate: 0.7222423385462552
+      response_time_ms: 2755
+      cpu_usage: 0.7699504772768645
+      memory_usage: 0.966053877085938
+- timestamp: '2025-05-23T17:39:01.069852'
+  event_type: recovery
+  description: 'Recovery: used cpu'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:21.069852'
+  event_type: failure
+  description: 'Failure: the alert'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 159
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: the alert - operation
+      failed'
+    metrics:
+      error_rate: 0.7506702888300455
+      response_time_ms: 5971
+      cpu_usage: 0.7711677393150836
+      memory_usage: 0.9140471061529033
+- timestamp: '2025-05-23T17:39:22.069852'
+  event_type: recovery
+  description: 'Recovery: a server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:51.069852'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:54:47.069852'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,138 @@
+{
+  "category": "NetworkPartition",
+  "name": "NetworkPartition_20250523_174629",
+  "description": "Infrastructure failure scenario for NetworkPartition",
+  "duration": 1528,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.062437",
+    "phrase_templates_used": 4,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.062203",
+      "event_type": "trigger",
+      "description": "Initial failure detected: each node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:52.062203",
+      "event_type": "recovery",
+      "description": "Recovery: and node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:09.062203",
+      "event_type": "recovery",
+      "description": "Recovery: of disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:12.062203",
+      "event_type": "failure",
+      "description": "Failure: of disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 92,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: of disk - operation failed",
+        "metrics": {
+          "error_rate": 0.1364472962639071,
+          "response_time_ms": 6356,
+          "cpu_usage": 0.9667787921519312,
+          "memory_usage": 0.8959408652415104
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:31.062203",
+      "event_type": "failure",
+      "description": "Failure: and memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 78,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: and memory - operation failed",
+        "metrics": {
+          "error_rate": 0.5506187431149022,
+          "response_time_ms": 1203,
+          "cpu_usage": 0.8799192000889128,
+          "memory_usage": 0.8562835402836343
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:37.062203",
+      "event_type": "failure",
+      "description": "Failure: each node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 153,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: each node - operation failed",
+        "metrics": {
+          "error_rate": 0.4146779749446795,
+          "response_time_ms": 3148,
+          "cpu_usage": 0.8875481716135349,
+          "memory_usage": 0.9266264351767992
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:01.062203",
+      "event_type": "timeout",
+      "description": "Timeout: of disk",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 223,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: of disk - operation failed",
+        "metrics": {
+          "error_rate": 0.34173403908453126,
+          "response_time_ms": 9009,
+          "cpu_usage": 0.86519423986514,
+          "memory_usage": 0.9627767896713803
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:08.062203",
+      "event_type": "recovery",
+      "description": "Recovery: and node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:17.062203",
+      "event_type": "failure",
+      "description": "Failure: of disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 156,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: of disk - operation failed",
+        "metrics": {
+          "error_rate": 0.6098007874093565,
+          "response_time_ms": 4659,
+          "cpu_usage": 0.7653300634585586,
+          "memory_usage": 0.8217966985060831
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:11:57.062203",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

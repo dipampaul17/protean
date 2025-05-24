@@ -1,0 +1,59 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173708
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1053
+metadata:
+  generated_at: '2025-05-23T17:37:08.019571'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:08.019460'
+  event_type: trigger
+  description: 'Initial failure detected: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:51.019460'
+  event_type: recovery
+  description: 'Recovery: a pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:59.019460'
+  event_type: failure
+  description: 'Failure: web server'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 182
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: web server - operation
+      failed'
+    metrics:
+      error_rate: 0.39947985414823683
+      response_time_ms: 6826
+      cpu_usage: 0.82843716957329
+      memory_usage: 0.8869433232976782
+- timestamp: '2025-05-23T17:38:30.019460'
+  event_type: timeout
+  description: 'Timeout: monitoring system'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 164
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: monitoring system
+      - operation failed'
+    metrics:
+      error_rate: 0.2684166815114284
+      response_time_ms: 8478
+      cpu_usage: 0.8975779888242634
+      memory_usage: 0.9610080949923984
+- timestamp: '2025-05-23T17:40:57.019460'
+  event_type: recovery
+  description: 'Recovery: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:54:41.019460'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

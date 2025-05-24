@@ -1,0 +1,156 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173707",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 965,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.948464",
+    "phrase_templates_used": 36,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 7
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.948179",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to rollback",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:34.948179",
+      "event_type": "timeout",
+      "description": "Timeout: same node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 273,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: same node - operation failed",
+        "metrics": {
+          "error_rate": 0.21522971321832227,
+          "response_time_ms": 1880,
+          "cpu_usage": 0.9436734951343564,
+          "memory_usage": 0.9004811735267043
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:41.948179",
+      "event_type": "failure",
+      "description": "Failure: using rabbitmq",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 297,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: using rabbitmq - operation failed",
+        "metrics": {
+          "error_rate": 0.8995875180810454,
+          "response_time_ms": 2278,
+          "cpu_usage": 0.7823464947751059,
+          "memory_usage": 0.9718547898228761
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:42.948179",
+      "event_type": "timeout",
+      "description": "Timeout: the error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 176,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: the error - operation failed",
+        "metrics": {
+          "error_rate": 0.4931568843309556,
+          "response_time_ms": 9319,
+          "cpu_usage": 0.7757678705173249,
+          "memory_usage": 0.8156142231541689
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:15.948179",
+      "event_type": "timeout",
+      "description": "Timeout: the connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 85,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: the connection - operation failed",
+        "metrics": {
+          "error_rate": 0.490609335225783,
+          "response_time_ms": 9116,
+          "cpu_usage": 0.8035930306614096,
+          "memory_usage": 0.8608288972872232
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:17.948179",
+      "event_type": "failure",
+      "description": "Failure: closed connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 258,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: closed connection - operation failed",
+        "metrics": {
+          "error_rate": 0.48659600933487135,
+          "response_time_ms": 2901,
+          "cpu_usage": 0.7116067663622591,
+          "memory_usage": 0.8384954025904479
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:08.948179",
+      "event_type": "timeout",
+      "description": "Timeout: using rabbitmq",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 85,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: using rabbitmq - operation failed",
+        "metrics": {
+          "error_rate": 0.287514411645037,
+          "response_time_ms": 4719,
+          "cpu_usage": 0.8810095748464883,
+          "memory_usage": 0.8047418774042087
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:09.948179",
+      "event_type": "failure",
+      "description": "Failure: one server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 145,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: one server - operation failed",
+        "metrics": {
+          "error_rate": 0.4061826565929565,
+          "response_time_ms": 3241,
+          "cpu_usage": 0.9525976589442751,
+          "memory_usage": 0.9354710689517831
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:53:12.948179",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_174628",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1151,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.975586",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.975119",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the alert",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:45.975119",
+      "event_type": "recovery",
+      "description": "Recovery: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:02.975119",
+      "event_type": "recovery",
+      "description": "Recovery: quot server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:08.975119",
+      "event_type": "recovery",
+      "description": "Recovery: nil log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:27.975119",
+      "event_type": "timeout",
+      "description": "Timeout: quot server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 81,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: quot server - operation failed",
+        "metrics": {
+          "error_rate": 0.18017336373631576,
+          "response_time_ms": 1887,
+          "cpu_usage": 0.8743324691387724,
+          "memory_usage": 0.9495979539431796
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:55.975119",
+      "event_type": "recovery",
+      "description": "Recovery: kubernetes pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:30.975119",
+      "event_type": "recovery",
+      "description": "Recovery: scaled service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:41.975119",
+      "event_type": "timeout",
+      "description": "Timeout: reduce alert",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 138,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: reduce alert - operation failed",
+        "metrics": {
+          "error_rate": 0.7833299467953302,
+          "response_time_ms": 4618,
+          "cpu_usage": 0.9348648204845339,
+          "memory_usage": 0.8696520354901779
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:43.975119",
+      "event_type": "timeout",
+      "description": "Timeout: a container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 129,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: a container - operation failed",
+        "metrics": {
+          "error_rate": 0.6862244289764021,
+          "response_time_ms": 2137,
+          "cpu_usage": 0.8704258378482325,
+          "memory_usage": 0.8606505619804877
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:05:39.975119",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

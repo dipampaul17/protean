@@ -1,0 +1,51 @@
+category: NetworkPartition
+name: NetworkPartition_20250523_173707
+description: Infrastructure failure scenario for NetworkPartition
+duration: 361
+metadata:
+  generated_at: '2025-05-23T17:37:07.988925'
+  phrase_templates_used: 4
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:37:07.988722'
+  event_type: trigger
+  description: 'Initial failure detected: of disk'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:28.988722'
+  event_type: failure
+  description: 'Failure: and node'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 45
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: and node - operation failed'
+    metrics:
+      error_rate: 0.7232734420991094
+      response_time_ms: 6609
+      cpu_usage: 0.9533307600667495
+      memory_usage: 0.9431325310825235
+- timestamp: '2025-05-23T17:37:39.988722'
+  event_type: recovery
+  description: 'Recovery: of disk'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:46.988722'
+  event_type: recovery
+  description: 'Recovery: of disk'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:54.988722'
+  event_type: recovery
+  description: 'Recovery: and node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:58.988722'
+  event_type: recovery
+  description: 'Recovery: each node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:43:08.988722'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

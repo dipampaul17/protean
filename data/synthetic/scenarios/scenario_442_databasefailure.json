@@ -1,0 +1,90 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173453",
+  "description": "Database connectivity and performance issues",
+  "duration": 696,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.349786",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.349651",
+      "event_type": "trigger",
+      "description": "Initial failure detected: postgres container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:10.349651",
+      "event_type": "corruption",
+      "description": "Corruption: mysql error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:36.349651",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: using docker",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:38.349651",
+      "event_type": "timeout",
+      "description": "Timeout: sudo service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 242,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR redis-cache: sudo service in timeout",
+        "metrics": {
+          "error_rate": 0.7578501311357917,
+          "response_time_ms": 8339,
+          "cpu_usage": 0.9346215729268865,
+          "memory_usage": 0.9704683156152041,
+          "connection_pool_usage": 0.8137465386428399,
+          "query_time_ms": 28826,
+          "deadlocks_per_sec": 10
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:10.349651",
+      "event_type": "timeout",
+      "description": "Timeout: redis server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 60,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR mongodb-shard: redis server in timeout",
+        "metrics": {
+          "error_rate": 0.1880862287423291,
+          "response_time_ms": 2040,
+          "cpu_usage": 0.9070740166229225,
+          "memory_usage": 0.8814621247863335,
+          "connection_pool_usage": 0.908049261154082,
+          "query_time_ms": 8857,
+          "deadlocks_per_sec": 8
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:29.349651",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: an error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:29.349651",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

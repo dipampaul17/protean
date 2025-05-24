@@ -1,0 +1,132 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_174629",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 307,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.064122",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.063916",
+      "event_type": "trigger",
+      "description": "Initial failure detected: labels service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:41.063916",
+      "event_type": "recovery",
+      "description": "Recovery: p update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:44.063916",
+      "event_type": "failure",
+      "description": "Failure: following error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 163,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: following error - operation failed",
+        "metrics": {
+          "error_rate": 0.4105888512569166,
+          "response_time_ms": 6056,
+          "cpu_usage": 0.9846316838471656,
+          "memory_usage": 0.9205064538264051
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:49.063916",
+      "event_type": "failure",
+      "description": "Failure: docker container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 46,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: docker container - operation failed",
+        "metrics": {
+          "error_rate": 0.19698193591369978,
+          "response_time_ms": 2552,
+          "cpu_usage": 0.9581546242892599,
+          "memory_usage": 0.9914626635049352
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:51.063916",
+      "event_type": "timeout",
+      "description": "Timeout: labels service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 146,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: labels service - operation failed",
+        "metrics": {
+          "error_rate": 0.7284032722694176,
+          "response_time_ms": 5486,
+          "cpu_usage": 0.7739307554907181,
+          "memory_usage": 0.9969363129376636
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:56.063916",
+      "event_type": "failure",
+      "description": "Failure: us log",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 201,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: us log - operation failed",
+        "metrics": {
+          "error_rate": 0.14206796569574387,
+          "response_time_ms": 2922,
+          "cpu_usage": 0.9444649266117084,
+          "memory_usage": 0.892127127076578
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:06.063916",
+      "event_type": "timeout",
+      "description": "Timeout: the queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "medium",
+        "duration": 78,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.1738755279683101,
+          "response_time_ms": 1019,
+          "cpu_usage": 0.5475226353282963,
+          "memory_usage": 0.4193638068432719
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:12.063916",
+      "event_type": "recovery",
+      "description": "Recovery: customer service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:51:36.063916",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

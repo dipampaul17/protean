@@ -1,0 +1,108 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173453",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 1586,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.149776",
+    "phrase_templates_used": 45,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.148874",
+      "event_type": "trigger",
+      "description": "Initial failure detected: get update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:13.148874",
+      "event_type": "timeout",
+      "description": "Timeout: to update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 44,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: to update - operation failed",
+        "metrics": {
+          "error_rate": 0.17681527972214106,
+          "response_time_ms": 6073,
+          "cpu_usage": 0.9600835368752614,
+          "memory_usage": 0.8208435071394172
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:40.148874",
+      "event_type": "recovery",
+      "description": "Recovery: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:09.148874",
+      "event_type": "timeout",
+      "description": "Timeout: headless service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 33,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: headless service - operation failed",
+        "metrics": {
+          "error_rate": 0.35113566345207003,
+          "response_time_ms": 5534,
+          "cpu_usage": 0.8387064121517834,
+          "memory_usage": 0.87779510460464
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:18.148874",
+      "event_type": "failure",
+      "description": "Failure: to monitor",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 272,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: to monitor - operation failed",
+        "metrics": {
+          "error_rate": 0.12086974763473615,
+          "response_time_ms": 2409,
+          "cpu_usage": 0.8645407978061904,
+          "memory_usage": 0.8968633651177081
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:11.148874",
+      "event_type": "failure",
+      "description": "Failure: the queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "medium",
+        "duration": 104,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.09633314606471767,
+          "response_time_ms": 503,
+          "cpu_usage": 0.6436616257685359,
+          "memory_usage": 0.6551732269076611
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:01:19.148874",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173707
+description: Database connectivity and performance issues
+duration: 442
+metadata:
+  generated_at: '2025-05-23T17:37:07.992718'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:37:07.992120'
+  event_type: trigger
+  description: 'Initial failure detected: to update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:17.992120'
+  event_type: connection_loss
+  description: 'Connection_Loss: get update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:29.992120'
+  event_type: timeout
+  description: 'Timeout: to scale'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 36
+    log_snippet: '[2025-05-23 17:37:07] FATAL mysql-primary: database to scale detected'
+    metrics:
+      error_rate: 0.3405461272676802
+      response_time_ms: 3119
+      cpu_usage: 0.8094627784079653
+      memory_usage: 0.8384867279944749
+      connection_pool_usage: 0.8625357223085546
+      query_time_ms: 10661
+      deadlocks_per_sec: 1
+- timestamp: '2025-05-23T17:37:35.992120'
+  event_type: timeout
+  description: 'Timeout: in memory'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 191
+    log_snippet: '[2025-05-23 17:37:07] FATAL postgres-replica: database in memory
+      detected'
+    metrics:
+      error_rate: 0.142921870218487
+      response_time_ms: 6631
+      cpu_usage: 0.7066561458561521
+      memory_usage: 0.9011154880469892
+      connection_pool_usage: 0.8506871298903386
+      query_time_ms: 12218
+      deadlocks_per_sec: 3
+- timestamp: '2025-05-23T17:37:42.992120'
+  event_type: timeout
+  description: 'Timeout: the error'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 101
+    log_snippet: '[2025-05-23 17:37:07] ERROR mongodb-shard: the error in timeout'
+    metrics:
+      error_rate: 0.6333880758940185
+      response_time_ms: 9320
+      cpu_usage: 0.9537399518519982
+      memory_usage: 0.8283088108640151
+      connection_pool_usage: 0.8753101583579527
+      query_time_ms: 20614
+      deadlocks_per_sec: 9
+- timestamp: '2025-05-23T17:37:49.992120'
+  event_type: recovery
+  description: 'Recovery: mongodb database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:58.992120'
+  event_type: corruption
+  description: 'Corruption: mysql server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:09.992120'
+  event_type: timeout
+  description: 'Timeout: a database'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 44
+    log_snippet: '[2025-05-23 17:37:07] FATAL mysql-primary: database a database detected'
+    metrics:
+      error_rate: 0.3840746864822696
+      response_time_ms: 5810
+      cpu_usage: 0.7372633630658759
+      memory_usage: 0.8496847720374717
+      connection_pool_usage: 0.9609636357103636
+      query_time_ms: 6427
+      deadlocks_per_sec: 4
+- timestamp: '2025-05-23T17:44:29.992120'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

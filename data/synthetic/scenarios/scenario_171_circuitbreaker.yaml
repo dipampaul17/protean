@@ -1,0 +1,66 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173245
+description: Circuit breaker activation due to cascading service failures
+duration: 1409
+metadata:
+  generated_at: '2025-05-23T17:32:45.712910'
+  phrase_templates_used: 50
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.712812'
+  event_type: trigger
+  description: 'Initial failure detected: value memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:58.712812'
+  event_type: failure
+  description: 'Failure: the server'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 96
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.28199023973576987
+      response_time_ms: 9177
+      cpu_usage: 0.8942499566620675
+      memory_usage: 0.9670472612682058
+- timestamp: '2025-05-23T17:34:42.712812'
+  event_type: timeout
+  description: 'Timeout: docker container'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 164
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: docker container - operation
+      failed'
+    metrics:
+      error_rate: 0.27966618184585956
+      response_time_ms: 3664
+      cpu_usage: 0.8767293332655256
+      memory_usage: 0.94159875076624
+- timestamp: '2025-05-23T17:40:27.712812'
+  event_type: timeout
+  description: 'Timeout: letter queue'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: medium
+    duration: 223
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: letter queue - operation
+      failed'
+    metrics:
+      error_rate: 0.10223853063785379
+      response_time_ms: 1994
+      cpu_usage: 0.31381932382811084
+      memory_usage: 0.6217662975955872
+- timestamp: '2025-05-23T17:56:14.712812'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

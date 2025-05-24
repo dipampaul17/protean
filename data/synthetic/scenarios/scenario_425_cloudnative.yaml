@@ -1,0 +1,51 @@
+category: CloudNative
+name: CloudNative_20250523_173453
+description: Kubernetes pod and container orchestration issues
+duration: 1627
+metadata:
+  generated_at: '2025-05-23T17:34:53.344651'
+  phrase_templates_used: 39
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:34:53.344531'
+  event_type: trigger
+  description: 'Initial failure detected: dns server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:28.344531'
+  event_type: deployment
+  description: 'Deployment: getting error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:37.344531'
+  event_type: pod_restart
+  description: 'Pod_Restart: eks cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:10.344531'
+  event_type: deployment
+  description: 'Deployment: deleted pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:22.344531'
+  event_type: deployment
+  description: 'Deployment: context cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:44.344531'
+  event_type: failure
+  description: 'Failure: a service'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 208
+    log_snippet: '[2025-05-23 17:34:53] ERROR api-backend: a service in failure'
+    metrics:
+      error_rate: 0.21297527228112065
+      response_time_ms: 4392
+      cpu_usage: 0.9163996029648617
+      memory_usage: 0.8351295429039347
+- timestamp: '2025-05-23T18:02:00.344531'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

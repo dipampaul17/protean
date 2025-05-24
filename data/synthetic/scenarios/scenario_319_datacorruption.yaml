@@ -1,0 +1,103 @@
+category: DataCorruption
+name: DataCorruption_20250523_173453
+description: Infrastructure failure scenario for DataCorruption
+duration: 1499
+metadata:
+  generated_at: '2025-05-23T17:34:53.222162'
+  phrase_templates_used: 36
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:53.221970'
+  event_type: trigger
+  description: 'Initial failure detected: a database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:17.221970'
+  event_type: timeout
+  description: 'Timeout: only container'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 181
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: only container - operation
+      failed'
+    metrics:
+      error_rate: 0.6717542216379171
+      response_time_ms: 7467
+      cpu_usage: 0.9078217511499872
+      memory_usage: 0.9299590870161247
+- timestamp: '2025-05-23T17:36:09.221970'
+  event_type: recovery
+  description: 'Recovery: new container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:33.221970'
+  event_type: recovery
+  description: 'Recovery: docker container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:46.221970'
+  event_type: failure
+  description: 'Failure: a cluster'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 43
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: a cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.8541029100628587
+      response_time_ms: 1785
+      cpu_usage: 0.7817659757007979
+      memory_usage: 0.9787307289890196
+- timestamp: '2025-05-23T17:37:51.221970'
+  event_type: timeout
+  description: 'Timeout: code queue'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: medium
+    duration: 126
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: code queue - operation
+      failed'
+    metrics:
+      error_rate: 0.04463537144614231
+      response_time_ms: 1966
+      cpu_usage: 0.3339372569289437
+      memory_usage: 0.5111725705249743
+- timestamp: '2025-05-23T17:38:01.221970'
+  event_type: timeout
+  description: 'Timeout: to node'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 251
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: to node - operation failed'
+    metrics:
+      error_rate: 0.763097128712216
+      response_time_ms: 5236
+      cpu_usage: 0.8487286110229506
+      memory_usage: 0.8975456513367946
+- timestamp: '2025-05-23T17:38:22.221970'
+  event_type: timeout
+  description: 'Timeout: to resolve'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 272
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: to resolve - operation
+      failed'
+    metrics:
+      error_rate: 0.836746441080887
+      response_time_ms: 4043
+      cpu_usage: 0.8800478638646603
+      memory_usage: 0.9610204879465755
+- timestamp: '2025-05-23T17:59:52.221970'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

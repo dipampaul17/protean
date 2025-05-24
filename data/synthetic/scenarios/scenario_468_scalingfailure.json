@@ -1,0 +1,156 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_173453",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 984,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.355836",
+    "phrase_templates_used": 24,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 7
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.355623",
+      "event_type": "trigger",
+      "description": "Initial failure detected: this service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:16.355623",
+      "event_type": "timeout",
+      "description": "Timeout: web server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 138,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: web server - operation failed",
+        "metrics": {
+          "error_rate": 0.40465780885269476,
+          "response_time_ms": 2334,
+          "cpu_usage": 0.8897186353032684,
+          "memory_usage": 0.9470897837372966
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:48.355623",
+      "event_type": "failure",
+      "description": "Failure: https connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 269,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: https connection - operation failed",
+        "metrics": {
+          "error_rate": 0.5548979741859189,
+          "response_time_ms": 2491,
+          "cpu_usage": 0.9227423928319827,
+          "memory_usage": 0.9434733981755239
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:58.355623",
+      "event_type": "timeout",
+      "description": "Timeout: to scale",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 192,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: to scale - operation failed",
+        "metrics": {
+          "error_rate": 0.8558178986537063,
+          "response_time_ms": 7161,
+          "cpu_usage": 0.9476342754774112,
+          "memory_usage": 0.9192047493343344
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:05.355623",
+      "event_type": "timeout",
+      "description": "Timeout: the server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 110,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.734886833975254,
+          "response_time_ms": 5362,
+          "cpu_usage": 0.8592546128637102,
+          "memory_usage": 0.9036798617612168
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:12.355623",
+      "event_type": "failure",
+      "description": "Failure: an error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 183,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: an error - operation failed",
+        "metrics": {
+          "error_rate": 0.21642173413722254,
+          "response_time_ms": 4734,
+          "cpu_usage": 0.8874586452245867,
+          "memory_usage": 0.9819225874838882
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:15.355623",
+      "event_type": "timeout",
+      "description": "Timeout: to fix",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 140,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: to fix - operation failed",
+        "metrics": {
+          "error_rate": 0.32272420696998194,
+          "response_time_ms": 1842,
+          "cpu_usage": 0.9621500207108,
+          "memory_usage": 0.929413350342237
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:13.355623",
+      "event_type": "timeout",
+      "description": "Timeout: a node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 75,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: a node - operation failed",
+        "metrics": {
+          "error_rate": 0.20177024366551743,
+          "response_time_ms": 3991,
+          "cpu_usage": 0.8091727611602606,
+          "memory_usage": 0.9478639525487972
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:51:17.355623",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

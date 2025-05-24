@@ -1,0 +1,59 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_174629
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 677
+metadata:
+  generated_at: '2025-05-23T17:46:29.124022'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:29.123890'
+  event_type: trigger
+  description: 'Initial failure detected: parse error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:18.123890'
+  event_type: timeout
+  description: 'Timeout: parse error'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 277
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: parse error -
+      operation failed'
+    metrics:
+      error_rate: 0.589074893661023
+      response_time_ms: 6882
+      cpu_usage: 0.7610032335604378
+      memory_usage: 0.9474801940294888
+- timestamp: '2025-05-23T17:47:37.123890'
+  event_type: recovery
+  description: 'Recovery: connection refused'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:45.123890'
+  event_type: recovery
+  description: 'Recovery: kubernetes cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:22.123890'
+  event_type: failure
+  description: 'Failure: quot pod'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 80
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: quot pod - operation
+      failed'
+    metrics:
+      error_rate: 0.4475762647350734
+      response_time_ms: 1029
+      cpu_usage: 0.9885343429099689
+      memory_usage: 0.9202485883317438
+- timestamp: '2025-05-23T17:57:46.123890'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,82 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_173708
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1631
+metadata:
+  generated_at: '2025-05-23T17:37:08.060955'
+  phrase_templates_used: 45
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:08.060786'
+  event_type: trigger
+  description: 'Initial failure detected: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:38.060786'
+  event_type: timeout
+  description: 'Timeout: federated queue'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: medium
+    duration: 93
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: federated queue - operation
+      failed'
+    metrics:
+      error_rate: 0.07239286008812293
+      response_time_ms: 1117
+      cpu_usage: 0.7624681759139309
+      memory_usage: 0.5669857889594674
+- timestamp: '2025-05-23T17:38:23.060786'
+  event_type: recovery
+  description: 'Recovery: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:34.060786'
+  event_type: recovery
+  description: 'Recovery: nginx error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:09.060786'
+  event_type: recovery
+  description: 'Recovery: illuminate queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:14.060786'
+  event_type: timeout
+  description: 'Timeout: and update'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 296
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: and update - operation
+      failed'
+    metrics:
+      error_rate: 0.3336241820379744
+      response_time_ms: 8174
+      cpu_usage: 0.9127917088239195
+      memory_usage: 0.9302594118475794
+- timestamp: '2025-05-23T17:40:21.060786'
+  event_type: failure
+  description: 'Failure: get update'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 110
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: get update - operation
+      failed'
+    metrics:
+      error_rate: 0.18639499531319859
+      response_time_ms: 7230
+      cpu_usage: 0.7143037452421087
+      memory_usage: 0.8397181388014661
+- timestamp: '2025-05-23T17:40:29.060786'
+  event_type: recovery
+  description: 'Recovery: code server'
+  injection_spec: null
+- timestamp: '2025-05-23T18:04:19.060786'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

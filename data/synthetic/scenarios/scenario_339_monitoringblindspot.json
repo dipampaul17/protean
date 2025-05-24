@@ -1,0 +1,96 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173708",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1190,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.041179",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.041036",
+      "event_type": "trigger",
+      "description": "Initial failure detected: or cpu",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:35.041036",
+      "event_type": "recovery",
+      "description": "Recovery: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:49.041036",
+      "event_type": "timeout",
+      "description": "Timeout: monitoring service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 234,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: monitoring service - operation failed",
+        "metrics": {
+          "error_rate": 0.8993999388299949,
+          "response_time_ms": 6976,
+          "cpu_usage": 0.9323801374363536,
+          "memory_usage": 0.8569541811180509
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:18.041036",
+      "event_type": "recovery",
+      "description": "Recovery: kubernetes cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:13.041036",
+      "event_type": "failure",
+      "description": "Failure: an alert",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 132,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: an alert - operation failed",
+        "metrics": {
+          "error_rate": 0.5175512352893669,
+          "response_time_ms": 9660,
+          "cpu_usage": 0.7964252770655365,
+          "memory_usage": 0.9781595762319494
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:33.041036",
+      "event_type": "timeout",
+      "description": "Timeout: quot server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 134,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: quot server - operation failed",
+        "metrics": {
+          "error_rate": 0.5630468190406104,
+          "response_time_ms": 7689,
+          "cpu_usage": 0.9030452883483437,
+          "memory_usage": 0.9411659482892659
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:56:58.041036",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173453",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1002,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.051651",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.051381",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:20.051381",
+      "event_type": "timeout",
+      "description": "Timeout: connection refused",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 62,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: connection refused - operation failed",
+        "metrics": {
+          "error_rate": 0.1583306649348379,
+          "response_time_ms": 8823,
+          "cpu_usage": 0.7627319477407423,
+          "memory_usage": 0.919843023345467
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:34.051381",
+      "event_type": "recovery",
+      "description": "Recovery: each node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:40.051381",
+      "event_type": "failure",
+      "description": "Failure: or cpu",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 188,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: or cpu - operation failed",
+        "metrics": {
+          "error_rate": 0.20756218861264417,
+          "response_time_ms": 9786,
+          "cpu_usage": 0.8289778819855074,
+          "memory_usage": 0.9998315697464217
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:16.051381",
+      "event_type": "timeout",
+      "description": "Timeout: code error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 118,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: code error - operation failed",
+        "metrics": {
+          "error_rate": 0.3431648966277341,
+          "response_time_ms": 6070,
+          "cpu_usage": 0.7993368789013743,
+          "memory_usage": 0.8849403164723332
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:50.051381",
+      "event_type": "failure",
+      "description": "Failure: each node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 142,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: each node - operation failed",
+        "metrics": {
+          "error_rate": 0.8043602138739478,
+          "response_time_ms": 6398,
+          "cpu_usage": 0.9797369266831495,
+          "memory_usage": 0.8238560460905965
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:24.051381",
+      "event_type": "timeout",
+      "description": "Timeout: connection refused",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 87,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: connection refused - operation failed",
+        "metrics": {
+          "error_rate": 0.7466445362526539,
+          "response_time_ms": 2390,
+          "cpu_usage": 0.9559760348519155,
+          "memory_usage": 0.8048925061027855
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:51:35.051381",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

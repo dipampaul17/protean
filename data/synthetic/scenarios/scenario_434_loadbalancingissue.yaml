@@ -1,0 +1,84 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173453
+description: Load balancer and traffic distribution problems
+duration: 1774
+metadata:
+  generated_at: '2025-05-23T17:34:53.346347'
+  phrase_templates_used: 13
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.346185'
+  event_type: trigger
+  description: 'Initial failure detected: a pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:12.346185'
+  event_type: timeout
+  description: 'Timeout: a pod'
+  injection_spec:
+    type: timeout
+    target: api-gateway
+    severity: high
+    duration: 227
+    log_snippet: '[2025-05-23 17:34:53] ERROR api-gateway: a pod in timeout'
+    metrics:
+      error_rate: 0.7372180199494863
+      response_time_ms: 4419
+      cpu_usage: 0.7476962054869297
+      memory_usage: 0.8597592735250278
+      requests_per_sec: 5681
+      backend_health_pct: 0.584007171376695
+      connection_timeouts: 387
+- timestamp: '2025-05-23T17:37:13.346185'
+  event_type: backend_failure
+  description: 'Backend_Failure: in connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:58.346185'
+  event_type: timeout
+  description: 'Timeout: loadbalancer service'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 114
+    log_snippet: '[2025-05-23 17:34:53] ERROR vpc-main: loadbalancer service in timeout'
+    metrics:
+      error_rate: 0.7248162880206936
+      response_time_ms: 8500
+      cpu_usage: 0.9973097677994276
+      memory_usage: 0.8243882008108597
+      requests_per_sec: 5762
+      backend_health_pct: 0.7806172573521644
+      connection_timeouts: 76
+- timestamp: '2025-05-23T17:38:46.346185'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: load balancer'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:05.346185'
+  event_type: backend_failure
+  description: 'Backend_Failure: that node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:25.346185'
+  event_type: timeout
+  description: 'Timeout: that node'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 234
+    log_snippet: '[2025-05-23 17:34:53] ERROR vpc-main: that node in timeout'
+    metrics:
+      error_rate: 0.170476465529745
+      response_time_ms: 6597
+      cpu_usage: 0.8735092436559013
+      memory_usage: 0.9875871139467041
+      requests_per_sec: 3571
+      backend_health_pct: 0.7763944173759821
+      connection_timeouts: 332
+- timestamp: '2025-05-23T18:04:27.346185'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

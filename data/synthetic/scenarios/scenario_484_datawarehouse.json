@@ -1,0 +1,174 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_174629",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 459,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.164212",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 8
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.163942",
+      "event_type": "trigger",
+      "description": "Initial failure detected: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:45.163942",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 251,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.2861474573097363,
+          "response_time_ms": 3810,
+          "cpu_usage": 0.7476050828467155,
+          "memory_usage": 0.8349624813453483
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:52.163942",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 288,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.2928765280716077,
+          "response_time_ms": 2835,
+          "cpu_usage": 0.8156211585615399,
+          "memory_usage": 0.8129792761567654
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:52.163942",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 192,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.795020019917353,
+          "response_time_ms": 7003,
+          "cpu_usage": 0.7861037688716359,
+          "memory_usage": 0.8955185271182672
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:57.163942",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 104,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.2174567628063783,
+          "response_time_ms": 5867,
+          "cpu_usage": 0.8183512850742891,
+          "memory_usage": 0.9707427308077532
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:05.163942",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 166,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.20665600035624615,
+          "response_time_ms": 4341,
+          "cpu_usage": 0.8615091242945478,
+          "memory_usage": 0.9486674679316514
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:08.163942",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 234,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.4733628892529892,
+          "response_time_ms": 2488,
+          "cpu_usage": 0.7600152368372796,
+          "memory_usage": 0.8032027271647517
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:13.163942",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 96,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.7261864697920094,
+          "response_time_ms": 9391,
+          "cpu_usage": 0.9393272289489663,
+          "memory_usage": 0.9754636038103338
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:19.163942",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 170,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.671134768735044,
+          "response_time_ms": 1828,
+          "cpu_usage": 0.9043251059174637,
+          "memory_usage": 0.8563257685543101
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:54:08.163942",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

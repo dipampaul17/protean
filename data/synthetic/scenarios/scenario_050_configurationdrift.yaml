@@ -1,0 +1,52 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173452
+description: Configuration inconsistencies causing service degradation
+duration: 838
+metadata:
+  generated_at: '2025-05-23T17:34:52.915372'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:34:52.915213'
+  event_type: trigger
+  description: 'Initial failure detected: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:10.915213'
+  event_type: rollback
+  description: 'Rollback: redis node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:59.915213'
+  event_type: failure
+  description: 'Failure: kubernetes service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 122
+    log_snippet: '[2025-05-23 17:34:52] ERROR payment-service: kubernetes service
+      - operation failed'
+    metrics:
+      error_rate: 0.6001999418708209
+      response_time_ms: 6937
+      cpu_usage: 0.8059427806042607
+      memory_usage: 0.9421429561690045
+- timestamp: '2025-05-23T17:36:30.915213'
+  event_type: restart
+  description: 'Restart: api server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:38.915213'
+  event_type: rollback
+  description: 'Rollback: kafka log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:00.915213'
+  event_type: restart
+  description: 'Restart: your cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:50.915213'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

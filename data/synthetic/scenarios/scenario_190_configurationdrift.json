@@ -1,0 +1,90 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173245",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1280,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.717677",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.717507",
+      "event_type": "trigger",
+      "description": "Initial failure detected: code server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:13.717507",
+      "event_type": "config_change",
+      "description": "Config_Change: an error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:38.717507",
+      "event_type": "rollback",
+      "description": "Rollback: xxxxxxx cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:46.717507",
+      "event_type": "config_change",
+      "description": "Config_Change: api server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:04.717507",
+      "event_type": "failure",
+      "description": "Failure: following error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 152,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: following error - operation failed",
+        "metrics": {
+          "error_rate": 0.7571576934203917,
+          "response_time_ms": 6116,
+          "cpu_usage": 0.9532258630130704,
+          "memory_usage": 0.8050185197254341
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:13.717507",
+      "event_type": "config_change",
+      "description": "Config_Change: your cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:44.717507",
+      "event_type": "restart",
+      "description": "Restart: redis server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:51.717507",
+      "event_type": "config_change",
+      "description": "Config_Change: to update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:03.717507",
+      "event_type": "config_change",
+      "description": "Config_Change: rabbitmq server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:54:05.717507",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

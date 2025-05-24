@@ -1,0 +1,115 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_174629
+description: Infrastructure failure scenario for DataWarehouse
+duration: 433
+metadata:
+  generated_at: '2025-05-23T17:46:29.144127'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:46:29.143902'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:39.143902'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 212
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: authentication
+      failed - operation failed'
+    metrics:
+      error_rate: 0.4750091114874845
+      response_time_ms: 9659
+      cpu_usage: 0.9122213469990417
+      memory_usage: 0.9759655685813716
+- timestamp: '2025-05-23T17:46:39.143902'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 190
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.37188712903201837
+      response_time_ms: 4468
+      cpu_usage: 0.9309610807256175
+      memory_usage: 0.8564498630936432
+- timestamp: '2025-05-23T17:46:41.143902'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 131
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: disk space full
+      - operation failed'
+    metrics:
+      error_rate: 0.791821803402863
+      response_time_ms: 4757
+      cpu_usage: 0.7103519747807675
+      memory_usage: 0.912695809335627
+- timestamp: '2025-05-23T17:46:43.143902'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 123
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.6792330662937178
+      response_time_ms: 3159
+      cpu_usage: 0.7149806522809737
+      memory_usage: 0.9110533066153338
+- timestamp: '2025-05-23T17:46:50.143902'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 152
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.8228303705642465
+      response_time_ms: 9593
+      cpu_usage: 0.9353445823659003
+      memory_usage: 0.9468487639901229
+- timestamp: '2025-05-23T17:46:52.143902'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 157
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.6198105143890756
+      response_time_ms: 7936
+      cpu_usage: 0.7168068328352569
+      memory_usage: 0.930339472975935
+- timestamp: '2025-05-23T17:47:06.143902'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:53:42.143902'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,90 @@
+{
+  "category": "NetworkPartition",
+  "name": "NetworkPartition_20250523_173245",
+  "description": "Infrastructure failure scenario for NetworkPartition",
+  "duration": 1327,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.788743",
+    "phrase_templates_used": 4,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.788624",
+      "event_type": "trigger",
+      "description": "Initial failure detected: of disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:32.788624",
+      "event_type": "failure",
+      "description": "Failure: each node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 76,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: each node - operation failed",
+        "metrics": {
+          "error_rate": 0.6457337110860552,
+          "response_time_ms": 2448,
+          "cpu_usage": 0.9857371347607831,
+          "memory_usage": 0.9888666579868326
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:49.788624",
+      "event_type": "failure",
+      "description": "Failure: and node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 60,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: and node - operation failed",
+        "metrics": {
+          "error_rate": 0.3640678674193668,
+          "response_time_ms": 3019,
+          "cpu_usage": 0.7459261850071941,
+          "memory_usage": 0.9640731053023992
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:49.788624",
+      "event_type": "recovery",
+      "description": "Recovery: of disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:38.788624",
+      "event_type": "failure",
+      "description": "Failure: and node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 155,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: and node - operation failed",
+        "metrics": {
+          "error_rate": 0.5219801202525569,
+          "response_time_ms": 5021,
+          "cpu_usage": 0.8946489766269362,
+          "memory_usage": 0.9837225591935791
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:54:52.788624",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+category: EventDriven
+name: EventDriven_20250523_173453
+description: Message queue and event processing failures
+duration: 1172
+metadata:
+  generated_at: '2025-05-23T17:34:53.226178'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:34:53.225990'
+  event_type: trigger
+  description: 'Initial failure detected: task queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:27.225990'
+  event_type: recovery
+  description: 'Recovery: to update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:38.225990'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:40.225990'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: to restart'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:53.225990'
+  event_type: timeout
+  description: 'Timeout: current node'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: high
+    duration: 174
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-queue: queue processing
+      current node'
+    metrics:
+      error_rate: 0.4602941858961569
+      response_time_ms: 9472
+      cpu_usage: 0.7754167986610464
+      memory_usage: 0.8282216790384174
+      queue_depth: 11416
+      message_processing_rate: 3.527061007666574
+      consumer_lag_ms: 40456
+- timestamp: '2025-05-23T17:35:54.225990'
+  event_type: recovery
+  description: 'Recovery: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:03.225990'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: badmatch error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:35.225990'
+  event_type: recovery
+  description: 'Recovery: current node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:14.225990'
+  event_type: timeout
+  description: 'Timeout: the connection'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 170
+    log_snippet: '[2025-05-23 17:34:53] ERROR batch-processing-queue: queue processing
+      the connection'
+    metrics:
+      error_rate: 0.19531864142158348
+      response_time_ms: 7048
+      cpu_usage: 0.9350023530879904
+      memory_usage: 0.9307008822105858
+      queue_depth: 16539
+      message_processing_rate: 2.002876333522134
+      consumer_lag_ms: 99101
+- timestamp: '2025-05-23T17:54:25.225990'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

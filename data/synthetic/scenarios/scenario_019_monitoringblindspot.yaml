@@ -1,0 +1,107 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173452
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 919
+metadata:
+  generated_at: '2025-05-23T17:34:52.905247'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:34:52.905043'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:07.905043'
+  event_type: recovery
+  description: 'Recovery: the node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:17.905043'
+  event_type: timeout
+  description: 'Timeout: reduce alert'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 93
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: reduce alert - operation
+      failed'
+    metrics:
+      error_rate: 0.2047170814483925
+      response_time_ms: 7538
+      cpu_usage: 0.77963066287708
+      memory_usage: 0.8805875929094967
+- timestamp: '2025-05-23T17:35:34.905043'
+  event_type: recovery
+  description: 'Recovery: or cpu'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:36.905043'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 137
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.1368271678519097
+      response_time_ms: 9898
+      cpu_usage: 0.9124962843296885
+      memory_usage: 0.8366612353259032
+- timestamp: '2025-05-23T17:35:49.905043'
+  event_type: recovery
+  description: 'Recovery: scaled service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:05.905043'
+  event_type: timeout
+  description: 'Timeout: to scale'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 35
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: to scale - operation failed'
+    metrics:
+      error_rate: 0.29666561454930984
+      response_time_ms: 7262
+      cpu_usage: 0.7709332627633181
+      memory_usage: 0.9379394787030557
+- timestamp: '2025-05-23T17:36:09.905043'
+  event_type: timeout
+  description: 'Timeout: customer service'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 85
+    log_snippet: '[2025-05-23 17:34:52] ERROR payment-service: customer service -
+      operation failed'
+    metrics:
+      error_rate: 0.1457320376828446
+      response_time_ms: 7037
+      cpu_usage: 0.7305676717756214
+      memory_usage: 0.864251035444878
+- timestamp: '2025-05-23T17:36:14.905043'
+  event_type: failure
+  description: 'Failure: the container'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 261
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: the container
+      - operation failed'
+    metrics:
+      error_rate: 0.38911967130234004
+      response_time_ms: 2069
+      cpu_usage: 0.736935565740225
+      memory_usage: 0.9675069703385838
+- timestamp: '2025-05-23T17:50:11.905043'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

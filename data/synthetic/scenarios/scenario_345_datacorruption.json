@@ -1,0 +1,102 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_174629",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 584,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.089953",
+    "phrase_templates_used": 36,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.089470",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:40.089470",
+      "event_type": "recovery",
+      "description": "Recovery: ebs storage",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:49.089470",
+      "event_type": "failure",
+      "description": "Failure: same node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 130,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: same node - operation failed",
+        "metrics": {
+          "error_rate": 0.6233599791552177,
+          "response_time_ms": 9490,
+          "cpu_usage": 0.9105217188249858,
+          "memory_usage": 0.8240588710157983
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:56.089470",
+      "event_type": "recovery",
+      "description": "Recovery: using rabbitmq",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:06.089470",
+      "event_type": "failure",
+      "description": "Failure: code queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "medium",
+        "duration": 254,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: code queue - operation failed",
+        "metrics": {
+          "error_rate": 0.12132929281299688,
+          "response_time_ms": 1609,
+          "cpu_usage": 0.7662215708147821,
+          "memory_usage": 0.6946175678932713
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:13.089470",
+      "event_type": "recovery",
+      "description": "Recovery: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:44.089470",
+      "event_type": "timeout",
+      "description": "Timeout: the connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 227,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: the connection - operation failed",
+        "metrics": {
+          "error_rate": 0.5500263033124064,
+          "response_time_ms": 7124,
+          "cpu_usage": 0.8401544731854413,
+          "memory_usage": 0.9794078237288458
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:56:13.089470",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

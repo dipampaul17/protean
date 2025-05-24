@@ -1,0 +1,114 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_174629",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 870,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.127804",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.127577",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:41.127577",
+      "event_type": "failure",
+      "description": "Failure: rabbitmq connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 133,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: rabbitmq connection - operation failed",
+        "metrics": {
+          "error_rate": 0.16115110491602477,
+          "response_time_ms": 4937,
+          "cpu_usage": 0.9567858119873223,
+          "memory_usage": 0.8735567722148803
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:58.127577",
+      "event_type": "failure",
+      "description": "Failure: the service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 300,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: the service - operation failed",
+        "metrics": {
+          "error_rate": 0.7769254661889708,
+          "response_time_ms": 6591,
+          "cpu_usage": 0.9013085095208258,
+          "memory_usage": 0.8257473821338117
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:59.127577",
+      "event_type": "restart",
+      "description": "Restart: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:27.127577",
+      "event_type": "restart",
+      "description": "Restart: string update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:27.127577",
+      "event_type": "restart",
+      "description": "Restart: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:28.127577",
+      "event_type": "restart",
+      "description": "Restart: elasticsearch cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:29.127577",
+      "event_type": "failure",
+      "description": "Failure: using docker",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 38,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: using docker - operation failed",
+        "metrics": {
+          "error_rate": 0.7845864596442492,
+          "response_time_ms": 6190,
+          "cpu_usage": 0.7466816991489218,
+          "memory_usage": 0.8707651226796357
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:10.127577",
+      "event_type": "config_change",
+      "description": "Config_Change: an error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:00:59.127577",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

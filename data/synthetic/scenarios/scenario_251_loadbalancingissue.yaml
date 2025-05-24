@@ -1,0 +1,79 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173708
+description: Load balancer and traffic distribution problems
+duration: 738
+metadata:
+  generated_at: '2025-05-23T17:37:08.018634'
+  phrase_templates_used: 13
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:08.018447'
+  event_type: trigger
+  description: 'Initial failure detected: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:19.018447'
+  event_type: timeout
+  description: 'Timeout: in connection'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 229
+    log_snippet: '[2025-05-23 17:37:08] ERROR subnet-private: in connection in timeout'
+    metrics:
+      error_rate: 0.509231545108915
+      response_time_ms: 9212
+      cpu_usage: 0.866080212285235
+      memory_usage: 0.8380280793785667
+      requests_per_sec: 1062
+      backend_health_pct: 0.619653834378484
+      connection_timeouts: 241
+- timestamp: '2025-05-23T17:37:44.018447'
+  event_type: backend_failure
+  description: 'Backend_Failure: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:52.018447'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: load balancer'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:56.018447'
+  event_type: backend_failure
+  description: 'Backend_Failure: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:57.018447'
+  event_type: backend_failure
+  description: 'Backend_Failure: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:06.018447'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:15.018447'
+  event_type: timeout
+  description: 'Timeout: web server'
+  injection_spec:
+    type: timeout
+    target: api-gateway
+    severity: high
+    duration: 267
+    log_snippet: '[2025-05-23 17:37:08] ERROR api-gateway: web server in timeout'
+    metrics:
+      error_rate: 0.5413939536451033
+      response_time_ms: 1489
+      cpu_usage: 0.7302425488521728
+      memory_usage: 0.8977257901619013
+      requests_per_sec: 9901
+      backend_health_pct: 0.5697776665323875
+      connection_timeouts: 484
+- timestamp: '2025-05-23T17:38:24.018447'
+  event_type: backend_failure
+  description: 'Backend_Failure: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:26.018447'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

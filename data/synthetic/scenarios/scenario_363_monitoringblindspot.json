@@ -1,0 +1,102 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173245",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1619,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.763805",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.763666",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to fix",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:05.763666",
+      "event_type": "failure",
+      "description": "Failure: code container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 155,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: code container - operation failed",
+        "metrics": {
+          "error_rate": 0.5507851307850291,
+          "response_time_ms": 2177,
+          "cpu_usage": 0.7686406479014215,
+          "memory_usage": 0.8154426150076922
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:22.763666",
+      "event_type": "timeout",
+      "description": "Timeout: a node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 36,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: a node - operation failed",
+        "metrics": {
+          "error_rate": 0.4217259343590233,
+          "response_time_ms": 1508,
+          "cpu_usage": 0.7923713664934009,
+          "memory_usage": 0.9691856627022832
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:14.763666",
+      "event_type": "timeout",
+      "description": "Timeout: monitoring system",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 101,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: monitoring system - operation failed",
+        "metrics": {
+          "error_rate": 0.778026451988266,
+          "response_time_ms": 8211,
+          "cpu_usage": 0.9729181542547776,
+          "memory_usage": 0.8579889019253761
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:14.763666",
+      "event_type": "timeout",
+      "description": "Timeout: the container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 259,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.40368917495752166,
+          "response_time_ms": 1953,
+          "cpu_usage": 0.7823458008617337,
+          "memory_usage": 0.8005565070025467
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:59:44.763666",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

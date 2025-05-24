@@ -1,0 +1,162 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_174628",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1435,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.973235",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 7
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.973004",
+      "event_type": "trigger",
+      "description": "Initial failure detected: customer service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:55.973004",
+      "event_type": "failure",
+      "description": "Failure: monitoring memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 112,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: monitoring memory - operation failed",
+        "metrics": {
+          "error_rate": 0.8348339435215685,
+          "response_time_ms": 6829,
+          "cpu_usage": 0.949867816727213,
+          "memory_usage": 0.8144614584537109
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:06.973004",
+      "event_type": "timeout",
+      "description": "Timeout: each node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 151,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: each node - operation failed",
+        "metrics": {
+          "error_rate": 0.8287562774671592,
+          "response_time_ms": 7252,
+          "cpu_usage": 0.9183721603625636,
+          "memory_usage": 0.8122443080940722
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:15.973004",
+      "event_type": "failure",
+      "description": "Failure: the server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 254,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.4716856917967005,
+          "response_time_ms": 8076,
+          "cpu_usage": 0.9213647098192452,
+          "memory_usage": 0.9313196086628885
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:23.973004",
+      "event_type": "failure",
+      "description": "Failure: reduce alert",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 280,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: reduce alert - operation failed",
+        "metrics": {
+          "error_rate": 0.7019493081776897,
+          "response_time_ms": 5464,
+          "cpu_usage": 0.8611434751354101,
+          "memory_usage": 0.9171522120353106
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:01.973004",
+      "event_type": "recovery",
+      "description": "Recovery: docker container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:53.973004",
+      "event_type": "timeout",
+      "description": "Timeout: used cpu",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 294,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: used cpu - operation failed",
+        "metrics": {
+          "error_rate": 0.5968217005009344,
+          "response_time_ms": 3595,
+          "cpu_usage": 0.8545967046795893,
+          "memory_usage": 0.9674200675023508
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:58.973004",
+      "event_type": "failure",
+      "description": "Failure: of cpu",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 88,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: of cpu - operation failed",
+        "metrics": {
+          "error_rate": 0.3532084743893018,
+          "response_time_ms": 6269,
+          "cpu_usage": 0.7323738292934021,
+          "memory_usage": 0.9741266475373782
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:58.973004",
+      "event_type": "timeout",
+      "description": "Timeout: us log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 99,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: us log - operation failed",
+        "metrics": {
+          "error_rate": 0.5244220395349624,
+          "response_time_ms": 1217,
+          "cpu_usage": 0.875761867796451,
+          "memory_usage": 0.9393789013619608
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:10:23.973004",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

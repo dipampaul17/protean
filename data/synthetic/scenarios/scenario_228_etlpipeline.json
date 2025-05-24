@@ -1,0 +1,132 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_174628",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 406,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.990695",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.990460",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:42.990460",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 82,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.2782001749408948,
+          "response_time_ms": 4095,
+          "cpu_usage": 0.8214580804279817,
+          "memory_usage": 0.8588160362045618
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:48.990460",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 98,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.23875715650793428,
+          "response_time_ms": 4165,
+          "cpu_usage": 0.9861682445528427,
+          "memory_usage": 0.9323964056202381
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:50.990460",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:58.990460",
+      "event_type": "recovery",
+      "description": "Recovery: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:18.990460",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 85,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.5693455397186936,
+          "response_time_ms": 8717,
+          "cpu_usage": 0.9051414872472984,
+          "memory_usage": 0.9831958319215754
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:19.990460",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 208,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.6267216300795505,
+          "response_time_ms": 9312,
+          "cpu_usage": 0.9510396196586881,
+          "memory_usage": 0.8094390790625893
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:22.990460",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 84,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.63447512939939,
+          "response_time_ms": 1580,
+          "cpu_usage": 0.718339253466314,
+          "memory_usage": 0.8015271407995154
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:53:14.990460",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

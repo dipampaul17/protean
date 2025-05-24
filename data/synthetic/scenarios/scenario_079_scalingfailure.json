@@ -1,0 +1,162 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_173452",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 766,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.980789",
+    "phrase_templates_used": 24,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 7
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.980156",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:16.980156",
+      "event_type": "recovery",
+      "description": "Recovery: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:34.980156",
+      "event_type": "failure",
+      "description": "Failure: an error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 157,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: an error - operation failed",
+        "metrics": {
+          "error_rate": 0.4813330886826719,
+          "response_time_ms": 3021,
+          "cpu_usage": 0.910774782247463,
+          "memory_usage": 0.9626909617114189
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:36.980156",
+      "event_type": "timeout",
+      "description": "Timeout: an error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 189,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: an error - operation failed",
+        "metrics": {
+          "error_rate": 0.46151690091967945,
+          "response_time_ms": 1985,
+          "cpu_usage": 0.8835296273044392,
+          "memory_usage": 0.8651599412501305
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:48.980156",
+      "event_type": "failure",
+      "description": "Failure: the service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 231,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: the service - operation failed",
+        "metrics": {
+          "error_rate": 0.16344906407100393,
+          "response_time_ms": 8406,
+          "cpu_usage": 0.9283705189283029,
+          "memory_usage": 0.8145482593643255
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:52.980156",
+      "event_type": "failure",
+      "description": "Failure: a server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 231,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: a server - operation failed",
+        "metrics": {
+          "error_rate": 0.27147977841515447,
+          "response_time_ms": 5728,
+          "cpu_usage": 0.7538408106508041,
+          "memory_usage": 0.8742858377956307
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:56.980156",
+      "event_type": "failure",
+      "description": "Failure: web server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 93,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: web server - operation failed",
+        "metrics": {
+          "error_rate": 0.5836186777739268,
+          "response_time_ms": 9165,
+          "cpu_usage": 0.9836622136454336,
+          "memory_usage": 0.9780104997739838
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:16.980156",
+      "event_type": "failure",
+      "description": "Failure: clusterip service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 203,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: clusterip service - operation failed",
+        "metrics": {
+          "error_rate": 0.6280659477554366,
+          "response_time_ms": 6458,
+          "cpu_usage": 0.9980377254048729,
+          "memory_usage": 0.8091486784317962
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:26.980156",
+      "event_type": "failure",
+      "description": "Failure: a server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 125,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: a server - operation failed",
+        "metrics": {
+          "error_rate": 0.5587262468039448,
+          "response_time_ms": 9113,
+          "cpu_usage": 0.7618908588248783,
+          "memory_usage": 0.99130311430088
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:38.980156",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

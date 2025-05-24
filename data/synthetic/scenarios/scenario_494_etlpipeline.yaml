@@ -1,0 +1,85 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173708
+description: Infrastructure failure scenario for ETLPipeline
+duration: 895
+metadata:
+  generated_at: '2025-05-23T17:37:08.084989'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:37:08.084707'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:45.084707'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 45
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.438374261468473
+      response_time_ms: 5258
+      cpu_usage: 0.7797696121370885
+      memory_usage: 0.9687995347207826
+- timestamp: '2025-05-23T17:39:03.084707'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 112
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.4064769487314229
+      response_time_ms: 8872
+      cpu_usage: 0.9443521758869153
+      memory_usage: 0.9595357755131761
+- timestamp: '2025-05-23T17:39:23.084707'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 46
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.46285943937867247
+      response_time_ms: 5617
+      cpu_usage: 0.7541005140278495
+      memory_usage: 0.9033435667162503
+- timestamp: '2025-05-23T17:39:29.084707'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:35.084707'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 142
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: container crashed - operation
+      failed'
+    metrics:
+      error_rate: 0.24541585006726524
+      response_time_ms: 5560
+      cpu_usage: 0.9893345981912414
+      memory_usage: 0.9050614641134287
+- timestamp: '2025-05-23T17:52:03.084707'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

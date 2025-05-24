@@ -1,0 +1,70 @@
+category: DataCorruption
+name: DataCorruption_20250523_174628
+description: Infrastructure failure scenario for DataCorruption
+duration: 535
+metadata:
+  generated_at: '2025-05-23T17:46:28.925713'
+  phrase_templates_used: 36
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:28.925596'
+  event_type: trigger
+  description: 'Initial failure detected: transaction log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:57.925596'
+  event_type: recovery
+  description: 'Recovery: the container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:02.925596'
+  event_type: failure
+  description: 'Failure: code queue'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: medium
+    duration: 149
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: code queue - operation
+      failed'
+    metrics:
+      error_rate: 0.042425427071659846
+      response_time_ms: 561
+      cpu_usage: 0.5532094207613186
+      memory_usage: 0.6787273910574745
+- timestamp: '2025-05-23T17:47:14.925596'
+  event_type: failure
+  description: 'Failure: the database'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 93
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: the database - operation
+      failed'
+    metrics:
+      error_rate: 0.31745687924824295
+      response_time_ms: 9330
+      cpu_usage: 0.7998407280844195
+      memory_usage: 0.939933135549352
+- timestamp: '2025-05-23T17:48:28.925596'
+  event_type: failure
+  description: 'Failure: duplicate update'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 216
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: duplicate update -
+      operation failed'
+    metrics:
+      error_rate: 0.6901524627686169
+      response_time_ms: 1554
+      cpu_usage: 0.801623441785719
+      memory_usage: 0.9751951455514885
+- timestamp: '2025-05-23T17:55:23.925596'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

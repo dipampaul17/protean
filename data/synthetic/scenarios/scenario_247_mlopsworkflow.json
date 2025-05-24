@@ -1,0 +1,114 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_173453",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 864,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.193339",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.192869",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:04.192869",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 51,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.29492267682223916,
+          "response_time_ms": 4711,
+          "cpu_usage": 0.9133785526379757,
+          "memory_usage": 0.9634025226944829
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:52.192869",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 102,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.27548883347382547,
+          "response_time_ms": 6881,
+          "cpu_usage": 0.8333010115322977,
+          "memory_usage": 0.8431793898032991
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:18.192869",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 197,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.7942603144188362,
+          "response_time_ms": 8287,
+          "cpu_usage": 0.7529164294994655,
+          "memory_usage": 0.9764878454381251
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:22.192869",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:27.192869",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 61,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.8652802942677615,
+          "response_time_ms": 1720,
+          "cpu_usage": 0.7752911494993918,
+          "memory_usage": 0.8365537726404026
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:49.192869",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:17.192869",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173453
+description: Infrastructure failure scenario for ETLPipeline
+duration: 1794
+metadata:
+  generated_at: '2025-05-23T17:34:53.290296'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:34:53.290105'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:11.290105'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:48.290105'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:25.290105'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 121
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.5798719242171523
+      response_time_ms: 8400
+      cpu_usage: 0.830142053550285
+      memory_usage: 0.8930753438055162
+- timestamp: '2025-05-23T17:37:05.290105'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 100
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.20407238412265657
+      response_time_ms: 9087
+      cpu_usage: 0.7284838345324892
+      memory_usage: 0.8709478777496985
+- timestamp: '2025-05-23T17:37:16.290105'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 149
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: queue overflow
+      - operation failed'
+    metrics:
+      error_rate: 0.2448612166235142
+      response_time_ms: 4937
+      cpu_usage: 0.8781007262935867
+      memory_usage: 0.9782712427184778
+- timestamp: '2025-05-23T17:38:30.290105'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 249
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.5090193738582814
+      response_time_ms: 6046
+      cpu_usage: 0.7560113551613135
+      memory_usage: 0.8375387295507022
+- timestamp: '2025-05-23T17:39:03.290105'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 266
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: container crashed - operation
+      failed'
+    metrics:
+      error_rate: 0.6959706534309362
+      response_time_ms: 7135
+      cpu_usage: 0.7671448213441246
+      memory_usage: 0.9818219790836458
+- timestamp: '2025-05-23T18:04:47.290105'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

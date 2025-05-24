@@ -1,0 +1,47 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173453
+description: Application deployment and rollback scenarios
+duration: 1060
+metadata:
+  generated_at: '2025-05-23T17:34:53.060212'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:34:53.059435'
+  event_type: trigger
+  description: 'Initial failure detected: to deploy'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:18.059435'
+  event_type: failure
+  description: 'Failure: using cache'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 196
+    log_snippet: '[2025-05-23 17:34:53] ERROR api-backend: using cache in failure'
+    metrics:
+      error_rate: 0.39929918333607795
+      response_time_ms: 8845
+      cpu_usage: 0.9567627378649042
+      memory_usage: 0.9714259855125315
+- timestamp: '2025-05-23T17:35:29.059435'
+  event_type: rollback
+  description: 'Rollback: a deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:44.059435'
+  event_type: deployment
+  description: 'Deployment: my deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:45.059435'
+  event_type: deployment
+  description: 'Deployment: container pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:52:33.059435'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

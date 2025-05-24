@@ -1,0 +1,60 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_173708",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 921,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.078768",
+    "phrase_templates_used": 39,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.078685",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:57.078685",
+      "event_type": "scaling",
+      "description": "Scaling: delete pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:42.078685",
+      "event_type": "failure",
+      "description": "Failure: api server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 162,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR worker-consumer: api server in failure",
+        "metrics": {
+          "error_rate": 0.615735919554063,
+          "response_time_ms": 1502,
+          "cpu_usage": 0.7554585020879839,
+          "memory_usage": 0.940445404741892
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:45.078685",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:52:29.078685",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

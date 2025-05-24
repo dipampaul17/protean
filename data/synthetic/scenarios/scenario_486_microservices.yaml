@@ -1,0 +1,59 @@
+category: Microservices
+name: Microservices_20250523_174629
+description: Infrastructure failure scenario for Microservices
+duration: 1664
+metadata:
+  generated_at: '2025-05-23T17:46:29.164637'
+  phrase_templates_used: 15
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:29.164511'
+  event_type: trigger
+  description: 'Initial failure detected: another container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:02.164511'
+  event_type: timeout
+  description: 'Timeout: ui service'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 58
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: ui service - operation
+      failed'
+    metrics:
+      error_rate: 0.5843161245555965
+      response_time_ms: 1938
+      cpu_usage: 0.7267377181092807
+      memory_usage: 0.9318542631996836
+- timestamp: '2025-05-23T17:49:33.164511'
+  event_type: recovery
+  description: 'Recovery: lt service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:48.164511'
+  event_type: failure
+  description: 'Failure: docker network'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 258
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: docker network - operation
+      failed'
+    metrics:
+      error_rate: 0.5099257248611293
+      response_time_ms: 5296
+      cpu_usage: 0.8527348687728058
+      memory_usage: 0.8106872669514261
+- timestamp: '2025-05-23T17:51:17.164511'
+  event_type: recovery
+  description: 'Recovery: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:14:13.164511'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,96 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_174629",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 867,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.138074",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.137922",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:49.137922",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 37,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.4460901354364908,
+          "response_time_ms": 4745,
+          "cpu_usage": 0.717795337215911,
+          "memory_usage": 0.8970600805807833
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:18.137922",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 77,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.7461575472751926,
+          "response_time_ms": 9097,
+          "cpu_usage": 0.7385859828082216,
+          "memory_usage": 0.9260479568019913
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:52.137922",
+      "event_type": "recovery",
+      "description": "Recovery: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:28.137922",
+      "event_type": "recovery",
+      "description": "Recovery: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:10.137922",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 65,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.8594422036649205,
+          "response_time_ms": 6908,
+          "cpu_usage": 0.7942163778751136,
+          "memory_usage": 0.9287070869841294
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:00:56.137922",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

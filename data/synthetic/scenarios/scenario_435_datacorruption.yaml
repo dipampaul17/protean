@@ -1,0 +1,54 @@
+category: DataCorruption
+name: DataCorruption_20250523_174629
+description: Infrastructure failure scenario for DataCorruption
+duration: 409
+metadata:
+  generated_at: '2025-05-23T17:46:29.136658'
+  phrase_templates_used: 36
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:29.136186'
+  event_type: trigger
+  description: 'Initial failure detected: new container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:58.136186'
+  event_type: recovery
+  description: 'Recovery: docker container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:35.136186'
+  event_type: timeout
+  description: 'Timeout: same node'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 88
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: same node - operation
+      failed'
+    metrics:
+      error_rate: 0.507528089861138
+      response_time_ms: 1090
+      cpu_usage: 0.7529639021670846
+      memory_usage: 0.826253749790605
+- timestamp: '2025-05-23T17:48:45.136186'
+  event_type: failure
+  description: 'Failure: the node'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 196
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: the node - operation failed'
+    metrics:
+      error_rate: 0.24990728686794983
+      response_time_ms: 3009
+      cpu_usage: 0.7980839047428607
+      memory_usage: 0.9965885127903515
+- timestamp: '2025-05-23T17:53:18.136186'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

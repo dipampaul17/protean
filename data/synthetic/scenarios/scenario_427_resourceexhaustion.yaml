@@ -1,0 +1,107 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173708
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 903
+metadata:
+  generated_at: '2025-05-23T17:37:08.064842'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:37:08.064360'
+  event_type: trigger
+  description: 'Initial failure detected: most memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:19.064360'
+  event_type: timeout
+  description: 'Timeout: the service'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 59
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: the service - operation
+      failed'
+    metrics:
+      error_rate: 0.3795773064506347
+      response_time_ms: 2158
+      cpu_usage: 0.9246843242758921
+      memory_usage: 0.8756981695176496
+- timestamp: '2025-05-23T17:37:33.064360'
+  event_type: failure
+  description: 'Failure: heap memory'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 143
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: heap memory -
+      operation failed'
+    metrics:
+      error_rate: 0.5607261480697623
+      response_time_ms: 7967
+      cpu_usage: 0.7691956949782902
+      memory_usage: 0.9727070779249011
+- timestamp: '2025-05-23T17:37:34.064360'
+  event_type: timeout
+  description: 'Timeout: a node'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 36
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: a node - operation failed'
+    metrics:
+      error_rate: 0.6738707389894614
+      response_time_ms: 6158
+      cpu_usage: 0.8689005631246387
+      memory_usage: 0.8302383671128227
+- timestamp: '2025-05-23T17:38:00.064360'
+  event_type: timeout
+  description: 'Timeout: the database'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 220
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: the database - operation
+      failed'
+    metrics:
+      error_rate: 0.5495912483015125
+      response_time_ms: 5765
+      cpu_usage: 0.8387376753204493
+      memory_usage: 0.9407577553417383
+- timestamp: '2025-05-23T17:38:04.064360'
+  event_type: recovery
+  description: 'Recovery: heap memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:40.064360'
+  event_type: recovery
+  description: 'Recovery: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:51.064360'
+  event_type: failure
+  description: 'Failure: served memory'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 121
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: served memory
+      - operation failed'
+    metrics:
+      error_rate: 0.8126345681652885
+      response_time_ms: 5041
+      cpu_usage: 0.7980394132430816
+      memory_usage: 0.9988562831436955
+- timestamp: '2025-05-23T17:38:59.064360'
+  event_type: recovery
+  description: 'Recovery: of disk'
+  injection_spec: null
+- timestamp: '2025-05-23T17:52:11.064360'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

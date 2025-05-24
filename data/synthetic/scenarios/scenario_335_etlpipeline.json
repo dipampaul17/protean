@@ -1,0 +1,90 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173708",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 1476,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.040429",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.040278",
+      "event_type": "trigger",
+      "description": "Initial failure detected: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:43.040278",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:00.040278",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 124,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.37216523392655987,
+          "response_time_ms": 3121,
+          "cpu_usage": 0.848975209665169,
+          "memory_usage": 0.8527867638592243
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:34.040278",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:50.040278",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:56.040278",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:47.040278",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 131,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.5323218875734221,
+          "response_time_ms": 2279,
+          "cpu_usage": 0.8729695425820932,
+          "memory_usage": 0.9675845685749144
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:01:44.040278",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

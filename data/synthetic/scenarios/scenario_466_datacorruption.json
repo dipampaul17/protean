@@ -1,0 +1,60 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_174629",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 1012,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.144467",
+    "phrase_templates_used": 36,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.144373",
+      "event_type": "trigger",
+      "description": "Initial failure detected: second node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:29.144373",
+      "event_type": "recovery",
+      "description": "Recovery: to disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:07.144373",
+      "event_type": "timeout",
+      "description": "Timeout: the cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 92,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: the cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.8786705943575857,
+          "response_time_ms": 4947,
+          "cpu_usage": 0.9785976368373215,
+          "memory_usage": 0.9692404071033935
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:45.144373",
+      "event_type": "recovery",
+      "description": "Recovery: duplicate update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:03:21.144373",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

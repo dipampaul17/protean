@@ -1,0 +1,60 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173708",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 911,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.038372",
+    "phrase_templates_used": 45,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.038280",
+      "event_type": "trigger",
+      "description": "Initial failure detected: proxy server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:44.038280",
+      "event_type": "recovery",
+      "description": "Recovery: coirq error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:56.038280",
+      "event_type": "recovery",
+      "description": "Recovery: get update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:59.038280",
+      "event_type": "failure",
+      "description": "Failure: get update",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 146,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: get update - operation failed",
+        "metrics": {
+          "error_rate": 0.2820807242316198,
+          "response_time_ms": 3626,
+          "cpu_usage": 0.7111264126050719,
+          "memory_usage": 0.8886526807074082
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:52:19.038280",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

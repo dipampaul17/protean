@@ -1,0 +1,70 @@
+category: DataCorruption
+name: DataCorruption_20250523_173708
+description: Infrastructure failure scenario for DataCorruption
+duration: 1629
+metadata:
+  generated_at: '2025-05-23T17:37:08.002956'
+  phrase_templates_used: 36
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:08.002666'
+  event_type: trigger
+  description: 'Initial failure detected: docker container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:19.002666'
+  event_type: failure
+  description: 'Failure: original container'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 152
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: original container - operation
+      failed'
+    metrics:
+      error_rate: 0.5157060399000222
+      response_time_ms: 5129
+      cpu_usage: 0.7764459690282325
+      memory_usage: 0.833207985531629
+- timestamp: '2025-05-23T17:37:36.002666'
+  event_type: failure
+  description: 'Failure: to rollback'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 213
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: to rollback -
+      operation failed'
+    metrics:
+      error_rate: 0.889958959873575
+      response_time_ms: 4851
+      cpu_usage: 0.8453427566950845
+      memory_usage: 0.9944716785744596
+- timestamp: '2025-05-23T17:38:28.002666'
+  event_type: recovery
+  description: 'Recovery: the cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:59.002666'
+  event_type: failure
+  description: 'Failure: the server'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 298
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.6356320839271079
+      response_time_ms: 6091
+      cpu_usage: 0.7101215563784039
+      memory_usage: 0.9450053072574784
+- timestamp: '2025-05-23T18:04:17.002666'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

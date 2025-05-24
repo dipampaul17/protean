@@ -1,0 +1,63 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_174628
+description: Infrastructure failure scenario for DataWarehouse
+duration: 1770
+metadata:
+  generated_at: '2025-05-23T17:46:28.960954'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:28.960827'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:25.960827'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:35.960827'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:39.960827'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:51:04.960827'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 234
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: rate limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.16824898025815332
+      response_time_ms: 9910
+      cpu_usage: 0.920108016417508
+      memory_usage: 0.8658361299244512
+- timestamp: '2025-05-23T17:51:25.960827'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 237
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: container crashed -
+      operation failed'
+    metrics:
+      error_rate: 0.40466500830433483
+      response_time_ms: 7858
+      cpu_usage: 0.963171173859583
+      memory_usage: 0.8601585459367201
+- timestamp: '2025-05-23T18:15:58.960827'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

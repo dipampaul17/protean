@@ -1,0 +1,90 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_174629",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 600,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.130187",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.130022",
+      "event_type": "trigger",
+      "description": "Initial failure detected: code error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:49.130022",
+      "event_type": "recovery",
+      "description": "Recovery: code alert",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:50.130022",
+      "event_type": "recovery",
+      "description": "Recovery: to monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:19.130022",
+      "event_type": "recovery",
+      "description": "Recovery: to monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:27.130022",
+      "event_type": "failure",
+      "description": "Failure: quot pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 83,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: quot pod - operation failed",
+        "metrics": {
+          "error_rate": 0.22550706829911002,
+          "response_time_ms": 1949,
+          "cpu_usage": 0.706539007142872,
+          "memory_usage": 0.9993072951819331
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:32.130022",
+      "event_type": "recovery",
+      "description": "Recovery: and memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:38.130022",
+      "event_type": "failure",
+      "description": "Failure: the service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 222,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: the service - operation failed",
+        "metrics": {
+          "error_rate": 0.33543587518946427,
+          "response_time_ms": 7366,
+          "cpu_usage": 0.9699622503892974,
+          "memory_usage": 0.9631947956087792
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:56:29.130022",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

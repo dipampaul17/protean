@@ -1,0 +1,72 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173452",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 1167,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.991736",
+    "phrase_templates_used": 36,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.991383",
+      "event_type": "trigger",
+      "description": "Initial failure detected: data container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:11.991383",
+      "event_type": "timeout",
+      "description": "Timeout: using rabbitmq",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 143,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR user-service: using rabbitmq - operation failed",
+        "metrics": {
+          "error_rate": 0.7238234770447239,
+          "response_time_ms": 4401,
+          "cpu_usage": 0.9583262928815179,
+          "memory_usage": 0.867460989060167
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:06.991383",
+      "event_type": "recovery",
+      "description": "Recovery: partitioned queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:41:18.991383",
+      "event_type": "failure",
+      "description": "Failure: the node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 113,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: the node - operation failed",
+        "metrics": {
+          "error_rate": 0.5036855637110297,
+          "response_time_ms": 3401,
+          "cpu_usage": 0.8822143952756112,
+          "memory_usage": 0.8179611421886879
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:54:19.991383",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

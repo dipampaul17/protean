@@ -1,0 +1,55 @@
+category: Microservices
+name: Microservices_20250523_173245
+description: Infrastructure failure scenario for Microservices
+duration: 542
+metadata:
+  generated_at: '2025-05-23T17:32:45.691542'
+  phrase_templates_used: 15
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.691441'
+  event_type: trigger
+  description: 'Initial failure detected: docker network'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:45.691441'
+  event_type: failure
+  description: 'Failure: headless service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 88
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: headless service -
+      operation failed'
+    metrics:
+      error_rate: 0.3582514823871844
+      response_time_ms: 3143
+      cpu_usage: 0.9566784364558527
+      memory_usage: 0.9984034187005012
+- timestamp: '2025-05-23T17:33:52.691441'
+  event_type: recovery
+  description: 'Recovery: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:22.691441'
+  event_type: failure
+  description: 'Failure: following error'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 126
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: following error - operation
+      failed'
+    metrics:
+      error_rate: 0.8957254646559978
+      response_time_ms: 7253
+      cpu_usage: 0.8045348070367485
+      memory_usage: 0.9155959076253005
+- timestamp: '2025-05-23T17:41:47.691441'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

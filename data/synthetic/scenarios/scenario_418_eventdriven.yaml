@@ -1,0 +1,89 @@
+category: EventDriven
+name: EventDriven_20250523_173453
+description: Message queue and event processing failures
+duration: 1768
+metadata:
+  generated_at: '2025-05-23T17:34:53.341973'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.341720'
+  event_type: trigger
+  description: 'Initial failure detected: failed to'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:35.341720'
+  event_type: recovery
+  description: 'Recovery: task queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:50.341720'
+  event_type: recovery
+  description: 'Recovery: on node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:18.341720'
+  event_type: timeout
+  description: 'Timeout: to restart'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 142
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-queue: queue processing to restart'
+    metrics:
+      error_rate: 0.20476262307143112
+      response_time_ms: 3544
+      cpu_usage: 0.7016518164316111
+      memory_usage: 0.97752846596287
+      queue_depth: 44093
+      message_processing_rate: 5.183633496262438
+      consumer_lag_ms: 208347
+- timestamp: '2025-05-23T17:37:59.341720'
+  event_type: timeout
+  description: 'Timeout: config server'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 211
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-queue: queue processing config
+      server'
+    metrics:
+      error_rate: 0.8495780139803404
+      response_time_ms: 2612
+      cpu_usage: 0.7044282363387935
+      memory_usage: 0.9374062581407635
+      queue_depth: 14043
+      message_processing_rate: 9.057189361697327
+      consumer_lag_ms: 71709
+- timestamp: '2025-05-23T17:38:26.341720'
+  event_type: recovery
+  description: 'Recovery: main queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:43.341720'
+  event_type: recovery
+  description: 'Recovery: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:51.341720'
+  event_type: timeout
+  description: 'Timeout: on node'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 229
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-queue: queue processing on node'
+    metrics:
+      error_rate: 0.6828097878833865
+      response_time_ms: 5280
+      cpu_usage: 0.7104857535560836
+      memory_usage: 0.9034111825025231
+      queue_depth: 26632
+      message_processing_rate: 9.83792665728196
+      consumer_lag_ms: 283539
+- timestamp: '2025-05-23T18:04:21.341720'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

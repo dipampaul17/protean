@@ -1,0 +1,93 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_173245
+description: Infrastructure failure scenario for ScalingFailure
+duration: 824
+metadata:
+  generated_at: '2025-05-23T17:32:45.690107'
+  phrase_templates_used: 24
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:32:45.689244'
+  event_type: trigger
+  description: 'Initial failure detected: the cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:08.689244'
+  event_type: timeout
+  description: 'Timeout: clusterip service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 131
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: clusterip service
+      - operation failed'
+    metrics:
+      error_rate: 0.7970899893247658
+      response_time_ms: 5957
+      cpu_usage: 0.8709713220059567
+      memory_usage: 0.8036201976314938
+- timestamp: '2025-05-23T17:33:17.689244'
+  event_type: timeout
+  description: 'Timeout: the node'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 253
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: the node - operation
+      failed'
+    metrics:
+      error_rate: 0.3737773257609278
+      response_time_ms: 8048
+      cpu_usage: 0.7563569212081441
+      memory_usage: 0.9100318440841706
+- timestamp: '2025-05-23T17:33:27.689244'
+  event_type: recovery
+  description: 'Recovery: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:30.689244'
+  event_type: recovery
+  description: 'Recovery: to fix'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:59.689244'
+  event_type: timeout
+  description: 'Timeout: clusterip service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 88
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: clusterip service
+      - operation failed'
+    metrics:
+      error_rate: 0.19320418878926893
+      response_time_ms: 8411
+      cpu_usage: 0.8521690409596637
+      memory_usage: 0.9871607453216398
+- timestamp: '2025-05-23T17:34:31.689244'
+  event_type: recovery
+  description: 'Recovery: the node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:38.689244'
+  event_type: failure
+  description: 'Failure: clusterip service'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 281
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: clusterip service - operation
+      failed'
+    metrics:
+      error_rate: 0.8084875521392688
+      response_time_ms: 2306
+      cpu_usage: 0.9485808273324844
+      memory_usage: 0.895836506879662
+- timestamp: '2025-05-23T17:46:29.689244'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

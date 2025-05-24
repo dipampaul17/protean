@@ -1,0 +1,80 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_174629
+description: Application deployment and rollback scenarios
+duration: 1510
+metadata:
+  generated_at: '2025-05-23T17:46:29.142653'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:29.142454'
+  event_type: trigger
+  description: 'Initial failure detected: code error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:54.142454'
+  event_type: failure
+  description: 'Failure: rolling update'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 104
+    log_snippet: '[2025-05-23 17:46:29] ERROR api-backend: rolling update in failure'
+    metrics:
+      error_rate: 0.8625022343445777
+      response_time_ms: 4780
+      cpu_usage: 0.7543364715224039
+      memory_usage: 0.8298546803557197
+- timestamp: '2025-05-23T17:49:10.142454'
+  event_type: failure
+  description: 'Failure: following error'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 267
+    log_snippet: '[2025-05-23 17:46:29] ERROR worker-consumer: following error in
+      failure'
+    metrics:
+      error_rate: 0.5709934557717239
+      response_time_ms: 8062
+      cpu_usage: 0.8811548556755098
+      memory_usage: 0.8483199079782869
+- timestamp: '2025-05-23T17:49:35.142454'
+  event_type: rollback
+  description: 'Rollback: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:36.142454'
+  event_type: failure
+  description: 'Failure: this error'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 148
+    log_snippet: '[2025-05-23 17:46:29] ERROR worker-consumer: this error in failure'
+    metrics:
+      error_rate: 0.32560844788959803
+      response_time_ms: 7916
+      cpu_usage: 0.8880253518231545
+      memory_usage: 0.8761300056887187
+- timestamp: '2025-05-23T17:49:41.142454'
+  event_type: deployment
+  description: 'Deployment: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:44.142454'
+  event_type: deployment
+  description: 'Deployment: temporary failure'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:01.142454'
+  event_type: deployment
+  description: 'Deployment: a deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T18:11:39.142454'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

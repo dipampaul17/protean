@@ -1,0 +1,80 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_174629
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 748
+metadata:
+  generated_at: '2025-05-23T17:46:29.063327'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:46:29.063196'
+  event_type: trigger
+  description: 'Initial failure detected: i monitor'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:01.063196'
+  event_type: failure
+  description: 'Failure: parse error'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 191
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: parse error - operation
+      failed'
+    metrics:
+      error_rate: 0.5008968310438247
+      response_time_ms: 1198
+      cpu_usage: 0.9256105498663887
+      memory_usage: 0.995967878479632
+- timestamp: '2025-05-23T17:47:02.063196'
+  event_type: timeout
+  description: 'Timeout: us log'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 298
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: us log - operation failed'
+    metrics:
+      error_rate: 0.46832148478393243
+      response_time_ms: 5823
+      cpu_usage: 0.9402645507209452
+      memory_usage: 0.9149134910073278
+- timestamp: '2025-05-23T17:47:12.063196'
+  event_type: failure
+  description: 'Failure: the service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 36
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: the service -
+      operation failed'
+    metrics:
+      error_rate: 0.5528509952690727
+      response_time_ms: 5055
+      cpu_usage: 0.8964319962447957
+      memory_usage: 0.8246238530756071
+- timestamp: '2025-05-23T17:47:12.063196'
+  event_type: failure
+  description: 'Failure: the error'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 200
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.5091348019278005
+      response_time_ms: 8196
+      cpu_usage: 0.9139018183418767
+      memory_usage: 0.9115097993023156
+- timestamp: '2025-05-23T17:58:57.063196'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

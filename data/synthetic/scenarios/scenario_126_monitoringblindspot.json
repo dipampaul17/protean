@@ -1,0 +1,96 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173452",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1157,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.994387",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.993657",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:15.993657",
+      "event_type": "recovery",
+      "description": "Recovery: code container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:26.993657",
+      "event_type": "failure",
+      "description": "Failure: docker container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 168,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: docker container - operation failed",
+        "metrics": {
+          "error_rate": 0.31790594083618,
+          "response_time_ms": 5007,
+          "cpu_usage": 0.8340287415893592,
+          "memory_usage": 0.9699141534615354
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:06.993657",
+      "event_type": "failure",
+      "description": "Failure: to fix",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 154,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: to fix - operation failed",
+        "metrics": {
+          "error_rate": 0.8206798246427209,
+          "response_time_ms": 9344,
+          "cpu_usage": 0.7678194343538151,
+          "memory_usage": 0.9649908197234919
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:59.993657",
+      "event_type": "recovery",
+      "description": "Recovery: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:06.993657",
+      "event_type": "failure",
+      "description": "Failure: prometheus server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 125,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR user-service: prometheus server - operation failed",
+        "metrics": {
+          "error_rate": 0.6375388224711035,
+          "response_time_ms": 7182,
+          "cpu_usage": 0.8068131641189134,
+          "memory_usage": 0.966630537012551
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:54:09.993657",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

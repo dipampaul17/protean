@@ -1,0 +1,72 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173453",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 975,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.356136",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.356018",
+      "event_type": "trigger",
+      "description": "Initial failure detected: string container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:34.356018",
+      "event_type": "config_change",
+      "description": "Config_Change: elasticsearch cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:33.356018",
+      "event_type": "failure",
+      "description": "Failure: kafka cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 159,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: kafka cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.7519480074656305,
+          "response_time_ms": 8442,
+          "cpu_usage": 0.8692579413502415,
+          "memory_usage": 0.9237278790865235
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:39.356018",
+      "event_type": "rollback",
+      "description": "Rollback: the deployment",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:47.356018",
+      "event_type": "rollback",
+      "description": "Rollback: xxxxxxx cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:05.356018",
+      "event_type": "restart",
+      "description": "Restart: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:51:08.356018",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

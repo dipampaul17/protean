@@ -1,0 +1,84 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_173707",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 1448,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.985912",
+    "phrase_templates_used": 15,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.985600",
+      "event_type": "trigger",
+      "description": "Initial failure detected: docker network",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:47.985600",
+      "event_type": "timeout",
+      "description": "Timeout: a service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 156,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.2471924106516255,
+          "response_time_ms": 8563,
+          "cpu_usage": 0.8670319765729474,
+          "memory_usage": 0.9661225945032947
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:01.985600",
+      "event_type": "failure",
+      "description": "Failure: the queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "medium",
+        "duration": 293,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.2181797933461866,
+          "response_time_ms": 735,
+          "cpu_usage": 0.48159256538794193,
+          "memory_usage": 0.435617053492555
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:32.985600",
+      "event_type": "timeout",
+      "description": "Timeout: another container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 72,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: another container - operation failed",
+        "metrics": {
+          "error_rate": 0.2707040637547252,
+          "response_time_ms": 1578,
+          "cpu_usage": 0.8703202442539693,
+          "memory_usage": 0.9345719094391932
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:01:15.985600",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

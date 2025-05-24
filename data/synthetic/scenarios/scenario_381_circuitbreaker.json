@@ -1,0 +1,90 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173453",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1686,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.288706",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.288581",
+      "event_type": "trigger",
+      "description": "Initial failure detected: customer service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:08.288581",
+      "event_type": "recovery",
+      "description": "Recovery: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:29.288581",
+      "event_type": "failure",
+      "description": "Failure: kubernetes cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 212,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: kubernetes cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.2718147672111451,
+          "response_time_ms": 1035,
+          "cpu_usage": 0.9376663732826337,
+          "memory_usage": 0.9288753349750645
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:34.288581",
+      "event_type": "timeout",
+      "description": "Timeout: to pod",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 91,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: to pod - operation failed",
+        "metrics": {
+          "error_rate": 0.16438794486121458,
+          "response_time_ms": 1657,
+          "cpu_usage": 0.9267513259240077,
+          "memory_usage": 0.819181569222069
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:28.288581",
+      "event_type": "failure",
+      "description": "Failure: scaled service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 96,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: scaled service - operation failed",
+        "metrics": {
+          "error_rate": 0.6615488253005035,
+          "response_time_ms": 1280,
+          "cpu_usage": 0.7840667269053894,
+          "memory_usage": 0.8501870011759886
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:02:59.288581",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

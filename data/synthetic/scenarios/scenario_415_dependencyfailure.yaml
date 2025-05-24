@@ -1,0 +1,85 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_174629
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1041
+metadata:
+  generated_at: '2025-05-23T17:46:29.128908'
+  phrase_templates_used: 45
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:46:29.128742'
+  event_type: trigger
+  description: 'Initial failure detected: existing connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:15.128742'
+  event_type: timeout
+  description: 'Timeout: the server'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 234
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.3197192309758772
+      response_time_ms: 2347
+      cpu_usage: 0.7428177118200004
+      memory_usage: 0.9321651250434931
+- timestamp: '2025-05-23T17:47:53.128742'
+  event_type: recovery
+  description: 'Recovery: per pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:04.128742'
+  event_type: timeout
+  description: 'Timeout: lt connection'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 293
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: lt connection - operation
+      failed'
+    metrics:
+      error_rate: 0.3901800131743437
+      response_time_ms: 1134
+      cpu_usage: 0.7228284533827272
+      memory_usage: 0.887333335156821
+- timestamp: '2025-05-23T17:49:20.128742'
+  event_type: failure
+  description: 'Failure: the container'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 289
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: the container
+      - operation failed'
+    metrics:
+      error_rate: 0.5492141846377637
+      response_time_ms: 9056
+      cpu_usage: 0.9870037287205
+      memory_usage: 0.9069446917788898
+- timestamp: '2025-05-23T17:49:50.128742'
+  event_type: failure
+  description: 'Failure: external service'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 282
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: external service - operation
+      failed'
+    metrics:
+      error_rate: 0.6559606254598905
+      response_time_ms: 4864
+      cpu_usage: 0.9788654547607997
+      memory_usage: 0.9383540969578397
+- timestamp: '2025-05-23T18:03:50.128742'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

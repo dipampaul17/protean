@@ -1,0 +1,66 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_173245
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1155
+metadata:
+  generated_at: '2025-05-23T17:32:45.713635'
+  phrase_templates_used: 45
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:32:45.713532'
+  event_type: trigger
+  description: 'Initial failure detected: to monitor'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:45.713532'
+  event_type: failure
+  description: 'Failure: the error'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 258
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.313982183054258
+      response_time_ms: 1932
+      cpu_usage: 0.9477214464734841
+      memory_usage: 0.8264702743120408
+- timestamp: '2025-05-23T17:34:45.713532'
+  event_type: timeout
+  description: 'Timeout: to monitor'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 191
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: to monitor - operation
+      failed'
+    metrics:
+      error_rate: 0.6818768859302138
+      response_time_ms: 9923
+      cpu_usage: 0.759140256900604
+      memory_usage: 0.8671476911517129
+- timestamp: '2025-05-23T17:38:41.713532'
+  event_type: failure
+  description: 'Failure: existing connection'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 231
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: existing connection -
+      operation failed'
+    metrics:
+      error_rate: 0.6114935259751519
+      response_time_ms: 5762
+      cpu_usage: 0.7203849942278474
+      memory_usage: 0.9789046534948965
+- timestamp: '2025-05-23T17:52:00.713532'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

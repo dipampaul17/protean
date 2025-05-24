@@ -1,0 +1,120 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173245",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 336,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.727629",
+    "phrase_templates_used": 36,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.727450",
+      "event_type": "trigger",
+      "description": "Initial failure detected: docker container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:57.727450",
+      "event_type": "recovery",
+      "description": "Recovery: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:58.727450",
+      "event_type": "recovery",
+      "description": "Recovery: instance storage",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:03.727450",
+      "event_type": "failure",
+      "description": "Failure: to fix",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 157,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: to fix - operation failed",
+        "metrics": {
+          "error_rate": 0.27827973405118844,
+          "response_time_ms": 5817,
+          "cpu_usage": 0.9094871731092047,
+          "memory_usage": 0.9732276758107195
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:17.727450",
+      "event_type": "failure",
+      "description": "Failure: the cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 289,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: the cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.7281157289256712,
+          "response_time_ms": 3974,
+          "cpu_usage": 0.9576460852463582,
+          "memory_usage": 0.8312589455704128
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:27.727450",
+      "event_type": "timeout",
+      "description": "Timeout: strong update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 261,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.18605554414990105,
+          "response_time_ms": 1826,
+          "cpu_usage": 0.9386356748989779,
+          "memory_usage": 0.8223965779425852
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:29.727450",
+      "event_type": "recovery",
+      "description": "Recovery: context cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:29.727450",
+      "event_type": "failure",
+      "description": "Failure: partitioned queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "medium",
+        "duration": 52,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: partitioned queue - operation failed",
+        "metrics": {
+          "error_rate": 0.07502649602670086,
+          "response_time_ms": 724,
+          "cpu_usage": 0.3545366759946506,
+          "memory_usage": 0.6782912602249884
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:21.727450",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

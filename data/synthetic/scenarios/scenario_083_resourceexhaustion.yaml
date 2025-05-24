@@ -1,0 +1,84 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173452
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 1712
+metadata:
+  generated_at: '2025-05-23T17:34:52.981805'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:52.981631'
+  event_type: trigger
+  description: 'Initial failure detected: http server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:20.981631'
+  event_type: timeout
+  description: 'Timeout: accessed memory'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 94
+    log_snippet: '[2025-05-23 17:34:52] ERROR payment-service: accessed memory - operation
+      failed'
+    metrics:
+      error_rate: 0.13560633835947364
+      response_time_ms: 7848
+      cpu_usage: 0.809261690778968
+      memory_usage: 0.9181359833528588
+- timestamp: '2025-05-23T17:35:38.981631'
+  event_type: failure
+  description: 'Failure: low disk'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 95
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: low disk - operation
+      failed'
+    metrics:
+      error_rate: 0.14747207279550772
+      response_time_ms: 4398
+      cpu_usage: 0.9151866180841677
+      memory_usage: 0.8756782417348936
+- timestamp: '2025-05-23T17:37:51.981631'
+  event_type: timeout
+  description: 'Timeout: a memory'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 37
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: a memory - operation failed'
+    metrics:
+      error_rate: 0.14080887104147763
+      response_time_ms: 9888
+      cpu_usage: 0.9314384557322474
+      memory_usage: 0.9190953585023545
+- timestamp: '2025-05-23T17:38:10.981631'
+  event_type: failure
+  description: 'Failure: heap memory'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 214
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: heap memory - operation
+      failed'
+    metrics:
+      error_rate: 0.5074519251938955
+      response_time_ms: 9249
+      cpu_usage: 0.8194178377972553
+      memory_usage: 0.8284418650658837
+- timestamp: '2025-05-23T17:38:35.981631'
+  event_type: recovery
+  description: 'Recovery: a memory'
+  injection_spec: null
+- timestamp: '2025-05-23T18:03:24.981631'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

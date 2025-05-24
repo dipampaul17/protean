@@ -1,0 +1,123 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_174628",
+  "description": "Database connectivity and performance issues",
+  "duration": 591,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.954190",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.953981",
+      "event_type": "trigger",
+      "description": "Initial failure detected: code error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:40.953981",
+      "event_type": "recovery",
+      "description": "Recovery: requires restart",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:40.953981",
+      "event_type": "timeout",
+      "description": "Timeout: code server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "postgres-replica",
+        "severity": "high",
+        "duration": 178,
+        "log_snippet": "[2025-05-23 17:46:28] FATAL postgres-replica: database code server detected",
+        "metrics": {
+          "error_rate": 0.13326504991118943,
+          "response_time_ms": 7576,
+          "cpu_usage": 0.7903149847995831,
+          "memory_usage": 0.8844919307779255,
+          "connection_pool_usage": 0.9307537852694844,
+          "query_time_ms": 20954,
+          "deadlocks_per_sec": 2
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:46.953981",
+      "event_type": "timeout",
+      "description": "Timeout: p error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 50,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR mongodb-shard: p error in timeout",
+        "metrics": {
+          "error_rate": 0.16686963112973308,
+          "response_time_ms": 3390,
+          "cpu_usage": 0.9143518691882697,
+          "memory_usage": 0.93725698123814,
+          "connection_pool_usage": 0.9449106380639235,
+          "query_time_ms": 26436,
+          "deadlocks_per_sec": 8
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:50.953981",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: your database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:01.953981",
+      "event_type": "corruption",
+      "description": "Corruption: my database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:16.953981",
+      "event_type": "recovery",
+      "description": "Recovery: docker container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:16.953981",
+      "event_type": "recovery",
+      "description": "Recovery: my database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:40.953981",
+      "event_type": "timeout",
+      "description": "Timeout: to update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 128,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR redis-cache: to update in timeout",
+        "metrics": {
+          "error_rate": 0.5052136417651617,
+          "response_time_ms": 7954,
+          "cpu_usage": 0.7194612626481992,
+          "memory_usage": 0.8889231544779972,
+          "connection_pool_usage": 0.8560575743532746,
+          "query_time_ms": 13412,
+          "deadlocks_per_sec": 10
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:56:19.953981",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

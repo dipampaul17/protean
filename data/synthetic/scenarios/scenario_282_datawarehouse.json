@@ -1,0 +1,72 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_173453",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 1285,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.209592",
+    "phrase_templates_used": 0,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.209227",
+      "event_type": "trigger",
+      "description": "Initial failure detected: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:48.209227",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:00.209227",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 281,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.4896620026450854,
+          "response_time_ms": 9188,
+          "cpu_usage": 0.8014594475339771,
+          "memory_usage": 0.9752367637893633
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:29.209227",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 66,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.8947593156048912,
+          "response_time_ms": 7359,
+          "cpu_usage": 0.9205057427861629,
+          "memory_usage": 0.9895608497807176
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:56:18.209227",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173708",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 928,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.060378",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.060252",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:18.060252",
+      "event_type": "failure",
+      "description": "Failure: the deployment",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 105,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: the deployment - operation failed",
+        "metrics": {
+          "error_rate": 0.25184762627450363,
+          "response_time_ms": 5082,
+          "cpu_usage": 0.765444437403829,
+          "memory_usage": 0.845598798431855
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:35.060252",
+      "event_type": "rollback",
+      "description": "Rollback: kafka log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:15.060252",
+      "event_type": "rollback",
+      "description": "Rollback: string container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:19.060252",
+      "event_type": "rollback",
+      "description": "Rollback: string update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:12.060252",
+      "event_type": "failure",
+      "description": "Failure: the queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "medium",
+        "duration": 99,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.013359635464019847,
+          "response_time_ms": 403,
+          "cpu_usage": 0.6308332893193624,
+          "memory_usage": 0.418901888098581
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:52:36.060252",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

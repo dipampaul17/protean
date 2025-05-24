@@ -1,0 +1,70 @@
+category: DataCorruption
+name: DataCorruption_20250523_173245
+description: Infrastructure failure scenario for DataCorruption
+duration: 325
+metadata:
+  generated_at: '2025-05-23T17:32:45.668287'
+  phrase_templates_used: 36
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:32:45.668164'
+  event_type: trigger
+  description: 'Initial failure detected: closed connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:08.668164'
+  event_type: recovery
+  description: 'Recovery: same node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:14.668164'
+  event_type: timeout
+  description: 'Timeout: to node'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 140
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: to node - operation
+      failed'
+    metrics:
+      error_rate: 0.7179833066726303
+      response_time_ms: 9332
+      cpu_usage: 0.93508984661295
+      memory_usage: 0.945390076430815
+- timestamp: '2025-05-23T17:33:26.668164'
+  event_type: failure
+  description: 'Failure: the node'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 231
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: the node - operation
+      failed'
+    metrics:
+      error_rate: 0.24664863178728702
+      response_time_ms: 9195
+      cpu_usage: 0.9174894701693905
+      memory_usage: 0.9110031574165106
+- timestamp: '2025-05-23T17:33:43.668164'
+  event_type: timeout
+  description: 'Timeout: data container'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 194
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: data container - operation
+      failed'
+    metrics:
+      error_rate: 0.3944027533186679
+      response_time_ms: 2048
+      cpu_usage: 0.8722794315147046
+      memory_usage: 0.913833350222421
+- timestamp: '2025-05-23T17:38:10.668164'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

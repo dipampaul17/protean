@@ -1,0 +1,66 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_174629
+description: Infrastructure failure scenario for DataWarehouse
+duration: 466
+metadata:
+  generated_at: '2025-05-23T17:46:29.145016'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:29.144878'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:07.144878'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 165
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: deployment failed
+      - operation failed'
+    metrics:
+      error_rate: 0.30553901908893877
+      response_time_ms: 1031
+      cpu_usage: 0.7874691548058882
+      memory_usage: 0.8838388594684353
+- timestamp: '2025-05-23T17:48:02.144878'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 123
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.34046336638704133
+      response_time_ms: 2189
+      cpu_usage: 0.9045072642455488
+      memory_usage: 0.8987988819707857
+- timestamp: '2025-05-23T17:48:04.144878'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 300
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.11790463266116227
+      response_time_ms: 4116
+      cpu_usage: 0.9306819062609666
+      memory_usage: 0.8643129022410885
+- timestamp: '2025-05-23T17:54:15.144878'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

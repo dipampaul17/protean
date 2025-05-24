@@ -1,0 +1,93 @@
+category: CloudNative
+name: CloudNative_20250523_173707
+description: Kubernetes pod and container orchestration issues
+duration: 802
+metadata:
+  generated_at: '2025-05-23T17:37:07.785858'
+  phrase_templates_used: 39
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:37:07.785606'
+  event_type: trigger
+  description: 'Initial failure detected: any log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:32.785606'
+  event_type: failure
+  description: 'Failure: a cluster'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 44
+    log_snippet: '[2025-05-23 17:37:07] ERROR worker-consumer: a cluster in failure'
+    metrics:
+      error_rate: 0.33795613970063876
+      response_time_ms: 9625
+      cpu_usage: 0.8596981540105644
+      memory_usage: 0.8578859928112376
+- timestamp: '2025-05-23T17:37:40.785606'
+  event_type: failure
+  description: 'Failure: your container'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 279
+    log_snippet: '[2025-05-23 17:37:07] ERROR api-backend: your container in failure'
+    metrics:
+      error_rate: 0.5327913856748133
+      response_time_ms: 2192
+      cpu_usage: 0.9724786574055395
+      memory_usage: 0.8755695767785501
+- timestamp: '2025-05-23T17:37:45.785606'
+  event_type: failure
+  description: 'Failure: your pod'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 47
+    log_snippet: '[2025-05-23 17:37:07] ERROR web-frontend: your pod in failure'
+    metrics:
+      error_rate: 0.515549755223944
+      response_time_ms: 2731
+      cpu_usage: 0.969647857069414
+      memory_usage: 0.9563748514983296
+- timestamp: '2025-05-23T17:38:11.785606'
+  event_type: deployment
+  description: 'Deployment: your cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:23.785606'
+  event_type: deployment
+  description: 'Deployment: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:35.785606'
+  event_type: failure
+  description: 'Failure: kind pod'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 105
+    log_snippet: '[2025-05-23 17:37:07] ERROR web-frontend: kind pod in failure'
+    metrics:
+      error_rate: 0.6475648903919162
+      response_time_ms: 2642
+      cpu_usage: 0.7813861500337218
+      memory_usage: 0.999755158168087
+- timestamp: '2025-05-23T17:38:36.785606'
+  event_type: pod_restart
+  description: 'Pod_Restart: dns server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:41.785606'
+  event_type: scaling
+  description: 'Scaling: your container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:29.785606'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

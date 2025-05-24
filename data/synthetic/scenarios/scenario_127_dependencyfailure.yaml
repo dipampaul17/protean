@@ -1,0 +1,100 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_173245
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1193
+metadata:
+  generated_at: '2025-05-23T17:32:45.688466'
+  phrase_templates_used: 45
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:32:45.688289'
+  event_type: trigger
+  description: 'Initial failure detected: to network'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:55.688289'
+  event_type: failure
+  description: 'Failure: existing connection'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 45
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: existing connection
+      - operation failed'
+    metrics:
+      error_rate: 0.4564796317547196
+      response_time_ms: 7675
+      cpu_usage: 0.7423388801456747
+      memory_usage: 0.9133104099167951
+- timestamp: '2025-05-23T17:33:29.688289'
+  event_type: timeout
+  description: 'Timeout: and update'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 191
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: and update - operation
+      failed'
+    metrics:
+      error_rate: 0.21374846557106786
+      response_time_ms: 4085
+      cpu_usage: 0.7096005682088669
+      memory_usage: 0.8838620298853683
+- timestamp: '2025-05-23T17:33:44.688289'
+  event_type: recovery
+  description: 'Recovery: per pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:18.688289'
+  event_type: failure
+  description: 'Failure: the node'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 124
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: the node - operation
+      failed'
+    metrics:
+      error_rate: 0.29770775448519987
+      response_time_ms: 8389
+      cpu_usage: 0.9016806827767408
+      memory_usage: 0.8021034943921639
+- timestamp: '2025-05-23T17:34:47.688289'
+  event_type: failure
+  description: 'Failure: strong update'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 288
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: strong update - operation
+      failed'
+    metrics:
+      error_rate: 0.6189051931217533
+      response_time_ms: 8826
+      cpu_usage: 0.8076440688749638
+      memory_usage: 0.8850208309025729
+- timestamp: '2025-05-23T17:34:49.688289'
+  event_type: failure
+  description: 'Failure: nginx error'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 134
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: nginx error - operation
+      failed'
+    metrics:
+      error_rate: 0.21925808439370958
+      response_time_ms: 7444
+      cpu_usage: 0.9012905312630225
+      memory_usage: 0.9650515269366431
+- timestamp: '2025-05-23T17:52:38.688289'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

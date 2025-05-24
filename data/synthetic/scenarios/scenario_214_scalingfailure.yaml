@@ -1,0 +1,130 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_174628
+description: Infrastructure failure scenario for ScalingFailure
+duration: 1257
+metadata:
+  generated_at: '2025-05-23T17:46:28.986992'
+  phrase_templates_used: 24
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 7
+events:
+- timestamp: '2025-05-23T17:46:28.986246'
+  event_type: trigger
+  description: 'Initial failure detected: to fix'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:59.986246'
+  event_type: timeout
+  description: 'Timeout: scaling scale'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 132
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: scaling scale - operation
+      failed'
+    metrics:
+      error_rate: 0.35538139675529445
+      response_time_ms: 3403
+      cpu_usage: 0.8663796290026968
+      memory_usage: 0.9574150227363207
+- timestamp: '2025-05-23T17:47:03.986246'
+  event_type: timeout
+  description: 'Timeout: an error'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 127
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: an error - operation
+      failed'
+    metrics:
+      error_rate: 0.7514204238070156
+      response_time_ms: 4467
+      cpu_usage: 0.7583334737467992
+      memory_usage: 0.9266740535778106
+- timestamp: '2025-05-23T17:47:05.986246'
+  event_type: failure
+  description: 'Failure: which node'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 55
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: which node - operation
+      failed'
+    metrics:
+      error_rate: 0.25963768811638877
+      response_time_ms: 5756
+      cpu_usage: 0.7085863319372754
+      memory_usage: 0.8059603457042678
+- timestamp: '2025-05-23T17:47:19.986246'
+  event_type: timeout
+  description: 'Timeout: scaling scale'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 171
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: scaling scale - operation
+      failed'
+    metrics:
+      error_rate: 0.8651869936836318
+      response_time_ms: 9621
+      cpu_usage: 0.7076477893439038
+      memory_usage: 0.9071924779175072
+- timestamp: '2025-05-23T17:47:34.986246'
+  event_type: failure
+  description: 'Failure: the server'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 171
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.1368935619981075
+      response_time_ms: 9594
+      cpu_usage: 0.8249745033715927
+      memory_usage: 0.9124722233218701
+- timestamp: '2025-05-23T17:48:14.986246'
+  event_type: failure
+  description: 'Failure: a cluster'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 166
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: a cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.8968347115952607
+      response_time_ms: 3021
+      cpu_usage: 0.766114918563253
+      memory_usage: 0.8365768898816462
+- timestamp: '2025-05-23T17:48:56.986246'
+  event_type: recovery
+  description: 'Recovery: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:04.986246'
+  event_type: failure
+  description: 'Failure: this error'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 101
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: this error - operation
+      failed'
+    metrics:
+      error_rate: 0.10990281594413834
+      response_time_ms: 6442
+      cpu_usage: 0.9725264055196732
+      memory_usage: 0.8735533855967148
+- timestamp: '2025-05-23T18:07:25.986246'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

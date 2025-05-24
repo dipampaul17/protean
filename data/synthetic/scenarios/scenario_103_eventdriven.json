@@ -1,0 +1,138 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173245",
+  "description": "Message queue and event processing failures",
+  "duration": 503,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.682432",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.681780",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:06.681780",
+      "event_type": "recovery",
+      "description": "Recovery: var log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:13.681780",
+      "event_type": "recovery",
+      "description": "Recovery: server restart",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:18.681780",
+      "event_type": "timeout",
+      "description": "Timeout: kafka server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-queue",
+        "severity": "high",
+        "duration": 197,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-queue: queue processing kafka server",
+        "metrics": {
+          "error_rate": 0.5607407882382888,
+          "response_time_ms": 4411,
+          "cpu_usage": 0.8304791629241337,
+          "memory_usage": 0.806474179908235,
+          "queue_depth": 24694,
+          "message_processing_rate": 5.703526366532841,
+          "consumer_lag_ms": 171967
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:27.681780",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: rabbitmq queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:29.681780",
+      "event_type": "timeout",
+      "description": "Timeout: current node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 85,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR batch-processing-queue: queue processing current node",
+        "metrics": {
+          "error_rate": 0.10141289325513805,
+          "response_time_ms": 8017,
+          "cpu_usage": 0.7196137189097739,
+          "memory_usage": 0.9605613422542443,
+          "queue_depth": 37535,
+          "message_processing_rate": 7.020643138708366,
+          "consumer_lag_ms": 209742
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:30.681780",
+      "event_type": "timeout",
+      "description": "Timeout: docker container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 224,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-queue: queue processing docker container",
+        "metrics": {
+          "error_rate": 0.6904842730687936,
+          "response_time_ms": 3165,
+          "cpu_usage": 0.7465576312660865,
+          "memory_usage": 0.8589242376848214,
+          "queue_depth": 47449,
+          "message_processing_rate": 9.224623347551855,
+          "consumer_lag_ms": 270635
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:31.681780",
+      "event_type": "recovery",
+      "description": "Recovery: single queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:44.681780",
+      "event_type": "timeout",
+      "description": "Timeout: var log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-queue",
+        "severity": "high",
+        "duration": 230,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-queue: queue processing var log",
+        "metrics": {
+          "error_rate": 0.1358752572741594,
+          "response_time_ms": 4372,
+          "cpu_usage": 0.8770095583040783,
+          "memory_usage": 0.8600561571287163,
+          "queue_depth": 44185,
+          "message_processing_rate": 4.787042145718294,
+          "consumer_lag_ms": 181249
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:08.681780",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

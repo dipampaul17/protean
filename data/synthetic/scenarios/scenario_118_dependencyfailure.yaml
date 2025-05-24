@@ -1,0 +1,89 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_173707
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1523
+metadata:
+  generated_at: '2025-05-23T17:37:07.960298'
+  phrase_templates_used: 45
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:07.960129'
+  event_type: trigger
+  description: 'Initial failure detected: web server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:37.960129'
+  event_type: failure
+  description: 'Failure: the server'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 288
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.4779611068899505
+      response_time_ms: 2251
+      cpu_usage: 0.7050130598286352
+      memory_usage: 0.9482426703385448
+- timestamp: '2025-05-23T17:37:53.960129'
+  event_type: failure
+  description: 'Failure: destination node'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 173
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: destination node - operation
+      failed'
+    metrics:
+      error_rate: 0.18220347320969435
+      response_time_ms: 5109
+      cpu_usage: 0.986394295818607
+      memory_usage: 0.8718431127785727
+- timestamp: '2025-05-23T17:38:02.960129'
+  event_type: recovery
+  description: 'Recovery: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:15.960129'
+  event_type: failure
+  description: 'Failure: external service'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 155
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: external service - operation
+      failed'
+    metrics:
+      error_rate: 0.40369271838356235
+      response_time_ms: 4711
+      cpu_usage: 0.9920738447446065
+      memory_usage: 0.8693311936140619
+- timestamp: '2025-05-23T17:38:29.960129'
+  event_type: failure
+  description: 'Failure: the queue'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: medium
+    duration: 205
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: the queue - operation
+      failed'
+    metrics:
+      error_rate: 0.07872766130577408
+      response_time_ms: 1290
+      cpu_usage: 0.6625711402592123
+      memory_usage: 0.5304656210822194
+- timestamp: '2025-05-23T17:39:17.960129'
+  event_type: recovery
+  description: 'Recovery: to update'
+  injection_spec: null
+- timestamp: '2025-05-23T18:02:30.960129'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,67 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173245
+description: Infrastructure failure scenario for ETLPipeline
+duration: 792
+metadata:
+  generated_at: '2025-05-23T17:32:45.705914'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.705762'
+  event_type: trigger
+  description: 'Initial failure detected: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:47.705762'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:59.705762'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:14.705762'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 90
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.5191349581763283
+      response_time_ms: 2698
+      cpu_usage: 0.928904605595772
+      memory_usage: 0.8443059752314309
+- timestamp: '2025-05-23T17:34:22.705762'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 186
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.8036862736676045
+      response_time_ms: 9203
+      cpu_usage: 0.775808965483911
+      memory_usage: 0.9436087231839347
+- timestamp: '2025-05-23T17:34:34.705762'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:35.705762'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:45:57.705762'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

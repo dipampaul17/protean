@@ -1,0 +1,132 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_174629",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 831,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.086451",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.086202",
+      "event_type": "trigger",
+      "description": "Initial failure detected: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:49.086202",
+      "event_type": "failure",
+      "description": "Failure: a service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 286,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.2181252564070853,
+          "response_time_ms": 8947,
+          "cpu_usage": 0.7335318479390679,
+          "memory_usage": 0.9199474879342173
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:02.086202",
+      "event_type": "recovery",
+      "description": "Recovery: each node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:07.086202",
+      "event_type": "recovery",
+      "description": "Recovery: to fix",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:17.086202",
+      "event_type": "failure",
+      "description": "Failure: a node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 175,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: a node - operation failed",
+        "metrics": {
+          "error_rate": 0.734929423861625,
+          "response_time_ms": 2744,
+          "cpu_usage": 0.7514428260419707,
+          "memory_usage": 0.9517801418528279
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:31.086202",
+      "event_type": "timeout",
+      "description": "Timeout: used cpu",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 146,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: used cpu - operation failed",
+        "metrics": {
+          "error_rate": 0.4578368154565281,
+          "response_time_ms": 2834,
+          "cpu_usage": 0.7501943959862067,
+          "memory_usage": 0.9168387732355342
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:14.086202",
+      "event_type": "timeout",
+      "description": "Timeout: to monitor",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 192,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: to monitor - operation failed",
+        "metrics": {
+          "error_rate": 0.6270130153655595,
+          "response_time_ms": 1582,
+          "cpu_usage": 0.7008821214600843,
+          "memory_usage": 0.9010793953742808
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:22.086202",
+      "event_type": "timeout",
+      "description": "Timeout: the error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 92,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: the error - operation failed",
+        "metrics": {
+          "error_rate": 0.3744774692290489,
+          "response_time_ms": 8949,
+          "cpu_usage": 0.84701394499009,
+          "memory_usage": 0.9499375714690472
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:00:20.086202",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

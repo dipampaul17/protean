@@ -1,0 +1,156 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_173453",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 1578,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.027323",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 7
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.027070",
+      "event_type": "trigger",
+      "description": "Initial failure detected: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:06.027070",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 55,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.5495804069283631,
+          "response_time_ms": 8861,
+          "cpu_usage": 0.7510043877482571,
+          "memory_usage": 0.8029488847701594
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:47.027070",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 289,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.7979988178196437,
+          "response_time_ms": 2524,
+          "cpu_usage": 0.9301700200366302,
+          "memory_usage": 0.8489339600979018
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:56.027070",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 127,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.3217830192354514,
+          "response_time_ms": 4536,
+          "cpu_usage": 0.9618084370666585,
+          "memory_usage": 0.948186692665601
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:56.027070",
+      "event_type": "failure",
+      "description": "Failure: memory limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 169,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.6071857267858702,
+          "response_time_ms": 6381,
+          "cpu_usage": 0.8684664265512512,
+          "memory_usage": 0.8708808998595986
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:09.027070",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 126,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.3845184805948091,
+          "response_time_ms": 7294,
+          "cpu_usage": 0.785488122091914,
+          "memory_usage": 0.8885792522167045
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:26.027070",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 256,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.5000708893723494,
+          "response_time_ms": 2543,
+          "cpu_usage": 0.8915412471966444,
+          "memory_usage": 0.8363514664865981
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:32.027070",
+      "event_type": "failure",
+      "description": "Failure: memory limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 75,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.10893397432133858,
+          "response_time_ms": 1192,
+          "cpu_usage": 0.7950275796821985,
+          "memory_usage": 0.8154597571488348
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:01:11.027070",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

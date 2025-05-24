@@ -1,0 +1,70 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173708
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1398
+metadata:
+  generated_at: '2025-05-23T17:37:08.076239'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:08.075955'
+  event_type: trigger
+  description: 'Initial failure detected: monitoring system'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:01.075955'
+  event_type: failure
+  description: 'Failure: and memory'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 163
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: and memory - operation
+      failed'
+    metrics:
+      error_rate: 0.41288817513721454
+      response_time_ms: 1772
+      cpu_usage: 0.8104719886443745
+      memory_usage: 0.8118690441812817
+- timestamp: '2025-05-23T17:38:11.075955'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 293
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.25974383443866056
+      response_time_ms: 3891
+      cpu_usage: 0.984319044812731
+      memory_usage: 0.9760944293971178
+- timestamp: '2025-05-23T17:39:04.075955'
+  event_type: timeout
+  description: 'Timeout: docker container'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 77
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: docker container - operation
+      failed'
+    metrics:
+      error_rate: 0.8502704884672391
+      response_time_ms: 9360
+      cpu_usage: 0.8884180250333755
+      memory_usage: 0.8271911217326954
+- timestamp: '2025-05-23T17:41:45.075955'
+  event_type: recovery
+  description: 'Recovery: the cpu'
+  injection_spec: null
+- timestamp: '2025-05-23T18:00:26.075955'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

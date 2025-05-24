@@ -1,0 +1,104 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173453
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 762
+metadata:
+  generated_at: '2025-05-23T17:34:53.345186'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:34:53.344995'
+  event_type: trigger
+  description: 'Initial failure detected: by container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:04.344995'
+  event_type: timeout
+  description: 'Timeout: the memory'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 178
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: the memory - operation
+      failed'
+    metrics:
+      error_rate: 0.3418816172222374
+      response_time_ms: 3311
+      cpu_usage: 0.8171831921214077
+      memory_usage: 0.920422268287356
+- timestamp: '2025-05-23T17:35:08.344995'
+  event_type: recovery
+  description: 'Recovery: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:11.344995'
+  event_type: recovery
+  description: 'Recovery: main memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:21.344995'
+  event_type: timeout
+  description: 'Timeout: float scale'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 127
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: float scale - operation
+      failed'
+    metrics:
+      error_rate: 0.2806063185129546
+      response_time_ms: 9780
+      cpu_usage: 0.8287176675385639
+      memory_usage: 0.828749653522906
+- timestamp: '2025-05-23T17:35:59.344995'
+  event_type: failure
+  description: 'Failure: the connection'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 274
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: the connection - operation
+      failed'
+    metrics:
+      error_rate: 0.6119772118627587
+      response_time_ms: 5192
+      cpu_usage: 0.8768571894103161
+      memory_usage: 0.8067949578668412
+- timestamp: '2025-05-23T17:36:10.344995'
+  event_type: failure
+  description: 'Failure: the container'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 296
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: the container - operation
+      failed'
+    metrics:
+      error_rate: 0.36457112490831767
+      response_time_ms: 5470
+      cpu_usage: 0.9709235415642671
+      memory_usage: 0.9856365653351394
+- timestamp: '2025-05-23T17:36:14.344995'
+  event_type: timeout
+  description: 'Timeout: by container'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 196
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: by container - operation
+      failed'
+    metrics:
+      error_rate: 0.5361848189183616
+      response_time_ms: 6711
+      cpu_usage: 0.8638507604325157
+      memory_usage: 0.8895058507218703
+- timestamp: '2025-05-23T17:47:35.344995'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

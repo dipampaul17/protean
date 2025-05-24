@@ -1,0 +1,107 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173245
+description: Circuit breaker activation due to cascading service failures
+duration: 1490
+metadata:
+  generated_at: '2025-05-23T17:32:45.776682'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 2
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:32:45.776460'
+  event_type: trigger
+  description: 'Initial failure detected: to restart'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:01.776460'
+  event_type: degradation
+  description: 'Degradation: the timeout'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: high
+    duration: 251
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: the timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.28326108865419264
+      response_time_ms: 4474
+      cpu_usage: 0.8361212352822595
+      memory_usage: 0.8905180766200742
+- timestamp: '2025-05-23T17:33:28.776460'
+  event_type: timeout
+  description: 'Timeout: the server'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 32
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.8910646272898284
+      response_time_ms: 4330
+      cpu_usage: 0.7067006497284528
+      memory_usage: 0.8394946888517322
+- timestamp: '2025-05-23T17:33:38.776460'
+  event_type: recovery
+  description: 'Recovery: p update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:46.776460'
+  event_type: recovery
+  description: 'Recovery: to restart'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:06.776460'
+  event_type: failure
+  description: 'Failure: handling connection'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 83
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: handling connection -
+      operation failed'
+    metrics:
+      error_rate: 0.3344937048124333
+      response_time_ms: 3376
+      cpu_usage: 0.8590595762033786
+      memory_usage: 0.9011617649334805
+- timestamp: '2025-05-23T17:34:31.776460'
+  event_type: degradation
+  description: 'Degradation: labels service'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: low
+    duration: 79
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: labels service
+      - operation failed'
+    metrics:
+      error_rate: 0.1394105763521303
+      response_time_ms: 1166
+      cpu_usage: 0.6540286258514487
+      memory_usage: 0.6906107420605805
+- timestamp: '2025-05-23T17:35:06.776460'
+  event_type: degradation
+  description: 'Degradation: to log'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: low
+    duration: 162
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: to log - operation failed'
+    metrics:
+      error_rate: 0.04186798069798708
+      response_time_ms: 1154
+      cpu_usage: 0.5346228663841013
+      memory_usage: 0.5592379440672977
+- timestamp: '2025-05-23T17:35:43.776460'
+  event_type: recovery
+  description: 'Recovery: message queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:57:35.776460'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

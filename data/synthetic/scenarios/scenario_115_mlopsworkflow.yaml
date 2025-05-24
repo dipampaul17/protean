@@ -1,0 +1,74 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_173707
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1383
+metadata:
+  generated_at: '2025-05-23T17:37:07.959566'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:07.959405'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:38.959405'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:15.959405'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:22.959405'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 95
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.8438807552849571
+      response_time_ms: 8688
+      cpu_usage: 0.9643181158459264
+      memory_usage: 0.8172105216137266
+- timestamp: '2025-05-23T17:40:46.959405'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 244
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.7694830007155724
+      response_time_ms: 3357
+      cpu_usage: 0.8165636172318882
+      memory_usage: 0.9689087302730606
+- timestamp: '2025-05-23T17:41:27.959405'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 190
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.22226160933767478
+      response_time_ms: 4134
+      cpu_usage: 0.9234546140027485
+      memory_usage: 0.801303186720484
+- timestamp: '2025-05-23T18:00:10.959405'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

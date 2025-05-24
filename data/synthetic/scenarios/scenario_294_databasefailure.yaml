@@ -1,0 +1,58 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173708
+description: Database connectivity and performance issues
+duration: 1478
+metadata:
+  generated_at: '2025-05-23T17:37:08.030070'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:37:08.029925'
+  event_type: trigger
+  description: 'Initial failure detected: metadatacreateindexservice node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:52.029925'
+  event_type: timeout
+  description: 'Timeout: to scale'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 56
+    log_snippet: '[2025-05-23 17:37:08] ERROR redis-cache: to scale in timeout'
+    metrics:
+      error_rate: 0.11235416215206229
+      response_time_ms: 9338
+      cpu_usage: 0.9342906086101447
+      memory_usage: 0.9520850585089874
+      connection_pool_usage: 0.8720803393906391
+      query_time_ms: 24626
+      deadlocks_per_sec: 7
+- timestamp: '2025-05-23T17:38:16.029925'
+  event_type: connection_loss
+  description: 'Connection_Loss: sudo service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:37.029925'
+  event_type: recovery
+  description: 'Recovery: an error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:38.029925'
+  event_type: connection_loss
+  description: 'Connection_Loss: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:47.029925'
+  event_type: corruption
+  description: 'Corruption: mysql error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:21.029925'
+  event_type: connection_loss
+  description: 'Connection_Loss: a database'
+  injection_spec: null
+- timestamp: '2025-05-23T18:01:46.029925'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

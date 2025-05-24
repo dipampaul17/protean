@@ -1,0 +1,96 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173707",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 1063,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.980661",
+    "phrase_templates_used": 36,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 2,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.980528",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:10.980528",
+      "event_type": "recovery",
+      "description": "Recovery: duplicate update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:07.980528",
+      "event_type": "recovery",
+      "description": "Recovery: using rabbitmq",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:09.980528",
+      "event_type": "failure",
+      "description": "Failure: message queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "medium",
+        "duration": 100,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: message queue - operation failed",
+        "metrics": {
+          "error_rate": 0.2984497431189667,
+          "response_time_ms": 1715,
+          "cpu_usage": 0.46850641407660526,
+          "memory_usage": 0.43771872808524054
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:09.980528",
+      "event_type": "failure",
+      "description": "Failure: message queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "medium",
+        "duration": 74,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: message queue - operation failed",
+        "metrics": {
+          "error_rate": 0.20010427862994243,
+          "response_time_ms": 1429,
+          "cpu_usage": 0.7446888128788482,
+          "memory_usage": 0.4516679634480901
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:29.980528",
+      "event_type": "timeout",
+      "description": "Timeout: the container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 280,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.8722707708802052,
+          "response_time_ms": 8527,
+          "cpu_usage": 0.9823036434127839,
+          "memory_usage": 0.8403557008147575
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:54:50.980528",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

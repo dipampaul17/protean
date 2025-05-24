@@ -1,0 +1,114 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_173453",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 1342,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.225817",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.225639",
+      "event_type": "trigger",
+      "description": "Initial failure detected: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:15.225639",
+      "event_type": "recovery",
+      "description": "Recovery: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:42.225639",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 237,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.4705133696834304,
+          "response_time_ms": 2774,
+          "cpu_usage": 0.8170275776179013,
+          "memory_usage": 0.9246354850410752
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:38.225639",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:01.225639",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 237,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.3254159192796481,
+          "response_time_ms": 2628,
+          "cpu_usage": 0.7688471644875119,
+          "memory_usage": 0.802101241430355
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:10.225639",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 146,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.2720998136911287,
+          "response_time_ms": 1021,
+          "cpu_usage": 0.9262316471098149,
+          "memory_usage": 0.9759605610477846
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:23.225639",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 69,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.5428801463016475,
+          "response_time_ms": 6620,
+          "cpu_usage": 0.7570160611280227,
+          "memory_usage": 0.9325107513004703
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:57:15.225639",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

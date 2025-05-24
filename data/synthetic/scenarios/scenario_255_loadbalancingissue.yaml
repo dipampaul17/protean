@@ -1,0 +1,67 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_174628
+description: Load balancer and traffic distribution problems
+duration: 1403
+metadata:
+  generated_at: '2025-05-23T17:46:28.998805'
+  phrase_templates_used: 13
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:28.998665'
+  event_type: trigger
+  description: 'Initial failure detected: loadbalancer service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:20.998665'
+  event_type: scaling
+  description: 'Scaling: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:05.998665'
+  event_type: scaling
+  description: 'Scaling: your cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:07.998665'
+  event_type: timeout
+  description: 'Timeout: your cluster'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 201
+    log_snippet: '[2025-05-23 17:46:28] ERROR subnet-private: your cluster in timeout'
+    metrics:
+      error_rate: 0.3715302770172111
+      response_time_ms: 6684
+      cpu_usage: 0.7421473790485478
+      memory_usage: 0.9642186326153556
+      requests_per_sec: 5964
+      backend_health_pct: 0.5296069351351725
+      connection_timeouts: 317
+- timestamp: '2025-05-23T17:49:16.998665'
+  event_type: timeout
+  description: 'Timeout: strong update'
+  injection_spec:
+    type: timeout
+    target: api-gateway
+    severity: high
+    duration: 38
+    log_snippet: '[2025-05-23 17:46:28] ERROR api-gateway: strong update in timeout'
+    metrics:
+      error_rate: 0.650730702627689
+      response_time_ms: 7392
+      cpu_usage: 0.884708747976648
+      memory_usage: 0.9431285670056757
+      requests_per_sec: 2367
+      backend_health_pct: 0.5541267350034813
+      connection_timeouts: 226
+- timestamp: '2025-05-23T17:50:05.998665'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: your cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T18:09:51.998665'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

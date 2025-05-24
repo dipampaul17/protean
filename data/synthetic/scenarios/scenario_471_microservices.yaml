@@ -1,0 +1,85 @@
+category: Microservices
+name: Microservices_20250523_173453
+description: Infrastructure failure scenario for Microservices
+duration: 1062
+metadata:
+  generated_at: '2025-05-23T17:34:53.356313'
+  phrase_templates_used: 15
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:53.356162'
+  event_type: trigger
+  description: 'Initial failure detected: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:43.356162'
+  event_type: recovery
+  description: 'Recovery: headless service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:49.356162'
+  event_type: timeout
+  description: 'Timeout: docker network'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 56
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: docker network
+      - operation failed'
+    metrics:
+      error_rate: 0.3896814269992658
+      response_time_ms: 6342
+      cpu_usage: 0.8135162852533125
+      memory_usage: 0.8638399667733724
+- timestamp: '2025-05-23T17:36:18.356162'
+  event_type: failure
+  description: 'Failure: following error'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 300
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: following error - operation
+      failed'
+    metrics:
+      error_rate: 0.8954764191919898
+      response_time_ms: 7961
+      cpu_usage: 0.9205996497263373
+      memory_usage: 0.9956892339488674
+- timestamp: '2025-05-23T17:37:52.356162'
+  event_type: timeout
+  description: 'Timeout: a container'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 218
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: a container - operation
+      failed'
+    metrics:
+      error_rate: 0.8330492232635807
+      response_time_ms: 2538
+      cpu_usage: 0.7318023173073358
+      memory_usage: 0.8507893144077187
+- timestamp: '2025-05-23T17:38:19.356162'
+  event_type: failure
+  description: 'Failure: headless service'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 268
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: headless service - operation
+      failed'
+    metrics:
+      error_rate: 0.23167670821737385
+      response_time_ms: 4990
+      cpu_usage: 0.8107848696233569
+      memory_usage: 0.8137287090038443
+- timestamp: '2025-05-23T17:52:35.356162'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

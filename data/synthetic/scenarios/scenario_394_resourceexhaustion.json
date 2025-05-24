@@ -1,0 +1,102 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_174629",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 965,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.122942",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.122791",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:38.122791",
+      "event_type": "failure",
+      "description": "Failure: double scale",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 179,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: double scale - operation failed",
+        "metrics": {
+          "error_rate": 0.29859900054863325,
+          "response_time_ms": 9334,
+          "cpu_usage": 0.7698412467347591,
+          "memory_usage": 0.8950231606563566
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:55.122791",
+      "event_type": "failure",
+      "description": "Failure: to fix",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 120,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: to fix - operation failed",
+        "metrics": {
+          "error_rate": 0.24582477656978696,
+          "response_time_ms": 5496,
+          "cpu_usage": 0.8131240912613326,
+          "memory_usage": 0.8287588680384401
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:03.122791",
+      "event_type": "failure",
+      "description": "Failure: redis connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 256,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: redis connection - operation failed",
+        "metrics": {
+          "error_rate": 0.8785547392056617,
+          "response_time_ms": 2444,
+          "cpu_usage": 0.8299312808523182,
+          "memory_usage": 0.812396192067776
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:18.122791",
+      "event_type": "timeout",
+      "description": "Timeout: to memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 239,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: to memory - operation failed",
+        "metrics": {
+          "error_rate": 0.3546893943740417,
+          "response_time_ms": 5532,
+          "cpu_usage": 0.8944438997818004,
+          "memory_usage": 0.933688313534769
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:02:34.122791",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

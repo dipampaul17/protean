@@ -1,0 +1,120 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_174629",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 732,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.166737",
+    "phrase_templates_used": 36,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.166505",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:57.166505",
+      "event_type": "recovery",
+      "description": "Recovery: the cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:09.166505",
+      "event_type": "timeout",
+      "description": "Timeout: the error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 80,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: the error - operation failed",
+        "metrics": {
+          "error_rate": 0.22083557607823245,
+          "response_time_ms": 4220,
+          "cpu_usage": 0.9848540604120489,
+          "memory_usage": 0.8383863972637859
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:52.166505",
+      "event_type": "recovery",
+      "description": "Recovery: head queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:54.166505",
+      "event_type": "failure",
+      "description": "Failure: instance storage",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 204,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: instance storage - operation failed",
+        "metrics": {
+          "error_rate": 0.3248645827612838,
+          "response_time_ms": 6073,
+          "cpu_usage": 0.8052507376840079,
+          "memory_usage": 0.8270786056168692
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:55.166505",
+      "event_type": "timeout",
+      "description": "Timeout: to fix",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 195,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: to fix - operation failed",
+        "metrics": {
+          "error_rate": 0.5419342562645147,
+          "response_time_ms": 8052,
+          "cpu_usage": 0.749241564503521,
+          "memory_usage": 0.8825365119296418
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:58.166505",
+      "event_type": "recovery",
+      "description": "Recovery: to disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:05.166505",
+      "event_type": "failure",
+      "description": "Failure: the node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 195,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: the node - operation failed",
+        "metrics": {
+          "error_rate": 0.6408736336070427,
+          "response_time_ms": 8124,
+          "cpu_usage": 0.8649085240185967,
+          "memory_usage": 0.8255792221875196
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:58:41.166505",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

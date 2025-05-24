@@ -1,0 +1,81 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_174629
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1457
+metadata:
+  generated_at: '2025-05-23T17:46:29.065587'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:29.065420'
+  event_type: trigger
+  description: 'Initial failure detected: monitoring service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:54.065420'
+  event_type: timeout
+  description: 'Timeout: each node'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 170
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: each node - operation
+      failed'
+    metrics:
+      error_rate: 0.8819260684345579
+      response_time_ms: 2610
+      cpu_usage: 0.7505248451214179
+      memory_usage: 0.8107565838857209
+- timestamp: '2025-05-23T17:47:32.065420'
+  event_type: failure
+  description: 'Failure: the database'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 197
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: the database - operation
+      failed'
+    metrics:
+      error_rate: 0.627367575596892
+      response_time_ms: 4182
+      cpu_usage: 0.9009769731627961
+      memory_usage: 0.9001677332795999
+- timestamp: '2025-05-23T17:47:34.065420'
+  event_type: timeout
+  description: 'Timeout: the node'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 169
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: the node - operation failed'
+    metrics:
+      error_rate: 0.3191732284267179
+      response_time_ms: 2922
+      cpu_usage: 0.7050262246377657
+      memory_usage: 0.9325340418128878
+- timestamp: '2025-05-23T17:47:52.065420'
+  event_type: recovery
+  description: 'Recovery: used cpu'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:31.065420'
+  event_type: recovery
+  description: 'Recovery: to fix'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:38.065420'
+  event_type: recovery
+  description: 'Recovery: an alert'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:54.065420'
+  event_type: recovery
+  description: 'Recovery: of cpu'
+  injection_spec: null
+- timestamp: '2025-05-23T18:10:46.065420'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

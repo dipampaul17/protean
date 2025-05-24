@@ -1,0 +1,48 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173245
+description: Configuration inconsistencies causing service degradation
+duration: 1340
+metadata:
+  generated_at: '2025-05-23T17:32:45.656948'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:32:45.656848'
+  event_type: trigger
+  description: 'Initial failure detected: following error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:18.656848'
+  event_type: failure
+  description: 'Failure: nginx server'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 42
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: nginx server -
+      operation failed'
+    metrics:
+      error_rate: 0.5645690944349143
+      response_time_ms: 5573
+      cpu_usage: 0.9102865399171491
+      memory_usage: 0.8589104618471757
+- timestamp: '2025-05-23T17:34:36.656848'
+  event_type: config_change
+  description: 'Config_Change: to update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:47.656848'
+  event_type: restart
+  description: 'Restart: docker network'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:23.656848'
+  event_type: rollback
+  description: 'Rollback: nginx server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:55:05.656848'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

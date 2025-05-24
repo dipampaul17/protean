@@ -1,0 +1,93 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173453
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 788
+metadata:
+  generated_at: '2025-05-23T17:34:53.217000'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.216811'
+  event_type: trigger
+  description: 'Initial failure detected: a node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:08.216811'
+  event_type: timeout
+  description: 'Timeout: reading database'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 155
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: reading database - operation
+      failed'
+    metrics:
+      error_rate: 0.4915614011543361
+      response_time_ms: 7418
+      cpu_usage: 0.9685347127449493
+      memory_usage: 0.8589831439604351
+- timestamp: '2025-05-23T17:35:11.216811'
+  event_type: failure
+  description: 'Failure: served memory'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 35
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: served memory - operation
+      failed'
+    metrics:
+      error_rate: 0.6234854646823843
+      response_time_ms: 7260
+      cpu_usage: 0.8016180809501794
+      memory_usage: 0.8129621356894872
+- timestamp: '2025-05-23T17:35:17.216811'
+  event_type: recovery
+  description: 'Recovery: http server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:36.216811'
+  event_type: recovery
+  description: 'Recovery: of memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:47.216811'
+  event_type: recovery
+  description: 'Recovery: of memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:08.216811'
+  event_type: failure
+  description: 'Failure: of memory'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 105
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: of memory - operation
+      failed'
+    metrics:
+      error_rate: 0.34015990276686836
+      response_time_ms: 8995
+      cpu_usage: 0.796733531495683
+      memory_usage: 0.8506530292669975
+- timestamp: '2025-05-23T17:36:38.216811'
+  event_type: timeout
+  description: 'Timeout: message queue'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: medium
+    duration: 154
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: message queue - operation
+      failed'
+    metrics:
+      error_rate: 0.19002968131690254
+      response_time_ms: 166
+      cpu_usage: 0.41048791823912195
+      memory_usage: 0.6495337672752817
+- timestamp: '2025-05-23T17:48:01.216811'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

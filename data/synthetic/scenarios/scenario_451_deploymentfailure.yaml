@@ -1,0 +1,57 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_174629
+description: Application deployment and rollback scenarios
+duration: 1766
+metadata:
+  generated_at: '2025-05-23T17:46:29.139900'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:29.139768'
+  event_type: trigger
+  description: 'Initial failure detected: p error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:39.139768'
+  event_type: failure
+  description: 'Failure: your container'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 263
+    log_snippet: '[2025-05-23 17:46:29] ERROR worker-consumer: your container in failure'
+    metrics:
+      error_rate: 0.15281593872403854
+      response_time_ms: 1033
+      cpu_usage: 0.8331724862382227
+      memory_usage: 0.8487260679719907
+- timestamp: '2025-05-23T17:47:17.139768'
+  event_type: scaling
+  description: 'Scaling: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:15.139768'
+  event_type: rollback
+  description: 'Rollback: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:52:28.139768'
+  event_type: failure
+  description: 'Failure: the service'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 217
+    log_snippet: '[2025-05-23 17:46:29] ERROR worker-consumer: the service in failure'
+    metrics:
+      error_rate: 0.24881064912280673
+      response_time_ms: 4596
+      cpu_usage: 0.9773449749780905
+      memory_usage: 0.8129188247357728
+- timestamp: '2025-05-23T18:15:55.139768'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

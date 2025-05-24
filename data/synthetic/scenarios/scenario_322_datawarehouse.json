@@ -1,0 +1,126 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_174629",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 1516,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.082423",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.082247",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:32.082247",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 234,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.64449722901253,
+          "response_time_ms": 3645,
+          "cpu_usage": 0.8690210838754824,
+          "memory_usage": 0.8104720745565984
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:02.082247",
+      "event_type": "timeout",
+      "description": "Timeout: disk space full",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 115,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.4871441022543991,
+          "response_time_ms": 3549,
+          "cpu_usage": 0.8782028665655603,
+          "memory_usage": 0.8878427981373116
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:04.082247",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 36,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.5013228551814141,
+          "response_time_ms": 5496,
+          "cpu_usage": 0.745911765013475,
+          "memory_usage": 0.8831879261779676
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:34.082247",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:37.082247",
+      "event_type": "failure",
+      "description": "Failure: memory limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 65,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.5341039468891923,
+          "response_time_ms": 6247,
+          "cpu_usage": 0.7101897720104361,
+          "memory_usage": 0.8074727151848623
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:00.082247",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 166,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.3251714839109793,
+          "response_time_ms": 4018,
+          "cpu_usage": 0.7476400624230428,
+          "memory_usage": 0.8245546661148963
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:11:45.082247",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

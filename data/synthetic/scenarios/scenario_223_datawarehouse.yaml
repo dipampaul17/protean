@@ -1,0 +1,81 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173245
+description: Infrastructure failure scenario for DataWarehouse
+duration: 1147
+metadata:
+  generated_at: '2025-05-23T17:32:45.726634'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:32:45.726507'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:26.726507'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 279
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.2601647340803229
+      response_time_ms: 7468
+      cpu_usage: 0.9174304227951778
+      memory_usage: 0.8189157081777684
+- timestamp: '2025-05-23T17:34:32.726507'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 128
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: circuit breaker
+      triggered - operation failed'
+    metrics:
+      error_rate: 0.8133851964536459
+      response_time_ms: 7106
+      cpu_usage: 0.9734067850235855
+      memory_usage: 0.8026320496016377
+- timestamp: '2025-05-23T17:36:32.726507'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 75
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: deployment failed -
+      operation failed'
+    metrics:
+      error_rate: 0.2023796717793001
+      response_time_ms: 5503
+      cpu_usage: 0.7201161765095251
+      memory_usage: 0.8199069313779841
+- timestamp: '2025-05-23T17:36:51.726507'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 179
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.7561858507882576
+      response_time_ms: 8728
+      cpu_usage: 0.7412787742490303
+      memory_usage: 0.9596538306244728
+- timestamp: '2025-05-23T17:51:52.726507'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

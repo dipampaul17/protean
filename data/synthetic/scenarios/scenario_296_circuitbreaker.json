@@ -1,0 +1,108 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173708",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1295,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.030390",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.030235",
+      "event_type": "trigger",
+      "description": "Initial failure detected: true error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:32.030235",
+      "event_type": "timeout",
+      "description": "Timeout: the container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 59,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.7342456202916539,
+          "response_time_ms": 2652,
+          "cpu_usage": 0.8773914222517587,
+          "memory_usage": 0.9607019156119251
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:31.030235",
+      "event_type": "degradation",
+      "description": "Degradation: letter queue",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "medium",
+        "duration": 196,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: letter queue - operation failed",
+        "metrics": {
+          "error_rate": 0.09580027525421335,
+          "response_time_ms": 1143,
+          "cpu_usage": 0.7343522300207073,
+          "memory_usage": 0.43522898769803514
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:50.030235",
+      "event_type": "timeout",
+      "description": "Timeout: info node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 157,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: info node - operation failed",
+        "metrics": {
+          "error_rate": 0.30617355433231747,
+          "response_time_ms": 6082,
+          "cpu_usage": 0.7645646389654313,
+          "memory_usage": 0.8747633129843466
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:43.030235",
+      "event_type": "failure",
+      "description": "Failure: to log",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 194,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: to log - operation failed",
+        "metrics": {
+          "error_rate": 0.2071900587662622,
+          "response_time_ms": 7443,
+          "cpu_usage": 0.8681374348712755,
+          "memory_usage": 0.8439460829127688
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:52.030235",
+      "event_type": "recovery",
+      "description": "Recovery: scaled service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:58:43.030235",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

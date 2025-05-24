@@ -1,0 +1,144 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173245",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1325,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.707223",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.707020",
+      "event_type": "trigger",
+      "description": "Initial failure detected: code server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:15.707020",
+      "event_type": "degradation",
+      "description": "Degradation: virtual memory",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "low",
+        "duration": 127,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: virtual memory - operation failed",
+        "metrics": {
+          "error_rate": 0.2111269574580871,
+          "response_time_ms": 330,
+          "cpu_usage": 0.4628295007716606,
+          "memory_usage": 0.4640182213355546
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:17.707020",
+      "event_type": "failure",
+      "description": "Failure: a service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 122,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.3137880723944565,
+          "response_time_ms": 1887,
+          "cpu_usage": 0.923211746974236,
+          "memory_usage": 0.9429308187645755
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:37.707020",
+      "event_type": "failure",
+      "description": "Failure: my server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 146,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: my server - operation failed",
+        "metrics": {
+          "error_rate": 0.8837338393329633,
+          "response_time_ms": 9523,
+          "cpu_usage": 0.8231006622442437,
+          "memory_usage": 0.9881004169222202
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:45.707020",
+      "event_type": "recovery",
+      "description": "Recovery: to restart",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:18.707020",
+      "event_type": "timeout",
+      "description": "Timeout: exceeded timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 220,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: exceeded timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.8897362788651585,
+          "response_time_ms": 8702,
+          "cpu_usage": 0.7057447773144881,
+          "memory_usage": 0.8437896563463798
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:35.707020",
+      "event_type": "timeout",
+      "description": "Timeout: the log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 137,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: the log - operation failed",
+        "metrics": {
+          "error_rate": 0.8925855451503905,
+          "response_time_ms": 6209,
+          "cpu_usage": 0.8167214379761745,
+          "memory_usage": 0.8552917475842965
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:27.707020",
+      "event_type": "failure",
+      "description": "Failure: gateway timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 150,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: gateway timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.600353682703337,
+          "response_time_ms": 5446,
+          "cpu_usage": 0.746605581209916,
+          "memory_usage": 0.9597769384132477
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:54:50.707020",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

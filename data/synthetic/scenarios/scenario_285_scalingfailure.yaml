@@ -1,0 +1,129 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_173708
+description: Infrastructure failure scenario for ScalingFailure
+duration: 645
+metadata:
+  generated_at: '2025-05-23T17:37:08.028294'
+  phrase_templates_used: 24
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 7
+events:
+- timestamp: '2025-05-23T17:37:08.028049'
+  event_type: trigger
+  description: 'Initial failure detected: scaling scale'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:18.028049'
+  event_type: timeout
+  description: 'Timeout: the service'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 38
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: the service - operation
+      failed'
+    metrics:
+      error_rate: 0.8233416533582532
+      response_time_ms: 1306
+      cpu_usage: 0.8745239872139413
+      memory_usage: 0.878629222895392
+- timestamp: '2025-05-23T17:37:20.028049'
+  event_type: timeout
+  description: 'Timeout: a service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 257
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.69168583845335
+      response_time_ms: 1176
+      cpu_usage: 0.7877125218259853
+      memory_usage: 0.845190364474071
+- timestamp: '2025-05-23T17:37:22.028049'
+  event_type: timeout
+  description: 'Timeout: the service'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 100
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: the service - operation
+      failed'
+    metrics:
+      error_rate: 0.7166066355296951
+      response_time_ms: 8660
+      cpu_usage: 0.7039295917829839
+      memory_usage: 0.9079918284890319
+- timestamp: '2025-05-23T17:37:27.028049'
+  event_type: failure
+  description: 'Failure: a server'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 237
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: a server - operation
+      failed'
+    metrics:
+      error_rate: 0.6549891176714019
+      response_time_ms: 7317
+      cpu_usage: 0.7221144286153132
+      memory_usage: 0.9981936159736241
+- timestamp: '2025-05-23T17:37:33.028049'
+  event_type: timeout
+  description: 'Timeout: to scale'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 239
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: to scale - operation failed'
+    metrics:
+      error_rate: 0.684148515399799
+      response_time_ms: 9980
+      cpu_usage: 0.941214115368038
+      memory_usage: 0.837634061070437
+- timestamp: '2025-05-23T17:37:41.028049'
+  event_type: recovery
+  description: 'Recovery: aws application'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:59.028049'
+  event_type: failure
+  description: 'Failure: scaling scale'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 76
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: scaling scale
+      - operation failed'
+    metrics:
+      error_rate: 0.8951542588619221
+      response_time_ms: 5696
+      cpu_usage: 0.7846949225952617
+      memory_usage: 0.9692402383848522
+- timestamp: '2025-05-23T17:38:21.028049'
+  event_type: failure
+  description: 'Failure: a server'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 178
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: a server - operation
+      failed'
+    metrics:
+      error_rate: 0.412813431957718
+      response_time_ms: 8675
+      cpu_usage: 0.905302202643122
+      memory_usage: 0.8050675947237377
+- timestamp: '2025-05-23T17:47:53.028049'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

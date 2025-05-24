@@ -1,0 +1,174 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_174629",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 864,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.166174",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 2,
+      "medium": 1,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.165912",
+      "event_type": "trigger",
+      "description": "Initial failure detected: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:46.165912",
+      "event_type": "degradation",
+      "description": "Degradation: code server",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "low",
+        "duration": 77,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: code server - operation failed",
+        "metrics": {
+          "error_rate": 0.1550225818546188,
+          "response_time_ms": 1743,
+          "cpu_usage": 0.7416187618536945,
+          "memory_usage": 0.5760248846860136
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:49.165912",
+      "event_type": "timeout",
+      "description": "Timeout: strong update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 97,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.5434564527281969,
+          "response_time_ms": 1359,
+          "cpu_usage": 0.8340702969643609,
+          "memory_usage": 0.8844411410495564
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:55.165912",
+      "event_type": "failure",
+      "description": "Failure: the log",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 239,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: the log - operation failed",
+        "metrics": {
+          "error_rate": 0.8107821214990522,
+          "response_time_ms": 5518,
+          "cpu_usage": 0.8777402931432527,
+          "memory_usage": 0.8205058046043241
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:20.165912",
+      "event_type": "degradation",
+      "description": "Degradation: my server",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "low",
+        "duration": 262,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: my server - operation failed",
+        "metrics": {
+          "error_rate": 0.2559029644814246,
+          "response_time_ms": 1609,
+          "cpu_usage": 0.701454025657306,
+          "memory_usage": 0.520000253632208
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:43.165912",
+      "event_type": "failure",
+      "description": "Failure: message queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "medium",
+        "duration": 86,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: message queue - operation failed",
+        "metrics": {
+          "error_rate": 0.19773497030670412,
+          "response_time_ms": 862,
+          "cpu_usage": 0.6039990087643,
+          "memory_usage": 0.4613301539229766
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:46.165912",
+      "event_type": "degradation",
+      "description": "Degradation: a timeout",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 83,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: a timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.7923566012992656,
+          "response_time_ms": 2742,
+          "cpu_usage": 0.7490189428361621,
+          "memory_usage": 0.9977393639311581
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:09.165912",
+      "event_type": "timeout",
+      "description": "Timeout: customer service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 295,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: customer service - operation failed",
+        "metrics": {
+          "error_rate": 0.1876849415258958,
+          "response_time_ms": 6720,
+          "cpu_usage": 0.7940569471216914,
+          "memory_usage": 0.8890928691133488
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:12.165912",
+      "event_type": "timeout",
+      "description": "Timeout: var log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 112,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: var log - operation failed",
+        "metrics": {
+          "error_rate": 0.14196733784561877,
+          "response_time_ms": 2277,
+          "cpu_usage": 0.7470720971254068,
+          "memory_usage": 0.9429278073171306
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:00:53.165912",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

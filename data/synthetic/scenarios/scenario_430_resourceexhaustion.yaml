@@ -1,0 +1,78 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173708
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 1777
+metadata:
+  generated_at: '2025-05-23T17:37:08.065625'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:08.065462'
+  event_type: trigger
+  description: 'Initial failure detected: to memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:23.065462'
+  event_type: failure
+  description: 'Failure: served memory'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 89
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: served memory
+      - operation failed'
+    metrics:
+      error_rate: 0.7555865310019654
+      response_time_ms: 3892
+      cpu_usage: 0.8728395199226978
+      memory_usage: 0.9071407685109247
+- timestamp: '2025-05-23T17:39:02.065462'
+  event_type: recovery
+  description: 'Recovery: scaled service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:12.065462'
+  event_type: failure
+  description: 'Failure: the container'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 282
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: the container - operation
+      failed'
+    metrics:
+      error_rate: 0.7203346680932333
+      response_time_ms: 3574
+      cpu_usage: 0.8962777861686071
+      memory_usage: 0.8048567689321177
+- timestamp: '2025-05-23T17:39:47.065462'
+  event_type: timeout
+  description: 'Timeout: associative cache'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 164
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: associative cache - operation
+      failed'
+    metrics:
+      error_rate: 0.17010572618916245
+      response_time_ms: 8642
+      cpu_usage: 0.8072332709332568
+      memory_usage: 0.8646683252250329
+- timestamp: '2025-05-23T17:40:56.065462'
+  event_type: recovery
+  description: 'Recovery: of disk'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:08.065462'
+  event_type: recovery
+  description: 'Recovery: the connection'
+  injection_spec: null
+- timestamp: '2025-05-23T18:06:45.065462'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

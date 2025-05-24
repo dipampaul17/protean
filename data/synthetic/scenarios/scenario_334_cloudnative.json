@@ -1,0 +1,108 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_173245",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 1124,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.756886",
+    "phrase_templates_used": 39,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.756638",
+      "event_type": "trigger",
+      "description": "Initial failure detected: kubernetes service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:39.756638",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: kubernetes error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:42.756638",
+      "event_type": "deployment",
+      "description": "Deployment: getting error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:00.756638",
+      "event_type": "failure",
+      "description": "Failure: any log",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 241,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR worker-consumer: any log in failure",
+        "metrics": {
+          "error_rate": 0.4825957260577626,
+          "response_time_ms": 3686,
+          "cpu_usage": 0.9344018622822667,
+          "memory_usage": 0.9633991372556567
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:16.756638",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: code service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:29.756638",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:52.756638",
+      "event_type": "failure",
+      "description": "Failure: the error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 253,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR api-backend: the error in failure",
+        "metrics": {
+          "error_rate": 0.19899620142885752,
+          "response_time_ms": 6657,
+          "cpu_usage": 0.8798352910229128,
+          "memory_usage": 0.8467138921715268
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:23.756638",
+      "event_type": "failure",
+      "description": "Failure: your cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 122,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR api-backend: your cluster in failure",
+        "metrics": {
+          "error_rate": 0.8103417924173592,
+          "response_time_ms": 7328,
+          "cpu_usage": 0.8872780999633978,
+          "memory_usage": 0.8258426217620825
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:51:29.756638",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

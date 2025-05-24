@@ -1,0 +1,93 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173245
+description: Infrastructure failure scenario for ETLPipeline
+duration: 549
+metadata:
+  generated_at: '2025-05-23T17:32:45.748398'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:32:45.748221'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:15.748221'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:20.748221'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:30.748221'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 112
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.10344292665203039
+      response_time_ms: 4385
+      cpu_usage: 0.9422783509584192
+      memory_usage: 0.9154452560941738
+- timestamp: '2025-05-23T17:33:36.748221'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 245
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: authentication
+      failed - operation failed'
+    metrics:
+      error_rate: 0.8668448402079975
+      response_time_ms: 3649
+      cpu_usage: 0.9162029651824593
+      memory_usage: 0.8316030565682395
+- timestamp: '2025-05-23T17:33:43.748221'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 74
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.200433364746712
+      response_time_ms: 9289
+      cpu_usage: 0.7325355409341828
+      memory_usage: 0.9156397535443758
+- timestamp: '2025-05-23T17:33:44.748221'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:59.748221'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 232
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.32236627951743985
+      response_time_ms: 2726
+      cpu_usage: 0.7597655628499489
+      memory_usage: 0.9894635960992659
+- timestamp: '2025-05-23T17:41:54.748221'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

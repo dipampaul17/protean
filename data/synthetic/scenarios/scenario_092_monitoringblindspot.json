@@ -1,0 +1,108 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_174628",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1418,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.953953",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.953778",
+      "event_type": "trigger",
+      "description": "Initial failure detected: i monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:57.953778",
+      "event_type": "failure",
+      "description": "Failure: the server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 52,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.5569380131236531,
+          "response_time_ms": 2662,
+          "cpu_usage": 0.9072525688077684,
+          "memory_usage": 0.9826730059830022
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:28.953778",
+      "event_type": "recovery",
+      "description": "Recovery: parse error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:58.953778",
+      "event_type": "recovery",
+      "description": "Recovery: prometheus server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:06.953778",
+      "event_type": "timeout",
+      "description": "Timeout: prometheus server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 292,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: prometheus server - operation failed",
+        "metrics": {
+          "error_rate": 0.241535285773238,
+          "response_time_ms": 2932,
+          "cpu_usage": 0.9941090898022358,
+          "memory_usage": 0.9210055889388353
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:26.953778",
+      "event_type": "failure",
+      "description": "Failure: prometheus server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 180,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: prometheus server - operation failed",
+        "metrics": {
+          "error_rate": 0.48431773679476653,
+          "response_time_ms": 4743,
+          "cpu_usage": 0.9548016284122238,
+          "memory_usage": 0.9117254258518931
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:29.953778",
+      "event_type": "recovery",
+      "description": "Recovery: and memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:50.953778",
+      "event_type": "recovery",
+      "description": "Recovery: the memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:10:06.953778",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173245
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1437
+metadata:
+  generated_at: '2025-05-23T17:32:45.746246'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:32:45.745140'
+  event_type: trigger
+  description: 'Initial failure detected: payment service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:55.745140'
+  event_type: recovery
+  description: 'Recovery: to scale'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:24.745140'
+  event_type: failure
+  description: 'Failure: or cpu'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 213
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: or cpu - operation failed'
+    metrics:
+      error_rate: 0.36527942790072176
+      response_time_ms: 2459
+      cpu_usage: 0.8938965111805317
+      memory_usage: 0.9484293617291627
+- timestamp: '2025-05-23T17:34:28.745140'
+  event_type: recovery
+  description: 'Recovery: monitoring service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:43.745140'
+  event_type: failure
+  description: 'Failure: monitoring system'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 250
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: monitoring system
+      - operation failed'
+    metrics:
+      error_rate: 0.8075596643545894
+      response_time_ms: 3756
+      cpu_usage: 0.7012071572647391
+      memory_usage: 0.9104775561791673
+- timestamp: '2025-05-23T17:34:55.745140'
+  event_type: failure
+  description: 'Failure: the error'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 136
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.21466069707523117
+      response_time_ms: 3820
+      cpu_usage: 0.9285109838193005
+      memory_usage: 0.9874878818450086
+- timestamp: '2025-05-23T17:35:38.745140'
+  event_type: failure
+  description: 'Failure: the database'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 241
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: the database - operation
+      failed'
+    metrics:
+      error_rate: 0.8219099773627954
+      response_time_ms: 6053
+      cpu_usage: 0.9747082831525488
+      memory_usage: 0.897797486856456
+- timestamp: '2025-05-23T17:56:42.745140'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

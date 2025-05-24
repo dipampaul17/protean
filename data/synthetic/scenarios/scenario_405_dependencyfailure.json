@@ -1,0 +1,90 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173245",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 566,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.773894",
+    "phrase_templates_used": 45,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.773774",
+      "event_type": "trigger",
+      "description": "Initial failure detected: failed to",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:00.773774",
+      "event_type": "failure",
+      "description": "Failure: illuminate container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 106,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: illuminate container - operation failed",
+        "metrics": {
+          "error_rate": 0.8354471146868153,
+          "response_time_ms": 3846,
+          "cpu_usage": 0.8770903079536823,
+          "memory_usage": 0.9141992338726614
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:25.773774",
+      "event_type": "recovery",
+      "description": "Recovery: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:12.773774",
+      "event_type": "failure",
+      "description": "Failure: nginx service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 213,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: nginx service - operation failed",
+        "metrics": {
+          "error_rate": 0.196750818942044,
+          "response_time_ms": 5585,
+          "cpu_usage": 0.8181482772270152,
+          "memory_usage": 0.9146444952594759
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:37.773774",
+      "event_type": "timeout",
+      "description": "Timeout: the queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "medium",
+        "duration": 142,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.20455258274609311,
+          "response_time_ms": 631,
+          "cpu_usage": 0.7010764389123144,
+          "memory_usage": 0.4928617475994711
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:42:11.773774",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

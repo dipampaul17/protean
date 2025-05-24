@@ -1,0 +1,69 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173707
+description: Application deployment and rollback scenarios
+duration: 598
+metadata:
+  generated_at: '2025-05-23T17:37:07.960103'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:07.959855'
+  event_type: trigger
+  description: 'Initial failure detected: code deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:39.959855'
+  event_type: deployment
+  description: 'Deployment: using jenkins'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:40.959855'
+  event_type: failure
+  description: 'Failure: a service'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 124
+    log_snippet: '[2025-05-23 17:37:07] ERROR api-backend: a service in failure'
+    metrics:
+      error_rate: 0.7391441215754414
+      response_time_ms: 1685
+      cpu_usage: 0.7993016176608175
+      memory_usage: 0.9607150288965509
+- timestamp: '2025-05-23T17:37:45.959855'
+  event_type: rollback
+  description: 'Rollback: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:50.959855'
+  event_type: deployment
+  description: 'Deployment: to deploy'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:50.959855'
+  event_type: failure
+  description: 'Failure: failed to'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 176
+    log_snippet: '[2025-05-23 17:37:07] ERROR worker-consumer: failed to in failure'
+    metrics:
+      error_rate: 0.31424030146201554
+      response_time_ms: 3049
+      cpu_usage: 0.7632003830639118
+      memory_usage: 0.8741034723213524
+- timestamp: '2025-05-23T17:38:06.959855'
+  event_type: scaling
+  description: 'Scaling: your deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:32.959855'
+  event_type: scaling
+  description: 'Scaling: code error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:05.959855'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

@@ -1,0 +1,104 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173245
+description: Infrastructure failure scenario for ETLPipeline
+duration: 911
+metadata:
+  generated_at: '2025-05-23T17:32:45.656823'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:32:45.656629'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:21.656629'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 95
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.15157900231672566
+      response_time_ms: 6803
+      cpu_usage: 0.8203897284451501
+      memory_usage: 0.9881477786775317
+- timestamp: '2025-05-23T17:33:25.656629'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 49
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: rate limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.541001562029495
+      response_time_ms: 1810
+      cpu_usage: 0.8083929864733777
+      memory_usage: 0.8240877511811207
+- timestamp: '2025-05-23T17:33:25.656629'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:20.656629'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:21.656629'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 84
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.8902329220992521
+      response_time_ms: 4733
+      cpu_usage: 0.727398417177064
+      memory_usage: 0.9124437871307002
+- timestamp: '2025-05-23T17:34:31.656629'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 76
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: disk space full
+      - operation failed'
+    metrics:
+      error_rate: 0.5393429482188855
+      response_time_ms: 5655
+      cpu_usage: 0.9019693229631087
+      memory_usage: 0.962390551151322
+- timestamp: '2025-05-23T17:34:48.656629'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 30
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.6787036953812973
+      response_time_ms: 7060
+      cpu_usage: 0.990998120824206
+      memory_usage: 0.9920938250448657
+- timestamp: '2025-05-23T17:47:56.656629'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,132 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_174629",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 1102,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.081915",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.081712",
+      "event_type": "trigger",
+      "description": "Initial failure detected: heap memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:59.081712",
+      "event_type": "recovery",
+      "description": "Recovery: of memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:14.081712",
+      "event_type": "failure",
+      "description": "Failure: double scale",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 262,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: double scale - operation failed",
+        "metrics": {
+          "error_rate": 0.17058024964096763,
+          "response_time_ms": 3810,
+          "cpu_usage": 0.9765842356397829,
+          "memory_usage": 0.8716476332989058
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:34.081712",
+      "event_type": "failure",
+      "description": "Failure: http server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 42,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: http server - operation failed",
+        "metrics": {
+          "error_rate": 0.8149255088163404,
+          "response_time_ms": 3344,
+          "cpu_usage": 0.9486856260587779,
+          "memory_usage": 0.8074011799729279
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:55.081712",
+      "event_type": "timeout",
+      "description": "Timeout: to memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 138,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: to memory - operation failed",
+        "metrics": {
+          "error_rate": 0.19985920660169107,
+          "response_time_ms": 6563,
+          "cpu_usage": 0.7448564332814421,
+          "memory_usage": 0.8889091907978336
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:03.081712",
+      "event_type": "failure",
+      "description": "Failure: accessed memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 183,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: accessed memory - operation failed",
+        "metrics": {
+          "error_rate": 0.32854319849196556,
+          "response_time_ms": 5138,
+          "cpu_usage": 0.9082031043074498,
+          "memory_usage": 0.9702894791411317
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:21.081712",
+      "event_type": "recovery",
+      "description": "Recovery: the connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:59.081712",
+      "event_type": "failure",
+      "description": "Failure: and fix",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 252,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: and fix - operation failed",
+        "metrics": {
+          "error_rate": 0.6300561963516016,
+          "response_time_ms": 7790,
+          "cpu_usage": 0.8440303270394305,
+          "memory_usage": 0.9651076124527291
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:04:51.081712",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

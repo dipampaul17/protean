@@ -1,0 +1,138 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173708",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 403,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.030767",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.030549",
+      "event_type": "trigger",
+      "description": "Initial failure detected: code server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:19.030549",
+      "event_type": "recovery",
+      "description": "Recovery: p update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:22.030549",
+      "event_type": "degradation",
+      "description": "Degradation: letter queue",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "medium",
+        "duration": 92,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: letter queue - operation failed",
+        "metrics": {
+          "error_rate": 0.18553241438722332,
+          "response_time_ms": 222,
+          "cpu_usage": 0.4335435523716255,
+          "memory_usage": 0.608129523563743
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:27.030549",
+      "event_type": "timeout",
+      "description": "Timeout: strong update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 293,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.727002778003738,
+          "response_time_ms": 6756,
+          "cpu_usage": 0.8417986881198671,
+          "memory_usage": 0.9242801573347167
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:37.030549",
+      "event_type": "timeout",
+      "description": "Timeout: handling connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 41,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: handling connection - operation failed",
+        "metrics": {
+          "error_rate": 0.6789522577243448,
+          "response_time_ms": 3350,
+          "cpu_usage": 0.9515129362964474,
+          "memory_usage": 0.8972713236491454
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:44.030549",
+      "event_type": "failure",
+      "description": "Failure: client error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 142,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: client error - operation failed",
+        "metrics": {
+          "error_rate": 0.7357723151660126,
+          "response_time_ms": 1989,
+          "cpu_usage": 0.9020711585052682,
+          "memory_usage": 0.8822058789379359
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:48.030549",
+      "event_type": "recovery",
+      "description": "Recovery: quot error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:55.030549",
+      "event_type": "failure",
+      "description": "Failure: the connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 65,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: the connection - operation failed",
+        "metrics": {
+          "error_rate": 0.2893136790162495,
+          "response_time_ms": 4370,
+          "cpu_usage": 0.7039719719977328,
+          "memory_usage": 0.8101658304236272
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:58.030549",
+      "event_type": "recovery",
+      "description": "Recovery: quot error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:43:51.030549",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

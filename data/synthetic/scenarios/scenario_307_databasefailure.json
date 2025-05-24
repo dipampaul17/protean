@@ -1,0 +1,117 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173245",
+  "description": "Database connectivity and performance issues",
+  "duration": 959,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.750319",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.750129",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:58.750129",
+      "event_type": "recovery",
+      "description": "Recovery: mysql server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:19.750129",
+      "event_type": "corruption",
+      "description": "Corruption: code update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:28.750129",
+      "event_type": "timeout",
+      "description": "Timeout: my database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 245,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR mongodb-shard: my database in timeout",
+        "metrics": {
+          "error_rate": 0.13204985410787007,
+          "response_time_ms": 4133,
+          "cpu_usage": 0.9803580485662058,
+          "memory_usage": 0.9972537837833164,
+          "connection_pool_usage": 0.8879844065886586,
+          "query_time_ms": 23660,
+          "deadlocks_per_sec": 5
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:30.750129",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: get update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:31.750129",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: create database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:32.750129",
+      "event_type": "timeout",
+      "description": "Timeout: message queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "postgres-replica",
+        "severity": "medium",
+        "duration": 205,
+        "log_snippet": "[2025-05-23 17:32:45] FATAL postgres-replica: database message queue detected",
+        "metrics": {
+          "error_rate": 0.01564186465147198,
+          "response_time_ms": 191,
+          "cpu_usage": 0.6269300943766037,
+          "memory_usage": 0.4169787746540651,
+          "connection_pool_usage": 0.8192656214989384,
+          "query_time_ms": 26861,
+          "deadlocks_per_sec": 6
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:46.750129",
+      "event_type": "timeout",
+      "description": "Timeout: a database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 100,
+        "log_snippet": "[2025-05-23 17:32:45] FATAL mysql-primary: database a database detected",
+        "metrics": {
+          "error_rate": 0.3004952875600438,
+          "response_time_ms": 7160,
+          "cpu_usage": 0.9358601784760672,
+          "memory_usage": 0.8670734895078188,
+          "connection_pool_usage": 0.8450194135168666,
+          "query_time_ms": 20415,
+          "deadlocks_per_sec": 7
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:44.750129",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

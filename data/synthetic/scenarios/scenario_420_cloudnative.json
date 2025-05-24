@@ -1,0 +1,84 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_173245",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 448,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.777922",
+    "phrase_templates_used": 39,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.777791",
+      "event_type": "trigger",
+      "description": "Initial failure detected: your pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:58.777791",
+      "event_type": "deployment",
+      "description": "Deployment: an error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:02.777791",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: the cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:30.777791",
+      "event_type": "failure",
+      "description": "Failure: to restart",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 65,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR worker-consumer: to restart in failure",
+        "metrics": {
+          "error_rate": 0.14480690265409582,
+          "response_time_ms": 3783,
+          "cpu_usage": 0.7657540734230192,
+          "memory_usage": 0.8259496736875067
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:54.777791",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: to restart",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:00.777791",
+      "event_type": "failure",
+      "description": "Failure: deleted pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 158,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR worker-consumer: deleted pod in failure",
+        "metrics": {
+          "error_rate": 0.7494704649534081,
+          "response_time_ms": 8868,
+          "cpu_usage": 0.9260862203451603,
+          "memory_usage": 0.823932050122206
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:13.777791",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173245",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 1373,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.661910",
+    "phrase_templates_used": 45,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.661707",
+      "event_type": "trigger",
+      "description": "Initial failure detected: upstream server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:14.661707",
+      "event_type": "timeout",
+      "description": "Timeout: to network",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 75,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: to network - operation failed",
+        "metrics": {
+          "error_rate": 0.34863823427829743,
+          "response_time_ms": 7231,
+          "cpu_usage": 0.8067578901693425,
+          "memory_usage": 0.946167407096927
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:18.661707",
+      "event_type": "failure",
+      "description": "Failure: upstream queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "medium",
+        "duration": 33,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: upstream queue - operation failed",
+        "metrics": {
+          "error_rate": 0.21863584999774802,
+          "response_time_ms": 1860,
+          "cpu_usage": 0.5452814334910163,
+          "memory_usage": 0.6518085437113023
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:19.661707",
+      "event_type": "timeout",
+      "description": "Timeout: destination node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 149,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: destination node - operation failed",
+        "metrics": {
+          "error_rate": 0.8823047078297135,
+          "response_time_ms": 7040,
+          "cpu_usage": 0.9407697681466477,
+          "memory_usage": 0.93460185166087
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:51.661707",
+      "event_type": "recovery",
+      "description": "Recovery: illuminate container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:57.661707",
+      "event_type": "failure",
+      "description": "Failure: the server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 279,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.13555840699267296,
+          "response_time_ms": 7824,
+          "cpu_usage": 0.904775133093865,
+          "memory_usage": 0.9042122283122769
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:58.661707",
+      "event_type": "failure",
+      "description": "Failure: closed connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 266,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: closed connection - operation failed",
+        "metrics": {
+          "error_rate": 0.6563707766835984,
+          "response_time_ms": 1200,
+          "cpu_usage": 0.9667939079339439,
+          "memory_usage": 0.8057295669387297
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:09.661707",
+      "event_type": "recovery",
+      "description": "Recovery: upstream server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:55:38.661707",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

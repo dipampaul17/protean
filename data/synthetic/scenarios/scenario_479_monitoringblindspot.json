@@ -1,0 +1,120 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173708",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 434,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.080571",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.080417",
+      "event_type": "trigger",
+      "description": "Initial failure detected: monitoring service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:20.080417",
+      "event_type": "failure",
+      "description": "Failure: kubernetes pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 211,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: kubernetes pod - operation failed",
+        "metrics": {
+          "error_rate": 0.7124780986986047,
+          "response_time_ms": 7708,
+          "cpu_usage": 0.9759747515526882,
+          "memory_usage": 0.8162084276496152
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:32.080417",
+      "event_type": "failure",
+      "description": "Failure: payment service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 83,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: payment service - operation failed",
+        "metrics": {
+          "error_rate": 0.25443437352820475,
+          "response_time_ms": 4165,
+          "cpu_usage": 0.8435051824528281,
+          "memory_usage": 0.9943754584449384
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:49.080417",
+      "event_type": "failure",
+      "description": "Failure: to monitor",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 282,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: to monitor - operation failed",
+        "metrics": {
+          "error_rate": 0.47225065094234076,
+          "response_time_ms": 6720,
+          "cpu_usage": 0.844839484081362,
+          "memory_usage": 0.8899550827636707
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:56.080417",
+      "event_type": "timeout",
+      "description": "Timeout: and memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 285,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: and memory - operation failed",
+        "metrics": {
+          "error_rate": 0.2663481703578755,
+          "response_time_ms": 1444,
+          "cpu_usage": 0.9806486219237069,
+          "memory_usage": 0.9290291059260172
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:13.080417",
+      "event_type": "failure",
+      "description": "Failure: the server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 61,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.8623266712767998,
+          "response_time_ms": 1947,
+          "cpu_usage": 0.7647808382301291,
+          "memory_usage": 0.8685772874739353
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:44:22.080417",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

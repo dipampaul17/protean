@@ -1,0 +1,67 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173453
+description: Infrastructure failure scenario for ETLPipeline
+duration: 1767
+metadata:
+  generated_at: '2025-05-23T17:34:53.221614'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:34:53.221470'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:31.221470'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:06.221470'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 162
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.3767320783316792
+      response_time_ms: 4978
+      cpu_usage: 0.9079219285554806
+      memory_usage: 0.8885919036332903
+- timestamp: '2025-05-23T17:37:00.221470'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:02.221470'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:27.221470'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:47.221470'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 47
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.14127136309011387
+      response_time_ms: 3865
+      cpu_usage: 0.805338270288467
+      memory_usage: 0.9996103261291515
+- timestamp: '2025-05-23T18:04:20.221470'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

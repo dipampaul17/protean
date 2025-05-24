@@ -1,0 +1,147 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173245",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 914,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.769574",
+    "phrase_templates_used": 13,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.769138",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:43.769138",
+      "event_type": "timeout",
+      "description": "Timeout: web server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 39,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR load-balancer: web server in timeout",
+        "metrics": {
+          "error_rate": 0.5096027347024558,
+          "response_time_ms": 4063,
+          "cpu_usage": 0.801125322679477,
+          "memory_usage": 0.9306292820520368,
+          "requests_per_sec": 2146,
+          "backend_health_pct": 0.7653899562420423,
+          "connection_timeouts": 226
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:48.769138",
+      "event_type": "timeout",
+      "description": "Timeout: loadbalancer service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 61,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR load-balancer: loadbalancer service in timeout",
+        "metrics": {
+          "error_rate": 0.1013011411609643,
+          "response_time_ms": 9895,
+          "cpu_usage": 0.7774224154809543,
+          "memory_usage": 0.9269730645750073,
+          "requests_per_sec": 1839,
+          "backend_health_pct": 0.7396553260806629,
+          "connection_timeouts": 314
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:14.769138",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: a server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:19.769138",
+      "event_type": "timeout",
+      "description": "Timeout: a pod",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 297,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR api-gateway: a pod in timeout",
+        "metrics": {
+          "error_rate": 0.5448399706669711,
+          "response_time_ms": 1251,
+          "cpu_usage": 0.8046531160176821,
+          "memory_usage": 0.9767787044219931,
+          "requests_per_sec": 9301,
+          "backend_health_pct": 0.7646717323719425,
+          "connection_timeouts": 170
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:38.769138",
+      "event_type": "timeout",
+      "description": "Timeout: loadbalancer service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "subnet-private",
+        "severity": "high",
+        "duration": 118,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR subnet-private: loadbalancer service in timeout",
+        "metrics": {
+          "error_rate": 0.17016959798521372,
+          "response_time_ms": 9733,
+          "cpu_usage": 0.9193064590933344,
+          "memory_usage": 0.9469170074080425,
+          "requests_per_sec": 964,
+          "backend_health_pct": 0.7672979524570931,
+          "connection_timeouts": 31
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:38.769138",
+      "event_type": "scaling",
+      "description": "Scaling: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:50.769138",
+      "event_type": "timeout",
+      "description": "Timeout: your cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 171,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR api-gateway: your cluster in timeout",
+        "metrics": {
+          "error_rate": 0.11419158126556175,
+          "response_time_ms": 6229,
+          "cpu_usage": 0.9117269163675514,
+          "memory_usage": 0.8025556703968231,
+          "requests_per_sec": 3482,
+          "backend_health_pct": 0.6104794091740785,
+          "connection_timeouts": 360
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:59.769138",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173708",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 704,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.082136",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.082010",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:01.082010",
+      "event_type": "timeout",
+      "description": "Timeout: the alert",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 40,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: the alert - operation failed",
+        "metrics": {
+          "error_rate": 0.26335671132534444,
+          "response_time_ms": 5719,
+          "cpu_usage": 0.9994494348980154,
+          "memory_usage": 0.9030697039889434
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:24.082010",
+      "event_type": "failure",
+      "description": "Failure: a service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 272,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.28847746450581435,
+          "response_time_ms": 7552,
+          "cpu_usage": 0.7268718795392857,
+          "memory_usage": 0.8780063021628214
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:22.082010",
+      "event_type": "timeout",
+      "description": "Timeout: connection refused",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 86,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: connection refused - operation failed",
+        "metrics": {
+          "error_rate": 0.6052741643779718,
+          "response_time_ms": 8173,
+          "cpu_usage": 0.7465684830802637,
+          "memory_usage": 0.8195951479476954
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:36.082010",
+      "event_type": "timeout",
+      "description": "Timeout: a server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 157,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: a server - operation failed",
+        "metrics": {
+          "error_rate": 0.35172236463621365,
+          "response_time_ms": 4907,
+          "cpu_usage": 0.8960690045131166,
+          "memory_usage": 0.9025528418528931
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:52.082010",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

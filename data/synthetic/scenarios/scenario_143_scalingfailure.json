@@ -1,0 +1,126 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_174628",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 746,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.966202",
+    "phrase_templates_used": 24,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.966020",
+      "event_type": "trigger",
+      "description": "Initial failure detected: which node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:45.966020",
+      "event_type": "timeout",
+      "description": "Timeout: a service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 246,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.2400853839084559,
+          "response_time_ms": 5183,
+          "cpu_usage": 0.9485574354304175,
+          "memory_usage": 0.8244147696192369
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:04.966020",
+      "event_type": "recovery",
+      "description": "Recovery: https connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:43.966020",
+      "event_type": "timeout",
+      "description": "Timeout: clusterip service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 93,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: clusterip service - operation failed",
+        "metrics": {
+          "error_rate": 0.4368589677427044,
+          "response_time_ms": 7517,
+          "cpu_usage": 0.7143795459773894,
+          "memory_usage": 0.9539771265814094
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:02.966020",
+      "event_type": "failure",
+      "description": "Failure: scaling scale",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 107,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: scaling scale - operation failed",
+        "metrics": {
+          "error_rate": 0.5716069160668712,
+          "response_time_ms": 9970,
+          "cpu_usage": 0.9484746736532061,
+          "memory_usage": 0.8326663542596797
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:22.966020",
+      "event_type": "timeout",
+      "description": "Timeout: load balancer",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 130,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: load balancer - operation failed",
+        "metrics": {
+          "error_rate": 0.6014757264464031,
+          "response_time_ms": 1118,
+          "cpu_usage": 0.8927047583666092,
+          "memory_usage": 0.8683978441684526
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:32.966020",
+      "event_type": "failure",
+      "description": "Failure: the service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 163,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: the service - operation failed",
+        "metrics": {
+          "error_rate": 0.755220286754273,
+          "response_time_ms": 3540,
+          "cpu_usage": 0.9574816819992901,
+          "memory_usage": 0.9418643472683591
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:58:54.966020",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

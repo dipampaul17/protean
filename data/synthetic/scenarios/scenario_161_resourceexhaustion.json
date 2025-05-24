@@ -1,0 +1,162 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_173707",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 863,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.988141",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 7
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.987194",
+      "event_type": "trigger",
+      "description": "Initial failure detected: of disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:20.987194",
+      "event_type": "failure",
+      "description": "Failure: a connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 229,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: a connection - operation failed",
+        "metrics": {
+          "error_rate": 0.24541048042806368,
+          "response_time_ms": 5612,
+          "cpu_usage": 0.9057112263929985,
+          "memory_usage": 0.9243835989811809
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:20.987194",
+      "event_type": "timeout",
+      "description": "Timeout: to fix",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 185,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: to fix - operation failed",
+        "metrics": {
+          "error_rate": 0.20137224854060315,
+          "response_time_ms": 6075,
+          "cpu_usage": 0.7941811545042714,
+          "memory_usage": 0.9370215895788945
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:30.987194",
+      "event_type": "timeout",
+      "description": "Timeout: em connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 204,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: em connection - operation failed",
+        "metrics": {
+          "error_rate": 0.10290298021470906,
+          "response_time_ms": 2757,
+          "cpu_usage": 0.9491524868349164,
+          "memory_usage": 0.9617213456235136
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:39.987194",
+      "event_type": "timeout",
+      "description": "Timeout: the container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 43,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.15714501816006382,
+          "response_time_ms": 3068,
+          "cpu_usage": 0.7999575158328405,
+          "memory_usage": 0.841929415322381
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:39.987194",
+      "event_type": "timeout",
+      "description": "Timeout: the container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 117,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.48393406730891597,
+          "response_time_ms": 1183,
+          "cpu_usage": 0.7261855503516815,
+          "memory_usage": 0.8865778431430945
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:40.987194",
+      "event_type": "failure",
+      "description": "Failure: associative cache",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 293,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: associative cache - operation failed",
+        "metrics": {
+          "error_rate": 0.5667212759549022,
+          "response_time_ms": 3910,
+          "cpu_usage": 0.9825615786017243,
+          "memory_usage": 0.902464501706284
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:48.987194",
+      "event_type": "failure",
+      "description": "Failure: customer service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 273,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: customer service - operation failed",
+        "metrics": {
+          "error_rate": 0.23489190662048368,
+          "response_time_ms": 1353,
+          "cpu_usage": 0.8722897046596025,
+          "memory_usage": 0.9119835901580636
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:58.987194",
+      "event_type": "recovery",
+      "description": "Recovery: associative cache",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:51:30.987194",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173708
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 866
+metadata:
+  generated_at: '2025-05-23T17:37:08.079935'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:37:08.079753'
+  event_type: trigger
+  description: 'Initial failure detected: and memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:10.079753'
+  event_type: failure
+  description: 'Failure: customer service'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 200
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: customer service - operation
+      failed'
+    metrics:
+      error_rate: 0.5972336816095244
+      response_time_ms: 8211
+      cpu_usage: 0.8597921998907856
+      memory_usage: 0.8816085805731231
+- timestamp: '2025-05-23T17:38:15.079753'
+  event_type: failure
+  description: 'Failure: of cpu'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 271
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: of cpu - operation failed'
+    metrics:
+      error_rate: 0.7030218146025998
+      response_time_ms: 3600
+      cpu_usage: 0.9705163313048197
+      memory_usage: 0.9980674276564026
+- timestamp: '2025-05-23T17:38:36.079753'
+  event_type: timeout
+  description: 'Timeout: customer service'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 31
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: customer service -
+      operation failed'
+    metrics:
+      error_rate: 0.8967584912165255
+      response_time_ms: 9314
+      cpu_usage: 0.7495503951942605
+      memory_usage: 0.8070883053244864
+- timestamp: '2025-05-23T17:38:42.079753'
+  event_type: timeout
+  description: 'Timeout: an alert'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 280
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: an alert - operation failed'
+    metrics:
+      error_rate: 0.21741488978468615
+      response_time_ms: 1681
+      cpu_usage: 0.9670867036835809
+      memory_usage: 0.8450084528851305
+- timestamp: '2025-05-23T17:38:58.079753'
+  event_type: timeout
+  description: 'Timeout: to fix'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 273
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: to fix - operation
+      failed'
+    metrics:
+      error_rate: 0.6430657250739235
+      response_time_ms: 9265
+      cpu_usage: 0.7367845900094885
+      memory_usage: 0.9240861127111275
+- timestamp: '2025-05-23T17:39:17.079753'
+  event_type: failure
+  description: 'Failure: to fix'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 178
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: to fix - operation failed'
+    metrics:
+      error_rate: 0.28528640521876697
+      response_time_ms: 8698
+      cpu_usage: 0.8643308929065397
+      memory_usage: 0.9426337364972797
+- timestamp: '2025-05-23T17:51:34.079753'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

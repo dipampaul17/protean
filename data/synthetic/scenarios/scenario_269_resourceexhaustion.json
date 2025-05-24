@@ -1,0 +1,84 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_174629",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 1582,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.022620",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.022486",
+      "event_type": "trigger",
+      "description": "Initial failure detected: low disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:54:01.022486",
+      "event_type": "failure",
+      "description": "Failure: of memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 245,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: of memory - operation failed",
+        "metrics": {
+          "error_rate": 0.6795450437577248,
+          "response_time_ms": 3604,
+          "cpu_usage": 0.8300869798732992,
+          "memory_usage": 0.8970285183187071
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:54:17.022486",
+      "event_type": "failure",
+      "description": "Failure: the service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 103,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: the service - operation failed",
+        "metrics": {
+          "error_rate": 0.40105103254312,
+          "response_time_ms": 8452,
+          "cpu_usage": 0.7932186327541975,
+          "memory_usage": 0.9346636960014345
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:54:49.022486",
+      "event_type": "failure",
+      "description": "Failure: a memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 209,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: a memory - operation failed",
+        "metrics": {
+          "error_rate": 0.5601042495542663,
+          "response_time_ms": 9584,
+          "cpu_usage": 0.7850097596917798,
+          "memory_usage": 0.9626983773910118
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:12:51.022486",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

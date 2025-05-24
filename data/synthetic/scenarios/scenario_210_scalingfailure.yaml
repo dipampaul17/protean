@@ -1,0 +1,140 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_173708
+description: Infrastructure failure scenario for ScalingFailure
+duration: 1170
+metadata:
+  generated_at: '2025-05-23T17:37:08.007908'
+  phrase_templates_used: 24
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 8
+events:
+- timestamp: '2025-05-23T17:37:08.007104'
+  event_type: trigger
+  description: 'Initial failure detected: per server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:29.007104'
+  event_type: failure
+  description: 'Failure: a service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 236
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.4072946626146393
+      response_time_ms: 4350
+      cpu_usage: 0.8896147330245731
+      memory_usage: 0.8239027638170245
+- timestamp: '2025-05-23T17:37:55.007104'
+  event_type: timeout
+  description: 'Timeout: the server'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 77
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.8649129511142214
+      response_time_ms: 9649
+      cpu_usage: 0.9146364991866895
+      memory_usage: 0.9166336329513254
+- timestamp: '2025-05-23T17:37:56.007104'
+  event_type: failure
+  description: 'Failure: nodeport service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 81
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: nodeport service -
+      operation failed'
+    metrics:
+      error_rate: 0.566956261144522
+      response_time_ms: 7448
+      cpu_usage: 0.7426422700181066
+      memory_usage: 0.9870113443708682
+- timestamp: '2025-05-23T17:38:23.007104'
+  event_type: failure
+  description: 'Failure: nodeport service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 276
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: nodeport service
+      - operation failed'
+    metrics:
+      error_rate: 0.6845269807068501
+      response_time_ms: 3871
+      cpu_usage: 0.743471314880033
+      memory_usage: 0.847081909295295
+- timestamp: '2025-05-23T17:38:50.007104'
+  event_type: failure
+  description: 'Failure: to fix'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 153
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: to fix - operation failed'
+    metrics:
+      error_rate: 0.40141165752773833
+      response_time_ms: 6164
+      cpu_usage: 0.8915805521691018
+      memory_usage: 0.9554236902641262
+- timestamp: '2025-05-23T17:39:27.007104'
+  event_type: failure
+  description: 'Failure: to fix'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 141
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: to fix - operation
+      failed'
+    metrics:
+      error_rate: 0.15932604576541545
+      response_time_ms: 2169
+      cpu_usage: 0.8363956530669927
+      memory_usage: 0.9866259037275807
+- timestamp: '2025-05-23T17:39:29.007104'
+  event_type: timeout
+  description: 'Timeout: this service'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 189
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: this service - operation
+      failed'
+    metrics:
+      error_rate: 0.5666640042227586
+      response_time_ms: 7952
+      cpu_usage: 0.7273460926843205
+      memory_usage: 0.8042168077820941
+- timestamp: '2025-05-23T17:39:30.007104'
+  event_type: failure
+  description: 'Failure: https connection'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 59
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: https connection -
+      operation failed'
+    metrics:
+      error_rate: 0.18217191821894174
+      response_time_ms: 1041
+      cpu_usage: 0.9272008974002057
+      memory_usage: 0.864077257385431
+- timestamp: '2025-05-23T17:56:38.007104'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

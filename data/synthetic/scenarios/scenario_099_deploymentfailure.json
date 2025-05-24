@@ -1,0 +1,96 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173245",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1043,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.681107",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.680359",
+      "event_type": "trigger",
+      "description": "Initial failure detected: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:59.680359",
+      "event_type": "scaling",
+      "description": "Scaling: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:01.680359",
+      "event_type": "failure",
+      "description": "Failure: the queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "medium",
+        "duration": 213,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR nginx-proxy: the queue in failure",
+        "metrics": {
+          "error_rate": 0.23883794449034743,
+          "response_time_ms": 542,
+          "cpu_usage": 0.5998817397603524,
+          "memory_usage": 0.411382589226842
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:13.680359",
+      "event_type": "deployment",
+      "description": "Deployment: your deployment",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:56.680359",
+      "event_type": "scaling",
+      "description": "Scaling: following error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:56.680359",
+      "event_type": "failure",
+      "description": "Failure: during deployment",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 224,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR nginx-proxy: during deployment in failure",
+        "metrics": {
+          "error_rate": 0.36504521675492907,
+          "response_time_ms": 1051,
+          "cpu_usage": 0.9298903311168122,
+          "memory_usage": 0.9098764180348623
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:11.680359",
+      "event_type": "scaling",
+      "description": "Scaling: kubernetes error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:30.680359",
+      "event_type": "scaling",
+      "description": "Scaling: kubernetes pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:08.680359",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

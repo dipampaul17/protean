@@ -1,0 +1,67 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173245
+description: Infrastructure failure scenario for DataWarehouse
+duration: 784
+metadata:
+  generated_at: '2025-05-23T17:32:45.688937'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.688787'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:58.688787'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:29.688787'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:30.688787'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 214
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.2946529563123959
+      response_time_ms: 7749
+      cpu_usage: 0.7847472597327876
+      memory_usage: 0.8359848109267372
+- timestamp: '2025-05-23T17:34:24.688787'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:26.688787'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:40.688787'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 198
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.5494039081360509
+      response_time_ms: 3757
+      cpu_usage: 0.8740322430914909
+      memory_usage: 0.9348549551523979
+- timestamp: '2025-05-23T17:45:49.688787'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

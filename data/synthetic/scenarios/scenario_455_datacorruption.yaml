@@ -1,0 +1,103 @@
+category: DataCorruption
+name: DataCorruption_20250523_174629
+description: Infrastructure failure scenario for DataCorruption
+duration: 1084
+metadata:
+  generated_at: '2025-05-23T17:46:29.142288'
+  phrase_templates_used: 36
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:46:29.141338'
+  event_type: trigger
+  description: 'Initial failure detected: to fix'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:00.141338'
+  event_type: failure
+  description: 'Failure: the error'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 180
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.6353616453323425
+      response_time_ms: 2021
+      cpu_usage: 0.7027369590203768
+      memory_usage: 0.8206118845480151
+- timestamp: '2025-05-23T17:47:22.141338'
+  event_type: failure
+  description: 'Failure: the container'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 103
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: the container - operation
+      failed'
+    metrics:
+      error_rate: 0.7616561549529546
+      response_time_ms: 8150
+      cpu_usage: 0.913728990917543
+      memory_usage: 0.9016077086774628
+- timestamp: '2025-05-23T17:47:26.141338'
+  event_type: failure
+  description: 'Failure: to disk'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 176
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: to disk - operation failed'
+    metrics:
+      error_rate: 0.68917588887375
+      response_time_ms: 8729
+      cpu_usage: 0.7062793298944129
+      memory_usage: 0.8218507233801038
+- timestamp: '2025-05-23T17:47:41.141338'
+  event_type: recovery
+  description: 'Recovery: to node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:55.141338'
+  event_type: failure
+  description: 'Failure: second node'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 40
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: second node -
+      operation failed'
+    metrics:
+      error_rate: 0.6429346795602008
+      response_time_ms: 7139
+      cpu_usage: 0.8227053015998698
+      memory_usage: 0.9439936071625195
+- timestamp: '2025-05-23T17:48:01.141338'
+  event_type: timeout
+  description: 'Timeout: the cluster'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 292
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: the cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.22986827855156175
+      response_time_ms: 5866
+      cpu_usage: 0.9413976304758369
+      memory_usage: 0.935764527569249
+- timestamp: '2025-05-23T17:48:37.141338'
+  event_type: recovery
+  description: 'Recovery: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T18:04:33.141338'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,70 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_174628
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 812
+metadata:
+  generated_at: '2025-05-23T17:46:28.953211'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:28.953071'
+  event_type: trigger
+  description: 'Initial failure detected: reading database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:43.953071'
+  event_type: failure
+  description: 'Failure: served memory'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 243
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: served memory - operation
+      failed'
+    metrics:
+      error_rate: 0.8532799137306136
+      response_time_ms: 7014
+      cpu_usage: 0.8826327735404301
+      memory_usage: 0.974665823467048
+- timestamp: '2025-05-23T17:47:07.953071'
+  event_type: failure
+  description: 'Failure: double scale'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 249
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: double scale - operation
+      failed'
+    metrics:
+      error_rate: 0.8869070693962076
+      response_time_ms: 4932
+      cpu_usage: 0.8162190996583509
+      memory_usage: 0.9629456518623941
+- timestamp: '2025-05-23T17:49:22.953071'
+  event_type: recovery
+  description: 'Recovery: the memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:23.953071'
+  event_type: timeout
+  description: 'Timeout: a connection'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 217
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: a connection - operation
+      failed'
+    metrics:
+      error_rate: 0.8603629426029368
+      response_time_ms: 5152
+      cpu_usage: 0.8929529946918876
+      memory_usage: 0.9944893319500128
+- timestamp: '2025-05-23T18:00:00.953071'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

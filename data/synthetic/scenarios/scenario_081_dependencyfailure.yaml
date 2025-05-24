@@ -1,0 +1,129 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_174628
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1568
+metadata:
+  generated_at: '2025-05-23T17:46:28.928207'
+  phrase_templates_used: 45
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 7
+events:
+- timestamp: '2025-05-23T17:46:28.927946'
+  event_type: trigger
+  description: 'Initial failure detected: and update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:13.927946'
+  event_type: timeout
+  description: 'Timeout: the connection'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 155
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: the connection - operation
+      failed'
+    metrics:
+      error_rate: 0.7816500405491877
+      response_time_ms: 9921
+      cpu_usage: 0.7205848712102771
+      memory_usage: 0.9476273194888372
+- timestamp: '2025-05-23T17:47:44.927946'
+  event_type: timeout
+  description: 'Timeout: lt connection'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 257
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: lt connection - operation
+      failed'
+    metrics:
+      error_rate: 0.4299322168024894
+      response_time_ms: 9848
+      cpu_usage: 0.8706384216865642
+      memory_usage: 0.8987522531382606
+- timestamp: '2025-05-23T17:48:21.927946'
+  event_type: failure
+  description: 'Failure: get update'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 271
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: get update - operation
+      failed'
+    metrics:
+      error_rate: 0.13968393637098953
+      response_time_ms: 2078
+      cpu_usage: 0.873520227312894
+      memory_usage: 0.9904995815841804
+- timestamp: '2025-05-23T17:48:41.927946'
+  event_type: recovery
+  description: 'Recovery: following error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:54.927946'
+  event_type: timeout
+  description: 'Timeout: connect service'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 276
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: connect service - operation
+      failed'
+    metrics:
+      error_rate: 0.5271114999532993
+      response_time_ms: 9079
+      cpu_usage: 0.9160740505855454
+      memory_usage: 0.8240981587158397
+- timestamp: '2025-05-23T17:49:03.927946'
+  event_type: timeout
+  description: 'Timeout: failed to'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 93
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: failed to - operation
+      failed'
+    metrics:
+      error_rate: 0.7386546166239282
+      response_time_ms: 3487
+      cpu_usage: 0.7474797989027276
+      memory_usage: 0.8699976882673052
+- timestamp: '2025-05-23T17:49:13.927946'
+  event_type: failure
+  description: 'Failure: the node'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 234
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: the node - operation failed'
+    metrics:
+      error_rate: 0.21630556256712652
+      response_time_ms: 1628
+      cpu_usage: 0.8815108802570398
+      memory_usage: 0.9468951875749104
+- timestamp: '2025-05-23T17:49:29.927946'
+  event_type: timeout
+  description: 'Timeout: the container'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 193
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: the container
+      - operation failed'
+    metrics:
+      error_rate: 0.7307061322911425
+      response_time_ms: 4077
+      cpu_usage: 0.97093705361256
+      memory_usage: 0.8702421117201973
+- timestamp: '2025-05-23T18:12:36.927946'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,108 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173707",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1233,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.798149",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 2,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.797235",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:13.797235",
+      "event_type": "degradation",
+      "description": "Degradation: to log",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "low",
+        "duration": 90,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: to log - operation failed",
+        "metrics": {
+          "error_rate": 0.18634648538109325,
+          "response_time_ms": 1390,
+          "cpu_usage": 0.3058155263477986,
+          "memory_usage": 0.5107285754691424
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:20.797235",
+      "event_type": "timeout",
+      "description": "Timeout: nginx log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 104,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: nginx log - operation failed",
+        "metrics": {
+          "error_rate": 0.7633027256972573,
+          "response_time_ms": 8034,
+          "cpu_usage": 0.7930641935170817,
+          "memory_usage": 0.8501633551366751
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:21.797235",
+      "event_type": "degradation",
+      "description": "Degradation: an error",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "low",
+        "duration": 247,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: an error - operation failed",
+        "metrics": {
+          "error_rate": 0.22441639389539847,
+          "response_time_ms": 903,
+          "cpu_usage": 0.37926897586874464,
+          "memory_usage": 0.6261946659265796
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:39.797235",
+      "event_type": "timeout",
+      "description": "Timeout: us log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 36,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: us log - operation failed",
+        "metrics": {
+          "error_rate": 0.13396938303959952,
+          "response_time_ms": 7492,
+          "cpu_usage": 0.7993384058973746,
+          "memory_usage": 0.9354280231763143
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:15.797235",
+      "event_type": "recovery",
+      "description": "Recovery: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:57:40.797235",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

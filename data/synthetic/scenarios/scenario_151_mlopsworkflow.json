@@ -1,0 +1,108 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_173245",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 479,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.708001",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.707854",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:01.707854",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 112,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.17715012959238197,
+          "response_time_ms": 8771,
+          "cpu_usage": 0.8422961776413427,
+          "memory_usage": 0.9527235667680165
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:24.707854",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 161,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.31681038421358,
+          "response_time_ms": 9174,
+          "cpu_usage": 0.7958093214677048,
+          "memory_usage": 0.8164095653103425
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:39.707854",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 167,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.7223035586543135,
+          "response_time_ms": 2584,
+          "cpu_usage": 0.782757217174761,
+          "memory_usage": 0.9107079389739774
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:51.707854",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:55.707854",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 204,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.20569129858592455,
+          "response_time_ms": 1984,
+          "cpu_usage": 0.9388863438406228,
+          "memory_usage": 0.9180480329577522
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:44.707854",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_173452
+description: Infrastructure failure scenario for ScalingFailure
+duration: 576
+metadata:
+  generated_at: '2025-05-23T17:34:52.910364'
+  phrase_templates_used: 24
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:52.910223'
+  event_type: trigger
+  description: 'Initial failure detected: nodeport service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:23.910223'
+  event_type: failure
+  description: 'Failure: to fix'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 68
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: to fix - operation failed'
+    metrics:
+      error_rate: 0.18065937078204738
+      response_time_ms: 4158
+      cpu_usage: 0.7115074735342851
+      memory_usage: 0.8874909831812305
+- timestamp: '2025-05-23T17:35:37.910223'
+  event_type: timeout
+  description: 'Timeout: the service'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 253
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: the service - operation
+      failed'
+    metrics:
+      error_rate: 0.21098251977263527
+      response_time_ms: 4542
+      cpu_usage: 0.9273847182669184
+      memory_usage: 0.8819318734005124
+- timestamp: '2025-05-23T17:35:39.910223'
+  event_type: recovery
+  description: 'Recovery: the cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:03.910223'
+  event_type: recovery
+  description: 'Recovery: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:07.910223'
+  event_type: timeout
+  description: 'Timeout: to fix'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 62
+    log_snippet: '[2025-05-23 17:34:52] ERROR payment-service: to fix - operation
+      failed'
+    metrics:
+      error_rate: 0.3562574637825877
+      response_time_ms: 7230
+      cpu_usage: 0.7393337778292077
+      memory_usage: 0.9123563121235191
+- timestamp: '2025-05-23T17:44:28.910223'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

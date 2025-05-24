@@ -1,0 +1,120 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_173708",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 1607,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.037167",
+    "phrase_templates_used": 24,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.036982",
+      "event_type": "trigger",
+      "description": "Initial failure detected: nodeport service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:28.036982",
+      "event_type": "recovery",
+      "description": "Recovery: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:14.036982",
+      "event_type": "timeout",
+      "description": "Timeout: a cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 152,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: a cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.46380003204253817,
+          "response_time_ms": 5021,
+          "cpu_usage": 0.9455725175388439,
+          "memory_usage": 0.9105744834057105
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:18.036982",
+      "event_type": "recovery",
+      "description": "Recovery: which node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:46.036982",
+      "event_type": "failure",
+      "description": "Failure: load balancer",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 274,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: load balancer - operation failed",
+        "metrics": {
+          "error_rate": 0.2544395861912368,
+          "response_time_ms": 6425,
+          "cpu_usage": 0.9669284162700114,
+          "memory_usage": 0.854153344816198
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:06.036982",
+      "event_type": "timeout",
+      "description": "Timeout: to fix",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 276,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: to fix - operation failed",
+        "metrics": {
+          "error_rate": 0.43102152766808366,
+          "response_time_ms": 9609,
+          "cpu_usage": 0.7217645847737956,
+          "memory_usage": 0.9366693471285742
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:45.036982",
+      "event_type": "recovery",
+      "description": "Recovery: which node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:50.036982",
+      "event_type": "timeout",
+      "description": "Timeout: load balancer",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 144,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: load balancer - operation failed",
+        "metrics": {
+          "error_rate": 0.222027287085729,
+          "response_time_ms": 1693,
+          "cpu_usage": 0.7818471012545471,
+          "memory_usage": 0.9234541808626532
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:03:55.036982",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

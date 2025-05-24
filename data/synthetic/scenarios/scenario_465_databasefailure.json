@@ -1,0 +1,81 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173245",
+  "description": "Database connectivity and performance issues",
+  "duration": 337,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.789314",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.789175",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:03.789175",
+      "event_type": "timeout",
+      "description": "Timeout: mysql database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 36,
+        "log_snippet": "[2025-05-23 17:32:45] FATAL mysql-primary: database mysql database detected",
+        "metrics": {
+          "error_rate": 0.840908621908397,
+          "response_time_ms": 9798,
+          "cpu_usage": 0.8015169524279163,
+          "memory_usage": 0.8443222880142685,
+          "connection_pool_usage": 0.9082868043108202,
+          "query_time_ms": 17033,
+          "deadlocks_per_sec": 6
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:05.789175",
+      "event_type": "recovery",
+      "description": "Recovery: the cache",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:12.789175",
+      "event_type": "corruption",
+      "description": "Corruption: the connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:14.789175",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: sudo service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:15.789175",
+      "event_type": "corruption",
+      "description": "Corruption: using docker",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:40.789175",
+      "event_type": "corruption",
+      "description": "Corruption: to fix",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:22.789175",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

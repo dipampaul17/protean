@@ -1,0 +1,138 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173707",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 490,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.983254",
+    "phrase_templates_used": 36,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.982145",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to resolve",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:21.982145",
+      "event_type": "failure",
+      "description": "Failure: the error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 96,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: the error - operation failed",
+        "metrics": {
+          "error_rate": 0.5347197501845237,
+          "response_time_ms": 9301,
+          "cpu_usage": 0.786625992442164,
+          "memory_usage": 0.9286710567073783
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:32.982145",
+      "event_type": "recovery",
+      "description": "Recovery: closed connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:39.982145",
+      "event_type": "failure",
+      "description": "Failure: the cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 162,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: the cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.12287656813806054,
+          "response_time_ms": 8210,
+          "cpu_usage": 0.967603871047324,
+          "memory_usage": 0.80054497482924
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:47.982145",
+      "event_type": "timeout",
+      "description": "Timeout: the connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 56,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: the connection - operation failed",
+        "metrics": {
+          "error_rate": 0.6736976140640633,
+          "response_time_ms": 3009,
+          "cpu_usage": 0.8774676923346931,
+          "memory_usage": 0.9570767497935302
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:50.982145",
+      "event_type": "timeout",
+      "description": "Timeout: docker container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 109,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: docker container - operation failed",
+        "metrics": {
+          "error_rate": 0.10175195542574836,
+          "response_time_ms": 1881,
+          "cpu_usage": 0.7832038376199006,
+          "memory_usage": 0.9918441149417137
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:50.982145",
+      "event_type": "recovery",
+      "description": "Recovery: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:53.982145",
+      "event_type": "failure",
+      "description": "Failure: only container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 248,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: only container - operation failed",
+        "metrics": {
+          "error_rate": 0.4346180700440321,
+          "response_time_ms": 3574,
+          "cpu_usage": 0.7480103285779227,
+          "memory_usage": 0.9230830439811113
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:07.982145",
+      "event_type": "recovery",
+      "description": "Recovery: the cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:45:17.982145",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

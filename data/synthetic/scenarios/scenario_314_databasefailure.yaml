@@ -1,0 +1,72 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173708
+description: Database connectivity and performance issues
+duration: 1316
+metadata:
+  generated_at: '2025-05-23T17:37:08.035079'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:08.034920'
+  event_type: trigger
+  description: 'Initial failure detected: the connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:55.034920'
+  event_type: timeout
+  description: 'Timeout: the server'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 33
+    log_snippet: '[2025-05-23 17:37:08] FATAL postgres-replica: database the server
+      detected'
+    metrics:
+      error_rate: 0.3217175489566292
+      response_time_ms: 2129
+      cpu_usage: 0.7492055106386365
+      memory_usage: 0.9451557271170732
+      connection_pool_usage: 0.8939265218143113
+      query_time_ms: 17612
+      deadlocks_per_sec: 1
+- timestamp: '2025-05-23T17:38:20.034920'
+  event_type: connection_loss
+  description: 'Connection_Loss: in memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:29.034920'
+  event_type: corruption
+  description: 'Corruption: get update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:51.034920'
+  event_type: timeout
+  description: 'Timeout: redis server'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 160
+    log_snippet: '[2025-05-23 17:37:08] ERROR mongodb-shard: redis server in timeout'
+    metrics:
+      error_rate: 0.2021993494298296
+      response_time_ms: 5907
+      cpu_usage: 0.9501458988965394
+      memory_usage: 0.8571616485292657
+      connection_pool_usage: 0.9756799231648838
+      query_time_ms: 9688
+      deadlocks_per_sec: 2
+- timestamp: '2025-05-23T17:39:30.034920'
+  event_type: recovery
+  description: 'Recovery: p error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:22.034920'
+  event_type: recovery
+  description: 'Recovery: using docker'
+  injection_spec: null
+- timestamp: '2025-05-23T17:59:04.034920'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

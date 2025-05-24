@@ -1,0 +1,96 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_174629",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 1485,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.087114",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.086980",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:28.086980",
+      "event_type": "recovery",
+      "description": "Recovery: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:27.086980",
+      "event_type": "recovery",
+      "description": "Recovery: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:21.086980",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 249,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.6020531626593106,
+          "response_time_ms": 8924,
+          "cpu_usage": 0.9235786506478229,
+          "memory_usage": 0.8004763893939949
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:18.086980",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 122,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.11479960474289932,
+          "response_time_ms": 1290,
+          "cpu_usage": 0.9708619597325134,
+          "memory_usage": 0.83478027520095
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:59.086980",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 275,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.35740710574328094,
+          "response_time_ms": 4784,
+          "cpu_usage": 0.9129259191534567,
+          "memory_usage": 0.8928893685810447
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:11:14.086980",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

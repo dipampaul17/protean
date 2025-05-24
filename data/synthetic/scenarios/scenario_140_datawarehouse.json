@@ -1,0 +1,156 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_174628",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 648,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.965692",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 7
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.965474",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:54.965474",
+      "event_type": "timeout",
+      "description": "Timeout: disk space full",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 62,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.4621137344453792,
+          "response_time_ms": 2934,
+          "cpu_usage": 0.9166098201274693,
+          "memory_usage": 0.987875871452505
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:11.965474",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 249,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.716244216398215,
+          "response_time_ms": 8661,
+          "cpu_usage": 0.8402608688501937,
+          "memory_usage": 0.9283577634987956
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:16.965474",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 111,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.6359128388757462,
+          "response_time_ms": 2690,
+          "cpu_usage": 0.809203877750861,
+          "memory_usage": 0.8915027310145281
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:20.965474",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 224,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.2778657650672107,
+          "response_time_ms": 7116,
+          "cpu_usage": 0.8248244779157178,
+          "memory_usage": 0.9607680585967818
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:21.965474",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 45,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.26500184311439123,
+          "response_time_ms": 9834,
+          "cpu_usage": 0.8157317628977142,
+          "memory_usage": 0.8981413751745343
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:30.965474",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 57,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.45725129067614523,
+          "response_time_ms": 4263,
+          "cpu_usage": 0.7071797013114671,
+          "memory_usage": 0.9757351543836978
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:00.965474",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 89,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.32072531319414777,
+          "response_time_ms": 8031,
+          "cpu_usage": 0.7049054711257908,
+          "memory_usage": 0.9701892721018537
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:57:16.965474",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

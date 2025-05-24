@@ -1,0 +1,54 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173245
+description: Database connectivity and performance issues
+duration: 1726
+metadata:
+  generated_at: '2025-05-23T17:32:45.710064'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:32:45.709338'
+  event_type: trigger
+  description: 'Initial failure detected: to scale'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:06.709338'
+  event_type: timeout
+  description: 'Timeout: the database'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 160
+    log_snippet: '[2025-05-23 17:32:45] ERROR mongodb-shard: the database in timeout'
+    metrics:
+      error_rate: 0.2676141530248073
+      response_time_ms: 5617
+      cpu_usage: 0.8876400802044822
+      memory_usage: 0.9554045880424429
+      connection_pool_usage: 0.9009731870195916
+      query_time_ms: 20198
+      deadlocks_per_sec: 1
+- timestamp: '2025-05-23T17:36:03.709338'
+  event_type: connection_loss
+  description: 'Connection_Loss: postgres database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:18.709338'
+  event_type: corruption
+  description: 'Corruption: the database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:30.709338'
+  event_type: connection_loss
+  description: 'Connection_Loss: sql server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:58.709338'
+  event_type: corruption
+  description: 'Corruption: p error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:01:31.709338'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

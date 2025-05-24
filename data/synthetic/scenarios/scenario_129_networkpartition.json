@@ -1,0 +1,132 @@
+{
+  "category": "NetworkPartition",
+  "name": "NetworkPartition_20250523_173707",
+  "description": "Infrastructure failure scenario for NetworkPartition",
+  "duration": 487,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.977209",
+    "phrase_templates_used": 4,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.962971",
+      "event_type": "trigger",
+      "description": "Initial failure detected: and node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:19.962971",
+      "event_type": "recovery",
+      "description": "Recovery: of disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:20.962971",
+      "event_type": "timeout",
+      "description": "Timeout: and node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 285,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: and node - operation failed",
+        "metrics": {
+          "error_rate": 0.8932307172546688,
+          "response_time_ms": 3238,
+          "cpu_usage": 0.8683103346849088,
+          "memory_usage": 0.8150327367761296
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:21.962971",
+      "event_type": "recovery",
+      "description": "Recovery: of disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:23.962971",
+      "event_type": "failure",
+      "description": "Failure: of disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 207,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: of disk - operation failed",
+        "metrics": {
+          "error_rate": 0.40785417094786347,
+          "response_time_ms": 3404,
+          "cpu_usage": 0.9267195571842683,
+          "memory_usage": 0.9284045087195822
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:40.962971",
+      "event_type": "failure",
+      "description": "Failure: of disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 133,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: of disk - operation failed",
+        "metrics": {
+          "error_rate": 0.26660885327225464,
+          "response_time_ms": 7853,
+          "cpu_usage": 0.7090055793821944,
+          "memory_usage": 0.9225467377987282
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:57.962971",
+      "event_type": "timeout",
+      "description": "Timeout: each node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 220,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: each node - operation failed",
+        "metrics": {
+          "error_rate": 0.5771263488705889,
+          "response_time_ms": 6140,
+          "cpu_usage": 0.9821283196594035,
+          "memory_usage": 0.9567758841959904
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:07.962971",
+      "event_type": "timeout",
+      "description": "Timeout: and memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 69,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: and memory - operation failed",
+        "metrics": {
+          "error_rate": 0.4148424587355407,
+          "response_time_ms": 4438,
+          "cpu_usage": 0.9357129541934097,
+          "memory_usage": 0.8117360142755808
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:45:14.962971",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

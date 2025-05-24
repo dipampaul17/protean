@@ -1,0 +1,71 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173707
+description: Load balancer and traffic distribution problems
+duration: 1683
+metadata:
+  generated_at: '2025-05-23T17:37:07.998771'
+  phrase_templates_used: 13
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:07.998352'
+  event_type: trigger
+  description: 'Initial failure detected: load balancer'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:32.998352'
+  event_type: backend_failure
+  description: 'Backend_Failure: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:48.998352'
+  event_type: timeout
+  description: 'Timeout: the server'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 203
+    log_snippet: '[2025-05-23 17:37:07] ERROR subnet-private: the server in timeout'
+    metrics:
+      error_rate: 0.1620466132533098
+      response_time_ms: 4793
+      cpu_usage: 0.7647085617552369
+      memory_usage: 0.9277156957809922
+      requests_per_sec: 8402
+      backend_health_pct: 0.33541175707145304
+      connection_timeouts: 111
+- timestamp: '2025-05-23T17:40:30.998352'
+  event_type: backend_failure
+  description: 'Backend_Failure: your cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:35.998352'
+  event_type: timeout
+  description: 'Timeout: a pod'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 43
+    log_snippet: '[2025-05-23 17:37:07] ERROR vpc-main: a pod in timeout'
+    metrics:
+      error_rate: 0.3720656068473911
+      response_time_ms: 2267
+      cpu_usage: 0.736537949225573
+      memory_usage: 0.9458218336554034
+      requests_per_sec: 8912
+      backend_health_pct: 0.5843045508804219
+      connection_timeouts: 631
+- timestamp: '2025-05-23T17:41:21.998352'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: your cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:34.998352'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:05:10.998352'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

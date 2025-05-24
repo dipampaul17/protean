@@ -1,0 +1,84 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_174628",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 1443,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.963856",
+    "phrase_templates_used": 15,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.963717",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:14.963717",
+      "event_type": "recovery",
+      "description": "Recovery: docker network",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:15.963717",
+      "event_type": "recovery",
+      "description": "Recovery: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:11.963717",
+      "event_type": "timeout",
+      "description": "Timeout: from service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 50,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: from service - operation failed",
+        "metrics": {
+          "error_rate": 0.8485782205809228,
+          "response_time_ms": 9213,
+          "cpu_usage": 0.8927023127386632,
+          "memory_usage": 0.8594286375410665
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:16.963717",
+      "event_type": "timeout",
+      "description": "Timeout: a cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 152,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: a cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.8869763433438352,
+          "response_time_ms": 9150,
+          "cpu_usage": 0.967051180640824,
+          "memory_usage": 0.867800692461151
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:39.963717",
+      "event_type": "recovery",
+      "description": "Recovery: strong service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:10:31.963717",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

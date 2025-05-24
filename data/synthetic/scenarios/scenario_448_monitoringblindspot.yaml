@@ -1,0 +1,89 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_174629
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1399
+metadata:
+  generated_at: '2025-05-23T17:46:29.139190'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:46:29.139007'
+  event_type: trigger
+  description: 'Initial failure detected: the database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:56.139007'
+  event_type: recovery
+  description: 'Recovery: or cpu'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:23.139007'
+  event_type: failure
+  description: 'Failure: strong update'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 145
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: strong update
+      - operation failed'
+    metrics:
+      error_rate: 0.7967579753882162
+      response_time_ms: 4818
+      cpu_usage: 0.7070278533667198
+      memory_usage: 0.8217801399730068
+- timestamp: '2025-05-23T17:48:38.139007'
+  event_type: timeout
+  description: 'Timeout: a container'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 294
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: a container - operation
+      failed'
+    metrics:
+      error_rate: 0.884913256315724
+      response_time_ms: 7336
+      cpu_usage: 0.8431983252519795
+      memory_usage: 0.911069928881688
+- timestamp: '2025-05-23T17:48:56.139007'
+  event_type: failure
+  description: 'Failure: a server'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 67
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: a server - operation
+      failed'
+    metrics:
+      error_rate: 0.6387580646018919
+      response_time_ms: 5219
+      cpu_usage: 0.7561386085104363
+      memory_usage: 0.8137946573159635
+- timestamp: '2025-05-23T17:49:03.139007'
+  event_type: recovery
+  description: 'Recovery: of cpu'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:13.139007'
+  event_type: failure
+  description: 'Failure: the alert'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 88
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: the alert - operation
+      failed'
+    metrics:
+      error_rate: 0.7955276377837711
+      response_time_ms: 3955
+      cpu_usage: 0.9945455910398316
+      memory_usage: 0.8138136331131303
+- timestamp: '2025-05-23T18:09:48.139007'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,102 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173708",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 1058,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.045856",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.045736",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:41.045736",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 219,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.5408797894903196,
+          "response_time_ms": 2374,
+          "cpu_usage": 0.9015351544131437,
+          "memory_usage": 0.9140914110279376
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:35.045736",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 159,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.8831439573051423,
+          "response_time_ms": 3485,
+          "cpu_usage": 0.7889062633022845,
+          "memory_usage": 0.9049690157893093
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:35.045736",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 68,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.11439707820249226,
+          "response_time_ms": 8313,
+          "cpu_usage": 0.7885768740793253,
+          "memory_usage": 0.8123371744538668
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:47.045736",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 296,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.2793662801092734,
+          "response_time_ms": 5319,
+          "cpu_usage": 0.9483738301920546,
+          "memory_usage": 0.9634910776802803
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:54:46.045736",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

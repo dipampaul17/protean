@@ -1,0 +1,102 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_174628",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 446,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.999134",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.999003",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:38.999003",
+      "event_type": "failure",
+      "description": "Failure: low disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 234,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: low disk - operation failed",
+        "metrics": {
+          "error_rate": 0.16681626126119467,
+          "response_time_ms": 1314,
+          "cpu_usage": 0.7317602740090597,
+          "memory_usage": 0.9667515977893533
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:34.999003",
+      "event_type": "failure",
+      "description": "Failure: a connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 155,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: a connection - operation failed",
+        "metrics": {
+          "error_rate": 0.17474255882906703,
+          "response_time_ms": 9454,
+          "cpu_usage": 0.8265605880454806,
+          "memory_usage": 0.8884824863994775
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:38.999003",
+      "event_type": "failure",
+      "description": "Failure: of disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 76,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: of disk - operation failed",
+        "metrics": {
+          "error_rate": 0.1117414928978227,
+          "response_time_ms": 8456,
+          "cpu_usage": 0.8490645948841267,
+          "memory_usage": 0.9238756666918444
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:44.999003",
+      "event_type": "failure",
+      "description": "Failure: the disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 116,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: the disk - operation failed",
+        "metrics": {
+          "error_rate": 0.25705888330920745,
+          "response_time_ms": 3658,
+          "cpu_usage": 0.8316051065572261,
+          "memory_usage": 0.8971788204368801
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:53:54.999003",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

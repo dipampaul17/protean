@@ -1,0 +1,89 @@
+category: NetworkPartition
+name: NetworkPartition_20250523_173453
+description: Infrastructure failure scenario for NetworkPartition
+duration: 454
+metadata:
+  generated_at: '2025-05-23T17:34:53.281371'
+  phrase_templates_used: 4
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:53.281200'
+  event_type: trigger
+  description: 'Initial failure detected: and memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:07.281200'
+  event_type: timeout
+  description: 'Timeout: and node'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 293
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: and node - operation
+      failed'
+    metrics:
+      error_rate: 0.6827110274281697
+      response_time_ms: 4302
+      cpu_usage: 0.9193520068617124
+      memory_usage: 0.9871877290217724
+- timestamp: '2025-05-23T17:35:07.281200'
+  event_type: timeout
+  description: 'Timeout: each node'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 267
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: each node - operation
+      failed'
+    metrics:
+      error_rate: 0.246602862511783
+      response_time_ms: 1278
+      cpu_usage: 0.9667924470274001
+      memory_usage: 0.8813993340148474
+- timestamp: '2025-05-23T17:35:08.281200'
+  event_type: recovery
+  description: 'Recovery: and node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:11.281200'
+  event_type: recovery
+  description: 'Recovery: each node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:20.281200'
+  event_type: failure
+  description: 'Failure: each node'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 249
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: each node - operation
+      failed'
+    metrics:
+      error_rate: 0.12926735837544526
+      response_time_ms: 4517
+      cpu_usage: 0.7955891819106737
+      memory_usage: 0.9722466187204212
+- timestamp: '2025-05-23T17:35:42.281200'
+  event_type: failure
+  description: 'Failure: each node'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 129
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: each node - operation
+      failed'
+    metrics:
+      error_rate: 0.3248867062230629
+      response_time_ms: 8772
+      cpu_usage: 0.9099114122219011
+      memory_usage: 0.8643641714675432
+- timestamp: '2025-05-23T17:42:27.281200'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

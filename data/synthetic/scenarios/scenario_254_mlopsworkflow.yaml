@@ -1,0 +1,59 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_174628
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1402
+metadata:
+  generated_at: '2025-05-23T17:46:28.998639'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:28.998520'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:26.998520'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 31
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.7642735023043107
+      response_time_ms: 2139
+      cpu_usage: 0.9266394369475905
+      memory_usage: 0.9658557269283331
+- timestamp: '2025-05-23T17:47:38.998520'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 238
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: queue overflow
+      - operation failed'
+    metrics:
+      error_rate: 0.3091129877037475
+      response_time_ms: 5252
+      cpu_usage: 0.7990706150105998
+      memory_usage: 0.8921727260045865
+- timestamp: '2025-05-23T17:49:26.998520'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:26.998520'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T18:09:50.998520'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

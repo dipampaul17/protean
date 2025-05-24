@@ -1,0 +1,78 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_174629
+description: Infrastructure failure scenario for DependencyFailure
+duration: 432
+metadata:
+  generated_at: '2025-05-23T17:46:29.121749'
+  phrase_templates_used: 45
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:29.121564'
+  event_type: trigger
+  description: 'Initial failure detected: get update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:46.121564'
+  event_type: recovery
+  description: 'Recovery: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:53.121564'
+  event_type: recovery
+  description: 'Recovery: federated queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:09.121564'
+  event_type: failure
+  description: 'Failure: api server'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 203
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: api server - operation
+      failed'
+    metrics:
+      error_rate: 0.4878283441116905
+      response_time_ms: 8513
+      cpu_usage: 0.9166998102248496
+      memory_usage: 0.8260665880475219
+- timestamp: '2025-05-23T17:47:14.121564'
+  event_type: recovery
+  description: 'Recovery: external service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:15.121564'
+  event_type: timeout
+  description: 'Timeout: exist error'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 88
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: exist error -
+      operation failed'
+    metrics:
+      error_rate: 0.45097556131980576
+      response_time_ms: 4728
+      cpu_usage: 0.9398221780633927
+      memory_usage: 0.898234666976275
+- timestamp: '2025-05-23T17:47:39.121564'
+  event_type: timeout
+  description: 'Timeout: external service'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 253
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: external service -
+      operation failed'
+    metrics:
+      error_rate: 0.7006255851424347
+      response_time_ms: 1980
+      cpu_usage: 0.720684493223529
+      memory_usage: 0.8358816303221064
+- timestamp: '2025-05-23T17:53:41.121564'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

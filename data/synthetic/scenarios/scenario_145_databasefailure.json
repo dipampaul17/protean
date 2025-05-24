@@ -1,0 +1,123 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_174628",
+  "description": "Database connectivity and performance issues",
+  "duration": 315,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.967230",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.967017",
+      "event_type": "trigger",
+      "description": "Initial failure detected: mysql server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:42.967017",
+      "event_type": "corruption",
+      "description": "Corruption: requires restart",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:43.967017",
+      "event_type": "timeout",
+      "description": "Timeout: postgres database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 93,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR mongodb-shard: postgres database in timeout",
+        "metrics": {
+          "error_rate": 0.30159072406162013,
+          "response_time_ms": 5486,
+          "cpu_usage": 0.9533248628522275,
+          "memory_usage": 0.9491086888147927,
+          "connection_pool_usage": 0.8569434379160269,
+          "query_time_ms": 25959,
+          "deadlocks_per_sec": 5
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:44.967017",
+      "event_type": "timeout",
+      "description": "Timeout: postgresql database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 151,
+        "log_snippet": "[2025-05-23 17:46:28] FATAL mysql-primary: database postgresql database detected",
+        "metrics": {
+          "error_rate": 0.5599224899862881,
+          "response_time_ms": 8384,
+          "cpu_usage": 0.9851174289179853,
+          "memory_usage": 0.885105979569291,
+          "connection_pool_usage": 0.9645039482893961,
+          "query_time_ms": 25581,
+          "deadlocks_per_sec": 7
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:45.967017",
+      "event_type": "timeout",
+      "description": "Timeout: postgres database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "redis-cache",
+        "severity": "high",
+        "duration": 293,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR redis-cache: postgres database in timeout",
+        "metrics": {
+          "error_rate": 0.6606560377048917,
+          "response_time_ms": 1420,
+          "cpu_usage": 0.723333183083852,
+          "memory_usage": 0.9633550587444706,
+          "connection_pool_usage": 0.8020104737090095,
+          "query_time_ms": 23729,
+          "deadlocks_per_sec": 1
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:45.967017",
+      "event_type": "recovery",
+      "description": "Recovery: metadatacreateindexservice node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:49.967017",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: code update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:54.967017",
+      "event_type": "corruption",
+      "description": "Corruption: api server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:59.967017",
+      "event_type": "corruption",
+      "description": "Corruption: docker container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:51:43.967017",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

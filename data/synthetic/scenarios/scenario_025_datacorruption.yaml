@@ -1,0 +1,119 @@
+category: DataCorruption
+name: DataCorruption_20250523_174628
+description: Infrastructure failure scenario for DataCorruption
+duration: 718
+metadata:
+  generated_at: '2025-05-23T17:46:28.911462'
+  phrase_templates_used: 36
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 5
+events:
+- timestamp: '2025-05-23T17:46:28.910124'
+  event_type: trigger
+  description: 'Initial failure detected: message queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:40.910124'
+  event_type: recovery
+  description: 'Recovery: only container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:50.910124'
+  event_type: failure
+  description: 'Failure: docker container'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 127
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: docker container -
+      operation failed'
+    metrics:
+      error_rate: 0.6155677097485601
+      response_time_ms: 7111
+      cpu_usage: 0.7630376242531501
+      memory_usage: 0.8315117182862344
+- timestamp: '2025-05-23T17:46:57.910124'
+  event_type: timeout
+  description: 'Timeout: only container'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 33
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: only container - operation
+      failed'
+    metrics:
+      error_rate: 0.7375797257241501
+      response_time_ms: 8430
+      cpu_usage: 0.7580231785962362
+      memory_usage: 0.9968841886864209
+- timestamp: '2025-05-23T17:47:00.910124'
+  event_type: timeout
+  description: 'Timeout: a cluster'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 155
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: a cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.4597772682724268
+      response_time_ms: 9990
+      cpu_usage: 0.931245943290004
+      memory_usage: 0.936011786955167
+- timestamp: '2025-05-23T17:47:16.910124'
+  event_type: recovery
+  description: 'Recovery: ebs storage'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:18.910124'
+  event_type: timeout
+  description: 'Timeout: the container'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 242
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: the container - operation
+      failed'
+    metrics:
+      error_rate: 0.6116927244331217
+      response_time_ms: 1410
+      cpu_usage: 0.9326745817325354
+      memory_usage: 0.812396671714273
+- timestamp: '2025-05-23T17:47:19.910124'
+  event_type: failure
+  description: 'Failure: new container'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 34
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: new container - operation
+      failed'
+    metrics:
+      error_rate: 0.5771658088798065
+      response_time_ms: 9974
+      cpu_usage: 0.9302296131457758
+      memory_usage: 0.8919857239726389
+- timestamp: '2025-05-23T17:47:27.910124'
+  event_type: timeout
+  description: 'Timeout: a queue'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: medium
+    duration: 83
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: a queue - operation
+      failed'
+    metrics:
+      error_rate: 0.06295005284618847
+      response_time_ms: 1274
+      cpu_usage: 0.4607698290728933
+      memory_usage: 0.6102285191716639
+- timestamp: '2025-05-23T17:58:26.910124'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

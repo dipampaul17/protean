@@ -1,0 +1,65 @@
+category: EventDriven
+name: EventDriven_20250523_174629
+description: Message queue and event processing failures
+duration: 637
+metadata:
+  generated_at: '2025-05-23T17:46:29.081680'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 1
+events:
+- timestamp: '2025-05-23T17:46:29.081199'
+  event_type: trigger
+  description: 'Initial failure detected: warn error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:13.081199'
+  event_type: recovery
+  description: 'Recovery: to update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:13.081199'
+  event_type: recovery
+  description: 'Recovery: p error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:32.081199'
+  event_type: timeout
+  description: 'Timeout: new queue'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: medium
+    duration: 212
+    log_snippet: '[2025-05-23 17:46:29] ERROR batch-processing-queue: queue processing
+      new queue'
+    metrics:
+      error_rate: 0.2402611130158943
+      response_time_ms: 424
+      cpu_usage: 0.797247519504233
+      memory_usage: 0.5131101109088796
+      queue_depth: 22497
+      message_processing_rate: 5.586302615719383
+      consumer_lag_ms: 114950
+- timestamp: '2025-05-23T17:49:01.081199'
+  event_type: timeout
+  description: 'Timeout: var connection'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 112
+    log_snippet: '[2025-05-23 17:46:29] ERROR batch-processing-queue: queue processing
+      var connection'
+    metrics:
+      error_rate: 0.49355646671164444
+      response_time_ms: 8912
+      cpu_usage: 0.9852965122550082
+      memory_usage: 0.826080538007842
+      queue_depth: 7288
+      message_processing_rate: 6.584638897938814
+      consumer_lag_ms: 275210
+- timestamp: '2025-05-23T17:57:06.081199'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

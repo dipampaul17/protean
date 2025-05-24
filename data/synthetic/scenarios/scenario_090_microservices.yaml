@@ -1,0 +1,115 @@
+category: Microservices
+name: Microservices_20250523_174628
+description: Infrastructure failure scenario for Microservices
+duration: 311
+metadata:
+  generated_at: '2025-05-23T17:46:28.953624'
+  phrase_templates_used: 15
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 5
+events:
+- timestamp: '2025-05-23T17:46:28.953414'
+  event_type: trigger
+  description: 'Initial failure detected: http connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:38.953414'
+  event_type: timeout
+  description: 'Timeout: docker network'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 44
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: docker network - operation
+      failed'
+    metrics:
+      error_rate: 0.30194713618621094
+      response_time_ms: 1406
+      cpu_usage: 0.9401860840964628
+      memory_usage: 0.9343068097658129
+- timestamp: '2025-05-23T17:46:39.953414'
+  event_type: failure
+  description: 'Failure: http connection'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 215
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: http connection - operation
+      failed'
+    metrics:
+      error_rate: 0.5664397398074182
+      response_time_ms: 4919
+      cpu_usage: 0.7898516054696529
+      memory_usage: 0.8605875885853574
+- timestamp: '2025-05-23T17:46:42.953414'
+  event_type: timeout
+  description: 'Timeout: the container'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 70
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: the container - operation
+      failed'
+    metrics:
+      error_rate: 0.6939483192026682
+      response_time_ms: 1026
+      cpu_usage: 0.8577770693070029
+      memory_usage: 0.9936886952598869
+- timestamp: '2025-05-23T17:46:57.953414'
+  event_type: timeout
+  description: 'Timeout: to service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 248
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: to service - operation
+      failed'
+    metrics:
+      error_rate: 0.6359612971551514
+      response_time_ms: 2037
+      cpu_usage: 0.9009396744482958
+      memory_usage: 0.9131287429726298
+- timestamp: '2025-05-23T17:47:05.953414'
+  event_type: timeout
+  description: 'Timeout: a container'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 101
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: a container - operation
+      failed'
+    metrics:
+      error_rate: 0.1204682169804686
+      response_time_ms: 7868
+      cpu_usage: 0.8197316491681985
+      memory_usage: 0.9453241774283442
+- timestamp: '2025-05-23T17:47:06.953414'
+  event_type: timeout
+  description: 'Timeout: the queue'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: medium
+    duration: 81
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: the queue - operation
+      failed'
+    metrics:
+      error_rate: 0.1632331314295346
+      response_time_ms: 1676
+      cpu_usage: 0.7759299227041847
+      memory_usage: 0.5699682267376622
+- timestamp: '2025-05-23T17:47:10.953414'
+  event_type: recovery
+  description: 'Recovery: to service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:51:39.953414'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

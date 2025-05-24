@@ -1,0 +1,51 @@
+category: EventDriven
+name: EventDriven_20250523_173708
+description: Message queue and event processing failures
+duration: 454
+metadata:
+  generated_at: '2025-05-23T17:37:08.014824'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:37:08.014716'
+  event_type: trigger
+  description: 'Initial failure detected: message queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:24.014716'
+  event_type: recovery
+  description: 'Recovery: using kafka'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:25.014716'
+  event_type: timeout
+  description: 'Timeout: config server'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 247
+    log_snippet: '[2025-05-23 17:37:08] ERROR batch-processing-queue: queue processing
+      config server'
+    metrics:
+      error_rate: 0.8024572686895725
+      response_time_ms: 4997
+      cpu_usage: 0.954911404636109
+      memory_usage: 0.9939978733907094
+      queue_depth: 18422
+      message_processing_rate: 3.894751578640188
+      consumer_lag_ms: 201671
+- timestamp: '2025-05-23T17:38:22.014716'
+  event_type: message_loss
+  description: 'Message_Loss: single queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:01.014716'
+  event_type: message_loss
+  description: 'Message_Loss: ephemeral node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:44:42.014716'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

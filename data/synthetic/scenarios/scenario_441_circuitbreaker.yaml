@@ -1,0 +1,55 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173708
+description: Circuit breaker activation due to cascading service failures
+duration: 1616
+metadata:
+  generated_at: '2025-05-23T17:37:08.068390'
+  phrase_templates_used: 50
+  total_events: 5
+  severity_distribution:
+    low: 2
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:37:08.068292'
+  event_type: trigger
+  description: 'Initial failure detected: to pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:01.068292'
+  event_type: recovery
+  description: 'Recovery: code error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:42:58.068292'
+  event_type: degradation
+  description: 'Degradation: reduce alert'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: low
+    duration: 162
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: reduce alert - operation
+      failed'
+    metrics:
+      error_rate: 0.10838795572621752
+      response_time_ms: 1461
+      cpu_usage: 0.5465998116398552
+      memory_usage: 0.48708444273970947
+- timestamp: '2025-05-23T17:43:46.068292'
+  event_type: degradation
+  description: 'Degradation: client error'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: low
+    duration: 296
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: client error - operation
+      failed'
+    metrics:
+      error_rate: 0.22645682662376107
+      response_time_ms: 1323
+      cpu_usage: 0.7037128175973671
+      memory_usage: 0.5950062073302356
+- timestamp: '2025-05-23T18:04:04.068292'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

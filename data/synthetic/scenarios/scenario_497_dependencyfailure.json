@@ -1,0 +1,126 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173245",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 1354,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.797641",
+    "phrase_templates_used": 45,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.797460",
+      "event_type": "trigger",
+      "description": "Initial failure detected: upstream queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:31.797460",
+      "event_type": "recovery",
+      "description": "Recovery: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:34.797460",
+      "event_type": "failure",
+      "description": "Failure: this error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 106,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: this error - operation failed",
+        "metrics": {
+          "error_rate": 0.5638400165865983,
+          "response_time_ms": 5415,
+          "cpu_usage": 0.9474789234902778,
+          "memory_usage": 0.9122376898718045
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:49.797460",
+      "event_type": "timeout",
+      "description": "Timeout: upstream server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 288,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: upstream server - operation failed",
+        "metrics": {
+          "error_rate": 0.4225720157428633,
+          "response_time_ms": 2200,
+          "cpu_usage": 0.8445867006795862,
+          "memory_usage": 0.8103419778419653
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:38.797460",
+      "event_type": "timeout",
+      "description": "Timeout: destination node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 210,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: destination node - operation failed",
+        "metrics": {
+          "error_rate": 0.8301232656041763,
+          "response_time_ms": 3275,
+          "cpu_usage": 0.8630499123429257,
+          "memory_usage": 0.950612717864366
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:51.797460",
+      "event_type": "timeout",
+      "description": "Timeout: the log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 233,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: the log - operation failed",
+        "metrics": {
+          "error_rate": 0.36143366531932164,
+          "response_time_ms": 7277,
+          "cpu_usage": 0.8743522408085895,
+          "memory_usage": 0.9727932165798674
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:14.797460",
+      "event_type": "failure",
+      "description": "Failure: closed connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 211,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: closed connection - operation failed",
+        "metrics": {
+          "error_rate": 0.2041607045853586,
+          "response_time_ms": 1918,
+          "cpu_usage": 0.8770750477766649,
+          "memory_usage": 0.9816544655267352
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:55:19.797460",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

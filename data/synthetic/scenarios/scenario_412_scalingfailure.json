@@ -1,0 +1,78 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_173453",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 1577,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.340919",
+    "phrase_templates_used": 24,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.340793",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:05.340793",
+      "event_type": "recovery",
+      "description": "Recovery: https connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:22.340793",
+      "event_type": "recovery",
+      "description": "Recovery: which node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:41.340793",
+      "event_type": "timeout",
+      "description": "Timeout: this error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 201,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: this error - operation failed",
+        "metrics": {
+          "error_rate": 0.7220782031780372,
+          "response_time_ms": 3841,
+          "cpu_usage": 0.7382388765676177,
+          "memory_usage": 0.9127886342960921
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:15.340793",
+      "event_type": "failure",
+      "description": "Failure: the pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 55,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: the pod - operation failed",
+        "metrics": {
+          "error_rate": 0.5202030242091054,
+          "response_time_ms": 1574,
+          "cpu_usage": 0.8673020475925431,
+          "memory_usage": 0.9506404670721147
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:01:10.340793",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

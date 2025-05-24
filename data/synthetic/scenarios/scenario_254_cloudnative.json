@@ -1,0 +1,96 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_173708",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 914,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.019435",
+    "phrase_templates_used": 39,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.019270",
+      "event_type": "trigger",
+      "description": "Initial failure detected: getting error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:25.019270",
+      "event_type": "scaling",
+      "description": "Scaling: kind service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:32.019270",
+      "event_type": "scaling",
+      "description": "Scaling: kind service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:33.019270",
+      "event_type": "failure",
+      "description": "Failure: to restart",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 290,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR api-backend: to restart in failure",
+        "metrics": {
+          "error_rate": 0.15516355968028028,
+          "response_time_ms": 2024,
+          "cpu_usage": 0.9378499346528156,
+          "memory_usage": 0.8403792373570229
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:38.019270",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:56.019270",
+      "event_type": "scaling",
+      "description": "Scaling: kubernetes service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:01.019270",
+      "event_type": "failure",
+      "description": "Failure: deleted pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 193,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR nginx-proxy: deleted pod in failure",
+        "metrics": {
+          "error_rate": 0.49059161868216816,
+          "response_time_ms": 1482,
+          "cpu_usage": 0.8865441869745052,
+          "memory_usage": 0.8814033095444981
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:02.019270",
+      "event_type": "deployment",
+      "description": "Deployment: api server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:52:22.019270",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+category: EventDriven
+name: EventDriven_20250523_174628
+description: Message queue and event processing failures
+duration: 906
+metadata:
+  generated_at: '2025-05-23T17:46:28.910098'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 2
+    high: 0
+events:
+- timestamp: '2025-05-23T17:46:28.909900'
+  event_type: trigger
+  description: 'Initial failure detected: using rabbitmq'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:46.909900'
+  event_type: message_loss
+  description: 'Message_Loss: the memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:46.909900'
+  event_type: timeout
+  description: 'Timeout: a queue'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: medium
+    duration: 199
+    log_snippet: '[2025-05-23 17:46:28] ERROR batch-processing-queue: queue processing
+      a queue'
+    metrics:
+      error_rate: 0.19570254931906245
+      response_time_ms: 100
+      cpu_usage: 0.610985123816373
+      memory_usage: 0.5613386059108871
+      queue_depth: 7200
+      message_processing_rate: 5.386377394027493
+      consumer_lag_ms: 27652
+- timestamp: '2025-05-23T17:46:50.909900'
+  event_type: message_loss
+  description: 'Message_Loss: on node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:31.909900'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: on node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:33.909900'
+  event_type: message_loss
+  description: 'Message_Loss: channel connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:48.909900'
+  event_type: timeout
+  description: 'Timeout: that queue'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: medium
+    duration: 179
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-queue: queue processing
+      that queue'
+    metrics:
+      error_rate: 0.08329732641878512
+      response_time_ms: 964
+      cpu_usage: 0.332958564223802
+      memory_usage: 0.41365250485538735
+      queue_depth: 24445
+      message_processing_rate: 5.589896984580188
+      consumer_lag_ms: 235114
+- timestamp: '2025-05-23T17:47:55.909900'
+  event_type: recovery
+  description: 'Recovery: the cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:20.909900'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:01:34.909900'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

@@ -1,0 +1,69 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_174628
+description: Application deployment and rollback scenarios
+duration: 1435
+metadata:
+  generated_at: '2025-05-23T17:46:28.913790'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:28.913626'
+  event_type: trigger
+  description: 'Initial failure detected: kubernetes error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:43.913626'
+  event_type: scaling
+  description: 'Scaling: to update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:55.913626'
+  event_type: scaling
+  description: 'Scaling: a pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:27.913626'
+  event_type: failure
+  description: 'Failure: the deploy'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 226
+    log_snippet: '[2025-05-23 17:46:28] ERROR api-backend: the deploy in failure'
+    metrics:
+      error_rate: 0.7853784664497127
+      response_time_ms: 9936
+      cpu_usage: 0.7791437788245061
+      memory_usage: 0.9515595280854079
+- timestamp: '2025-05-23T17:47:35.913626'
+  event_type: failure
+  description: 'Failure: to deploy'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 281
+    log_snippet: '[2025-05-23 17:46:28] ERROR worker-consumer: to deploy in failure'
+    metrics:
+      error_rate: 0.3763721271957524
+      response_time_ms: 6642
+      cpu_usage: 0.7687519342789747
+      memory_usage: 0.9866918816813772
+- timestamp: '2025-05-23T17:47:40.913626'
+  event_type: deployment
+  description: 'Deployment: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:42.913626'
+  event_type: scaling
+  description: 'Scaling: container pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:58.913626'
+  event_type: deployment
+  description: 'Deployment: using jenkins'
+  injection_spec: null
+- timestamp: '2025-05-23T18:10:23.913626'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

@@ -1,0 +1,102 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_174629
+description: Circuit breaker activation due to cascading service failures
+duration: 923
+metadata:
+  generated_at: '2025-05-23T17:46:29.143482'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 1
+    medium: 1
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:29.143264'
+  event_type: trigger
+  description: 'Initial failure detected: to restart'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:20.143264'
+  event_type: recovery
+  description: 'Recovery: quot error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:28.143264'
+  event_type: failure
+  description: 'Failure: to log'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 238
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: to log - operation
+      failed'
+    metrics:
+      error_rate: 0.6047403258737887
+      response_time_ms: 9991
+      cpu_usage: 0.7535302896035979
+      memory_usage: 0.8423676725822307
+- timestamp: '2025-05-23T17:47:46.143264'
+  event_type: timeout
+  description: 'Timeout: nginx server'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 53
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: nginx server - operation
+      failed'
+    metrics:
+      error_rate: 0.29054095975782523
+      response_time_ms: 3209
+      cpu_usage: 0.7213563613017415
+      memory_usage: 0.9974409502267708
+- timestamp: '2025-05-23T17:48:04.143264'
+  event_type: degradation
+  description: 'Degradation: an error'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: low
+    duration: 195
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: an error - operation failed'
+    metrics:
+      error_rate: 0.06474667439108779
+      response_time_ms: 1483
+      cpu_usage: 0.4626210147729953
+      memory_usage: 0.4035258553135292
+- timestamp: '2025-05-23T17:48:07.143264'
+  event_type: recovery
+  description: 'Recovery: the connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:23.143264'
+  event_type: failure
+  description: 'Failure: client error'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 277
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: client error -
+      operation failed'
+    metrics:
+      error_rate: 0.6417342513961828
+      response_time_ms: 6725
+      cpu_usage: 0.7074245076597633
+      memory_usage: 0.870187748148586
+- timestamp: '2025-05-23T17:48:26.143264'
+  event_type: timeout
+  description: 'Timeout: a queue'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: medium
+    duration: 69
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: a queue - operation failed'
+    metrics:
+      error_rate: 0.04455536861116916
+      response_time_ms: 126
+      cpu_usage: 0.5960235759833163
+      memory_usage: 0.6009757198754389
+- timestamp: '2025-05-23T18:01:52.143264'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

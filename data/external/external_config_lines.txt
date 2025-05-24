@@ -1,0 +1,57 @@
+# External Infrastructure Configuration Lines for Validation
+# Source: Real K8s configs + documented patterns
+# Total lines: 52
+# Generated at: 2025-05-23 17:42:26
+
+auth.enabled=true
+backoff_multiplier: 2.0
+cache.expire-after-write=PT10M
+cache_policy: lru
+cache_size: 1000
+cache_ttl: 300
+certificate_validation: strict
+circuitBreaker.errorThresholdPercentage=50
+circuit_breaker_threshold: 5
+connect-timeout-millis: 5000
+connection_timeout: 10s
+encryption.enabled=true
+failure_threshold: 3
+health_check_interval: 30s
+health_check_path: /health
+hystrix.command.default.circuitBreaker.enabled=true
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds=10000
+kind: Service
+kind: ServiceAccount
+load_balancer_policy: round_robin
+logging.level.com.example=DEBUG
+management.endpoints.web.exposure.include=health,info,metrics
+max_retries: 5
+metadata.labels.service: details
+metadata.labels.service: productpage
+metadata.labels.service: ratings
+metadata.labels.service: reviews
+metadata.name: prometheuses.monitoring.coreos.com
+metrics.enabled=true
+oauth2.enabled=true
+probe_timeout: 5s
+redis.timeout=2000
+request_timeout: 5000ms
+resilience4j.circuitbreaker.instances.backend.failureRateThreshold=60
+retry_delay: 1000ms
+retry_policy: exponential_backoff
+security.require-ssl=true
+server_name_indication: on
+spec.group: monitoring.coreos.com
+spec.replicas: 1
+spec.replicas: 2
+spec.replicas: 3
+spec.template.metadata.annotations.prometheus.io/port: 9080
+spec.template.spec.serviceAccountName: bookinfo-details
+spec.template.spec.serviceAccountName: bookinfo-productpage
+spec.template.spec.serviceAccountName: bookinfo-ratings
+spec.template.spec.serviceAccountName: bookinfo-reviews
+spec.type: NodePort
+spring.retry.max-attempts=3
+sticky_sessions: true
+timeout: 30s
+upstream_check interval=3000

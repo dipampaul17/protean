@@ -1,0 +1,74 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173245
+description: Infrastructure failure scenario for DataWarehouse
+duration: 1449
+metadata:
+  generated_at: '2025-05-23T17:32:45.671934'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:32:45.671792'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:25.671792'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:38.671792'
+  event_type: recovery
+  description: 'Recovery: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:18.671792'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 159
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.6556743216489006
+      response_time_ms: 4003
+      cpu_usage: 0.8221431093112259
+      memory_usage: 0.8201299178844785
+- timestamp: '2025-05-23T17:36:30.671792'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 233
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.8516580004372237
+      response_time_ms: 2692
+      cpu_usage: 0.8914222991919568
+      memory_usage: 0.9430067891727653
+- timestamp: '2025-05-23T17:36:52.671792'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 150
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: disk space full
+      - operation failed'
+    metrics:
+      error_rate: 0.5788056886932889
+      response_time_ms: 4225
+      cpu_usage: 0.9716071958525209
+      memory_usage: 0.9771305730869776
+- timestamp: '2025-05-23T17:56:54.671792'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

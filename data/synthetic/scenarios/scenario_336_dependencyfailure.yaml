@@ -1,0 +1,107 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_173453
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1420
+metadata:
+  generated_at: '2025-05-23T17:34:53.227193'
+  phrase_templates_used: 45
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:34:53.226962'
+  event_type: trigger
+  description: 'Initial failure detected: inventory service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:05.226962'
+  event_type: recovery
+  description: 'Recovery: following error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:31.226962'
+  event_type: recovery
+  description: 'Recovery: var log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:45.226962'
+  event_type: failure
+  description: 'Failure: var log'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 264
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: var log - operation failed'
+    metrics:
+      error_rate: 0.8164040807835967
+      response_time_ms: 9500
+      cpu_usage: 0.76293661614748
+      memory_usage: 0.8398034138511931
+- timestamp: '2025-05-23T17:36:04.226962'
+  event_type: timeout
+  description: 'Timeout: existing connection'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 134
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: existing connection -
+      operation failed'
+    metrics:
+      error_rate: 0.7765353592958137
+      response_time_ms: 3280
+      cpu_usage: 0.9463405349424515
+      memory_usage: 0.8671810363823611
+- timestamp: '2025-05-23T17:36:34.226962'
+  event_type: recovery
+  description: 'Recovery: inventory service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:36.226962'
+  event_type: failure
+  description: 'Failure: inventory service'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 164
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: inventory service - operation
+      failed'
+    metrics:
+      error_rate: 0.7141020186395578
+      response_time_ms: 5567
+      cpu_usage: 0.7702159478567385
+      memory_usage: 0.8411566587200429
+- timestamp: '2025-05-23T17:36:38.226962'
+  event_type: failure
+  description: 'Failure: jenkins server'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 263
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: jenkins server - operation
+      failed'
+    metrics:
+      error_rate: 0.21051953174852472
+      response_time_ms: 9394
+      cpu_usage: 0.7092195672054915
+      memory_usage: 0.8087657064204751
+- timestamp: '2025-05-23T17:37:27.226962'
+  event_type: failure
+  description: 'Failure: and update'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 222
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: and update - operation
+      failed'
+    metrics:
+      error_rate: 0.1027295934006845
+      response_time_ms: 2834
+      cpu_usage: 0.8532564604892882
+      memory_usage: 0.8239650286682006
+- timestamp: '2025-05-23T17:58:33.226962'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

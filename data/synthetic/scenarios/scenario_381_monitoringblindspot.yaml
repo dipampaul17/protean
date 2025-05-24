@@ -1,0 +1,116 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173708
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 688
+metadata:
+  generated_at: '2025-05-23T17:37:08.051088'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:37:08.050873'
+  event_type: trigger
+  description: 'Initial failure detected: or cpu'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:26.050873'
+  event_type: recovery
+  description: 'Recovery: to scale'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:45.050873'
+  event_type: failure
+  description: 'Failure: to scale'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 234
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: to scale - operation failed'
+    metrics:
+      error_rate: 0.8793262146955996
+      response_time_ms: 9891
+      cpu_usage: 0.805782663673893
+      memory_usage: 0.9790388310075734
+- timestamp: '2025-05-23T17:37:58.050873'
+  event_type: failure
+  description: 'Failure: a node'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 200
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: a node - operation failed'
+    metrics:
+      error_rate: 0.24351644331136094
+      response_time_ms: 3471
+      cpu_usage: 0.9902667744829501
+      memory_usage: 0.9913792098596808
+- timestamp: '2025-05-23T17:38:07.050873'
+  event_type: recovery
+  description: 'Recovery: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:32.050873'
+  event_type: timeout
+  description: 'Timeout: the log'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 276
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: the log - operation
+      failed'
+    metrics:
+      error_rate: 0.7753254460978146
+      response_time_ms: 1429
+      cpu_usage: 0.9300876625054719
+      memory_usage: 0.8116854936105721
+- timestamp: '2025-05-23T17:38:32.050873'
+  event_type: timeout
+  description: 'Timeout: monitoring system'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 140
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: monitoring system - operation
+      failed'
+    metrics:
+      error_rate: 0.5326301880541088
+      response_time_ms: 8375
+      cpu_usage: 0.9940448513998884
+      memory_usage: 0.8058660346615
+- timestamp: '2025-05-23T17:38:33.050873'
+  event_type: failure
+  description: 'Failure: code error'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 154
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: code error - operation
+      failed'
+    metrics:
+      error_rate: 0.2232870870888931
+      response_time_ms: 5369
+      cpu_usage: 0.7356658426377818
+      memory_usage: 0.9966324011264892
+- timestamp: '2025-05-23T17:38:34.050873'
+  event_type: timeout
+  description: 'Timeout: a server'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 287
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: a server - operation failed'
+    metrics:
+      error_rate: 0.4204989926098719
+      response_time_ms: 2213
+      cpu_usage: 0.772433744715648
+      memory_usage: 0.8364197155194313
+- timestamp: '2025-05-23T17:48:36.050873'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

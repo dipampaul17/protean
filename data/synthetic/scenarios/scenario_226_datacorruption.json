@@ -1,0 +1,138 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173245",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 1290,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.727156",
+    "phrase_templates_used": 36,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.726944",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to fix",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:01.726944",
+      "event_type": "recovery",
+      "description": "Recovery: code queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:12.726944",
+      "event_type": "failure",
+      "description": "Failure: the server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 157,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.2231239602090625,
+          "response_time_ms": 6431,
+          "cpu_usage": 0.9887500703679442,
+          "memory_usage": 0.846763784521867
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:13.726944",
+      "event_type": "recovery",
+      "description": "Recovery: head queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:19.726944",
+      "event_type": "timeout",
+      "description": "Timeout: the database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 263,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: the database - operation failed",
+        "metrics": {
+          "error_rate": 0.5930634528584099,
+          "response_time_ms": 6624,
+          "cpu_usage": 0.9616721776283479,
+          "memory_usage": 0.9858584182188502
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:23.726944",
+      "event_type": "recovery",
+      "description": "Recovery: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:46.726944",
+      "event_type": "timeout",
+      "description": "Timeout: the node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 190,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: the node - operation failed",
+        "metrics": {
+          "error_rate": 0.7634534562279184,
+          "response_time_ms": 4856,
+          "cpu_usage": 0.856389565948701,
+          "memory_usage": 0.8447096169429201
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:57.726944",
+      "event_type": "timeout",
+      "description": "Timeout: the server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 35,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.2097544117096434,
+          "response_time_ms": 1943,
+          "cpu_usage": 0.9581400077329318,
+          "memory_usage": 0.9582450454305471
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:06.726944",
+      "event_type": "failure",
+      "description": "Failure: the error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 34,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: the error - operation failed",
+        "metrics": {
+          "error_rate": 0.13465870113559142,
+          "response_time_ms": 8314,
+          "cpu_usage": 0.7913026140936064,
+          "memory_usage": 0.9485671539254263
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:54:15.726944",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

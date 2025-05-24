@@ -1,0 +1,139 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_173453
+description: Infrastructure failure scenario for ScalingFailure
+duration: 1384
+metadata:
+  generated_at: '2025-05-23T17:34:53.284603'
+  phrase_templates_used: 24
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 8
+events:
+- timestamp: '2025-05-23T17:34:53.284361'
+  event_type: trigger
+  description: 'Initial failure detected: clusterip service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:42.284361'
+  event_type: failure
+  description: 'Failure: an error'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 293
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: an error - operation
+      failed'
+    metrics:
+      error_rate: 0.10211013118407958
+      response_time_ms: 1214
+      cpu_usage: 0.8124540778238427
+      memory_usage: 0.8067435460630158
+- timestamp: '2025-05-23T17:35:52.284361'
+  event_type: timeout
+  description: 'Timeout: a node'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 114
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: a node - operation
+      failed'
+    metrics:
+      error_rate: 0.3258101523236719
+      response_time_ms: 2790
+      cpu_usage: 0.9435957433235577
+      memory_usage: 0.9276082681206648
+- timestamp: '2025-05-23T17:36:08.284361'
+  event_type: timeout
+  description: 'Timeout: the node'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 263
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: the node - operation failed'
+    metrics:
+      error_rate: 0.27626977046432877
+      response_time_ms: 5858
+      cpu_usage: 0.8670548226356607
+      memory_usage: 0.9197203113790873
+- timestamp: '2025-05-23T17:36:14.284361'
+  event_type: failure
+  description: 'Failure: scaling scale'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 145
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: scaling scale - operation
+      failed'
+    metrics:
+      error_rate: 0.6560391043036217
+      response_time_ms: 8953
+      cpu_usage: 0.7300416014473825
+      memory_usage: 0.9280839513006
+- timestamp: '2025-05-23T17:36:40.284361'
+  event_type: timeout
+  description: 'Timeout: load balancer'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 207
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: load balancer - operation
+      failed'
+    metrics:
+      error_rate: 0.8583330974943855
+      response_time_ms: 7258
+      cpu_usage: 0.771439709532445
+      memory_usage: 0.9411536797216092
+- timestamp: '2025-05-23T17:37:05.284361'
+  event_type: timeout
+  description: 'Timeout: to scale'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 66
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: to scale - operation failed'
+    metrics:
+      error_rate: 0.3847323025958881
+      response_time_ms: 1621
+      cpu_usage: 0.8607654190994636
+      memory_usage: 0.958929835524552
+- timestamp: '2025-05-23T17:37:23.284361'
+  event_type: timeout
+  description: 'Timeout: a cluster'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 220
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: a cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.19675137010874152
+      response_time_ms: 6547
+      cpu_usage: 0.8970787029299672
+      memory_usage: 0.8930135710511807
+- timestamp: '2025-05-23T17:37:38.284361'
+  event_type: timeout
+  description: 'Timeout: load balancer'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 159
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: load balancer - operation
+      failed'
+    metrics:
+      error_rate: 0.7090996968903218
+      response_time_ms: 7560
+      cpu_usage: 0.9595819785128781
+      memory_usage: 0.9693555235074196
+- timestamp: '2025-05-23T17:57:57.284361'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

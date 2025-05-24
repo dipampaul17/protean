@@ -1,0 +1,71 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173453
+description: Load balancer and traffic distribution problems
+duration: 1377
+metadata:
+  generated_at: '2025-05-23T17:34:53.221130'
+  phrase_templates_used: 13
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:34:53.220976'
+  event_type: trigger
+  description: 'Initial failure detected: a pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:59.220976'
+  event_type: timeout
+  description: 'Timeout: that node'
+  injection_spec:
+    type: timeout
+    target: load-balancer
+    severity: high
+    duration: 155
+    log_snippet: '[2025-05-23 17:34:53] ERROR load-balancer: that node in timeout'
+    metrics:
+      error_rate: 0.2668283165843196
+      response_time_ms: 8812
+      cpu_usage: 0.8670986746037127
+      memory_usage: 0.9622147103185152
+      requests_per_sec: 2720
+      backend_health_pct: 0.4538908345318709
+      connection_timeouts: 407
+- timestamp: '2025-05-23T17:36:36.220976'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: a server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:02.220976'
+  event_type: scaling
+  description: 'Scaling: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:27.220976'
+  event_type: scaling
+  description: 'Scaling: that node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:00.220976'
+  event_type: timeout
+  description: 'Timeout: a server'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 30
+    log_snippet: '[2025-05-23 17:34:53] ERROR subnet-private: a server in timeout'
+    metrics:
+      error_rate: 0.5765462481066
+      response_time_ms: 7752
+      cpu_usage: 0.8835149418060249
+      memory_usage: 0.9605618259769815
+      requests_per_sec: 7549
+      backend_health_pct: 0.4021646806444169
+      connection_timeouts: 612
+- timestamp: '2025-05-23T17:38:15.220976'
+  event_type: scaling
+  description: 'Scaling: in connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:57:50.220976'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

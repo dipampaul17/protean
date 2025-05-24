@@ -1,0 +1,110 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_173453
+description: Infrastructure failure scenario for ScalingFailure
+duration: 1493
+metadata:
+  generated_at: '2025-05-23T17:34:53.290506'
+  phrase_templates_used: 24
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:34:53.290322'
+  event_type: trigger
+  description: 'Initial failure detected: https connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:51.290322'
+  event_type: failure
+  description: 'Failure: a node'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 57
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: a node - operation
+      failed'
+    metrics:
+      error_rate: 0.3452200645990373
+      response_time_ms: 5171
+      cpu_usage: 0.7293134595152178
+      memory_usage: 0.8700063455317755
+- timestamp: '2025-05-23T17:36:19.290322'
+  event_type: timeout
+  description: 'Timeout: to fix'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 204
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: to fix - operation failed'
+    metrics:
+      error_rate: 0.5140613953759353
+      response_time_ms: 9905
+      cpu_usage: 0.7637529403716471
+      memory_usage: 0.8519896708138323
+- timestamp: '2025-05-23T17:36:37.290322'
+  event_type: timeout
+  description: 'Timeout: scaling scale'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 122
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: scaling scale - operation
+      failed'
+    metrics:
+      error_rate: 0.7599124945084316
+      response_time_ms: 8392
+      cpu_usage: 0.9847257618537968
+      memory_usage: 0.963634284258389
+- timestamp: '2025-05-23T17:36:50.290322'
+  event_type: failure
+  description: 'Failure: an error'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 280
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: an error - operation
+      failed'
+    metrics:
+      error_rate: 0.7152323579387353
+      response_time_ms: 1290
+      cpu_usage: 0.969921066253201
+      memory_usage: 0.9405713244024493
+- timestamp: '2025-05-23T17:38:37.290322'
+  event_type: failure
+  description: 'Failure: this error'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 169
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: this error - operation
+      failed'
+    metrics:
+      error_rate: 0.8519101715823586
+      response_time_ms: 6292
+      cpu_usage: 0.9557657232622941
+      memory_usage: 0.8420310395895637
+- timestamp: '2025-05-23T17:39:00.290322'
+  event_type: timeout
+  description: 'Timeout: to scale'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 182
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: to scale - operation
+      failed'
+    metrics:
+      error_rate: 0.7348197805510953
+      response_time_ms: 1985
+      cpu_usage: 0.9906456252893929
+      memory_usage: 0.9673690234542874
+- timestamp: '2025-05-23T17:59:46.290322'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

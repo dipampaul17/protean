@@ -1,0 +1,71 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173453
+description: Load balancer and traffic distribution problems
+duration: 898
+metadata:
+  generated_at: '2025-05-23T17:34:53.279285'
+  phrase_templates_used: 13
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:34:53.279116'
+  event_type: trigger
+  description: 'Initial failure detected: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:09.279116'
+  event_type: backend_failure
+  description: 'Backend_Failure: kafka pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:26.279116'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:00.279116'
+  event_type: scaling
+  description: 'Scaling: kafka pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:05.279116'
+  event_type: timeout
+  description: 'Timeout: the server'
+  injection_spec:
+    type: timeout
+    target: api-gateway
+    severity: high
+    duration: 224
+    log_snippet: '[2025-05-23 17:34:53] ERROR api-gateway: the server in timeout'
+    metrics:
+      error_rate: 0.31807375365999924
+      response_time_ms: 1927
+      cpu_usage: 0.8746406525277326
+      memory_usage: 0.9686160522526402
+      requests_per_sec: 2780
+      backend_health_pct: 0.5554169087610474
+      connection_timeouts: 871
+- timestamp: '2025-05-23T17:36:53.279116'
+  event_type: timeout
+  description: 'Timeout: a pod'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 200
+    log_snippet: '[2025-05-23 17:34:53] ERROR vpc-main: a pod in timeout'
+    metrics:
+      error_rate: 0.797884473375201
+      response_time_ms: 7857
+      cpu_usage: 0.7303985565988709
+      memory_usage: 0.9271600616892397
+      requests_per_sec: 9760
+      backend_health_pct: 0.6287473428898013
+      connection_timeouts: 221
+- timestamp: '2025-05-23T17:36:58.279116'
+  event_type: scaling
+  description: 'Scaling: in connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:51.279116'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

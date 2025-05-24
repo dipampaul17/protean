@@ -1,0 +1,63 @@
+category: EventDriven
+name: EventDriven_20250523_173245
+description: Message queue and event processing failures
+duration: 551
+metadata:
+  generated_at: '2025-05-23T17:32:45.662446'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:32:45.662285'
+  event_type: trigger
+  description: 'Initial failure detected: rabbitmq server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:57.662285'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: work queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:02.662285'
+  event_type: recovery
+  description: 'Recovery: main queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:23.662285'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: kafka cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:50.662285'
+  event_type: recovery
+  description: 'Recovery: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:52.662285'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: a queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:59.662285'
+  event_type: recovery
+  description: 'Recovery: rabbitmq queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:00.662285'
+  event_type: timeout
+  description: 'Timeout: badmatch error'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 218
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-queue: queue processing badmatch
+      error'
+    metrics:
+      error_rate: 0.1008026513497402
+      response_time_ms: 6598
+      cpu_usage: 0.729361580835496
+      memory_usage: 0.9780793712066536
+      queue_depth: 44479
+      message_processing_rate: 8.301740560518727
+      consumer_lag_ms: 56806
+- timestamp: '2025-05-23T17:41:56.662285'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

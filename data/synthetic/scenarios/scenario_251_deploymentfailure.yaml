@@ -1,0 +1,83 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_174628
+description: Application deployment and rollback scenarios
+duration: 1496
+metadata:
+  generated_at: '2025-05-23T17:46:28.998011'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:28.997131'
+  event_type: trigger
+  description: 'Initial failure detected: code container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:43.997131'
+  event_type: rollback
+  description: 'Rollback: a deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:50.997131'
+  event_type: rollback
+  description: 'Rollback: kind deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:04.997131'
+  event_type: failure
+  description: 'Failure: the error'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 66
+    log_snippet: '[2025-05-23 17:46:28] ERROR api-backend: the error in failure'
+    metrics:
+      error_rate: 0.627001696749836
+      response_time_ms: 1345
+      cpu_usage: 0.7715164787289861
+      memory_usage: 0.8953183134812455
+- timestamp: '2025-05-23T17:48:11.997131'
+  event_type: deployment
+  description: 'Deployment: the service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:18.997131'
+  event_type: scaling
+  description: 'Scaling: p error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:40.997131'
+  event_type: failure
+  description: 'Failure: a pod'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 36
+    log_snippet: '[2025-05-23 17:46:28] ERROR nginx-proxy: a pod in failure'
+    metrics:
+      error_rate: 0.27618059990541644
+      response_time_ms: 1531
+      cpu_usage: 0.771416888355201
+      memory_usage: 0.9962123444463713
+- timestamp: '2025-05-23T17:48:51.997131'
+  event_type: failure
+  description: 'Failure: a deployment'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 185
+    log_snippet: '[2025-05-23 17:46:28] ERROR worker-consumer: a deployment in failure'
+    metrics:
+      error_rate: 0.6333110076543285
+      response_time_ms: 7470
+      cpu_usage: 0.9556983525599846
+      memory_usage: 0.8351623779085549
+- timestamp: '2025-05-23T17:49:28.997131'
+  event_type: deployment
+  description: 'Deployment: p error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:11:24.997131'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

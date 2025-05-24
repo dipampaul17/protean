@@ -1,0 +1,104 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_174629
+description: Infrastructure failure scenario for ETLPipeline
+duration: 1453
+metadata:
+  generated_at: '2025-05-23T17:46:29.125070'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:46:29.124844'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:00.124844'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:11.124844'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 232
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.2589497893180462
+      response_time_ms: 8768
+      cpu_usage: 0.7317985689293014
+      memory_usage: 0.8806178610262871
+- timestamp: '2025-05-23T17:48:29.124844'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 63
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.38950998709609497
+      response_time_ms: 7090
+      cpu_usage: 0.7190263508095088
+      memory_usage: 0.8353218860235558
+- timestamp: '2025-05-23T17:48:48.124844'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 30
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.8174000011583934
+      response_time_ms: 4325
+      cpu_usage: 0.742087462195804
+      memory_usage: 0.9748990202720194
+- timestamp: '2025-05-23T17:48:50.124844'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 63
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: container crashed
+      - operation failed'
+    metrics:
+      error_rate: 0.2540010572793241
+      response_time_ms: 3780
+      cpu_usage: 0.7395473348982596
+      memory_usage: 0.9837693683062677
+- timestamp: '2025-05-23T17:48:58.124844'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 154
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.3612314575563559
+      response_time_ms: 1653
+      cpu_usage: 0.9060201028865649
+      memory_usage: 0.9988270768365014
+- timestamp: '2025-05-23T17:49:33.124844'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T18:10:42.124844'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

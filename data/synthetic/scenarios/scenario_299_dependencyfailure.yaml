@@ -1,0 +1,74 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_174629
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1324
+metadata:
+  generated_at: '2025-05-23T17:46:29.069466'
+  phrase_templates_used: 45
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:29.069321'
+  event_type: trigger
+  description: 'Initial failure detected: upstream server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:18.069321'
+  event_type: timeout
+  description: 'Timeout: connect service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 187
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: connect service
+      - operation failed'
+    metrics:
+      error_rate: 0.46475222028820895
+      response_time_ms: 7996
+      cpu_usage: 0.8959692200896285
+      memory_usage: 0.9007397571823269
+- timestamp: '2025-05-23T17:48:03.069321'
+  event_type: recovery
+  description: 'Recovery: proxy server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:15.069321'
+  event_type: recovery
+  description: 'Recovery: nginx service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:17.069321'
+  event_type: failure
+  description: 'Failure: code server'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 276
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: code server - operation
+      failed'
+    metrics:
+      error_rate: 0.10031597514996396
+      response_time_ms: 4636
+      cpu_usage: 0.9189654741641331
+      memory_usage: 0.9335110537856901
+- timestamp: '2025-05-23T17:50:32.069321'
+  event_type: timeout
+  description: 'Timeout: the connection'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 129
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: the connection
+      - operation failed'
+    metrics:
+      error_rate: 0.4746971416044776
+      response_time_ms: 1450
+      cpu_usage: 0.7126061704781133
+      memory_usage: 0.8249104111792362
+- timestamp: '2025-05-23T18:08:33.069321'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

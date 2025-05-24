@@ -1,0 +1,81 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_174629
+description: Circuit breaker activation due to cascading service failures
+duration: 729
+metadata:
+  generated_at: '2025-05-23T17:46:29.065914'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 2
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:29.065793'
+  event_type: trigger
+  description: 'Initial failure detected: p update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:46.065793'
+  event_type: failure
+  description: 'Failure: this error'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 239
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: this error - operation
+      failed'
+    metrics:
+      error_rate: 0.8924771871026465
+      response_time_ms: 7170
+      cpu_usage: 0.8494629756258933
+      memory_usage: 0.813908996072933
+- timestamp: '2025-05-23T17:46:56.065793'
+  event_type: degradation
+  description: 'Degradation: virtual memory'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: low
+    duration: 100
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: virtual memory
+      - operation failed'
+    metrics:
+      error_rate: 0.08503055662226616
+      response_time_ms: 229
+      cpu_usage: 0.37634715880129405
+      memory_usage: 0.5099677900777383
+- timestamp: '2025-05-23T17:47:39.065793'
+  event_type: failure
+  description: 'Failure: an error'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 200
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: an error - operation
+      failed'
+    metrics:
+      error_rate: 0.87731416865313
+      response_time_ms: 3765
+      cpu_usage: 0.9145984847334776
+      memory_usage: 0.9116708990818709
+- timestamp: '2025-05-23T17:48:54.065793'
+  event_type: degradation
+  description: 'Degradation: us log'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: low
+    duration: 238
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: us log - operation
+      failed'
+    metrics:
+      error_rate: 0.24546656670345446
+      response_time_ms: 770
+      cpu_usage: 0.3289744131498925
+      memory_usage: 0.6460227745833309
+- timestamp: '2025-05-23T17:58:38.065793'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

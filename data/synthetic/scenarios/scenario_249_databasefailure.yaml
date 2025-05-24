@@ -1,0 +1,47 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_174628
+description: Database connectivity and performance issues
+duration: 663
+metadata:
+  generated_at: '2025-05-23T17:46:28.996204'
+  phrase_templates_used: 50
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:46:28.996115'
+  event_type: trigger
+  description: 'Initial failure detected: postgres container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:24.996115'
+  event_type: connection_loss
+  description: 'Connection_Loss: in memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:54.996115'
+  event_type: corruption
+  description: 'Corruption: the cache'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:54.996115'
+  event_type: timeout
+  description: 'Timeout: clustered index'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 128
+    log_snippet: '[2025-05-23 17:46:28] FATAL postgres-replica: database clustered
+      index detected'
+    metrics:
+      error_rate: 0.8594539880204429
+      response_time_ms: 6768
+      cpu_usage: 0.759654908495295
+      memory_usage: 0.908496153486688
+      connection_pool_usage: 0.8901730624564009
+      query_time_ms: 22151
+      deadlocks_per_sec: 5
+- timestamp: '2025-05-23T17:57:31.996115'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

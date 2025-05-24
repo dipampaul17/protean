@@ -1,0 +1,90 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_174629",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 987,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.103065",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.102801",
+      "event_type": "trigger",
+      "description": "Initial failure detected: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:13.102801",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 212,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.6763545948504815,
+          "response_time_ms": 5988,
+          "cpu_usage": 0.9129829732084858,
+          "memory_usage": 0.8138029951924974
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:15.102801",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:29.102801",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 196,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.2821575060111455,
+          "response_time_ms": 4010,
+          "cpu_usage": 0.8831686909515074,
+          "memory_usage": 0.891014205618636
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:44.102801",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 132,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.7848317757198474,
+          "response_time_ms": 2792,
+          "cpu_usage": 0.732869703076266,
+          "memory_usage": 0.8557743335533636
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:02:56.102801",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

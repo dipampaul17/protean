@@ -1,0 +1,88 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_174628
+description: Circuit breaker activation due to cascading service failures
+duration: 1127
+metadata:
+  generated_at: '2025-05-23T17:46:28.909874'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:46:28.909705'
+  event_type: trigger
+  description: 'Initial failure detected: letter queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:58.909705'
+  event_type: failure
+  description: 'Failure: true error'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 277
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: true error - operation
+      failed'
+    metrics:
+      error_rate: 0.8575888255095182
+      response_time_ms: 7492
+      cpu_usage: 0.9771112221890038
+      memory_usage: 0.9784390246208567
+- timestamp: '2025-05-23T17:46:59.909705'
+  event_type: timeout
+  description: 'Timeout: the timeout'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 223
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: the timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.41842461237141837
+      response_time_ms: 5833
+      cpu_usage: 0.9892139595609502
+      memory_usage: 0.9953313834559252
+- timestamp: '2025-05-23T17:47:15.909705'
+  event_type: degradation
+  description: 'Degradation: exceeded timeout'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: high
+    duration: 49
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: exceeded timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.4941249995054887
+      response_time_ms: 2191
+      cpu_usage: 0.7479222572965495
+      memory_usage: 0.9924782650167907
+- timestamp: '2025-05-23T17:47:15.909705'
+  event_type: recovery
+  description: 'Recovery: code error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:36.909705'
+  event_type: recovery
+  description: 'Recovery: the timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:24.909705'
+  event_type: failure
+  description: 'Failure: the log'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 186
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: the log - operation failed'
+    metrics:
+      error_rate: 0.7969928172822202
+      response_time_ms: 1044
+      cpu_usage: 0.9408647734053444
+      memory_usage: 0.9845852205036725
+- timestamp: '2025-05-23T18:05:15.909705'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

@@ -1,0 +1,90 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173245",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 596,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.687449",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.687300",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:00.687300",
+      "event_type": "deployment",
+      "description": "Deployment: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:05.687300",
+      "event_type": "scaling",
+      "description": "Scaling: headless service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:16.687300",
+      "event_type": "failure",
+      "description": "Failure: during deployment",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 128,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR nginx-proxy: during deployment in failure",
+        "metrics": {
+          "error_rate": 0.7543286485183477,
+          "response_time_ms": 7909,
+          "cpu_usage": 0.7770192939726416,
+          "memory_usage": 0.9643602174656223
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:28.687300",
+      "event_type": "scaling",
+      "description": "Scaling: my deployment",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:06.687300",
+      "event_type": "scaling",
+      "description": "Scaling: kafka monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:17.687300",
+      "event_type": "failure",
+      "description": "Failure: strong update",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 261,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR nginx-proxy: strong update in failure",
+        "metrics": {
+          "error_rate": 0.2578654802553313,
+          "response_time_ms": 7797,
+          "cpu_usage": 0.796067943872277,
+          "memory_usage": 0.8011048299816669
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:42:41.687300",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

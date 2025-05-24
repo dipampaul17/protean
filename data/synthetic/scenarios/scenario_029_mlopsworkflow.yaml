@@ -1,0 +1,74 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_174628
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1320
+metadata:
+  generated_at: '2025-05-23T17:46:28.913228'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:28.913086'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:34.913086'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 211
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.3469189823196044
+      response_time_ms: 3424
+      cpu_usage: 0.8153152788561279
+      memory_usage: 0.8840576585453743
+- timestamp: '2025-05-23T17:49:12.913086'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:14.913086'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 250
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: queue overflow
+      - operation failed'
+    metrics:
+      error_rate: 0.8403701809389866
+      response_time_ms: 1075
+      cpu_usage: 0.811163030904089
+      memory_usage: 0.8937028469692474
+- timestamp: '2025-05-23T17:50:40.913086'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 218
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.3805905536875248
+      response_time_ms: 8047
+      cpu_usage: 0.734321791631815
+      memory_usage: 0.9765523077660985
+- timestamp: '2025-05-23T17:50:42.913086'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T18:08:28.913086'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

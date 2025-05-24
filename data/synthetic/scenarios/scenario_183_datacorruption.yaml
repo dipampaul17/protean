@@ -1,0 +1,89 @@
+category: DataCorruption
+name: DataCorruption_20250523_173707
+description: Infrastructure failure scenario for DataCorruption
+duration: 1458
+metadata:
+  generated_at: '2025-05-23T17:37:07.997862'
+  phrase_templates_used: 36
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:37:07.997146'
+  event_type: trigger
+  description: 'Initial failure detected: to disk'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:50.997146'
+  event_type: failure
+  description: 'Failure: same node'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 48
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: same node - operation
+      failed'
+    metrics:
+      error_rate: 0.8625786855947575
+      response_time_ms: 8428
+      cpu_usage: 0.7818361056269559
+      memory_usage: 0.9704992009056164
+- timestamp: '2025-05-23T17:38:48.997146'
+  event_type: failure
+  description: 'Failure: same node'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 228
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: same node - operation
+      failed'
+    metrics:
+      error_rate: 0.3499671097190663
+      response_time_ms: 7976
+      cpu_usage: 0.7373605549816017
+      memory_usage: 0.8195386544693612
+- timestamp: '2025-05-23T17:39:36.997146'
+  event_type: failure
+  description: 'Failure: using rabbitmq'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 173
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: using rabbitmq
+      - operation failed'
+    metrics:
+      error_rate: 0.8738943192592278
+      response_time_ms: 5420
+      cpu_usage: 0.9848533230179228
+      memory_usage: 0.9766542677974097
+- timestamp: '2025-05-23T17:40:18.997146'
+  event_type: recovery
+  description: 'Recovery: to node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:23.997146'
+  event_type: timeout
+  description: 'Timeout: closed connection'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 231
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: closed connection - operation
+      failed'
+    metrics:
+      error_rate: 0.8989899084041405
+      response_time_ms: 2241
+      cpu_usage: 0.9481822421129997
+      memory_usage: 0.9056543012624929
+- timestamp: '2025-05-23T17:40:50.997146'
+  event_type: recovery
+  description: 'Recovery: only container'
+  injection_spec: null
+- timestamp: '2025-05-23T18:01:25.997146'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

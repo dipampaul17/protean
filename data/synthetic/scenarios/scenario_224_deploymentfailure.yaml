@@ -1,0 +1,51 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173245
+description: Application deployment and rollback scenarios
+duration: 1673
+metadata:
+  generated_at: '2025-05-23T17:32:45.726784'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:32:45.726659'
+  event_type: trigger
+  description: 'Initial failure detected: kind service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:05.726659'
+  event_type: scaling
+  description: 'Scaling: using cache'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:04.726659'
+  event_type: rollback
+  description: 'Rollback: p error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:42.726659'
+  event_type: failure
+  description: 'Failure: code deployment'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 227
+    log_snippet: '[2025-05-23 17:32:45] ERROR api-backend: code deployment in failure'
+    metrics:
+      error_rate: 0.22820639977061533
+      response_time_ms: 5370
+      cpu_usage: 0.9097691946480209
+      memory_usage: 0.9165953086875875
+- timestamp: '2025-05-23T17:35:48.726659'
+  event_type: scaling
+  description: 'Scaling: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:07.726659'
+  event_type: rollback
+  description: 'Rollback: to deploy'
+  injection_spec: null
+- timestamp: '2025-05-23T18:00:38.726659'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

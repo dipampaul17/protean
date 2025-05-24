@@ -1,0 +1,78 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_174629
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 893
+metadata:
+  generated_at: '2025-05-23T17:46:29.063169'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:29.063007'
+  event_type: trigger
+  description: 'Initial failure detected: reading database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:55.063007'
+  event_type: timeout
+  description: 'Timeout: em connection'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 206
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: em connection
+      - operation failed'
+    metrics:
+      error_rate: 0.3518097234093537
+      response_time_ms: 2243
+      cpu_usage: 0.9337498835148021
+      memory_usage: 0.956418977449631
+- timestamp: '2025-05-23T17:46:59.063007'
+  event_type: recovery
+  description: 'Recovery: the container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:31.063007'
+  event_type: recovery
+  description: 'Recovery: a connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:32.063007'
+  event_type: failure
+  description: 'Failure: in memory'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 246
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: in memory - operation
+      failed'
+    metrics:
+      error_rate: 0.8768325766458477
+      response_time_ms: 1844
+      cpu_usage: 0.8323414191726753
+      memory_usage: 0.9585256708291922
+- timestamp: '2025-05-23T17:48:33.063007'
+  event_type: failure
+  description: 'Failure: potential memory'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 74
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: potential memory - operation
+      failed'
+    metrics:
+      error_rate: 0.32172285994493005
+      response_time_ms: 4048
+      cpu_usage: 0.746018552116194
+      memory_usage: 0.9429265791750807
+- timestamp: '2025-05-23T17:48:42.063007'
+  event_type: recovery
+  description: 'Recovery: the pod'
+  injection_spec: null
+- timestamp: '2025-05-23T18:01:22.063007'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

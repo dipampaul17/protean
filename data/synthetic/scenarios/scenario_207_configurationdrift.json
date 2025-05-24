@@ -1,0 +1,66 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173245",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1013,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.722396",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.722294",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:13.722294",
+      "event_type": "rollback",
+      "description": "Rollback: var log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:14.722294",
+      "event_type": "failure",
+      "description": "Failure: a service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 220,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.287474635672804,
+          "response_time_ms": 2026,
+          "cpu_usage": 0.7784528417795368,
+          "memory_usage": 0.9842961216723914
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:51.722294",
+      "event_type": "restart",
+      "description": "Restart: nginx restart",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:34.722294",
+      "event_type": "rollback",
+      "description": "Rollback: kubernetes pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:38.722294",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

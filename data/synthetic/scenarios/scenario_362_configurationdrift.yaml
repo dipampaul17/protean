@@ -1,0 +1,52 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173708
+description: Configuration inconsistencies causing service degradation
+duration: 1304
+metadata:
+  generated_at: '2025-05-23T17:37:08.046001'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:37:08.045881'
+  event_type: trigger
+  description: 'Initial failure detected: jenkins server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:19.045881'
+  event_type: config_change
+  description: 'Config_Change: proxy server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:38.045881'
+  event_type: failure
+  description: 'Failure: to update'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 197
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: to update - operation
+      failed'
+    metrics:
+      error_rate: 0.38001145278701676
+      response_time_ms: 8207
+      cpu_usage: 0.8148922388262275
+      memory_usage: 0.8054400677430966
+- timestamp: '2025-05-23T17:38:54.045881'
+  event_type: rollback
+  description: 'Rollback: docker service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:13.045881'
+  event_type: restart
+  description: 'Restart: the pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:16.045881'
+  event_type: rollback
+  description: 'Rollback: stopped container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:58:52.045881'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

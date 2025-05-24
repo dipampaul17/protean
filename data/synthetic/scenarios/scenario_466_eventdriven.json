@@ -1,0 +1,108 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173453",
+  "description": "Message queue and event processing failures",
+  "duration": 1645,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.355452",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.355261",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rabbitmq service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:27.355261",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: that queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:02.355261",
+      "event_type": "timeout",
+      "description": "Timeout: var connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 52,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-queue: queue processing var connection",
+        "metrics": {
+          "error_rate": 0.2674505416895119,
+          "response_time_ms": 2825,
+          "cpu_usage": 0.9741418380556304,
+          "memory_usage": 0.8919793946372716,
+          "queue_depth": 26996,
+          "message_processing_rate": 9.149805130577695,
+          "consumer_lag_ms": 245725
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:15.355261",
+      "event_type": "message_loss",
+      "description": "Message_Loss: var connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:21.355261",
+      "event_type": "recovery",
+      "description": "Recovery: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:08.355261",
+      "event_type": "message_loss",
+      "description": "Message_Loss: resource limit",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:51.355261",
+      "event_type": "message_loss",
+      "description": "Message_Loss: a queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:52.355261",
+      "event_type": "message_loss",
+      "description": "Message_Loss: var connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:05.355261",
+      "event_type": "timeout",
+      "description": "Timeout: using kafka",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 239,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR batch-processing-queue: queue processing using kafka",
+        "metrics": {
+          "error_rate": 0.16301923470078616,
+          "response_time_ms": 3295,
+          "cpu_usage": 0.8523232237826767,
+          "memory_usage": 0.8367461056521894,
+          "queue_depth": 44652,
+          "message_processing_rate": 8.853677179705933,
+          "consumer_lag_ms": 261172
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:02:18.355261",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

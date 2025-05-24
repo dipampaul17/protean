@@ -1,0 +1,59 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173707
+description: Infrastructure failure scenario for ETLPipeline
+duration: 758
+metadata:
+  generated_at: '2025-05-23T17:37:07.955243'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:07.955133'
+  event_type: trigger
+  description: 'Initial failure detected: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:43.955133'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:04.955133'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 152
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.2606881682244032
+      response_time_ms: 5613
+      cpu_usage: 0.7802397361427045
+      memory_usage: 0.9748779283527301
+- timestamp: '2025-05-23T17:39:00.955133'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:13.955133'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 78
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.4511232008276139
+      response_time_ms: 5328
+      cpu_usage: 0.8070627923790523
+      memory_usage: 0.9697772482698929
+- timestamp: '2025-05-23T17:49:45.955133'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

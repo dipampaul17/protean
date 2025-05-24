@@ -1,0 +1,132 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173245",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 1663,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.711757",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.711563",
+      "event_type": "trigger",
+      "description": "Initial failure detected: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:02.711563",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 108,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.6959067778124403,
+          "response_time_ms": 5086,
+          "cpu_usage": 0.8492881445390963,
+          "memory_usage": 0.8317098033634657
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:50.711563",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 179,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.7597648938642079,
+          "response_time_ms": 9815,
+          "cpu_usage": 0.8581669917114866,
+          "memory_usage": 0.9650010802026887
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:05.711563",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 168,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.18775651354493894,
+          "response_time_ms": 1393,
+          "cpu_usage": 0.8780246525163415,
+          "memory_usage": 0.948694442045446
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:41.711563",
+      "event_type": "recovery",
+      "description": "Recovery: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:48.711563",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 240,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.23738776020517482,
+          "response_time_ms": 8350,
+          "cpu_usage": 0.9471190730565056,
+          "memory_usage": 0.8441801567806377
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:59.711563",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:27.711563",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 213,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.3721800348164721,
+          "response_time_ms": 3106,
+          "cpu_usage": 0.833155624837294,
+          "memory_usage": 0.9452783839351605
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:00:28.711563",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173452
+description: Infrastructure failure scenario for DataWarehouse
+duration: 1132
+metadata:
+  generated_at: '2025-05-23T17:34:52.915601'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:52.915397'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:07.915397'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:15.915397'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 123
+    log_snippet: '[2025-05-23 17:34:52] ERROR payment-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.4132890112651668
+      response_time_ms: 8380
+      cpu_usage: 0.9878565788659448
+      memory_usage: 0.8613714892380384
+- timestamp: '2025-05-23T17:35:18.915397'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:46.915397'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 286
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.46726831928616497
+      response_time_ms: 1697
+      cpu_usage: 0.9210204052063788
+      memory_usage: 0.9633351389948664
+- timestamp: '2025-05-23T17:36:25.915397'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:48.915397'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 32
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.10249070112901332
+      response_time_ms: 9018
+      cpu_usage: 0.9114252060854175
+      memory_usage: 0.8588691814511288
+- timestamp: '2025-05-23T17:36:48.915397'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 254
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.4931152297115243
+      response_time_ms: 9723
+      cpu_usage: 0.7097561128816624
+      memory_usage: 0.8298924211596395
+- timestamp: '2025-05-23T17:36:55.915397'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:53:44.915397'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

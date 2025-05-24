@@ -1,0 +1,85 @@
+category: Microservices
+name: Microservices_20250523_173245
+description: Infrastructure failure scenario for Microservices
+duration: 1499
+metadata:
+  generated_at: '2025-05-23T17:32:45.752691'
+  phrase_templates_used: 15
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:32:45.752539'
+  event_type: trigger
+  description: 'Initial failure detected: following error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:13.752539'
+  event_type: failure
+  description: 'Failure: lt service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 48
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: lt service - operation
+      failed'
+    metrics:
+      error_rate: 0.7568375113292383
+      response_time_ms: 3645
+      cpu_usage: 0.9300267037274521
+      memory_usage: 0.8476539867602092
+- timestamp: '2025-05-23T17:33:38.752539'
+  event_type: failure
+  description: 'Failure: strong service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 255
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: strong service
+      - operation failed'
+    metrics:
+      error_rate: 0.38976524196897855
+      response_time_ms: 6595
+      cpu_usage: 0.7032588331433627
+      memory_usage: 0.874896305791298
+- timestamp: '2025-05-23T17:35:00.752539'
+  event_type: recovery
+  description: 'Recovery: from service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:08.752539'
+  event_type: timeout
+  description: 'Timeout: docker network'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 230
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: docker network - operation
+      failed'
+    metrics:
+      error_rate: 0.6039980412461914
+      response_time_ms: 3703
+      cpu_usage: 0.9432396251751655
+      memory_usage: 0.9829259744672836
+- timestamp: '2025-05-23T17:35:48.752539'
+  event_type: timeout
+  description: 'Timeout: to service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 245
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: to service - operation
+      failed'
+    metrics:
+      error_rate: 0.8285634024693763
+      response_time_ms: 2998
+      cpu_usage: 0.8118649044074372
+      memory_usage: 0.8763590587980877
+- timestamp: '2025-05-23T17:57:44.752539'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

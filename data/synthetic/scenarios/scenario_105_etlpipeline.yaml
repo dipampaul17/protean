@@ -1,0 +1,89 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173707
+description: Infrastructure failure scenario for ETLPipeline
+duration: 516
+metadata:
+  generated_at: '2025-05-23T17:37:07.956233'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:37:07.956035'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:17.956035'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:28.956035'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 157
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.83391518887794
+      response_time_ms: 1102
+      cpu_usage: 0.7157133656180736
+      memory_usage: 0.9968118319094819
+- timestamp: '2025-05-23T17:37:29.956035'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 224
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.640754533141859
+      response_time_ms: 6087
+      cpu_usage: 0.8731140412633887
+      memory_usage: 0.9300167153369394
+- timestamp: '2025-05-23T17:37:32.956035'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 261
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: queue overflow
+      - operation failed'
+    metrics:
+      error_rate: 0.3019675694027738
+      response_time_ms: 1582
+      cpu_usage: 0.8682805610276288
+      memory_usage: 0.8454534947811099
+- timestamp: '2025-05-23T17:38:06.956035'
+  event_type: recovery
+  description: 'Recovery: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:18.956035'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 43
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.516388368943145
+      response_time_ms: 7364
+      cpu_usage: 0.8271427576910529
+      memory_usage: 0.8704779820410882
+- timestamp: '2025-05-23T17:45:43.956035'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

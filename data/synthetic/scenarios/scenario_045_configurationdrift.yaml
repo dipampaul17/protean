@@ -1,0 +1,58 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173245
+description: Configuration inconsistencies causing service degradation
+duration: 1306
+metadata:
+  generated_at: '2025-05-23T17:32:45.667902'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.667782'
+  event_type: trigger
+  description: 'Initial failure detected: an error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:01.667782'
+  event_type: rollback
+  description: 'Rollback: nginx restart'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:52.667782'
+  event_type: failure
+  description: 'Failure: the pod'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 182
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: the pod - operation failed'
+    metrics:
+      error_rate: 0.21164047800750688
+      response_time_ms: 2876
+      cpu_usage: 0.8852490696829629
+      memory_usage: 0.855796825160973
+- timestamp: '2025-05-23T17:37:00.667782'
+  event_type: failure
+  description: 'Failure: nginx server'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 211
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: nginx server - operation
+      failed'
+    metrics:
+      error_rate: 0.1779186180871861
+      response_time_ms: 1698
+      cpu_usage: 0.9358610093543753
+      memory_usage: 0.8222314285618063
+- timestamp: '2025-05-23T17:37:23.667782'
+  event_type: restart
+  description: 'Restart: jenkins server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:54:31.667782'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

@@ -1,0 +1,102 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173245",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 1096,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.736183",
+    "phrase_templates_used": 45,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.735969",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:10.735969",
+      "event_type": "recovery",
+      "description": "Recovery: connect service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:19.735969",
+      "event_type": "recovery",
+      "description": "Recovery: vpn connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:45.735969",
+      "event_type": "recovery",
+      "description": "Recovery: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:20.735969",
+      "event_type": "failure",
+      "description": "Failure: code server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 63,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: code server - operation failed",
+        "metrics": {
+          "error_rate": 0.24476798293136623,
+          "response_time_ms": 1967,
+          "cpu_usage": 0.7241195454061371,
+          "memory_usage": 0.8262198078234645
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:08.735969",
+      "event_type": "failure",
+      "description": "Failure: following error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 266,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: following error - operation failed",
+        "metrics": {
+          "error_rate": 0.7683845746372182,
+          "response_time_ms": 8202,
+          "cpu_usage": 0.9412215525443773,
+          "memory_usage": 0.8914331149031713
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:30.735969",
+      "event_type": "failure",
+      "description": "Failure: the log",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 201,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: the log - operation failed",
+        "metrics": {
+          "error_rate": 0.3898186809737689,
+          "response_time_ms": 2606,
+          "cpu_usage": 0.8501643152520442,
+          "memory_usage": 0.9082687145448616
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:51:01.735969",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

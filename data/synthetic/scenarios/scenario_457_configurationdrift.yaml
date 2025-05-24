@@ -1,0 +1,93 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173453
+description: Configuration inconsistencies causing service degradation
+duration: 1122
+metadata:
+  generated_at: '2025-05-23T17:34:53.352291'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:53.352113'
+  event_type: trigger
+  description: 'Initial failure detected: docker container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:31.352113'
+  event_type: failure
+  description: 'Failure: strong update'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 255
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: strong update - operation
+      failed'
+    metrics:
+      error_rate: 0.38717470706656
+      response_time_ms: 3718
+      cpu_usage: 0.9018631322023113
+      memory_usage: 0.9858749578383363
+- timestamp: '2025-05-23T17:35:32.352113'
+  event_type: config_change
+  description: 'Config_Change: code error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:41.352113'
+  event_type: failure
+  description: 'Failure: redis server'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 184
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: redis server -
+      operation failed'
+    metrics:
+      error_rate: 0.8420630022837592
+      response_time_ms: 9118
+      cpu_usage: 0.9910426841661774
+      memory_usage: 0.8183336820081473
+- timestamp: '2025-05-23T17:35:41.352113'
+  event_type: restart
+  description: 'Restart: the node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:17.352113'
+  event_type: failure
+  description: 'Failure: the cluster'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 65
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: the cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.6716081546333263
+      response_time_ms: 9120
+      cpu_usage: 0.8747326386207817
+      memory_usage: 0.815638811995816
+- timestamp: '2025-05-23T17:36:47.352113'
+  event_type: failure
+  description: 'Failure: nginx server'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 265
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: nginx server -
+      operation failed'
+    metrics:
+      error_rate: 0.4103849104545083
+      response_time_ms: 3258
+      cpu_usage: 0.7963422167873333
+      memory_usage: 0.8654043056025964
+- timestamp: '2025-05-23T17:37:14.352113'
+  event_type: config_change
+  description: 'Config_Change: string container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:53:35.352113'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

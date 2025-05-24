@@ -1,0 +1,82 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173453
+description: Configuration inconsistencies causing service degradation
+duration: 452
+metadata:
+  generated_at: '2025-05-23T17:34:53.070640'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.069980'
+  event_type: trigger
+  description: 'Initial failure detected: the node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:08.069980'
+  event_type: failure
+  description: 'Failure: jenkins server'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 238
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: jenkins server - operation
+      failed'
+    metrics:
+      error_rate: 0.8451561227971675
+      response_time_ms: 1777
+      cpu_usage: 0.9769941233744913
+      memory_usage: 0.9156187194464881
+- timestamp: '2025-05-23T17:35:08.069980'
+  event_type: failure
+  description: 'Failure: docker service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 97
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: docker service
+      - operation failed'
+    metrics:
+      error_rate: 0.2245696488577245
+      response_time_ms: 3900
+      cpu_usage: 0.8107957104766489
+      memory_usage: 0.8948523374105442
+- timestamp: '2025-05-23T17:35:09.069980'
+  event_type: config_change
+  description: 'Config_Change: proxy server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:27.069980'
+  event_type: config_change
+  description: 'Config_Change: kubernetes service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:28.069980'
+  event_type: config_change
+  description: 'Config_Change: the pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:54.069980'
+  event_type: config_change
+  description: 'Config_Change: kafka log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:54.069980'
+  event_type: failure
+  description: 'Failure: nginx restart'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 54
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: nginx restart - operation
+      failed'
+    metrics:
+      error_rate: 0.33444661383473295
+      response_time_ms: 6421
+      cpu_usage: 0.9567032852619513
+      memory_usage: 0.9258565304296519
+- timestamp: '2025-05-23T17:42:25.069980'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

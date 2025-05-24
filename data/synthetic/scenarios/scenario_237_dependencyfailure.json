@@ -1,0 +1,78 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173453",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 1537,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.160602",
+    "phrase_templates_used": 45,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.160491",
+      "event_type": "trigger",
+      "description": "Initial failure detected: nginx service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:11.160491",
+      "event_type": "timeout",
+      "description": "Timeout: quot network",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 295,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: quot network - operation failed",
+        "metrics": {
+          "error_rate": 0.8420980986465362,
+          "response_time_ms": 8600,
+          "cpu_usage": 0.7428374105334694,
+          "memory_usage": 0.8783771046011647
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:53.160491",
+      "event_type": "failure",
+      "description": "Failure: the server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 112,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.37595074223738345,
+          "response_time_ms": 2875,
+          "cpu_usage": 0.8268391052329009,
+          "memory_usage": 0.8346594375335109
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:57.160491",
+      "event_type": "recovery",
+      "description": "Recovery: nginx service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:46.160491",
+      "event_type": "recovery",
+      "description": "Recovery: existing connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:00:30.160491",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+category: Microservices
+name: Microservices_20250523_173245
+description: Infrastructure failure scenario for Microservices
+duration: 787
+metadata:
+  generated_at: '2025-05-23T17:32:45.790312'
+  phrase_templates_used: 15
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.790093'
+  event_type: trigger
+  description: 'Initial failure detected: ui service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:10.790093'
+  event_type: recovery
+  description: 'Recovery: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:11.790093'
+  event_type: recovery
+  description: 'Recovery: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:30.790093'
+  event_type: failure
+  description: 'Failure: the queue'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: medium
+    duration: 63
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: the queue - operation
+      failed'
+    metrics:
+      error_rate: 0.2529782805833865
+      response_time_ms: 1407
+      cpu_usage: 0.4397414676383131
+      memory_usage: 0.4799466644993976
+- timestamp: '2025-05-23T17:34:01.790093'
+  event_type: recovery
+  description: 'Recovery: docker network'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:15.790093'
+  event_type: failure
+  description: 'Failure: strong service'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 265
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: strong service - operation
+      failed'
+    metrics:
+      error_rate: 0.7623654744857326
+      response_time_ms: 9007
+      cpu_usage: 0.7871943951759401
+      memory_usage: 0.8752498148015488
+- timestamp: '2025-05-23T17:34:55.790093'
+  event_type: timeout
+  description: 'Timeout: headless service'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 103
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: headless service -
+      operation failed'
+    metrics:
+      error_rate: 0.110822379327605
+      response_time_ms: 7571
+      cpu_usage: 0.9291959470948243
+      memory_usage: 0.8540132065343987
+- timestamp: '2025-05-23T17:45:52.790093'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,72 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173452",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1462,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.987372",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.987237",
+      "event_type": "trigger",
+      "description": "Initial failure detected: using docker",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:28.987237",
+      "event_type": "rollback",
+      "description": "Rollback: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:56.987237",
+      "event_type": "config_change",
+      "description": "Config_Change: elasticsearch cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:07.987237",
+      "event_type": "failure",
+      "description": "Failure: stopped container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 254,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR auth-service: stopped container - operation failed",
+        "metrics": {
+          "error_rate": 0.13405736963408846,
+          "response_time_ms": 8522,
+          "cpu_usage": 0.8930122581394618,
+          "memory_usage": 0.8677221097188818
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:17.987237",
+      "event_type": "restart",
+      "description": "Restart: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:12.987237",
+      "event_type": "restart",
+      "description": "Restart: your cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:59:14.987237",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

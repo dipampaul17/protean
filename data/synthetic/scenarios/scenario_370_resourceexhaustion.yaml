@@ -1,0 +1,54 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173453
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 1409
+metadata:
+  generated_at: '2025-05-23T17:34:53.285504'
+  phrase_templates_used: 50
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:34:53.285414'
+  event_type: trigger
+  description: 'Initial failure detected: of memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:18.285414'
+  event_type: recovery
+  description: 'Recovery: urgent memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:12.285414'
+  event_type: timeout
+  description: 'Timeout: the container'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 218
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: the container
+      - operation failed'
+    metrics:
+      error_rate: 0.20763004119539455
+      response_time_ms: 8415
+      cpu_usage: 0.9975999388083627
+      memory_usage: 0.9751838458467467
+- timestamp: '2025-05-23T17:40:21.285414'
+  event_type: timeout
+  description: 'Timeout: us log'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 80
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: us log - operation failed'
+    metrics:
+      error_rate: 0.6629290816353818
+      response_time_ms: 1530
+      cpu_usage: 0.8432670856730735
+      memory_usage: 0.9252254099344394
+- timestamp: '2025-05-23T17:58:22.285414'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

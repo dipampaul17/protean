@@ -1,0 +1,78 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173453",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1603,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.382627",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.382490",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection refused",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:56.382490",
+      "event_type": "timeout",
+      "description": "Timeout: an alert",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 174,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: an alert - operation failed",
+        "metrics": {
+          "error_rate": 0.37878930824431667,
+          "response_time_ms": 3990,
+          "cpu_usage": 0.8982473211148458,
+          "memory_usage": 0.8301465915636222
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:09.382490",
+      "event_type": "recovery",
+      "description": "Recovery: scaled service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:56.382490",
+      "event_type": "recovery",
+      "description": "Recovery: to scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:55.382490",
+      "event_type": "failure",
+      "description": "Failure: quot pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 256,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: quot pod - operation failed",
+        "metrics": {
+          "error_rate": 0.6607276979191938,
+          "response_time_ms": 8349,
+          "cpu_usage": 0.832854722091459,
+          "memory_usage": 0.9579443204976283
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:01:36.382490",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_173708
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1215
+metadata:
+  generated_at: '2025-05-23T17:37:08.068533'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:08.068415'
+  event_type: trigger
+  description: 'Initial failure detected: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:32.068415'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 123
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.7183929568847702
+      response_time_ms: 8994
+      cpu_usage: 0.7200123965705445
+      memory_usage: 0.9343942131231181
+- timestamp: '2025-05-23T17:38:44.068415'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 103
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.5693090823867507
+      response_time_ms: 7863
+      cpu_usage: 0.8426869259679901
+      memory_usage: 0.8580152586313866
+- timestamp: '2025-05-23T17:40:15.068415'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:42.068415'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 54
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.2741692953350269
+      response_time_ms: 8427
+      cpu_usage: 0.7963837730654797
+      memory_usage: 0.9104632770091855
+- timestamp: '2025-05-23T17:57:23.068415'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

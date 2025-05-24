@@ -1,0 +1,115 @@
+category: Microservices
+name: Microservices_20250523_173707
+description: Infrastructure failure scenario for Microservices
+duration: 835
+metadata:
+  generated_at: '2025-05-23T17:37:07.775733'
+  phrase_templates_used: 15
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:37:07.774930'
+  event_type: trigger
+  description: 'Initial failure detected: lt service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:23.774930'
+  event_type: timeout
+  description: 'Timeout: the container'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 252
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: the container - operation
+      failed'
+    metrics:
+      error_rate: 0.747811736392553
+      response_time_ms: 4846
+      cpu_usage: 0.8032503061437364
+      memory_usage: 0.9026581788413987
+- timestamp: '2025-05-23T17:37:35.774930'
+  event_type: timeout
+  description: 'Timeout: from service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 163
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: from service -
+      operation failed'
+    metrics:
+      error_rate: 0.13638783156944945
+      response_time_ms: 9765
+      cpu_usage: 0.9962814730684555
+      memory_usage: 0.9337129648244455
+- timestamp: '2025-05-23T17:37:43.774930'
+  event_type: timeout
+  description: 'Timeout: a service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 102
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.22422990478578814
+      response_time_ms: 2095
+      cpu_usage: 0.9831337924438293
+      memory_usage: 0.8747641368912769
+- timestamp: '2025-05-23T17:37:52.774930'
+  event_type: recovery
+  description: 'Recovery: from service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:54.774930'
+  event_type: failure
+  description: 'Failure: a service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 37
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.49039498843980367
+      response_time_ms: 4679
+      cpu_usage: 0.9999910734909108
+      memory_usage: 0.8268120109872904
+- timestamp: '2025-05-23T17:38:20.774930'
+  event_type: failure
+  description: 'Failure: to service'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 228
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: to service - operation
+      failed'
+    metrics:
+      error_rate: 0.25600412433575215
+      response_time_ms: 3311
+      cpu_usage: 0.7637608043476605
+      memory_usage: 0.9537619790148776
+- timestamp: '2025-05-23T17:38:57.774930'
+  event_type: failure
+  description: 'Failure: a cluster'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 247
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: a cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.7512313117971978
+      response_time_ms: 2107
+      cpu_usage: 0.8417204358967342
+      memory_usage: 0.8407162656366713
+- timestamp: '2025-05-23T17:51:02.774930'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

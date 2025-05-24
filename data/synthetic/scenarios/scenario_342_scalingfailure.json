@@ -1,0 +1,162 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_173245",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 699,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.758318",
+    "phrase_templates_used": 24,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 7
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.758087",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:57.758087",
+      "event_type": "timeout",
+      "description": "Timeout: nodeport service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 274,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: nodeport service - operation failed",
+        "metrics": {
+          "error_rate": 0.16037409141285108,
+          "response_time_ms": 2868,
+          "cpu_usage": 0.7677858753675901,
+          "memory_usage": 0.9795762172512718
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:27.758087",
+      "event_type": "failure",
+      "description": "Failure: nodeport service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 255,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: nodeport service - operation failed",
+        "metrics": {
+          "error_rate": 0.4165000390353767,
+          "response_time_ms": 3925,
+          "cpu_usage": 0.8858320775892916,
+          "memory_usage": 0.9740672528615921
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:34.758087",
+      "event_type": "timeout",
+      "description": "Timeout: the server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 91,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.806556374639707,
+          "response_time_ms": 4102,
+          "cpu_usage": 0.8406130906541824,
+          "memory_usage": 0.9475154684212893
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:45.758087",
+      "event_type": "failure",
+      "description": "Failure: the pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 94,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: the pod - operation failed",
+        "metrics": {
+          "error_rate": 0.2592172277577699,
+          "response_time_ms": 7427,
+          "cpu_usage": 0.7144005836483485,
+          "memory_usage": 0.9168813857473374
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:52.758087",
+      "event_type": "timeout",
+      "description": "Timeout: a node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 114,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: a node - operation failed",
+        "metrics": {
+          "error_rate": 0.27290629147003476,
+          "response_time_ms": 9773,
+          "cpu_usage": 0.7372298022625308,
+          "memory_usage": 0.8538217728587842
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:54.758087",
+      "event_type": "recovery",
+      "description": "Recovery: which node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:57.758087",
+      "event_type": "failure",
+      "description": "Failure: https connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 53,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: https connection - operation failed",
+        "metrics": {
+          "error_rate": 0.33274156623207085,
+          "response_time_ms": 9121,
+          "cpu_usage": 0.8630564371647031,
+          "memory_usage": 0.9045869648696321
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:05.758087",
+      "event_type": "failure",
+      "description": "Failure: a server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 300,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: a server - operation failed",
+        "metrics": {
+          "error_rate": 0.5241188273737859,
+          "response_time_ms": 8224,
+          "cpu_usage": 0.7675203304482273,
+          "memory_usage": 0.9564244691518805
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:44:24.758087",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

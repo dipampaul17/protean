@@ -1,0 +1,44 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_173245
+description: Infrastructure failure scenario for DependencyFailure
+duration: 556
+metadata:
+  generated_at: '2025-05-23T17:32:45.673502'
+  phrase_templates_used: 45
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:32:45.673418'
+  event_type: trigger
+  description: 'Initial failure detected: lt connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:00.673418'
+  event_type: failure
+  description: 'Failure: to monitor'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 222
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: to monitor - operation
+      failed'
+    metrics:
+      error_rate: 0.3818817710860216
+      response_time_ms: 7555
+      cpu_usage: 0.9070672497533057
+      memory_usage: 0.8556464622609864
+- timestamp: '2025-05-23T17:34:26.673418'
+  event_type: recovery
+  description: 'Recovery: code error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:01.673418'
+  event_type: recovery
+  description: 'Recovery: closed connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:42:01.673418'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

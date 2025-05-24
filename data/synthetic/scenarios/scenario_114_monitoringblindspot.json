@@ -1,0 +1,132 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173707",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1140,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.959375",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.959015",
+      "event_type": "trigger",
+      "description": "Initial failure detected: reduce alert",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:39.959015",
+      "event_type": "failure",
+      "description": "Failure: the node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 182,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: the node - operation failed",
+        "metrics": {
+          "error_rate": 0.10256064412275974,
+          "response_time_ms": 5591,
+          "cpu_usage": 0.867265537912215,
+          "memory_usage": 0.8959271436671399
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:44.959015",
+      "event_type": "recovery",
+      "description": "Recovery: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:43.959015",
+      "event_type": "failure",
+      "description": "Failure: the container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 37,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.7407941100828135,
+          "response_time_ms": 8237,
+          "cpu_usage": 0.733795956366253,
+          "memory_usage": 0.9167797598468931
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:44.959015",
+      "event_type": "recovery",
+      "description": "Recovery: quot server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:44.959015",
+      "event_type": "failure",
+      "description": "Failure: to monitor",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 67,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: to monitor - operation failed",
+        "metrics": {
+          "error_rate": 0.26602313334831607,
+          "response_time_ms": 4310,
+          "cpu_usage": 0.8990450592303848,
+          "memory_usage": 0.8177535588060024
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:02.959015",
+      "event_type": "timeout",
+      "description": "Timeout: the pod",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 226,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: the pod - operation failed",
+        "metrics": {
+          "error_rate": 0.49321811884930655,
+          "response_time_ms": 3182,
+          "cpu_usage": 0.8712423464974255,
+          "memory_usage": 0.9942053789992169
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:23.959015",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 225,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.4698085748143065,
+          "response_time_ms": 5643,
+          "cpu_usage": 0.9602831217247902,
+          "memory_usage": 0.8478814070095227
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:56:07.959015",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

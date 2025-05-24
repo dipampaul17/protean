@@ -1,0 +1,75 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173245
+description: Load balancer and traffic distribution problems
+duration: 886
+metadata:
+  generated_at: '2025-05-23T17:32:45.722161'
+  phrase_templates_used: 13
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.721983'
+  event_type: trigger
+  description: 'Initial failure detected: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:05.721983'
+  event_type: scaling
+  description: 'Scaling: load balancer'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:09.721983'
+  event_type: scaling
+  description: 'Scaling: in connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:18.721983'
+  event_type: backend_failure
+  description: 'Backend_Failure: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:22.721983'
+  event_type: timeout
+  description: 'Timeout: the server'
+  injection_spec:
+    type: timeout
+    target: api-gateway
+    severity: high
+    duration: 275
+    log_snippet: '[2025-05-23 17:32:45] ERROR api-gateway: the server in timeout'
+    metrics:
+      error_rate: 0.5763393613360356
+      response_time_ms: 7497
+      cpu_usage: 0.9238674972812552
+      memory_usage: 0.8901793716321434
+      requests_per_sec: 1771
+      backend_health_pct: 0.4497457336086545
+      connection_timeouts: 947
+- timestamp: '2025-05-23T17:33:37.721983'
+  event_type: backend_failure
+  description: 'Backend_Failure: web server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:59.721983'
+  event_type: scaling
+  description: 'Scaling: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:03.721983'
+  event_type: timeout
+  description: 'Timeout: your cluster'
+  injection_spec:
+    type: timeout
+    target: load-balancer
+    severity: high
+    duration: 228
+    log_snippet: '[2025-05-23 17:32:45] ERROR load-balancer: your cluster in timeout'
+    metrics:
+      error_rate: 0.5480734636516321
+      response_time_ms: 1571
+      cpu_usage: 0.8138470918219598
+      memory_usage: 0.8094199901432146
+      requests_per_sec: 5524
+      backend_health_pct: 0.40884860462950146
+      connection_timeouts: 158
+- timestamp: '2025-05-23T17:47:31.721983'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

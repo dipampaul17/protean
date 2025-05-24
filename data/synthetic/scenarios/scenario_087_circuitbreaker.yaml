@@ -1,0 +1,141 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173707
+description: Circuit breaker activation due to cascading service failures
+duration: 901
+metadata:
+  generated_at: '2025-05-23T17:37:07.950538'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 3
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:37:07.950294'
+  event_type: trigger
+  description: 'Initial failure detected: us log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:24.950294'
+  event_type: degradation
+  description: 'Degradation: info node'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: low
+    duration: 173
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: info node - operation
+      failed'
+    metrics:
+      error_rate: 0.08893414570553801
+      response_time_ms: 546
+      cpu_usage: 0.551809787958212
+      memory_usage: 0.4475499506494313
+- timestamp: '2025-05-23T17:37:32.950294'
+  event_type: degradation
+  description: 'Degradation: scaled service'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: low
+    duration: 206
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: scaled service - operation
+      failed'
+    metrics:
+      error_rate: 0.18776921755759654
+      response_time_ms: 1894
+      cpu_usage: 0.4129426565058507
+      memory_usage: 0.5568071485255353
+- timestamp: '2025-05-23T17:38:02.950294'
+  event_type: degradation
+  description: 'Degradation: strong update'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: low
+    duration: 115
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: strong update - operation
+      failed'
+    metrics:
+      error_rate: 0.056389308255446205
+      response_time_ms: 1088
+      cpu_usage: 0.7094596259377611
+      memory_usage: 0.6616919263299454
+- timestamp: '2025-05-23T17:38:09.950294'
+  event_type: failure
+  description: 'Failure: exceeded timeout'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 42
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: exceeded timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.13086675293813219
+      response_time_ms: 7775
+      cpu_usage: 0.8440055252444456
+      memory_usage: 0.8341286184362343
+- timestamp: '2025-05-23T17:38:11.950294'
+  event_type: failure
+  description: 'Failure: following error'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 189
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: following error - operation
+      failed'
+    metrics:
+      error_rate: 0.34643210727025886
+      response_time_ms: 1076
+      cpu_usage: 0.7243953623176415
+      memory_usage: 0.8965990149353054
+- timestamp: '2025-05-23T17:38:33.950294'
+  event_type: failure
+  description: 'Failure: customer service'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 162
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: customer service - operation
+      failed'
+    metrics:
+      error_rate: 0.6698729049308885
+      response_time_ms: 6003
+      cpu_usage: 0.9269173312114893
+      memory_usage: 0.8420927248865085
+- timestamp: '2025-05-23T17:38:37.950294'
+  event_type: timeout
+  description: 'Timeout: to monitor'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 268
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: to monitor - operation
+      failed'
+    metrics:
+      error_rate: 0.14456716962852836
+      response_time_ms: 5494
+      cpu_usage: 0.9527043029101308
+      memory_usage: 0.8117626718671641
+- timestamp: '2025-05-23T17:38:38.950294'
+  event_type: timeout
+  description: 'Timeout: the connection'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 173
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: the connection - operation
+      failed'
+    metrics:
+      error_rate: 0.8699303025482535
+      response_time_ms: 8445
+      cpu_usage: 0.8290540760000293
+      memory_usage: 0.8773198442210234
+- timestamp: '2025-05-23T17:52:08.950294'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

@@ -1,0 +1,102 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173245",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 789,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.746851",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.746662",
+      "event_type": "trigger",
+      "description": "Initial failure detected: kubernetes cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:56.746662",
+      "event_type": "rollback",
+      "description": "Rollback: docker container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:57.746662",
+      "event_type": "failure",
+      "description": "Failure: string update",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 60,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: string update - operation failed",
+        "metrics": {
+          "error_rate": 0.14605791873940746,
+          "response_time_ms": 8318,
+          "cpu_usage": 0.9274861396271078,
+          "memory_usage": 0.8446498449831917
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:00.746662",
+      "event_type": "config_change",
+      "description": "Config_Change: following error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:23.746662",
+      "event_type": "config_change",
+      "description": "Config_Change: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:36.746662",
+      "event_type": "failure",
+      "description": "Failure: proxy server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 196,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: proxy server - operation failed",
+        "metrics": {
+          "error_rate": 0.79054422514689,
+          "response_time_ms": 2859,
+          "cpu_usage": 0.7688634632326112,
+          "memory_usage": 0.8365635174263695
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:37.746662",
+      "event_type": "rollback",
+      "description": "Rollback: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:59.746662",
+      "event_type": "config_change",
+      "description": "Config_Change: to update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:09.746662",
+      "event_type": "restart",
+      "description": "Restart: jenkins server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:45:54.746662",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

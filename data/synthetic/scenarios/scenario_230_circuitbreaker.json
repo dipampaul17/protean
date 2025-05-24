@@ -1,0 +1,162 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173453",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1446,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.158723",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 2,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.158230",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:30.158230",
+      "event_type": "timeout",
+      "description": "Timeout: to fix",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 156,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: to fix - operation failed",
+        "metrics": {
+          "error_rate": 0.20651953852716476,
+          "response_time_ms": 5559,
+          "cpu_usage": 0.7923212599044163,
+          "memory_usage": 0.8841529113716294
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:40.158230",
+      "event_type": "timeout",
+      "description": "Timeout: uwsgi server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 50,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: uwsgi server - operation failed",
+        "metrics": {
+          "error_rate": 0.20388522185245322,
+          "response_time_ms": 7373,
+          "cpu_usage": 0.9052731519522854,
+          "memory_usage": 0.8058982694147645
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:38.158230",
+      "event_type": "timeout",
+      "description": "Timeout: connection refused",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 217,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: connection refused - operation failed",
+        "metrics": {
+          "error_rate": 0.15256160910727587,
+          "response_time_ms": 8597,
+          "cpu_usage": 0.7474151911056588,
+          "memory_usage": 0.8338601653320518
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:31.158230",
+      "event_type": "timeout",
+      "description": "Timeout: uwsgi server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 208,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: uwsgi server - operation failed",
+        "metrics": {
+          "error_rate": 0.46017888049172495,
+          "response_time_ms": 9255,
+          "cpu_usage": 0.7876466327232514,
+          "memory_usage": 0.8055025988019254
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:32.158230",
+      "event_type": "degradation",
+      "description": "Degradation: strong update",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "low",
+        "duration": 142,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.1552802304231149,
+          "response_time_ms": 1841,
+          "cpu_usage": 0.3415579081802548,
+          "memory_usage": 0.5236876825862198
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:33.158230",
+      "event_type": "degradation",
+      "description": "Degradation: a service",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "low",
+        "duration": 102,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.24073639824700785,
+          "response_time_ms": 1957,
+          "cpu_usage": 0.6645462897506825,
+          "memory_usage": 0.6232131987004557
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:36.158230",
+      "event_type": "recovery",
+      "description": "Recovery: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:46.158230",
+      "event_type": "degradation",
+      "description": "Degradation: connection refused",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 116,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: connection refused - operation failed",
+        "metrics": {
+          "error_rate": 0.39479590556741107,
+          "response_time_ms": 8821,
+          "cpu_usage": 0.9978153732049571,
+          "memory_usage": 0.9262552361861833
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:58:59.158230",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

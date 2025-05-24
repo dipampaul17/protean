@@ -1,0 +1,44 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173245
+description: Infrastructure failure scenario for DataWarehouse
+duration: 1013
+metadata:
+  generated_at: '2025-05-23T17:32:45.682543'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:32:45.682459'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:54.682459'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:11.682459'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:30.682459'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 202
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.4254381748486633
+      response_time_ms: 3159
+      cpu_usage: 0.9130114783473673
+      memory_usage: 0.9273766201128386
+- timestamp: '2025-05-23T17:49:38.682459'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

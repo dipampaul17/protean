@@ -1,0 +1,126 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173452",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1524,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.026964",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.995144",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:16.995144",
+      "event_type": "failure",
+      "description": "Failure: client error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 198,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: client error - operation failed",
+        "metrics": {
+          "error_rate": 0.5359432325748824,
+          "response_time_ms": 7004,
+          "cpu_usage": 0.8851884526678042,
+          "memory_usage": 0.9013244528291857
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:42.995144",
+      "event_type": "timeout",
+      "description": "Timeout: session timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 268,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: session timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.21682081476779153,
+          "response_time_ms": 9076,
+          "cpu_usage": 0.7625330824955362,
+          "memory_usage": 0.8798647541362636
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:46.995144",
+      "event_type": "degradation",
+      "description": "Degradation: labels service",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "low",
+        "duration": 132,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: labels service - operation failed",
+        "metrics": {
+          "error_rate": 0.03795609277468884,
+          "response_time_ms": 654,
+          "cpu_usage": 0.6912850050341308,
+          "memory_usage": 0.694037124702872
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:25.995144",
+      "event_type": "failure",
+      "description": "Failure: to resolve",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 63,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR user-service: to resolve - operation failed",
+        "metrics": {
+          "error_rate": 0.25282251860841926,
+          "response_time_ms": 7092,
+          "cpu_usage": 0.9793745577272422,
+          "memory_usage": 0.9382567791588751
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:21.995144",
+      "event_type": "timeout",
+      "description": "Timeout: code server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 203,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: code server - operation failed",
+        "metrics": {
+          "error_rate": 0.4790923715885693,
+          "response_time_ms": 9487,
+          "cpu_usage": 0.7670830485981167,
+          "memory_usage": 0.9214251059894423
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:02.995144",
+      "event_type": "recovery",
+      "description": "Recovery: scaled service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:00:16.995144",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

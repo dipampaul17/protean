@@ -1,0 +1,81 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_174629
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 757
+metadata:
+  generated_at: '2025-05-23T17:46:29.128197'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:46:29.128051'
+  event_type: trigger
+  description: 'Initial failure detected: each node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:32.128051'
+  event_type: timeout
+  description: 'Timeout: nil log'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 284
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: nil log - operation
+      failed'
+    metrics:
+      error_rate: 0.40742135810788216
+      response_time_ms: 8993
+      cpu_usage: 0.9673898827108085
+      memory_usage: 0.8906547848362554
+- timestamp: '2025-05-23T17:47:56.128051'
+  event_type: timeout
+  description: 'Timeout: monitoring memory'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 112
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: monitoring memory - operation
+      failed'
+    metrics:
+      error_rate: 0.24154301771610076
+      response_time_ms: 3297
+      cpu_usage: 0.8852849989933185
+      memory_usage: 0.9885947387795937
+- timestamp: '2025-05-23T17:48:23.128051'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 83
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.40784167639566216
+      response_time_ms: 1487
+      cpu_usage: 0.8807446228582902
+      memory_usage: 0.960822361867198
+- timestamp: '2025-05-23T17:49:38.128051'
+  event_type: failure
+  description: 'Failure: nil log'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 282
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: nil log - operation
+      failed'
+    metrics:
+      error_rate: 0.585129083537582
+      response_time_ms: 7270
+      cpu_usage: 0.9294393295558234
+      memory_usage: 0.8232100051324427
+- timestamp: '2025-05-23T17:59:06.128051'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

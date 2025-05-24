@@ -1,0 +1,84 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173245",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1043,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.793664",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.793559",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the alert",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:40.793559",
+      "event_type": "timeout",
+      "description": "Timeout: an alert",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 228,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: an alert - operation failed",
+        "metrics": {
+          "error_rate": 0.40196143747898494,
+          "response_time_ms": 8130,
+          "cpu_usage": 0.783008610444825,
+          "memory_usage": 0.8211554894228892
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:04.793559",
+      "event_type": "failure",
+      "description": "Failure: the log",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 270,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: the log - operation failed",
+        "metrics": {
+          "error_rate": 0.11528463936610178,
+          "response_time_ms": 4634,
+          "cpu_usage": 0.9591853667515076,
+          "memory_usage": 0.8634461838498981
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:30.793559",
+      "event_type": "failure",
+      "description": "Failure: to fix",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 56,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: to fix - operation failed",
+        "metrics": {
+          "error_rate": 0.810149035724504,
+          "response_time_ms": 7419,
+          "cpu_usage": 0.9687983266979707,
+          "memory_usage": 0.9082331446823
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:08.793559",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

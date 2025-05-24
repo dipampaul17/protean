@@ -1,0 +1,59 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173452
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 829
+metadata:
+  generated_at: '2025-05-23T17:34:52.993487'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:34:52.992708'
+  event_type: trigger
+  description: 'Initial failure detected: quot server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:33.992708'
+  event_type: recovery
+  description: 'Recovery: the container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:06.992708'
+  event_type: recovery
+  description: 'Recovery: monitoring system'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:57.992708'
+  event_type: timeout
+  description: 'Timeout: the log'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 80
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: the log - operation
+      failed'
+    metrics:
+      error_rate: 0.6358497574352576
+      response_time_ms: 5478
+      cpu_usage: 0.9193121122916498
+      memory_usage: 0.9171694774950311
+- timestamp: '2025-05-23T17:37:27.992708'
+  event_type: timeout
+  description: 'Timeout: the node'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 237
+    log_snippet: '[2025-05-23 17:34:52] ERROR payment-service: the node - operation
+      failed'
+    metrics:
+      error_rate: 0.12987303965212746
+      response_time_ms: 9179
+      cpu_usage: 0.8196693873144045
+      memory_usage: 0.9336447111843341
+- timestamp: '2025-05-23T17:48:41.992708'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

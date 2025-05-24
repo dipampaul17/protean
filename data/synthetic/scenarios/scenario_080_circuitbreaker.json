@@ -1,0 +1,84 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173245",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1463,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.676596",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 1,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.676488",
+      "event_type": "trigger",
+      "description": "Initial failure detected: info node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:36.676488",
+      "event_type": "degradation",
+      "description": "Degradation: p update",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "low",
+        "duration": 247,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: p update - operation failed",
+        "metrics": {
+          "error_rate": 0.062307198710559855,
+          "response_time_ms": 1373,
+          "cpu_usage": 0.3002319003669714,
+          "memory_usage": 0.6688052243944718
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:44.676488",
+      "event_type": "failure",
+      "description": "Failure: connection refused",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 252,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: connection refused - operation failed",
+        "metrics": {
+          "error_rate": 0.6056084581232447,
+          "response_time_ms": 2833,
+          "cpu_usage": 0.9192173997500055,
+          "memory_usage": 0.991972325866669
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:46.676488",
+      "event_type": "timeout",
+      "description": "Timeout: the queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "medium",
+        "duration": 261,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.14556880596237484,
+          "response_time_ms": 800,
+          "cpu_usage": 0.5403556959628646,
+          "memory_usage": 0.5834857645245413
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:57:08.676488",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_173453",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 450,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.198580",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.198380",
+      "event_type": "trigger",
+      "description": "Initial failure detected: heap memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:20.198380",
+      "event_type": "timeout",
+      "description": "Timeout: high memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 63,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: high memory - operation failed",
+        "metrics": {
+          "error_rate": 0.7555999074231226,
+          "response_time_ms": 5010,
+          "cpu_usage": 0.8717348118573013,
+          "memory_usage": 0.8700332543980352
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:32.198380",
+      "event_type": "recovery",
+      "description": "Recovery: a node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:11.198380",
+      "event_type": "recovery",
+      "description": "Recovery: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:42:23.198380",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

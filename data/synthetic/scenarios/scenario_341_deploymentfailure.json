@@ -1,0 +1,90 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173453",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1661,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.277703",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.277407",
+      "event_type": "trigger",
+      "description": "Initial failure detected: kubernetes error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:48.277407",
+      "event_type": "rollback",
+      "description": "Rollback: your container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:10.277407",
+      "event_type": "failure",
+      "description": "Failure: apache server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 261,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR api-backend: apache server in failure",
+        "metrics": {
+          "error_rate": 0.17232267101736767,
+          "response_time_ms": 5265,
+          "cpu_usage": 0.8866656996592489,
+          "memory_usage": 0.807207036439706
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:43.277407",
+      "event_type": "scaling",
+      "description": "Scaling: reviewing error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:45.277407",
+      "event_type": "scaling",
+      "description": "Scaling: following error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:22.277407",
+      "event_type": "deployment",
+      "description": "Deployment: and deploy",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:50.277407",
+      "event_type": "deployment",
+      "description": "Deployment: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:53.277407",
+      "event_type": "rollback",
+      "description": "Rollback: kubectl scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:57.277407",
+      "event_type": "scaling",
+      "description": "Scaling: the deploy",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:02:34.277407",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

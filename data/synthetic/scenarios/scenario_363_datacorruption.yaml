@@ -1,0 +1,130 @@
+category: DataCorruption
+name: DataCorruption_20250523_174629
+description: Infrastructure failure scenario for DataCorruption
+duration: 1780
+metadata:
+  generated_at: '2025-05-23T17:46:29.096552'
+  phrase_templates_used: 36
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 6
+events:
+- timestamp: '2025-05-23T17:46:29.094837'
+  event_type: trigger
+  description: 'Initial failure detected: only container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:50.094837'
+  event_type: failure
+  description: 'Failure: the queue'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: medium
+    duration: 260
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: the queue - operation
+      failed'
+    metrics:
+      error_rate: 0.20391062570144605
+      response_time_ms: 1353
+      cpu_usage: 0.6181360137346873
+      memory_usage: 0.49691773577708775
+- timestamp: '2025-05-23T17:48:30.094837'
+  event_type: recovery
+  description: 'Recovery: data container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:35.094837'
+  event_type: timeout
+  description: 'Timeout: ebs storage'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 267
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: ebs storage - operation
+      failed'
+    metrics:
+      error_rate: 0.5526514849157719
+      response_time_ms: 1573
+      cpu_usage: 0.7202326431847524
+      memory_usage: 0.9184215623243315
+- timestamp: '2025-05-23T17:48:40.094837'
+  event_type: failure
+  description: 'Failure: a database'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 136
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: a database - operation
+      failed'
+    metrics:
+      error_rate: 0.6230937368984306
+      response_time_ms: 6790
+      cpu_usage: 0.9804261290352785
+      memory_usage: 0.8700265385057591
+- timestamp: '2025-05-23T17:48:45.094837'
+  event_type: timeout
+  description: 'Timeout: to rollback'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 99
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: to rollback - operation
+      failed'
+    metrics:
+      error_rate: 0.6419615646701338
+      response_time_ms: 7958
+      cpu_usage: 0.7134593491652712
+      memory_usage: 0.8461619183934419
+- timestamp: '2025-05-23T17:48:48.094837'
+  event_type: timeout
+  description: 'Timeout: one server'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 240
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: one server - operation
+      failed'
+    metrics:
+      error_rate: 0.5546806901032371
+      response_time_ms: 2916
+      cpu_usage: 0.9268417202944832
+      memory_usage: 0.9378683835545973
+- timestamp: '2025-05-23T17:49:05.094837'
+  event_type: failure
+  description: 'Failure: the database'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 83
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: the database - operation
+      failed'
+    metrics:
+      error_rate: 0.5538435267883149
+      response_time_ms: 1286
+      cpu_usage: 0.8661920750133504
+      memory_usage: 0.9561517297685564
+- timestamp: '2025-05-23T17:49:48.094837'
+  event_type: timeout
+  description: 'Timeout: transaction log'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 71
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: transaction log - operation
+      failed'
+    metrics:
+      error_rate: 0.8246814291892213
+      response_time_ms: 5692
+      cpu_usage: 0.8171640478110004
+      memory_usage: 0.8433444034890345
+- timestamp: '2025-05-23T18:16:09.094837'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

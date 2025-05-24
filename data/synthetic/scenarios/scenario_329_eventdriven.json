@@ -1,0 +1,69 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_174629",
+  "description": "Message queue and event processing failures",
+  "duration": 1527,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.084170",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 0
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.084030",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection refused",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:05.084030",
+      "event_type": "recovery",
+      "description": "Recovery: warn error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:59.084030",
+      "event_type": "message_loss",
+      "description": "Message_Loss: tcp connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:58.084030",
+      "event_type": "message_loss",
+      "description": "Message_Loss: warn error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:52:03.084030",
+      "event_type": "timeout",
+      "description": "Timeout: task queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "medium",
+        "duration": 226,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-queue: queue processing task queue",
+        "metrics": {
+          "error_rate": 0.14040685157283622,
+          "response_time_ms": 546,
+          "cpu_usage": 0.7267069079799998,
+          "memory_usage": 0.6317295278497106,
+          "queue_depth": 37933,
+          "message_processing_rate": 4.064988299896881,
+          "consumer_lag_ms": 122187
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:11:56.084030",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

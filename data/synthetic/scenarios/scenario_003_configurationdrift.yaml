@@ -1,0 +1,56 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173245
+description: Configuration inconsistencies causing service degradation
+duration: 1259
+metadata:
+  generated_at: '2025-05-23T17:32:45.655280'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:32:45.655133'
+  event_type: trigger
+  description: 'Initial failure detected: stopped container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:46.655133'
+  event_type: config_change
+  description: 'Config_Change: to update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:02.655133'
+  event_type: rollback
+  description: 'Rollback: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:48.655133'
+  event_type: rollback
+  description: 'Rollback: p error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:08.655133'
+  event_type: rollback
+  description: 'Rollback: to deploy'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:08.655133'
+  event_type: restart
+  description: 'Restart: the service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:06.655133'
+  event_type: failure
+  description: 'Failure: using docker'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 243
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: using docker - operation
+      failed'
+    metrics:
+      error_rate: 0.7461763022475213
+      response_time_ms: 5348
+      cpu_usage: 0.7358863468238958
+      memory_usage: 0.9097406242536297
+- timestamp: '2025-05-23T17:53:44.655133'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

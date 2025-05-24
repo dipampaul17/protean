@@ -1,0 +1,44 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173245
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1326
+metadata:
+  generated_at: '2025-05-23T17:32:45.672852'
+  phrase_templates_used: 50
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:32:45.672770'
+  event_type: trigger
+  description: 'Initial failure detected: web server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:06.672770'
+  event_type: recovery
+  description: 'Recovery: the alert'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:51.672770'
+  event_type: recovery
+  description: 'Recovery: prometheus server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:10.672770'
+  event_type: failure
+  description: 'Failure: quot pod'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 64
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: quot pod - operation
+      failed'
+    metrics:
+      error_rate: 0.8337054777667435
+      response_time_ms: 3785
+      cpu_usage: 0.9550779474439146
+      memory_usage: 0.8700729394687357
+- timestamp: '2025-05-23T17:54:51.672770'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,108 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173245",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 1040,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.762011",
+    "phrase_templates_used": 36,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.761860",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:35.761860",
+      "event_type": "timeout",
+      "description": "Timeout: strong update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 178,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.20946792032790926,
+          "response_time_ms": 9929,
+          "cpu_usage": 0.9223397209174726,
+          "memory_usage": 0.8310458943401388
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:05.761860",
+      "event_type": "timeout",
+      "description": "Timeout: data container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 141,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: data container - operation failed",
+        "metrics": {
+          "error_rate": 0.7645067108122778,
+          "response_time_ms": 1827,
+          "cpu_usage": 0.7510605057271488,
+          "memory_usage": 0.9403355958098877
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:56.761860",
+      "event_type": "timeout",
+      "description": "Timeout: original container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 245,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: original container - operation failed",
+        "metrics": {
+          "error_rate": 0.4311994991969943,
+          "response_time_ms": 2396,
+          "cpu_usage": 0.8270938781618007,
+          "memory_usage": 0.8883061037524801
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:39.761860",
+      "event_type": "recovery",
+      "description": "Recovery: to disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:12.761860",
+      "event_type": "timeout",
+      "description": "Timeout: the node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 71,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: the node - operation failed",
+        "metrics": {
+          "error_rate": 0.35803383112914844,
+          "response_time_ms": 3511,
+          "cpu_usage": 0.8022624933747279,
+          "memory_usage": 0.8347465319785752
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:05.761860",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

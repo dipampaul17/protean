@@ -1,0 +1,126 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_173453",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 1107,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.352696",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.352499",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:43.352499",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 64,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.5678775517497375,
+          "response_time_ms": 8444,
+          "cpu_usage": 0.9918677322775262,
+          "memory_usage": 0.8750394957073386
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:46.352499",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 259,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.4947595806231264,
+          "response_time_ms": 2280,
+          "cpu_usage": 0.8453646145219402,
+          "memory_usage": 0.8314648778307505
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:53.352499",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 233,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.7629729874497436,
+          "response_time_ms": 7700,
+          "cpu_usage": 0.9416950725948408,
+          "memory_usage": 0.8332368755861823
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:33.352499",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:40.352499",
+      "event_type": "recovery",
+      "description": "Recovery: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:44.352499",
+      "event_type": "recovery",
+      "description": "Recovery: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:48.352499",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 230,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.7364900508916123,
+          "response_time_ms": 1300,
+          "cpu_usage": 0.8529703148005283,
+          "memory_usage": 0.8026559606866643
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:03.352499",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:53:20.352499",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

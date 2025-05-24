@@ -1,0 +1,126 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173453",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 1406,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.290079",
+    "phrase_templates_used": 36,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 2,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.289901",
+      "event_type": "trigger",
+      "description": "Initial failure detected: only container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:53.289901",
+      "event_type": "failure",
+      "description": "Failure: the node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 300,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: the node - operation failed",
+        "metrics": {
+          "error_rate": 0.8399039922460806,
+          "response_time_ms": 6351,
+          "cpu_usage": 0.7925204931701906,
+          "memory_usage": 0.9214165955324277
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:14.289901",
+      "event_type": "failure",
+      "description": "Failure: ebs storage",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 167,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: ebs storage - operation failed",
+        "metrics": {
+          "error_rate": 0.3767200777849099,
+          "response_time_ms": 8564,
+          "cpu_usage": 0.9288059333786257,
+          "memory_usage": 0.8881081098661894
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:49.289901",
+      "event_type": "recovery",
+      "description": "Recovery: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:58.289901",
+      "event_type": "timeout",
+      "description": "Timeout: head queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "medium",
+        "duration": 222,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: head queue - operation failed",
+        "metrics": {
+          "error_rate": 0.18279637130319842,
+          "response_time_ms": 1054,
+          "cpu_usage": 0.7267835018432327,
+          "memory_usage": 0.4970665055196951
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:05.289901",
+      "event_type": "failure",
+      "description": "Failure: partitioned queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "medium",
+        "duration": 266,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: partitioned queue - operation failed",
+        "metrics": {
+          "error_rate": 0.05121217911574387,
+          "response_time_ms": 1443,
+          "cpu_usage": 0.6911699251645566,
+          "memory_usage": 0.6138378864458867
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:14.289901",
+      "event_type": "failure",
+      "description": "Failure: new container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 165,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: new container - operation failed",
+        "metrics": {
+          "error_rate": 0.4009671552139559,
+          "response_time_ms": 2822,
+          "cpu_usage": 0.7173326673210663,
+          "memory_usage": 0.8326452416702602
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:58:19.289901",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

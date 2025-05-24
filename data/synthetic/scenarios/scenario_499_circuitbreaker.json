@@ -1,0 +1,144 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173708",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 358,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.086404",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 2,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.086192",
+      "event_type": "trigger",
+      "description": "Initial failure detected: code server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:31.086192",
+      "event_type": "failure",
+      "description": "Failure: code error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 201,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: code error - operation failed",
+        "metrics": {
+          "error_rate": 0.6455257462995857,
+          "response_time_ms": 3604,
+          "cpu_usage": 0.9581219231325047,
+          "memory_usage": 0.8902638126705509
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:36.086192",
+      "event_type": "timeout",
+      "description": "Timeout: a queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "medium",
+        "duration": 120,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: a queue - operation failed",
+        "metrics": {
+          "error_rate": 0.2526079063761646,
+          "response_time_ms": 1765,
+          "cpu_usage": 0.572047009432672,
+          "memory_usage": 0.5477614970437923
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:43.086192",
+      "event_type": "degradation",
+      "description": "Degradation: exceeded timeout",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 114,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: exceeded timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.45632812871924766,
+          "response_time_ms": 3516,
+          "cpu_usage": 0.9794329400553698,
+          "memory_usage": 0.8440323303556598
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:45.086192",
+      "event_type": "failure",
+      "description": "Failure: letter queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "medium",
+        "duration": 103,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: letter queue - operation failed",
+        "metrics": {
+          "error_rate": 0.13952460986496415,
+          "response_time_ms": 457,
+          "cpu_usage": 0.6134096925494273,
+          "memory_usage": 0.4440244364031319
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:51.086192",
+      "event_type": "failure",
+      "description": "Failure: to monitor",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 94,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: to monitor - operation failed",
+        "metrics": {
+          "error_rate": 0.46160370086400526,
+          "response_time_ms": 2314,
+          "cpu_usage": 0.8673017940213466,
+          "memory_usage": 0.8347418041190897
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:51.086192",
+      "event_type": "recovery",
+      "description": "Recovery: nginx server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:54.086192",
+      "event_type": "degradation",
+      "description": "Degradation: client error",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "notification-service",
+        "severity": "low",
+        "duration": 144,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: client error - operation failed",
+        "metrics": {
+          "error_rate": 0.07048599449930144,
+          "response_time_ms": 1381,
+          "cpu_usage": 0.7789484629354335,
+          "memory_usage": 0.5617897368210083
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:43:06.086192",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

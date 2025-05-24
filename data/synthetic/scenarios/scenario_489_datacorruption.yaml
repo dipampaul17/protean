@@ -1,0 +1,119 @@
+category: DataCorruption
+name: DataCorruption_20250523_173453
+description: Infrastructure failure scenario for DataCorruption
+duration: 1728
+metadata:
+  generated_at: '2025-05-23T17:34:53.381571'
+  phrase_templates_used: 36
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:34:53.381149'
+  event_type: trigger
+  description: 'Initial failure detected: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:03.381149'
+  event_type: recovery
+  description: 'Recovery: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:22.381149'
+  event_type: timeout
+  description: 'Timeout: the error'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 254
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.6637448727664982
+      response_time_ms: 2123
+      cpu_usage: 0.7890715760447008
+      memory_usage: 0.9344075420346843
+- timestamp: '2025-05-23T17:35:24.381149'
+  event_type: failure
+  description: 'Failure: the node'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 127
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: the node - operation
+      failed'
+    metrics:
+      error_rate: 0.33471527384829375
+      response_time_ms: 2583
+      cpu_usage: 0.8018978100814625
+      memory_usage: 0.931366887529808
+- timestamp: '2025-05-23T17:36:01.381149'
+  event_type: failure
+  description: 'Failure: to disk'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 183
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: to disk - operation
+      failed'
+    metrics:
+      error_rate: 0.8625298119605822
+      response_time_ms: 5179
+      cpu_usage: 0.8875662689686418
+      memory_usage: 0.9591537134934267
+- timestamp: '2025-05-23T17:36:56.381149'
+  event_type: failure
+  description: 'Failure: strong update'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 137
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: strong update - operation
+      failed'
+    metrics:
+      error_rate: 0.3440465317739463
+      response_time_ms: 6626
+      cpu_usage: 0.9192738135821397
+      memory_usage: 0.8935285281828667
+- timestamp: '2025-05-23T17:37:30.381149'
+  event_type: failure
+  description: 'Failure: using rabbitmq'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 174
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: using rabbitmq
+      - operation failed'
+    metrics:
+      error_rate: 0.7268434999786466
+      response_time_ms: 7441
+      cpu_usage: 0.7134803452804808
+      memory_usage: 0.8580070045483587
+- timestamp: '2025-05-23T17:38:05.381149'
+  event_type: recovery
+  description: 'Recovery: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:18.381149'
+  event_type: failure
+  description: 'Failure: to resolve'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 201
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: to resolve - operation
+      failed'
+    metrics:
+      error_rate: 0.606527660035315
+      response_time_ms: 2815
+      cpu_usage: 0.7376350954244629
+      memory_usage: 0.9096701427606464
+- timestamp: '2025-05-23T18:03:41.381149'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

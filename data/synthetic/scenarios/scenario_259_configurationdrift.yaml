@@ -1,0 +1,41 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_174629
+description: Configuration inconsistencies causing service degradation
+duration: 557
+metadata:
+  generated_at: '2025-05-23T17:46:29.012972'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:46:29.012850'
+  event_type: trigger
+  description: 'Initial failure detected: redis server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:56.012850'
+  event_type: config_change
+  description: 'Config_Change: var log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:56.012850'
+  event_type: restart
+  description: 'Restart: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:05.012850'
+  event_type: rollback
+  description: 'Rollback: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:40.012850'
+  event_type: restart
+  description: 'Restart: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:12.012850'
+  event_type: rollback
+  description: 'Rollback: kubernetes service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:55:46.012850'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

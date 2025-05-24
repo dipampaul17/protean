@@ -1,0 +1,96 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_174629
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1205
+metadata:
+  generated_at: '2025-05-23T17:46:29.063583'
+  phrase_templates_used: 45
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 4
+events:
+- timestamp: '2025-05-23T17:46:29.063353'
+  event_type: trigger
+  description: 'Initial failure detected: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:59.063353'
+  event_type: failure
+  description: 'Failure: quot network'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 84
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: quot network - operation
+      failed'
+    metrics:
+      error_rate: 0.8057634151509784
+      response_time_ms: 5250
+      cpu_usage: 0.8613414141119815
+      memory_usage: 0.8054010815745118
+- timestamp: '2025-05-23T17:47:47.063353'
+  event_type: failure
+  description: 'Failure: to monitor'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 291
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: to monitor - operation
+      failed'
+    metrics:
+      error_rate: 0.33610568297299515
+      response_time_ms: 8119
+      cpu_usage: 0.888192587710259
+      memory_usage: 0.9521290968853754
+- timestamp: '2025-05-23T17:48:26.063353'
+  event_type: failure
+  description: 'Failure: nginx service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 106
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: nginx service - operation
+      failed'
+    metrics:
+      error_rate: 0.1879773028230841
+      response_time_ms: 9070
+      cpu_usage: 0.8495536347755053
+      memory_usage: 0.9899681850423685
+- timestamp: '2025-05-23T17:49:04.063353'
+  event_type: failure
+  description: 'Failure: external service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 286
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: external service
+      - operation failed'
+    metrics:
+      error_rate: 0.605754693198951
+      response_time_ms: 4495
+      cpu_usage: 0.9110559766284066
+      memory_usage: 0.9110931951782575
+- timestamp: '2025-05-23T17:49:48.063353'
+  event_type: timeout
+  description: 'Timeout: upstream queue'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: medium
+    duration: 280
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: upstream queue
+      - operation failed'
+    metrics:
+      error_rate: 0.2377578141175336
+      response_time_ms: 1099
+      cpu_usage: 0.5244781738466352
+      memory_usage: 0.4241390175229456
+- timestamp: '2025-05-23T18:06:34.063353'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,96 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_174629",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 779,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.133069",
+    "phrase_templates_used": 36,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.132908",
+      "event_type": "trigger",
+      "description": "Initial failure detected: message queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:14.132908",
+      "event_type": "recovery",
+      "description": "Recovery: a database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:31.132908",
+      "event_type": "timeout",
+      "description": "Timeout: strong update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 165,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.7247286033131732,
+          "response_time_ms": 3019,
+          "cpu_usage": 0.8790632383063133,
+          "memory_usage": 0.8265537950348436
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:02.132908",
+      "event_type": "recovery",
+      "description": "Recovery: context cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:27.132908",
+      "event_type": "failure",
+      "description": "Failure: to disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 296,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: to disk - operation failed",
+        "metrics": {
+          "error_rate": 0.4681366413829777,
+          "response_time_ms": 7244,
+          "cpu_usage": 0.836235365331004,
+          "memory_usage": 0.8838131892472929
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:04.132908",
+      "event_type": "timeout",
+      "description": "Timeout: instance storage",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 289,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: instance storage - operation failed",
+        "metrics": {
+          "error_rate": 0.6740065802513342,
+          "response_time_ms": 8384,
+          "cpu_usage": 0.9457149201676287,
+          "memory_usage": 0.9038314012235995
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:59:28.132908",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

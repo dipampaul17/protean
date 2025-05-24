@@ -1,0 +1,60 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_173707",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 1573,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.000134",
+    "phrase_templates_used": 24,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.999959",
+      "event_type": "trigger",
+      "description": "Initial failure detected: nodeport service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:41:48.999959",
+      "event_type": "recovery",
+      "description": "Recovery: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:43:31.999959",
+      "event_type": "failure",
+      "description": "Failure: a node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 255,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: a node - operation failed",
+        "metrics": {
+          "error_rate": 0.8853059461107685,
+          "response_time_ms": 3835,
+          "cpu_usage": 0.8414555691642526,
+          "memory_usage": 0.82003713085284
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:44:58.999959",
+      "event_type": "recovery",
+      "description": "Recovery: https connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:03:20.999959",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

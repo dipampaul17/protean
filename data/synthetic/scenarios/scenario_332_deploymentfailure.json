@@ -1,0 +1,66 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_173708",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1281,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.039670",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.039520",
+      "event_type": "trigger",
+      "description": "Initial failure detected: during deployment",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:52.039520",
+      "event_type": "scaling",
+      "description": "Scaling: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:41.039520",
+      "event_type": "scaling",
+      "description": "Scaling: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:09.039520",
+      "event_type": "rollback",
+      "description": "Rollback: an error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:20.039520",
+      "event_type": "failure",
+      "description": "Failure: rolling update",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 293,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR nginx-proxy: rolling update in failure",
+        "metrics": {
+          "error_rate": 0.6536496861761026,
+          "response_time_ms": 8637,
+          "cpu_usage": 0.9243192430880712,
+          "memory_usage": 0.9821436761254534
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:58:29.039520",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

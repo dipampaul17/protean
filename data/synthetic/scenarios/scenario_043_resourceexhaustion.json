@@ -1,0 +1,90 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_173707",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 335,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.793446",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.792448",
+      "event_type": "trigger",
+      "description": "Initial failure detected: urgent memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:28.792448",
+      "event_type": "timeout",
+      "description": "Timeout: float scale",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 265,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: float scale - operation failed",
+        "metrics": {
+          "error_rate": 0.12545290280128754,
+          "response_time_ms": 4196,
+          "cpu_usage": 0.7044790876272043,
+          "memory_usage": 0.9962094478029638
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:31.792448",
+      "event_type": "recovery",
+      "description": "Recovery: potential memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:08.792448",
+      "event_type": "timeout",
+      "description": "Timeout: scaled service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 276,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: scaled service - operation failed",
+        "metrics": {
+          "error_rate": 0.3911316372857687,
+          "response_time_ms": 9794,
+          "cpu_usage": 0.8633842123480966,
+          "memory_usage": 0.9997689280108151
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:09.792448",
+      "event_type": "failure",
+      "description": "Failure: urgent memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 252,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: urgent memory - operation failed",
+        "metrics": {
+          "error_rate": 0.8472616396600828,
+          "response_time_ms": 8321,
+          "cpu_usage": 0.8797193689497164,
+          "memory_usage": 0.9045551103242571
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:42:42.792448",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

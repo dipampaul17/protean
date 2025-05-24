@@ -1,0 +1,70 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_173708
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 648
+metadata:
+  generated_at: '2025-05-23T17:37:08.046137'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:08.046025'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:00.046025'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:23.046025'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 172
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.8196398490514363
+      response_time_ms: 2184
+      cpu_usage: 0.8686945169675911
+      memory_usage: 0.877723930699457
+- timestamp: '2025-05-23T17:38:45.046025'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 152
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.2857600060253323
+      response_time_ms: 6502
+      cpu_usage: 0.884909541300487
+      memory_usage: 0.8376331162074685
+- timestamp: '2025-05-23T17:39:37.046025'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 105
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.8099870394134177
+      response_time_ms: 4194
+      cpu_usage: 0.7004851456491553
+      memory_usage: 0.8612675033662333
+- timestamp: '2025-05-23T17:47:56.046025'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

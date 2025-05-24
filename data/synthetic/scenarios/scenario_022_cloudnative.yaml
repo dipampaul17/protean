@@ -1,0 +1,69 @@
+category: CloudNative
+name: CloudNative_20250523_174628
+description: Kubernetes pod and container orchestration issues
+duration: 300
+metadata:
+  generated_at: '2025-05-23T17:46:28.909678'
+  phrase_templates_used: 39
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:28.909493'
+  event_type: trigger
+  description: 'Initial failure detected: kubernetes service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:41.909493'
+  event_type: scaling
+  description: 'Scaling: kind pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:43.909493'
+  event_type: pod_restart
+  description: 'Pod_Restart: kubernetes pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:47.909493'
+  event_type: failure
+  description: 'Failure: a node'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 297
+    log_snippet: '[2025-05-23 17:46:28] ERROR web-frontend: a node in failure'
+    metrics:
+      error_rate: 0.6445959947660981
+      response_time_ms: 1617
+      cpu_usage: 0.867590114812567
+      memory_usage: 0.8119220776545054
+- timestamp: '2025-05-23T17:46:55.909493'
+  event_type: scaling
+  description: 'Scaling: the cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:57.909493'
+  event_type: failure
+  description: 'Failure: a pod'
+  injection_spec:
+    type: failure
+    target: worker-consumer
+    severity: high
+    duration: 168
+    log_snippet: '[2025-05-23 17:46:28] ERROR worker-consumer: a pod in failure'
+    metrics:
+      error_rate: 0.5214184329109002
+      response_time_ms: 4471
+      cpu_usage: 0.8734657145169847
+      memory_usage: 0.8096191781695633
+- timestamp: '2025-05-23T17:47:05.909493'
+  event_type: scaling
+  description: 'Scaling: docker container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:09.909493'
+  event_type: scaling
+  description: 'Scaling: failed container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:51:28.909493'
+  event_type: recovery
+  description: 'System recovered: pod restarted successfully'
+  injection_spec: null

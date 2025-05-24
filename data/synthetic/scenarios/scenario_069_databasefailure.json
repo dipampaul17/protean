@@ -1,0 +1,81 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173452",
+  "description": "Database connectivity and performance issues",
+  "duration": 1063,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.977249",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.977088",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:19.977088",
+      "event_type": "recovery",
+      "description": "Recovery: clustered index",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:45.977088",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: code update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:47.977088",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: to update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:57.977088",
+      "event_type": "timeout",
+      "description": "Timeout: postgres container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 195,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR mongodb-shard: postgres container in timeout",
+        "metrics": {
+          "error_rate": 0.17544569274632452,
+          "response_time_ms": 6664,
+          "cpu_usage": 0.7530025646544376,
+          "memory_usage": 0.9574461630709838,
+          "connection_pool_usage": 0.8994780124829408,
+          "query_time_ms": 28562,
+          "deadlocks_per_sec": 5
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:57.977088",
+      "event_type": "corruption",
+      "description": "Corruption: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:11.977088",
+      "event_type": "recovery",
+      "description": "Recovery: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:52:35.977088",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

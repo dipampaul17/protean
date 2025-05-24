@@ -1,0 +1,70 @@
+category: Microservices
+name: Microservices_20250523_173707
+description: Infrastructure failure scenario for Microservices
+duration: 1441
+metadata:
+  generated_at: '2025-05-23T17:37:07.954484'
+  phrase_templates_used: 15
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:07.954299'
+  event_type: trigger
+  description: 'Initial failure detected: headless service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:35.954299'
+  event_type: failure
+  description: 'Failure: docker network'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 56
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: docker network - operation
+      failed'
+    metrics:
+      error_rate: 0.2086059183929547
+      response_time_ms: 4121
+      cpu_usage: 0.9745659138986489
+      memory_usage: 0.9350296286536043
+- timestamp: '2025-05-23T17:37:58.954299'
+  event_type: recovery
+  description: 'Recovery: lt service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:07.954299'
+  event_type: timeout
+  description: 'Timeout: to service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 80
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: to service - operation
+      failed'
+    metrics:
+      error_rate: 0.30606176016449327
+      response_time_ms: 5429
+      cpu_usage: 0.9940013216406345
+      memory_usage: 0.9603628016563017
+- timestamp: '2025-05-23T17:42:54.954299'
+  event_type: timeout
+  description: 'Timeout: another container'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 48
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: another container -
+      operation failed'
+    metrics:
+      error_rate: 0.42560261089051177
+      response_time_ms: 5454
+      cpu_usage: 0.8546035833671208
+      memory_usage: 0.9438984713127783
+- timestamp: '2025-05-23T18:01:08.954299'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

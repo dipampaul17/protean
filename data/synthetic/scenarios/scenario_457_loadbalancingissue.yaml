@@ -1,0 +1,75 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173245
+description: Load balancer and traffic distribution problems
+duration: 1046
+metadata:
+  generated_at: '2025-05-23T17:32:45.787634'
+  phrase_templates_used: 13
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.787459'
+  event_type: trigger
+  description: 'Initial failure detected: loadbalancer service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:57.787459'
+  event_type: scaling
+  description: 'Scaling: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:05.787459'
+  event_type: backend_failure
+  description: 'Backend_Failure: a server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:27.787459'
+  event_type: timeout
+  description: 'Timeout: strong update'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 288
+    log_snippet: '[2025-05-23 17:32:45] ERROR subnet-private: strong update in timeout'
+    metrics:
+      error_rate: 0.7674120619112877
+      response_time_ms: 4985
+      cpu_usage: 0.8727231409530007
+      memory_usage: 0.9484873188830198
+      requests_per_sec: 2701
+      backend_health_pct: 0.342720627798964
+      connection_timeouts: 797
+- timestamp: '2025-05-23T17:33:33.787459'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: in connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:42.787459'
+  event_type: scaling
+  description: 'Scaling: a server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:18.787459'
+  event_type: timeout
+  description: 'Timeout: load balancer'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 213
+    log_snippet: '[2025-05-23 17:32:45] ERROR vpc-main: load balancer in timeout'
+    metrics:
+      error_rate: 0.6461070841383365
+      response_time_ms: 9134
+      cpu_usage: 0.9651771654892987
+      memory_usage: 0.85280189199223
+      requests_per_sec: 3945
+      backend_health_pct: 0.5402215316156055
+      connection_timeouts: 338
+- timestamp: '2025-05-23T17:35:00.787459'
+  event_type: scaling
+  description: 'Scaling: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:50:11.787459'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

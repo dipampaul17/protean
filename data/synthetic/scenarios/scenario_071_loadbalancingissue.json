@@ -1,0 +1,81 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173245",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 974,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.673014",
+    "phrase_templates_used": 13,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.672875",
+      "event_type": "trigger",
+      "description": "Initial failure detected: your cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:12.672875",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:18.672875",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:19.672875",
+      "event_type": "scaling",
+      "description": "Scaling: a pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:30.672875",
+      "event_type": "timeout",
+      "description": "Timeout: in connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "load-balancer",
+        "severity": "high",
+        "duration": 210,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR load-balancer: in connection in timeout",
+        "metrics": {
+          "error_rate": 0.162170751237609,
+          "response_time_ms": 6485,
+          "cpu_usage": 0.90636676645538,
+          "memory_usage": 0.9300786626494885,
+          "requests_per_sec": 5455,
+          "backend_health_pct": 0.39353667124437486,
+          "connection_timeouts": 152
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:51.672875",
+      "event_type": "scaling",
+      "description": "Scaling: loadbalancer service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:18.672875",
+      "event_type": "scaling",
+      "description": "Scaling: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:59.672875",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

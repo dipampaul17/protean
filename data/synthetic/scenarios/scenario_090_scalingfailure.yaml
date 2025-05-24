@@ -1,0 +1,70 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_173245
+description: Infrastructure failure scenario for ScalingFailure
+duration: 796
+metadata:
+  generated_at: '2025-05-23T17:32:45.678299'
+  phrase_templates_used: 24
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:32:45.678184'
+  event_type: trigger
+  description: 'Initial failure detected: clusterip service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:58.678184'
+  event_type: failure
+  description: 'Failure: scaling scale'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 184
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: scaling scale - operation
+      failed'
+    metrics:
+      error_rate: 0.5165131891935971
+      response_time_ms: 6074
+      cpu_usage: 0.8965539335527358
+      memory_usage: 0.8439333721109821
+- timestamp: '2025-05-23T17:33:07.678184'
+  event_type: timeout
+  description: 'Timeout: a cluster'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 205
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: a cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.546310293704474
+      response_time_ms: 4210
+      cpu_usage: 0.7562267123579539
+      memory_usage: 0.9598956331605205
+- timestamp: '2025-05-23T17:35:06.678184'
+  event_type: recovery
+  description: 'Recovery: https connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:46.678184'
+  event_type: failure
+  description: 'Failure: the service'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 167
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: the service - operation
+      failed'
+    metrics:
+      error_rate: 0.8500945262765013
+      response_time_ms: 4960
+      cpu_usage: 0.996076190578717
+      memory_usage: 0.9341790921488947
+- timestamp: '2025-05-23T17:46:01.678184'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

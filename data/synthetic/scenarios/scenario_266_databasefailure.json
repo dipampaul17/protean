@@ -1,0 +1,111 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173708",
+  "description": "Database connectivity and performance issues",
+  "duration": 1767,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.023611",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.023326",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:38.023326",
+      "event_type": "timeout",
+      "description": "Timeout: the database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 194,
+        "log_snippet": "[2025-05-23 17:37:08] FATAL mysql-primary: database the database detected",
+        "metrics": {
+          "error_rate": 0.7905089957413997,
+          "response_time_ms": 6573,
+          "cpu_usage": 0.8615395269603484,
+          "memory_usage": 0.8191644572961516,
+          "connection_pool_usage": 0.9231075074289316,
+          "query_time_ms": 7488,
+          "deadlocks_per_sec": 4
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:15.023326",
+      "event_type": "corruption",
+      "description": "Corruption: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:24.023326",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: sql server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:45.023326",
+      "event_type": "timeout",
+      "description": "Timeout: strong update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 70,
+        "log_snippet": "[2025-05-23 17:37:08] FATAL mysql-primary: database strong update detected",
+        "metrics": {
+          "error_rate": 0.12920487546563175,
+          "response_time_ms": 1449,
+          "cpu_usage": 0.80974014411874,
+          "memory_usage": 0.9079813813190104,
+          "connection_pool_usage": 0.9806957174860575,
+          "query_time_ms": 13913,
+          "deadlocks_per_sec": 6
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:19.023326",
+      "event_type": "timeout",
+      "description": "Timeout: var log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 145,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR mongodb-shard: var log in timeout",
+        "metrics": {
+          "error_rate": 0.27341355750330926,
+          "response_time_ms": 8759,
+          "cpu_usage": 0.7945666170734692,
+          "memory_usage": 0.8151848460207559,
+          "connection_pool_usage": 0.8108652828883953,
+          "query_time_ms": 28222,
+          "deadlocks_per_sec": 1
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:19.023326",
+      "event_type": "corruption",
+      "description": "Corruption: the database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:06:35.023326",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

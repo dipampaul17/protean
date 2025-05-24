@@ -1,0 +1,59 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173453
+description: Application deployment and rollback scenarios
+duration: 1481
+metadata:
+  generated_at: '2025-05-23T17:34:53.159510'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:34:53.158884'
+  event_type: trigger
+  description: 'Initial failure detected: docker container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:06.158884'
+  event_type: deployment
+  description: 'Deployment: and deploy'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:00.158884'
+  event_type: rollback
+  description: 'Rollback: and deploy'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:20.158884'
+  event_type: deployment
+  description: 'Deployment: jenkins container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:56.158884'
+  event_type: rollback
+  description: 'Rollback: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:20.158884'
+  event_type: failure
+  description: 'Failure: to deploy'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 167
+    log_snippet: '[2025-05-23 17:34:53] ERROR nginx-proxy: to deploy in failure'
+    metrics:
+      error_rate: 0.7071446240393259
+      response_time_ms: 3314
+      cpu_usage: 0.7064880148616637
+      memory_usage: 0.9580256397242854
+- timestamp: '2025-05-23T17:37:33.158884'
+  event_type: deployment
+  description: 'Deployment: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:45.158884'
+  event_type: rollback
+  description: 'Rollback: and deploy'
+  injection_spec: null
+- timestamp: '2025-05-23T17:59:34.158884'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

@@ -1,0 +1,102 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_174629",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 708,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.167666",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.167432",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:46.167432",
+      "event_type": "recovery",
+      "description": "Recovery: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:08.167432",
+      "event_type": "recovery",
+      "description": "Recovery: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:28.167432",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 258,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.23119418513621837,
+          "response_time_ms": 2920,
+          "cpu_usage": 0.9867376027031429,
+          "memory_usage": 0.9014947165768706
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:51.167432",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 109,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.26113875235537976,
+          "response_time_ms": 6452,
+          "cpu_usage": 0.8677750595633743,
+          "memory_usage": 0.9140165777815416
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:19.167432",
+      "event_type": "recovery",
+      "description": "Recovery: deployment failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:27.167432",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 98,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.3719396695097765,
+          "response_time_ms": 4317,
+          "cpu_usage": 0.9472274010834367,
+          "memory_usage": 0.9544873858085177
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:58:17.167432",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

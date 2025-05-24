@@ -1,0 +1,86 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173708
+description: Configuration inconsistencies causing service degradation
+duration: 1448
+metadata:
+  generated_at: '2025-05-23T17:37:08.065202'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:08.064927'
+  event_type: trigger
+  description: 'Initial failure detected: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:46.064927'
+  event_type: restart
+  description: 'Restart: docker network'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:11.064927'
+  event_type: config_change
+  description: 'Config_Change: an error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:13.064927'
+  event_type: failure
+  description: 'Failure: docker service'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 169
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: docker service - operation
+      failed'
+    metrics:
+      error_rate: 0.17592275353893153
+      response_time_ms: 8925
+      cpu_usage: 0.7025852007914147
+      memory_usage: 0.9347357471894976
+- timestamp: '2025-05-23T17:38:25.064927'
+  event_type: restart
+  description: 'Restart: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:24.064927'
+  event_type: failure
+  description: 'Failure: redis container'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 115
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: redis container - operation
+      failed'
+    metrics:
+      error_rate: 0.2530164108142017
+      response_time_ms: 8303
+      cpu_usage: 0.8423796134234349
+      memory_usage: 0.9075684967507341
+- timestamp: '2025-05-23T17:39:42.064927'
+  event_type: rollback
+  description: 'Rollback: code server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:52.064927'
+  event_type: config_change
+  description: 'Config_Change: stopped container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:57.064927'
+  event_type: failure
+  description: 'Failure: the error'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 131
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.46262306105903184
+      response_time_ms: 9511
+      cpu_usage: 0.7843763104325406
+      memory_usage: 0.9131011724714148
+- timestamp: '2025-05-23T18:01:16.064927'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

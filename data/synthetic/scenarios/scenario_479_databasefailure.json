@@ -1,0 +1,102 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173245",
+  "description": "Database connectivity and performance issues",
+  "duration": 1599,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.793099",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.792920",
+      "event_type": "trigger",
+      "description": "Initial failure detected: metadatacreateindexservice node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:15.792920",
+      "event_type": "corruption",
+      "description": "Corruption: postgres database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:06.792920",
+      "event_type": "recovery",
+      "description": "Recovery: to update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:09.792920",
+      "event_type": "recovery",
+      "description": "Recovery: sql server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:23.792920",
+      "event_type": "timeout",
+      "description": "Timeout: the update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 129,
+        "log_snippet": "[2025-05-23 17:32:45] FATAL mysql-primary: database the update detected",
+        "metrics": {
+          "error_rate": 0.8975212238307969,
+          "response_time_ms": 9581,
+          "cpu_usage": 0.9211404876649731,
+          "memory_usage": 0.9155386801941887,
+          "connection_pool_usage": 0.8582666094214584,
+          "query_time_ms": 5600,
+          "deadlocks_per_sec": 9
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:29.792920",
+      "event_type": "corruption",
+      "description": "Corruption: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:05.792920",
+      "event_type": "timeout",
+      "description": "Timeout: to scale",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 167,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR mongodb-shard: to scale in timeout",
+        "metrics": {
+          "error_rate": 0.13517036411102482,
+          "response_time_ms": 7156,
+          "cpu_usage": 0.8045067900454689,
+          "memory_usage": 0.8298891128778344,
+          "connection_pool_usage": 0.8137867164739775,
+          "query_time_ms": 7074,
+          "deadlocks_per_sec": 9
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:25.792920",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: to scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:59:24.792920",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_174629
+description: Configuration inconsistencies causing service degradation
+duration: 1551
+metadata:
+  generated_at: '2025-05-23T17:46:29.165109'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:46:29.165008'
+  event_type: trigger
+  description: 'Initial failure detected: redis container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:59.165008'
+  event_type: rollback
+  description: 'Rollback: following error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:44.165008'
+  event_type: rollback
+  description: 'Rollback: docker network'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:06.165008'
+  event_type: config_change
+  description: 'Config_Change: the pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:49.165008'
+  event_type: config_change
+  description: 'Config_Change: the log'
+  injection_spec: null
+- timestamp: '2025-05-23T18:12:20.165008'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

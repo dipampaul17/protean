@@ -1,0 +1,114 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_173453",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 386,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.049220",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.048529",
+      "event_type": "trigger",
+      "description": "Initial failure detected: of memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:14.048529",
+      "event_type": "failure",
+      "description": "Failure: causing outage",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 247,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: causing outage - operation failed",
+        "metrics": {
+          "error_rate": 0.6171488668516142,
+          "response_time_ms": 8507,
+          "cpu_usage": 0.7934432441178385,
+          "memory_usage": 0.9697848231008789
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:16.048529",
+      "event_type": "timeout",
+      "description": "Timeout: free disk",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 186,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: free disk - operation failed",
+        "metrics": {
+          "error_rate": 0.8362005708617037,
+          "response_time_ms": 8164,
+          "cpu_usage": 0.839568572513113,
+          "memory_usage": 0.8633129853228507
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:19.048529",
+      "event_type": "failure",
+      "description": "Failure: the queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "medium",
+        "duration": 55,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.1005090931441717,
+          "response_time_ms": 1283,
+          "cpu_usage": 0.7229873652139267,
+          "memory_usage": 0.6481196584027384
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:32.048529",
+      "event_type": "recovery",
+      "description": "Recovery: of disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:53.048529",
+      "event_type": "recovery",
+      "description": "Recovery: code cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:57.048529",
+      "event_type": "timeout",
+      "description": "Timeout: most memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 175,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: most memory - operation failed",
+        "metrics": {
+          "error_rate": 0.8058339248960572,
+          "response_time_ms": 9688,
+          "cpu_usage": 0.9396556654220316,
+          "memory_usage": 0.9491198919397816
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:19.048529",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

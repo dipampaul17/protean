@@ -1,0 +1,72 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_174628",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 1640,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.974099",
+    "phrase_templates_used": 24,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.974007",
+      "event_type": "trigger",
+      "description": "Initial failure detected: https connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:23.974007",
+      "event_type": "recovery",
+      "description": "Recovery: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:41.974007",
+      "event_type": "timeout",
+      "description": "Timeout: aws application",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 169,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: aws application - operation failed",
+        "metrics": {
+          "error_rate": 0.5375727779917522,
+          "response_time_ms": 1725,
+          "cpu_usage": 0.9416881487697685,
+          "memory_usage": 0.8367826091346124
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:55:06.974007",
+      "event_type": "failure",
+      "description": "Failure: scaling scale",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 157,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: scaling scale - operation failed",
+        "metrics": {
+          "error_rate": 0.4891013581134266,
+          "response_time_ms": 7842,
+          "cpu_usage": 0.9580566657849738,
+          "memory_usage": 0.9387011781797412
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:13:48.974007",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

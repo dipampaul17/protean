@@ -1,0 +1,75 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173707",
+  "description": "Message queue and event processing failures",
+  "duration": 1633,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.986144",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.985994",
+      "event_type": "trigger",
+      "description": "Initial failure detected: using rabbitmq",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:08.985994",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: using kafka",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:28.985994",
+      "event_type": "timeout",
+      "description": "Timeout: the connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-queue",
+        "severity": "high",
+        "duration": 185,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-queue: queue processing the connection",
+        "metrics": {
+          "error_rate": 0.19095204977182131,
+          "response_time_ms": 1434,
+          "cpu_usage": 0.7391893391683659,
+          "memory_usage": 0.9881069471533519,
+          "queue_depth": 39014,
+          "message_processing_rate": 1.061980469662711,
+          "consumer_lag_ms": 251569
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:20.985994",
+      "event_type": "message_loss",
+      "description": "Message_Loss: the cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:42:18.985994",
+      "event_type": "recovery",
+      "description": "Recovery: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:42:33.985994",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: rabbitmq service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:04:20.985994",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

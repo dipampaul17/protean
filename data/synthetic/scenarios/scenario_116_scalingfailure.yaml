@@ -1,0 +1,88 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_173452
+description: Infrastructure failure scenario for ScalingFailure
+duration: 1134
+metadata:
+  generated_at: '2025-05-23T17:34:52.991159'
+  phrase_templates_used: 24
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:52.990990'
+  event_type: trigger
+  description: 'Initial failure detected: load balancer'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:11.990990'
+  event_type: failure
+  description: 'Failure: a service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 87
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.5926901025069926
+      response_time_ms: 2663
+      cpu_usage: 0.7393683473964441
+      memory_usage: 0.9304943052934092
+- timestamp: '2025-05-23T17:35:41.990990'
+  event_type: recovery
+  description: 'Recovery: this service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:28.990990'
+  event_type: failure
+  description: 'Failure: clusterip service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 75
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: clusterip service
+      - operation failed'
+    metrics:
+      error_rate: 0.3845201174620607
+      response_time_ms: 9702
+      cpu_usage: 0.8520355909940562
+      memory_usage: 0.8232431700179754
+- timestamp: '2025-05-23T17:36:29.990990'
+  event_type: failure
+  description: 'Failure: this error'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 108
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: this error - operation
+      failed'
+    metrics:
+      error_rate: 0.6434543053030761
+      response_time_ms: 4654
+      cpu_usage: 0.8598581956232947
+      memory_usage: 0.9479658003407256
+- timestamp: '2025-05-23T17:37:22.990990'
+  event_type: failure
+  description: 'Failure: to fix'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 104
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: to fix - operation failed'
+    metrics:
+      error_rate: 0.4158695819285497
+      response_time_ms: 6680
+      cpu_usage: 0.8146024550396851
+      memory_usage: 0.8194679236851562
+- timestamp: '2025-05-23T17:37:34.990990'
+  event_type: recovery
+  description: 'Recovery: nodeport service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:53:46.990990'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

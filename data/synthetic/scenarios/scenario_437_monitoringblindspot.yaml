@@ -1,0 +1,93 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_174629
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1395
+metadata:
+  generated_at: '2025-05-23T17:46:29.137066'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:46:29.136862'
+  event_type: trigger
+  description: 'Initial failure detected: a server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:50.136862'
+  event_type: recovery
+  description: 'Recovery: nil log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:55.136862'
+  event_type: timeout
+  description: 'Timeout: monitoring service'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 298
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: monitoring service
+      - operation failed'
+    metrics:
+      error_rate: 0.35051813877875104
+      response_time_ms: 5547
+      cpu_usage: 0.8843756666064879
+      memory_usage: 0.810164333931606
+- timestamp: '2025-05-23T17:47:28.136862'
+  event_type: failure
+  description: 'Failure: kubernetes pod'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 61
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: kubernetes pod - operation
+      failed'
+    metrics:
+      error_rate: 0.3694679851473801
+      response_time_ms: 7954
+      cpu_usage: 0.9170192140112813
+      memory_usage: 0.8545308387227004
+- timestamp: '2025-05-23T17:48:23.136862'
+  event_type: timeout
+  description: 'Timeout: the memory'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 90
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: the memory - operation
+      failed'
+    metrics:
+      error_rate: 0.32744275079365737
+      response_time_ms: 6967
+      cpu_usage: 0.705022679361645
+      memory_usage: 0.8344640814528734
+- timestamp: '2025-05-23T17:48:24.136862'
+  event_type: recovery
+  description: 'Recovery: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:43.136862'
+  event_type: failure
+  description: 'Failure: us log'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 239
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: us log - operation
+      failed'
+    metrics:
+      error_rate: 0.5748787430970429
+      response_time_ms: 5699
+      cpu_usage: 0.8554785253943424
+      memory_usage: 0.9385510533110566
+- timestamp: '2025-05-23T17:48:53.136862'
+  event_type: recovery
+  description: 'Recovery: customer service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:09:44.136862'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

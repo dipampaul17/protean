@@ -1,0 +1,93 @@
+category: DataCorruption
+name: DataCorruption_20250523_173452
+description: Infrastructure failure scenario for DataCorruption
+duration: 1324
+metadata:
+  generated_at: '2025-05-23T17:34:52.992449'
+  phrase_templates_used: 36
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:52.992267'
+  event_type: trigger
+  description: 'Initial failure detected: the connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:13.992267'
+  event_type: recovery
+  description: 'Recovery: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:51.992267'
+  event_type: failure
+  description: 'Failure: data container'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 132
+    log_snippet: '[2025-05-23 17:34:52] ERROR payment-service: data container - operation
+      failed'
+    metrics:
+      error_rate: 0.5648551746815546
+      response_time_ms: 2421
+      cpu_usage: 0.8079158101036922
+      memory_usage: 0.9435002384619475
+- timestamp: '2025-05-23T17:36:20.992267'
+  event_type: failure
+  description: 'Failure: second node'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 64
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: second node - operation
+      failed'
+    metrics:
+      error_rate: 0.26824087626497695
+      response_time_ms: 4918
+      cpu_usage: 0.7694589026351
+      memory_usage: 0.8225369174063561
+- timestamp: '2025-05-23T17:36:35.992267'
+  event_type: recovery
+  description: 'Recovery: message queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:42.992267'
+  event_type: timeout
+  description: 'Timeout: the connection'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 220
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: the connection
+      - operation failed'
+    metrics:
+      error_rate: 0.6838803706946124
+      response_time_ms: 4850
+      cpu_usage: 0.7800810853433175
+      memory_usage: 0.8582457271756294
+- timestamp: '2025-05-23T17:37:59.992267'
+  event_type: recovery
+  description: 'Recovery: data container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:01.992267'
+  event_type: timeout
+  description: 'Timeout: to disk'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 198
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: to disk - operation
+      failed'
+    metrics:
+      error_rate: 0.1876188658788326
+      response_time_ms: 8148
+      cpu_usage: 0.9516763131936108
+      memory_usage: 0.8842886106940266
+- timestamp: '2025-05-23T17:56:56.992267'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

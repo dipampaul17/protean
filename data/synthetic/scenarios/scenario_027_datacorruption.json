@@ -1,0 +1,102 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173707",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 1581,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.784687",
+    "phrase_templates_used": 36,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.784400",
+      "event_type": "trigger",
+      "description": "Initial failure detected: same node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:25.784400",
+      "event_type": "timeout",
+      "description": "Timeout: to disk",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 147,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: to disk - operation failed",
+        "metrics": {
+          "error_rate": 0.31299983864614617,
+          "response_time_ms": 1920,
+          "cpu_usage": 0.8505920258268148,
+          "memory_usage": 0.860011564855634
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:27.784400",
+      "event_type": "failure",
+      "description": "Failure: to disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 99,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: to disk - operation failed",
+        "metrics": {
+          "error_rate": 0.7374788959408016,
+          "response_time_ms": 8163,
+          "cpu_usage": 0.8948783445783338,
+          "memory_usage": 0.9462306697090448
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:57.784400",
+      "event_type": "recovery",
+      "description": "Recovery: second node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:23.784400",
+      "event_type": "failure",
+      "description": "Failure: duplicate update",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 222,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: duplicate update - operation failed",
+        "metrics": {
+          "error_rate": 0.8757501265392775,
+          "response_time_ms": 9509,
+          "cpu_usage": 0.9891599319606575,
+          "memory_usage": 0.8670564179845724
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:52.784400",
+      "event_type": "recovery",
+      "description": "Recovery: a queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:41:20.784400",
+      "event_type": "recovery",
+      "description": "Recovery: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:03:28.784400",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

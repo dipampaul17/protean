@@ -1,0 +1,82 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173245
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 819
+metadata:
+  generated_at: '2025-05-23T17:32:45.727956'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:32:45.727785'
+  event_type: trigger
+  description: 'Initial failure detected: the pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:08.727785'
+  event_type: timeout
+  description: 'Timeout: code cluster'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 223
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: code cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.8966409423111303
+      response_time_ms: 8995
+      cpu_usage: 0.9611072513162575
+      memory_usage: 0.9116786685009619
+- timestamp: '2025-05-23T17:33:25.727785'
+  event_type: failure
+  description: 'Failure: double scale'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 44
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: double scale - operation
+      failed'
+    metrics:
+      error_rate: 0.40102497648492863
+      response_time_ms: 2389
+      cpu_usage: 0.8715914946384404
+      memory_usage: 0.915863885528963
+- timestamp: '2025-05-23T17:33:48.727785'
+  event_type: recovery
+  description: 'Recovery: the limit'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:02.727785'
+  event_type: recovery
+  description: 'Recovery: code cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:04.727785'
+  event_type: recovery
+  description: 'Recovery: in memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:11.727785'
+  event_type: failure
+  description: 'Failure: to fix'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 41
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: to fix - operation
+      failed'
+    metrics:
+      error_rate: 0.8737617003851527
+      response_time_ms: 3341
+      cpu_usage: 0.8934603833526631
+      memory_usage: 0.8441918633731698
+- timestamp: '2025-05-23T17:34:33.727785'
+  event_type: recovery
+  description: 'Recovery: in memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:24.727785'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

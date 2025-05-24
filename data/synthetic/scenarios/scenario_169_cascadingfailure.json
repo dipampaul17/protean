@@ -1,0 +1,72 @@
+{
+  "category": "CascadingFailure",
+  "name": "CascadingFailure_20250523_173707",
+  "description": "Multi-service failure propagation scenario",
+  "duration": 723,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.990957",
+    "phrase_templates_used": 2,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.990523",
+      "event_type": "trigger",
+      "description": "Initial failure detected: cascading failure",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:21.990523",
+      "event_type": "cascade",
+      "description": "Cascade: cascading failure",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:23.990523",
+      "event_type": "cascade",
+      "description": "Cascade: demographics monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:50.990523",
+      "event_type": "propagation",
+      "description": "Propagation: cascading failure",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:53.990523",
+      "event_type": "cascade",
+      "description": "Cascade: demographics monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:58.990523",
+      "event_type": "propagation",
+      "description": "Propagation: demographics monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:58.990523",
+      "event_type": "propagation",
+      "description": "Propagation: cascading failure",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:28.990523",
+      "event_type": "recovery",
+      "description": "Recovery: demographics monitor",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:10.990523",
+      "event_type": "recovery",
+      "description": "System recovered: all services recovered",
+      "injection_spec": null
+    }
+  ]
+}

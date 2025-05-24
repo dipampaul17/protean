@@ -1,0 +1,108 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_174629",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 1574,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.085396",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.084880",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:43.084880",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:01.084880",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 111,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR auth-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.6007351647883423,
+          "response_time_ms": 4593,
+          "cpu_usage": 0.8308574380764236,
+          "memory_usage": 0.9094816607296724
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:49.084880",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 210,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.7445622204545299,
+          "response_time_ms": 3943,
+          "cpu_usage": 0.855560176060054,
+          "memory_usage": 0.997792851514475
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:51:16.084880",
+      "event_type": "timeout",
+      "description": "Timeout: disk space full",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 253,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.4518957537873787,
+          "response_time_ms": 2159,
+          "cpu_usage": 0.7533660901429093,
+          "memory_usage": 0.895222534895887
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:51:38.084880",
+      "event_type": "timeout",
+      "description": "Timeout: queue overflow",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 294,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.7545991090058652,
+          "response_time_ms": 1573,
+          "cpu_usage": 0.8744707723535454,
+          "memory_usage": 0.9667816468666807
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:12:43.084880",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

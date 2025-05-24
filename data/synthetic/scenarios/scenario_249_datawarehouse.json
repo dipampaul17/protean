@@ -1,0 +1,120 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_173245",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 881,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.733666",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.733430",
+      "event_type": "trigger",
+      "description": "Initial failure detected: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:11.733430",
+      "event_type": "recovery",
+      "description": "Recovery: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:30.733430",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 37,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.4175251235257802,
+          "response_time_ms": 4891,
+          "cpu_usage": 0.9645616956689764,
+          "memory_usage": 0.9178406412999011
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:54.733430",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:54.733430",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 270,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.21578603329085297,
+          "response_time_ms": 7597,
+          "cpu_usage": 0.8982771579870913,
+          "memory_usage": 0.9730254876487994
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:09.733430",
+      "event_type": "recovery",
+      "description": "Recovery: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:18.733430",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 201,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.42405276217241006,
+          "response_time_ms": 1164,
+          "cpu_usage": 0.8491295252084322,
+          "memory_usage": 0.8894584182820684
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:42.733430",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 47,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.7211601138032103,
+          "response_time_ms": 3451,
+          "cpu_usage": 0.8967407250394274,
+          "memory_usage": 0.9527690982337911
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:26.733430",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

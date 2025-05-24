@@ -1,0 +1,78 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173453",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 1036,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.356827",
+    "phrase_templates_used": 45,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.356532",
+      "event_type": "trigger",
+      "description": "Initial failure detected: nginx error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:47.356532",
+      "event_type": "recovery",
+      "description": "Recovery: illuminate container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:47.356532",
+      "event_type": "recovery",
+      "description": "Recovery: get update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:03.356532",
+      "event_type": "failure",
+      "description": "Failure: upstream server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 112,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: upstream server - operation failed",
+        "metrics": {
+          "error_rate": 0.8752352928146262,
+          "response_time_ms": 8240,
+          "cpu_usage": 0.9933179691732679,
+          "memory_usage": 0.8597766666390866
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:06.356532",
+      "event_type": "timeout",
+      "description": "Timeout: proxy server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 161,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: proxy server - operation failed",
+        "metrics": {
+          "error_rate": 0.8447622232968456,
+          "response_time_ms": 9296,
+          "cpu_usage": 0.9860507395283882,
+          "memory_usage": 0.9499255324966313
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:52:09.356532",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

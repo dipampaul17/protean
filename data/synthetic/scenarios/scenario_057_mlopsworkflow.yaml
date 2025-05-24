@@ -1,0 +1,74 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_174628
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 559
+metadata:
+  generated_at: '2025-05-23T17:46:28.921482'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:28.921325'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:41.921325'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:52.921325'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:56.921325'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 232
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: rate limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.5065030784441554
+      response_time_ms: 6078
+      cpu_usage: 0.8911528281385831
+      memory_usage: 0.9091092699072348
+- timestamp: '2025-05-23T17:47:11.921325'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 209
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: deployment failed
+      - operation failed'
+    metrics:
+      error_rate: 0.45893809826804366
+      response_time_ms: 9973
+      cpu_usage: 0.8746911891104372
+      memory_usage: 0.8973871633390823
+- timestamp: '2025-05-23T17:47:20.921325'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 175
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.688222228994287
+      response_time_ms: 4905
+      cpu_usage: 0.7157977461985857
+      memory_usage: 0.9940591102744296
+- timestamp: '2025-05-23T17:55:47.921325'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

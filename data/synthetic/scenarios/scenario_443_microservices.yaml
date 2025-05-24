@@ -1,0 +1,48 @@
+category: Microservices
+name: Microservices_20250523_173708
+description: Infrastructure failure scenario for Microservices
+duration: 840
+metadata:
+  generated_at: '2025-05-23T17:37:08.068659'
+  phrase_templates_used: 15
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:37:08.068558'
+  event_type: trigger
+  description: 'Initial failure detected: following error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:19.068558'
+  event_type: recovery
+  description: 'Recovery: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:29.068558'
+  event_type: recovery
+  description: 'Recovery: lt service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:31.068558'
+  event_type: recovery
+  description: 'Recovery: http connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:22.068558'
+  event_type: failure
+  description: 'Failure: http connection'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 110
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: http connection
+      - operation failed'
+    metrics:
+      error_rate: 0.12020123274627084
+      response_time_ms: 6952
+      cpu_usage: 0.9546542725185345
+      memory_usage: 0.8533672431347996
+- timestamp: '2025-05-23T17:51:08.068558'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

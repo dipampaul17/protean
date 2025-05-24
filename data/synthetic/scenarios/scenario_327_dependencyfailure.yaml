@@ -1,0 +1,55 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_174629
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1116
+metadata:
+  generated_at: '2025-05-23T17:46:29.083900'
+  phrase_templates_used: 45
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 1
+events:
+- timestamp: '2025-05-23T17:46:29.083803'
+  event_type: trigger
+  description: 'Initial failure detected: per pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:51.083803'
+  event_type: recovery
+  description: 'Recovery: and update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:51:48.083803'
+  event_type: timeout
+  description: 'Timeout: the queue'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: medium
+    duration: 32
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: the queue - operation
+      failed'
+    metrics:
+      error_rate: 0.048076410496792524
+      response_time_ms: 560
+      cpu_usage: 0.7940223613599056
+      memory_usage: 0.6557514394733944
+- timestamp: '2025-05-23T17:51:53.083803'
+  event_type: failure
+  description: 'Failure: nginx error'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 30
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: nginx error - operation
+      failed'
+    metrics:
+      error_rate: 0.6258017567113077
+      response_time_ms: 7100
+      cpu_usage: 0.7227105981325944
+      memory_usage: 0.8528141264544433
+- timestamp: '2025-05-23T18:05:05.083803'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

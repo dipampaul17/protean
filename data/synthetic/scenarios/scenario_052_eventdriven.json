@@ -1,0 +1,108 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173707",
+  "description": "Message queue and event processing failures",
+  "duration": 1209,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.796313",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.796111",
+      "event_type": "trigger",
+      "description": "Initial failure detected: tcp connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:21.796111",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: current node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:46.796111",
+      "event_type": "timeout",
+      "description": "Timeout: strong update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 142,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-queue: queue processing strong update",
+        "metrics": {
+          "error_rate": 0.26987309029931106,
+          "response_time_ms": 6698,
+          "cpu_usage": 0.8642678091971798,
+          "memory_usage": 0.8060866229409018,
+          "queue_depth": 12021,
+          "message_processing_rate": 1.8965268289767234,
+          "consumer_lag_ms": 119704
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:12.796111",
+      "event_type": "message_loss",
+      "description": "Message_Loss: to update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:18.796111",
+      "event_type": "recovery",
+      "description": "Recovery: rabbitmq server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:23.796111",
+      "event_type": "timeout",
+      "description": "Timeout: p error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-queue",
+        "severity": "high",
+        "duration": 128,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-queue: queue processing p error",
+        "metrics": {
+          "error_rate": 0.5141889075677758,
+          "response_time_ms": 1426,
+          "cpu_usage": 0.854443975796461,
+          "memory_usage": 0.9137160048620511,
+          "queue_depth": 13759,
+          "message_processing_rate": 8.405405424714791,
+          "consumer_lag_ms": 244530
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:45.796111",
+      "event_type": "recovery",
+      "description": "Recovery: p error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:02.796111",
+      "event_type": "message_loss",
+      "description": "Message_Loss: the connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:03.796111",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: following error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:57:16.796111",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

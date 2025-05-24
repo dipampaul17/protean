@@ -1,0 +1,144 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_173708",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 1557,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.047075",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.046162",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:46.046162",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:48.046162",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 108,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.4402539449152446,
+          "response_time_ms": 8833,
+          "cpu_usage": 0.972173261204075,
+          "memory_usage": 0.9687185850980687
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:15.046162",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 240,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.455514946724521,
+          "response_time_ms": 4590,
+          "cpu_usage": 0.9733509369781324,
+          "memory_usage": 0.8551276022331366
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:32.046162",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 116,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.16348568855599688,
+          "response_time_ms": 7346,
+          "cpu_usage": 0.9377660528710605,
+          "memory_usage": 0.8530612248223344
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:32.046162",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 82,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.8590589626636486,
+          "response_time_ms": 4914,
+          "cpu_usage": 0.9549955329503093,
+          "memory_usage": 0.8765536137007244
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:28.046162",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 69,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.3450434821347084,
+          "response_time_ms": 6637,
+          "cpu_usage": 0.9038107790613081,
+          "memory_usage": 0.8102870891839649
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:26.046162",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 136,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.8629124347543768,
+          "response_time_ms": 9278,
+          "cpu_usage": 0.7825571165762363,
+          "memory_usage": 0.8866240029216705
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:03:05.046162",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

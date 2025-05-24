@@ -1,0 +1,84 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173708",
+  "description": "Message queue and event processing failures",
+  "duration": 1241,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.063059",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.062238",
+      "event_type": "trigger",
+      "description": "Initial failure detected: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:40.062238",
+      "event_type": "recovery",
+      "description": "Recovery: channel connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:53.062238",
+      "event_type": "recovery",
+      "description": "Recovery: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:41:10.062238",
+      "event_type": "timeout",
+      "description": "Timeout: server restart",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 236,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-queue: queue processing server restart",
+        "metrics": {
+          "error_rate": 0.8491204652476882,
+          "response_time_ms": 5958,
+          "cpu_usage": 0.7507142343419866,
+          "memory_usage": 0.8986190648775358,
+          "queue_depth": 26512,
+          "message_processing_rate": 2.9780851483803006,
+          "consumer_lag_ms": 162440
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:15.062238",
+      "event_type": "timeout",
+      "description": "Timeout: p error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 213,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR batch-processing-queue: queue processing p error",
+        "metrics": {
+          "error_rate": 0.27627417734071436,
+          "response_time_ms": 2442,
+          "cpu_usage": 0.959784464658769,
+          "memory_usage": 0.9530321566443518,
+          "queue_depth": 43116,
+          "message_processing_rate": 6.024125382603797,
+          "consumer_lag_ms": 111210
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:57:49.062238",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

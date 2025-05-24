@@ -1,0 +1,126 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_173452",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 513,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.903310",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.903106",
+      "event_type": "trigger",
+      "description": "Initial failure detected: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:09.903106",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 108,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR user-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.7527140052772009,
+          "response_time_ms": 8048,
+          "cpu_usage": 0.8776003422553402,
+          "memory_usage": 0.9099877803830019
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:22.903106",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:34.903106",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:36.903106",
+      "event_type": "timeout",
+      "description": "Timeout: rate limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 261,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.5314824611826378,
+          "response_time_ms": 5511,
+          "cpu_usage": 0.930749799792818,
+          "memory_usage": 0.8752302087657529
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:41.903106",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 110,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.12373550159179869,
+          "response_time_ms": 4218,
+          "cpu_usage": 0.9359186390583933,
+          "memory_usage": 0.8992417568919141
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:47.903106",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:52.903106",
+      "event_type": "recovery",
+      "description": "Recovery: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:55.903106",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 93,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR user-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.31110569173940206,
+          "response_time_ms": 3034,
+          "cpu_usage": 0.8749458435677043,
+          "memory_usage": 0.9609478054727866
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:43:25.903106",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

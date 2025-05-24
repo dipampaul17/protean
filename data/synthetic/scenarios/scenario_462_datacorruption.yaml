@@ -1,0 +1,108 @@
+category: DataCorruption
+name: DataCorruption_20250523_173708
+description: Infrastructure failure scenario for DataCorruption
+duration: 306
+metadata:
+  generated_at: '2025-05-23T17:37:08.076974'
+  phrase_templates_used: 36
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 4
+events:
+- timestamp: '2025-05-23T17:37:08.076300'
+  event_type: trigger
+  description: 'Initial failure detected: only container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:19.076300'
+  event_type: timeout
+  description: 'Timeout: a database'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 226
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: a database - operation
+      failed'
+    metrics:
+      error_rate: 0.28661712061709865
+      response_time_ms: 6991
+      cpu_usage: 0.8879928450025283
+      memory_usage: 0.8384415843332966
+- timestamp: '2025-05-23T17:37:24.076300'
+  event_type: recovery
+  description: 'Recovery: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:25.076300'
+  event_type: failure
+  description: 'Failure: transaction log'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 261
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: transaction log - operation
+      failed'
+    metrics:
+      error_rate: 0.12245926904426235
+      response_time_ms: 7004
+      cpu_usage: 0.7639910018759577
+      memory_usage: 0.9253835836435956
+- timestamp: '2025-05-23T17:37:27.076300'
+  event_type: recovery
+  description: 'Recovery: partitioned queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:28.076300'
+  event_type: failure
+  description: 'Failure: head queue'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: medium
+    duration: 289
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: head queue - operation
+      failed'
+    metrics:
+      error_rate: 0.25524824300693066
+      response_time_ms: 1761
+      cpu_usage: 0.36278364279740194
+      memory_usage: 0.5093695366224404
+- timestamp: '2025-05-23T17:37:28.076300'
+  event_type: recovery
+  description: 'Recovery: data container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:32.076300'
+  event_type: failure
+  description: 'Failure: new container'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 69
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: new container - operation
+      failed'
+    metrics:
+      error_rate: 0.28535640514262794
+      response_time_ms: 3257
+      cpu_usage: 0.7406873410285565
+      memory_usage: 0.9263807878403554
+- timestamp: '2025-05-23T17:37:42.076300'
+  event_type: failure
+  description: 'Failure: using rabbitmq'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 34
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: using rabbitmq - operation
+      failed'
+    metrics:
+      error_rate: 0.15659664882915358
+      response_time_ms: 2649
+      cpu_usage: 0.840991190055863
+      memory_usage: 0.9904974228888568
+- timestamp: '2025-05-23T17:42:14.076300'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,87 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_174629",
+  "description": "Database connectivity and performance issues",
+  "duration": 534,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.134328",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.133822",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:43.133822",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: the database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:55.133822",
+      "event_type": "corruption",
+      "description": "Corruption: message queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:10.133822",
+      "event_type": "timeout",
+      "description": "Timeout: using docker",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "postgres-replica",
+        "severity": "high",
+        "duration": 265,
+        "log_snippet": "[2025-05-23 17:46:29] FATAL postgres-replica: database using docker detected",
+        "metrics": {
+          "error_rate": 0.13191394822686578,
+          "response_time_ms": 7953,
+          "cpu_usage": 0.8862704899189104,
+          "memory_usage": 0.9630916239321657,
+          "connection_pool_usage": 0.8252638797839074,
+          "query_time_ms": 20564,
+          "deadlocks_per_sec": 2
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:17.133822",
+      "event_type": "corruption",
+      "description": "Corruption: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:22.133822",
+      "event_type": "corruption",
+      "description": "Corruption: postgres database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:30.133822",
+      "event_type": "corruption",
+      "description": "Corruption: to scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:35.133822",
+      "event_type": "corruption",
+      "description": "Corruption: using docker",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:55:23.133822",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

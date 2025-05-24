@@ -1,0 +1,90 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_173453",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 422,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.280859",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.280514",
+      "event_type": "trigger",
+      "description": "Initial failure detected: float scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:28.280514",
+      "event_type": "timeout",
+      "description": "Timeout: a connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 198,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: a connection - operation failed",
+        "metrics": {
+          "error_rate": 0.7530134846606086,
+          "response_time_ms": 6125,
+          "cpu_usage": 0.7641438418527511,
+          "memory_usage": 0.956465656602839
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:05.280514",
+      "event_type": "failure",
+      "description": "Failure: the cache",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 274,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: the cache - operation failed",
+        "metrics": {
+          "error_rate": 0.6410361416682518,
+          "response_time_ms": 1148,
+          "cpu_usage": 0.7933652832334986,
+          "memory_usage": 0.9110890356974339
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:13.280514",
+      "event_type": "recovery",
+      "description": "Recovery: code cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:35.280514",
+      "event_type": "failure",
+      "description": "Failure: associative cache",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 280,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: associative cache - operation failed",
+        "metrics": {
+          "error_rate": 0.1345530183958056,
+          "response_time_ms": 5465,
+          "cpu_usage": 0.7441511079841743,
+          "memory_usage": 0.9369837719917185
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:55.280514",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

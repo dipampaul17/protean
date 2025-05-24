@@ -1,0 +1,87 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_174629",
+  "description": "Message queue and event processing failures",
+  "duration": 1741,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.070338",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.070188",
+      "event_type": "trigger",
+      "description": "Initial failure detected: badmatch error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:54.070188",
+      "event_type": "message_loss",
+      "description": "Message_Loss: kafka server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:19.070188",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: the connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:18.070188",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:23.070188",
+      "event_type": "recovery",
+      "description": "Recovery: error error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:30.070188",
+      "event_type": "timeout",
+      "description": "Timeout: failed to",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 174,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-queue: queue processing failed to",
+        "metrics": {
+          "error_rate": 0.5415689187484963,
+          "response_time_ms": 2429,
+          "cpu_usage": 0.9635208026285975,
+          "memory_usage": 0.829090455425086,
+          "queue_depth": 34248,
+          "message_processing_rate": 9.887534174353958,
+          "consumer_lag_ms": 233239
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:43.070188",
+      "event_type": "recovery",
+      "description": "Recovery: ephemeral node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:11.070188",
+      "event_type": "recovery",
+      "description": "Recovery: to restart",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:15:30.070188",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

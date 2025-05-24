@@ -1,0 +1,140 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_174629
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1643
+metadata:
+  generated_at: '2025-05-23T17:46:29.139557'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 8
+events:
+- timestamp: '2025-05-23T17:46:29.139220'
+  event_type: trigger
+  description: 'Initial failure detected: of cpu'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:20.139220'
+  event_type: failure
+  description: 'Failure: reduce alert'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 237
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: reduce alert - operation
+      failed'
+    metrics:
+      error_rate: 0.12165171474482178
+      response_time_ms: 8964
+      cpu_usage: 0.878749210987698
+      memory_usage: 0.89641138206784
+- timestamp: '2025-05-23T17:48:22.139220'
+  event_type: failure
+  description: 'Failure: code alert'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 142
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: code alert - operation
+      failed'
+    metrics:
+      error_rate: 0.8225140472173851
+      response_time_ms: 1259
+      cpu_usage: 0.803190835150696
+      memory_usage: 0.9970582751292805
+- timestamp: '2025-05-23T17:48:40.139220'
+  event_type: timeout
+  description: 'Timeout: customer service'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 263
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: customer service -
+      operation failed'
+    metrics:
+      error_rate: 0.3470097048869929
+      response_time_ms: 1713
+      cpu_usage: 0.9346883251505469
+      memory_usage: 0.900490575920855
+- timestamp: '2025-05-23T17:48:47.139220'
+  event_type: failure
+  description: 'Failure: code alert'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 253
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: code alert - operation
+      failed'
+    metrics:
+      error_rate: 0.43765792625460165
+      response_time_ms: 1816
+      cpu_usage: 0.7230781754674024
+      memory_usage: 0.8143905515639281
+- timestamp: '2025-05-23T17:49:03.139220'
+  event_type: timeout
+  description: 'Timeout: scaled service'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 202
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: scaled service - operation
+      failed'
+    metrics:
+      error_rate: 0.10427592735851815
+      response_time_ms: 3449
+      cpu_usage: 0.8536997913903637
+      memory_usage: 0.878628005260228
+- timestamp: '2025-05-23T17:49:07.139220'
+  event_type: failure
+  description: 'Failure: a pod'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 262
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: a pod - operation failed'
+    metrics:
+      error_rate: 0.6962367729085032
+      response_time_ms: 2887
+      cpu_usage: 0.7932765323450424
+      memory_usage: 0.8807859299515577
+- timestamp: '2025-05-23T17:49:13.139220'
+  event_type: failure
+  description: 'Failure: us log'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 201
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: us log - operation
+      failed'
+    metrics:
+      error_rate: 0.15457104295106439
+      response_time_ms: 7493
+      cpu_usage: 0.9932898650157653
+      memory_usage: 0.8153867733693644
+- timestamp: '2025-05-23T17:49:41.139220'
+  event_type: failure
+  description: 'Failure: web server'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 291
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: web server - operation
+      failed'
+    metrics:
+      error_rate: 0.6114946879009657
+      response_time_ms: 7813
+      cpu_usage: 0.717166427138963
+      memory_usage: 0.8798169433748421
+- timestamp: '2025-05-23T18:13:52.139220'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,108 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173453",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 793,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.350771",
+    "phrase_templates_used": 36,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.350618",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:33.350618",
+      "event_type": "timeout",
+      "description": "Timeout: data container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 252,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: data container - operation failed",
+        "metrics": {
+          "error_rate": 0.8065197014522785,
+          "response_time_ms": 3056,
+          "cpu_usage": 0.8010300191570892,
+          "memory_usage": 0.9588709746419986
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:58.350618",
+      "event_type": "timeout",
+      "description": "Timeout: to disk",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 169,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: to disk - operation failed",
+        "metrics": {
+          "error_rate": 0.7872335851372225,
+          "response_time_ms": 6483,
+          "cpu_usage": 0.9654129899109231,
+          "memory_usage": 0.9654614327111917
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:30.350618",
+      "event_type": "timeout",
+      "description": "Timeout: only container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 119,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: only container - operation failed",
+        "metrics": {
+          "error_rate": 0.4724023696858254,
+          "response_time_ms": 1169,
+          "cpu_usage": 0.9118787300680046,
+          "memory_usage": 0.918130580143044
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:30.350618",
+      "event_type": "timeout",
+      "description": "Timeout: to node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 184,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: to node - operation failed",
+        "metrics": {
+          "error_rate": 0.47727554714788756,
+          "response_time_ms": 6887,
+          "cpu_usage": 0.8525021636991332,
+          "memory_usage": 0.9436917882912288
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:08.350618",
+      "event_type": "recovery",
+      "description": "Recovery: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:06.350618",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

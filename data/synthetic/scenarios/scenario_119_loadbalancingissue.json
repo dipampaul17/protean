@@ -1,0 +1,78 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_174628",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 597,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.960046",
+    "phrase_templates_used": 13,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.959947",
+      "event_type": "trigger",
+      "description": "Initial failure detected: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:55.959947",
+      "event_type": "scaling",
+      "description": "Scaling: a server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:19.959947",
+      "event_type": "timeout",
+      "description": "Timeout: strong update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 146,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR api-gateway: strong update in timeout",
+        "metrics": {
+          "error_rate": 0.6642376026405873,
+          "response_time_ms": 2145,
+          "cpu_usage": 0.9642090099583994,
+          "memory_usage": 0.8945842104790557,
+          "requests_per_sec": 8863,
+          "backend_health_pct": 0.6399479879855462,
+          "connection_timeouts": 482
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:11.959947",
+      "event_type": "timeout",
+      "description": "Timeout: that node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "subnet-private",
+        "severity": "high",
+        "duration": 92,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR subnet-private: that node in timeout",
+        "metrics": {
+          "error_rate": 0.38647334186533844,
+          "response_time_ms": 2226,
+          "cpu_usage": 0.8206324684454722,
+          "memory_usage": 0.8150627645715058,
+          "requests_per_sec": 2655,
+          "backend_health_pct": 0.7399129092567882,
+          "connection_timeouts": 10
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:56:25.959947",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

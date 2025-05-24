@@ -1,0 +1,102 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_173245",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 410,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.791297",
+    "phrase_templates_used": 24,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.791163",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:55.791163",
+      "event_type": "failure",
+      "description": "Failure: the server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 77,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.5136856989239992,
+          "response_time_ms": 4356,
+          "cpu_usage": 0.7362844427389544,
+          "memory_usage": 0.8803857747193905
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:22.791163",
+      "event_type": "failure",
+      "description": "Failure: a server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 78,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: a server - operation failed",
+        "metrics": {
+          "error_rate": 0.7023065066393085,
+          "response_time_ms": 9882,
+          "cpu_usage": 0.7229091787379158,
+          "memory_usage": 0.9489748964887432
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:07.791163",
+      "event_type": "failure",
+      "description": "Failure: the server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 222,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.6523724068740789,
+          "response_time_ms": 6352,
+          "cpu_usage": 0.991101670900181,
+          "memory_usage": 0.8525702486124157
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:17.791163",
+      "event_type": "failure",
+      "description": "Failure: a service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 156,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: a service - operation failed",
+        "metrics": {
+          "error_rate": 0.32422146870995605,
+          "response_time_ms": 1993,
+          "cpu_usage": 0.9806182852073891,
+          "memory_usage": 0.8432756271352017
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:35.791163",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

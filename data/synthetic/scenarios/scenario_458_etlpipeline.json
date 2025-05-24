@@ -1,0 +1,114 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173453",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 536,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.352475",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.352316",
+      "event_type": "trigger",
+      "description": "Initial failure detected: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:13.352316",
+      "event_type": "recovery",
+      "description": "Recovery: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:19.352316",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 167,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.2935144315158027,
+          "response_time_ms": 1268,
+          "cpu_usage": 0.8087565660977313,
+          "memory_usage": 0.8141821905542211
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:19.352316",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 204,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.5804628193601878,
+          "response_time_ms": 2839,
+          "cpu_usage": 0.9549764440887947,
+          "memory_usage": 0.9588905363687357
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:28.352316",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 158,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.81684017324031,
+          "response_time_ms": 9163,
+          "cpu_usage": 0.7968035340729736,
+          "memory_usage": 0.943818116680893
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:05.352316",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:07.352316",
+      "event_type": "timeout",
+      "description": "Timeout: database connection lost",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 161,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.4361763555260183,
+          "response_time_ms": 8395,
+          "cpu_usage": 0.959407504848553,
+          "memory_usage": 0.9407179105400657
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:43:49.352316",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

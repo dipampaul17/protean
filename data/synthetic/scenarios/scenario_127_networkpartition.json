@@ -1,0 +1,150 @@
+{
+  "category": "NetworkPartition",
+  "name": "NetworkPartition_20250523_174628",
+  "description": "Infrastructure failure scenario for NetworkPartition",
+  "duration": 681,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.963382",
+    "phrase_templates_used": 4,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.962211",
+      "event_type": "trigger",
+      "description": "Initial failure detected: of disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:47.962211",
+      "event_type": "failure",
+      "description": "Failure: of disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 291,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: of disk - operation failed",
+        "metrics": {
+          "error_rate": 0.6091750078501393,
+          "response_time_ms": 7867,
+          "cpu_usage": 0.7561381340022992,
+          "memory_usage": 0.8351153477123887
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:48.962211",
+      "event_type": "recovery",
+      "description": "Recovery: and memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:48.962211",
+      "event_type": "timeout",
+      "description": "Timeout: and node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 278,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: and node - operation failed",
+        "metrics": {
+          "error_rate": 0.34510062294090427,
+          "response_time_ms": 9781,
+          "cpu_usage": 0.8474752122015144,
+          "memory_usage": 0.8572765346045627
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:55.962211",
+      "event_type": "failure",
+      "description": "Failure: and memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 50,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: and memory - operation failed",
+        "metrics": {
+          "error_rate": 0.43680273474710096,
+          "response_time_ms": 1859,
+          "cpu_usage": 0.8986063386645289,
+          "memory_usage": 0.8032201055517193
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:57.962211",
+      "event_type": "recovery",
+      "description": "Recovery: and memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:06.962211",
+      "event_type": "failure",
+      "description": "Failure: each node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 137,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: each node - operation failed",
+        "metrics": {
+          "error_rate": 0.5866691888780152,
+          "response_time_ms": 2820,
+          "cpu_usage": 0.8072754103131307,
+          "memory_usage": 0.8873153093796521
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:27.962211",
+      "event_type": "timeout",
+      "description": "Timeout: and memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 100,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: and memory - operation failed",
+        "metrics": {
+          "error_rate": 0.3726595572253266,
+          "response_time_ms": 1669,
+          "cpu_usage": 0.7770496396435711,
+          "memory_usage": 0.9362766099387446
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:36.962211",
+      "event_type": "timeout",
+      "description": "Timeout: each node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 143,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: each node - operation failed",
+        "metrics": {
+          "error_rate": 0.6919363660913798,
+          "response_time_ms": 3554,
+          "cpu_usage": 0.851387434039421,
+          "memory_usage": 0.9007145574340487
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:57:49.962211",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

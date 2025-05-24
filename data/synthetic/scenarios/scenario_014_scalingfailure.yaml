@@ -1,0 +1,92 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_173245
+description: Infrastructure failure scenario for ScalingFailure
+duration: 772
+metadata:
+  generated_at: '2025-05-23T17:32:45.657643'
+  phrase_templates_used: 24
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:32:45.657454'
+  event_type: trigger
+  description: 'Initial failure detected: of failure'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:06.657454'
+  event_type: recovery
+  description: 'Recovery: the service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:23.657454'
+  event_type: recovery
+  description: 'Recovery: per server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:55.657454'
+  event_type: timeout
+  description: 'Timeout: aws application'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 261
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: aws application - operation
+      failed'
+    metrics:
+      error_rate: 0.8546306381990291
+      response_time_ms: 4034
+      cpu_usage: 0.7342992523532184
+      memory_usage: 0.8069241679179753
+- timestamp: '2025-05-23T17:34:22.657454'
+  event_type: timeout
+  description: 'Timeout: this error'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 199
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: this error - operation
+      failed'
+    metrics:
+      error_rate: 0.8139784526117556
+      response_time_ms: 7947
+      cpu_usage: 0.8726671832493896
+      memory_usage: 0.8177865068868843
+- timestamp: '2025-05-23T17:34:22.657454'
+  event_type: timeout
+  description: 'Timeout: the node'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 212
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: the node - operation failed'
+    metrics:
+      error_rate: 0.25179448859804454
+      response_time_ms: 1125
+      cpu_usage: 0.761795904049405
+      memory_usage: 0.9408105837920684
+- timestamp: '2025-05-23T17:34:31.657454'
+  event_type: failure
+  description: 'Failure: which node'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 94
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: which node - operation
+      failed'
+    metrics:
+      error_rate: 0.7876748971994756
+      response_time_ms: 8320
+      cpu_usage: 0.9295290500746307
+      memory_usage: 0.8188408816331966
+- timestamp: '2025-05-23T17:34:33.657454'
+  event_type: recovery
+  description: 'Recovery: scaling scale'
+  injection_spec: null
+- timestamp: '2025-05-23T17:45:37.657454'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

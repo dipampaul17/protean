@@ -1,0 +1,90 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173245",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 817,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.786723",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.786606",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:23.786606",
+      "event_type": "failure",
+      "description": "Failure: uwsgi server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 34,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: uwsgi server - operation failed",
+        "metrics": {
+          "error_rate": 0.6128675273682952,
+          "response_time_ms": 4590,
+          "cpu_usage": 0.8029984214980658,
+          "memory_usage": 0.8906523233130844
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:52.786606",
+      "event_type": "timeout",
+      "description": "Timeout: the server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 219,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.7787280331800147,
+          "response_time_ms": 2470,
+          "cpu_usage": 0.9937252091467244,
+          "memory_usage": 0.9714279687174197
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:22.786606",
+      "event_type": "recovery",
+      "description": "Recovery: reduce alert",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:51.786606",
+      "event_type": "degradation",
+      "description": "Degradation: the container",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "payment-service",
+        "severity": "low",
+        "duration": 195,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.17702506129502035,
+          "response_time_ms": 500,
+          "cpu_usage": 0.3902244103041283,
+          "memory_usage": 0.6002231126020405
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:22.786606",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

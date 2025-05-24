@@ -1,0 +1,81 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173453
+description: Infrastructure failure scenario for ETLPipeline
+duration: 1359
+metadata:
+  generated_at: '2025-05-23T17:34:53.351686'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:53.351557'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:09.351557'
+  event_type: timeout
+  description: 'Timeout: disk space full'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 168
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.8584944131100357
+      response_time_ms: 1973
+      cpu_usage: 0.8473944425875788
+      memory_usage: 0.9683831165760527
+- timestamp: '2025-05-23T17:38:32.351557'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 115
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.1391137089296456
+      response_time_ms: 4938
+      cpu_usage: 0.7346042829890287
+      memory_usage: 0.9124560683589967
+- timestamp: '2025-05-23T17:38:48.351557'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 108
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.5414756915975872
+      response_time_ms: 4620
+      cpu_usage: 0.9065197074092024
+      memory_usage: 0.9086352605366058
+- timestamp: '2025-05-23T17:40:28.351557'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 121
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.31006065604808325
+      response_time_ms: 6261
+      cpu_usage: 0.9095677302494013
+      memory_usage: 0.9402514592136071
+- timestamp: '2025-05-23T17:57:32.351557'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

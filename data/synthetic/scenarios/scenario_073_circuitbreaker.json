@@ -1,0 +1,102 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_174628",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 985,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.925968",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.925844",
+      "event_type": "trigger",
+      "description": "Initial failure detected: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:43.925844",
+      "event_type": "degradation",
+      "description": "Degradation: gateway timeout",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 73,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: gateway timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.42722433187337383,
+          "response_time_ms": 1081,
+          "cpu_usage": 0.7383270561809666,
+          "memory_usage": 0.9313420114569904
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:26.925844",
+      "event_type": "timeout",
+      "description": "Timeout: code server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 124,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: code server - operation failed",
+        "metrics": {
+          "error_rate": 0.2563937266967181,
+          "response_time_ms": 2896,
+          "cpu_usage": 0.7308121879502748,
+          "memory_usage": 0.8337983303532893
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:05.925844",
+      "event_type": "timeout",
+      "description": "Timeout: the connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 161,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: the connection - operation failed",
+        "metrics": {
+          "error_rate": 0.7898910240844126,
+          "response_time_ms": 4143,
+          "cpu_usage": 0.8361070085977707,
+          "memory_usage": 0.8634929354884092
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:08.925844",
+      "event_type": "degradation",
+      "description": "Degradation: var log",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "low",
+        "duration": 203,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: var log - operation failed",
+        "metrics": {
+          "error_rate": 0.2614298695880825,
+          "response_time_ms": 1777,
+          "cpu_usage": 0.42096971513399173,
+          "memory_usage": 0.6333288316143528
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:02:53.925844",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

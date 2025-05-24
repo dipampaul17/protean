@@ -1,0 +1,59 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173452
+description: Load balancer and traffic distribution problems
+duration: 1276
+metadata:
+  generated_at: '2025-05-23T17:34:52.976706'
+  phrase_templates_used: 13
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:34:52.976596'
+  event_type: trigger
+  description: 'Initial failure detected: a pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:59.976596'
+  event_type: timeout
+  description: 'Timeout: in connection'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 60
+    log_snippet: '[2025-05-23 17:34:52] ERROR vpc-main: in connection in timeout'
+    metrics:
+      error_rate: 0.1908673840684294
+      response_time_ms: 1599
+      cpu_usage: 0.8375398447685499
+      memory_usage: 0.8598478460730297
+      requests_per_sec: 4837
+      backend_health_pct: 0.5885411015903859
+      connection_timeouts: 803
+- timestamp: '2025-05-23T17:38:00.976596'
+  event_type: scaling
+  description: 'Scaling: that node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:19.976596'
+  event_type: timeout
+  description: 'Timeout: a service'
+  injection_spec:
+    type: timeout
+    target: api-gateway
+    severity: high
+    duration: 158
+    log_snippet: '[2025-05-23 17:34:52] ERROR api-gateway: a service in timeout'
+    metrics:
+      error_rate: 0.24615055573605132
+      response_time_ms: 1910
+      cpu_usage: 0.7341470323121689
+      memory_usage: 0.9403909621189253
+      requests_per_sec: 3569
+      backend_health_pct: 0.6780272568372343
+      connection_timeouts: 768
+- timestamp: '2025-05-23T17:56:08.976596'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

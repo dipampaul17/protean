@@ -1,0 +1,138 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_174628",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 1539,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.964220",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.964014",
+      "event_type": "trigger",
+      "description": "Initial failure detected: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:09.964014",
+      "event_type": "timeout",
+      "description": "Timeout: disk space full",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 267,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.5192463689297533,
+          "response_time_ms": 9960,
+          "cpu_usage": 0.7643347212075452,
+          "memory_usage": 0.9600484350524696
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:40.964014",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 99,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.6654649784117439,
+          "response_time_ms": 2477,
+          "cpu_usage": 0.8213838070541395,
+          "memory_usage": 0.8108533606144492
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:00.964014",
+      "event_type": "failure",
+      "description": "Failure: deployment failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 156,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.3418313830204185,
+          "response_time_ms": 8902,
+          "cpu_usage": 0.8874458896843267,
+          "memory_usage": 0.9211463918120324
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:12.964014",
+      "event_type": "recovery",
+      "description": "Recovery: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:40.964014",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 205,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.8336279883390206,
+          "response_time_ms": 9599,
+          "cpu_usage": 0.7321853748045842,
+          "memory_usage": 0.9588816964073392
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:08.964014",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 140,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.6119221206108638,
+          "response_time_ms": 8019,
+          "cpu_usage": 0.9958602727715742,
+          "memory_usage": 0.8610307827136781
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:12.964014",
+      "event_type": "recovery",
+      "description": "Recovery: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:35.964014",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:12:07.964014",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

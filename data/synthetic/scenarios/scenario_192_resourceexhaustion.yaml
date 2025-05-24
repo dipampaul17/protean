@@ -1,0 +1,108 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173453
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 919
+metadata:
+  generated_at: '2025-05-23T17:34:53.138093'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:34:53.137483'
+  event_type: trigger
+  description: 'Initial failure detected: to scale'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:05.137483'
+  event_type: timeout
+  description: 'Timeout: http server'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 55
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: http server -
+      operation failed'
+    metrics:
+      error_rate: 0.8849170599433416
+      response_time_ms: 7088
+      cpu_usage: 0.9345869349196279
+      memory_usage: 0.8249778231128395
+- timestamp: '2025-05-23T17:35:23.137483'
+  event_type: timeout
+  description: 'Timeout: associative cache'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 46
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: associative cache -
+      operation failed'
+    metrics:
+      error_rate: 0.5763623383415093
+      response_time_ms: 2478
+      cpu_usage: 0.8039724846295682
+      memory_usage: 0.9093668537259321
+- timestamp: '2025-05-23T17:35:28.137483'
+  event_type: failure
+  description: 'Failure: main memory'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 70
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: main memory - operation
+      failed'
+    metrics:
+      error_rate: 0.32227147982909454
+      response_time_ms: 5916
+      cpu_usage: 0.8587926568952504
+      memory_usage: 0.9404093489987577
+- timestamp: '2025-05-23T17:36:02.137483'
+  event_type: timeout
+  description: 'Timeout: free disk'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 93
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: free disk - operation
+      failed'
+    metrics:
+      error_rate: 0.13351243137391633
+      response_time_ms: 4999
+      cpu_usage: 0.9277900173687588
+      memory_usage: 0.940217410380545
+- timestamp: '2025-05-23T17:36:05.137483'
+  event_type: recovery
+  description: 'Recovery: in memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:16.137483'
+  event_type: recovery
+  description: 'Recovery: the pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:17.137483'
+  event_type: recovery
+  description: 'Recovery: accessed memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:33.137483'
+  event_type: timeout
+  description: 'Timeout: the service'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 194
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: the service - operation
+      failed'
+    metrics:
+      error_rate: 0.7165188635464039
+      response_time_ms: 3857
+      cpu_usage: 0.8698939179160662
+      memory_usage: 0.8256025666487709
+- timestamp: '2025-05-23T17:50:12.137483'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

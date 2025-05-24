@@ -1,0 +1,69 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_174629",
+  "description": "Message queue and event processing failures",
+  "duration": 1114,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.087629",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.087518",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:58.087518",
+      "event_type": "message_loss",
+      "description": "Message_Loss: docker container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:38.087518",
+      "event_type": "message_loss",
+      "description": "Message_Loss: docker container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:57.087518",
+      "event_type": "timeout",
+      "description": "Timeout: the error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "high",
+        "duration": 269,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR batch-processing-queue: queue processing the error",
+        "metrics": {
+          "error_rate": 0.33997522413449477,
+          "response_time_ms": 5006,
+          "cpu_usage": 0.7481862204130787,
+          "memory_usage": 0.8953537014623901,
+          "queue_depth": 2333,
+          "message_processing_rate": 5.883732396744009,
+          "consumer_lag_ms": 224169
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:04.087518",
+      "event_type": "recovery",
+      "description": "Recovery: p error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:05:03.087518",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

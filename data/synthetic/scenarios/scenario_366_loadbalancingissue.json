@@ -1,0 +1,69 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173453",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 1303,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.284735",
+    "phrase_templates_used": 13,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.284630",
+      "event_type": "trigger",
+      "description": "Initial failure detected: loadbalancer service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:52.284630",
+      "event_type": "timeout",
+      "description": "Timeout: a server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 100,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR api-gateway: a server in timeout",
+        "metrics": {
+          "error_rate": 0.44576514840403936,
+          "response_time_ms": 4020,
+          "cpu_usage": 0.7328245738159512,
+          "memory_usage": 0.8454441026435207,
+          "requests_per_sec": 5875,
+          "backend_health_pct": 0.327770406997051,
+          "connection_timeouts": 848
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:25.284630",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: a pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:40.284630",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: that node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:46.284630",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: load balancer",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:56:36.284630",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

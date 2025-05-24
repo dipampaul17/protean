@@ -1,0 +1,72 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173708",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 811,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.035272",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 1,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.035105",
+      "event_type": "trigger",
+      "description": "Initial failure detected: client error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:36.035105",
+      "event_type": "degradation",
+      "description": "Degradation: value memory",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "low",
+        "duration": 274,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: value memory - operation failed",
+        "metrics": {
+          "error_rate": 0.16169939026100394,
+          "response_time_ms": 1345,
+          "cpu_usage": 0.7412298684266438,
+          "memory_usage": 0.589718167026888
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:07.035105",
+      "event_type": "timeout",
+      "description": "Timeout: docker container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 250,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: docker container - operation failed",
+        "metrics": {
+          "error_rate": 0.41478954652152966,
+          "response_time_ms": 8533,
+          "cpu_usage": 0.7174538056325475,
+          "memory_usage": 0.9355008626869116
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:10.035105",
+      "event_type": "recovery",
+      "description": "Recovery: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:39.035105",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+category: Microservices
+name: Microservices_20250523_173453
+description: Infrastructure failure scenario for Microservices
+duration: 378
+metadata:
+  generated_at: '2025-05-23T17:34:53.107220'
+  phrase_templates_used: 15
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:53.105684'
+  event_type: trigger
+  description: 'Initial failure detected: headless service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:06.105684'
+  event_type: recovery
+  description: 'Recovery: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:11.105684'
+  event_type: failure
+  description: 'Failure: from service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 114
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: from service - operation
+      failed'
+    metrics:
+      error_rate: 0.4428574813701548
+      response_time_ms: 9692
+      cpu_usage: 0.8910941377673378
+      memory_usage: 0.9317582516977355
+- timestamp: '2025-05-23T17:35:23.105684'
+  event_type: failure
+  description: 'Failure: a container'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 287
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: a container -
+      operation failed'
+    metrics:
+      error_rate: 0.8110027267211714
+      response_time_ms: 6092
+      cpu_usage: 0.8956309030104506
+      memory_usage: 0.9965518846039607
+- timestamp: '2025-05-23T17:35:35.105684'
+  event_type: recovery
+  description: 'Recovery: following error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:55.105684'
+  event_type: failure
+  description: 'Failure: a service'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 49
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.5734293291718698
+      response_time_ms: 2552
+      cpu_usage: 0.7854933628210636
+      memory_usage: 0.8184627458985387
+- timestamp: '2025-05-23T17:35:55.105684'
+  event_type: failure
+  description: 'Failure: a container'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 33
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: a container -
+      operation failed'
+    metrics:
+      error_rate: 0.2824444191066361
+      response_time_ms: 7737
+      cpu_usage: 0.8023000862709684
+      memory_usage: 0.8691811637784491
+- timestamp: '2025-05-23T17:41:11.105684'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

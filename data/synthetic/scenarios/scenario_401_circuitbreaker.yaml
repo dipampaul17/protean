@@ -1,0 +1,88 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173708
+description: Circuit breaker activation due to cascading service failures
+duration: 1114
+metadata:
+  generated_at: '2025-05-23T17:37:08.057228'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 3
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:37:08.057042'
+  event_type: trigger
+  description: 'Initial failure detected: var log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:39.057042'
+  event_type: degradation
+  description: 'Degradation: to restart'
+  injection_spec:
+    type: degradation
+    target: user-service
+    severity: low
+    duration: 242
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: to restart - operation
+      failed'
+    metrics:
+      error_rate: 0.05649952584091673
+      response_time_ms: 1845
+      cpu_usage: 0.7657657550889212
+      memory_usage: 0.6226319643878653
+- timestamp: '2025-05-23T17:38:09.057042'
+  event_type: recovery
+  description: 'Recovery: to resolve'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:27.057042'
+  event_type: timeout
+  description: 'Timeout: the error'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 126
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.6077223976650092
+      response_time_ms: 1983
+      cpu_usage: 0.9625504546203889
+      memory_usage: 0.9903800031911817
+- timestamp: '2025-05-23T17:39:16.057042'
+  event_type: degradation
+  description: 'Degradation: client error'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: low
+    duration: 179
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: client error -
+      operation failed'
+    metrics:
+      error_rate: 0.11184388396218142
+      response_time_ms: 1815
+      cpu_usage: 0.5636152699348245
+      memory_usage: 0.5298066197744982
+- timestamp: '2025-05-23T17:40:04.057042'
+  event_type: degradation
+  description: 'Degradation: to fix'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: low
+    duration: 266
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: to fix - operation failed'
+    metrics:
+      error_rate: 0.028386364612614297
+      response_time_ms: 654
+      cpu_usage: 0.5460509102619993
+      memory_usage: 0.5309521804840146
+- timestamp: '2025-05-23T17:40:10.057042'
+  event_type: recovery
+  description: 'Recovery: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:55:42.057042'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

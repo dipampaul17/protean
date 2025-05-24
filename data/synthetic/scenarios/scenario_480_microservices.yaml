@@ -1,0 +1,44 @@
+category: Microservices
+name: Microservices_20250523_173245
+description: Infrastructure failure scenario for Microservices
+duration: 1702
+metadata:
+  generated_at: '2025-05-23T17:32:45.793211'
+  phrase_templates_used: 15
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:32:45.793125'
+  event_type: trigger
+  description: 'Initial failure detected: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:22.793125'
+  event_type: recovery
+  description: 'Recovery: docker network'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:36.793125'
+  event_type: recovery
+  description: 'Recovery: lt service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:17.793125'
+  event_type: failure
+  description: 'Failure: the container'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 153
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: the container - operation
+      failed'
+    metrics:
+      error_rate: 0.4632613332490513
+      response_time_ms: 3617
+      cpu_usage: 0.9954864486704755
+      memory_usage: 0.8062968120659497
+- timestamp: '2025-05-23T18:01:07.793125'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,78 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_173453",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 1741,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.382029",
+    "phrase_templates_used": 24,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.381902",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:16.381902",
+      "event_type": "recovery",
+      "description": "Recovery: web server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:35.381902",
+      "event_type": "timeout",
+      "description": "Timeout: clusterip service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 60,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: clusterip service - operation failed",
+        "metrics": {
+          "error_rate": 0.5658556976409265,
+          "response_time_ms": 3861,
+          "cpu_usage": 0.8682607012428896,
+          "memory_usage": 0.8411584639036922
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:43.381902",
+      "event_type": "timeout",
+      "description": "Timeout: to scale",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 237,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: to scale - operation failed",
+        "metrics": {
+          "error_rate": 0.375475442331729,
+          "response_time_ms": 1173,
+          "cpu_usage": 0.8589988606202887,
+          "memory_usage": 0.946350805360879
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:46.381902",
+      "event_type": "recovery",
+      "description": "Recovery: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:03:54.381902",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

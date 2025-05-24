@@ -1,0 +1,93 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_173452
+description: Infrastructure failure scenario for ScalingFailure
+duration: 915
+metadata:
+  generated_at: '2025-05-23T17:34:52.911721'
+  phrase_templates_used: 24
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:52.911535'
+  event_type: trigger
+  description: 'Initial failure detected: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:14.911535'
+  event_type: timeout
+  description: 'Timeout: a server'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 281
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: a server - operation
+      failed'
+    metrics:
+      error_rate: 0.8490656516070451
+      response_time_ms: 2259
+      cpu_usage: 0.7844207778023129
+      memory_usage: 0.9293571219382922
+- timestamp: '2025-05-23T17:35:43.911535'
+  event_type: recovery
+  description: 'Recovery: this error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:04.911535'
+  event_type: recovery
+  description: 'Recovery: clusterip service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:09.911535'
+  event_type: recovery
+  description: 'Recovery: per server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:27.911535'
+  event_type: failure
+  description: 'Failure: a cluster'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 181
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: a cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.8360911360565356
+      response_time_ms: 9208
+      cpu_usage: 0.8810603116472124
+      memory_usage: 0.9119303054317925
+- timestamp: '2025-05-23T17:36:37.911535'
+  event_type: timeout
+  description: 'Timeout: the service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 171
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: the service -
+      operation failed'
+    metrics:
+      error_rate: 0.8605469471910697
+      response_time_ms: 6534
+      cpu_usage: 0.8141959294407184
+      memory_usage: 0.9628319096935207
+- timestamp: '2025-05-23T17:36:52.911535'
+  event_type: timeout
+  description: 'Timeout: a service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 101
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.7037884552996342
+      response_time_ms: 2644
+      cpu_usage: 0.8924840972038831
+      memory_usage: 0.9282443085261252
+- timestamp: '2025-05-23T17:50:07.911535'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

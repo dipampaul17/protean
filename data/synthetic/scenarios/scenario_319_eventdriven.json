@@ -1,0 +1,96 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173708",
+  "description": "Message queue and event processing failures",
+  "duration": 1506,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.035852",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.035704",
+      "event_type": "trigger",
+      "description": "Initial failure detected: using kafka",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:00.035704",
+      "event_type": "message_loss",
+      "description": "Message_Loss: error error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:04.035704",
+      "event_type": "timeout",
+      "description": "Timeout: the queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "medium",
+        "duration": 97,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR batch-processing-queue: queue processing the queue",
+        "metrics": {
+          "error_rate": 0.05370311241542866,
+          "response_time_ms": 872,
+          "cpu_usage": 0.7745992200714857,
+          "memory_usage": 0.6592374128733265,
+          "queue_depth": 9490,
+          "message_processing_rate": 8.93712703212391,
+          "consumer_lag_ms": 224076
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:37.035704",
+      "event_type": "message_loss",
+      "description": "Message_Loss: new queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:25.035704",
+      "event_type": "message_loss",
+      "description": "Message_Loss: current node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:27.035704",
+      "event_type": "timeout",
+      "description": "Timeout: the error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 217,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-queue: queue processing the error",
+        "metrics": {
+          "error_rate": 0.7761113730206223,
+          "response_time_ms": 4143,
+          "cpu_usage": 0.9502716741013972,
+          "memory_usage": 0.9637815527485594,
+          "queue_depth": 36705,
+          "message_processing_rate": 8.52174661105618,
+          "consumer_lag_ms": 289647
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:43.035704",
+      "event_type": "message_loss",
+      "description": "Message_Loss: in memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:02:14.035704",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

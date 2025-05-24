@@ -1,0 +1,74 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_174628
+description: Infrastructure failure scenario for ETLPipeline
+duration: 1124
+metadata:
+  generated_at: '2025-05-23T17:46:28.915890'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:28.915753'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:43.915753'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:44.915753'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 268
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.6292574603338384
+      response_time_ms: 3754
+      cpu_usage: 0.8246569020552051
+      memory_usage: 0.825528657640009
+- timestamp: '2025-05-23T17:49:37.915753'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:44.915753'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 94
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.8585374362856936
+      response_time_ms: 4449
+      cpu_usage: 0.9107745925967273
+      memory_usage: 0.991639880283512
+- timestamp: '2025-05-23T17:49:57.915753'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 252
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.6705869459996158
+      response_time_ms: 6576
+      cpu_usage: 0.7175287855665282
+      memory_usage: 0.9143813516504303
+- timestamp: '2025-05-23T18:05:12.915753'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

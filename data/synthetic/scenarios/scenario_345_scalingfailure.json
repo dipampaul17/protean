@@ -1,0 +1,90 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_173708",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 524,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.043335",
+    "phrase_templates_used": 24,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.043218",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:51.043218",
+      "event_type": "recovery",
+      "description": "Recovery: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:56.043218",
+      "event_type": "timeout",
+      "description": "Timeout: a node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 262,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: a node - operation failed",
+        "metrics": {
+          "error_rate": 0.38999666177978143,
+          "response_time_ms": 5928,
+          "cpu_usage": 0.77676350957662,
+          "memory_usage": 0.8681212172653828
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:15.043218",
+      "event_type": "failure",
+      "description": "Failure: nodeport service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 75,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: nodeport service - operation failed",
+        "metrics": {
+          "error_rate": 0.36662252145168184,
+          "response_time_ms": 6856,
+          "cpu_usage": 0.8365591647753109,
+          "memory_usage": 0.8607246413371991
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:13.043218",
+      "event_type": "failure",
+      "description": "Failure: to fix",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 300,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: to fix - operation failed",
+        "metrics": {
+          "error_rate": 0.3723762516226309,
+          "response_time_ms": 1643,
+          "cpu_usage": 0.7738827452301257,
+          "memory_usage": 0.9557845547955026
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:45:52.043218",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

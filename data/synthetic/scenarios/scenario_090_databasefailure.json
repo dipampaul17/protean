@@ -1,0 +1,63 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173452",
+  "description": "Database connectivity and performance issues",
+  "duration": 1139,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.983726",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.983629",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to fix",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:09.983629",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: in memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:36.983629",
+      "event_type": "timeout",
+      "description": "Timeout: p error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "postgres-replica",
+        "severity": "high",
+        "duration": 224,
+        "log_snippet": "[2025-05-23 17:34:52] FATAL postgres-replica: database p error detected",
+        "metrics": {
+          "error_rate": 0.8077123164938501,
+          "response_time_ms": 1745,
+          "cpu_usage": 0.8050599598301424,
+          "memory_usage": 0.8626080589208529,
+          "connection_pool_usage": 0.9035618462126623,
+          "query_time_ms": 20537,
+          "deadlocks_per_sec": 2
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:13.983629",
+      "event_type": "recovery",
+      "description": "Recovery: the database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:53:51.983629",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

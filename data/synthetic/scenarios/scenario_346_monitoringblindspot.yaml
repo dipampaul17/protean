@@ -1,0 +1,84 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173453
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 400
+metadata:
+  generated_at: '2025-05-23T17:34:53.278646'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:53.278498'
+  event_type: trigger
+  description: 'Initial failure detected: used cpu'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:03.278498'
+  event_type: failure
+  description: 'Failure: the container'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 282
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: the container
+      - operation failed'
+    metrics:
+      error_rate: 0.13173526542951297
+      response_time_ms: 5539
+      cpu_usage: 0.8005100024042091
+      memory_usage: 0.9540272172991805
+- timestamp: '2025-05-23T17:35:35.278498'
+  event_type: timeout
+  description: 'Timeout: strong update'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 213
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: strong update - operation
+      failed'
+    metrics:
+      error_rate: 0.6289705157610304
+      response_time_ms: 4221
+      cpu_usage: 0.7504346446471392
+      memory_usage: 0.8663689838442883
+- timestamp: '2025-05-23T17:35:43.278498'
+  event_type: timeout
+  description: 'Timeout: the pod'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 99
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: the pod - operation failed'
+    metrics:
+      error_rate: 0.26935144966197094
+      response_time_ms: 4629
+      cpu_usage: 0.9328246481385796
+      memory_usage: 0.8545734360952268
+- timestamp: '2025-05-23T17:35:55.278498'
+  event_type: timeout
+  description: 'Timeout: code error'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 112
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: code error - operation
+      failed'
+    metrics:
+      error_rate: 0.7190488138037987
+      response_time_ms: 5509
+      cpu_usage: 0.993623189007325
+      memory_usage: 0.96633535457065
+- timestamp: '2025-05-23T17:36:02.278498'
+  event_type: recovery
+  description: 'Recovery: scaled service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:33.278498'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

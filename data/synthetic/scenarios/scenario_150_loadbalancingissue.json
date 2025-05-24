@@ -1,0 +1,108 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_173453",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 1369,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.066602",
+    "phrase_templates_used": 13,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.066224",
+      "event_type": "trigger",
+      "description": "Initial failure detected: loadbalancer service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:24.066224",
+      "event_type": "timeout",
+      "description": "Timeout: web server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "api-gateway",
+        "severity": "high",
+        "duration": 192,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR api-gateway: web server in timeout",
+        "metrics": {
+          "error_rate": 0.5809302925817813,
+          "response_time_ms": 2519,
+          "cpu_usage": 0.7652477575227539,
+          "memory_usage": 0.9832489095559718,
+          "requests_per_sec": 7404,
+          "backend_health_pct": 0.4333437147558002,
+          "connection_timeouts": 624
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:24.066224",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: a server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:30.066224",
+      "event_type": "scaling",
+      "description": "Scaling: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:35.066224",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: a pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:26.066224",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: in connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:01.066224",
+      "event_type": "timeout",
+      "description": "Timeout: your cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "vpc-main",
+        "severity": "high",
+        "duration": 51,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR vpc-main: your cluster in timeout",
+        "metrics": {
+          "error_rate": 0.6562778943007201,
+          "response_time_ms": 4567,
+          "cpu_usage": 0.9691859730105097,
+          "memory_usage": 0.8499161319719118,
+          "requests_per_sec": 7983,
+          "backend_health_pct": 0.42958221890618115,
+          "connection_timeouts": 260
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:07.066224",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:37.066224",
+      "event_type": "scaling",
+      "description": "Scaling: your cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:57:42.066224",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

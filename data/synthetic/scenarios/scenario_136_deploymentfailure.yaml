@@ -1,0 +1,45 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173707
+description: Application deployment and rollback scenarios
+duration: 700
+metadata:
+  generated_at: '2025-05-23T17:37:07.979093'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:37:07.978969'
+  event_type: trigger
+  description: 'Initial failure detected: using docker'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:26.978969'
+  event_type: deployment
+  description: 'Deployment: following error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:29.978969'
+  event_type: deployment
+  description: 'Deployment: code container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:34.978969'
+  event_type: scaling
+  description: 'Scaling: the pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:45.978969'
+  event_type: deployment
+  description: 'Deployment: kubernetes error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:37.978969'
+  event_type: scaling
+  description: 'Scaling: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:47.978969'
+  event_type: scaling
+  description: 'Scaling: docker service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:47.978969'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

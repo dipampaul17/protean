@@ -1,0 +1,88 @@
+category: NetworkPartition
+name: NetworkPartition_20250523_174628
+description: Infrastructure failure scenario for NetworkPartition
+duration: 424
+metadata:
+  generated_at: '2025-05-23T17:46:28.994394'
+  phrase_templates_used: 4
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:46:28.994229'
+  event_type: trigger
+  description: 'Initial failure detected: and memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:40.994229'
+  event_type: recovery
+  description: 'Recovery: each node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:46.994229'
+  event_type: failure
+  description: 'Failure: and node'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 92
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: and node - operation
+      failed'
+    metrics:
+      error_rate: 0.8658793601745015
+      response_time_ms: 2122
+      cpu_usage: 0.8269024197153715
+      memory_usage: 0.852649622709297
+- timestamp: '2025-05-23T17:46:47.994229'
+  event_type: failure
+  description: 'Failure: of disk'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 193
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: of disk - operation failed'
+    metrics:
+      error_rate: 0.23438723833115027
+      response_time_ms: 8163
+      cpu_usage: 0.8511497663176276
+      memory_usage: 0.8441148886596523
+- timestamp: '2025-05-23T17:47:05.994229'
+  event_type: failure
+  description: 'Failure: and memory'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 271
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: and memory - operation
+      failed'
+    metrics:
+      error_rate: 0.6855464230311502
+      response_time_ms: 2333
+      cpu_usage: 0.9597175929006556
+      memory_usage: 0.9632873718556543
+- timestamp: '2025-05-23T17:47:28.994229'
+  event_type: failure
+  description: 'Failure: of disk'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 239
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: of disk - operation
+      failed'
+    metrics:
+      error_rate: 0.4016310974495404
+      response_time_ms: 3630
+      cpu_usage: 0.9423095167928957
+      memory_usage: 0.9577361770376546
+- timestamp: '2025-05-23T17:47:31.994229'
+  event_type: recovery
+  description: 'Recovery: each node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:53:32.994229'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,55 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173708
+description: Database connectivity and performance issues
+duration: 400
+metadata:
+  generated_at: '2025-05-23T17:37:08.067729'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:37:08.067144'
+  event_type: trigger
+  description: 'Initial failure detected: redis server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:18.067144'
+  event_type: timeout
+  description: 'Timeout: clustered index'
+  injection_spec:
+    type: timeout
+    target: mysql-primary
+    severity: high
+    duration: 83
+    log_snippet: '[2025-05-23 17:37:08] FATAL mysql-primary: database clustered index
+      detected'
+    metrics:
+      error_rate: 0.5793495683978722
+      response_time_ms: 5001
+      cpu_usage: 0.7471116820372868
+      memory_usage: 0.9158134496219291
+      connection_pool_usage: 0.8172925627339601
+      query_time_ms: 13013
+      deadlocks_per_sec: 4
+- timestamp: '2025-05-23T17:37:18.067144'
+  event_type: corruption
+  description: 'Corruption: p error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:51.067144'
+  event_type: connection_loss
+  description: 'Connection_Loss: mongodb database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:06.067144'
+  event_type: corruption
+  description: 'Corruption: my database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:26.067144'
+  event_type: recovery
+  description: 'Recovery: code server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:43:48.067144'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

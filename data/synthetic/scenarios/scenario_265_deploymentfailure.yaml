@@ -1,0 +1,61 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173708
+description: Application deployment and rollback scenarios
+duration: 653
+metadata:
+  generated_at: '2025-05-23T17:37:08.023299'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:08.023155'
+  event_type: trigger
+  description: 'Initial failure detected: a deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:41.023155'
+  event_type: deployment
+  description: 'Deployment: using cache'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:55.023155'
+  event_type: failure
+  description: 'Failure: strong update'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 104
+    log_snippet: '[2025-05-23 17:37:08] ERROR nginx-proxy: strong update in failure'
+    metrics:
+      error_rate: 0.3650247082925936
+      response_time_ms: 1936
+      cpu_usage: 0.865675065414877
+      memory_usage: 0.9267751717123244
+- timestamp: '2025-05-23T17:38:50.023155'
+  event_type: failure
+  description: 'Failure: kind service'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 118
+    log_snippet: '[2025-05-23 17:37:08] ERROR nginx-proxy: kind service in failure'
+    metrics:
+      error_rate: 0.6791368038967758
+      response_time_ms: 5213
+      cpu_usage: 0.9480618206371647
+      memory_usage: 0.908960268281712
+- timestamp: '2025-05-23T17:39:03.023155'
+  event_type: scaling
+  description: 'Scaling: kubernetes pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:11.023155'
+  event_type: scaling
+  description: 'Scaling: the cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:01.023155'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

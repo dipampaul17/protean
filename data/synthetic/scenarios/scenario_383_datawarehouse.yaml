@@ -1,0 +1,96 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173453
+description: Infrastructure failure scenario for DataWarehouse
+duration: 1453
+metadata:
+  generated_at: '2025-05-23T17:34:53.289084'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:34:53.288927'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:10.288927'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 154
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.3531628299188191
+      response_time_ms: 5680
+      cpu_usage: 0.7443892699444448
+      memory_usage: 0.8431399338691865
+- timestamp: '2025-05-23T17:37:11.288927'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 235
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.8558035986259327
+      response_time_ms: 3775
+      cpu_usage: 0.8039579974501616
+      memory_usage: 0.809380891742875
+- timestamp: '2025-05-23T17:37:44.288927'
+  event_type: failure
+  description: 'Failure: queue overflow'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 135
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: queue overflow
+      - operation failed'
+    metrics:
+      error_rate: 0.5400475806576175
+      response_time_ms: 6562
+      cpu_usage: 0.7627931133685701
+      memory_usage: 0.8091537222616149
+- timestamp: '2025-05-23T17:38:28.288927'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 270
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.8325768917556782
+      response_time_ms: 8184
+      cpu_usage: 0.8244287159525472
+      memory_usage: 0.9160464043888427
+- timestamp: '2025-05-23T17:39:07.288927'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 204
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: rate limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.1541930161614829
+      response_time_ms: 2821
+      cpu_usage: 0.8610976889383251
+      memory_usage: 0.8194910513209531
+- timestamp: '2025-05-23T17:59:06.288927'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

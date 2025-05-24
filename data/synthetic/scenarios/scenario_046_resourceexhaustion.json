@@ -1,0 +1,126 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_173452",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 484,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.914374",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.914069",
+      "event_type": "trigger",
+      "description": "Initial failure detected: lt container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:04.914069",
+      "event_type": "timeout",
+      "description": "Timeout: main memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 265,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: main memory - operation failed",
+        "metrics": {
+          "error_rate": 0.6884547524035589,
+          "response_time_ms": 2227,
+          "cpu_usage": 0.7545305290626567,
+          "memory_usage": 0.8885786302256176
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:35.914069",
+      "event_type": "failure",
+      "description": "Failure: to monitor",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 289,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: to monitor - operation failed",
+        "metrics": {
+          "error_rate": 0.7531459701296455,
+          "response_time_ms": 8937,
+          "cpu_usage": 0.8109651968112315,
+          "memory_usage": 0.9269353560341618
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:40.914069",
+      "event_type": "timeout",
+      "description": "Timeout: the container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 192,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR auth-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.3429993190450267,
+          "response_time_ms": 5194,
+          "cpu_usage": 0.9919527557684286,
+          "memory_usage": 0.8716232384351208
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:08.914069",
+      "event_type": "recovery",
+      "description": "Recovery: served memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:09.914069",
+      "event_type": "timeout",
+      "description": "Timeout: of memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 46,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR user-service: of memory - operation failed",
+        "metrics": {
+          "error_rate": 0.5970946990314812,
+          "response_time_ms": 4627,
+          "cpu_usage": 0.7631915620151619,
+          "memory_usage": 0.8260106558149903
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:11.914069",
+      "event_type": "failure",
+      "description": "Failure: to memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 255,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: to memory - operation failed",
+        "metrics": {
+          "error_rate": 0.39157792168488503,
+          "response_time_ms": 2716,
+          "cpu_usage": 0.9213527995499525,
+          "memory_usage": 0.929877160699941
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:42:56.914069",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173245
+description: Application deployment and rollback scenarios
+duration: 694
+metadata:
+  generated_at: '2025-05-23T17:32:45.734406'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:32:45.733828'
+  event_type: trigger
+  description: 'Initial failure detected: container pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:11.733828'
+  event_type: failure
+  description: 'Failure: the server'
+  injection_spec:
+    type: failure
+    target: api-backend
+    severity: high
+    duration: 284
+    log_snippet: '[2025-05-23 17:32:45] ERROR api-backend: the server in failure'
+    metrics:
+      error_rate: 0.7357159610245633
+      response_time_ms: 6678
+      cpu_usage: 0.7299317747588147
+      memory_usage: 0.9584009904333874
+- timestamp: '2025-05-23T17:34:35.733828'
+  event_type: failure
+  description: 'Failure: kubernetes error'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 78
+    log_snippet: '[2025-05-23 17:32:45] ERROR nginx-proxy: kubernetes error in failure'
+    metrics:
+      error_rate: 0.41704685074225534
+      response_time_ms: 1979
+      cpu_usage: 0.9528363903710018
+      memory_usage: 0.8480431143279848
+- timestamp: '2025-05-23T17:35:08.733828'
+  event_type: failure
+  description: 'Failure: an error'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 179
+    log_snippet: '[2025-05-23 17:32:45] ERROR nginx-proxy: an error in failure'
+    metrics:
+      error_rate: 0.8242141682951998
+      response_time_ms: 5763
+      cpu_usage: 0.7757159240109246
+      memory_usage: 0.9347735077824202
+- timestamp: '2025-05-23T17:35:38.733828'
+  event_type: failure
+  description: 'Failure: my deployment'
+  injection_spec:
+    type: failure
+    target: nginx-proxy
+    severity: high
+    duration: 138
+    log_snippet: '[2025-05-23 17:32:45] ERROR nginx-proxy: my deployment in failure'
+    metrics:
+      error_rate: 0.8317317166019819
+      response_time_ms: 8416
+      cpu_usage: 0.9367548833205916
+      memory_usage: 0.9654289824326577
+- timestamp: '2025-05-23T17:44:19.733828'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

@@ -1,0 +1,126 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_174628",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 932,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.985431",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.985256",
+      "event_type": "trigger",
+      "description": "Initial failure detected: code container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:42.985256",
+      "event_type": "recovery",
+      "description": "Recovery: kubernetes cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:03.985256",
+      "event_type": "failure",
+      "description": "Failure: monitoring service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 292,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: monitoring service - operation failed",
+        "metrics": {
+          "error_rate": 0.8295618395980392,
+          "response_time_ms": 9812,
+          "cpu_usage": 0.8006433001951071,
+          "memory_usage": 0.8397230112529317
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:16.985256",
+      "event_type": "failure",
+      "description": "Failure: the server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 271,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.23042733150684536,
+          "response_time_ms": 1399,
+          "cpu_usage": 0.8045220768781548,
+          "memory_usage": 0.8936398949731282
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:41.985256",
+      "event_type": "failure",
+      "description": "Failure: prometheus server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 145,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: prometheus server - operation failed",
+        "metrics": {
+          "error_rate": 0.31008386898591644,
+          "response_time_ms": 1782,
+          "cpu_usage": 0.9760199654612887,
+          "memory_usage": 0.8542996148950851
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:45.985256",
+      "event_type": "failure",
+      "description": "Failure: the alert",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 128,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: the alert - operation failed",
+        "metrics": {
+          "error_rate": 0.801903466287473,
+          "response_time_ms": 1403,
+          "cpu_usage": 0.7144254213060641,
+          "memory_usage": 0.8393957454991322
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:00.985256",
+      "event_type": "timeout",
+      "description": "Timeout: quot pod",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 43,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: quot pod - operation failed",
+        "metrics": {
+          "error_rate": 0.7014961183759768,
+          "response_time_ms": 8085,
+          "cpu_usage": 0.7508096920141908,
+          "memory_usage": 0.8743376574533703
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:02:00.985256",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

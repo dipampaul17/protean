@@ -1,0 +1,82 @@
+category: Microservices
+name: Microservices_20250523_173245
+description: Infrastructure failure scenario for Microservices
+duration: 554
+metadata:
+  generated_at: '2025-05-23T17:32:45.663381'
+  phrase_templates_used: 15
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.663209'
+  event_type: trigger
+  description: 'Initial failure detected: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:57.663209'
+  event_type: recovery
+  description: 'Recovery: ui service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:58.663209'
+  event_type: recovery
+  description: 'Recovery: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:17.663209'
+  event_type: failure
+  description: 'Failure: the queue'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: medium
+    duration: 219
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: the queue - operation
+      failed'
+    metrics:
+      error_rate: 0.15709062331938528
+      response_time_ms: 922
+      cpu_usage: 0.34405493604090315
+      memory_usage: 0.6920585236410016
+- timestamp: '2025-05-23T17:33:39.663209'
+  event_type: recovery
+  description: 'Recovery: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:43.663209'
+  event_type: failure
+  description: 'Failure: a service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 46
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.6108261573842648
+      response_time_ms: 3431
+      cpu_usage: 0.9852431215958868
+      memory_usage: 0.9363498893752377
+- timestamp: '2025-05-23T17:33:43.663209'
+  event_type: recovery
+  description: 'Recovery: ui service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:49.663209'
+  event_type: timeout
+  description: 'Timeout: a container'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 53
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: a container - operation
+      failed'
+    metrics:
+      error_rate: 0.37188820844356363
+      response_time_ms: 3136
+      cpu_usage: 0.9604323943219226
+      memory_usage: 0.9483328905807107
+- timestamp: '2025-05-23T17:41:59.663209'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

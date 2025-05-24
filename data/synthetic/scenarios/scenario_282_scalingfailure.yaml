@@ -1,0 +1,100 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_173708
+description: Infrastructure failure scenario for ScalingFailure
+duration: 1475
+metadata:
+  generated_at: '2025-05-23T17:37:08.027058'
+  phrase_templates_used: 24
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:37:08.026246'
+  event_type: trigger
+  description: 'Initial failure detected: the node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:28.026246'
+  event_type: failure
+  description: 'Failure: https connection'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 288
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: https connection -
+      operation failed'
+    metrics:
+      error_rate: 0.2778238731053959
+      response_time_ms: 3028
+      cpu_usage: 0.8550821522992377
+      memory_usage: 0.8598486054816629
+- timestamp: '2025-05-23T17:38:59.026246'
+  event_type: recovery
+  description: 'Recovery: the node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:24.026246'
+  event_type: timeout
+  description: 'Timeout: aws application'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 166
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: aws application - operation
+      failed'
+    metrics:
+      error_rate: 0.8770356532199198
+      response_time_ms: 6532
+      cpu_usage: 0.8524806227373083
+      memory_usage: 0.9222543892736589
+- timestamp: '2025-05-23T17:39:42.026246'
+  event_type: failure
+  description: 'Failure: https connection'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 222
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: https connection
+      - operation failed'
+    metrics:
+      error_rate: 0.881901088229169
+      response_time_ms: 1428
+      cpu_usage: 0.7490655137474359
+      memory_usage: 0.9165608840433568
+- timestamp: '2025-05-23T17:41:01.026246'
+  event_type: failure
+  description: 'Failure: of failure'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 62
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: of failure - operation
+      failed'
+    metrics:
+      error_rate: 0.6558354294407844
+      response_time_ms: 4753
+      cpu_usage: 0.7538285579830609
+      memory_usage: 0.9181788824337115
+- timestamp: '2025-05-23T17:41:06.026246'
+  event_type: failure
+  description: 'Failure: aws application'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 197
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: aws application - operation
+      failed'
+    metrics:
+      error_rate: 0.16761801806759502
+      response_time_ms: 7589
+      cpu_usage: 0.8828365793371425
+      memory_usage: 0.8511271906938398
+- timestamp: '2025-05-23T18:01:43.026246'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

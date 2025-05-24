@@ -1,0 +1,115 @@
+category: Microservices
+name: Microservices_20250523_173707
+description: Infrastructure failure scenario for Microservices
+duration: 712
+metadata:
+  generated_at: '2025-05-23T17:37:07.946876'
+  phrase_templates_used: 15
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 6
+events:
+- timestamp: '2025-05-23T17:37:07.946660'
+  event_type: trigger
+  description: 'Initial failure detected: lt service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:46.946660'
+  event_type: failure
+  description: 'Failure: a service'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 271
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.7840922958420647
+      response_time_ms: 6323
+      cpu_usage: 0.7947814811515265
+      memory_usage: 0.8826547362402763
+- timestamp: '2025-05-23T17:38:06.946660'
+  event_type: failure
+  description: 'Failure: from service'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 156
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: from service - operation
+      failed'
+    metrics:
+      error_rate: 0.21752147900089736
+      response_time_ms: 2413
+      cpu_usage: 0.8783829952509817
+      memory_usage: 0.8387237452080368
+- timestamp: '2025-05-23T17:38:10.946660'
+  event_type: failure
+  description: 'Failure: a container'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 271
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: a container - operation
+      failed'
+    metrics:
+      error_rate: 0.3318474298116197
+      response_time_ms: 6141
+      cpu_usage: 0.7316200347793539
+      memory_usage: 0.9414524730070267
+- timestamp: '2025-05-23T17:38:13.946660'
+  event_type: failure
+  description: 'Failure: following error'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 262
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: following error - operation
+      failed'
+    metrics:
+      error_rate: 0.41908500874063437
+      response_time_ms: 8855
+      cpu_usage: 0.8479056626692648
+      memory_usage: 0.9673580940422211
+- timestamp: '2025-05-23T17:38:34.946660'
+  event_type: recovery
+  description: 'Recovery: strong service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:39.946660'
+  event_type: timeout
+  description: 'Timeout: to service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 248
+    log_snippet: '[2025-05-23 17:37:07] ERROR notification-service: to service - operation
+      failed'
+    metrics:
+      error_rate: 0.7909870772570571
+      response_time_ms: 4243
+      cpu_usage: 0.8149014870931988
+      memory_usage: 0.8295233926008907
+- timestamp: '2025-05-23T17:38:41.946660'
+  event_type: failure
+  description: 'Failure: a container'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 292
+    log_snippet: '[2025-05-23 17:37:07] ERROR user-service: a container - operation
+      failed'
+    metrics:
+      error_rate: 0.10716403664089996
+      response_time_ms: 3451
+      cpu_usage: 0.9257920559917262
+      memory_usage: 0.8023055903402523
+- timestamp: '2025-05-23T17:48:59.946660'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

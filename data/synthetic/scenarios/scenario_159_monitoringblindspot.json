@@ -1,0 +1,132 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173707",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 910,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.986818",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.986171",
+      "event_type": "trigger",
+      "description": "Initial failure detected: quot pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:18.986171",
+      "event_type": "recovery",
+      "description": "Recovery: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:52.986171",
+      "event_type": "failure",
+      "description": "Failure: customer service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 39,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: customer service - operation failed",
+        "metrics": {
+          "error_rate": 0.2791526081475209,
+          "response_time_ms": 9486,
+          "cpu_usage": 0.8649747722792944,
+          "memory_usage": 0.8818994870696308
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:53.986171",
+      "event_type": "failure",
+      "description": "Failure: the service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 169,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: the service - operation failed",
+        "metrics": {
+          "error_rate": 0.37571065250181446,
+          "response_time_ms": 5557,
+          "cpu_usage": 0.9039820658685451,
+          "memory_usage": 0.862219155536029
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:07.986171",
+      "event_type": "timeout",
+      "description": "Timeout: the service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 240,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: the service - operation failed",
+        "metrics": {
+          "error_rate": 0.34631647760067735,
+          "response_time_ms": 3084,
+          "cpu_usage": 0.724485866821579,
+          "memory_usage": 0.9952809420185933
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:18.986171",
+      "event_type": "failure",
+      "description": "Failure: i monitor",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 276,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: i monitor - operation failed",
+        "metrics": {
+          "error_rate": 0.6373267701788053,
+          "response_time_ms": 6003,
+          "cpu_usage": 0.9626123486136884,
+          "memory_usage": 0.8843485939175327
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:34.986171",
+      "event_type": "failure",
+      "description": "Failure: docker container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 124,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: docker container - operation failed",
+        "metrics": {
+          "error_rate": 0.5548510259324194,
+          "response_time_ms": 8004,
+          "cpu_usage": 0.8100071289830222,
+          "memory_usage": 0.8988759747968647
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:05.986171",
+      "event_type": "recovery",
+      "description": "Recovery: quot server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:52:17.986171",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

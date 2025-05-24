@@ -1,0 +1,81 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173245",
+  "description": "Message queue and event processing failures",
+  "duration": 496,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.767140",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 0
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.766998",
+      "event_type": "trigger",
+      "description": "Initial failure detected: warn error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:03.766998",
+      "event_type": "recovery",
+      "description": "Recovery: the connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:08.766998",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: error error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:15.766998",
+      "event_type": "recovery",
+      "description": "Recovery: following error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:20.766998",
+      "event_type": "timeout",
+      "description": "Timeout: new queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "batch-processing-queue",
+        "severity": "medium",
+        "duration": 292,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR batch-processing-queue: queue processing new queue",
+        "metrics": {
+          "error_rate": 0.2695954333233742,
+          "response_time_ms": 1985,
+          "cpu_usage": 0.5733233322454656,
+          "memory_usage": 0.5802457806341208,
+          "queue_depth": 31778,
+          "message_processing_rate": 1.6650410392748083,
+          "consumer_lag_ms": 115416
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:28.766998",
+      "event_type": "message_loss",
+      "description": "Message_Loss: main queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:03.766998",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: a queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:41:01.766998",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

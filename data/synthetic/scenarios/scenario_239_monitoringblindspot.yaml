@@ -1,0 +1,70 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173453
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 834
+metadata:
+  generated_at: '2025-05-23T17:34:53.161185'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.161005'
+  event_type: trigger
+  description: 'Initial failure detected: the database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:11.161005'
+  event_type: timeout
+  description: 'Timeout: payment service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 133
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: payment service
+      - operation failed'
+    metrics:
+      error_rate: 0.8143676504362202
+      response_time_ms: 5180
+      cpu_usage: 0.9550896725714166
+      memory_usage: 0.8427199353433527
+- timestamp: '2025-05-23T17:36:53.161005'
+  event_type: recovery
+  description: 'Recovery: to fix'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:38.161005'
+  event_type: failure
+  description: 'Failure: payment service'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 199
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: payment service - operation
+      failed'
+    metrics:
+      error_rate: 0.8097772665328752
+      response_time_ms: 2618
+      cpu_usage: 0.9404742007418838
+      memory_usage: 0.9511387661846776
+- timestamp: '2025-05-23T17:37:50.161005'
+  event_type: failure
+  description: 'Failure: parse error'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 31
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: parse error - operation
+      failed'
+    metrics:
+      error_rate: 0.2689673437143676
+      response_time_ms: 8743
+      cpu_usage: 0.8793904102586495
+      memory_usage: 0.942895387850655
+- timestamp: '2025-05-23T17:48:47.161005'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

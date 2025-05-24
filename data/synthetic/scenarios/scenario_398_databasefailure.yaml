@@ -1,0 +1,76 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173708
+description: Database connectivity and performance issues
+duration: 1370
+metadata:
+  generated_at: '2025-05-23T17:37:08.056225'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:08.056048'
+  event_type: trigger
+  description: 'Initial failure detected: mysql server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:20.056048'
+  event_type: connection_loss
+  description: 'Connection_Loss: mysql database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:21.056048'
+  event_type: recovery
+  description: 'Recovery: postgres server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:41.056048'
+  event_type: timeout
+  description: 'Timeout: var log'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 250
+    log_snippet: '[2025-05-23 17:37:08] ERROR mongodb-shard: var log in timeout'
+    metrics:
+      error_rate: 0.7138931336362961
+      response_time_ms: 1982
+      cpu_usage: 0.779465561633719
+      memory_usage: 0.9661197026999663
+      connection_pool_usage: 0.9803949669935206
+      query_time_ms: 7558
+      deadlocks_per_sec: 3
+- timestamp: '2025-05-23T17:39:25.056048'
+  event_type: recovery
+  description: 'Recovery: create database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:26.056048'
+  event_type: corruption
+  description: 'Corruption: mysql database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:33.056048'
+  event_type: recovery
+  description: 'Recovery: the service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:46.056048'
+  event_type: timeout
+  description: 'Timeout: postgresql database'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 292
+    log_snippet: '[2025-05-23 17:37:08] FATAL postgres-replica: database postgresql
+      database detected'
+    metrics:
+      error_rate: 0.20121000182964785
+      response_time_ms: 6391
+      cpu_usage: 0.7042481160967803
+      memory_usage: 0.9759485180211971
+      connection_pool_usage: 0.8592337242063772
+      query_time_ms: 24955
+      deadlocks_per_sec: 6
+- timestamp: '2025-05-23T17:59:58.056048'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

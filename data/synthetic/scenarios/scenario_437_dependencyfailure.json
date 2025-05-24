@@ -1,0 +1,162 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173453",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 574,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.347337",
+    "phrase_templates_used": 45,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 7
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.346780",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:04.346780",
+      "event_type": "timeout",
+      "description": "Timeout: work log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 246,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: work log - operation failed",
+        "metrics": {
+          "error_rate": 0.1965644623656938,
+          "response_time_ms": 8003,
+          "cpu_usage": 0.9240520645117323,
+          "memory_usage": 0.813786367309493
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:06.346780",
+      "event_type": "recovery",
+      "description": "Recovery: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:15.346780",
+      "event_type": "failure",
+      "description": "Failure: coirq error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 66,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: coirq error - operation failed",
+        "metrics": {
+          "error_rate": 0.6754347111767476,
+          "response_time_ms": 8750,
+          "cpu_usage": 0.8008843225267519,
+          "memory_usage": 0.9631456049823589
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:20.346780",
+      "event_type": "failure",
+      "description": "Failure: nginx service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 156,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: nginx service - operation failed",
+        "metrics": {
+          "error_rate": 0.6950659596875044,
+          "response_time_ms": 9657,
+          "cpu_usage": 0.7810277485027238,
+          "memory_usage": 0.8611012119346729
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:22.346780",
+      "event_type": "timeout",
+      "description": "Timeout: this error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 156,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: this error - operation failed",
+        "metrics": {
+          "error_rate": 0.8012093003267566,
+          "response_time_ms": 7314,
+          "cpu_usage": 0.9624818731158177,
+          "memory_usage": 0.9386494007775082
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:47.346780",
+      "event_type": "timeout",
+      "description": "Timeout: upstream server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 292,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: upstream server - operation failed",
+        "metrics": {
+          "error_rate": 0.4143242073461878,
+          "response_time_ms": 9998,
+          "cpu_usage": 0.7938715860940858,
+          "memory_usage": 0.8868113120484935
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:48.346780",
+      "event_type": "timeout",
+      "description": "Timeout: the node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 32,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: the node - operation failed",
+        "metrics": {
+          "error_rate": 0.7560973509876502,
+          "response_time_ms": 1426,
+          "cpu_usage": 0.9210220531973379,
+          "memory_usage": 0.9240193575993451
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:53.346780",
+      "event_type": "timeout",
+      "description": "Timeout: the error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 284,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: the error - operation failed",
+        "metrics": {
+          "error_rate": 0.5845349854814887,
+          "response_time_ms": 4351,
+          "cpu_usage": 0.8693819659902537,
+          "memory_usage": 0.9568730288137358
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:44:27.346780",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

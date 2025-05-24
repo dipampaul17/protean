@@ -1,0 +1,48 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173708
+description: Infrastructure failure scenario for DataWarehouse
+duration: 561
+metadata:
+  generated_at: '2025-05-23T17:37:08.024872'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:37:08.024757'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:26.024757'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:06.024757'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 232
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.8608831854805724
+      response_time_ms: 5446
+      cpu_usage: 0.7852099738394572
+      memory_usage: 0.8713836737780052
+- timestamp: '2025-05-23T17:38:38.024757'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:23.024757'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:29.024757'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

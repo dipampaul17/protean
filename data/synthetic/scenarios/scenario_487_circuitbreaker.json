@@ -1,0 +1,78 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173708",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 984,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.081985",
+    "phrase_templates_used": 50,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.081875",
+      "event_type": "trigger",
+      "description": "Initial failure detected: info node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:19.081875",
+      "event_type": "timeout",
+      "description": "Timeout: us log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 144,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: us log - operation failed",
+        "metrics": {
+          "error_rate": 0.8340380229321952,
+          "response_time_ms": 2049,
+          "cpu_usage": 0.9484302321367916,
+          "memory_usage": 0.8657079932948346
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:52.081875",
+      "event_type": "recovery",
+      "description": "Recovery: nginx server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:15.081875",
+      "event_type": "failure",
+      "description": "Failure: labels service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 112,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: labels service - operation failed",
+        "metrics": {
+          "error_rate": 0.16352149606216004,
+          "response_time_ms": 9023,
+          "cpu_usage": 0.7076124322967615,
+          "memory_usage": 0.8684533976529603
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:12.081875",
+      "event_type": "recovery",
+      "description": "Recovery: code error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:53:32.081875",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

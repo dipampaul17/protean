@@ -1,0 +1,120 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173453",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1158,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.340360",
+    "phrase_templates_used": 50,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.340121",
+      "event_type": "trigger",
+      "description": "Initial failure detected: nginx error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:12.340121",
+      "event_type": "failure",
+      "description": "Failure: rabbitmq connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 40,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: rabbitmq connection - operation failed",
+        "metrics": {
+          "error_rate": 0.6012666984820835,
+          "response_time_ms": 1042,
+          "cpu_usage": 0.9080669669629287,
+          "memory_usage": 0.8803923546349477
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:32.340121",
+      "event_type": "failure",
+      "description": "Failure: rabbitmq connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 71,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: rabbitmq connection - operation failed",
+        "metrics": {
+          "error_rate": 0.8065336348453436,
+          "response_time_ms": 9906,
+          "cpu_usage": 0.9470291694897844,
+          "memory_usage": 0.8820060520754971
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:54.340121",
+      "event_type": "config_change",
+      "description": "Config_Change: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:59.340121",
+      "event_type": "restart",
+      "description": "Restart: proxy server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:04.340121",
+      "event_type": "failure",
+      "description": "Failure: elasticsearch cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 123,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: elasticsearch cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.5885409499895465,
+          "response_time_ms": 9564,
+          "cpu_usage": 0.7926766320597689,
+          "memory_usage": 0.8782730971716656
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:08.340121",
+      "event_type": "restart",
+      "description": "Restart: jenkins server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:19.340121",
+      "event_type": "failure",
+      "description": "Failure: an error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 64,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: an error - operation failed",
+        "metrics": {
+          "error_rate": 0.32434125085475235,
+          "response_time_ms": 6106,
+          "cpu_usage": 0.7299705764134738,
+          "memory_usage": 0.8229313286801999
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:54:11.340121",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

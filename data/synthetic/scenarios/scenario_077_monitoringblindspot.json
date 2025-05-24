@@ -1,0 +1,108 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_174628",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1388,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.926613",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.926468",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:07.926468",
+      "event_type": "recovery",
+      "description": "Recovery: monitoring memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:52.926468",
+      "event_type": "timeout",
+      "description": "Timeout: service unavailable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 87,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.7033944139602815,
+          "response_time_ms": 5966,
+          "cpu_usage": 0.8596247513747125,
+          "memory_usage": 0.9700454021910496
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:21.926468",
+      "event_type": "failure",
+      "description": "Failure: or cpu",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 265,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: or cpu - operation failed",
+        "metrics": {
+          "error_rate": 0.7597809064837311,
+          "response_time_ms": 9319,
+          "cpu_usage": 0.7352671791362763,
+          "memory_usage": 0.8350616365414749
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:16.926468",
+      "event_type": "failure",
+      "description": "Failure: quot pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 245,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: quot pod - operation failed",
+        "metrics": {
+          "error_rate": 0.39547309002017983,
+          "response_time_ms": 2423,
+          "cpu_usage": 0.7456547142006555,
+          "memory_usage": 0.9664297060469585
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:40.926468",
+      "event_type": "failure",
+      "description": "Failure: the alert",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 225,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: the alert - operation failed",
+        "metrics": {
+          "error_rate": 0.2803334942728195,
+          "response_time_ms": 6253,
+          "cpu_usage": 0.9821603079742109,
+          "memory_usage": 0.8017078505892775
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:09:36.926468",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

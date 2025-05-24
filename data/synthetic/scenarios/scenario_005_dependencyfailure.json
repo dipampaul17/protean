@@ -1,0 +1,90 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_174628",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 782,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.906452",
+    "phrase_templates_used": 45,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.906299",
+      "event_type": "trigger",
+      "description": "Initial failure detected: existing connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:19.906299",
+      "event_type": "timeout",
+      "description": "Timeout: api server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 106,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: api server - operation failed",
+        "metrics": {
+          "error_rate": 0.510768596459037,
+          "response_time_ms": 2308,
+          "cpu_usage": 0.9028068652938652,
+          "memory_usage": 0.8461527830622955
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:19.906299",
+      "event_type": "recovery",
+      "description": "Recovery: web server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:37.906299",
+      "event_type": "recovery",
+      "description": "Recovery: to network",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:50.906299",
+      "event_type": "failure",
+      "description": "Failure: api server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 185,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: api server - operation failed",
+        "metrics": {
+          "error_rate": 0.10529544485623488,
+          "response_time_ms": 2969,
+          "cpu_usage": 0.7229723740699334,
+          "memory_usage": 0.9269939480700318
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:55.906299",
+      "event_type": "recovery",
+      "description": "Recovery: illuminate container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:59.906299",
+      "event_type": "recovery",
+      "description": "Recovery: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:59:30.906299",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

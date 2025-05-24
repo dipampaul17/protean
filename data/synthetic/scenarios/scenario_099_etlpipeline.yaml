@@ -1,0 +1,85 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173707
+description: Infrastructure failure scenario for ETLPipeline
+duration: 1754
+metadata:
+  generated_at: '2025-05-23T17:37:07.955107'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:37:07.954944'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:17.954944'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 269
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: rate limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.8718664837205143
+      response_time_ms: 1062
+      cpu_usage: 0.8279314839549269
+      memory_usage: 0.9998571876366092
+- timestamp: '2025-05-23T17:37:30.954944'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 197
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.41721175517210396
+      response_time_ms: 5613
+      cpu_usage: 0.9754936783579105
+      memory_usage: 0.8971274691272557
+- timestamp: '2025-05-23T17:37:42.954944'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:39.954944'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 296
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.7265746861112057
+      response_time_ms: 6498
+      cpu_usage: 0.791096762498691
+      memory_usage: 0.8889353289644044
+- timestamp: '2025-05-23T17:42:45.954944'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 127
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.46873468680335717
+      response_time_ms: 3996
+      cpu_usage: 0.8039827804294891
+      memory_usage: 0.8984954862750093
+- timestamp: '2025-05-23T18:06:21.954944'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,66 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_173453",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 1147,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.210156",
+    "phrase_templates_used": 39,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.209645",
+      "event_type": "trigger",
+      "description": "Initial failure detected: your cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:01.209645",
+      "event_type": "failure",
+      "description": "Failure: a pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 268,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR web-frontend: a pod in failure",
+        "metrics": {
+          "error_rate": 0.43074333256755726,
+          "response_time_ms": 4930,
+          "cpu_usage": 0.75549649251904,
+          "memory_usage": 0.9457732236920804
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:10.209645",
+      "event_type": "pod_restart",
+      "description": "Pod_Restart: a pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:53.209645",
+      "event_type": "scaling",
+      "description": "Scaling: kubernetes pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:23.209645",
+      "event_type": "scaling",
+      "description": "Scaling: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:54:00.209645",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

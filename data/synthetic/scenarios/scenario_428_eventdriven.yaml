@@ -1,0 +1,95 @@
+category: EventDriven
+name: EventDriven_20250523_173245
+description: Message queue and event processing failures
+duration: 1096
+metadata:
+  generated_at: '2025-05-23T17:32:45.780296'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:32:45.779287'
+  event_type: trigger
+  description: 'Initial failure detected: config server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:10.779287'
+  event_type: timeout
+  description: 'Timeout: the service'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 31
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-queue: queue processing the
+      service'
+    metrics:
+      error_rate: 0.10391660001558814
+      response_time_ms: 2572
+      cpu_usage: 0.9915274980415119
+      memory_usage: 0.829002559474868
+      queue_depth: 28101
+      message_processing_rate: 5.307776816511693
+      consumer_lag_ms: 67625
+- timestamp: '2025-05-23T17:34:01.779287'
+  event_type: timeout
+  description: 'Timeout: ephemeral node'
+  injection_spec:
+    type: timeout
+    target: notification-queue
+    severity: high
+    duration: 197
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-queue: queue processing
+      ephemeral node'
+    metrics:
+      error_rate: 0.1980399416563933
+      response_time_ms: 4276
+      cpu_usage: 0.8712216586128657
+      memory_usage: 0.9033319366904163
+      queue_depth: 2616
+      message_processing_rate: 9.608421742024596
+      consumer_lag_ms: 66157
+- timestamp: '2025-05-23T17:34:09.779287'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: the cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:11.779287'
+  event_type: timeout
+  description: 'Timeout: connection refused'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 59
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-queue: queue processing connection
+      refused'
+    metrics:
+      error_rate: 0.58400686037453
+      response_time_ms: 5322
+      cpu_usage: 0.8540858627135126
+      memory_usage: 0.9610076899343921
+      queue_depth: 47031
+      message_processing_rate: 4.828395463281993
+      consumer_lag_ms: 251132
+- timestamp: '2025-05-23T17:34:21.779287'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: warn error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:34.779287'
+  event_type: message_loss
+  description: 'Message_Loss: rabbitmq server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:56.779287'
+  event_type: queue_overflow
+  description: 'Queue_Overflow: failed to'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:58.779287'
+  event_type: recovery
+  description: 'Recovery: connection refused'
+  injection_spec: null
+- timestamp: '2025-05-23T17:51:01.779287'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

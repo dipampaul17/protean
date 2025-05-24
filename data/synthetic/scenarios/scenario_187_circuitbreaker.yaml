@@ -1,0 +1,115 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173245
+description: Circuit breaker activation due to cascading service failures
+duration: 524
+metadata:
+  generated_at: '2025-05-23T17:32:45.717201'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:32:45.717001'
+  event_type: trigger
+  description: 'Initial failure detected: labels service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:57.717001'
+  event_type: failure
+  description: 'Failure: info node'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 113
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: info node - operation
+      failed'
+    metrics:
+      error_rate: 0.41416004939978224
+      response_time_ms: 2042
+      cpu_usage: 0.728953869448222
+      memory_usage: 0.8567996540361477
+- timestamp: '2025-05-23T17:33:04.717001'
+  event_type: degradation
+  description: 'Degradation: value memory'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: low
+    duration: 289
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: value memory - operation
+      failed'
+    metrics:
+      error_rate: 0.24839213462589102
+      response_time_ms: 1106
+      cpu_usage: 0.4428444334054333
+      memory_usage: 0.6904705970375514
+- timestamp: '2025-05-23T17:33:12.717001'
+  event_type: timeout
+  description: 'Timeout: an error'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 292
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: an error - operation
+      failed'
+    metrics:
+      error_rate: 0.6702387929925324
+      response_time_ms: 1052
+      cpu_usage: 0.8236989895563408
+      memory_usage: 0.9165296137122152
+- timestamp: '2025-05-23T17:33:19.717001'
+  event_type: failure
+  description: 'Failure: this error'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 101
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: this error - operation
+      failed'
+    metrics:
+      error_rate: 0.5190131656672294
+      response_time_ms: 5514
+      cpu_usage: 0.9023176542095972
+      memory_usage: 0.8287334852561012
+- timestamp: '2025-05-23T17:33:30.717001'
+  event_type: failure
+  description: 'Failure: scaled service'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 207
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: scaled service - operation
+      failed'
+    metrics:
+      error_rate: 0.1055716007414393
+      response_time_ms: 5497
+      cpu_usage: 0.8287163011999963
+      memory_usage: 0.8784740034299718
+- timestamp: '2025-05-23T17:33:55.717001'
+  event_type: timeout
+  description: 'Timeout: handling connection'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 78
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: handling connection
+      - operation failed'
+    metrics:
+      error_rate: 0.2738352748770394
+      response_time_ms: 4439
+      cpu_usage: 0.9787390386989906
+      memory_usage: 0.9364929181746227
+- timestamp: '2025-05-23T17:33:57.717001'
+  event_type: recovery
+  description: 'Recovery: client error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:29.717001'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

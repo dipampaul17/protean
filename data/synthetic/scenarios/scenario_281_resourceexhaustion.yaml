@@ -1,0 +1,44 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173708
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 1413
+metadata:
+  generated_at: '2025-05-23T17:37:08.026222'
+  phrase_templates_used: 50
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:37:08.026138'
+  event_type: trigger
+  description: 'Initial failure detected: the container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:50.026138'
+  event_type: recovery
+  description: 'Recovery: in memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:31.026138'
+  event_type: timeout
+  description: 'Timeout: em connection'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 41
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: em connection
+      - operation failed'
+    metrics:
+      error_rate: 0.2554838508860715
+      response_time_ms: 9472
+      cpu_usage: 0.922574584772387
+      memory_usage: 0.8997059900743992
+- timestamp: '2025-05-23T17:43:59.026138'
+  event_type: recovery
+  description: 'Recovery: info node'
+  injection_spec: null
+- timestamp: '2025-05-23T18:00:41.026138'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

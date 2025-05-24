@@ -1,0 +1,97 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_173453
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 679
+metadata:
+  generated_at: '2025-05-23T17:34:53.348773'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:53.348461'
+  event_type: trigger
+  description: 'Initial failure detected: i monitor'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:04.348461'
+  event_type: recovery
+  description: 'Recovery: the alert'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:05.348461'
+  event_type: timeout
+  description: 'Timeout: an alert'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 41
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: an alert - operation
+      failed'
+    metrics:
+      error_rate: 0.697266901963299
+      response_time_ms: 1304
+      cpu_usage: 0.7506156773357011
+      memory_usage: 0.8702359147003096
+- timestamp: '2025-05-23T17:35:07.348461'
+  event_type: recovery
+  description: 'Recovery: monitoring system'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:16.348461'
+  event_type: recovery
+  description: 'Recovery: the cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:50.348461'
+  event_type: recovery
+  description: 'Recovery: code error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:52.348461'
+  event_type: timeout
+  description: 'Timeout: and memory'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 49
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: and memory - operation
+      failed'
+    metrics:
+      error_rate: 0.3744009029847123
+      response_time_ms: 4854
+      cpu_usage: 0.8137087579619304
+      memory_usage: 0.9007759213458126
+- timestamp: '2025-05-23T17:36:00.348461'
+  event_type: timeout
+  description: 'Timeout: the server'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 87
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: the server - operation
+      failed'
+    metrics:
+      error_rate: 0.6031345100637153
+      response_time_ms: 1324
+      cpu_usage: 0.7908825207107493
+      memory_usage: 0.9260866829252035
+- timestamp: '2025-05-23T17:36:01.348461'
+  event_type: timeout
+  description: 'Timeout: monitoring memory'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 78
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: monitoring memory -
+      operation failed'
+    metrics:
+      error_rate: 0.4710040142355213
+      response_time_ms: 5899
+      cpu_usage: 0.7658356963091428
+      memory_usage: 0.949796918323071
+- timestamp: '2025-05-23T17:46:12.348461'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

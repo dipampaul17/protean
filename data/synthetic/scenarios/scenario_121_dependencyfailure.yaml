@@ -1,0 +1,55 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_173707
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1240
+metadata:
+  generated_at: '2025-05-23T17:37:07.960894'
+  phrase_templates_used: 45
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:07.960801'
+  event_type: trigger
+  description: 'Initial failure detected: the connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:55.960801'
+  event_type: recovery
+  description: 'Recovery: lt connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:06.960801'
+  event_type: timeout
+  description: 'Timeout: get update'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 212
+    log_snippet: '[2025-05-23 17:37:07] ERROR payment-service: get update - operation
+      failed'
+    metrics:
+      error_rate: 0.15324436666543867
+      response_time_ms: 6461
+      cpu_usage: 0.7062095790803915
+      memory_usage: 0.8499626987145767
+- timestamp: '2025-05-23T17:43:28.960801'
+  event_type: failure
+  description: 'Failure: get update'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 133
+    log_snippet: '[2025-05-23 17:37:07] ERROR auth-service: get update - operation
+      failed'
+    metrics:
+      error_rate: 0.1755100155669297
+      response_time_ms: 2628
+      cpu_usage: 0.9706026221205828
+      memory_usage: 0.9862484635471968
+- timestamp: '2025-05-23T17:57:47.960801'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

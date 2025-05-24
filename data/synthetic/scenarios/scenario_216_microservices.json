@@ -1,0 +1,90 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_173453",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 995,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.152612",
+    "phrase_templates_used": 15,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.152410",
+      "event_type": "trigger",
+      "description": "Initial failure detected: lt service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:07.152410",
+      "event_type": "recovery",
+      "description": "Recovery: docker network",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:24.152410",
+      "event_type": "timeout",
+      "description": "Timeout: a cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 159,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: a cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.3408979028104041,
+          "response_time_ms": 5662,
+          "cpu_usage": 0.9904692357744839,
+          "memory_usage": 0.8023798597338223
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:34.152410",
+      "event_type": "failure",
+      "description": "Failure: to service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 270,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: to service - operation failed",
+        "metrics": {
+          "error_rate": 0.29575612725702694,
+          "response_time_ms": 7918,
+          "cpu_usage": 0.8923176371828117,
+          "memory_usage": 0.8556492918342565
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:39.152410",
+      "event_type": "failure",
+      "description": "Failure: the container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 202,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.6239801125957983,
+          "response_time_ms": 2573,
+          "cpu_usage": 0.8363179768154625,
+          "memory_usage": 0.8685674232610154
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:51:28.152410",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_173245
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1674
+metadata:
+  generated_at: '2025-05-23T17:32:45.658328'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:32:45.658162'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:18.658162'
+  event_type: recovery
+  description: 'Recovery: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:45.658162'
+  event_type: timeout
+  description: 'Timeout: authentication failed'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 241
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.3268956795167589
+      response_time_ms: 5418
+      cpu_usage: 0.919832556199379
+      memory_usage: 0.9349386191621764
+- timestamp: '2025-05-23T17:35:26.658162'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:01.658162'
+  event_type: failure
+  description: 'Failure: database connection lost'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 117
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.8878898318759852
+      response_time_ms: 7742
+      cpu_usage: 0.9840886904458379
+      memory_usage: 0.9689269288475144
+- timestamp: '2025-05-23T17:37:05.658162'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 261
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.49419173639400193
+      response_time_ms: 5206
+      cpu_usage: 0.9307793452586779
+      memory_usage: 0.8366423690118191
+- timestamp: '2025-05-23T17:37:23.658162'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 189
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.6613561553434126
+      response_time_ms: 9706
+      cpu_usage: 0.7593165684817234
+      memory_usage: 0.9174884799931534
+- timestamp: '2025-05-23T18:00:39.658162'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

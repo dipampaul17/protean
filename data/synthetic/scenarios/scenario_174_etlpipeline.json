@@ -1,0 +1,114 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173453",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 773,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.126180",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.125999",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:21.125999",
+      "event_type": "recovery",
+      "description": "Recovery: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:57.125999",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 159,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.23442836256660524,
+          "response_time_ms": 4839,
+          "cpu_usage": 0.824933771839801,
+          "memory_usage": 0.8862471432619822
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:29.125999",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:32.125999",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 266,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.8575300621558346,
+          "response_time_ms": 9210,
+          "cpu_usage": 0.7737251907729203,
+          "memory_usage": 0.8060744754011111
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:43.125999",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 63,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.5176224140673661,
+          "response_time_ms": 1154,
+          "cpu_usage": 0.9099363483095315,
+          "memory_usage": 0.8443717349391717
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:51.125999",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 68,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.17066450667495403,
+          "response_time_ms": 8841,
+          "cpu_usage": 0.9643232188646143,
+          "memory_usage": 0.9675683977181915
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:46.125999",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

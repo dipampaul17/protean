@@ -1,0 +1,126 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_173452",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 490,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.915928",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 3,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.915744",
+      "event_type": "trigger",
+      "description": "Initial failure detected: an error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:09.915744",
+      "event_type": "degradation",
+      "description": "Degradation: the container",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "low",
+        "duration": 125,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR auth-service: the container - operation failed",
+        "metrics": {
+          "error_rate": 0.2492468972993232,
+          "response_time_ms": 1494,
+          "cpu_usage": 0.5220709799119176,
+          "memory_usage": 0.6832098017840748
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:46.915744",
+      "event_type": "recovery",
+      "description": "Recovery: ssh connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:52.915744",
+      "event_type": "failure",
+      "description": "Failure: scaled service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 225,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR user-service: scaled service - operation failed",
+        "metrics": {
+          "error_rate": 0.28562227104709825,
+          "response_time_ms": 2207,
+          "cpu_usage": 0.7789451976471747,
+          "memory_usage": 0.8508885194455038
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:59.915744",
+      "event_type": "degradation",
+      "description": "Degradation: to monitor",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "user-service",
+        "severity": "low",
+        "duration": 273,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR user-service: to monitor - operation failed",
+        "metrics": {
+          "error_rate": 0.18033049581212718,
+          "response_time_ms": 163,
+          "cpu_usage": 0.367781925696888,
+          "memory_usage": 0.4700662660817786
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:06.915744",
+      "event_type": "degradation",
+      "description": "Degradation: value memory",
+      "injection_spec": {
+        "type": "degradation",
+        "target": "auth-service",
+        "severity": "low",
+        "duration": 243,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR auth-service: value memory - operation failed",
+        "metrics": {
+          "error_rate": 0.2845239152546943,
+          "response_time_ms": 1726,
+          "cpu_usage": 0.4631479020189524,
+          "memory_usage": 0.5262182460300041
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:11.915744",
+      "event_type": "failure",
+      "description": "Failure: uwsgi server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 77,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR auth-service: uwsgi server - operation failed",
+        "metrics": {
+          "error_rate": 0.528031052167944,
+          "response_time_ms": 8348,
+          "cpu_usage": 0.7443675527224213,
+          "memory_usage": 0.9536317590038937
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:43:02.915744",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

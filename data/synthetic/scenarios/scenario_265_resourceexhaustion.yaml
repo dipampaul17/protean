@@ -1,0 +1,89 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173453
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 1231
+metadata:
+  generated_at: '2025-05-23T17:34:53.201252'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:53.201006'
+  event_type: trigger
+  description: 'Initial failure detected: code cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:20.201006'
+  event_type: timeout
+  description: 'Timeout: lt container'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 171
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: lt container - operation
+      failed'
+    metrics:
+      error_rate: 0.21478375657443288
+      response_time_ms: 1946
+      cpu_usage: 0.7763971472384835
+      memory_usage: 0.876318509696025
+- timestamp: '2025-05-23T17:35:24.201006'
+  event_type: timeout
+  description: 'Timeout: the container'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 235
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: the container
+      - operation failed'
+    metrics:
+      error_rate: 0.7057246426107225
+      response_time_ms: 7235
+      cpu_usage: 0.9446372014427821
+      memory_usage: 0.83195533904819
+- timestamp: '2025-05-23T17:36:32.201006'
+  event_type: recovery
+  description: 'Recovery: the pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:59.201006'
+  event_type: timeout
+  description: 'Timeout: the service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 204
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: the service -
+      operation failed'
+    metrics:
+      error_rate: 0.3612652993435941
+      response_time_ms: 2470
+      cpu_usage: 0.993219297589627
+      memory_usage: 0.9105282240783877
+- timestamp: '2025-05-23T17:37:31.201006'
+  event_type: recovery
+  description: 'Recovery: the container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:18.201006'
+  event_type: timeout
+  description: 'Timeout: in memory'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 182
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: in memory - operation
+      failed'
+    metrics:
+      error_rate: 0.7457481721044769
+      response_time_ms: 9575
+      cpu_usage: 0.8398836110234513
+      memory_usage: 0.856160388974261
+- timestamp: '2025-05-23T17:55:24.201006'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

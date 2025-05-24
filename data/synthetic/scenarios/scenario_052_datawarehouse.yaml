@@ -1,0 +1,55 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173452
+description: Infrastructure failure scenario for DataWarehouse
+duration: 822
+metadata:
+  generated_at: '2025-05-23T17:34:52.915718'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:34:52.915626'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:17.915626'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 42
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.796426442387578
+      response_time_ms: 1904
+      cpu_usage: 0.7014642339076507
+      memory_usage: 0.8701611269917324
+- timestamp: '2025-05-23T17:38:30.915626'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:01.915626'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 174
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.559339610261503
+      response_time_ms: 9257
+      cpu_usage: 0.9630529625993336
+      memory_usage: 0.9969923674374934
+- timestamp: '2025-05-23T17:48:34.915626'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

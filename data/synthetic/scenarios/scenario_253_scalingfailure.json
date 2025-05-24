@@ -1,0 +1,150 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_174628",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 1007,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.998492",
+    "phrase_templates_used": 24,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.998265",
+      "event_type": "trigger",
+      "description": "Initial failure detected: an error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:05.998265",
+      "event_type": "failure",
+      "description": "Failure: this error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 201,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: this error - operation failed",
+        "metrics": {
+          "error_rate": 0.6114167223995022,
+          "response_time_ms": 7563,
+          "cpu_usage": 0.9025125306925101,
+          "memory_usage": 0.8630216078006557
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:36.998265",
+      "event_type": "failure",
+      "description": "Failure: to scale",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 54,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: to scale - operation failed",
+        "metrics": {
+          "error_rate": 0.20903984874468487,
+          "response_time_ms": 5681,
+          "cpu_usage": 0.8410757632877093,
+          "memory_usage": 0.8577187388907764
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:41.998265",
+      "event_type": "timeout",
+      "description": "Timeout: the cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 130,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: the cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.16635966138060923,
+          "response_time_ms": 6289,
+          "cpu_usage": 0.8462900122224003,
+          "memory_usage": 0.962811148679499
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:47.998265",
+      "event_type": "failure",
+      "description": "Failure: aws application",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 168,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: aws application - operation failed",
+        "metrics": {
+          "error_rate": 0.533091015113121,
+          "response_time_ms": 9382,
+          "cpu_usage": 0.9639032338232942,
+          "memory_usage": 0.8913881024280056
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:05.998265",
+      "event_type": "recovery",
+      "description": "Recovery: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:10.998265",
+      "event_type": "recovery",
+      "description": "Recovery: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:16.998265",
+      "event_type": "failure",
+      "description": "Failure: load balancer",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 108,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: load balancer - operation failed",
+        "metrics": {
+          "error_rate": 0.3124236559946524,
+          "response_time_ms": 9092,
+          "cpu_usage": 0.7293176296832028,
+          "memory_usage": 0.8466837355314518
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:27.998265",
+      "event_type": "failure",
+      "description": "Failure: of failure",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 203,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: of failure - operation failed",
+        "metrics": {
+          "error_rate": 0.6359351775521985,
+          "response_time_ms": 8479,
+          "cpu_usage": 0.9660352865781368,
+          "memory_usage": 0.9659489753071195
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:03:15.998265",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

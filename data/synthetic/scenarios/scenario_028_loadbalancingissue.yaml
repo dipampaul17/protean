@@ -1,0 +1,50 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173452
+description: Load balancer and traffic distribution problems
+duration: 1058
+metadata:
+  generated_at: '2025-05-23T17:34:52.909139'
+  phrase_templates_used: 13
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:34:52.909036'
+  event_type: trigger
+  description: 'Initial failure detected: a server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:46.909036'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:49.909036'
+  event_type: backend_failure
+  description: 'Backend_Failure: your cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:52.909036'
+  event_type: scaling
+  description: 'Scaling: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:58.909036'
+  event_type: timeout
+  description: 'Timeout: strong update'
+  injection_spec:
+    type: timeout
+    target: load-balancer
+    severity: high
+    duration: 258
+    log_snippet: '[2025-05-23 17:34:52] ERROR load-balancer: strong update in timeout'
+    metrics:
+      error_rate: 0.733699106871952
+      response_time_ms: 9325
+      cpu_usage: 0.8227070174171891
+      memory_usage: 0.8888909167438337
+      requests_per_sec: 4296
+      backend_health_pct: 0.41323936551883605
+      connection_timeouts: 319
+- timestamp: '2025-05-23T17:52:30.909036'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

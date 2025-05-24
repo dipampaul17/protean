@@ -1,0 +1,96 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173708",
+  "description": "Database connectivity and performance issues",
+  "duration": 1048,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.084224",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.083142",
+      "event_type": "trigger",
+      "description": "Initial failure detected: following error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:32.083142",
+      "event_type": "corruption",
+      "description": "Corruption: code error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:38.083142",
+      "event_type": "recovery",
+      "description": "Recovery: metadatacreateindexservice node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:56.083142",
+      "event_type": "timeout",
+      "description": "Timeout: var log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mysql-primary",
+        "severity": "high",
+        "duration": 296,
+        "log_snippet": "[2025-05-23 17:37:08] FATAL mysql-primary: database var log detected",
+        "metrics": {
+          "error_rate": 0.4697045373122206,
+          "response_time_ms": 1771,
+          "cpu_usage": 0.9248618825067997,
+          "memory_usage": 0.8744008515577272,
+          "connection_pool_usage": 0.868360930649409,
+          "query_time_ms": 10032,
+          "deadlocks_per_sec": 6
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:17.083142",
+      "event_type": "corruption",
+      "description": "Corruption: code server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:22.083142",
+      "event_type": "timeout",
+      "description": "Timeout: requires restart",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 148,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR mongodb-shard: requires restart in timeout",
+        "metrics": {
+          "error_rate": 0.18622872515527958,
+          "response_time_ms": 2814,
+          "cpu_usage": 0.8434566134089185,
+          "memory_usage": 0.846452116177273,
+          "connection_pool_usage": 0.8953591034880406,
+          "query_time_ms": 25287,
+          "deadlocks_per_sec": 10
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:57.083142",
+      "event_type": "corruption",
+      "description": "Corruption: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:54:36.083142",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

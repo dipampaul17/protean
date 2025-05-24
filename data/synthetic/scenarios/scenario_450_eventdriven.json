@@ -1,0 +1,93 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173453",
+  "description": "Message queue and event processing failures",
+  "duration": 1411,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.350973",
+    "phrase_templates_used": 50,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.350796",
+      "event_type": "trigger",
+      "description": "Initial failure detected: task queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:12.350796",
+      "event_type": "recovery",
+      "description": "Recovery: of node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:25.350796",
+      "event_type": "recovery",
+      "description": "Recovery: in memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:27.350796",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: channel connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:59.350796",
+      "event_type": "recovery",
+      "description": "Recovery: rabbitmq connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:02.350796",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: connection refused",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:17.350796",
+      "event_type": "timeout",
+      "description": "Timeout: strong update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 37,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-queue: queue processing strong update",
+        "metrics": {
+          "error_rate": 0.26498188697435304,
+          "response_time_ms": 3949,
+          "cpu_usage": 0.9733368530106721,
+          "memory_usage": 0.8573727654782454,
+          "queue_depth": 30542,
+          "message_processing_rate": 8.739259427869657,
+          "consumer_lag_ms": 243586
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:54.350796",
+      "event_type": "message_loss",
+      "description": "Message_Loss: in memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:24.350796",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:58:24.350796",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

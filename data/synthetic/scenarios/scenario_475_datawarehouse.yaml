@@ -1,0 +1,100 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_174629
+description: Infrastructure failure scenario for DataWarehouse
+duration: 713
+metadata:
+  generated_at: '2025-05-23T17:46:29.148453'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:46:29.148195'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:52.148195'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 181
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.8922084547204678
+      response_time_ms: 4122
+      cpu_usage: 0.8272644420506843
+      memory_usage: 0.9255047593530727
+- timestamp: '2025-05-23T17:47:01.148195'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 184
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: deployment failed
+      - operation failed'
+    metrics:
+      error_rate: 0.46033091299448026
+      response_time_ms: 4322
+      cpu_usage: 0.8784364882233329
+      memory_usage: 0.8029803472460191
+- timestamp: '2025-05-23T17:47:29.148195'
+  event_type: failure
+  description: 'Failure: service unavailable'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 145
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.21963851780208632
+      response_time_ms: 4894
+      cpu_usage: 0.8402158767103847
+      memory_usage: 0.8303905902761913
+- timestamp: '2025-05-23T17:47:45.148195'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 223
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.42828868640285644
+      response_time_ms: 9018
+      cpu_usage: 0.9674357301392462
+      memory_usage: 0.9795351155690653
+- timestamp: '2025-05-23T17:47:50.148195'
+  event_type: recovery
+  description: 'Recovery: circuit breaker triggered'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:55.148195'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 101
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: authentication failed
+      - operation failed'
+    metrics:
+      error_rate: 0.28377933360706475
+      response_time_ms: 8390
+      cpu_usage: 0.7882335629034669
+      memory_usage: 0.8276722007598697
+- timestamp: '2025-05-23T17:58:22.148195'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

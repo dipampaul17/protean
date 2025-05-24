@@ -1,0 +1,92 @@
+category: NetworkPartition
+name: NetworkPartition_20250523_173453
+description: Infrastructure failure scenario for NetworkPartition
+duration: 1254
+metadata:
+  generated_at: '2025-05-23T17:34:53.344503'
+  phrase_templates_used: 4
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:53.343607'
+  event_type: trigger
+  description: 'Initial failure detected: and node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:06.343607'
+  event_type: failure
+  description: 'Failure: and node'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 291
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: and node - operation failed'
+    metrics:
+      error_rate: 0.2687409501853426
+      response_time_ms: 6479
+      cpu_usage: 0.9187440839299001
+      memory_usage: 0.9986208631045081
+- timestamp: '2025-05-23T17:35:43.343607'
+  event_type: failure
+  description: 'Failure: and node'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 120
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: and node - operation
+      failed'
+    metrics:
+      error_rate: 0.23947877001643558
+      response_time_ms: 7769
+      cpu_usage: 0.9020477968623611
+      memory_usage: 0.9771962935957916
+- timestamp: '2025-05-23T17:35:49.343607'
+  event_type: timeout
+  description: 'Timeout: each node'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 281
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: each node - operation
+      failed'
+    metrics:
+      error_rate: 0.8105525619382028
+      response_time_ms: 1937
+      cpu_usage: 0.8030429978952676
+      memory_usage: 0.8592011833774247
+- timestamp: '2025-05-23T17:36:11.343607'
+  event_type: timeout
+  description: 'Timeout: and memory'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 280
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: and memory - operation
+      failed'
+    metrics:
+      error_rate: 0.286291549289027
+      response_time_ms: 3217
+      cpu_usage: 0.8633915547706608
+      memory_usage: 0.8928610168547302
+- timestamp: '2025-05-23T17:36:59.343607'
+  event_type: recovery
+  description: 'Recovery: and node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:07.343607'
+  event_type: recovery
+  description: 'Recovery: of disk'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:32.343607'
+  event_type: recovery
+  description: 'Recovery: and memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:55:47.343607'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

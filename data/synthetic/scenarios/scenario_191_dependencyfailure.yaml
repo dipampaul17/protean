@@ -1,0 +1,85 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_174628
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1186
+metadata:
+  generated_at: '2025-05-23T17:46:28.980034'
+  phrase_templates_used: 45
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:28.979890'
+  event_type: trigger
+  description: 'Initial failure detected: get update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:03.979890'
+  event_type: failure
+  description: 'Failure: api server'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 274
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: api server - operation
+      failed'
+    metrics:
+      error_rate: 0.7209982920766905
+      response_time_ms: 6729
+      cpu_usage: 0.7353011769405687
+      memory_usage: 0.9049300940324017
+- timestamp: '2025-05-23T17:48:51.979890'
+  event_type: failure
+  description: 'Failure: the queue'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: medium
+    duration: 129
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: the queue - operation
+      failed'
+    metrics:
+      error_rate: 0.09553851910291367
+      response_time_ms: 124
+      cpu_usage: 0.6750227344529838
+      memory_usage: 0.6683416705638725
+- timestamp: '2025-05-23T17:49:10.979890'
+  event_type: failure
+  description: 'Failure: lt connection'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 66
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: lt connection - operation
+      failed'
+    metrics:
+      error_rate: 0.4796644019404529
+      response_time_ms: 2012
+      cpu_usage: 0.76240451330959
+      memory_usage: 0.9293425371790563
+- timestamp: '2025-05-23T17:49:41.979890'
+  event_type: recovery
+  description: 'Recovery: upstream server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:55.979890'
+  event_type: failure
+  description: 'Failure: web server'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 256
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: web server - operation
+      failed'
+    metrics:
+      error_rate: 0.3203435252929321
+      response_time_ms: 4731
+      cpu_usage: 0.9374298063054218
+      memory_usage: 0.998503591952431
+- timestamp: '2025-05-23T18:06:14.979890'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

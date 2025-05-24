@@ -1,0 +1,80 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_174629
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1020
+metadata:
+  generated_at: '2025-05-23T17:46:29.143657'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:46:29.143512'
+  event_type: trigger
+  description: 'Initial failure detected: the cpu'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:36.143512'
+  event_type: timeout
+  description: 'Timeout: the service'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 139
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: the service - operation
+      failed'
+    metrics:
+      error_rate: 0.34220057832093365
+      response_time_ms: 3035
+      cpu_usage: 0.7179696960753098
+      memory_usage: 0.9330186759766493
+- timestamp: '2025-05-23T17:47:52.143512'
+  event_type: failure
+  description: 'Failure: a server'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 130
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: a server - operation failed'
+    metrics:
+      error_rate: 0.3246850120708379
+      response_time_ms: 4146
+      cpu_usage: 0.8602730594964263
+      memory_usage: 0.8595112830187323
+- timestamp: '2025-05-23T17:48:51.143512'
+  event_type: timeout
+  description: 'Timeout: monitoring service'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 216
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: monitoring service - operation
+      failed'
+    metrics:
+      error_rate: 0.2902922679440596
+      response_time_ms: 8528
+      cpu_usage: 0.8202638173803924
+      memory_usage: 0.819824915630101
+- timestamp: '2025-05-23T17:49:32.143512'
+  event_type: failure
+  description: 'Failure: the service'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 47
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: the service - operation
+      failed'
+    metrics:
+      error_rate: 0.8644236134314259
+      response_time_ms: 3338
+      cpu_usage: 0.7834476105728975
+      memory_usage: 0.9750356093603896
+- timestamp: '2025-05-23T18:03:29.143512'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

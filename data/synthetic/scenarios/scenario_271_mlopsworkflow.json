@@ -1,0 +1,90 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_173453",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 1406,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.204743",
+    "phrase_templates_used": 0,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.203900",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:21.203900",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 192,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.7507333479703885,
+          "response_time_ms": 6243,
+          "cpu_usage": 0.8239389643205091,
+          "memory_usage": 0.8186347675885933
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:06.203900",
+      "event_type": "recovery",
+      "description": "Recovery: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:26.203900",
+      "event_type": "failure",
+      "description": "Failure: circuit breaker triggered",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 80,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.10160305512051133,
+          "response_time_ms": 4144,
+          "cpu_usage": 0.7734723072316809,
+          "memory_usage": 0.9542720342008214
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:49.203900",
+      "event_type": "timeout",
+      "description": "Timeout: network unreachable",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 84,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.541562267263885,
+          "response_time_ms": 7320,
+          "cpu_usage": 0.9319127216710673,
+          "memory_usage": 0.8746922341305411
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:58:19.203900",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

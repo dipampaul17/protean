@@ -1,0 +1,138 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173453",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 1358,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.279088",
+    "phrase_templates_used": 45,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.278899",
+      "event_type": "trigger",
+      "description": "Initial failure detected: illuminate queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:17.278899",
+      "event_type": "failure",
+      "description": "Failure: the queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "medium",
+        "duration": 224,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.18291790910119224,
+          "response_time_ms": 614,
+          "cpu_usage": 0.3717406110071469,
+          "memory_usage": 0.5581420164874867
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:22.278899",
+      "event_type": "timeout",
+      "description": "Timeout: the service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 222,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR notification-service: the service - operation failed",
+        "metrics": {
+          "error_rate": 0.6781710338725147,
+          "response_time_ms": 1485,
+          "cpu_usage": 0.770585456445049,
+          "memory_usage": 0.8284444091898311
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:27.278899",
+      "event_type": "timeout",
+      "description": "Timeout: quot network",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 190,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: quot network - operation failed",
+        "metrics": {
+          "error_rate": 0.1387923063165138,
+          "response_time_ms": 8653,
+          "cpu_usage": 0.7901586595979104,
+          "memory_usage": 0.8069268771035857
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:31.278899",
+      "event_type": "timeout",
+      "description": "Timeout: to network",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 271,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: to network - operation failed",
+        "metrics": {
+          "error_rate": 0.7887254990038819,
+          "response_time_ms": 6412,
+          "cpu_usage": 0.9336077152557396,
+          "memory_usage": 0.889852551548886
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:01.278899",
+      "event_type": "timeout",
+      "description": "Timeout: to update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 42,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: to update - operation failed",
+        "metrics": {
+          "error_rate": 0.7821012630194059,
+          "response_time_ms": 5519,
+          "cpu_usage": 0.7903928973792339,
+          "memory_usage": 0.9234397426210785
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:33.278899",
+      "event_type": "timeout",
+      "description": "Timeout: work log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 262,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: work log - operation failed",
+        "metrics": {
+          "error_rate": 0.5582794396992499,
+          "response_time_ms": 5795,
+          "cpu_usage": 0.7746215180633562,
+          "memory_usage": 0.8571030396230466
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:57:31.278899",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

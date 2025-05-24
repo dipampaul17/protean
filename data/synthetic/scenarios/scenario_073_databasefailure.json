@@ -1,0 +1,90 @@
+{
+  "category": "DatabaseFailure",
+  "name": "DatabaseFailure_20250523_173452",
+  "description": "Database connectivity and performance issues",
+  "duration": 1394,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.978419",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.977674",
+      "event_type": "trigger",
+      "description": "Initial failure detected: in memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:14.977674",
+      "event_type": "connection_loss",
+      "description": "Connection_Loss: in memory",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:51.977674",
+      "event_type": "recovery",
+      "description": "Recovery: using docker",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:56.977674",
+      "event_type": "timeout",
+      "description": "Timeout: postgres database",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 39,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR mongodb-shard: postgres database in timeout",
+        "metrics": {
+          "error_rate": 0.2867506077173304,
+          "response_time_ms": 8200,
+          "cpu_usage": 0.9794462971455735,
+          "memory_usage": 0.8795298222981845,
+          "connection_pool_usage": 0.9445049574816571,
+          "query_time_ms": 12275,
+          "deadlocks_per_sec": 3
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:24.977674",
+      "event_type": "corruption",
+      "description": "Corruption: a database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:27.977674",
+      "event_type": "timeout",
+      "description": "Timeout: p error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "mongodb-shard",
+        "severity": "high",
+        "duration": 140,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR mongodb-shard: p error in timeout",
+        "metrics": {
+          "error_rate": 0.7079498034580438,
+          "response_time_ms": 7566,
+          "cpu_usage": 0.9622003083546411,
+          "memory_usage": 0.884129155891388,
+          "connection_pool_usage": 0.9667351432174036,
+          "query_time_ms": 21727,
+          "deadlocks_per_sec": 2
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:58:06.977674",
+      "event_type": "recovery",
+      "description": "System recovered: database connection restored",
+      "injection_spec": null
+    }
+  ]
+}

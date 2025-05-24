@@ -1,0 +1,132 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_174628",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 1493,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.922112",
+    "phrase_templates_used": 0,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.921920",
+      "event_type": "trigger",
+      "description": "Initial failure detected: container crashed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:14.921920",
+      "event_type": "recovery",
+      "description": "Recovery: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:40.921920",
+      "event_type": "timeout",
+      "description": "Timeout: disk space full",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 72,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.8258566084784295,
+          "response_time_ms": 4636,
+          "cpu_usage": 0.8182438810226766,
+          "memory_usage": 0.8214511984955449
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:51.921920",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:54.921920",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 226,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.3050464982307505,
+          "response_time_ms": 1435,
+          "cpu_usage": 0.9237280923183223,
+          "memory_usage": 0.8113483085470479
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:05.921920",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 162,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.48998264493166377,
+          "response_time_ms": 9815,
+          "cpu_usage": 0.7535934005662142,
+          "memory_usage": 0.8273718549870022
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:22.921920",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 67,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.1302061126620645,
+          "response_time_ms": 1169,
+          "cpu_usage": 0.7721341818429013,
+          "memory_usage": 0.9875872558778295
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:51.921920",
+      "event_type": "failure",
+      "description": "Failure: memory limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 137,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.2454240913480426,
+          "response_time_ms": 3015,
+          "cpu_usage": 0.8064535786779856,
+          "memory_usage": 0.9801969884016022
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:11:21.921920",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

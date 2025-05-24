@@ -1,0 +1,107 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173452
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 535
+metadata:
+  generated_at: '2025-05-23T17:34:52.990684'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:34:52.990470'
+  event_type: trigger
+  description: 'Initial failure detected: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:03.990470'
+  event_type: failure
+  description: 'Failure: customer service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 83
+    log_snippet: '[2025-05-23 17:34:52] ERROR payment-service: customer service -
+      operation failed'
+    metrics:
+      error_rate: 0.4242119458125473
+      response_time_ms: 3780
+      cpu_usage: 0.9411501608167399
+      memory_usage: 0.8649301451636965
+- timestamp: '2025-05-23T17:35:06.990470'
+  event_type: timeout
+  description: 'Timeout: high memory'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 118
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: high memory - operation
+      failed'
+    metrics:
+      error_rate: 0.420380293636025
+      response_time_ms: 2502
+      cpu_usage: 0.8982510076572486
+      memory_usage: 0.8174963480826075
+- timestamp: '2025-05-23T17:35:12.990470'
+  event_type: failure
+  description: 'Failure: a memory'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 157
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: a memory - operation failed'
+    metrics:
+      error_rate: 0.8647119462319338
+      response_time_ms: 7534
+      cpu_usage: 0.9719970096986842
+      memory_usage: 0.8672654160589542
+- timestamp: '2025-05-23T17:35:17.990470'
+  event_type: recovery
+  description: 'Recovery: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:19.990470'
+  event_type: timeout
+  description: 'Timeout: served memory'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 248
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: served memory
+      - operation failed'
+    metrics:
+      error_rate: 0.470120100763035
+      response_time_ms: 8079
+      cpu_usage: 0.8131576275241301
+      memory_usage: 0.9099602869217089
+- timestamp: '2025-05-23T17:35:38.990470'
+  event_type: recovery
+  description: 'Recovery: redis connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:42.990470'
+  event_type: recovery
+  description: 'Recovery: associative cache'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:46.990470'
+  event_type: timeout
+  description: 'Timeout: causing outage'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 170
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: causing outage - operation
+      failed'
+    metrics:
+      error_rate: 0.14758123397425393
+      response_time_ms: 3661
+      cpu_usage: 0.9056798042129915
+      memory_usage: 0.8706672889669985
+- timestamp: '2025-05-23T17:43:47.990470'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

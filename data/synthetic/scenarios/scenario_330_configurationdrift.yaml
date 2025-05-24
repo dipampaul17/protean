@@ -1,0 +1,41 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_173245
+description: Configuration inconsistencies causing service degradation
+duration: 913
+metadata:
+  generated_at: '2025-05-23T17:32:45.756134'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 0
+events:
+- timestamp: '2025-05-23T17:32:45.755304'
+  event_type: trigger
+  description: 'Initial failure detected: nginx error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:52.755304'
+  event_type: restart
+  description: 'Restart: nginx container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:53.755304'
+  event_type: config_change
+  description: 'Config_Change: var log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:30.755304'
+  event_type: rollback
+  description: 'Rollback: stopped container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:57.755304'
+  event_type: rollback
+  description: 'Rollback: elasticsearch cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:28.755304'
+  event_type: config_change
+  description: 'Config_Change: code server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:58.755304'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

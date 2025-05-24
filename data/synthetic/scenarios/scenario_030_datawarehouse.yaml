@@ -1,0 +1,59 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_174628
+description: Infrastructure failure scenario for DataWarehouse
+duration: 623
+metadata:
+  generated_at: '2025-05-23T17:46:28.913361'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:28.913253'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:39.913253'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:57.913253'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 178
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: deployment failed
+      - operation failed'
+    metrics:
+      error_rate: 0.5444029088541074
+      response_time_ms: 9643
+      cpu_usage: 0.785536854424937
+      memory_usage: 0.910236592909171
+- timestamp: '2025-05-23T17:47:05.913253'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:38.913253'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 122
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.6988410263810062
+      response_time_ms: 1779
+      cpu_usage: 0.7411827982885358
+      memory_usage: 0.9813334079108361
+- timestamp: '2025-05-23T17:56:51.913253'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

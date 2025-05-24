@@ -1,0 +1,74 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_174628
+description: Infrastructure failure scenario for DependencyFailure
+duration: 325
+metadata:
+  generated_at: '2025-05-23T17:46:28.986217'
+  phrase_templates_used: 45
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:28.986005'
+  event_type: trigger
+  description: 'Initial failure detected: closed connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:44.986005'
+  event_type: failure
+  description: 'Failure: inventory service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 30
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: inventory service
+      - operation failed'
+    metrics:
+      error_rate: 0.3510954026903229
+      response_time_ms: 1205
+      cpu_usage: 0.770900735932141
+      memory_usage: 0.9791744850179815
+- timestamp: '2025-05-23T17:47:09.986005'
+  event_type: recovery
+  description: 'Recovery: var log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:13.986005'
+  event_type: failure
+  description: 'Failure: headless service'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 91
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: headless service - operation
+      failed'
+    metrics:
+      error_rate: 0.7819989086626614
+      response_time_ms: 9052
+      cpu_usage: 0.7291010898207423
+      memory_usage: 0.8600687010601336
+- timestamp: '2025-05-23T17:47:17.986005'
+  event_type: failure
+  description: 'Failure: the container'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 136
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: the container - operation
+      failed'
+    metrics:
+      error_rate: 0.4657980881860032
+      response_time_ms: 2672
+      cpu_usage: 0.9392592503190152
+      memory_usage: 0.9589629268377122
+- timestamp: '2025-05-23T17:47:23.986005'
+  event_type: recovery
+  description: 'Recovery: nginx service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:51:53.986005'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

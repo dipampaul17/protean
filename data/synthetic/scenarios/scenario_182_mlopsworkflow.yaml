@@ -1,0 +1,63 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_173245
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1398
+metadata:
+  generated_at: '2025-05-23T17:32:45.716373'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.716241'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:56.716241'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 48
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.77050681216378
+      response_time_ms: 6133
+      cpu_usage: 0.8471244462560953
+      memory_usage: 0.9465672435266315
+- timestamp: '2025-05-23T17:35:04.716241'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:30.716241'
+  event_type: recovery
+  description: 'Recovery: authentication failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:20.716241'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 209
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: container crashed - operation
+      failed'
+    metrics:
+      error_rate: 0.8786882391603317
+      response_time_ms: 5396
+      cpu_usage: 0.9031660419427614
+      memory_usage: 0.9610449143630171
+- timestamp: '2025-05-23T17:36:26.716241'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:56:03.716241'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

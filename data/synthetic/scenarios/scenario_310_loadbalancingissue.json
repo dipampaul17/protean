@@ -1,0 +1,81 @@
+{
+  "category": "LoadBalancingIssue",
+  "name": "LoadBalancingIssue_20250523_174629",
+  "description": "Load balancer and traffic distribution problems",
+  "duration": 581,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.073194",
+    "phrase_templates_used": 13,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.073033",
+      "event_type": "trigger",
+      "description": "Initial failure detected: that node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:48.073033",
+      "event_type": "scaling",
+      "description": "Scaling: kafka pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:01.073033",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:04.073033",
+      "event_type": "timeout",
+      "description": "Timeout: a service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "subnet-private",
+        "severity": "high",
+        "duration": 125,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR subnet-private: a service in timeout",
+        "metrics": {
+          "error_rate": 0.8225370153052167,
+          "response_time_ms": 5396,
+          "cpu_usage": 0.953775944236299,
+          "memory_usage": 0.9517140040071066,
+          "requests_per_sec": 4832,
+          "backend_health_pct": 0.5806110610301607,
+          "connection_timeouts": 823
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:06.073033",
+      "event_type": "backend_failure",
+      "description": "Backend_Failure: load balancer",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:35.073033",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: web server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:51.073033",
+      "event_type": "traffic_spike",
+      "description": "Traffic_Spike: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:56:10.073033",
+      "event_type": "recovery",
+      "description": "System recovered: load balanced restored",
+      "injection_spec": null
+    }
+  ]
+}

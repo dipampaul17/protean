@@ -1,0 +1,63 @@
+category: ConfigurationDrift
+name: ConfigurationDrift_20250523_174628
+description: Configuration inconsistencies causing service degradation
+duration: 1071
+metadata:
+  generated_at: '2025-05-23T17:46:28.955622'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:28.955493'
+  event_type: trigger
+  description: 'Initial failure detected: stopped container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:39.955493'
+  event_type: failure
+  description: 'Failure: following error'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 191
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: following error - operation
+      failed'
+    metrics:
+      error_rate: 0.5340707175353985
+      response_time_ms: 8419
+      cpu_usage: 0.7898668671283058
+      memory_usage: 0.8099812004476455
+- timestamp: '2025-05-23T17:48:04.955493'
+  event_type: failure
+  description: 'Failure: nginx error'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 72
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: nginx error - operation
+      failed'
+    metrics:
+      error_rate: 0.46156876660554713
+      response_time_ms: 1625
+      cpu_usage: 0.7992722481868764
+      memory_usage: 0.8740954868398763
+- timestamp: '2025-05-23T17:48:28.955493'
+  event_type: restart
+  description: 'Restart: using docker'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:46.955493'
+  event_type: restart
+  description: 'Restart: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:38.955493'
+  event_type: config_change
+  description: 'Config_Change: kubernetes service'
+  injection_spec: null
+- timestamp: '2025-05-23T18:04:19.955493'
+  event_type: recovery
+  description: 'System recovered: configuration restored'
+  injection_spec: null

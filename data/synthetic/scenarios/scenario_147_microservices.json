@@ -1,0 +1,120 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_173707",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 1737,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.980984",
+    "phrase_templates_used": 15,
+    "total_events": 9,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.980809",
+      "event_type": "trigger",
+      "description": "Initial failure detected: a cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:35.980809",
+      "event_type": "timeout",
+      "description": "Timeout: the queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "medium",
+        "duration": 239,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.09626622683397634,
+          "response_time_ms": 1839,
+          "cpu_usage": 0.45625363652590367,
+          "memory_usage": 0.6547124896868146
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:02.980809",
+      "event_type": "timeout",
+      "description": "Timeout: lt service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 249,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: lt service - operation failed",
+        "metrics": {
+          "error_rate": 0.6627825914283877,
+          "response_time_ms": 2167,
+          "cpu_usage": 0.9016540039017973,
+          "memory_usage": 0.8653899151198821
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:45.980809",
+      "event_type": "recovery",
+      "description": "Recovery: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:09.980809",
+      "event_type": "timeout",
+      "description": "Timeout: to service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 228,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: to service - operation failed",
+        "metrics": {
+          "error_rate": 0.684976150758485,
+          "response_time_ms": 4910,
+          "cpu_usage": 0.8919051666721666,
+          "memory_usage": 0.8603233650519903
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:27.980809",
+      "event_type": "recovery",
+      "description": "Recovery: to service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:17.980809",
+      "event_type": "recovery",
+      "description": "Recovery: docker network",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:40.980809",
+      "event_type": "failure",
+      "description": "Failure: strong service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 215,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: strong service - operation failed",
+        "metrics": {
+          "error_rate": 0.586182530827279,
+          "response_time_ms": 2707,
+          "cpu_usage": 0.8914300022876003,
+          "memory_usage": 0.9648242720400634
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:06:04.980809",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

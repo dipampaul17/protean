@@ -1,0 +1,84 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_174628",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 1024,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.983849",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.983749",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:52.983749",
+      "event_type": "failure",
+      "description": "Failure: code server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 59,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: code server - operation failed",
+        "metrics": {
+          "error_rate": 0.24881054307994363,
+          "response_time_ms": 6120,
+          "cpu_usage": 0.7992995458858507,
+          "memory_usage": 0.9442041818972002
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:51:15.983749",
+      "event_type": "timeout",
+      "description": "Timeout: an error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 280,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: an error - operation failed",
+        "metrics": {
+          "error_rate": 0.7706093412369432,
+          "response_time_ms": 4553,
+          "cpu_usage": 0.9153559835541243,
+          "memory_usage": 0.840299405875373
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:51:35.983749",
+      "event_type": "failure",
+      "description": "Failure: info node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 83,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: info node - operation failed",
+        "metrics": {
+          "error_rate": 0.4867364551027541,
+          "response_time_ms": 8712,
+          "cpu_usage": 0.8543488647825023,
+          "memory_usage": 0.8292067426546225
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:03:32.983749",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

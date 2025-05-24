@@ -1,0 +1,74 @@
+category: DataCorruption
+name: DataCorruption_20250523_173453
+description: Infrastructure failure scenario for DataCorruption
+duration: 541
+metadata:
+  generated_at: '2025-05-23T17:34:53.340757'
+  phrase_templates_used: 36
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:34:53.340557'
+  event_type: trigger
+  description: 'Initial failure detected: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:15.340557'
+  event_type: recovery
+  description: 'Recovery: the connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:43.340557'
+  event_type: failure
+  description: 'Failure: to disk'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 273
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: to disk - operation
+      failed'
+    metrics:
+      error_rate: 0.14076609256494166
+      response_time_ms: 4569
+      cpu_usage: 0.7134182350975995
+      memory_usage: 0.8779820304290704
+- timestamp: '2025-05-23T17:36:18.340557'
+  event_type: failure
+  description: 'Failure: duplicate update'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 122
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: duplicate update - operation
+      failed'
+    metrics:
+      error_rate: 0.6511562994281366
+      response_time_ms: 4169
+      cpu_usage: 0.7664063218681498
+      memory_usage: 0.8335699731359623
+- timestamp: '2025-05-23T17:36:24.340557'
+  event_type: recovery
+  description: 'Recovery: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:32.340557'
+  event_type: timeout
+  description: 'Timeout: only container'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 108
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: only container - operation
+      failed'
+    metrics:
+      error_rate: 0.7463899180673201
+      response_time_ms: 5030
+      cpu_usage: 0.9487815160769895
+      memory_usage: 0.9908344343880567
+- timestamp: '2025-05-23T17:43:54.340557'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

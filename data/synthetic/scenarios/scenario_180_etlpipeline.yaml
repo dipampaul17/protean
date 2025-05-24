@@ -1,0 +1,78 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173245
+description: Infrastructure failure scenario for ETLPipeline
+duration: 1215
+metadata:
+  generated_at: '2025-05-23T17:32:45.715258'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:32:45.715099'
+  event_type: trigger
+  description: 'Initial failure detected: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:09.715099'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 208
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.3438289223954761
+      response_time_ms: 1150
+      cpu_usage: 0.8793779560246204
+      memory_usage: 0.9599349736807574
+- timestamp: '2025-05-23T17:33:51.715099'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 165
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: service unavailable -
+      operation failed'
+    metrics:
+      error_rate: 0.3830318916358114
+      response_time_ms: 8969
+      cpu_usage: 0.9073124053045457
+      memory_usage: 0.998782991642172
+- timestamp: '2025-05-23T17:34:08.715099'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:39.715099'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:53.715099'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 154
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: authentication
+      failed - operation failed'
+    metrics:
+      error_rate: 0.23758096961316585
+      response_time_ms: 4844
+      cpu_usage: 0.8509774202738514
+      memory_usage: 0.9670476462552584
+- timestamp: '2025-05-23T17:36:05.715099'
+  event_type: recovery
+  description: 'Recovery: disk space full'
+  injection_spec: null
+- timestamp: '2025-05-23T17:53:00.715099'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

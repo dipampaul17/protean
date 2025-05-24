@@ -1,0 +1,59 @@
+category: Microservices
+name: Microservices_20250523_174628
+description: Infrastructure failure scenario for Microservices
+duration: 1505
+metadata:
+  generated_at: '2025-05-23T17:46:28.960801'
+  phrase_templates_used: 15
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:28.960689'
+  event_type: trigger
+  description: 'Initial failure detected: strong service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:04.960689'
+  event_type: recovery
+  description: 'Recovery: http connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:41.960689'
+  event_type: failure
+  description: 'Failure: a container'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 111
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: a container - operation
+      failed'
+    metrics:
+      error_rate: 0.4893682414891888
+      response_time_ms: 2264
+      cpu_usage: 0.9955346504179328
+      memory_usage: 0.9786492142128624
+- timestamp: '2025-05-23T17:47:53.960689'
+  event_type: timeout
+  description: 'Timeout: headless service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 131
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: headless service
+      - operation failed'
+    metrics:
+      error_rate: 0.4158007305100372
+      response_time_ms: 9724
+      cpu_usage: 0.8092377237919154
+      memory_usage: 0.843764090827852
+- timestamp: '2025-05-23T17:49:43.960689'
+  event_type: recovery
+  description: 'Recovery: docker network'
+  injection_spec: null
+- timestamp: '2025-05-23T18:11:33.960689'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

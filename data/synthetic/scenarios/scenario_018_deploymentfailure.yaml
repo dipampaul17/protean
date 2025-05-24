@@ -1,0 +1,47 @@
+category: DeploymentFailure
+name: DeploymentFailure_20250523_173245
+description: Application deployment and rollback scenarios
+duration: 1260
+metadata:
+  generated_at: '2025-05-23T17:32:45.658467'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:32:45.658352'
+  event_type: trigger
+  description: 'Initial failure detected: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:10.658352'
+  event_type: rollback
+  description: 'Rollback: to update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:26.658352'
+  event_type: scaling
+  description: 'Scaling: during deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:27.658352'
+  event_type: rollback
+  description: 'Rollback: code deployment'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:47.658352'
+  event_type: failure
+  description: 'Failure: the container'
+  injection_spec:
+    type: failure
+    target: web-frontend
+    severity: high
+    duration: 120
+    log_snippet: '[2025-05-23 17:32:45] ERROR web-frontend: the container in failure'
+    metrics:
+      error_rate: 0.6383269105262053
+      response_time_ms: 1904
+      cpu_usage: 0.7661412024911837
+      memory_usage: 0.8011426722865389
+- timestamp: '2025-05-23T17:53:45.658352'
+  event_type: recovery
+  description: 'System recovered: deployment completed'
+  injection_spec: null

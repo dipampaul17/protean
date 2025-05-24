@@ -1,0 +1,72 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173708",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 904,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.059527",
+    "phrase_templates_used": 45,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.059436",
+      "event_type": "trigger",
+      "description": "Initial failure detected: code error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:05.059436",
+      "event_type": "timeout",
+      "description": "Timeout: work log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 109,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: work log - operation failed",
+        "metrics": {
+          "error_rate": 0.8594613727853164,
+          "response_time_ms": 8375,
+          "cpu_usage": 0.7792542297012057,
+          "memory_usage": 0.9848773927629403
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:31.059436",
+      "event_type": "timeout",
+      "description": "Timeout: this error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 240,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: this error - operation failed",
+        "metrics": {
+          "error_rate": 0.30142095484926257,
+          "response_time_ms": 6439,
+          "cpu_usage": 0.8351487066407585,
+          "memory_usage": 0.8050608069133021
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:33.059436",
+      "event_type": "recovery",
+      "description": "Recovery: the connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:52:12.059436",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

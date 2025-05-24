@@ -1,0 +1,108 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_174628",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 526,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.978433",
+    "phrase_templates_used": 45,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.978288",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:48.978288",
+      "event_type": "failure",
+      "description": "Failure: strong update",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 53,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: strong update - operation failed",
+        "metrics": {
+          "error_rate": 0.8097851112646602,
+          "response_time_ms": 3397,
+          "cpu_usage": 0.9209705096417997,
+          "memory_usage": 0.8513267601142693
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:01.978288",
+      "event_type": "failure",
+      "description": "Failure: to monitor",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 260,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: to monitor - operation failed",
+        "metrics": {
+          "error_rate": 0.7498142988613771,
+          "response_time_ms": 1875,
+          "cpu_usage": 0.8619266188422837,
+          "memory_usage": 0.9582780292688725
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:51.978288",
+      "event_type": "failure",
+      "description": "Failure: quot network",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 66,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: quot network - operation failed",
+        "metrics": {
+          "error_rate": 0.8438888604598905,
+          "response_time_ms": 3326,
+          "cpu_usage": 0.9239927786435245,
+          "memory_usage": 0.842847828870151
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:02.978288",
+      "event_type": "recovery",
+      "description": "Recovery: illuminate queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:08.978288",
+      "event_type": "timeout",
+      "description": "Timeout: the node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 284,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: the node - operation failed",
+        "metrics": {
+          "error_rate": 0.7467072495581776,
+          "response_time_ms": 8982,
+          "cpu_usage": 0.8484899453534503,
+          "memory_usage": 0.8451507775763148
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:55:14.978288",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_173245
+description: Infrastructure failure scenario for DependencyFailure
+duration: 809
+metadata:
+  generated_at: '2025-05-23T17:32:45.779263'
+  phrase_templates_used: 45
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:32:45.779135'
+  event_type: trigger
+  description: 'Initial failure detected: failed to'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:19.779135'
+  event_type: failure
+  description: 'Failure: external service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 151
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: external service -
+      operation failed'
+    metrics:
+      error_rate: 0.7273792091138791
+      response_time_ms: 1199
+      cpu_usage: 0.819200797626607
+      memory_usage: 0.89121700019669
+- timestamp: '2025-05-23T17:33:48.779135'
+  event_type: failure
+  description: 'Failure: failed to'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 113
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: failed to - operation
+      failed'
+    metrics:
+      error_rate: 0.6624347852218699
+      response_time_ms: 3427
+      cpu_usage: 0.9214784020633184
+      memory_usage: 0.80848668113874
+- timestamp: '2025-05-23T17:33:49.779135'
+  event_type: failure
+  description: 'Failure: the error'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 112
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.37680698648754063
+      response_time_ms: 8045
+      cpu_usage: 0.9467640399731183
+      memory_usage: 0.9399086224820241
+- timestamp: '2025-05-23T17:33:53.779135'
+  event_type: failure
+  description: 'Failure: failed to'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 291
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: failed to - operation
+      failed'
+    metrics:
+      error_rate: 0.5260101866608894
+      response_time_ms: 2581
+      cpu_usage: 0.7137480958383304
+      memory_usage: 0.9084616626791844
+- timestamp: '2025-05-23T17:46:14.779135'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

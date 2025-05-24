@@ -1,0 +1,48 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173708
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 737
+metadata:
+  generated_at: '2025-05-23T17:37:08.049685'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:37:08.049585'
+  event_type: trigger
+  description: 'Initial failure detected: of memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:36.049585'
+  event_type: recovery
+  description: 'Recovery: free disk'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:55.049585'
+  event_type: recovery
+  description: 'Recovery: code cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:21.049585'
+  event_type: recovery
+  description: 'Recovery: a node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:06.049585'
+  event_type: timeout
+  description: 'Timeout: customer service'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 283
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: customer service - operation
+      failed'
+    metrics:
+      error_rate: 0.23885616834659748
+      response_time_ms: 4868
+      cpu_usage: 0.9920060979696577
+      memory_usage: 0.9027933928332157
+- timestamp: '2025-05-23T17:49:25.049585'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

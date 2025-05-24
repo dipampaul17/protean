@@ -1,0 +1,99 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_173452
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 1445
+metadata:
+  generated_at: '2025-05-23T17:34:52.911023'
+  phrase_templates_used: 50
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:34:52.910838'
+  event_type: trigger
+  description: 'Initial failure detected: to fix'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:35.910838'
+  event_type: failure
+  description: 'Failure: redis connection'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 92
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: redis connection
+      - operation failed'
+    metrics:
+      error_rate: 0.4549800697014591
+      response_time_ms: 6382
+      cpu_usage: 0.9925506964064784
+      memory_usage: 0.8598967748981727
+- timestamp: '2025-05-23T17:35:54.910838'
+  event_type: timeout
+  description: 'Timeout: the cache'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 78
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: the cache - operation
+      failed'
+    metrics:
+      error_rate: 0.7724406917935501
+      response_time_ms: 9047
+      cpu_usage: 0.7141846691729068
+      memory_usage: 0.8157704172052984
+- timestamp: '2025-05-23T17:36:26.910838'
+  event_type: recovery
+  description: 'Recovery: and fix'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:33.910838'
+  event_type: failure
+  description: 'Failure: the pod'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 257
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: the pod - operation failed'
+    metrics:
+      error_rate: 0.7393795454731238
+      response_time_ms: 1624
+      cpu_usage: 0.7187740664661222
+      memory_usage: 0.9734947753123709
+- timestamp: '2025-05-23T17:37:00.910838'
+  event_type: timeout
+  description: 'Timeout: urgent memory'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 196
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: urgent memory - operation
+      failed'
+    metrics:
+      error_rate: 0.704768479403418
+      response_time_ms: 9421
+      cpu_usage: 0.9354282401336267
+      memory_usage: 0.8273845595695091
+- timestamp: '2025-05-23T17:37:42.910838'
+  event_type: failure
+  description: 'Failure: low disk'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 168
+    log_snippet: '[2025-05-23 17:34:52] ERROR payment-service: low disk - operation
+      failed'
+    metrics:
+      error_rate: 0.2029501233365684
+      response_time_ms: 8813
+      cpu_usage: 0.831394485375644
+      memory_usage: 0.9412499821878574
+- timestamp: '2025-05-23T17:58:57.910838'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

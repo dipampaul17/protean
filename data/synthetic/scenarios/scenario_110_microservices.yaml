@@ -1,0 +1,104 @@
+category: Microservices
+name: Microservices_20250523_173245
+description: Infrastructure failure scenario for Microservices
+duration: 1799
+metadata:
+  generated_at: '2025-05-23T17:32:45.683693'
+  phrase_templates_used: 15
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:32:45.683500'
+  event_type: trigger
+  description: 'Initial failure detected: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:22.683500'
+  event_type: recovery
+  description: 'Recovery: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:33.683500'
+  event_type: failure
+  description: 'Failure: a cluster'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 178
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: a cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.20904683034266905
+      response_time_ms: 4410
+      cpu_usage: 0.7756882722793629
+      memory_usage: 0.8340324160331075
+- timestamp: '2025-05-23T17:33:53.683500'
+  event_type: timeout
+  description: 'Timeout: a container'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 40
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: a container - operation
+      failed'
+    metrics:
+      error_rate: 0.10160022785301326
+      response_time_ms: 9595
+      cpu_usage: 0.7355717700480482
+      memory_usage: 0.9913247316530123
+- timestamp: '2025-05-23T17:33:57.683500'
+  event_type: timeout
+  description: 'Timeout: a service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 189
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.6791341123515704
+      response_time_ms: 8906
+      cpu_usage: 0.7761137339397903
+      memory_usage: 0.9784569093913482
+- timestamp: '2025-05-23T17:34:29.683500'
+  event_type: timeout
+  description: 'Timeout: a container'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 152
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: a container -
+      operation failed'
+    metrics:
+      error_rate: 0.702865551732204
+      response_time_ms: 1663
+      cpu_usage: 0.8527815675895797
+      memory_usage: 0.95290543086577
+- timestamp: '2025-05-23T17:35:36.683500'
+  event_type: recovery
+  description: 'Recovery: to service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:46.683500'
+  event_type: failure
+  description: 'Failure: docker network'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 258
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: docker network
+      - operation failed'
+    metrics:
+      error_rate: 0.5644403560902272
+      response_time_ms: 4455
+      cpu_usage: 0.8907306285927914
+      memory_usage: 0.9633467564298172
+- timestamp: '2025-05-23T18:02:44.683500'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

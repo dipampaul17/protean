@@ -1,0 +1,78 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_174629",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 404,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.149220",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.149034",
+      "event_type": "trigger",
+      "description": "Initial failure detected: kafka log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:42.149034",
+      "event_type": "rollback",
+      "description": "Rollback: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:49.149034",
+      "event_type": "failure",
+      "description": "Failure: the server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 118,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.7580877678050266,
+          "response_time_ms": 6010,
+          "cpu_usage": 0.8047358870683514,
+          "memory_usage": 0.9090330972990658
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:46:54.149034",
+      "event_type": "restart",
+      "description": "Restart: a container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:23.149034",
+      "event_type": "restart",
+      "description": "Restart: kafka cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:33.149034",
+      "event_type": "config_change",
+      "description": "Config_Change: kubernetes pod",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:35.149034",
+      "event_type": "rollback",
+      "description": "Rollback: a service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:53:13.149034",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

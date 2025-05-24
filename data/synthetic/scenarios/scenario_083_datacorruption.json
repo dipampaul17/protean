@@ -1,0 +1,90 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173707",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 877,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.949824",
+    "phrase_templates_used": 36,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.949704",
+      "event_type": "trigger",
+      "description": "Initial failure detected: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:34.949704",
+      "event_type": "timeout",
+      "description": "Timeout: the queue",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "medium",
+        "duration": 236,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR payment-service: the queue - operation failed",
+        "metrics": {
+          "error_rate": 0.10239035585490097,
+          "response_time_ms": 1492,
+          "cpu_usage": 0.5891131007474628,
+          "memory_usage": 0.4726598759256364
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:00.949704",
+      "event_type": "timeout",
+      "description": "Timeout: context cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 125,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: context cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.8561125091966285,
+          "response_time_ms": 7382,
+          "cpu_usage": 0.925765742291079,
+          "memory_usage": 0.8401810307349957
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:15.949704",
+      "event_type": "timeout",
+      "description": "Timeout: instance storage",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 73,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: instance storage - operation failed",
+        "metrics": {
+          "error_rate": 0.36410284841695606,
+          "response_time_ms": 5791,
+          "cpu_usage": 0.7979770382661444,
+          "memory_usage": 0.9092542511834567
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:31.949704",
+      "event_type": "recovery",
+      "description": "Recovery: second node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:51:44.949704",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

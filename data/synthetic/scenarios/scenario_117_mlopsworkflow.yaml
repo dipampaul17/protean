@@ -1,0 +1,74 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_173245
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 421
+metadata:
+  generated_at: '2025-05-23T17:32:45.686551'
+  phrase_templates_used: 0
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:32:45.686401'
+  event_type: trigger
+  description: 'Initial failure detected: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:11.686401'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 123
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.8980808130233809
+      response_time_ms: 8353
+      cpu_usage: 0.7404197885708163
+      memory_usage: 0.9630987716834736
+- timestamp: '2025-05-23T17:33:14.686401'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:39.686401'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 77
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.20899795052239645
+      response_time_ms: 5183
+      cpu_usage: 0.8330268225404657
+      memory_usage: 0.9086785482125089
+- timestamp: '2025-05-23T17:33:50.686401'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:04.686401'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 125
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: deployment failed
+      - operation failed'
+    metrics:
+      error_rate: 0.2781451961737356
+      response_time_ms: 4440
+      cpu_usage: 0.8606411846151214
+      memory_usage: 0.8019553371857365
+- timestamp: '2025-05-23T17:39:46.686401'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

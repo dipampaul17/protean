@@ -1,0 +1,90 @@
+{
+  "category": "DataCorruption",
+  "name": "DataCorruption_20250523_173452",
+  "description": "Infrastructure failure scenario for DataCorruption",
+  "duration": 1200,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.902286",
+    "phrase_templates_used": 36,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.902107",
+      "event_type": "trigger",
+      "description": "Initial failure detected: one server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:37.902107",
+      "event_type": "timeout",
+      "description": "Timeout: original container",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 116,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: original container - operation failed",
+        "metrics": {
+          "error_rate": 0.8448594863884815,
+          "response_time_ms": 3416,
+          "cpu_usage": 0.9806588057709914,
+          "memory_usage": 0.9159583121277038
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:41.902107",
+      "event_type": "recovery",
+      "description": "Recovery: ebs storage",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:51.902107",
+      "event_type": "timeout",
+      "description": "Timeout: one server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 250,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: one server - operation failed",
+        "metrics": {
+          "error_rate": 0.3848906596579329,
+          "response_time_ms": 4275,
+          "cpu_usage": 0.9760222716109451,
+          "memory_usage": 0.9377114884995901
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:33.902107",
+      "event_type": "timeout",
+      "description": "Timeout: one server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 297,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: one server - operation failed",
+        "metrics": {
+          "error_rate": 0.7836160308875971,
+          "response_time_ms": 7652,
+          "cpu_usage": 0.7527295984718682,
+          "memory_usage": 0.8760362019948311
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:54:52.902107",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

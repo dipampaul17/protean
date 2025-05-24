@@ -1,0 +1,71 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_174628
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1205
+metadata:
+  generated_at: '2025-05-23T17:46:28.969772'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:28.969489'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:11.969489'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:12.969489'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:16.969489'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:29.969489'
+  event_type: recovery
+  description: 'Recovery: network unreachable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:34.969489'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:47.969489'
+  event_type: failure
+  description: 'Failure: disk space full'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 120
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: disk space full - operation
+      failed'
+    metrics:
+      error_rate: 0.8265243199040418
+      response_time_ms: 5069
+      cpu_usage: 0.7810992237356413
+      memory_usage: 0.9668962979147708
+- timestamp: '2025-05-23T17:48:58.969489'
+  event_type: timeout
+  description: 'Timeout: rate limit exceeded'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 93
+    log_snippet: '[2025-05-23 17:46:28] ERROR user-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.3305762157054597
+      response_time_ms: 2336
+      cpu_usage: 0.9440975585167651
+      memory_usage: 0.8130731703654082
+- timestamp: '2025-05-23T18:06:33.969489'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

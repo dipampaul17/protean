@@ -1,0 +1,81 @@
+{
+  "category": "EventDriven",
+  "name": "EventDriven_20250523_173708",
+  "description": "Message queue and event processing failures",
+  "duration": 1049,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.020347",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.020195",
+      "event_type": "trigger",
+      "description": "Initial failure detected: badmatch error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:50.020195",
+      "event_type": "timeout",
+      "description": "Timeout: the server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-queue",
+        "severity": "high",
+        "duration": 216,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-queue: queue processing the server",
+        "metrics": {
+          "error_rate": 0.5876900468498362,
+          "response_time_ms": 9917,
+          "cpu_usage": 0.9643494674782642,
+          "memory_usage": 0.8408289799961783,
+          "queue_depth": 32691,
+          "message_processing_rate": 5.236164070182458,
+          "consumer_lag_ms": 112575
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:21.020195",
+      "event_type": "queue_overflow",
+      "description": "Queue_Overflow: var log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:06.020195",
+      "event_type": "recovery",
+      "description": "Recovery: new queue",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:17.020195",
+      "event_type": "recovery",
+      "description": "Recovery: of node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:24.020195",
+      "event_type": "message_loss",
+      "description": "Message_Loss: rabbitmq service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:58.020195",
+      "event_type": "message_loss",
+      "description": "Message_Loss: badmatch error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:54:37.020195",
+      "event_type": "recovery",
+      "description": "System recovered: message queue drained",
+      "injection_spec": null
+    }
+  ]
+}

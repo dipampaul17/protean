@@ -1,0 +1,86 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_173708
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1600
+metadata:
+  generated_at: '2025-05-23T17:37:08.039494'
+  phrase_templates_used: 45
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:08.039302'
+  event_type: trigger
+  description: 'Initial failure detected: quot network'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:39.039302'
+  event_type: timeout
+  description: 'Timeout: the error'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 107
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: the error - operation
+      failed'
+    metrics:
+      error_rate: 0.8192174795150624
+      response_time_ms: 1970
+      cpu_usage: 0.8778372184239385
+      memory_usage: 0.8705417694336386
+- timestamp: '2025-05-23T17:37:48.039302'
+  event_type: recovery
+  description: 'Recovery: to network'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:49.039302'
+  event_type: recovery
+  description: 'Recovery: code server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:07.039302'
+  event_type: recovery
+  description: 'Recovery: federated queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:11.039302'
+  event_type: failure
+  description: 'Failure: to monitor'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 42
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: to monitor - operation
+      failed'
+    metrics:
+      error_rate: 0.15890470801448783
+      response_time_ms: 2274
+      cpu_usage: 0.7457483784404613
+      memory_usage: 0.9488488298341692
+- timestamp: '2025-05-23T17:38:39.039302'
+  event_type: recovery
+  description: 'Recovery: exist error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:01.039302'
+  event_type: recovery
+  description: 'Recovery: coirq error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:32.039302'
+  event_type: failure
+  description: 'Failure: code error'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 300
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: code error - operation
+      failed'
+    metrics:
+      error_rate: 0.17689456697281597
+      response_time_ms: 1122
+      cpu_usage: 0.7800553661080892
+      memory_usage: 0.8443210128584527
+- timestamp: '2025-05-23T18:03:48.039302'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

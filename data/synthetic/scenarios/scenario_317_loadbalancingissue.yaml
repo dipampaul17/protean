@@ -1,0 +1,46 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_173708
+description: Load balancer and traffic distribution problems
+duration: 675
+metadata:
+  generated_at: '2025-05-23T17:37:08.035505'
+  phrase_templates_used: 13
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:37:08.035420'
+  event_type: trigger
+  description: 'Initial failure detected: loadbalancer service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:20.035420'
+  event_type: timeout
+  description: 'Timeout: load balancer'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 110
+    log_snippet: '[2025-05-23 17:37:08] ERROR subnet-private: load balancer in timeout'
+    metrics:
+      error_rate: 0.20013616890130487
+      response_time_ms: 5817
+      cpu_usage: 0.8657772635207266
+      memory_usage: 0.8559819324361397
+      requests_per_sec: 6710
+      backend_health_pct: 0.7240576043247915
+      connection_timeouts: 209
+- timestamp: '2025-05-23T17:38:09.035420'
+  event_type: traffic_spike
+  description: 'Traffic_Spike: kafka pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:40:19.035420'
+  event_type: backend_failure
+  description: 'Backend_Failure: your cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:23.035420'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

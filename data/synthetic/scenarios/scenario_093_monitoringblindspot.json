@@ -1,0 +1,120 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173452",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1676,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.984786",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.984629",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:34.984629",
+      "event_type": "failure",
+      "description": "Failure: kubernetes cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 40,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: kubernetes cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.4363767240096369,
+          "response_time_ms": 1788,
+          "cpu_usage": 0.9059358753042873,
+          "memory_usage": 0.8459937888953016
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:56.984629",
+      "event_type": "timeout",
+      "description": "Timeout: kubernetes cluster",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 76,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: kubernetes cluster - operation failed",
+        "metrics": {
+          "error_rate": 0.8867578840151645,
+          "response_time_ms": 8771,
+          "cpu_usage": 0.9538734915583376,
+          "memory_usage": 0.880489717958423
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:27.984629",
+      "event_type": "timeout",
+      "description": "Timeout: monitoring memory",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 210,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: monitoring memory - operation failed",
+        "metrics": {
+          "error_rate": 0.5032895867510151,
+          "response_time_ms": 2795,
+          "cpu_usage": 0.7922790388347318,
+          "memory_usage": 0.9018228125745051
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:46.984629",
+      "event_type": "failure",
+      "description": "Failure: parse error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 176,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR user-service: parse error - operation failed",
+        "metrics": {
+          "error_rate": 0.6141282109584142,
+          "response_time_ms": 7217,
+          "cpu_usage": 0.9515425303150564,
+          "memory_usage": 0.8751115581115396
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:55.984629",
+      "event_type": "timeout",
+      "description": "Timeout: to monitor",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 180,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: to monitor - operation failed",
+        "metrics": {
+          "error_rate": 0.21570382603928204,
+          "response_time_ms": 3357,
+          "cpu_usage": 0.7447693386750985,
+          "memory_usage": 0.8740192062588129
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:02:48.984629",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

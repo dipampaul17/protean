@@ -1,0 +1,59 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_174629
+description: Infrastructure failure scenario for ETLPipeline
+duration: 820
+metadata:
+  generated_at: '2025-05-23T17:46:29.018624'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:29.015539'
+  event_type: trigger
+  description: 'Initial failure detected: memory limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:39.015539'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:07.015539'
+  event_type: timeout
+  description: 'Timeout: connection timeout'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 54
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: connection timeout - operation
+      failed'
+    metrics:
+      error_rate: 0.510365277301315
+      response_time_ms: 6767
+      cpu_usage: 0.8424725714146442
+      memory_usage: 0.8941988536575337
+- timestamp: '2025-05-23T17:49:21.015539'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:43.015539'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 287
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.251145572320279
+      response_time_ms: 1950
+      cpu_usage: 0.9025854353716536
+      memory_usage: 0.9179203160109602
+- timestamp: '2025-05-23T18:00:09.015539'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

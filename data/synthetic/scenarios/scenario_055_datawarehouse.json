@@ -1,0 +1,96 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_174628",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 1555,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.920429",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.920292",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:41.920292",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 154,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.5225310414075509,
+          "response_time_ms": 9473,
+          "cpu_usage": 0.9074571590111665,
+          "memory_usage": 0.9536640605614202
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:12.920292",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 279,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.8644754297261461,
+          "response_time_ms": 5929,
+          "cpu_usage": 0.8342723032267564,
+          "memory_usage": 0.8339114234757607
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:33.920292",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:28.920292",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 219,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.28537740148575824,
+          "response_time_ms": 5249,
+          "cpu_usage": 0.9382924450423301,
+          "memory_usage": 0.8398462363080439
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:51:07.920292",
+      "event_type": "recovery",
+      "description": "Recovery: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:12:23.920292",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

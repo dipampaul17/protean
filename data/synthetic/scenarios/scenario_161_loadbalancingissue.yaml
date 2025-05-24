@@ -1,0 +1,71 @@
+category: LoadBalancingIssue
+name: LoadBalancingIssue_20250523_174628
+description: Load balancer and traffic distribution problems
+duration: 747
+metadata:
+  generated_at: '2025-05-23T17:46:28.972857'
+  phrase_templates_used: 13
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:46:28.972166'
+  event_type: trigger
+  description: 'Initial failure detected: your cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:53.972166'
+  event_type: scaling
+  description: 'Scaling: a server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:57.972166'
+  event_type: timeout
+  description: 'Timeout: the server'
+  injection_spec:
+    type: timeout
+    target: vpc-main
+    severity: high
+    duration: 205
+    log_snippet: '[2025-05-23 17:46:28] ERROR vpc-main: the server in timeout'
+    metrics:
+      error_rate: 0.1730291894169646
+      response_time_ms: 5355
+      cpu_usage: 0.9787644398861286
+      memory_usage: 0.8970090090846794
+      requests_per_sec: 3748
+      backend_health_pct: 0.6899112823084603
+      connection_timeouts: 964
+- timestamp: '2025-05-23T17:46:59.972166'
+  event_type: timeout
+  description: 'Timeout: the server'
+  injection_spec:
+    type: timeout
+    target: subnet-private
+    severity: high
+    duration: 264
+    log_snippet: '[2025-05-23 17:46:28] ERROR subnet-private: the server in timeout'
+    metrics:
+      error_rate: 0.3891755096780968
+      response_time_ms: 2020
+      cpu_usage: 0.9123282775203304
+      memory_usage: 0.967624338112622
+      requests_per_sec: 7889
+      backend_health_pct: 0.6930523752205517
+      connection_timeouts: 881
+- timestamp: '2025-05-23T17:47:06.972166'
+  event_type: scaling
+  description: 'Scaling: loadbalancer service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:12.972166'
+  event_type: scaling
+  description: 'Scaling: kafka pod'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:31.972166'
+  event_type: scaling
+  description: 'Scaling: strong update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:58:55.972166'
+  event_type: recovery
+  description: 'System recovered: load balanced restored'
+  injection_spec: null

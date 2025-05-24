@@ -1,0 +1,130 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_174629
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 405
+metadata:
+  generated_at: '2025-05-23T17:46:29.123859'
+  phrase_templates_used: 0
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 7
+events:
+- timestamp: '2025-05-23T17:46:29.123588'
+  event_type: trigger
+  description: 'Initial failure detected: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:43.123588'
+  event_type: failure
+  description: 'Failure: connection timeout'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 72
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: connection timeout
+      - operation failed'
+    metrics:
+      error_rate: 0.6181574441003292
+      response_time_ms: 7647
+      cpu_usage: 0.7700970023325057
+      memory_usage: 0.8062519647364248
+- timestamp: '2025-05-23T17:46:53.123588'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 82
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.20987170689656118
+      response_time_ms: 1239
+      cpu_usage: 0.9082110648480768
+      memory_usage: 0.9066766553569413
+- timestamp: '2025-05-23T17:46:55.123588'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 41
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.12760064575491895
+      response_time_ms: 6227
+      cpu_usage: 0.9755224302101477
+      memory_usage: 0.8508387510123582
+- timestamp: '2025-05-23T17:46:57.123588'
+  event_type: timeout
+  description: 'Timeout: network unreachable'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 91
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: network unreachable
+      - operation failed'
+    metrics:
+      error_rate: 0.7715800020692448
+      response_time_ms: 7185
+      cpu_usage: 0.8206069712176811
+      memory_usage: 0.9844252265432207
+- timestamp: '2025-05-23T17:46:58.123588'
+  event_type: recovery
+  description: 'Recovery: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:02.123588'
+  event_type: failure
+  description: 'Failure: circuit breaker triggered'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 220
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.5784388133327648
+      response_time_ms: 2539
+      cpu_usage: 0.9631214189340144
+      memory_usage: 0.9778560817744073
+- timestamp: '2025-05-23T17:47:13.123588'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 265
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: circuit breaker triggered
+      - operation failed'
+    metrics:
+      error_rate: 0.23171504655173508
+      response_time_ms: 3703
+      cpu_usage: 0.7428787172672331
+      memory_usage: 0.8086955006023819
+- timestamp: '2025-05-23T17:47:19.123588'
+  event_type: failure
+  description: 'Failure: rate limit exceeded'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 138
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: rate limit exceeded -
+      operation failed'
+    metrics:
+      error_rate: 0.20252876481258336
+      response_time_ms: 2744
+      cpu_usage: 0.8875427916631927
+      memory_usage: 0.9858732470133399
+- timestamp: '2025-05-23T17:53:14.123588'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

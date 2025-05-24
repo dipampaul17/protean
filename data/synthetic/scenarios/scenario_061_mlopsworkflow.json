@@ -1,0 +1,150 @@
+{
+  "category": "MLOpsWorkflow",
+  "name": "MLOpsWorkflow_20250523_174628",
+  "description": "Infrastructure failure scenario for MLOpsWorkflow",
+  "duration": 1740,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.922980",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 6
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.922137",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:01.922137",
+      "event_type": "timeout",
+      "description": "Timeout: memory limit exceeded",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 245,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: memory limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.19482744339541533,
+          "response_time_ms": 5063,
+          "cpu_usage": 0.8806401586924784,
+          "memory_usage": 0.8095675241356707
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:17.922137",
+      "event_type": "recovery",
+      "description": "Recovery: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:32.922137",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 34,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.6596656888262633,
+          "response_time_ms": 2530,
+          "cpu_usage": 0.8036143363594064,
+          "memory_usage": 0.9507017175512155
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:12.922137",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:35.922137",
+      "event_type": "failure",
+      "description": "Failure: network unreachable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 42,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: network unreachable - operation failed",
+        "metrics": {
+          "error_rate": 0.22424219394226397,
+          "response_time_ms": 7524,
+          "cpu_usage": 0.9747069430765023,
+          "memory_usage": 0.9240014427686536
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:54.922137",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 107,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.6041570357890607,
+          "response_time_ms": 9128,
+          "cpu_usage": 0.994798331414942,
+          "memory_usage": 0.8730059171084172
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:55.922137",
+      "event_type": "failure",
+      "description": "Failure: queue overflow",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 130,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR notification-service: queue overflow - operation failed",
+        "metrics": {
+          "error_rate": 0.18559669105057816,
+          "response_time_ms": 5681,
+          "cpu_usage": 0.9567004691366241,
+          "memory_usage": 0.8760812419654598
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:50:02.922137",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 205,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR user-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.679752974083143,
+          "response_time_ms": 1778,
+          "cpu_usage": 0.9170657477302241,
+          "memory_usage": 0.8892626960977941
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:15:28.922137",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

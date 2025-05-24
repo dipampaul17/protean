@@ -1,0 +1,78 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173245",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 1654,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.687102",
+    "phrase_templates_used": 45,
+    "total_events": 6,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.686985",
+      "event_type": "trigger",
+      "description": "Initial failure detected: failed to",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:28.686985",
+      "event_type": "recovery",
+      "description": "Recovery: work log",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:05.686985",
+      "event_type": "recovery",
+      "description": "Recovery: the error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:55.686985",
+      "event_type": "failure",
+      "description": "Failure: illuminate queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "medium",
+        "duration": 288,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: illuminate queue - operation failed",
+        "metrics": {
+          "error_rate": 0.11239583335024018,
+          "response_time_ms": 1457,
+          "cpu_usage": 0.3702613553015864,
+          "memory_usage": 0.6837216957506709
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:18.686985",
+      "event_type": "timeout",
+      "description": "Timeout: proxy server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 116,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: proxy server - operation failed",
+        "metrics": {
+          "error_rate": 0.30552780263142354,
+          "response_time_ms": 9446,
+          "cpu_usage": 0.8077921077087847,
+          "memory_usage": 0.8855471291016886
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:00:19.686985",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "category": "Microservices",
+  "name": "Microservices_20250523_173245",
+  "description": "Infrastructure failure scenario for Microservices",
+  "duration": 429,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.711538",
+    "phrase_templates_used": 15,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.711364",
+      "event_type": "trigger",
+      "description": "Initial failure detected: following error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:02.711364",
+      "event_type": "failure",
+      "description": "Failure: another container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 262,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: another container - operation failed",
+        "metrics": {
+          "error_rate": 0.3496624885691724,
+          "response_time_ms": 6985,
+          "cpu_usage": 0.8346984453757527,
+          "memory_usage": 0.808277156336716
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:04.711364",
+      "event_type": "failure",
+      "description": "Failure: headless service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 223,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: headless service - operation failed",
+        "metrics": {
+          "error_rate": 0.617686137761237,
+          "response_time_ms": 2814,
+          "cpu_usage": 0.764567181673441,
+          "memory_usage": 0.9327437524520809
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:06.711364",
+      "event_type": "recovery",
+      "description": "Recovery: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:14.711364",
+      "event_type": "timeout",
+      "description": "Timeout: http connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 55,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: http connection - operation failed",
+        "metrics": {
+          "error_rate": 0.3802027934308728,
+          "response_time_ms": 4878,
+          "cpu_usage": 0.8450249452857548,
+          "memory_usage": 0.9569369221115054
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:33.711364",
+      "event_type": "timeout",
+      "description": "Timeout: lt service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 103,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: lt service - operation failed",
+        "metrics": {
+          "error_rate": 0.4858723667923067,
+          "response_time_ms": 9223,
+          "cpu_usage": 0.9011792461295538,
+          "memory_usage": 0.9267374759055602
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:34.711364",
+      "event_type": "timeout",
+      "description": "Timeout: headless service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 89,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: headless service - operation failed",
+        "metrics": {
+          "error_rate": 0.6411507249264379,
+          "response_time_ms": 9703,
+          "cpu_usage": 0.8036854472708955,
+          "memory_usage": 0.836932925211117
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:54.711364",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

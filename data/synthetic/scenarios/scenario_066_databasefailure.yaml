@@ -1,0 +1,80 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173245
+description: Database connectivity and performance issues
+duration: 1774
+metadata:
+  generated_at: '2025-05-23T17:32:45.672292'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.672096'
+  event_type: trigger
+  description: 'Initial failure detected: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:03.672096'
+  event_type: timeout
+  description: 'Timeout: mysql database'
+  injection_spec:
+    type: timeout
+    target: mongodb-shard
+    severity: high
+    duration: 130
+    log_snippet: '[2025-05-23 17:32:45] ERROR mongodb-shard: mysql database in timeout'
+    metrics:
+      error_rate: 0.4412574617413576
+      response_time_ms: 9335
+      cpu_usage: 0.7930887225665996
+      memory_usage: 0.9288738183562085
+      connection_pool_usage: 0.8411887150152932
+      query_time_ms: 16598
+      deadlocks_per_sec: 2
+- timestamp: '2025-05-23T17:33:36.672096'
+  event_type: recovery
+  description: 'Recovery: the service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:35.672096'
+  event_type: corruption
+  description: 'Corruption: clustered index'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:02.672096'
+  event_type: connection_loss
+  description: 'Connection_Loss: the container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:02.672096'
+  event_type: timeout
+  description: 'Timeout: to update'
+  injection_spec:
+    type: timeout
+    target: postgres-replica
+    severity: high
+    duration: 174
+    log_snippet: '[2025-05-23 17:32:45] FATAL postgres-replica: database to update
+      detected'
+    metrics:
+      error_rate: 0.20957350021132326
+      response_time_ms: 8728
+      cpu_usage: 0.7610965027034285
+      memory_usage: 0.9270419455363489
+      connection_pool_usage: 0.928442799745634
+      query_time_ms: 28295
+      deadlocks_per_sec: 7
+- timestamp: '2025-05-23T17:35:36.672096'
+  event_type: recovery
+  description: 'Recovery: mysql error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:52.672096'
+  event_type: connection_loss
+  description: 'Connection_Loss: to scale'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:54.672096'
+  event_type: corruption
+  description: 'Corruption: mysql error'
+  injection_spec: null
+- timestamp: '2025-05-23T18:02:19.672096'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

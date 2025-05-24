@@ -1,0 +1,96 @@
+{
+  "category": "CloudNative",
+  "name": "CloudNative_20250523_173245",
+  "description": "Kubernetes pod and container orchestration issues",
+  "duration": 756,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.722565",
+    "phrase_templates_used": 39,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.722420",
+      "event_type": "trigger",
+      "description": "Initial failure detected: your container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:10.722420",
+      "event_type": "failure",
+      "description": "Failure: kubernetes error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 97,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR nginx-proxy: kubernetes error in failure",
+        "metrics": {
+          "error_rate": 0.7065808428390646,
+          "response_time_ms": 7654,
+          "cpu_usage": 0.965987061506299,
+          "memory_usage": 0.8023871376474537
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:06.722420",
+      "event_type": "failure",
+      "description": "Failure: the server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 116,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR nginx-proxy: the server in failure",
+        "metrics": {
+          "error_rate": 0.8272783573421679,
+          "response_time_ms": 2162,
+          "cpu_usage": 0.8715493441964015,
+          "memory_usage": 0.9086808192625331
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:43.722420",
+      "event_type": "failure",
+      "description": "Failure: kubernetes cluster",
+      "injection_spec": {
+        "type": "failure",
+        "target": "nginx-proxy",
+        "severity": "high",
+        "duration": 118,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR nginx-proxy: kubernetes cluster in failure",
+        "metrics": {
+          "error_rate": 0.5919268704278896,
+          "response_time_ms": 2535,
+          "cpu_usage": 0.8791243100092663,
+          "memory_usage": 0.8635235843007673
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:34:53.722420",
+      "event_type": "deployment",
+      "description": "Deployment: true server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:34:55.722420",
+      "event_type": "deployment",
+      "description": "Deployment: eks cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:45:21.722420",
+      "event_type": "recovery",
+      "description": "System recovered: pod restarted successfully",
+      "injection_spec": null
+    }
+  ]
+}

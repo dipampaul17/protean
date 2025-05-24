@@ -1,0 +1,72 @@
+{
+  "category": "NetworkPartition",
+  "name": "NetworkPartition_20250523_173453",
+  "description": "Infrastructure failure scenario for NetworkPartition",
+  "duration": 1182,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.201992",
+    "phrase_templates_used": 4,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.201738",
+      "event_type": "trigger",
+      "description": "Initial failure detected: and node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:11.201738",
+      "event_type": "failure",
+      "description": "Failure: each node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 294,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: each node - operation failed",
+        "metrics": {
+          "error_rate": 0.6990600768576053,
+          "response_time_ms": 7955,
+          "cpu_usage": 0.7638767561599654,
+          "memory_usage": 0.9203198490824056
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:25.201738",
+      "event_type": "recovery",
+      "description": "Recovery: each node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:39:10.201738",
+      "event_type": "failure",
+      "description": "Failure: each node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 173,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: each node - operation failed",
+        "metrics": {
+          "error_rate": 0.8236757359857042,
+          "response_time_ms": 6399,
+          "cpu_usage": 0.7460292352311785,
+          "memory_usage": 0.9152605570800502
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:54:35.201738",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

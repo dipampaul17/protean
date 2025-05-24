@@ -1,0 +1,138 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_173452",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 1480,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.904350",
+    "phrase_templates_used": 24,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.904137",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:35.904137",
+      "event_type": "recovery",
+      "description": "Recovery: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:39.904137",
+      "event_type": "failure",
+      "description": "Failure: the service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 91,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR auth-service: the service - operation failed",
+        "metrics": {
+          "error_rate": 0.3398818482143547,
+          "response_time_ms": 9105,
+          "cpu_usage": 0.7599237479879785,
+          "memory_usage": 0.9570937802856051
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:57.904137",
+      "event_type": "failure",
+      "description": "Failure: the server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 99,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR user-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.8683056424270275,
+          "response_time_ms": 7362,
+          "cpu_usage": 0.8476489158255132,
+          "memory_usage": 0.9260790995833288
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:09.904137",
+      "event_type": "timeout",
+      "description": "Timeout: the server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 56,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.7797130331187859,
+          "response_time_ms": 2324,
+          "cpu_usage": 0.9484800721014822,
+          "memory_usage": 0.8456738911888421
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:24.904137",
+      "event_type": "failure",
+      "description": "Failure: the pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 164,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR user-service: the pod - operation failed",
+        "metrics": {
+          "error_rate": 0.5787752910552179,
+          "response_time_ms": 9324,
+          "cpu_usage": 0.7396124516140251,
+          "memory_usage": 0.9883936189912477
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:35.904137",
+      "event_type": "recovery",
+      "description": "Recovery: the cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:13.904137",
+      "event_type": "recovery",
+      "description": "Recovery: to fix",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:40.904137",
+      "event_type": "failure",
+      "description": "Failure: the server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 246,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR auth-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.21458624832533968,
+          "response_time_ms": 6647,
+          "cpu_usage": 0.9533499142119237,
+          "memory_usage": 0.9401947796883563
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:59:32.904137",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

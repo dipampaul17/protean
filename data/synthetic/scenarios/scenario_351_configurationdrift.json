@@ -1,0 +1,72 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_173453",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1275,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.279592",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 1
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.279472",
+      "event_type": "trigger",
+      "description": "Initial failure detected: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:19.279472",
+      "event_type": "config_change",
+      "description": "Config_Change: proxy server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:46.279472",
+      "event_type": "restart",
+      "description": "Restart: elasticsearch cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:18.279472",
+      "event_type": "rollback",
+      "description": "Rollback: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:37.279472",
+      "event_type": "failure",
+      "description": "Failure: nginx restart",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 298,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR auth-service: nginx restart - operation failed",
+        "metrics": {
+          "error_rate": 0.19096778914151535,
+          "response_time_ms": 4591,
+          "cpu_usage": 0.9772841420165453,
+          "memory_usage": 0.9804314756858046
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:00.279472",
+      "event_type": "restart",
+      "description": "Restart: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:56:08.279472",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

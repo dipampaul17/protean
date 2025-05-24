@@ -1,0 +1,126 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173245",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 447,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.712662",
+    "phrase_templates_used": 0,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.712490",
+      "event_type": "trigger",
+      "description": "Initial failure detected: circuit breaker triggered",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:04.712490",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 124,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.17843864722962596,
+          "response_time_ms": 1702,
+          "cpu_usage": 0.9707628826039165,
+          "memory_usage": 0.8661844295441661
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:17.712490",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 141,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.1256441281863853,
+          "response_time_ms": 6657,
+          "cpu_usage": 0.8281947239811895,
+          "memory_usage": 0.8137393732361208
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:40.712490",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 291,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.20442112125151493,
+          "response_time_ms": 3127,
+          "cpu_usage": 0.8893742421981086,
+          "memory_usage": 0.8404587606975398
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:52.712490",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 47,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.7125912096977244,
+          "response_time_ms": 8861,
+          "cpu_usage": 0.8306759965878859,
+          "memory_usage": 0.9460319717136766
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:53.712490",
+      "event_type": "recovery",
+      "description": "Recovery: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:33:59.712490",
+      "event_type": "timeout",
+      "description": "Timeout: deployment failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 206,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR notification-service: deployment failed - operation failed",
+        "metrics": {
+          "error_rate": 0.5226295023116746,
+          "response_time_ms": 1561,
+          "cpu_usage": 0.8923424923817167,
+          "memory_usage": 0.9614122552462663
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:12.712490",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

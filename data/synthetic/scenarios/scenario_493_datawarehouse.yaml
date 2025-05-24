@@ -1,0 +1,55 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173245
+description: Infrastructure failure scenario for DataWarehouse
+duration: 327
+metadata:
+  generated_at: '2025-05-23T17:32:45.796865'
+  phrase_templates_used: 0
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:32:45.796774'
+  event_type: trigger
+  description: 'Initial failure detected: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:54.796774'
+  event_type: timeout
+  description: 'Timeout: container crashed'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 220
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: container crashed - operation
+      failed'
+    metrics:
+      error_rate: 0.810302985992992
+      response_time_ms: 2312
+      cpu_usage: 0.7029086206594889
+      memory_usage: 0.9439982218353665
+- timestamp: '2025-05-23T17:34:14.796774'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 96
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.16093408822677013
+      response_time_ms: 5797
+      cpu_usage: 0.7211600569644977
+      memory_usage: 0.809575896106613
+- timestamp: '2025-05-23T17:34:32.796774'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:12.796774'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

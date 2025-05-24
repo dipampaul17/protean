@@ -1,0 +1,96 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173452",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 1692,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.911363",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.911218",
+      "event_type": "trigger",
+      "description": "Initial failure detected: to fix",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:36.911218",
+      "event_type": "recovery",
+      "description": "Recovery: connection refused",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:15.911218",
+      "event_type": "failure",
+      "description": "Failure: the database",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 162,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR notification-service: the database - operation failed",
+        "metrics": {
+          "error_rate": 0.43098037531994604,
+          "response_time_ms": 5053,
+          "cpu_usage": 0.9041928718277555,
+          "memory_usage": 0.8314736767776902
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:39:22.911218",
+      "event_type": "failure",
+      "description": "Failure: and memory",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 282,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR auth-service: and memory - operation failed",
+        "metrics": {
+          "error_rate": 0.5030147861536193,
+          "response_time_ms": 4006,
+          "cpu_usage": 0.762925568023231,
+          "memory_usage": 0.8166419011106061
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:01.911218",
+      "event_type": "recovery",
+      "description": "Recovery: the database",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:40:21.911218",
+      "event_type": "timeout",
+      "description": "Timeout: a server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 113,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR auth-service: a server - operation failed",
+        "metrics": {
+          "error_rate": 0.6971890606259765,
+          "response_time_ms": 2299,
+          "cpu_usage": 0.7402633128468709,
+          "memory_usage": 0.8479676458403815
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:03:04.911218",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

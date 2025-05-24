@@ -1,0 +1,63 @@
+category: DatabaseFailure
+name: DatabaseFailure_20250523_173453
+description: Database connectivity and performance issues
+duration: 1608
+metadata:
+  generated_at: '2025-05-23T17:34:53.108718'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:34:53.108442'
+  event_type: trigger
+  description: 'Initial failure detected: a service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:24.108442'
+  event_type: timeout
+  description: 'Timeout: docker container'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 70
+    log_snippet: '[2025-05-23 17:34:53] ERROR redis-cache: docker container in timeout'
+    metrics:
+      error_rate: 0.4162612248565781
+      response_time_ms: 1755
+      cpu_usage: 0.7607702534214222
+      memory_usage: 0.9996570273874392
+      connection_pool_usage: 0.9056122025367372
+      query_time_ms: 18278
+      deadlocks_per_sec: 1
+- timestamp: '2025-05-23T17:39:10.108442'
+  event_type: recovery
+  description: 'Recovery: var log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:39:17.108442'
+  event_type: timeout
+  description: 'Timeout: the container'
+  injection_spec:
+    type: timeout
+    target: redis-cache
+    severity: high
+    duration: 72
+    log_snippet: '[2025-05-23 17:34:53] ERROR redis-cache: the container in timeout'
+    metrics:
+      error_rate: 0.872021767035489
+      response_time_ms: 9845
+      cpu_usage: 0.7127646174878559
+      memory_usage: 0.8971961200153283
+      connection_pool_usage: 0.914205897901635
+      query_time_ms: 13277
+      deadlocks_per_sec: 1
+- timestamp: '2025-05-23T17:39:31.108442'
+  event_type: connection_loss
+  description: 'Connection_Loss: the database'
+  injection_spec: null
+- timestamp: '2025-05-23T18:01:41.108442'
+  event_type: recovery
+  description: 'System recovered: database connection restored'
+  injection_spec: null

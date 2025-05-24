@@ -1,0 +1,97 @@
+category: Microservices
+name: Microservices_20250523_173245
+description: Infrastructure failure scenario for Microservices
+duration: 1279
+metadata:
+  generated_at: '2025-05-23T17:32:45.797230'
+  phrase_templates_used: 15
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:32:45.797024'
+  event_type: trigger
+  description: 'Initial failure detected: strong service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:00.797024'
+  event_type: recovery
+  description: 'Recovery: the container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:02.797024'
+  event_type: timeout
+  description: 'Timeout: following error'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 167
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: following error - operation
+      failed'
+    metrics:
+      error_rate: 0.40189493991625225
+      response_time_ms: 2348
+      cpu_usage: 0.7662572325971505
+      memory_usage: 0.8529834832666846
+- timestamp: '2025-05-23T17:33:38.797024'
+  event_type: failure
+  description: 'Failure: a service'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 151
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.7326139765361368
+      response_time_ms: 2071
+      cpu_usage: 0.7920669695438338
+      memory_usage: 0.9121128169488256
+- timestamp: '2025-05-23T17:34:00.797024'
+  event_type: recovery
+  description: 'Recovery: the container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:27.797024'
+  event_type: recovery
+  description: 'Recovery: a cluster'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:28.797024'
+  event_type: recovery
+  description: 'Recovery: ui service'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:51.797024'
+  event_type: failure
+  description: 'Failure: to service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 151
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: to service - operation
+      failed'
+    metrics:
+      error_rate: 0.62034595160459
+      response_time_ms: 2447
+      cpu_usage: 0.952424420421347
+      memory_usage: 0.8288825909044157
+- timestamp: '2025-05-23T17:35:23.797024'
+  event_type: failure
+  description: 'Failure: a cluster'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 73
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: a cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.412373757380762
+      response_time_ms: 9389
+      cpu_usage: 0.709492598430427
+      memory_usage: 0.8905399735394908
+- timestamp: '2025-05-23T17:54:04.797024'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

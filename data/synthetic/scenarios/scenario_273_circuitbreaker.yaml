@@ -1,0 +1,85 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173245
+description: Circuit breaker activation due to cascading service failures
+duration: 1569
+metadata:
+  generated_at: '2025-05-23T17:32:45.739213'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:32:45.739071'
+  event_type: trigger
+  description: 'Initial failure detected: client error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:32:58.739071'
+  event_type: failure
+  description: 'Failure: info node'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 150
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: info node - operation
+      failed'
+    metrics:
+      error_rate: 0.25037156995032983
+      response_time_ms: 2989
+      cpu_usage: 0.7865895995366806
+      memory_usage: 0.9941664600220084
+- timestamp: '2025-05-23T17:34:29.739071'
+  event_type: timeout
+  description: 'Timeout: the connection'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 237
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: the connection - operation
+      failed'
+    metrics:
+      error_rate: 0.2619664352845731
+      response_time_ms: 4178
+      cpu_usage: 0.7463778801100953
+      memory_usage: 0.8162646443305486
+- timestamp: '2025-05-23T17:34:57.739071'
+  event_type: timeout
+  description: 'Timeout: info node'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 126
+    log_snippet: '[2025-05-23 17:32:45] ERROR user-service: info node - operation
+      failed'
+    metrics:
+      error_rate: 0.506964551896717
+      response_time_ms: 8461
+      cpu_usage: 0.7854375441776613
+      memory_usage: 0.9444096489152626
+- timestamp: '2025-05-23T17:35:18.739071'
+  event_type: timeout
+  description: 'Timeout: uwsgi server'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 101
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: uwsgi server -
+      operation failed'
+    metrics:
+      error_rate: 0.4419168230830747
+      response_time_ms: 4380
+      cpu_usage: 0.7244169269056863
+      memory_usage: 0.8475687781495234
+- timestamp: '2025-05-23T17:36:29.739071'
+  event_type: recovery
+  description: 'Recovery: a timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:58:54.739071'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

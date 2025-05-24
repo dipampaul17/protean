@@ -1,0 +1,72 @@
+{
+  "category": "MonitoringBlindSpot",
+  "name": "MonitoringBlindSpot_20250523_173707",
+  "description": "Infrastructure failure scenario for MonitoringBlindSpot",
+  "duration": 342,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.955998",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.955878",
+      "event_type": "trigger",
+      "description": "Initial failure detected: kubernetes cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:09.955878",
+      "event_type": "timeout",
+      "description": "Timeout: the alert",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 58,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: the alert - operation failed",
+        "metrics": {
+          "error_rate": 0.1482937561374505,
+          "response_time_ms": 5714,
+          "cpu_usage": 0.8819601279091083,
+          "memory_usage": 0.918455117229923
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:22.955878",
+      "event_type": "failure",
+      "description": "Failure: the alert",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 50,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: the alert - operation failed",
+        "metrics": {
+          "error_rate": 0.6370884258673046,
+          "response_time_ms": 8596,
+          "cpu_usage": 0.9766760970920532,
+          "memory_usage": 0.8427562023083383
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:45.955878",
+      "event_type": "recovery",
+      "description": "Recovery: quot server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:42:49.955878",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

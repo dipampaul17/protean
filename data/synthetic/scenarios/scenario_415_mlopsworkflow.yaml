@@ -1,0 +1,93 @@
+category: MLOpsWorkflow
+name: MLOpsWorkflow_20250523_173453
+description: Infrastructure failure scenario for MLOpsWorkflow
+duration: 1714
+metadata:
+  generated_at: '2025-05-23T17:34:53.341414'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:53.341227'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:31.341227'
+  event_type: recovery
+  description: 'Recovery: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:57.341227'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 142
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: database connection
+      lost - operation failed'
+    metrics:
+      error_rate: 0.4020661323472223
+      response_time_ms: 7889
+      cpu_usage: 0.9935798349837226
+      memory_usage: 0.8776946637432275
+- timestamp: '2025-05-23T17:36:21.341227'
+  event_type: timeout
+  description: 'Timeout: memory limit exceeded'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 90
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.3486902113423145
+      response_time_ms: 4491
+      cpu_usage: 0.7725655145492093
+      memory_usage: 0.8171973802515042
+- timestamp: '2025-05-23T17:36:50.341227'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 253
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.10769080075966322
+      response_time_ms: 7816
+      cpu_usage: 0.9810117773607319
+      memory_usage: 0.8975868357839955
+- timestamp: '2025-05-23T17:37:15.341227'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:18.341227'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 77
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.8937465347548449
+      response_time_ms: 2727
+      cpu_usage: 0.72851887492688
+      memory_usage: 0.8369644754309248
+- timestamp: '2025-05-23T17:37:32.341227'
+  event_type: recovery
+  description: 'Recovery: queue overflow'
+  injection_spec: null
+- timestamp: '2025-05-23T18:03:27.341227'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

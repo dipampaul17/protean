@@ -1,0 +1,93 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_173245
+description: Infrastructure failure scenario for ETLPipeline
+duration: 934
+metadata:
+  generated_at: '2025-05-23T17:32:45.782810'
+  phrase_templates_used: 0
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:32:45.782602'
+  event_type: trigger
+  description: 'Initial failure detected: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:23.782602'
+  event_type: failure
+  description: 'Failure: network unreachable'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 217
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: network unreachable -
+      operation failed'
+    metrics:
+      error_rate: 0.6229409558221415
+      response_time_ms: 4159
+      cpu_usage: 0.9488927854667568
+      memory_usage: 0.9837056801164084
+- timestamp: '2025-05-23T17:33:34.782602'
+  event_type: recovery
+  description: 'Recovery: container crashed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:37.782602'
+  event_type: recovery
+  description: 'Recovery: connection timeout'
+  injection_spec: null
+- timestamp: '2025-05-23T17:33:44.782602'
+  event_type: recovery
+  description: 'Recovery: rate limit exceeded'
+  injection_spec: null
+- timestamp: '2025-05-23T17:34:06.782602'
+  event_type: failure
+  description: 'Failure: container crashed'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 248
+    log_snippet: '[2025-05-23 17:32:45] ERROR auth-service: container crashed - operation
+      failed'
+    metrics:
+      error_rate: 0.18908894793189265
+      response_time_ms: 9063
+      cpu_usage: 0.7079065338191025
+      memory_usage: 0.8631148200171318
+- timestamp: '2025-05-23T17:34:22.782602'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 281
+    log_snippet: '[2025-05-23 17:32:45] ERROR payment-service: queue overflow - operation
+      failed'
+    metrics:
+      error_rate: 0.3421159321549319
+      response_time_ms: 2430
+      cpu_usage: 0.9041508230255505
+      memory_usage: 0.9348814206841697
+- timestamp: '2025-05-23T17:34:52.782602'
+  event_type: timeout
+  description: 'Timeout: service unavailable'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 93
+    log_snippet: '[2025-05-23 17:32:45] ERROR notification-service: service unavailable
+      - operation failed'
+    metrics:
+      error_rate: 0.2978392037541835
+      response_time_ms: 3393
+      cpu_usage: 0.8838656973556189
+      memory_usage: 0.839205260549834
+- timestamp: '2025-05-23T17:48:19.782602'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

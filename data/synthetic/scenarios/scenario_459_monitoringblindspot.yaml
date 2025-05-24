@@ -1,0 +1,74 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_174629
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 443
+metadata:
+  generated_at: '2025-05-23T17:46:29.143067'
+  phrase_templates_used: 50
+  total_events: 7
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:29.142903'
+  event_type: trigger
+  description: 'Initial failure detected: code error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:40.142903'
+  event_type: recovery
+  description: 'Recovery: nil log'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:43.142903'
+  event_type: failure
+  description: 'Failure: the cpu'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 127
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: the cpu - operation
+      failed'
+    metrics:
+      error_rate: 0.8251479252080832
+      response_time_ms: 5118
+      cpu_usage: 0.9819254826477068
+      memory_usage: 0.845947351369395
+- timestamp: '2025-05-23T17:47:10.142903'
+  event_type: recovery
+  description: 'Recovery: to scale'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:13.142903'
+  event_type: timeout
+  description: 'Timeout: the alert'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 235
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: the alert - operation
+      failed'
+    metrics:
+      error_rate: 0.7070281274289901
+      response_time_ms: 6057
+      cpu_usage: 0.871594128786799
+      memory_usage: 0.9138736785490634
+- timestamp: '2025-05-23T17:47:18.142903'
+  event_type: timeout
+  description: 'Timeout: monitoring system'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 177
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: monitoring system
+      - operation failed'
+    metrics:
+      error_rate: 0.808056197161435
+      response_time_ms: 6366
+      cpu_usage: 0.8118108723735113
+      memory_usage: 0.8907404442039323
+- timestamp: '2025-05-23T17:53:52.142903'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

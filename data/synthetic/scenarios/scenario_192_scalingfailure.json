@@ -1,0 +1,138 @@
+{
+  "category": "ScalingFailure",
+  "name": "ScalingFailure_20250523_173708",
+  "description": "Infrastructure failure scenario for ScalingFailure",
+  "duration": 858,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.001099",
+    "phrase_templates_used": 24,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.000866",
+      "event_type": "trigger",
+      "description": "Initial failure detected: web server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:53.000866",
+      "event_type": "timeout",
+      "description": "Timeout: an error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 121,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: an error - operation failed",
+        "metrics": {
+          "error_rate": 0.17218091374737626,
+          "response_time_ms": 1925,
+          "cpu_usage": 0.7787281026334476,
+          "memory_usage": 0.9883670577991204
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:08.000866",
+      "event_type": "timeout",
+      "description": "Timeout: per server",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 84,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: per server - operation failed",
+        "metrics": {
+          "error_rate": 0.6037301766114286,
+          "response_time_ms": 7432,
+          "cpu_usage": 0.8438214756445325,
+          "memory_usage": 0.8871618078314429
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:19.000866",
+      "event_type": "recovery",
+      "description": "Recovery: clusterip service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:21.000866",
+      "event_type": "failure",
+      "description": "Failure: web server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 217,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: web server - operation failed",
+        "metrics": {
+          "error_rate": 0.8350113742410248,
+          "response_time_ms": 1049,
+          "cpu_usage": 0.7045218559131495,
+          "memory_usage": 0.9687893887173056
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:22.000866",
+      "event_type": "failure",
+      "description": "Failure: the server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 91,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: the server - operation failed",
+        "metrics": {
+          "error_rate": 0.7185710893005912,
+          "response_time_ms": 6099,
+          "cpu_usage": 0.8356145912619375,
+          "memory_usage": 0.8074640048427038
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:24.000866",
+      "event_type": "failure",
+      "description": "Failure: load balancer",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 188,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: load balancer - operation failed",
+        "metrics": {
+          "error_rate": 0.2917355715237516,
+          "response_time_ms": 7840,
+          "cpu_usage": 0.9223222346455346,
+          "memory_usage": 0.9360744566858559
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:35.000866",
+      "event_type": "recovery",
+      "description": "Recovery: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:47.000866",
+      "event_type": "recovery",
+      "description": "Recovery: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:51:26.000866",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

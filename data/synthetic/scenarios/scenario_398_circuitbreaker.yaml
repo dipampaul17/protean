@@ -1,0 +1,118 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173453
+description: Circuit breaker activation due to cascading service failures
+duration: 1736
+metadata:
+  generated_at: '2025-05-23T17:34:53.291508'
+  phrase_templates_used: 50
+  total_events: 10
+  severity_distribution:
+    low: 1
+    medium: 1
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:53.291288'
+  event_type: trigger
+  description: 'Initial failure detected: docker container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:55.291288'
+  event_type: recovery
+  description: 'Recovery: true error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:00.291288'
+  event_type: timeout
+  description: 'Timeout: the queue'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: medium
+    duration: 104
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: the queue - operation
+      failed'
+    metrics:
+      error_rate: 0.09075621489579888
+      response_time_ms: 166
+      cpu_usage: 0.3420025486238678
+      memory_usage: 0.441066545790947
+- timestamp: '2025-05-23T17:36:02.291288'
+  event_type: timeout
+  description: 'Timeout: true error'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: high
+    duration: 177
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: true error - operation
+      failed'
+    metrics:
+      error_rate: 0.7969119951331199
+      response_time_ms: 4432
+      cpu_usage: 0.9827882228384477
+      memory_usage: 0.8061479847726614
+- timestamp: '2025-05-23T17:36:11.291288'
+  event_type: recovery
+  description: 'Recovery: the connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:36:26.291288'
+  event_type: degradation
+  description: 'Degradation: nginx server'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: low
+    duration: 163
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: nginx server -
+      operation failed'
+    metrics:
+      error_rate: 0.16981366070557094
+      response_time_ms: 1763
+      cpu_usage: 0.461827036091441
+      memory_usage: 0.43266042124904197
+- timestamp: '2025-05-23T17:36:51.291288'
+  event_type: failure
+  description: 'Failure: kubernetes cluster'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 292
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: kubernetes cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.6342218654272046
+      response_time_ms: 1093
+      cpu_usage: 0.7980457252805545
+      memory_usage: 0.8401026967483449
+- timestamp: '2025-05-23T17:37:55.291288'
+  event_type: timeout
+  description: 'Timeout: value memory'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 266
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: value memory - operation
+      failed'
+    metrics:
+      error_rate: 0.4871755793711531
+      response_time_ms: 8490
+      cpu_usage: 0.8203341524656694
+      memory_usage: 0.835488527294126
+- timestamp: '2025-05-23T17:38:27.291288'
+  event_type: failure
+  description: 'Failure: var log'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 62
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: var log - operation failed'
+    metrics:
+      error_rate: 0.5957189153191863
+      response_time_ms: 3686
+      cpu_usage: 0.9708781596095851
+      memory_usage: 0.8727301281769679
+- timestamp: '2025-05-23T18:03:49.291288'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

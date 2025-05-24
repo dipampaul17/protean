@@ -1,0 +1,100 @@
+category: DataWarehouse
+name: DataWarehouse_20250523_173453
+description: Infrastructure failure scenario for DataWarehouse
+duration: 683
+metadata:
+  generated_at: '2025-05-23T17:34:53.059383'
+  phrase_templates_used: 0
+  total_events: 8
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:34:53.059119'
+  event_type: trigger
+  description: 'Initial failure detected: database connection lost'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:03.059119'
+  event_type: timeout
+  description: 'Timeout: circuit breaker triggered'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 148
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: circuit breaker
+      triggered - operation failed'
+    metrics:
+      error_rate: 0.31863369968594457
+      response_time_ms: 3705
+      cpu_usage: 0.769449190278434
+      memory_usage: 0.9180656802817666
+- timestamp: '2025-05-23T17:35:12.059119'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 124
+    log_snippet: '[2025-05-23 17:34:53] ERROR auth-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.66381890801013
+      response_time_ms: 8671
+      cpu_usage: 0.9820640937994979
+      memory_usage: 0.8007721905042429
+- timestamp: '2025-05-23T17:35:55.059119'
+  event_type: recovery
+  description: 'Recovery: service unavailable'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:56.059119'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 230
+    log_snippet: '[2025-05-23 17:34:53] ERROR notification-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.14454222221953997
+      response_time_ms: 9377
+      cpu_usage: 0.8849486129968135
+      memory_usage: 0.8501162838088645
+- timestamp: '2025-05-23T17:36:14.059119'
+  event_type: timeout
+  description: 'Timeout: deployment failed'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 285
+    log_snippet: '[2025-05-23 17:34:53] ERROR payment-service: deployment failed -
+      operation failed'
+    metrics:
+      error_rate: 0.2821991991676168
+      response_time_ms: 7978
+      cpu_usage: 0.994009294571418
+      memory_usage: 0.8393334320954983
+- timestamp: '2025-05-23T17:36:28.059119'
+  event_type: failure
+  description: 'Failure: deployment failed'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 205
+    log_snippet: '[2025-05-23 17:34:53] ERROR user-service: deployment failed - operation
+      failed'
+    metrics:
+      error_rate: 0.5189237083517938
+      response_time_ms: 6974
+      cpu_usage: 0.9666157909679743
+      memory_usage: 0.8219207024503966
+- timestamp: '2025-05-23T17:46:16.059119'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

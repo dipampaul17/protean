@@ -1,0 +1,115 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173452
+description: Circuit breaker activation due to cascading service failures
+duration: 1381
+metadata:
+  generated_at: '2025-05-23T17:34:52.902521'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 1
+    medium: 1
+    high: 4
+events:
+- timestamp: '2025-05-23T17:34:52.902315'
+  event_type: trigger
+  description: 'Initial failure detected: to resolve'
+  injection_spec: null
+- timestamp: '2025-05-23T17:35:36.902315'
+  event_type: timeout
+  description: 'Timeout: message queue'
+  injection_spec:
+    type: timeout
+    target: user-service
+    severity: medium
+    duration: 43
+    log_snippet: '[2025-05-23 17:34:52] ERROR user-service: message queue - operation
+      failed'
+    metrics:
+      error_rate: 0.07566149740978335
+      response_time_ms: 1432
+      cpu_usage: 0.5825152844456012
+      memory_usage: 0.5885632206523725
+- timestamp: '2025-05-23T17:35:38.902315'
+  event_type: degradation
+  description: 'Degradation: the connection'
+  injection_spec:
+    type: degradation
+    target: auth-service
+    severity: low
+    duration: 41
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: the connection - operation
+      failed'
+    metrics:
+      error_rate: 0.09056662982584489
+      response_time_ms: 1734
+      cpu_usage: 0.6670272502937277
+      memory_usage: 0.5125051925506613
+- timestamp: '2025-05-23T17:36:38.902315'
+  event_type: failure
+  description: 'Failure: my server'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 61
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: my server - operation
+      failed'
+    metrics:
+      error_rate: 0.11722687395288355
+      response_time_ms: 9253
+      cpu_usage: 0.8114960954659516
+      memory_usage: 0.9353646654546894
+- timestamp: '2025-05-23T17:36:53.902315'
+  event_type: timeout
+  description: 'Timeout: value memory'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 112
+    log_snippet: '[2025-05-23 17:34:52] ERROR notification-service: value memory -
+      operation failed'
+    metrics:
+      error_rate: 0.6874979748535817
+      response_time_ms: 6261
+      cpu_usage: 0.9925689454132252
+      memory_usage: 0.8418166426798651
+- timestamp: '2025-05-23T17:36:57.902315'
+  event_type: recovery
+  description: 'Recovery: value memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:06.902315'
+  event_type: failure
+  description: 'Failure: client error'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 191
+    log_snippet: '[2025-05-23 17:34:52] ERROR payment-service: client error - operation
+      failed'
+    metrics:
+      error_rate: 0.6444455563559974
+      response_time_ms: 5581
+      cpu_usage: 0.9731408707687805
+      memory_usage: 0.9913980984997022
+- timestamp: '2025-05-23T17:37:34.902315'
+  event_type: timeout
+  description: 'Timeout: nginx server'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 269
+    log_snippet: '[2025-05-23 17:34:52] ERROR auth-service: nginx server - operation
+      failed'
+    metrics:
+      error_rate: 0.8401192068572712
+      response_time_ms: 8746
+      cpu_usage: 0.8573015717474985
+      memory_usage: 0.9461302151958632
+- timestamp: '2025-05-23T17:57:53.902315'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

@@ -1,0 +1,108 @@
+category: ScalingFailure
+name: ScalingFailure_20250523_173708
+description: Infrastructure failure scenario for ScalingFailure
+duration: 719
+metadata:
+  generated_at: '2025-05-23T17:37:08.041008'
+  phrase_templates_used: 24
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 5
+events:
+- timestamp: '2025-05-23T17:37:08.040799'
+  event_type: trigger
+  description: 'Initial failure detected: https connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:20.040799'
+  event_type: failure
+  description: 'Failure: this error'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 211
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: this error - operation
+      failed'
+    metrics:
+      error_rate: 0.8332481336581375
+      response_time_ms: 7291
+      cpu_usage: 0.7963704034846699
+      memory_usage: 0.92631537564579
+- timestamp: '2025-05-23T17:37:24.040799'
+  event_type: timeout
+  description: 'Timeout: a server'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 300
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: a server - operation
+      failed'
+    metrics:
+      error_rate: 0.3960258915647762
+      response_time_ms: 1115
+      cpu_usage: 0.9464537764288642
+      memory_usage: 0.9581783989625394
+- timestamp: '2025-05-23T17:37:46.040799'
+  event_type: failure
+  description: 'Failure: which node'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 289
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: which node - operation
+      failed'
+    metrics:
+      error_rate: 0.8075719544901268
+      response_time_ms: 1895
+      cpu_usage: 0.923829957654643
+      memory_usage: 0.9110527557121539
+- timestamp: '2025-05-23T17:37:52.040799'
+  event_type: recovery
+  description: 'Recovery: https connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:58.040799'
+  event_type: recovery
+  description: 'Recovery: the node'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:12.040799'
+  event_type: recovery
+  description: 'Recovery: of failure'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:35.040799'
+  event_type: failure
+  description: 'Failure: the cluster'
+  injection_spec:
+    type: failure
+    target: auth-service
+    severity: high
+    duration: 76
+    log_snippet: '[2025-05-23 17:37:08] ERROR auth-service: the cluster - operation
+      failed'
+    metrics:
+      error_rate: 0.25503227588932764
+      response_time_ms: 1860
+      cpu_usage: 0.942194016683551
+      memory_usage: 0.8587714206277771
+- timestamp: '2025-05-23T17:38:37.040799'
+  event_type: failure
+  description: 'Failure: to scale'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 206
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: to scale - operation
+      failed'
+    metrics:
+      error_rate: 0.17726530946051453
+      response_time_ms: 8386
+      cpu_usage: 0.7286684522297996
+      memory_usage: 0.8860914594005921
+- timestamp: '2025-05-23T17:49:07.040799'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

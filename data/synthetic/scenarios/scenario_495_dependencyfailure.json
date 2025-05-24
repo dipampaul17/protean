@@ -1,0 +1,126 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_174629",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 1434,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.166462",
+    "phrase_templates_used": 45,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.166201",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:55.166201",
+      "event_type": "timeout",
+      "description": "Timeout: connect service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 105,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: connect service - operation failed",
+        "metrics": {
+          "error_rate": 0.6214823954299911,
+          "response_time_ms": 1128,
+          "cpu_usage": 0.8713536342228414,
+          "memory_usage": 0.9018206602156684
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:12.166201",
+      "event_type": "failure",
+      "description": "Failure: code server",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 289,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: code server - operation failed",
+        "metrics": {
+          "error_rate": 0.40263687400183,
+          "response_time_ms": 2710,
+          "cpu_usage": 0.7011000577015889,
+          "memory_usage": 0.9504907305330031
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:39.166201",
+      "event_type": "timeout",
+      "description": "Timeout: the connection",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 93,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: the connection - operation failed",
+        "metrics": {
+          "error_rate": 0.8298386108284204,
+          "response_time_ms": 2486,
+          "cpu_usage": 0.8739969109761816,
+          "memory_usage": 0.9115489289981273
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:46.166201",
+      "event_type": "timeout",
+      "description": "Timeout: to update",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 67,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: to update - operation failed",
+        "metrics": {
+          "error_rate": 0.32615301034052824,
+          "response_time_ms": 1144,
+          "cpu_usage": 0.8530566850984591,
+          "memory_usage": 0.8540329726783613
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:58.166201",
+      "event_type": "timeout",
+      "description": "Timeout: inventory service",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 245,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: inventory service - operation failed",
+        "metrics": {
+          "error_rate": 0.8147662776740213,
+          "response_time_ms": 7578,
+          "cpu_usage": 0.746396483012462,
+          "memory_usage": 0.9883040167041626
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:48.166201",
+      "event_type": "recovery",
+      "description": "Recovery: upstream server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:10:23.166201",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

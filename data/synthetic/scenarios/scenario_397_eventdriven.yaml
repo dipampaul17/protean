@@ -1,0 +1,90 @@
+category: EventDriven
+name: EventDriven_20250523_173708
+description: Message queue and event processing failures
+duration: 551
+metadata:
+  generated_at: '2025-05-23T17:37:08.056019'
+  phrase_templates_used: 50
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:37:08.055806'
+  event_type: trigger
+  description: 'Initial failure detected: message queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:44.055806'
+  event_type: message_loss
+  description: 'Message_Loss: server restart'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:52.055806'
+  event_type: message_loss
+  description: 'Message_Loss: task queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:37:55.055806'
+  event_type: timeout
+  description: 'Timeout: this error'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 237
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-queue: queue processing this
+      error'
+    metrics:
+      error_rate: 0.621860411576056
+      response_time_ms: 9031
+      cpu_usage: 0.7494657791004534
+      memory_usage: 0.8352940925475316
+      queue_depth: 24205
+      message_processing_rate: 8.032485410657204
+      consumer_lag_ms: 211064
+- timestamp: '2025-05-23T17:38:00.055806'
+  event_type: message_loss
+  description: 'Message_Loss: the queue'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:03.055806'
+  event_type: message_loss
+  description: 'Message_Loss: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:16.055806'
+  event_type: timeout
+  description: 'Timeout: rabbitmq service'
+  injection_spec:
+    type: timeout
+    target: batch-processing-queue
+    severity: high
+    duration: 263
+    log_snippet: '[2025-05-23 17:37:08] ERROR batch-processing-queue: queue processing
+      rabbitmq service'
+    metrics:
+      error_rate: 0.14092704482511512
+      response_time_ms: 4640
+      cpu_usage: 0.7119607884912069
+      memory_usage: 0.9967350970625554
+      queue_depth: 21098
+      message_processing_rate: 7.834205513822057
+      consumer_lag_ms: 231071
+- timestamp: '2025-05-23T17:38:21.055806'
+  event_type: timeout
+  description: 'Timeout: to restart'
+  injection_spec:
+    type: timeout
+    target: payment-queue
+    severity: high
+    duration: 96
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-queue: queue processing to restart'
+    metrics:
+      error_rate: 0.7443188418276719
+      response_time_ms: 6597
+      cpu_usage: 0.8260703654447323
+      memory_usage: 0.8571231842445983
+      queue_depth: 37215
+      message_processing_rate: 4.267659307197863
+      consumer_lag_ms: 241440
+- timestamp: '2025-05-23T17:46:19.055806'
+  event_type: recovery
+  description: 'System recovered: message queue drained'
+  injection_spec: null

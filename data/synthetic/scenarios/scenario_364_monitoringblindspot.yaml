@@ -1,0 +1,65 @@
+category: MonitoringBlindSpot
+name: MonitoringBlindSpot_20250523_174629
+description: Infrastructure failure scenario for MonitoringBlindSpot
+duration: 1277
+metadata:
+  generated_at: '2025-05-23T17:46:29.096702'
+  phrase_templates_used: 50
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 3
+events:
+- timestamp: '2025-05-23T17:46:29.096585'
+  event_type: trigger
+  description: 'Initial failure detected: a container'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:03.096585'
+  event_type: timeout
+  description: 'Timeout: of cpu'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 144
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: of cpu - operation failed'
+    metrics:
+      error_rate: 0.2222867595142285
+      response_time_ms: 3343
+      cpu_usage: 0.7885350419331943
+      memory_usage: 0.929358010390424
+- timestamp: '2025-05-23T17:50:00.096585'
+  event_type: timeout
+  description: 'Timeout: customer service'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 207
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: customer service
+      - operation failed'
+    metrics:
+      error_rate: 0.10150311680611548
+      response_time_ms: 8068
+      cpu_usage: 0.7900334232229093
+      memory_usage: 0.925315356119116
+- timestamp: '2025-05-23T17:51:20.096585'
+  event_type: failure
+  description: 'Failure: the cpu'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 209
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: the cpu - operation
+      failed'
+    metrics:
+      error_rate: 0.45399508942973676
+      response_time_ms: 5770
+      cpu_usage: 0.7567863768788898
+      memory_usage: 0.9677191016534663
+- timestamp: '2025-05-23T18:07:46.096585'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

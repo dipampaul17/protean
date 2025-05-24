@@ -1,0 +1,126 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_174629",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 1329,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.164482",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.164241",
+      "event_type": "trigger",
+      "description": "Initial failure detected: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:41.164241",
+      "event_type": "recovery",
+      "description": "Recovery: database connection lost",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:38.164241",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 252,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.33811957512281354,
+          "response_time_ms": 7173,
+          "cpu_usage": 0.831555152281136,
+          "memory_usage": 0.9356194811243854
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:14.164241",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:25.164241",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 248,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR user-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.1054366407337672,
+          "response_time_ms": 2212,
+          "cpu_usage": 0.9337481900034827,
+          "memory_usage": 0.9642267692849574
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:40.164241",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 229,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.40574073521025855,
+          "response_time_ms": 4111,
+          "cpu_usage": 0.9280353813720722,
+          "memory_usage": 0.8584799525462232
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:42.164241",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 238,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.16623647472066966,
+          "response_time_ms": 1255,
+          "cpu_usage": 0.9036081700665142,
+          "memory_usage": 0.8531590156204661
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:54.164241",
+      "event_type": "recovery",
+      "description": "Recovery: network unreachable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:05.164241",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:08:38.164241",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

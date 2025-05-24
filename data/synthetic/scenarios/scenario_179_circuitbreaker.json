@@ -1,0 +1,84 @@
+{
+  "category": "CircuitBreaker",
+  "name": "CircuitBreaker_20250523_174628",
+  "description": "Circuit breaker activation due to cascading service failures",
+  "duration": 341,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.977015",
+    "phrase_templates_used": 50,
+    "total_events": 5,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.976893",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:38.976893",
+      "event_type": "failure",
+      "description": "Failure: to restart",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 171,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR auth-service: to restart - operation failed",
+        "metrics": {
+          "error_rate": 0.21136913630127063,
+          "response_time_ms": 1030,
+          "cpu_usage": 0.8024836416384609,
+          "memory_usage": 0.922096077517862
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:48.976893",
+      "event_type": "timeout",
+      "description": "Timeout: nginx log",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 244,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: nginx log - operation failed",
+        "metrics": {
+          "error_rate": 0.2019828220916452,
+          "response_time_ms": 7520,
+          "cpu_usage": 0.908618030663103,
+          "memory_usage": 0.9726295667169907
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:47:49.976893",
+      "event_type": "failure",
+      "description": "Failure: this error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 285,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR payment-service: this error - operation failed",
+        "metrics": {
+          "error_rate": 0.1482720070959066,
+          "response_time_ms": 8945,
+          "cpu_usage": 0.8518324520787337,
+          "memory_usage": 0.8334596621977756
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:52:09.976893",
+      "event_type": "recovery",
+      "description": "System recovered: circuit breaker reset",
+      "injection_spec": null
+    }
+  ]
+}

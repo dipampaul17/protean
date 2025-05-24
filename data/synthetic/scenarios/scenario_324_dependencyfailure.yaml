@@ -1,0 +1,141 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_174629
+description: Infrastructure failure scenario for DependencyFailure
+duration: 948
+metadata:
+  generated_at: '2025-05-23T17:46:29.082892'
+  phrase_templates_used: 45
+  total_events: 10
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 7
+events:
+- timestamp: '2025-05-23T17:46:29.082641'
+  event_type: trigger
+  description: 'Initial failure detected: existing connection'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:42.082641'
+  event_type: failure
+  description: 'Failure: inventory service'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 65
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: inventory service - operation
+      failed'
+    metrics:
+      error_rate: 0.7244495778048811
+      response_time_ms: 7592
+      cpu_usage: 0.9042275869042149
+      memory_usage: 0.8082105578269024
+- timestamp: '2025-05-23T17:46:52.082641'
+  event_type: timeout
+  description: 'Timeout: lt connection'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 31
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: lt connection
+      - operation failed'
+    metrics:
+      error_rate: 0.2666661357763076
+      response_time_ms: 9253
+      cpu_usage: 0.9790899827232791
+      memory_usage: 0.9520784143076828
+- timestamp: '2025-05-23T17:47:22.082641'
+  event_type: timeout
+  description: 'Timeout: the container'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 225
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: the container
+      - operation failed'
+    metrics:
+      error_rate: 0.7372997105238684
+      response_time_ms: 8729
+      cpu_usage: 0.8187331977932074
+      memory_usage: 0.8202366618068093
+- timestamp: '2025-05-23T17:47:42.082641'
+  event_type: timeout
+  description: 'Timeout: proxy server'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 129
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: proxy server -
+      operation failed'
+    metrics:
+      error_rate: 0.6456004532567124
+      response_time_ms: 8804
+      cpu_usage: 0.7858136024575806
+      memory_usage: 0.8133931158682006
+- timestamp: '2025-05-23T17:47:43.082641'
+  event_type: timeout
+  description: 'Timeout: upstream queue'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: medium
+    duration: 267
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: upstream queue - operation
+      failed'
+    metrics:
+      error_rate: 0.17630388084877255
+      response_time_ms: 1206
+      cpu_usage: 0.740153601449044
+      memory_usage: 0.6643911312836164
+- timestamp: '2025-05-23T17:47:54.082641'
+  event_type: timeout
+  description: 'Timeout: vpn connection'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 189
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: vpn connection - operation
+      failed'
+    metrics:
+      error_rate: 0.4218738306150204
+      response_time_ms: 2819
+      cpu_usage: 0.9312153272899357
+      memory_usage: 0.9368056054513838
+- timestamp: '2025-05-23T17:48:03.082641'
+  event_type: timeout
+  description: 'Timeout: and update'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 118
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: and update - operation
+      failed'
+    metrics:
+      error_rate: 0.2828285115259729
+      response_time_ms: 4933
+      cpu_usage: 0.9373811871455145
+      memory_usage: 0.9675872087292027
+- timestamp: '2025-05-23T17:48:12.082641'
+  event_type: failure
+  description: 'Failure: and update'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 179
+    log_snippet: '[2025-05-23 17:46:29] ERROR payment-service: and update - operation
+      failed'
+    metrics:
+      error_rate: 0.23126730358846503
+      response_time_ms: 2718
+      cpu_usage: 0.7302666740047777
+      memory_usage: 0.9197162883125745
+- timestamp: '2025-05-23T18:02:17.082641'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

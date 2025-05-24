@@ -1,0 +1,96 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173707",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 307,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:07.890852",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:07.799751",
+      "event_type": "trigger",
+      "description": "Initial failure detected: connection timeout",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:28.799751",
+      "event_type": "failure",
+      "description": "Failure: rate limit exceeded",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 106,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR user-service: rate limit exceeded - operation failed",
+        "metrics": {
+          "error_rate": 0.690279258234495,
+          "response_time_ms": 2922,
+          "cpu_usage": 0.9394095074230984,
+          "memory_usage": 0.8059133392498645
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:33.799751",
+      "event_type": "failure",
+      "description": "Failure: connection timeout",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 181,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR notification-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.24122203362828928,
+          "response_time_ms": 7924,
+          "cpu_usage": 0.9682311747697709,
+          "memory_usage": 0.9220604289527983
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:41.799751",
+      "event_type": "failure",
+      "description": "Failure: authentication failed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 184,
+        "log_snippet": "[2025-05-23 17:37:07] ERROR auth-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.14987100923469382,
+          "response_time_ms": 9959,
+          "cpu_usage": 0.8157134255680766,
+          "memory_usage": 0.8668005525235468
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:52.799751",
+      "event_type": "recovery",
+      "description": "Recovery: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:00.799751",
+      "event_type": "recovery",
+      "description": "Recovery: disk space full",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:42:14.799751",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

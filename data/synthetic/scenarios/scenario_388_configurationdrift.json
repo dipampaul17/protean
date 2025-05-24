@@ -1,0 +1,90 @@
+{
+  "category": "ConfigurationDrift",
+  "name": "ConfigurationDrift_20250523_174629",
+  "description": "Configuration inconsistencies causing service degradation",
+  "duration": 1049,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:29.121950",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 2
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:29.121777",
+      "event_type": "trigger",
+      "description": "Initial failure detected: this error",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:51.121777",
+      "event_type": "config_change",
+      "description": "Config_Change: docker service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:15.121777",
+      "event_type": "rollback",
+      "description": "Rollback: rabbitmq connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:47:50.121777",
+      "event_type": "restart",
+      "description": "Restart: docker network",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:30.121777",
+      "event_type": "failure",
+      "description": "Failure: to deploy",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 239,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR payment-service: to deploy - operation failed",
+        "metrics": {
+          "error_rate": 0.26681888054778025,
+          "response_time_ms": 3773,
+          "cpu_usage": 0.9928771318954444,
+          "memory_usage": 0.8433011868774605
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:52.121777",
+      "event_type": "restart",
+      "description": "Restart: string update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:49:11.121777",
+      "event_type": "failure",
+      "description": "Failure: a container",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 75,
+        "log_snippet": "[2025-05-23 17:46:29] ERROR notification-service: a container - operation failed",
+        "metrics": {
+          "error_rate": 0.8039969858014463,
+          "response_time_ms": 2284,
+          "cpu_usage": 0.9805673503779578,
+          "memory_usage": 0.9652732493645377
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:03:58.121777",
+      "event_type": "recovery",
+      "description": "System recovered: configuration restored",
+      "injection_spec": null
+    }
+  ]
+}

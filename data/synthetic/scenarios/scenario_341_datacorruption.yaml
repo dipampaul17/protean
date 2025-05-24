@@ -1,0 +1,55 @@
+category: DataCorruption
+name: DataCorruption_20250523_173708
+description: Infrastructure failure scenario for DataCorruption
+duration: 1044
+metadata:
+  generated_at: '2025-05-23T17:37:08.042039'
+  phrase_templates_used: 36
+  total_events: 5
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:08.041940'
+  event_type: trigger
+  description: 'Initial failure detected: to resolve'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:57.041940'
+  event_type: timeout
+  description: 'Timeout: same node'
+  injection_spec:
+    type: timeout
+    target: payment-service
+    severity: high
+    duration: 286
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: same node - operation
+      failed'
+    metrics:
+      error_rate: 0.5078653215682768
+      response_time_ms: 1129
+      cpu_usage: 0.858794258414514
+      memory_usage: 0.945605866125454
+- timestamp: '2025-05-23T17:40:59.041940'
+  event_type: recovery
+  description: 'Recovery: the server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:41:47.041940'
+  event_type: failure
+  description: 'Failure: to rollback'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 186
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: to rollback - operation
+      failed'
+    metrics:
+      error_rate: 0.778641892814918
+      response_time_ms: 2498
+      cpu_usage: 0.923755031819187
+      memory_usage: 0.9901610393266655
+- timestamp: '2025-05-23T17:54:32.041940'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

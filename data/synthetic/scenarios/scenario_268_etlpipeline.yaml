@@ -1,0 +1,81 @@
+category: ETLPipeline
+name: ETLPipeline_20250523_174629
+description: Infrastructure failure scenario for ETLPipeline
+duration: 397
+metadata:
+  generated_at: '2025-05-23T17:46:29.022453'
+  phrase_templates_used: 0
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 4
+events:
+- timestamp: '2025-05-23T17:46:29.020597'
+  event_type: trigger
+  description: 'Initial failure detected: deployment failed'
+  injection_spec: null
+- timestamp: '2025-05-23T17:46:39.020597'
+  event_type: timeout
+  description: 'Timeout: queue overflow'
+  injection_spec:
+    type: timeout
+    target: notification-service
+    severity: high
+    duration: 44
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: queue overflow
+      - operation failed'
+    metrics:
+      error_rate: 0.2056335453057125
+      response_time_ms: 7802
+      cpu_usage: 0.976507438749852
+      memory_usage: 0.8759928771207506
+- timestamp: '2025-05-23T17:46:49.020597'
+  event_type: failure
+  description: 'Failure: authentication failed'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 144
+    log_snippet: '[2025-05-23 17:46:29] ERROR notification-service: authentication
+      failed - operation failed'
+    metrics:
+      error_rate: 0.6976538605181946
+      response_time_ms: 5034
+      cpu_usage: 0.9452706786760446
+      memory_usage: 0.9464416061353749
+- timestamp: '2025-05-23T17:47:30.020597'
+  event_type: timeout
+  description: 'Timeout: database connection lost'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 241
+    log_snippet: '[2025-05-23 17:46:29] ERROR auth-service: database connection lost
+      - operation failed'
+    metrics:
+      error_rate: 0.7073006476432862
+      response_time_ms: 9223
+      cpu_usage: 0.8142098273354281
+      memory_usage: 0.9855998263269569
+- timestamp: '2025-05-23T17:47:40.020597'
+  event_type: failure
+  description: 'Failure: memory limit exceeded'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 201
+    log_snippet: '[2025-05-23 17:46:29] ERROR user-service: memory limit exceeded
+      - operation failed'
+    metrics:
+      error_rate: 0.7887308366488103
+      response_time_ms: 1442
+      cpu_usage: 0.8443008267264791
+      memory_usage: 0.9271867370493616
+- timestamp: '2025-05-23T17:53:06.020597'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

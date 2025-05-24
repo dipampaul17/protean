@@ -1,0 +1,70 @@
+category: CircuitBreaker
+name: CircuitBreaker_20250523_173708
+description: Circuit breaker activation due to cascading service failures
+duration: 701
+metadata:
+  generated_at: '2025-05-23T17:37:08.052185'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 1
+    medium: 0
+    high: 2
+events:
+- timestamp: '2025-05-23T17:37:08.052068'
+  event_type: trigger
+  description: 'Initial failure detected: p update'
+  injection_spec: null
+- timestamp: '2025-05-23T17:38:41.052068'
+  event_type: failure
+  description: 'Failure: a service'
+  injection_spec:
+    type: failure
+    target: user-service
+    severity: high
+    duration: 127
+    log_snippet: '[2025-05-23 17:37:08] ERROR user-service: a service - operation
+      failed'
+    metrics:
+      error_rate: 0.22179200009614253
+      response_time_ms: 9364
+      cpu_usage: 0.8324700510584373
+      memory_usage: 0.860794992563636
+- timestamp: '2025-05-23T17:38:44.052068'
+  event_type: degradation
+  description: 'Degradation: code server'
+  injection_spec:
+    type: degradation
+    target: notification-service
+    severity: low
+    duration: 249
+    log_snippet: '[2025-05-23 17:37:08] ERROR notification-service: code server -
+      operation failed'
+    metrics:
+      error_rate: 0.052318004112463366
+      response_time_ms: 1186
+      cpu_usage: 0.6660260048698243
+      memory_usage: 0.6122639775258463
+- timestamp: '2025-05-23T17:39:07.052068'
+  event_type: degradation
+  description: 'Degradation: connection refused'
+  injection_spec:
+    type: degradation
+    target: payment-service
+    severity: high
+    duration: 188
+    log_snippet: '[2025-05-23 17:37:08] ERROR payment-service: connection refused
+      - operation failed'
+    metrics:
+      error_rate: 0.6532295902853067
+      response_time_ms: 1427
+      cpu_usage: 0.7641286856948323
+      memory_usage: 0.8345652889637616
+- timestamp: '2025-05-23T17:39:38.052068'
+  event_type: recovery
+  description: 'Recovery: uwsgi server'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:49.052068'
+  event_type: recovery
+  description: 'System recovered: circuit breaker reset'
+  injection_spec: null

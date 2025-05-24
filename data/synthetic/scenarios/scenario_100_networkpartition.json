@@ -1,0 +1,138 @@
+{
+  "category": "NetworkPartition",
+  "name": "NetworkPartition_20250523_173452",
+  "description": "Infrastructure failure scenario for NetworkPartition",
+  "duration": 1773,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:52.986285",
+    "phrase_templates_used": 4,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:52.986075",
+      "event_type": "trigger",
+      "description": "Initial failure detected: of disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:24.986075",
+      "event_type": "recovery",
+      "description": "Recovery: of disk",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:43.986075",
+      "event_type": "failure",
+      "description": "Failure: each node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 204,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR user-service: each node - operation failed",
+        "metrics": {
+          "error_rate": 0.7198004934535324,
+          "response_time_ms": 4287,
+          "cpu_usage": 0.9643153039998866,
+          "memory_usage": 0.9821225908442944
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:54.986075",
+      "event_type": "timeout",
+      "description": "Timeout: of disk",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 60,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR user-service: of disk - operation failed",
+        "metrics": {
+          "error_rate": 0.8642132294509931,
+          "response_time_ms": 7984,
+          "cpu_usage": 0.9152516086590659,
+          "memory_usage": 0.9549066722750884
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:17.986075",
+      "event_type": "timeout",
+      "description": "Timeout: each node",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 36,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR auth-service: each node - operation failed",
+        "metrics": {
+          "error_rate": 0.248243448008569,
+          "response_time_ms": 2895,
+          "cpu_usage": 0.98034134085382,
+          "memory_usage": 0.999378176731833
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:23.986075",
+      "event_type": "recovery",
+      "description": "Recovery: each node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:38.986075",
+      "event_type": "failure",
+      "description": "Failure: of disk",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 298,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR payment-service: of disk - operation failed",
+        "metrics": {
+          "error_rate": 0.5494394479676793,
+          "response_time_ms": 8172,
+          "cpu_usage": 0.7427541172821019,
+          "memory_usage": 0.922082143911173
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:46.986075",
+      "event_type": "timeout",
+      "description": "Timeout: of disk",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 287,
+        "log_snippet": "[2025-05-23 17:34:52] ERROR auth-service: of disk - operation failed",
+        "metrics": {
+          "error_rate": 0.1781002219949052,
+          "response_time_ms": 2965,
+          "cpu_usage": 0.9300065987528829,
+          "memory_usage": 0.8857401059663598
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:06.986075",
+      "event_type": "recovery",
+      "description": "Recovery: and node",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T18:04:25.986075",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

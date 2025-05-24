@@ -1,0 +1,96 @@
+{
+  "category": "DeploymentFailure",
+  "name": "DeploymentFailure_20250523_174628",
+  "description": "Application deployment and rollback scenarios",
+  "duration": 1351,
+  "metadata": {
+    "generated_at": "2025-05-23T17:46:28.959675",
+    "phrase_templates_used": 50,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 3
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:46:28.959532",
+      "event_type": "trigger",
+      "description": "Initial failure detected: kubernetes cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:46:45.959532",
+      "event_type": "failure",
+      "description": "Failure: the node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "web-frontend",
+        "severity": "high",
+        "duration": 122,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR web-frontend: the node in failure",
+        "metrics": {
+          "error_rate": 0.44429724860786934,
+          "response_time_ms": 3160,
+          "cpu_usage": 0.8469248111557621,
+          "memory_usage": 0.9192997723757531
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:48:48.959532",
+      "event_type": "scaling",
+      "description": "Scaling: the cluster",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:48:51.959532",
+      "event_type": "failure",
+      "description": "Failure: a pod",
+      "injection_spec": {
+        "type": "failure",
+        "target": "worker-consumer",
+        "severity": "high",
+        "duration": 175,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR worker-consumer: a pod in failure",
+        "metrics": {
+          "error_rate": 0.15437132486630106,
+          "response_time_ms": 7463,
+          "cpu_usage": 0.9786046827164742,
+          "memory_usage": 0.9793573570100065
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:49:00.959532",
+      "event_type": "rollback",
+      "description": "Rollback: using docker",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:50:50.959532",
+      "event_type": "failure",
+      "description": "Failure: using cache",
+      "injection_spec": {
+        "type": "failure",
+        "target": "api-backend",
+        "severity": "high",
+        "duration": 238,
+        "log_snippet": "[2025-05-23 17:46:28] ERROR api-backend: using cache in failure",
+        "metrics": {
+          "error_rate": 0.7250805663965305,
+          "response_time_ms": 1653,
+          "cpu_usage": 0.7898300100461315,
+          "memory_usage": 0.9488110336393851
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:08:59.959532",
+      "event_type": "recovery",
+      "description": "System recovered: deployment completed",
+      "injection_spec": null
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+category: DependencyFailure
+name: DependencyFailure_20250523_174628
+description: Infrastructure failure scenario for DependencyFailure
+duration: 1621
+metadata:
+  generated_at: '2025-05-23T17:46:28.906270'
+  phrase_templates_used: 45
+  total_events: 9
+  severity_distribution:
+    low: 0
+    medium: 1
+    high: 5
+events:
+- timestamp: '2025-05-23T17:46:28.906059'
+  event_type: trigger
+  description: 'Initial failure detected: failed to'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:07.906059'
+  event_type: failure
+  description: 'Failure: external service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 279
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: external service -
+      operation failed'
+    metrics:
+      error_rate: 0.3398665870631435
+      response_time_ms: 9107
+      cpu_usage: 0.9178199719473648
+      memory_usage: 0.9253981903041076
+- timestamp: '2025-05-23T17:47:54.906059'
+  event_type: failure
+  description: 'Failure: federated queue'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: medium
+    duration: 79
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: federated queue
+      - operation failed'
+    metrics:
+      error_rate: 0.0832018243604473
+      response_time_ms: 224
+      cpu_usage: 0.7683475605029948
+      memory_usage: 0.654528195573481
+- timestamp: '2025-05-23T17:48:06.906059'
+  event_type: failure
+  description: 'Failure: failed to'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 219
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: failed to - operation
+      failed'
+    metrics:
+      error_rate: 0.5973727835032351
+      response_time_ms: 7805
+      cpu_usage: 0.7201675127212844
+      memory_usage: 0.8428776274870354
+- timestamp: '2025-05-23T17:48:10.906059'
+  event_type: failure
+  description: 'Failure: connect service'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 224
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: connect service
+      - operation failed'
+    metrics:
+      error_rate: 0.1969945904334577
+      response_time_ms: 6307
+      cpu_usage: 0.9175600062396869
+      memory_usage: 0.805932591671089
+- timestamp: '2025-05-23T17:49:31.906059'
+  event_type: recovery
+  description: 'Recovery: to network'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:35.906059'
+  event_type: failure
+  description: 'Failure: external service'
+  injection_spec:
+    type: failure
+    target: payment-service
+    severity: high
+    duration: 80
+    log_snippet: '[2025-05-23 17:46:28] ERROR payment-service: external service -
+      operation failed'
+    metrics:
+      error_rate: 0.13850983675072392
+      response_time_ms: 7996
+      cpu_usage: 0.8333288335418301
+      memory_usage: 0.9264983495670452
+- timestamp: '2025-05-23T17:50:17.906059'
+  event_type: timeout
+  description: 'Timeout: exist error'
+  injection_spec:
+    type: timeout
+    target: auth-service
+    severity: high
+    duration: 151
+    log_snippet: '[2025-05-23 17:46:28] ERROR auth-service: exist error - operation
+      failed'
+    metrics:
+      error_rate: 0.13468231424006652
+      response_time_ms: 8820
+      cpu_usage: 0.7880627048818635
+      memory_usage: 0.9363000914946726
+- timestamp: '2025-05-23T18:13:29.906059'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null

@@ -1,0 +1,114 @@
+{
+  "category": "ResourceExhaustion",
+  "name": "ResourceExhaustion_20250523_173708",
+  "description": "Infrastructure failure scenario for ResourceExhaustion",
+  "duration": 1727,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.038241",
+    "phrase_templates_used": 50,
+    "total_events": 8,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.037193",
+      "event_type": "trigger",
+      "description": "Initial failure detected: the container",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:06.037193",
+      "event_type": "recovery",
+      "description": "Recovery: the service",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:19.037193",
+      "event_type": "timeout",
+      "description": "Timeout: the error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "notification-service",
+        "severity": "high",
+        "duration": 151,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: the error - operation failed",
+        "metrics": {
+          "error_rate": 0.5880498797963648,
+          "response_time_ms": 2515,
+          "cpu_usage": 0.8945168195217719,
+          "memory_usage": 0.9214437795006202
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:25.037193",
+      "event_type": "recovery",
+      "description": "Recovery: double scale",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:38:55.037193",
+      "event_type": "failure",
+      "description": "Failure: redis connection",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 65,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: redis connection - operation failed",
+        "metrics": {
+          "error_rate": 0.36613863009698266,
+          "response_time_ms": 7837,
+          "cpu_usage": 0.9231394105351036,
+          "memory_usage": 0.9024347145520669
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:40:18.037193",
+      "event_type": "timeout",
+      "description": "Timeout: the cache",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 231,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: the cache - operation failed",
+        "metrics": {
+          "error_rate": 0.7324133888226073,
+          "response_time_ms": 5052,
+          "cpu_usage": 0.7877460103557703,
+          "memory_usage": 0.9289797722905616
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:41:55.037193",
+      "event_type": "failure",
+      "description": "Failure: customer service",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 269,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: customer service - operation failed",
+        "metrics": {
+          "error_rate": 0.484426712783785,
+          "response_time_ms": 3426,
+          "cpu_usage": 0.8412729506963396,
+          "memory_usage": 0.8495505447811746
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:05:55.037193",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

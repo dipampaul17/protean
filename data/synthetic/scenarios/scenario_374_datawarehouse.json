@@ -1,0 +1,126 @@
+{
+  "category": "DataWarehouse",
+  "name": "DataWarehouse_20250523_173453",
+  "description": "Infrastructure failure scenario for DataWarehouse",
+  "duration": 1517,
+  "metadata": {
+    "generated_at": "2025-05-23T17:34:53.286266",
+    "phrase_templates_used": 0,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 4
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:34:53.286067",
+      "event_type": "trigger",
+      "description": "Initial failure detected: service unavailable",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:06.286067",
+      "event_type": "recovery",
+      "description": "Recovery: queue overflow",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:07.286067",
+      "event_type": "timeout",
+      "description": "Timeout: connection timeout",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 295,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: connection timeout - operation failed",
+        "metrics": {
+          "error_rate": 0.2091522124746427,
+          "response_time_ms": 5425,
+          "cpu_usage": 0.8136414664154943,
+          "memory_usage": 0.8006033777525324
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:35:42.286067",
+      "event_type": "recovery",
+      "description": "Recovery: rate limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:35:55.286067",
+      "event_type": "timeout",
+      "description": "Timeout: circuit breaker triggered",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 280,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: circuit breaker triggered - operation failed",
+        "metrics": {
+          "error_rate": 0.6062354767800413,
+          "response_time_ms": 2657,
+          "cpu_usage": 0.7576499175407057,
+          "memory_usage": 0.8887128173201756
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:36:25.286067",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:36:54.286067",
+      "event_type": "timeout",
+      "description": "Timeout: authentication failed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 51,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR user-service: authentication failed - operation failed",
+        "metrics": {
+          "error_rate": 0.15646933532779228,
+          "response_time_ms": 7833,
+          "cpu_usage": 0.8347107259507112,
+          "memory_usage": 0.8690220341055837
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:30.286067",
+      "event_type": "recovery",
+      "description": "Recovery: memory limit exceeded",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:34.286067",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 70,
+        "log_snippet": "[2025-05-23 17:34:53] ERROR payment-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.6488502400569234,
+          "response_time_ms": 3133,
+          "cpu_usage": 0.9702936422318051,
+          "memory_usage": 0.912679251407433
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T18:00:10.286067",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

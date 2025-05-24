@@ -1,0 +1,150 @@
+{
+  "category": "DependencyFailure",
+  "name": "DependencyFailure_20250523_173708",
+  "description": "Infrastructure failure scenario for DependencyFailure",
+  "duration": 472,
+  "metadata": {
+    "generated_at": "2025-05-23T17:37:08.068897",
+    "phrase_templates_used": 45,
+    "total_events": 10,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 1,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:37:08.068683",
+      "event_type": "trigger",
+      "description": "Initial failure detected: strong update",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:32.068683",
+      "event_type": "recovery",
+      "description": "Recovery: the server",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:32.068683",
+      "event_type": "failure",
+      "description": "Failure: destination node",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 82,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: destination node - operation failed",
+        "metrics": {
+          "error_rate": 0.5672460635102595,
+          "response_time_ms": 4663,
+          "cpu_usage": 0.82498154699881,
+          "memory_usage": 0.9208744681845089
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:36.068683",
+      "event_type": "recovery",
+      "description": "Recovery: existing connection",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:37:43.068683",
+      "event_type": "failure",
+      "description": "Failure: code error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 50,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR auth-service: code error - operation failed",
+        "metrics": {
+          "error_rate": 0.31056625205822225,
+          "response_time_ms": 9961,
+          "cpu_usage": 0.8729960243031071,
+          "memory_usage": 0.9667746008754071
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:47.068683",
+      "event_type": "timeout",
+      "description": "Timeout: coirq error",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 123,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR user-service: coirq error - operation failed",
+        "metrics": {
+          "error_rate": 0.39152969372712054,
+          "response_time_ms": 9813,
+          "cpu_usage": 0.7817710589954905,
+          "memory_usage": 0.8301464044885574
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:50.068683",
+      "event_type": "timeout",
+      "description": "Timeout: to network",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 216,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: to network - operation failed",
+        "metrics": {
+          "error_rate": 0.8638023332401475,
+          "response_time_ms": 9930,
+          "cpu_usage": 0.7560048385357794,
+          "memory_usage": 0.8557971227031815
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:00.068683",
+      "event_type": "failure",
+      "description": "Failure: nginx error",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 197,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR payment-service: nginx error - operation failed",
+        "metrics": {
+          "error_rate": 0.7524045528551676,
+          "response_time_ms": 1171,
+          "cpu_usage": 0.7515961878139182,
+          "memory_usage": 0.8536324613998572
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:38:01.068683",
+      "event_type": "failure",
+      "description": "Failure: federated queue",
+      "injection_spec": {
+        "type": "failure",
+        "target": "notification-service",
+        "severity": "medium",
+        "duration": 134,
+        "log_snippet": "[2025-05-23 17:37:08] ERROR notification-service: federated queue - operation failed",
+        "metrics": {
+          "error_rate": 0.26989480307948555,
+          "response_time_ms": 873,
+          "cpu_usage": 0.5523849060959316,
+          "memory_usage": 0.6496195050390907
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:45:00.068683",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

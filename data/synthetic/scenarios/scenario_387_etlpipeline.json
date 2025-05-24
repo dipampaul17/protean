@@ -1,0 +1,120 @@
+{
+  "category": "ETLPipeline",
+  "name": "ETLPipeline_20250523_173245",
+  "description": "Infrastructure failure scenario for ETLPipeline",
+  "duration": 306,
+  "metadata": {
+    "generated_at": "2025-05-23T17:32:45.770139",
+    "phrase_templates_used": 0,
+    "total_events": 7,
+    "severity_distribution": {
+      "low": 0,
+      "medium": 0,
+      "high": 5
+    }
+  },
+  "events": [
+    {
+      "timestamp": "2025-05-23T17:32:45.769954",
+      "event_type": "trigger",
+      "description": "Initial failure detected: authentication failed",
+      "injection_spec": null
+    },
+    {
+      "timestamp": "2025-05-23T17:32:58.769954",
+      "event_type": "failure",
+      "description": "Failure: service unavailable",
+      "injection_spec": {
+        "type": "failure",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 32,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: service unavailable - operation failed",
+        "metrics": {
+          "error_rate": 0.8469091627492509,
+          "response_time_ms": 5747,
+          "cpu_usage": 0.7720382034598154,
+          "memory_usage": 0.8528736082498537
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:07.769954",
+      "event_type": "failure",
+      "description": "Failure: disk space full",
+      "injection_spec": {
+        "type": "failure",
+        "target": "auth-service",
+        "severity": "high",
+        "duration": 53,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR auth-service: disk space full - operation failed",
+        "metrics": {
+          "error_rate": 0.22045013516740744,
+          "response_time_ms": 9803,
+          "cpu_usage": 0.8029931736141924,
+          "memory_usage": 0.8583758161972039
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:24.769954",
+      "event_type": "timeout",
+      "description": "Timeout: container crashed",
+      "injection_spec": {
+        "type": "timeout",
+        "target": "user-service",
+        "severity": "high",
+        "duration": 91,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR user-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.31908652182150554,
+          "response_time_ms": 3649,
+          "cpu_usage": 0.9299814692016392,
+          "memory_usage": 0.9822827308153809
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:27.769954",
+      "event_type": "failure",
+      "description": "Failure: container crashed",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 277,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: container crashed - operation failed",
+        "metrics": {
+          "error_rate": 0.7547144604407064,
+          "response_time_ms": 1184,
+          "cpu_usage": 0.904977338095569,
+          "memory_usage": 0.8915963687724301
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:33:28.769954",
+      "event_type": "failure",
+      "description": "Failure: database connection lost",
+      "injection_spec": {
+        "type": "failure",
+        "target": "payment-service",
+        "severity": "high",
+        "duration": 97,
+        "log_snippet": "[2025-05-23 17:32:45] ERROR payment-service: database connection lost - operation failed",
+        "metrics": {
+          "error_rate": 0.6021941361904191,
+          "response_time_ms": 9945,
+          "cpu_usage": 0.7105609789702643,
+          "memory_usage": 0.8970298785055145
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-23T17:37:51.769954",
+      "event_type": "recovery",
+      "description": "System recovered: system restored",
+      "injection_spec": null
+    }
+  ]
+}

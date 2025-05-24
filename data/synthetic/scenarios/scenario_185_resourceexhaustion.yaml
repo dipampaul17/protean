@@ -1,0 +1,48 @@
+category: ResourceExhaustion
+name: ResourceExhaustion_20250523_174628
+description: Infrastructure failure scenario for ResourceExhaustion
+duration: 1129
+metadata:
+  generated_at: '2025-05-23T17:46:28.978554'
+  phrase_templates_used: 50
+  total_events: 6
+  severity_distribution:
+    low: 0
+    medium: 0
+    high: 1
+events:
+- timestamp: '2025-05-23T17:46:28.978458'
+  event_type: trigger
+  description: 'Initial failure detected: urgent memory'
+  injection_spec: null
+- timestamp: '2025-05-23T17:47:55.978458'
+  event_type: recovery
+  description: 'Recovery: the error'
+  injection_spec: null
+- timestamp: '2025-05-23T17:48:42.978458'
+  event_type: recovery
+  description: 'Recovery: the database'
+  injection_spec: null
+- timestamp: '2025-05-23T17:49:05.978458'
+  event_type: failure
+  description: 'Failure: strong update'
+  injection_spec:
+    type: failure
+    target: notification-service
+    severity: high
+    duration: 179
+    log_snippet: '[2025-05-23 17:46:28] ERROR notification-service: strong update
+      - operation failed'
+    metrics:
+      error_rate: 0.2902241143231832
+      response_time_ms: 2620
+      cpu_usage: 0.974940895238001
+      memory_usage: 0.9969888815482046
+- timestamp: '2025-05-23T17:49:52.978458'
+  event_type: recovery
+  description: 'Recovery: high memory'
+  injection_spec: null
+- timestamp: '2025-05-23T18:05:17.978458'
+  event_type: recovery
+  description: 'System recovered: system restored'
+  injection_spec: null
